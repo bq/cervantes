@@ -1,0 +1,1477 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* Settings
+--------------------------*/
+#overlayCont{
+background-color: rgba(40, 40, 40,60%)
+}
+#SettingsMenuCont{
+background-color:#DADADA;
+}
+#settingsCont{
+border-style: solid;
+border-color: #404040;
+background-color:#FFFFFF;
+}
+#settingsMenuListCont{
+border-style: solid;
+border-color: #404040;
+/*border-bottom-color: #000;*/
+background-color:#FFFFFF;
+}
+#settingsMenuListCont QPushButton{
+text-align:left;
+font-weight:normal;
+border-bottom-style: solid;
+border-bottom-color: #C7C7C7;
+}
+#settingsSectionHeader{
+background-color:#F0F0F0;
+}
+#settingsSectionHeader #sectionTitleLbl{
+text-transform:uppercase;
+color:#303030;
+font-weight:bold;
+}
+#settingsSectionHeader #backBtn{
+color:#1F1F1F;
+text-align:left;
+font-weight:bold;
+background:transparent  url(":/res/back_Btn.png") no-repeat left center;
+}
+/*SettingsPagerCont
+------------------------*/
+#SettingsPagerCont, #settingsPagerCont, #verticalPage {
+background-color:#DADADA;
+}
+#SettingsPagerCont #downPageBtn, #settingsPagerCont #downPageBtn, #verticalPage #downPageBtn{
+border:none;
+background:transparent  url(":/res/down_pager_ico.png") no-repeat center center;
+}
+#SettingsPagerCont #upPageBtn, #settingsPagerCont #upPageBtn, #verticalPage #upPageBtn{
+border:none;
+background:transparent  url(":/res/up_pager_ico.png") no-repeat center center;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+color:#333333;
+text-align:left;
+}
+/*WaitingOverlay
+-----------------------*/
+#spinnerCont{
+background-color:#EDEDED;
+}
+#spinnerCont #waittingDevicesLbl{
+}
+#spinnerCont #spinerLbl{
+background: url(":res/spinner.png") no-repeat center;
+}
+/*Settings Main Menu
+----------------------*/
+#Settings{
+background-color:#EDEDED;
+background-color:#DADADA;
+}
+#settingsMainMenuCont{
+}
+#settingsMainMenuCont QWidget{
+border-left-style: solid;
+border-left-color: #404040;
+border-right-style: solid;
+border-right-color: #404040;
+border-bottom-style: solid;
+border-bottom-color: #C7C7C7;
+background-color:#FFFFFF;
+}
+#settingsMainMenuCont QWidget#userDataCont{
+border-top-style: solid;
+border-top-color: #404040;
+}
+#settingsMainMenuCont QWidget#webBrowserCont{
+}
+#settingsMainMenuCont QPushButton{
+text-align:left;
+border:none;
+}
+#userDataBtn{
+background: url(":/res/account_settings_btn.png") no-repeat center center;
+}
+#settingsMenuListCont QPushButton#webBrowserBtn{
+background: url(":/res/browser_settings.png") no-repeat center center;
+}
+#wifiConnexionBtn{
+background: url(":/res/wifi_settings.png") no-repeat center center;
+}
+#deviceOptionsBtn{
+background: url(":/res/device_settings.png") no-repeat center center;
+}
+#deviceInfoBtn{
+background: url(":/res/device_info.png") no-repeat center center;
+}
+#lightSettingsBtn{
+background: url(":/res/brightness_settings.png") no-repeat center center;
+}
+#aboutUsBtn{
+border:none;
+background: url(":/res/about_us_settings.png") no-repeat center center;
+}
+#activateDeviceBtn{
+color:#FFFFFF;
+text-align:left;
+border-style: solid;
+border-color: #404040;
+background: #303030 url(":/res/activate_settings.png") no-repeat center center;
+}
+/*SettingsMyAccountMenu
+--------------------------------------------*/
+#SettingsMyAccountMenu{
+background-color:#DADADA;
+}
+#settingsMenuListCont #myAccountBtn{
+background: url(":/res/myaccount_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #adobeDrmBtn{
+background: url(":/res/adobedrm_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #generalTermsBtn{
+border:none;
+background: url(":/res/general_terms_settings.png") no-repeat center ;
+}
+/*SettingsDeviceOptionsMenu
+--------------------------------------------*/
+#SettingsDeviceOptionsMenu{
+background-color:#DADADA;
+}
+#settingsMenuListCont #languageBtn{
+background: url(":/res/language_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #dateTimeBtn{
+background: url(":/res/datetime_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #dictionariesBtn{
+background: url(":/res/dictionaries_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #readerBtn{
+background: url(":/res/reader_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #energySavingBtn{
+background: url(":/res/savebattery_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #screenSaverBtn{
+border:none;
+background: url(":/res/screensaver_settings_btn.png") no-repeat center ;
+}
+/*SettingsAdobeDrmUnLinkDevice
+-------------------------------*/
+#SettingsAdobeDrmUnLinkDevice{
+background-color:#DADADA;
+}
+#settingsCont #adobeDrmInfoLbl{
+text-align:center;
+border:none;
+}
+#settingsCont #accountEmailLbl{
+text-align:center;
+font-weight:bold;
+border:none;
+}
+#settingsCont #overrideDeviceCont{
+border:none;
+}
+#settingsCont #overrideDeviceBtn{
+text-align:center;
+border-style:solid;
+border-color:#909090;
+background-color:#DADADA;
+}
+/*SettingsUnLinkStoreDevice
+-------------------------------*/
+#SettingsUnLinkStoreDevice{
+background-color:#DADADA;
+}
+#settingsMenuListCont #adobeDrmInfoLbl{
+text-align:center;
+border:none;
+}
+#settingsCont #accountEmailLbl{
+text-align:center;
+font-weight:bold;
+border:none;
+}
+#settingsCont #subscriptionTextLbl,#settingsCont #subscriptionValueLbl{
+font-weight:bold;
+}
+#settingsCont #overrideDeviceCont{
+border:none;
+}
+#SettingsUnLinkStoreDevice #overrideDeviceBtn{
+text-align:left;
+font-weight:bold;
+background:transparent;
+border-top-style:solid;
+border-top-color:#909090;
+border-bottom:none;
+background: url(":/res/arrow-btn.png") no-repeat right center;
+}
+#stoteWebUrlLbl{
+}
+#changeAccountLbl{
+}
+
+#userLbl{
+font-weight:bold;
+}
+
+#nameAccountLbl, #subscriptionLbl{
+font-weight:bold;
+border-top-style:solid;
+border-top-color:#909090;
+}
+#userValueLbl, #accountEmailLbl, #statusLbl, #lastSyncLbl{
+color:#606060;
+}
+#notelbl{
+color:#606060;
+}
+#statusValLbl, #lastSyncValLbl{
+text-transform:uppercase;
+color:#606060;
+}
+#updateAccountLbl{
+font-weight:bold;
+}
+#warningMsgLbl{
+font-weight:bold;
+font-style:italic;
+background: url(":/res/warning.png") no-repeat left top ;
+}
+#statusLastSync{
+color:#333;
+}
+/* SettingsAbodeDrmLinkDevice
+-----------------------------------*/
+#SettingsAdobeDrmLinkDevice{
+background-color:#DADADA;
+}
+#idAdobeLineEdit, #passAdobeLineEdit{
+}
+#adobeDrmLinkInfoLbl{
+}
+#createAdobeDrmIdLbl{
+}
+#licenseAdobeBtn{
+background-color:#DADADA;
+border-style:solid;
+border-color:#909090;
+}
+/*SettingsDeviceInfo
+----------------------------*/
+#SettingsDeviceInfo{
+background-color:#DADADA;
+}
+#batteryInfoCont{
+border-bottom-style: solid;
+border-bottom-color: #C7C7C7;
+}
+#freeSpaceCont, #privateFreeSpaceCont{
+border-bottom-style: solid;
+border-bottom-color: #C7C7C7;
+}
+#sdCardCont{
+}
+#batteryTitleLbl, #freeSpaceTitleLbl, #sdFreeSpaceTitleLbl, #privateFreeSpaceTitleLbl{
+font-weight:bold;
+}
+#batteryInfoCont #batteryProgressBar{
+}
+#batteryProgressBar, #totalSpaceLbl, #sdTotalSpaceLbl, #batteryPercentValueLbl{
+}
+#settingsMenuListCont #basicInfoBtn{
+background: url(":/res/techinfo_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #restoreDefaulValuesBtn{
+background: url(":/res/defaultvalues_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #updateDeviceBtn{
+border:none;
+background: url(":/res/updatedevice_settings.png") no-repeat center ;
+}
+/* SettingsRestoreDefaultValues
+---------------------------------*/
+#SettingsRestoreDefaultValues{
+background-color:#DADADA;
+}
+#restoreDefaultValuesInfoLbl{
+}
+#restoreDefaultValuesQuestionLbl{
+}
+/*SettingsUpdateDevice
+------------------------*/
+#SettingsUpdateDevice{
+background-color:#DADADA;
+}
+#howUpdateDeviceLbl{
+}
+#welcomeToUpdateYourDeviceLbl{
+}
+#manualUpdateBtn{
+text-align:center;
+border-style:solid;
+border-color:#909090;
+background-color:#DADADA;
+}
+#automaticUpdateBtn{
+text-align:center;
+border-style:solid;
+border-color:#909090;
+background-color:#DADADA;
+}
+/*SettingsUpdateDeviceManual
+----------------------------*/
+#SettingsUpdateDeviceManual{
+background-color:#DADADA;
+}
+#updateManualBtn{
+text-align:center;
+border-style:solid;
+border-color:#909090;
+background-color:#DADADA;
+}
+#updateLbl{
+}
+/*SettingsUpdateDeviceAuto
+----------------------------*/
+#SettingsUpdateDeviceAuto{
+background-color:#EDEDED;
+}
+#SettingsUpdateDeviceAuto SettingsPagerCont,#SettingsUpdateDeviceAuto #settingsPagerCont, #SettingsUpdateDeviceAuto #verticalPage{
+border-style:solid;
+border-color:#909090;
+}
+#SettingsUpdateDeviceAuto #updateNumberLbl{
+/*border-top:none;
+border-left:none;
+border-right:none;
+border-style:solid;
+border-color:#909090;*/
+}
+#SettingsUpdateDeviceAuto #releaseNotesText{
+border-bottom:none;
+border-style:solid;
+border-color:#909090;
+background:transparent;
+}
+#updateAutoBtn{
+text-align:center;
+border-style:solid;
+border-color:#909090;
+background-color:#DADADA;
+}
+#updateNumberLbl{
+font-weight:bold;
+}
+#updateAutoLbl{
+}
+/*SettingsBrowser
+----------------------------*/
+#SettingsBrowser{
+background-color:#FFFFFF;
+}
+#navBarBrowser{
+border-bottom-style: solid;
+border-bottom-color: #808080;
+background-color:#F0F0F0;
+}
+#urlLineEdit{
+border-bottom-style: solid;
+border-bottom-color: #C7C7C7;
+background: url(":/res/clear_input.png") no-repeat center right;
+}
+#homeBtn{
+background: url(":/res/home_browser.png") no-repeat center center;
+}
+#reloadPageBtn{
+background: url(":/res/reload_wifi.png") no-repeat center ;
+}
+#QbookWebView{
+}
+#bottomBrowser{
+border-top-style: solid;
+border-top-color: #808080;
+background-color:#EDEDED;
+}
+ #pagerBrowserCont{
+background: url(":/res/bg_next_previous.png") no-repeat center center;
+}
+#previousPageBtn{
+background: url(":/res/previous_btn.png") no-repeat center center;
+}
+ #nextPageBtn{
+background: url(":/res/next_btn.png") no-repeat center center;
+}
+#spacerBrowserBottomLeft{
+}
+#zoomInBtn{
+background: url(":/res/zoom_in_ico.png") no-repeat center center;
+}
+#zoomOutBtn{
+background: url(":/res/zoom_out_ico.png") no-repeat center center;
+}
+#favouriteBtn{
+background: url(":/res/favourite_ico.png") no-repeat center center;
+}
+#addFavouriteBtn{
+background: url(":/res/add_favourite_ico.png") no-repeat center center;
+}
+
+/* SettingsTechnicalInfo
+-------------------------*/
+#SettingsTechnicalInfo{
+background-color:#DADADA;
+}
+#SettingsTechnicalInfo #listView{
+background-color:transparent;
+}
+#SettingsTechnicalInfo #settingsMenuListCont QWidget{
+border-style:solid;
+border-color:#DADADA;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#SettingsTechnicalInfo #settingsMenuListCont QWidget QLabel{
+border:none;
+}
+#versionLutLbl, #modelLbl, #mdeviceIDLbl, #edpTypeLbl,#edpTemperatureLbl, #internalMemLbl, #auxLbl, #diccioLbl, #bateryLbl, #tconLbl, #softwareLbl, #MACadressLbl, #externalMemLbl, #panelTypeLbl,#idDeviceLbl,#internalVersionLbl,#rootFsLbl,#kernelVersionLbl{
+font-weight:bold;
+}
+/*SettingsDictionarieslInfo
+------------------------------------------*/
+#SettingsDictionarieslInfo{
+background-color:#DADADA;
+}
+#SettingsDictionarieslInfo #listView{
+background-color:transparent;
+}
+/*SettingsGeneralTermslInfo
+------------------------------------------*/
+#SettingsGeneralTermsInfo{
+background-color:#DADADA;
+}
+#SettingsWiFiList #settingsMenuListCont #verticalPage{
+background-color:#EDEDED;
+}
+/*SettingsGeneralTermsInfoAdobe
+------------------------------------------*/
+#SettingsGeneralTermsInfoAdobe{
+background-color:#DADADA;
+}
+#SettingsGeneralTermsInfoAdobe #settingsMenuListCont #verticalPage{
+background-color:#EDEDED;
+}
+/*SettingsLanguageMenu
+---------------------*/
+#SettingsLanguageMenu{
+background-color:#DADADA;
+}
+#SettingsLanguageMenu #espanolBtn{
+}
+#SettingsLanguageMenu #portuguesBtn{
+border:none;
+}
+#SettingsLanguageMenu QPushButton{
+background-repeat:no-repeat;
+background-position:center right;
+}
+#SettingsLanguageMenu QPushButton:checked {
+background: url(":/res/check_ico.png") no-repeat center right;
+}
+/*SettingsBrightness
+-------------------------*/
+#SettingsBrightness{
+background-color:#DADADA;
+}
+#screenLightCont{
+border-bottom-style:solid;
+border-bottom-color:#707070;
+}
+#screenLightLbl{
+font-weight:bold;
+}
+#brightnessLbl{
+background-color:#FFF;
+border-style: solid;
+border-color: #707070;
+border-top:none;
+border-bottom:none;
+}
+#brightnessLbl:disabled{
+color:#707070;
+}
+#brightnessCont{
+background-color:#FFF;
+border-style: solid;
+border-color: #404040;
+border-top:none;
+}
+#brightnessCont:disabled{
+background-color:#E0E0E0;
+}
+#screenLightCont #screenLightStatusBtn{
+background-image: url(:res/off_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+border:none;
+}
+#brightnessSliderCont #brightnessMaxBtn{
+background-image: url(:/res/brightness_max.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#brightnessSliderCont #brightnessRestBtn,
+#brightnessSliderCont #brightnessSumBtn{
+color:#505050;
+text-align:center;
+background-color: transparent;
+}
+#brightnessSliderCont #brightnessRestBtn:checked,
+#brightnessSliderCont #brightnessSumBtn:checked{
+background-color:#000;
+color:#FFF;
+}
+#brightnessSliderCont #brightnessMinBtn{
+background-image: url(:/res/brightness_min.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+/*SettingsDevelopmentOptions
+---------------------------------*/
+#SettingsDevelopmentOptions{
+background-color:#DADADA;
+}
+#SettingsDevelopmentOptions #enableTelnetCont{
+}
+#SettingsDevelopmentOptions #enableTelnetLbl{
+}
+#SettingsDevelopmentOptions #enableUsbNetCont{
+border-bottom-style:solid;
+border-bottom-color:#707070;
+}
+#SettingsDevelopmentOptions #enableUsbNetLbl{
+}
+#SettingsDevelopmentOptions #enableTelnetBtn{
+background-image: url(:res/off_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+border:none;
+}
+#SettingsDevelopmentOptions #enableUsbNetBtn{
+background-image: url(:res/off_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+border:none;
+}
+/* SettingsDictionariesMenu
+---------------------------------*/
+#SettingsDictionariesMenu{
+background-color:#DADADA;
+}
+#settingsPagerCont{
+}
+#seeDictionariesInfoBtn,#activateExtraDictionaries{
+text-align:center;
+border-style:solid;
+border-color:#808080;
+background-color:#F0F0F0;
+}
+#settingsMenuListCont #Item1,#settingsMenuListCont #Item2, #settingsMenuListCont #Item3, #settingsMenuListCont #Item4, #settingsMenuListCont #Item5, #settingsMenuListCont #Item6{
+text-align:left;
+border-bottom-style: solid;
+border-bottom-color: #C7C7C7;
+}
+#SettingsDictionariesMenu #settingsMenuListCont QWidget#Item1{
+}
+#SettingsDictionariesMenu #settingsMenuListCont QWidget:checked {
+background: url(":/res/check_ico.png") no-repeat center right;
+}
+/*SettingsDictionariesMenuItem
+------------------------*/
+#SettingsDictionariesMenuItem{
+}
+#dictionaryNameLbl{
+}
+#checkDictionaryLbl{
+background-repeat: no-repeat;
+background-image: url(":/res/check_ico.png");
+background-position: center left;
+}
+/*SettingsDictionariesInfo
+----------------------------------*/
+#SettingsDictionariesInfo{
+background-color:#DADADA;
+}
+#SettingsDictionariesInfo #listView{
+background-color:transparent;
+}
+/*SettingsDateTimeMenu
+-------------------------*/
+#SettingsDateTimeMenu{
+background-color:#DADADA;
+}
+#dateTimeLbl{
+}
+#dateTimeValueLbl{
+font-weight:bold;
+}
+#SettingsDateTimeMenu #timeZoneLbl{
+border-style:solid;
+border-color:#808080;
+border-left:none;
+border-right:none;
+background-color:#DADADA;
+}
+/*TimeZomeItem
+------------------------*/
+#TimeZoneItem{
+background-color:#000;
+}
+#timeZoneCountriesLbl{
+}
+#gtmLbl{
+font-weight:bold;
+}
+#checkTimezoneLbl{
+background: url(":/res/check_ico.png") no-repeat center left;
+}
+/*SettingsSleepTimeMenu
+----------------------*/
+#SettingsSleepTimeMenu{
+background-color:#DADADA;
+}
+#sleepTimeLbl{
+}
+#SettingsSleepTimeMenu QPushButton{
+background-position:center right;
+background-repeat:no-repeat;
+text-align:left;
+}
+#SettingsSleepTimeMenu QPushButton#minutes2Btn{
+}
+#SettingsSleepTimeMenu QPushButton#minutes20Btn{
+border:none;
+}
+/*SettingsReaderMenu
+-------------------------*/
+#SettingsReaderMenu{
+background-color:#DADADA;
+}
+#settingsMenuListCont #pageTurningBtn{
+background: url(":/res/pageTurn_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #progressBarBtn{
+background: url(":/res/progressBar_settings.png") no-repeat center ;
+border:none;
+}
+/*SettingsReadeProgressBar
+-------------------------*/
+#SettingsReaderProgressBar{
+background-color:#DADADA;
+}
+#SettingsReaderProgressBar #settingsMenuListCont QWidget{
+border-bottom-style:solid;
+border-bottom-color:#808080;
+}
+#SettingsReaderProgressBar QCheckBox{
+}
+
+#SettingsReaderProgressBar #viewerHeaderActionsCont QPushButton,
+#SettingsReaderProgressBar #viewerBottomActionsCont QPushButton{
+border-style:solid;
+text-align:left;
+font-weight:bold;
+border-color:#808080;
+background: #FFFFFF url(":/res/unchecked-small.png") no-repeat center right;
+}
+#SettingsReaderProgressBar #viewerHeaderActionsCont QPushButton:checked,
+#SettingsReaderProgressBar #viewerBottomActionsCont QPushButton:checked{
+background:  #FFFFFF url(":/res/checked-small.png") no-repeat center right;
+}
+#viewerHeaderCont{
+border-style:solid;
+border-color:#000000;
+background-color:#FFFFFF;
+border-bottom:none;
+}
+#viewerHeaderCont QLabel{
+color:#000000;
+}
+#viewerHeaderCont QLabel#bookTitleLbl{
+font-weight:bold;
+}
+#viewerHeaderActionsCont{
+border-style:solid;
+border-color:#000000;
+background-color:#D0D0D0;
+}
+#viewerHeaderActionsCont #withBookTitlebtn{
+}
+#viewerHeaderActionsCont #withDateTimeBtn{
+}
+#SettingsReaderProgressBar #viewerTextLbl{
+color:#606060;
+text-align:justify;
+border-left-style:solid;
+border-left-color:#000000;
+border-right-style:solid;
+border-right-color:#000000;
+background-color:#FFFFFF;
+}
+#viewerBottomActionsCont{
+border-style:solid;
+border-color:#000000;
+background-color:#D0D0D0;
+}
+#viewerBottomActionsCont QPushButton{
+}
+#viewerBottomActionsCont #progressBarCont QPushButton{
+}
+#readingActions{
+}
+#readingActions QPushButton{
+}
+#viewerBottomActionsCont #readingActions #withProgressBtn{
+}
+#viewerBottomActionsCont #readingActions #withProgressBtn_2{
+}
+#viewerBottomActionsCont #withBackBtn{
+}
+#viewerBottomActionsCont #withProgressBarBtn{
+}
+#viewerBottom{
+border-style:solid;
+border-color:#000000;
+background-color:#FFFFFF;
+border-top:none;
+}
+#viewerBottom QLabel{
+color:#000000;
+}
+#viewerBottom #previousActionLbl{
+image:url(:/res/page_back_btn.png) ;
+}
+#topLeftLbl{
+background-image: url(":/res/top-left-corner.png");
+background-position:bottom right;
+background-repeat:no-repeat;
+}
+#topRightLbl{
+background-image: url(":/res/top-right-corner.png");
+background-position:bottom left;
+background-repeat:no-repeat;
+}
+#bottomLeftLbl{
+background-image: url(":/res/bottom-left-corner.png");
+background-position:top right;
+background-repeat:no-repeat;
+}
+#bottomRightLbl{
+background-image: url(":/res/bottom-right-corner.png");
+background-position:top left;
+background-repeat:no-repeat;
+}
+/*SettingsPageScreenSaver
+-------------------------*/
+#SettingsPageScreenSaver{
+background-color:#DADADA;
+}
+#SettingsPageScreenSaver #enableScreenSaverCont{
+border-style: solid;
+border-color: #404040;
+background-color:#FFFFFF;
+}
+#SettingsPageScreenSaver #enableScreenSaverCont QPushButton{
+text-align:left;
+border-bottom-style: solid;
+border-bottom-color: #C0C0C0;
+background-color:#FFFFFF;
+background-position:center right;
+background-repeat:no-repeat;
+}
+#screenSaverTextLbl{
+}
+#imageRecentBookBtn{
+background-repeat: no-repeat;
+background-image: none;
+background-position: center right;
+background-color:#FFFFFF;
+}
+#imageRecentBookBtn:checked{
+background-image: url(":/res/check_no_margin_ico.png");
+}
+#screenSaverDefaultBtn{
+background-repeat: no-repeat;
+background-image: none;
+background-position: center right;
+background-color:#FFFFFF;
+}
+#screenSaverDefaultBtn:checked{
+background-image: url(":/res/check_no_margin_ico.png");
+}
+#storedImagesBtn{
+background-repeat: no-repeat;
+background-image: none;
+background-position: center right;
+background-color:#FFFFFF;
+}
+#storedImagesBtn:checked{
+background-image: url(":/res/check_no_margin_ico.png");
+}
+/*SettingsReaderPageTurning
+-------------------------*/
+#SettingsReaderPageTurning{
+background-color:#DADADA;
+}
+#SettingsReaderPageTurning #readerLbl{
+}
+#leftRightCheck{
+text-transform:uppercase;
+}
+#rightNextPageLbl{
+text-transform:uppercase;
+}
+#nextPageLbl{
+font-weight:bold;
+}
+#leftNextPageLbl{
+text-transform:uppercase;
+}
+#previousPageLbl{
+font-weight:bold;
+}
+#readerImage1Lbl{
+image: url(:/res/reader_buttons_functions_1.png);
+}
+#upDownCheck{
+text-transform:uppercase;
+}
+#upPreviuosPageLbl{
+text-transform:uppercase;
+}
+#previousPage2Lbl{
+font-weight:bold;
+}
+#downNextPageLbl{
+text-transform:uppercase;
+}
+#nextPage2Lbl{
+font-weight:bold;
+}
+#readerImage2Lbl{
+image: url(:/res/reader_buttons_functions_2.png);
+}
+#SettingsReaderPageTurning QCheckBox{
+}
+#settingsMenuListCont #leftRightLbl{
+background:url(":/res/reader_buttons_functions_1.png") no-repeat top center;
+}
+#settingsMenuListCont #upDownLbl{
+background:url(":/res/reader_buttons_functions_2.png") no-repeat top center;
+}
+#pageModeCont QPushButton, #progressModeCont QPushButton{
+text-align:left;
+}
+#progressModeCont QPushButton {
+background: url(":/res/unchecked.png") no-repeat center right;
+}
+#progressModeCont QPushButton:checked {
+background: url(":/res/checkbox_checked.png") no-repeat center right;
+}
+#progressModeCont #withPageCont, #withBackCont, #progressModeCont #withProgressBtn{
+border-bottom-style: solid;
+border-bottom-color: #C7C7C7;
+}
+#progressModeCont{
+border-style: solid;
+border-color: #404040;
+background-color:#FFFFFF;
+}
+#progressModeCont QPushButton#withProgressBtn{
+}
+
+#SettingsReaderPageTurning #refreshStepLbl{
+text-align:center;
+}
+#refreshStepsCont QPushButton{
+border-style:solid;
+border-color:#606060;
+font-weight:bold;
+}
+#refreshStepsCont QPushButton:checked{
+background-color:#909090;
+}
+#refreshStepsCont{
+border-style: solid;
+border-color: #404040;
+background-color:#FFFFFF;
+}
+
+/*SettingsQuickSettingsPopup
+------------------------*/
+#SettingsQuickSettingsPopup{
+/*background:url(:res/bg_transparent.png) no-repeat center right;*/
+/*image: url(:/images/bg_transparent.png);*/
+background-color:transparent;
+}
+#QuickSettingsCont{
+border-style: solid;
+border-color: #58585A;
+/*background:qlineargradient(x1:0, y1:0, x2:0, y2:1,	stop:0 #D9DADB, stop:1 #FFFFFF);*/
+background-color:#E0E0E0;
+}
+#headerPopupCont{
+border-style: solid;
+border-color: #A2A2A2;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#QuickSettingsCont #wifiLbl{
+font-weight:bold;
+}
+#titlePopupLbl{
+}
+#closePopupBtn{
+background: transparent url(:res/close_popup_ico.png) no-repeat center center;
+}
+#QuickSettingsCont #contentPopup{
+background-color:#FFFFFF;
+border-style: solid;
+border-color: #707070;
+}
+#QuickSettingsCont #wifiLbl{
+font-weight:bold;
+}
+#contentPopup #screenLightCont, #contentPopup #wifiCont{
+border-style: solid;
+border-color: #707070;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#contentPopup #wifiStatusBtn, #contentPopup #screenLightStatusBtn{
+background-image: url(:res/off_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#contentPopup #brightnessCont{
+background-color:#FFF;
+border-style: solid;
+border-color: #707070;
+border-top:none;
+}
+#contentPopup #brightnessCont:disabled{
+background-color:#E0E0E0;
+}
+#contentPopup #brightnessLbl{
+background-color:#FFF;
+border-style: solid;
+border-color: #707070;
+border-top:none;
+border-bottom:none;
+}
+#contentPopup #brightnessLbl:disabled{
+background-color:#E0E0E0;
+}
+#contentPopup #brightnessMaxLbl,#contentPopup #brightnessMaxBtn{
+background-image: url(:/res/brightness_max.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center center;
+}
+#contentPopup #brightnessSumBtn,#contentPopup #brightnessRestBtn{
+color:#505050;
+font-size:30px;
+}
+#contentPopup #brightnessMinLbl,#contentPopup #brightnessMinBtn{
+background-image: url(:/res/brightness_min.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center center;
+}
+#contentPopup #brightnessSumBtn:checked,#contentPopup #brightnessRestBtn:checked{
+background-color:#000;
+color:#FFF;
+}
+#contentPopup #brightnessSlider{
+}
+#intensityLightCont QWidget{
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#intensityLightCont QWidget:disabled{
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+/*WIFI
+-------------------------------------------*/
+#settingsMenuListCont{
+border-style: solid;
+border-color: #404040;
+background-color:#FFFFFF;
+}
+#settingsMenuListCont QPushButton{
+text-align:left;
+border-bottom-style: solid;
+border-bottom-color: #C0C0C0;
+background-color:#FFFFFF;
+}
+#settingsSectionHeader{
+background-color:#F0F0F0;
+}
+#settingsSectionHeader #sectionTitleLbl{
+text-transform:uppercase;
+color:#303030;
+font-weight:bold;
+}
+#settingsSectionHeader #backBtn{
+color:#303030;
+text-align:left;
+font-weight:bold;
+background:transparent  url(":/res/back_Btn.png") no-repeat left center;
+}
+/*SettingsWiFiList
+-------------------------*/
+#SettingsWiFiList{
+background-color:#DADADA;
+}
+#SettingsWiFiList #settingsMenuListCont #Item1, #SettingsWiFiList #settingsMenuListCont #Item2, #SettingsWiFiList #settingsMenuListCont #Item3, #SettingsWiFiList #settingsMenuListCont #Item4, #SettingsWiFiList #settingsMenuListCont #Item5, #SettingsWiFiList #settingsMenuListCont #Item6{
+border-bottom-style:solid;
+border-bottom-color:#808080;
+}
+#SettingsWiFiList #settingsMenuListCont #Item1{
+}
+#SettingsWiFiList #settingsMenuListCont #switchWifiCont{
+}
+#SettingsWiFiList #settingsMenuListCont #wifiStatusBtn{
+background-image: url(:res/off_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center right;
+border:none;
+}
+#SettingsWiFiList #settingsMenuListCont #wifiActionsCont {
+background-color:#EDEDED;
+}
+#SettingsWiFiList #settingsMenuListCont #settingsPagerCont{
+background-color:#EDEDED;
+}
+#wifiActionsCont #updateWifiListBtn{
+background-image: url(:/res/wifi_refresh.png);
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center right;
+border:none;
+}
+#SettingsWiFiList #statusWifiConexionCont{
+}
+#SettingsWiFiList #spinnerWifiLbl{
+background-image: url(:/res/spinner_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:top left;
+}
+#SettingsWiFiList #wifiConnectMsgLbl{
+}
+#SettingsWiFiList #wifiNameLbl{
+}
+#SettingsWiFiList #wifiSignalLbl{
+background-image: url(:/res/wifi_2_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center center;
+}
+#SettingsWiFiList #wifiActionsCont{
+border-style:solid;
+border-color:#808080;
+border-right:none;
+border-left:none;
+background-color:#F0F0F0;
+}
+#SettingsWiFiList #wifiNetworksLbl, #SettingsWiFiList #wifiLbl{
+font-weight:bold;
+}
+#SettingsWiFiList #settingsMenuListCont QPushButton#addNetworksBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#D0D0D0;
+}
+/*SettingsWiFiListItem
+-----------------*/
+#SettingsWiFiListItem{
+}
+#signalWifiItemLbl{
+}
+#SettingsWiFiListItem #wifiCont{
+}
+#SettingsWiFiListItem #noSignalWifi{
+background-image: url(:/res/:/res/wifi_no_Ico.png.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SettingsWiFiListItem #signalWifi_1{
+background-image: url(:/res/wifi_1_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SettingsWiFiListItem #signalWifi_2{
+background-image: url(:/res/wifi_2_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SettingsWiFiListItem #signalWifi_3{
+background-image: url(:/res/wifi_3_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SettingsWiFiListItem #signalWifi_4{
+background-image: url(:/res/wifi_4_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#lockWifiLbl{
+background-image: url(:/res/lock_wifi.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#wifiNameItemLbl{
+}
+#wifiConnect{
+background-image: url(:/res/check_no_margin_ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#wifiRemember{
+background-image: url(:/res/save-grey.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+/*SettingsConfigureNetwork
+-----------------------------*/
+#SettingsConfigureNetwork{
+background-color:#E0E0E0;
+}
+#SettingsConfigureNetwork #settingsMenuListCont QLabel{
+font-weight:bold;
+}
+#SettingsConfigureNetwork QLabel#networkNameTextLbl{
+font-weight:bold;
+}
+#SettingsConfigureNetwork QLabel#networkNameLbl{
+font-weight:normal;
+}
+#SettingsConfigureNetwork #settingsMenuListCont QLineEdit{
+background-repeat:no-repeat;
+background-position:center right;
+}
+#SettingsConfigureNetwork #settingsMenuListCont QLineEdit:disabled{
+background-color:#EDEDED;
+}
+#SettingsConfigureNetwork #settingsMenuListCont QLineEdit:checked{
+background-image: url(":/res/check_ico.png");
+}
+#SettingsConfigureNetwork #settingsMenuListCont QPushButton{
+}
+#SettingsConfigureNetwork #settingsMenuListCont QCheckBox{
+}
+#confTypeCmb, #confTypeBtn{
+color:#000000;
+font-weight:bold;
+border-style: solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#SettingsConfigureNetwork #confTypeBtn{
+background-image: url(:/res/arrow.png);
+background-repeat:no-repeat;
+background-position:center right;
+background-color:transparent;
+}
+
+QComboBox {
+font-family: 'Lato';
+color:#0F0F0F;
+font-weight:bold;
+border-style: solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+QComboBox:editable {
+background: white;
+}
+QComboBox:on {
+}
+QComboBox::drop-down {
+}
+QComboBox::down-arrow {
+}
+#SettingsConfigureNetwork #cancelBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#SettingsConfigureNetwork #saveBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#EDEDED;
+}
+#SettingsConfigureNetwork #saveBtn:disabled{
+border-style:solid;
+border-color:#808080;
+background-color:#EDEDED;
+color:#666;
+}
+
+/*SettingConfigureNetworkListActions
+-------------------------------------*/
+
+#SettingConfigureNetworkListActionsCont{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#SettingConfigureNetworkListActionsCont QPushButton{
+font-family:'Lato';
+text-align:left;
+border-style:dotted;
+border-color:#808080;
+}
+#SettingConfigureNetworkListActionsCont QPushButton#deleteBookBtn{
+border-left:none;
+border-bottom:none;
+}
+
+/*SettingsAddNetwork
+----------------------------------*/
+#SettingsAddNetwork{
+background-color:#E0E0E0;
+}
+#SettingsAddNetwork #settingsMenuListCont QLabel{
+font-weight:bold;
+}
+#SettingsAddNetwork #settingsMenuListCont QLineEdit, #SettingsAddNetwork #settingsMenuListCont QPushButton{
+}
+#SettingsAddNetwork #settingsMenuListCont QCheckBox{
+}
+#SettingsAddNetwork #connectBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#SettingsAddNetwork #addvancedSettingsBtn{
+border-style:solid;
+border-color:#808080;
+backgrounnd-color:#F0F0F0;
+}
+#settingsMenuListCont QPushButton#securityBtn{
+border-style:solid;
+border-color:#808080;
+background:url(":/res/bg_select_arrow.png") no-repeat right center;
+}
+/*WifiSecurityLayer
+--------------------------*/
+#WifiSecurityLayer{
+}
+#WifiSecurityLayerCont{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#WifiSecurityLayerCont QPushButton{
+border-bottom-style:solid;
+border-bottom-color:#808080;
+text-align:left;
+}
+
+/*SettingsNetworkWifiInfo
+------------------------------------*/
+#SettingsNetworkWifilInfo{
+background-color:#E0E0E0;
+}
+#SettingsNetworkWifilInfo #settingsMenuListCont QWidget{
+border-bottom-style:solid;
+border-bottom-color:#808080;
+}
+#SettingsNetworkWifilInfo #settingsMenuListCont QLabel{
+border:none;
+}
+#SettingsNetworkWifilInfo #securityLbl, #SettingsNetworkWifilInfo #signalLbl, #SettingsNetworkWifilInfo #ipAddressLbl, #SettingsNetworkWifilInfo #subnetMaskLbl ,#SettingsNetworkWifilInfo #routerLbl, #SettingsNetworkWifilInfo #dnsLbl, #SettingsNetworkWifilInfo #proxyLbl{
+font-weight:bold;
+}
+#deleteNetworkBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#disconnectNetworkBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#editWifiDataBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+/*SettingsWiFiPasswordMenu
+--------------------------*/
+#SettingsWiFiPasswordMenu{
+}
+#connectingWifiCont{
+border-style:solid;
+border-color:#505050;
+background-color:#FFFFFF;
+}
+#connectingWifiCont #hiddenPassword{
+}
+#connectingWifiCont #connectWifiHeader{
+border-style:solid;
+border-color:#909090;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#connectingWifiCont #connectTitleLbl{
+}
+#connectingWifiCont #wifiNameLbl{
+}
+#connectingWifiCont #passwordLbl{
+font-weight:bold;
+}
+#connectingWifiCont #passwordLineEdit{
+}
+#connectingWifiCont #acceptBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#E0E0E0;
+}
+#connectingWifiCont #cancelBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+/*SettingsWiFiDetail
+---------------------------*/
+#SettingsWiFiDetail{
+background-color:#E0E0E0;
+}
+#ButtonsContEdit QPushButton{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#ButtonsContEdit QPushButton#disconnectBtn{
+}
+#SettingsWiFiDetail #settingsMenuListCont QLabel{
+border-style:solid;
+border-color:#909090;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#wifiStatusTit, #subnetMask, #signal, #security, #router, #ipAddress, #dns, #Proxy{
+font-weight:bold;
+}
+#wifiNameLabel, #subnetEdit, #signal_data, #security_data, #routerEdit, #ipAddressEdit, #dnsEdit, #Proxy_data{
+}
+
+#SettingsWiFiDetail #settingsMenuListCont #Proxy,#SettingsWiFiDetail #settingsMenuListCont #Proxy_data{
+border-bottom:none;
+}
+
+
+/*SettingsSwitchOffTimeMenu
+----------------------*/
+#SettingsSwitchOffTimeMenu{
+background-color:#DADADA;
+}
+#switchOffLbl{
+}
+#SettingsSwitchOffTimeMenu QPushButton{
+background-position:center right;
+background-repeat:no-repeat;
+text-align:left;
+}
+#SettingsSwitchOffTimeMenu QPushButton#hours2Btn{
+}
+#SettingsSwitchOffTimeMenu QPushButton#week1Btn{
+border:none;
+}
+/*SettingsEnergySaving
+-------------------------*/
+#SettingsEnergySaving{
+background-color:#DADADA;
+}
+#settingsMenuListCont #sleepTimeBtn{
+background: url(":/res/sleeptime_settings.png") no-repeat center ;
+}
+#settingsMenuListCont #switchOffBtn{
+background: url(":/res/shutdowntime_settings.png") no-repeat center ;
+border:none;
+}
+/*SettingsAboutUs
+------------------------------------------*/
+#SettingsAboutUs{
+background-color:#DADADA;
+}
+#SettingsAboutUs #settingsMenuListCont #verticalPage{
+background-color:#EDEDED;
+}
+#settingsMenuListCont QLabel{
+background-color:transparent;
+}
+#settingsMenuListCont #versionTitleLbl{
+font-weight:bold;
+color:#000;
+}
+#settingsMenuListCont #creditsLbl{
+font-weight:bold;
+color:#000;
+}
+#settingsMenuListCont #developersLbl, #settingsMenuListCont #graphicDesignLbl, #settingsMenuListCont #frontDeveloperLbl, #settingsMenuListCont #uxLbl, #settingsMenuListCont #qaLbl, #settingsMenuListCont #productManagerLbl{
+font-weight:bold;
+color:#000;
+}

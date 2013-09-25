@@ -1,0 +1,969 @@
+/* iCervantes
+---------------------------------*/
+*{
+background:none;
+color:#000000;
+font-family: 'Roboto';
+}
+
+QWidget#bqViewerCont {
+background-color: #FFFFFF;
+font-family: 'Roboto';
+}
+QPushButton{
+border:none;
+font-weight:bold;
+background-color: transparent;
+background-repeat:no-repeat;
+background-position:left;
+}
+QHBoxLayout, QVBoxLayout{
+}
+QFrame {
+border: none;
+}
+QLabel {
+font-family: 'Roboto';
+}
+QLineEdit{
+color:#000000;
+border-style: solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+QTextEdit{
+background-color:transparent;
+}
+QRadioButton,QCheckBox{
+outline:none;
+color:#000000;
+}
+QRadioButton::indicator,QCheckBox::indicator {
+}
+QCheckBox{
+}
+QCheckBox::indicator {
+border:none;
+}
+QCheckBox::indicator:unchecked {
+border:none;
+image: url(:/res/unchecked.png);
+}
+QCheckBox::indicator:unchecked:pressed {
+border:none;
+image: url(:/res/unchecked.png);
+}
+QCheckBox::indicator:unchecked:pressed {
+border:none;
+image: url(:/res/unchecked.png);
+}
+QCheckBox::indicator:checked {
+border:none;
+image: url(:/res/checked.png);
+}
+QCheckBox::indicator:checked:pressed {
+border:none;
+image: url(:/res/checked.png);
+}
+QCheckBox::indicator:checked:pressed {
+border:none;
+image: url(:/res/checked.png);
+}
+QCheckBox::indicator:indeterminate:pressed {
+border:none;
+image: url(:/res/checked.png);
+}
+QCheckBox::indicator:indeterminate:pressed {
+border:none;
+image: url(:/res/checked.png);
+}
+#checkBtn{
+border-style: solid;
+border-color:#000000;
+}
+QComboBox{
+color:#000000;
+background-color:#FFFFFF;
+border-style: solid;
+border-color:#000000;
+}
+QComboBox::drop-down{
+background-repeat:no-repeat;
+background-position:left;
+background-image:  url(:/res/bq/combo_arrow.png);
+}
+QComboBox QAbstractItemView{
+background-color:#FFFFFF;
+border-style: solid;
+border-color:#000000;
+}
+/*Keyboard
+-------------------------------------*/
+/*
+#keyboardCont {
+border-top-style:solid;
+border-bottom-style:solid;
+background-color:#FFFFFF;
+}
+#keyboardCont KeyboardButton{
+background-color:#FFFFFF;
+border-style:solid;
+
+}
+#keyboardCont #newLineBtn{
+color:#FFFFFF;
+background-color:#000000;
+background-image:url(:/res/ic-keyboard_enter.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+#keyboardCont KeyboardButton#enter{
+color:#FFFFFF;
+font-weight:bold;
+border-style:solid;
+
+background-color:#000000;
+background-repeat:no-repeat;
+background-position:center center;
+}
+
+#keyboardCont #cancelKeyboardBtn{
+text-transform:uppercase;
+color:#FFFFFF;
+border-style:solid;
+
+background-color:#000000;
+}
+
+#keyboardCont #deleteChar{
+color:#FFFFFF;
+background-color:#000000;
+background-image:url(:/res/ic-deleteOne.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+
+#keyboardCont KeyboardButton#numeric{
+}
+#keyboardCont KeyboardButton#space{
+}
+#keyboardCont KeyboardButton#specialChar{
+}
+#keyboardCont #next, #keyboardCont #cursorRight{
+color:#FFFFFF;
+border-style:solid;
+
+background-color:#000000;
+background-image:url(:/res/ic-nextChar.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+#keyboardCont #previous, #keyboardCont #cursorLeft{
+color:#FFFFFF;
+border-style:solid;
+
+background-color:#000000;
+background-image:url(:/res/ic-previousChar.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+
+#keyboardCont #shift{
+color:#FFFFFF;
+border-style:solid;
+
+background-color:#000000;
+background-image:  url(:/res/ic-shift_over.png);
+background-repeat:no-repeat;
+background-position:center center;
+}*/
+
+/* KeyboardLayer
+---------------------------------*/
+
+/*#keyboardLayerCont{
+background-color: #FFF;
+border-style:solid;
+
+}
+#buttonGrid KeyboardButton, #buttonGrid KeyboardButton{
+color:#000;
+background-color:#FFF;
+border-style:solid;
+
+border-radius: 5px;
+margin-bottom:0px;
+margin-right:5px;
+}
+
+#LayerCloseBtn{
+color:#FFF;
+background-repeat:no-repeat;
+background-position:center;
+background-image:  url(:/res/ic-close_keyboard_layer.png);
+}
+*/
+/*Progress Bar
+---------------------*/
+QProgressBar{
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+    stop:0 #A0A0A0, stop:1 #FFF);
+border-style: solid;
+border-color: #404040;
+}
+QProgressBar:chunk{
+color:#FFFFFF;
+background: qlineargradient(x1:0, y1:0, x2:0 y2:1,
+    stop:0 #404040, stop:1 #A0A0A0);
+border-style: solid;
+border-color: #404040;
+}
+QSlider::groove:horizontal {
+border-style: solid;
+border-color: #404040;
+background: #FFFFFF;
+}
+QSlider::sub-page:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:0 y2:1,
+    stop:0 #404040, stop:1 #A0A0A0);
+border-style: solid;
+border-color: #404040;
+}
+QSlider::add-page:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+    stop:0 #A0A0A0, stop:1 #FFF);
+border-style: solid;
+border-color: #404040;
+}
+QSlider::handle:horizontal {
+background:url(:/res/progress_Indicator.png) no-repeat center;
+/*background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #eee, stop:1 #ccc);
+border: 1px solid #777;*/
+}
+QSlider::handle:horizontal:hover{
+background:url(:/res/progress_Indicator.png) no-repeat center;
+}
+QSlider::handle:horizontal:pressed {
+background:none;
+}
+QSlider::sub-page:horizontal:disabled {
+background: #BBB;
+border-color: #404040;
+}
+QSlider::add-page:horizontal:disabled {
+background: #EEE;
+border-color: #404040;
+}
+QSlider::handle:horizontal:disabled {
+background: #EEE;
+border-style: solid;
+border-color: #404040;
+}
+
+#content, #content2{
+background-color:#FFFFFF;
+}
+/*VerticalPagerHandler
+------------------------*/
+#VerticalPagerHandler{
+}
+#VerticalPagerHandler #downPageBtn{
+border:none;
+background:transparent  url(":/res/down_pager_btn.png") no-repeat center center;
+}
+#VerticalPagerHandler #upPageBtn{
+border:none;
+background:transparent  url(":/res/up_pager_btn.png") no-repeat center center;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+color:#404040;
+text-align:left;
+}
+/*Dialogs
+-------------------------*/
+/*ConfirmDialog
+--------------------*/
+#ConfirmDialog{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#ConfirmDialog QLabel{
+text-align:center;
+}
+#ConfirmDialog #ok{
+border-style:solid;
+border-color:#808080;
+background-color:#E0E0E0;
+}
+/*ElfSelectionDialog
+--------------------*/
+#ElfSelectionDialog{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#ElfSelectionDialog QLabel{
+text-align:center;
+}
+#ElfSelectionDialog #cancel{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#ElfSelectionDialog #ok{
+border-style:solid;
+border-color:#808080;
+background-color:#E0E0E0;
+}
+/*CorruptedDialog
+--------------------*/
+#CorruptedDialog{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#corruptedPopup_Cont{
+}
+#corruptedPopup_Cont QLabel{
+text-align:center;
+}
+#corruptedPopup_Cont #horizontalFrame{
+}
+#corruptedPopup_Cont #format{
+border-style:solid;
+border-color:#808080;
+background-color:#E0E0E0;
+}
+#corruptedPopup_Cont #Mount,#CorruptedDialog #noMount{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+/*InfoDialog
+------------------------*/
+#InfoDialog{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#InfoDialog #bgdialog QLabel{
+text-align:center;
+}
+#InfoDialog #bgdialog #spinerLbl{
+background: url(":res/spinner.png") no-repeat top center;
+}
+/*ElfProgressDialog
+------------------------*/
+#InfoDialog{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#ElfProgressDialog #bg QLabel{
+text-align:center;
+}
+/*ElfPowerOffDialog
+------------------------*/
+#ElfPowerOffDialog{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#ElfPowerOffDialog #bg QLabel{
+text-align:center;
+}
+/* Overlay
+---------------------*/
+#shadow, #ElfAppMenu, #whiteShadow{
+background-color:transparent;
+background-color: rgba(255, 255, 255, 255);
+}
+#whiteCont{
+background-color:#FFFFFF;
+}
+/*StatusBar
+-------------------------*/
+#StatusBar {
+background-color:#FFFFFF;
+}
+#StatusBarCenterCont {
+background:#F2F2F2 url(:res/bg_header.png) repeat-x bottom left;
+}
+#StatusBarCont #currentSectionLbl{
+font-weight:bold;
+color:#000000;
+}
+#StatusBarCont #currentReadBtn{
+background: url(:/res/read_Btn.png) no-repeat center left;
+}
+#StatusBarCont #lightBtn{
+background:url(:res/light_on_Ico.png) no-repeat center left;
+}
+#StatusBarCont #batteryLbl{
+background-image:url(:res/battery_3_Ico.png);
+background-repeat:no-repeat;
+background-position:center left;
+}
+#StatusBarCont #timeLbl{
+border-left:none;
+border-top:none;
+border-bottom:none;
+}
+#StatusBarCont #usbConnectedLbl{
+background:url(:/res/usb_Ico.png) no-repeat center left;
+}
+#StatusBarCont #wifiBtn{
+background-repeat:no-repeat;
+background-position:center left;
+background-image:url(:/res/wifi_0_Ico.png) ;
+}
+#StatusBarCont #spinnerLbl{
+background:url(:/res/spinner_Ico.png) no-repeat center left;
+}
+/*LibraryBookSummary
+------------------*/
+#LibraryBookSummary{
+background:url(":/res/bgSynopsisPopup.png") repeat-x top left;
+border-style:solid;
+border-color:#505050;
+}
+#currentBookCont #currentBookLbl{
+background-image: url(:/res/current_book.png) ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#coverCont{
+}
+#cover{
+background-color:#FFF;
+}
+#LibraryBookSummary #topLeftLbl{
+background-image: url(":/res/book_front_top_left.png") ;
+background-position:right bottom;
+background-repeat:no-repeat;
+}
+#LibraryBookSummary #topCenterLbl{
+background-image: url(":/res/book_front_top_center.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#LibraryBookSummary #topRightLbl{
+background-image: url(":/res/book_front_top_right.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#LibraryBookSummary #centerLeftLbl{
+background-image: url(":/res/book_front_center_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#LibraryBookSummary #centerCenterLbl{
+background-image: url(":/res/book_front_cover.png") ;
+background-position:top left;
+background-repeat:no-repeat;
+}
+#LibraryBookSummary #centerRightLbl{
+background-image: url(":/res/book_front_center_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#LibraryBookSummary #bottomLeftLbl{
+background-image: url(":/res/book_front_bottom_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#LibraryBookSummary #bottomCenterLbl{
+background-image: url(":/res/book_front_bottom_center.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#LibraryBookSummary #bottomRightLbl{
+background-image: url(":/res/book_front_bottom_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#LibraryBookSummary #bookTitleLbl{
+font-weight:bold;
+}
+#synopsisLbl{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+color:#333333;
+}
+#bookSummaryDataContainer #bookPriceLbl {
+font-weight:bold;
+}
+#priceCont{
+}
+#actionsContainer #buyBookBtn{
+background-color:#D0D0D0;
+border-style:solid;
+border-color:#808080;
+}
+#actionsContainer #moreActionsBtn{
+background:url(":/res/arrow_for_buttons.png") no-repeat center right;
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#actionsContainer #readSampleBtn{
+background-color:#FFFFFF;
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#summaryTextBrowser{
+}
+#VerticalPagination{
+}
+#actionsContainer {
+}
+/*LibraryBooksListActions
+--------------------------------------*/
+#LibraryBooksListActions{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#LibraryBooksListActions QPushButton{
+text-align:left;
+border-style:dotted;
+border-color:#808080;
+}
+#LibraryBooksListActions QPushButton#deleteBookBtn{
+border:none;
+}
+/*SettingsQuickSettingsPopup
+------------------------*/
+#SettingsQuickSettingsPopup{
+/*background:url(:res/bg_transparent.png) no-repeat center right;*/
+image: url(:/images/bg_transparent.png);
+}
+#QuickSettingsCont{
+border-style: solid;
+border-color: #58585A;
+/*background:qlineargradient(x1:0, y1:0, x2:0, y2:1,	stop:0 #D9DADB, stop:1 #FFFFFF);*/
+background-color:#E0E0E0;
+}
+#headerPopupCont{
+border-style: solid;
+border-color: #BDBDBE;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#titlePopupLbl{
+}
+#closePopupBtn{
+background: transparent url(:res/close_popup_ico.png) no-repeat center center;
+}
+#contentPopup{
+background-color:#FFFFFF;
+border-style: solid;
+border-color: #707173;
+}
+#contentPopup #screenLightCont, #contentPopup #wifiCont{
+border-style: solid;
+border-color: #777777;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#contentPopup #wifiStatusBtn, #contentPopup #screenLightStatusBtn{
+background-image: url(:res/off_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#contentPopup #brightnessCont{
+background-color:#E0E0E0;
+border-style: solid;
+border-color: #707173;
+border-top:none;
+}
+#contentPopup #brightnessLbl{
+background-color:#E0E0E0;
+border-style: solid;
+border-color: #707173;
+border-top:none;
+border-bottom:none;
+}
+#contentPopup #brightnessMaxLbl{
+background-image: url(:/res/brightness_max.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#contentPopup #brightnessMinLbl{
+background-image: url(:/res/brightness_min.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#contentPopup #brightnessSlider{
+}
+/*Search
+----------------------------*/
+#Search{
+background-color:#FFFFFF;
+}
+#Search #searchHeader{
+background-color:#E0E0E0;
+border-style:solid;
+border-color:#C0C0C0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#Search #searchLineEdit{
+border-style:solid;
+border-color:transparent;
+background-color:#FFFFFF;
+background-image: url(:/res/bg_search_input.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#Search #clearSearchBtn{
+background-image: url(:/res/bg_clear_search.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SearchResultItem1, #SearchResultItem2, #SearchResultItem3, #SearchResultItem4, #SearchResultItem5, #SearchResultItem6, #SearchResultItem7, #SearchResultItem8, #SearchResultItem9{
+}
+#resultNumberCont{
+background-color:#F0F0F0;
+border-style:solid;
+border-color:#C0C0C0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#resultNumberCont #showResultLbl{
+}
+#resultNumberCont #resultsNumberLbl{
+}
+/*SearchItem
+----------------------------*/
+#SearchItem {
+background-color:#FFFFFF;
+border-style:solid;
+border-color:#C0C0C0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#SearchItem #fileTypeLbl{
+background-image: url(:/res/unknow_list.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:top center ;
+}
+#SearchItem #searchTitle{
+font-weight:bold;
+}
+#SearchItem #searchAuthor{
+}
+/* SearchPagerCont
+-----------------------------*/
+#SearchPagerCont{
+}
+#SearchPagerCont #downPageBtn{
+border:none;
+background:transparent  url(":/res/down_pager_btn.png") no-repeat center center;
+}
+#SearchPagerCont #upPageBtn{
+border:none;
+background:transparent  url(":/res/up_pager_btn.png") no-repeat center center;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+color:#404040;
+text-align:left;
+}
+/*WIFI
+-------------------------------------------*/
+#settingsMenuListCont{
+border-style: solid;
+border-color: #404040;
+background-color:#FFFFFF;
+}
+#settingsMenuListCont QPushButton{
+text-align:left;
+border-bottom-style: solid;
+border-bottom-color: #C0C0C0;
+background-color:#FFFFFF;
+}
+#settingsSectionHeader{
+background-color:#F0F0F0;
+}
+#settingsSectionHeader #sectionTitleLbl{
+text-transform:uppercase;
+color:#303030;
+font-weight:bold;
+}
+#settingsSectionHeader #backBtn{
+color:#303030;
+text-align:left;
+font-weight:bold;
+background:transparent  url(":/res/back_Btn.png") no-repeat left center;
+}
+/*SettingsWiFiList
+-------------------------*/
+#SettingsWiFiList{
+background-color:#E0E0E0;
+}
+#SettingsWiFiList #settingsMenuListCont #Item1, #SettingsWiFiList #settingsMenuListCont #Item2, #SettingsWiFiList #settingsMenuListCont #Item3, #SettingsWiFiList #settingsMenuListCont #Item4, #SettingsWiFiList #settingsMenuListCont #Item5, #SettingsWiFiList #settingsMenuListCont #Item6{
+border-bottom-style:solid;
+border-bottom-color:#808080;
+}
+#SettingsWiFiList #settingsMenuListCont #Item1{
+}
+#SettingsWiFiList #settingsMenuListCont #switchWifiCont{
+}
+#SettingsWiFiList #settingsMenuListCont #wifiStatusBtn{
+background-image: url(:res/off_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+border:none;
+}
+#SettingsWiFiList #settingsMenuListCont #wifiActionsCont {
+background-color:#E0E0E0;
+}
+#wifiActionsCont #updateWifiListBtn{
+background-image: url(:/res/wifi_refresh.png);
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center right;
+border:none;
+}
+#SettingsWiFiList #statusWifiConexionCont{
+}
+#SettingsWiFiList #spinnerWifiLbl{
+background-image: url(:/res/spinner_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:top left;
+}
+#SettingsWiFiList #wifiConnectMsgLbl{
+}
+#SettingsWiFiList #wifiNameLbl{
+}
+#SettingsWiFiList #wifiSignalLbl{
+background-image: url(:/res/wifi_2_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center center;
+}
+#SettingsWiFiList #wifiActionsCont{
+border-style:solid;
+border-color:#808080;
+border-right:none;
+border-left:none;
+background-color:#F0F0F0;
+}
+#SettingsWiFiList #wifiNetworksLbl, #SettingsWiFiList #wifiLbl{
+font-weight:bold;
+}
+#SettingsWiFiList #settingsMenuListCont QPushButton#addNetworksBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#D0D0D0;
+}
+/*SettingsWiFiListItem
+-----------------*/
+#SettingsWiFiListItem{
+}
+#signalWifiItemLbl{
+}
+#SettingsWiFiListItem #wifiCont{
+padding:0px 40px 0px 0px;
+min-width:40px;
+max-width:40px;
+}
+#SettingsWiFiListItem #noSignalWifi{
+background-image: url(:/res/:/res/wifi_no_Ico.png.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SettingsWiFiListItem #signalWifi_1{
+background-image: url(:/res/wifi_1_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SettingsWiFiListItem #signalWifi_2{
+background-image: url(:/res/wifi_2_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SettingsWiFiListItem #signalWifi_3{
+background-image: url(:/res/wifi_3_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SettingsWiFiListItem #signalWifi_4{
+background-image: url(:/res/wifi_4_Ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#lockWifiLbl{
+background-image: url(:/res/lock_wifi.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#wifiNameItemLbl{
+}
+#wifiConnect{
+background-image: url(:/res/check_no_margin_ico.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#wifiRemember{
+background-image: url(:/res/save-grey.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+/*SettingsAddNetwork
+----------------------------------*/
+#SettingsAddNetwork{
+background-color:#E0E0E0;
+}
+#SettingsAddNetwork #settingsMenuListCont QLabel{
+font-weight:bold;
+}
+#SettingsAddNetwork #settingsMenuListCont QLineEdit, #SettingsAddNetwork #settingsMenuListCont QPushButton{
+}
+#SettingsAddNetwork #settingsMenuListCont QCheckBox{
+}
+#SettingsAddNetwork #connectBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#SettingsAddNetwork #addvancedSettingsBtn{
+border-style:solid;
+border-color:#808080;
+backgrounnd-color:#F0F0F0;
+}
+#settingsMenuListCont QPushButton#securityBtn{
+border-style:solid;
+border-color:#808080;
+background:url(":/res/bg_select_arrow.png") no-repeat right center;
+}
+/*WifiSecurityLayer
+--------------------------*/
+#WifiSecurityLayer{
+}
+#WifiSecurityLayerCont{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#WifiSecurityLayerCont QPushButton{
+border-bottom-style:solid;
+border-bottom-color:#808080;
+text-align:left;
+}
+
+/*SettingsNetworkWifiInfo
+------------------------------------*/
+#SettingsNetworkWifilInfo{
+background-color:#E0E0E0;
+}
+#SettingsNetworkWifilInfo #settingsMenuListCont QWidget{
+border-bottom-style:solid;
+border-bottom-color:#808080;
+}
+#SettingsNetworkWifilInfo #settingsMenuListCont QLabel{
+border:none;
+}
+#SettingsNetworkWifilInfo #securityLbl, #SettingsNetworkWifilInfo #signalLbl, #SettingsNetworkWifilInfo #ipAddressLbl, #SettingsNetworkWifilInfo #subnetMaskLbl ,#SettingsNetworkWifilInfo #routerLbl, #SettingsNetworkWifilInfo #dnsLbl, #SettingsNetworkWifilInfo #proxyLbl{
+font-weight:bold;
+}
+#deleteNetworkBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#disconnectNetworkBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+/*SettingsWiFiPasswordMenu
+--------------------------*/
+#SettingsWiFiPasswordMenu{
+}
+#connectingWifiCont{
+border-style:solid;
+border-color:#505050;
+background-color:#FFFFFF;
+}
+#connectingWifiCont #hiddenPassword{
+}
+#connectingWifiCont #connectTitleLbl{
+border-style:solid;
+border-color:#909090;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#connectingWifiCont #wifiNameLbl{
+}
+#connectingWifiCont #passwordLbl{
+font-weight:bold;
+}
+#connectingWifiCont #passwordLineEdit{
+}
+#connectingWifiCont #acceptBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#E0E0E0;
+}
+#connectingWifiCont #cancelBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+/*SettingsWiFiDetail
+---------------------------*/
+#SettingsWiFiDetail{
+background-color:#E0E0E0;
+}
+#ButtonsContEdit QPushButton{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#ButtonsContEdit QPushButton#disconnectBtn{
+}
+#SettingsWiFiDetail #settingsMenuListCont QLabel{
+border-style:solid;
+border-color:#909090;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#wifiStatusTit, #subnetMask, #signal, #security, #router, #ipAddress, #dns, #Proxy{
+font-weight:bold;
+}
+#wifiNameLabel, #subnetEdit, #signal_data, #security_data, #routerEdit, #ipAddressEdit, #dnsEdit, #Proxy_data{
+}
+
+#SettingsWiFiDetail #settingsMenuListCont #Proxy,#SettingsWiFiDetail #settingsMenuListCont #Proxy_data{
+border-bottom:none;
+}

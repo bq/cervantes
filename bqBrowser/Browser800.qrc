@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="res/browser_styles_generic.qss">res/browser_styles_generic.qss</file>
+        <file alias="res/add_favourite_ico.png">res/800/add_favourite_ico.png</file>
+        <file alias="res/browser_styles.qss">res/800/browser_styles.qss</file>
+        <file alias="res/clear_input.png">res/800/clear_input.png</file>
+        <file alias="res/favourite_ico.png">res/800/favourite_ico.png</file>
+        <file alias="res/home_browser.png">res/800/home_browser.png</file>
+        <file alias="res/zoom_in_disabled_ico.png">res/800/zoom_in_disabled_ico.png</file>
+        <file alias="res/zoom_in_ico.png">res/800/zoom_in_ico.png</file>
+        <file alias="res/zoom_out_disabled_ico.png">res/800/zoom_out_disabled_ico.png</file>
+        <file alias="res/zoom_out_ico.png">res/800/zoom_out_ico.png</file>
+        <file alias="res/next_btn.png">res/800/next_btn.png</file>
+        <file alias="res/next_disabled_btn.png">res/800/next_disabled_btn.png</file>
+        <file alias="res/previous_btn.png">res/800/previous_btn.png</file>
+        <file alias="res/previous_disabled_btn.png">res/800/previous_disabled_btn.png</file>
+        <file alias="res/stop_browser.png">res/800/stop_browser.png</file>
+        <file alias="res/go.png">res/800/go.png</file>
+        <file alias="res/reload_browser.png">res/800/reload_browser.png</file>
+        <file alias="res/bg_next_previous_browser.png">res/800/bg_next_previous_browser.png</file>
+        <file alias="res/bg_url_input.png">res/800/bg_url_input.png</file>
+        <file alias="res/select-all-fav.png">res/800/ckeck-group.png</file>
+        <file alias="res/remove-fav.png">res/800/remove-icon.png</file>
+        <file alias="res/deselect-all-fav.png">res/800/unckeck-group.png</file>
+    </qresource>
+</RCC>

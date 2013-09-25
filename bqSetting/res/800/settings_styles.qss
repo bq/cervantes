@@ -1,0 +1,1917 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* Settings
+--------------------------*/
+QCheckBox{
+min-height:50px;
+max-height:50px;
+min-width:50px;
+max-width:50px;
+}
+#overlayCont{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#settingsMarginTop{
+min-height:40px;
+max-height:40px;
+}
+#SettingsMenuCont{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#settingsMenuListCont {
+margin:0px 22px;
+border-width:2px;
+border-radius:8px;
+}
+#settingsMenuListCont QWidget{
+/*min-height:60px;
+max-height:60px;*/
+}
+#settingsMenuListCont #Item1,#settingsMenuListCont #Item2, #settingsMenuListCont #Item3, #settingsMenuListCont #Item4, #settingsMenuListCont #Item5, #settingsMenuListCont #Item6{
+margin:0px 24px;
+min-width:560px;
+max-width:560px;
+min-height:80px;
+max-height:80px;
+border-bottom-width:1px;
+}
+#settingsMenuListCont QWidget#Item1{
+margin:1px 22px;
+border-top-left-radius:8px;
+border-top-right-radius:8px;
+}
+#settingsMenuListCont QWidget{
+}
+#settingsMenuListCont QPushButton{
+min-height:80px;
+max-height:80px;
+margin:2px 22px;
+padding:0px 0px 0px 80px;
+border-bottom-width:1px;
+}
+#settingsMenuListCont #generalTermsResult{
+margin:0px 20px;
+min-width:520px;
+max-width:520px;
+min-height:520px;
+max-height:520px;
+}
+#settingsCont{
+margin:0px 22px;
+border-width:2px;
+border-radius:8px;
+}
+#verticalTopSection{
+min-height:35px;
+max-height:35px;
+}
+#settingsSectionHeaderCenter{
+}
+#settingsSectionHeader{
+min-width:600px;
+max-width:600px;
+min-height:50px;
+max-height:50px;
+}
+#settingsSectionHeader #sectionTitleLbl{
+margin:0px 0px 0px 20px;
+font-size:20px;
+}
+#settingsSectionHeader #backBtn{
+margin:0px 0px 0px 20px;
+padding:0px 0px 0px 20px;
+min-width:83px;
+max-width:83px;
+min-height:38px;
+max-height:38px;
+font-size:18px;
+color:#1F1F1F;
+}
+/*SettingsPagerCont
+------------------------*/
+#SettingsPagerCont,#settingsPagerCont, #verticalPage{
+margin:0px 22px 2px 22px;
+min-height:60px;
+max-height:60px;
+/*border-top-width:1px;*/
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+/*#verticalPage{
+margin:1px 23px 2px 23px;
+min-height:59px;
+max-height:59px;
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}*/
+#SettingsPagerCont #downPageBtn,#settingsPagerCont #downPageBtn, #verticalPage #downPageBtn{
+min-width:45px;
+max-width:45px;
+min-height:45px;
+max-height:45px;
+margin:0px 0px 0px 30px;
+}
+#SettingsPagerCont #upPageBtn,#settingsPagerCont #upPageBtn, #verticalPage #upPageBtn{
+min-width:45px;
+max-width:45px;
+min-height:45px;
+max-height:45px;
+margin:0px 25px 0px 0px;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+padding:0px 0px 0px 5px;
+font-size:17px;
+}
+/*WaitingOverlay
+----------------------*/
+#spinnerCont{
+min-width:470px;
+max-width:470px;
+min-height:200px;
+max-height:200px;
+border-radius:8px;
+}
+#spinnerCont #waittingDevicesLbl{
+margin:30px 65px 0px 65px;
+}
+#spinnerCont #spinerLbl{
+}
+/*Settings Main Menu
+----------------------*/
+#Settings{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#userDataBtn{
+border-top-left-radius:8px;
+border-top-right-radius:8px;
+}
+#settingsMenuListCont QPushButton#webBrowserBtn{
+}
+#wifiConnexionBtn{
+}
+#deviceOptionsBtn{
+}
+#deviceInfoBtn{
+}
+#lightSettingsBtn{
+}
+#aboutUsBtn{
+}
+#settingsMenuListCont QPushButton#aboutUsBtn{
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+#activateDeviceBtn{
+min-height:80px;
+max-height:80px;
+margin:2px 22px;
+padding:0px 0px 0px 80px;
+border-width:1px;
+border-radius:8px;
+border-radius:8px;
+}
+/*SettingsMyAccountMenu
+--------------------------------------------*/
+#SettingsMyAccountMenu{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsMyAccountMenuCont{
+min-width:560px;
+max-width:560px;
+min-height:800px;
+max-height:800px;
+}
+#SettingsMyAccountMenu #settingsMenuListCont{
+margin:2px 24px;
+}
+#SettingsMyAccountMenu #settingsMenuListCont QPushButton{
+margin:2px 26px;
+}
+#myAccountBtn{
+border-top-left-radius:8px;
+border-top-right-radius:8px;
+}
+#adobeDrmBtn{
+}
+#generalTermsBtn{
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+/*SettingsDeviceOptionsMenu
+--------------------------------------------*/
+#SettingsDeviceOptionsMenu{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#settingsMenuListCont #languageBtn{
+}
+#settingsMenuListCont #dateTimeBtn{
+}
+#settingsMenuListCont #dictionariesBtn{
+}
+#settingsMenuListCont #readerBtn{
+}
+#settingsMenuListCont #sleepTimeBtn{
+}
+#settingsMenuListCont #screenSaverBtn{
+}
+#settingsMenuListCont #energySavingBtn{
+}
+/*SettingsAdobeDrmUnLinkDevice
+--------------------------------*/
+#SettingsAdobeDrmUnLinkDevice{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#settingsCont #adobeDrmInfoLbl{
+margin:40px 0px 0px 0px;
+padding:0px 60px;
+}
+#settingsCont #accountEmailLbl{
+}
+#settingsCont #overrideDeviceBtn{
+padding:0px;
+margin:0px 60px;
+min-height:70px;
+max-height:70px;
+font-size:24px;
+border-width:2px;
+border-radius:8px;
+}
+/*SettingsUnLinkStoreDevice
+-------------------------------*/
+#SettingsUnLinkStoreDevice{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#settingsCont #adobeDrmInfoLbl{
+margin:40px 0px 0px 0px;
+padding:0px 60px;
+}
+#settingsCont #accountEmailLbl{
+padding:15px 0px 10px 0px;
+font-size:21px;
+}
+#settingsCont #subscriptionTextLbl{
+padding:0px 0px 5px 0px;
+}
+#settingsCont #subscriptionValueLbl{
+padding:0px 0px 15px 0px;
+}
+#SettingsUnLinkStoreDevice #overrideDeviceBtn{
+margin:0px 22px;
+padding:5px 30px;
+min-height:65px;
+max-height:65px;
+font-size:23px;
+border-top-width:1px;
+}
+#stoteWebUrlLbl{
+padding:0px 60px;
+}
+#changeAccountLbl{
+margin:30px 0px 40px 0px;
+padding:0px 60px;
+}
+#userLbl{
+padding:0px 20px;
+margin:0px 25px;
+font-weight:bold;
+font-size:23px;
+}
+#nameAccountLbl, #subscriptionLbl{
+padding:10px 25px 0px 25px;
+margin:0px 20px;
+border-top-width:1px;
+font-size:23px;
+}
+#userValueLbl, #accountEmailLbl{
+padding:0px 0px 0px 20px;
+margin:5px 10px 10px 25px;
+font-size:20px;
+}
+#statusLbl{
+padding:0px 0px 0px 20px;
+margin:10px 0px 10px 25px;
+font-size:21px;
+}
+#notelbl{
+padding:0px 0px 0px 0px;
+margin:2px 0px 10px 0px;
+font-size:19px;
+}
+#lastSyncLbl{
+padding:0px 0px 0px 20px;
+margin:0px 10px 10px 25px;
+font-size:21px;
+}
+#statusValLbl{
+margin:10px 10px 10px 0px;
+font-size:21px;
+}
+#lastSyncValLbl{
+margin:0px 10px 10px 0px;
+font-size:21px;
+}
+#updateAccountLbl{
+margin:20px 25px 0px 25px;
+}
+#warningMsgLbl{
+margin:15px 40px 10px 50px;
+padding:0px 20px 0px 50px;
+font-size:19px;
+}
+#statusLastSync{
+margin:0px 40px 0px 50px;
+font-size:16px;
+}
+/* SettingsAdobeDrmLinkDevice
+-----------------------------------*/
+#SettingsAdobeDrmLinkDevice{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#idAdobeLineEdit, #passAdobeLineEdit{
+margin:5px 60px;
+}
+#adobeDrmLinkInfoLbl{
+margin:40px 0px 0px 0px;
+padding:0px 60px;
+}
+#createAdobeDrmIdLbl{
+margin:10px 0px 20px 0px;
+padding:0px 60px;
+}
+#licenseAdobeBtn{
+border-radius: 5px 5px 5px 5px;
+border-width:1px;
+font-size:20px;
+font-weight:normal;
+margin:5px 60px 65px;
+padding:15px;
+}
+/*SettingsDeviceInfo
+----------------------------*/
+#SettingsDeviceInfo{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#batteryInfoCont{
+margin:0px 24px;
+min-height:80px;
+max-height:80px;
+border-bottom-width: 1px;
+border-top-left-radius:8px;
+border-top-right-radius:8px;
+}
+#freeSpaceCont, #privateFreeSpaceCont{
+margin:0px 24px;
+min-height:80px;
+max-height:80px;
+border-bottom-width: 1px;
+}
+#sdCardCont{
+margin:0px 24px;
+min-height:80px;
+max-height:80px;
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+#batteryTitleLbl, #freeSpaceTitleLbl, #sdFreeSpaceTitleLbl, #privateFreeSpaceTitleLbl{
+margin:0px 0px 0px 40px;
+}
+#batteryInfoCont #batteryProgressBar{
+margin:0px 40px 15px 0px;
+min-width:230px;
+max-width:230px;
+}
+#batteryProgressBar, #totalSpaceLbl, #sdTotalSpaceLbl, #batteryPercentValueLbl, #privateFreeTotalSpaceLbl, #privateFreeSpaceLbl{
+margin:0px 40px 0px 0px;
+}
+#settingsMenuListCont{
+margin:2px 22px;
+}
+#settingsMenuListCont #basicInfoBtn{
+margin:0px 24px;
+}
+#settingsMenuListCont #restoreDefaulValuesBtn{
+}
+#settingsMenuListCont #updateDeviceBtn{
+margin:0px 24px;
+}
+/* SettingsRestoreDefaultValues
+---------------------------------*/
+#SettingsRestoreDefaultValues{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#restoreDefaultValuesInfoLbl{
+margin:40px 0px 20px 0px;
+padding:0px 60px;
+}
+#restoreDefaultValuesQuestionLbl{
+padding:0px 60px;
+}
+/*SettingsUpdateDevice
+------------------------*/
+#SettingsUpdateDevice{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#howUpdateDeviceLbl{
+margin:20px 0px 20px 0px;
+padding:0px 60px;
+}
+#welcomeToUpdateYourDeviceLbl{
+margin:40px 0px 20px 0px;
+padding:0px 60px;
+}
+#manualUpdateBtn{
+margin:20px 60px 20px 60px;
+min-height:70px;
+max-height:70px;
+border-width:1px;
+border-radius:8px;
+}
+#automaticUpdateBtn{
+margin:20px 60px 20px 60px;
+min-height:70px;
+max-height:70px;
+border-width:1px;
+border-radius:8px;
+}
+/*SettingsUpdateDeviceManual
+----------------------------*/
+#SettingsUpdateDeviceManual{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#updateManualBtn{
+margin:20px 60px 20px 60px;
+min-height:70px;
+max-height:70px;
+border-width:1px;
+border-radius:8px;
+}
+#updateLbl{
+margin:40px 0px 20px 0px;
+padding:0px 60px;
+}
+/*SettingsUpdateDeviceAuto
+----------------------------*/
+#SettingsUpdateDeviceAuto{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsUpdateDeviceAuto SettingsPagerCont,#SettingsUpdateDeviceAuto #settingsPagerCont, #SettingsUpdateDeviceAuto #verticalPage{
+margin:0px 15px 2px 15px;
+min-height:60px;
+max-height:60px;
+border-width:1px;
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+#SettingsUpdateDeviceAuto #updateNumberLbl{
+/*border-width:1px;*/
+}
+#SettingsUpdateDeviceAuto #releaseNotesText{
+margin:0px 15px 0px 15px;
+border-width:1px;
+border-top-left-radius:8px;
+border-top-right-radius:8px;
+}
+#updateAutoBtn{
+margin:20px 15px 20px 15px;
+min-height:70px;
+max-height:70px;
+border-width:1px;
+border-radius:8px;
+}
+#updateNumberLbl{
+margin:10px 0px 20px 0px;
+padding:0px 60px;
+}
+#updateAutoLbl{
+margin:40px 0px 20px 0px;
+padding:0px 60px;
+}
+/*SettingsBrowser
+----------------------------*/
+#SettingsBrowser{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#navBarBrowser{
+min-height:60px;
+max-height:60px;
+border-width:1px;
+}
+#urlLineEdit{
+min-width:420px;
+max-width:420px;
+min-height:39px;
+max-height:39px;
+border-bottom-width:1px;
+}
+#homeBtn{
+margin:0px 0px 0px 20px;
+min-width:41px;
+max-width:41px;
+min-height:41px;
+max-height:41px;
+}
+#reloadPageBtn{
+margin:0px 20px 0px 0px;
+min-width:41px;
+max-width:41px;
+min-height:41px;
+max-height:41px;
+}
+#QbookWebView{
+}
+#bottomBrowser{
+min-height:50px;
+max-height:50px;
+border-width:1px;
+}
+ #pagerBrowserCont{
+min-width:66px;
+max-width:66px;
+min-height:35px;
+max-height:35px;
+}
+#previousPageBtn{
+}
+ #nextPageBtn{
+}
+#spacerBrowserBottomLeft{
+min-width:20px;
+max-width:20px;
+}
+#zoomInBtn{
+margin:0px 0px 0px 50px;
+min-width:35px;
+max-width:35px;
+min-height:35px;
+max-height:35px;
+}
+#zoomOutBtn{
+margin:0px 0px 0px 50px;
+min-width:35px;
+max-width:35px;
+min-height:35px;
+max-height:35px;
+}
+#favouriteBtn{
+margin:0px 0px 0px 70px;
+min-width:35px;
+max-width:35px;
+min-height:35px;
+max-height:35px;
+}
+#addFavouriteBtn{
+margin:0px 20px 0px 0px;
+min-width:32px;
+max-width:32px;
+min-height:35px;
+max-height:35px;
+}
+
+/* SettingsTechnicalInfo
+-------------------------*/
+#SettingsTechnicalInfo{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsTechnicalInfo #listView{
+margin:20px 40px;
+}
+#SettingsTechnicalInfo #settingsMenuListCont QWidget{
+margin:0px 24px;
+border-width:1px;
+}
+#SettingsTechnicalInfo #settingsMenuListCont #widgetCont{
+margin:0px 24px;
+border-width:0px;
+}
+#SettingsTechnicalInfo #settingsMenuListCont QWidget QLabel{
+padding:0px 10px;
+font-size:19px;
+}
+#versionLutLbl, #modelLbl, #mdeviceIDLbl, #edpTypeLbl,#edpTemperatureLbl, #internalMemLbl, #auxLbl, #diccioLbl, #bateryLbl, #tconLbl, #softwareLbl, #MACadressLbl, #externalMemLbl, #panelTypeLbl, #idDeviceLbl,#internalVersionLbl,#rootFsLbl, #kernelVersionLbl{
+min-width:160px;
+max-width:160px;
+}
+#internalVersionLbl{
+padding:0px 0px 0px 10px;
+margin:0px 10px 0px 0px;
+max-width:130px;
+}
+#SettingsTechnicalInfo #settingsMenuListCont QWidget #internalVersionValLbl{
+margin:0px 24px 0px 0px;
+padding:0px 10px 0px 0px;
+font-size:16px;
+}
+/*SettingsDictionariesInfo
+------------------------------------------*/
+#SettingsDictionariesInfo{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsDictionariesInfo #listView{
+margin:20px 40px;
+min-height:520px;
+max-height:520px;
+}
+/*SettingsGeneralTermslInfo
+------------------------------------------*/
+#SettingsGeneralTermsInfo{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsGeneralTermsInfo #listView{
+margin:20px 40px;
+}
+#SettingsGeneralTermsInfo #settingsMenuListCont  #verticalPage{
+margin:1px 26px 4px 26px;
+min-height:59px;
+max-height:59px;
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+/*SettingsGeneralTermsInfoAdobe
+------------------------------------------*/
+#SettingsGeneralTermsInfoAdobe{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsGeneralTermsInfoAdobe #listView{
+margin:20px 40px;
+}
+#SettingsGeneralTermsInfoAdobe #settingsMenuListCont  #verticalPage{
+margin:1px 26px 4px 26px;
+min-height:59px;
+max-height:59px;
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+/*SettingsLanguageMenu
+---------------------*/
+#SettingsLanguageMenu{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsLanguageMenu #espanolBtn{
+border-top-left-radius:8px;
+border-top-right-radius:8px;
+}
+#SettingsLanguageMenu #portuguesBtn{
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+#SettingsLanguageMenu #settingsMenuListCont QPushButton{
+padding:0px 0px 0px 25px;
+}
+#SettingsLanguageMenu #settingsMenuListCont QPushButton:checked {
+}
+/*SettingsBrightness
+-------------------------*/
+#SettingsBrightness{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsBrightness #screenLightCont{
+margin:0px 20px;
+border-bottom-width:1px;
+}
+#SettingsBrightness #screenLightLbl{
+margin:0px 0px 0px 40px;
+}
+#SettingsBrightness #brightnessLbl{
+margin:20px 0px 0px 40px;
+}
+#SettingsBrightness #brightnessCont{
+margin:0px 20px;
+min-height:140px;
+max-height:140px;
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+
+#SettingsBrightness #brightnessSliderCont #brightnessSlider{
+margin:20px 2px 20px 2px;
+min-width:305px;
+max-width:305px;
+}
+#SettingsBrightness #screenLightCont #screenLightStatusBtn{
+}
+#SettingsBrightness #brightnessSliderCont #brightnessMaxLbl{
+min-width:30px;
+max-width:30px;
+min-height:30px;
+max-height:30px;
+margin:20px 10px 20px 10px;
+}
+#SettingsBrightness #brightnessSliderCont #brightnessMinLbl{
+min-width:30px;
+max-width:30px;
+min-height:30px;
+max-height:30px;
+margin:20px 0px 20px 30px;
+}
+/*SettingsDevelopmentOptions
+---------------------------------*/
+#SettingsDevelopmentOptions{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsDevelopmentOptions #enableTelnetCont{
+margin:0px 20px;
+min-height:60px;
+max-height:60px;
+}
+#SettingsDevelopmentOptions #enableTelnetLbl{
+margin:0px 0px 0px 40px;
+min-height:60px;
+max-height:60px;
+}
+#SettingsDevelopmentOptions #enableUsbNetCont{
+margin:0px 20px;
+min-height:60px;
+max-height:60px;
+border-bottom-width:1px;
+}
+#SettingsDevelopmentOptions #enableUsbNetLbl{
+margin:0px 0px 0px 40px;
+}
+#SettingsDevelopmentOptions #enableTelnetBtn{
+min-width:40px;
+max-width:40px;
+min-height:0px;
+max-height:100px;
+}
+#SettingsDevelopmentOptions #enableUsbNetBtn{
+min-width:40px;
+max-width:40px;
+min-height:0px;
+max-height:100px;
+}
+
+/* SettingsDictionariesMenu
+---------------------------------*/
+#SettingsDictionariesMenu{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#settingsPagerCont{
+min-height:60px;
+max-height:60px;
+}
+#seeDictionariesInfoBtn,#activateExtraDictionaries{
+margin:4px 20px 4px 20px;
+min-height:60px;
+max-height:60px;
+border-width:2px;
+border-radius:8px;
+}
+
+#settingsMenuListCont #Item1,#settingsMenuListCont #Item2, #settingsMenuListCont #Item3, #settingsMenuListCont #Item4, #settingsMenuListCont #Item5, #settingsMenuListCont #Item6{
+margin:0px 22px;
+min-width:556px;
+max-width:556px
+}
+
+/*SettingsDictionariesMenuItem
+------------------------*/
+#SettingsDictionariesMenuItem{
+min-width:560px;
+max-width:560px;
+min-height:80px;
+max-height:80px;
+}
+#dictionaryNameLbl{
+padding:0px 0px 0px 45px;
+}
+#checkDictionaryLbl{
+min-width:70px;
+max-width:70px;
+}
+/*SettingsDateTimeMenu
+-------------------------*/
+#SettingsDateTimeMenu{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsDateTimeMenu #settingsMenuListCont{
+min-height:618px;
+max-height:618px;
+}
+#SettingsDateTimeMenu #dateTimeLbl{
+padding:20px 0px 3px 0px;
+min-height:45px;
+max-height:45px;
+font-size:22px;
+}
+#SettingsDateTimeMenu #dateTimeValueLbl{
+padding:0px 0px 15px 0px;
+min-height:35px;
+max-height:35px;
+font-size:24px;
+}
+#SettingsDateTimeMenuItem{
+margin:0px 22px;
+}
+#SettingsDateTimeMenu #timeZoneLbl{
+margin:0px 22px;
+padding:10px 0px;
+min-height:40px;
+max-height:40px;
+border-width:1px;
+}
+#SettingsDateTimeMenu #settingsMenuListCont SettingsDateTimeMenuItem{
+min-width:555px;
+max-width:555px;
+min-height:75px;
+max-height:75px;
+}
+/*TimeZomeItem
+------------------------*/
+#SettingsDateTimeMenuItemCont{
+margin:0px 26px;
+min-width:555px;
+max-width:555px;
+min-height:75px;
+max-height:75px;
+}
+#DateTimeMenuItemCont{
+min-height:72px;
+max-height:72px;
+}
+#DateTimeMenuItemCont #timeZoneCountriesLbl{
+padding:0px 0px 5px 45px;
+margin:0px;
+}
+#DateTimeMenuItemCont #gtmLbl{
+padding:0px 0px 0px 45px;
+margin:0px;
+}
+#checkTimezoneLbl{
+min-width:60px;
+max-width:60px;
+}
+/*SettingsSleepTimeMenu
+----------------------*/
+#SettingsSleepTimeMenu{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#sleepTimeLbl{
+padding:0px 50px 20px 50px;
+}
+#SettingsSleepTimeMenu QPushButton{
+padding:0px 0px 0px 25px;
+}
+#SettingsSleepTimeMenu QPushButton#minutes2Btn{
+border-top-left-radius:8px;
+border-top-right-radius:8px;
+}
+#SettingsSleepTimeMenu QPushButton#minutes20Btn{
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+/*SettingsReaderMenu
+-------------------------*/
+#SettingsReaderMenu{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#settingsMenuListCont #pageTurningBtn{
+}
+#settingsMenuListCont #progressBarBtn{
+}
+/*SettingsReadeProgressBar
+-------------------------*/
+#SettingsReaderProgressBar{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsReaderProgressBar #settingsMenuListCont QWidget{
+min-height:0px;
+max-height:1000px;
+}
+#widget #tit_label{
+padding:0px 60px 20px 60px;
+}
+#SettingsReaderProgressBar QCheckBox{
+margin:10px 0px 10px 0px;
+}
+#SettingsReaderProgressBar #viewerHeaderActionsCont QPushButton,
+#SettingsReaderProgressBar #viewerBottomActionsCont QPushButton{
+padding-left:10px;
+border-width:1px;
+border-radius:5px;
+font-size:16px;
+}
+#SettingsReaderProgressBar QPushButton:checked{
+}
+#viewerHeaderCont{
+min-width:412px;
+max-width:412px;
+min-height:38px;
+max-height:38px;
+border-width:1px;
+}
+#viewerHeaderCont QLabel{
+padding:10px 10px 0px 10px;
+font-size:12px;
+}
+#viewerHeaderCont QLabel#bookTitleLbl{
+}
+#viewerHeaderActionsCont{
+min-height:76px;
+max-height:76px;
+margin:0px 20px;
+border-width:2px;
+}
+#viewerHeaderActionsCont #withBookTitleBtn{
+margin:0px 10px 0px 30px;
+min-height:58px;
+max-height:58px;
+min-width:220px;
+max-width:220px;
+}
+#viewerHeaderActionsCont #withDateTimeBtn{
+margin:0px 30px 0px 30px;
+min-height:58px;
+max-height:58px;
+min-width:108px;
+max-width:108px;
+}
+#SettingsReaderProgressBar #viewerTextLbl{
+margin:0px 90px;
+padding:5px 8px;
+font-size:14px;
+border-right-width:1px;
+border-left-width:1px;
+}
+#viewerBottomActionsCont{
+min-height:140px;
+max-height:140px;
+margin:0px 20px;
+border-width:2px;
+}
+#viewerBottomActionsCont QPushButton{
+margin-right:5px;
+}
+#viewerBottomActionsCont #progressBarCont QPushButton{
+min-height:55px;
+max-height:55px;
+}
+#readingActions{
+min-height:65px;
+max-height:65px;
+}
+#readingActions QPushButton{
+margin-top:10px;
+}
+#viewerBottomActionsCont #readingActions #withProgressBtn{
+margin:10px 5px 0px 30px;
+}
+#viewerBottomActionsCont #readingActions #withProgressBtn_2{
+margin:10px 30px 0px 0px;
+}
+#viewerBottomActionsCont #withBackBtn{
+margin:0px 10px 0px 30px;
+min-width:146px;
+max-width:146px;
+}
+#viewerBottomActionsCont #withProgressBarBtn{
+margin:0px 30px 0px 30px;
+}
+#viewerBottom{
+min-width:412px;
+max-width:412px;
+min-height:39px;
+max-height:39px;
+border-width:1px;
+}
+#viewerBottom QLabel{
+padding:2px 10px 0px 10px;
+font-size:12px;
+}
+#viewerBottom QLabel#percentLbl{
+padding-right:0px;
+}
+ #viewerBottom QLabel#readedLbl{
+padding:2px 10px 0px 5px;
+}
+#viewerBottom #previousActionLbl{
+margin:0px 10px;
+min-width:35px;
+max-width:35px;
+min-height:35px;
+max-height:35px;
+}
+#viewerBottomCont #readingProgress{
+margin:5px 5px;
+min-height:5px;
+max-height:5px;
+border-radius:3px;
+}
+#topLeftLbl{
+min-height:40px;
+max-height:40px;
+}
+#topRightLbl{
+min-height:40px;
+max-height:40px;
+}
+#bottomLeftLbl{
+min-height:40px;
+max-height:40px;
+}
+#bottomRightLbl{
+min-height:40px;
+max-height:40px;
+}
+/*SettingsPageScreenSaver
+-------------------------*/
+#SettingsPageScreenSaver{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsPageScreenSaver #enableScreenSaverCont{
+margin:0px 22px;
+border-width:2px;
+border-radius:8px;
+}
+#SettingsPageScreenSaver #enableScreenSaverCont QPushButton{
+min-height:80px;
+max-height:80px;
+margin:2px 0;
+padding:0px 0px 0px 5px;
+border-bottom-width:1px;
+}
+#SettingsPageScreenSaver #enableScreenSaverCont QPushButton#imageRecentBookBtn{
+border-bottom-width:0px;
+}
+#SettingsPageScreenSaver #enableScreenSaverCont QPushButton#screenSaverDefaultBtn{}
+#SettingsPageScreenSaver #enableScreenSaverCont QPushButton#storedImagesBtn{}
+#screenSaverTextLbl{
+padding:0px 50px 20px 50px;
+}
+/*SettingsReaderPageTurning
+-------------------------*/
+#SettingsReaderPageTurning{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsReaderPageTurning #settingsMenuListCont QWidget{
+min-height:0px;
+max-height:1000px;
+}
+#SettingsReaderPageTurning #settingsMenuListCont, #settingsPageReaderRightCont, #settingsPageReaderLeftCont{
+min-height:290px;
+max-height:290px;
+}
+#SettingsReaderPageTurning #readerLbl{
+padding:0px 50px 40px 50px;
+}
+#leftRightCheck{
+font-size:19px;
+min-height:60px;
+max-height:60px;
+margin:10px 0px;
+}
+#rightNextPageLbl{
+padding-top:5px;
+font-size:18px;
+min-height:50px;
+max-height:50px;
+text-transform:uppercase;
+}
+#nextPageLbl{
+padding:0px 0px 0px 4px;
+font-size:18px;
+}
+#leftNextPageLbl{
+padding:0px 0px 5px 0px;
+font-size:18px;
+}
+#previousPageLbl{
+padding:0px 0px 5px 4px;
+font-size:18px;
+}
+#readerImage1Lbl{
+margin:5px 0px 0px 0px;
+min-height:150px;
+max-height:150px;
+}
+#upDownCheck{
+font-size:18px;
+min-height:60px;
+max-height:60px;
+margin:10px 0px;
+}
+#upPreviuosPageLbl{
+padding-top:5px;
+font-size:18px;
+}
+#previousPage2Lbl{
+padding:5px 0px 0px 4px;
+font-size:18px;
+}
+#downNextPageLbl{
+padding:0px 0px 5px 0px;
+font-size:18px;
+}
+#nextPage2Lbl{
+padding:0px 0px 5px 4px;
+font-size:18px;
+}
+#readerImage2Lbl{
+margin:5px 15px 0px 0px;
+min-height:150px;
+max-height:150px;
+}
+#SettingsReaderPageTurning QCheckBox{
+margin:10px 0px 10px 0px;
+}
+#SettingsReaderPageTurning QCheckBox::indicator {
+}
+#SettingsReaderPageTurning QCheckBox::indicator:unchecked {
+}
+#SettingsReaderPageTurning QCheckBox::indicator:unchecked:pressed {
+}
+#SettingsReaderPageTurning QCheckBox::indicator:unchecked:pressed {
+}
+#SettingsReaderPageTurning QCheckBox::indicator:checked {
+}
+#SettingsReaderPageTurning QCheckBox::indicator:checked:pressed {
+}
+#SettingsReaderPageTurning QCheckBox::indicator:checked:pressed {
+}
+#SettingsReaderPageTurning QCheckBox::indicator:indeterminate:pressed {
+}
+#SettingsReaderPageTurning QCheckBox::indicator:indeterminate:pressed {
+}
+#SettingsReaderPageTurning #settingsMenuListCont #leftRightLbl{
+margin-top:0px;
+min-height:175px;
+max-height:175px;
+}
+#SettingsReaderPageTurning #settingsMenuListCont #upDownLbl{
+margin-top:0px;
+min-height:175px;
+max-height:175px;
+}
+#progressModeCont QPushButton{
+padding:0px 15px;
+/*min-width:510px;
+max-width:510px;*/
+min-height:60px;
+max-height:60px;
+}
+#SettingsReaderPageTurning #widget #tit_label{
+padding:20px 0px 20px 0px;
+}
+#progressModeCont{
+margin:0px 22px;
+border-width:2px;
+border-radius:8px;
+}
+#progressModeCont #withPageCont, #withBackCont, #progressModeCont #withProgressBtn{
+border-bottom-width:1px
+}
+#SettingsReaderPageTurning #refreshStepLbl{
+margin:20px 0px;
+}
+#refreshStepsCont QPushButton{
+margin:15px 10px;
+min-height:45px;
+max-height:45px;
+min-width:55px;
+max-width:55px;
+font-size:20px;
+border-width:1px;
+border-radius:5px;
+}
+#refreshStepsCont{
+margin:0px 22px;
+border-width:2px;
+border-radius:8px;
+}
+
+/*SettingsQuickSettingsPopup
+------------------------*/
+#SettingsQuickSettingsPopup{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#QuickSettingsCont{
+position:absolute;
+top:30px;
+left:30px;
+min-width:455px;
+max-width:455px;
+min-height:300px;
+max-height:300px;
+margin-bottom:100px;
+border-width:2px;
+border-radius:8px;
+}
+#headerPopupCont{
+margin:0px 20px;
+min-height:45px;
+max-height:45px;
+border-width:1px;
+}
+#titlePopupLbl{
+padding:0px 0px 0px 10px;
+font-size:20px;
+}
+#QuickSettingsCont #titlePopupLbl{
+font-size:20px;
+}
+#closePopupBtn{
+margin:0px 0px 0px 0px;
+min-width:45px;
+max-width:45px;
+min-height:45px;
+max-height:45px;
+}
+#QuickSettingsCont #contentPopup{
+min-width:415px;
+max-width:415px;
+min-height:210px;
+max-height:210px;
+margin:20px 0px 0px 0px;
+border-width:1px;
+border-radius:8px;
+}
+#contentPopup #screenLightCont,#contentPopup  #wifiCont{
+border-width:1px;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#contentPopup #wifiStatusBtn, #contentPopup #screenLightStatusBtn{
+padding:0px 10px 0px 0px;
+min-width:100px;
+max-width:100px;
+min-height:30px;
+max-height:30px;
+}
+#contentPopup #wifiLbl, #contentPopup #brightnessLbl,#contentPopup #screenLightLbl{
+padding:0px 0px 0px 10px;
+}
+#contentPopup #brightnessCont{
+border-width:1px;
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+#contentPopup #brightnessLbl{
+padding:0px 0px 0px 10px;
+border-width:1px;
+}
+#contentPopup #brightnessMaxLbl{
+min-width:30px;
+max-width:30px;
+min-height:30px;
+max-height:30px;
+margin:0px 10px 0px 0px;
+}
+#contentPopup #brightnessMinLbl{
+min-width:30px;
+max-width:30px;
+min-height:30px;
+max-height:30px;
+margin:0px 0px 0px 10px;
+}
+#contentPopup #brightnessSlider{
+margin:20px 0px 20px 0px;
+/*min-width:305px;
+max-width:305px;*/
+}
+/*WIFI
+--------------------------------------------*/
+#settingsMenuListCont {
+margin:0px 20px;
+border-width:2px;
+border-radius:8px;
+}
+#settingsSectionHeader{
+min-width:600px;
+max-width:600px;
+min-height:50px;
+max-height:50px;
+}
+#settingsSectionHeader #sectionTitleLbl{
+margin:0px 0px 0px 20px;
+font-size:20px;
+}
+#settingsSectionHeader #backBtn{
+margin:0px 0px 0px 20px;
+padding:0px 0px 0px 20px;
+min-width:83px;
+max-width:83px;
+min-height:50px;
+max-height:50px;
+font-size:18px;
+}
+/*SettingsWiFiList
+-------------------------*/
+#SettingsWiFiList{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsWiFiList #settingsMenuListCont #Item1, #SettingsWiFiList #settingsMenuListCont #Item2, #SettingsWiFiList #settingsMenuListCont #Item3, #SettingsWiFiList #settingsMenuListCont #Item4, #SettingsWiFiList #settingsMenuListCont #Item5, #SettingsWiFiList #settingsMenuListCont #Item6{
+min-height:65px;
+max-height:65px;
+padding:0px 0px 0px 0px;
+margin:0px 20px;
+border-bottom-width:1px;
+}
+#SettingsWiFiList #settingsMenuListCont #switchWifiCont{
+min-height:60px;
+max-height:60px;
+}
+#SettingsWiFiList #settingsMenuListCont #statusWifiConexionCont{
+min-height:40px;
+max-height:40px;
+}
+#SettingsWiFiList #settingsMenuListCont QPushButton#wifiStatusBtn{
+margin:0px 40px 0px 0px;
+min-width:100px;
+max-width:100px;
+min-height:55px;
+max-height:55px;
+}
+#SettingsWiFiList #settingsMenuListCont #settingsPagerCont{
+margin:0px 22px 2px 22px;
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+#wifiActionsCont #updateWifiListBtn{
+margin:0px 26px 0px 0px;
+min-width:55px;
+max-width:55px;
+min-height:60px;
+max-height:60px;
+}
+#SettingsWiFiList #statusWifiConexionCont{
+margin:0px 0px 0px 40px;
+}
+#spinnerSpacer{
+margin:5px 0px 0px 0px;
+min-width:40px;
+max-width:40px;
+}
+#SettingsWiFiList #spinnerWifiLbl{
+min-width:45px;
+max-width:45px;
+min-height:40px;
+max-height:40px;
+}
+#SettingsWiFiList #wifiConnectMsgLbl{
+padding:0px 0px 20px 0px;
+font-size:17px;
+}
+#SettingsWiFiList #wifiNameLbl{
+padding:0px 0px 20px 5px;
+font-size:17px;
+}
+#SettingsWiFiList #wifiSignalLbl{
+padding:0px 0px 0px 10px;
+min-width:45px;
+max-width:45px;
+}
+#SettingsWiFiList #wifiActionsCont{
+min-height:60px;
+max-height:60px;
+margin:0px 22px;
+border-width:1px;
+}
+#SettingsWiFiList #wifiNetworksLbl{
+padding:0px 80px 0px 40px;
+}
+#SettingsWiFiList #wifiLbl{
+padding:0px 0px 0px 40px;
+}
+#SettingsWiFiList #settingsMenuListCont QPushButton#addNetworksBtn{
+min-height:40px;
+max-height:40px;
+margin:0px;
+padding:0px 14px;
+border-width:1px;
+border-radius:5px;
+margin-right:3px;
+}
+/*SettingsWiFiListItem
+-----------------*/
+#SettingsWiFiListItem{
+min-width:560px;
+max-width:560px;
+min-height:65px;
+max-height:65px;
+}
+#SettingsWiFiListItem #wifiCont,SettingsWiFiListItem #wifiCont{
+padding:0px 30px 0px 0px;
+min-width:40px;
+max-width:40px;
+}
+#SettingsWiFiListItem #noSignalWifi{
+min-width:40px;
+max-width:40px;
+min-height:65px;
+max-height:65px;
+}
+#SettingsWiFiListItem #signalWifi_1{
+min-width:40px;
+max-width:40px;
+min-height:65px;
+max-height:65px;
+}
+#SettingsWiFiListItem #signalWifi_2{
+min-width:40px;
+max-width:40px;
+min-height:65px;
+max-height:65px;
+}
+#SettingsWiFiListItem #signalWifi_3{
+min-width:40px;
+max-width:40px;
+min-height:65px;
+max-height:65px;
+}
+#SettingsWiFiListItem #signalWifi_4{
+min-width:40px;
+max-width:40px;
+min-height:65px;
+max-height:65px;
+}
+#lockWifiLbl{
+min-width:35px;
+max-width:35px;
+}
+#wifiNameItemLbl{
+padding:0px 0px 0px 40px;
+}
+#wifiConnect{
+min-width:45px;
+max-width:45px;
+}
+#wifiRemember{
+min-width:45px;
+max-width:45px;
+}
+/*SettingsConfigureNetwork
+--------------------------*/
+#SettingsConfigureNetwork{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsConfigureNetwork QLabel#networkNameTextLbl{
+margin:15px 0px 15px 30px;
+}
+#SettingsConfigureNetwork QLabel#networkNameLbl{
+margin:15px 15px 15px 15px;
+}
+#SettingsConfigureNetwork #settingsMenuListCont QLabel{
+margin:0px 18px 0px 30px;
+}
+#SettingsConfigureNetwork #settingsMenuListCont QLineEdit{
+margin:0px 35px 0px 20px;
+min-height:40px;
+max-height:40px;
+min-width:277px;
+max-width:277px;
+}
+#SettingsConfigureNetwork #settingsMenuListCont QPushButton{
+margin:0px 30px;
+}
+#SettingsConfigureNetwork #settingsMenuListCont #dnsListLineEdit{
+}
+#SettingsConfigureNetwork #settingsMenuListCont QLabel#configureLbl{
+margin-right:24px;
+}
+#SettingsConfigureNetwork #settingsMenuListCont QWidget#dnsListCont,
+#SettingsConfigureNetwork #settingsMenuListCont QWidget#gatewayCont,
+#SettingsConfigureNetwork #settingsMenuListCont QWidget#ipAddressCont,
+#SettingsConfigureNetwork #settingsMenuListCont QWidget#subnettingCont{
+margin-top:5px;
+margin-bottom:0px;
+min-height:50px;
+max-height:50px;
+}
+#ipAddressCont{
+}
+#dnsListCont{
+/*margin-bottom:5px;*/
+}
+#SettingsConfigureNetwork #confTypeCmb{
+margin:0px 30px 0px 0px;
+}
+#confTypeCmb, #SettingsConfigureNetwork #confTypeBtn{
+margin:0px 0px 0px 0px;
+min-height:45px;
+max-height:45px;
+padding:0px 15px;
+font-size:22px;
+border-width:2px;
+border-radius: 8px;
+max-width: 150px;
+min-width: 150px;
+}
+#SettingsConfigureNetwork #saveBtn{
+padding:0px 20px;
+min-height:50px;
+max-height:50px;
+border-radius:5px;
+border-width:1px;
+}
+#SettingsConfigureNetwork #cancelBtn{
+margin-right:20px;
+padding:0px 20px;
+min-height:50px;
+max-height:50px;
+border-radius:5px;
+border-width:1px;
+}
+
+/*SettingConfigureNetworkListActions
+-------------------------------------*/
+
+#SettingConfigureNetworkListActions{
+min-height:200px;
+max-height:200px;
+min-width:230px;
+max-width:230px;
+}
+#SettingConfigureNetworkListActionsCont{
+border-width:2px;
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px;
+min-width:180px;
+max-width:180px;
+margin-left:30px;
+}
+#SettingConfigureNetworkListActions QPushButton{
+margin:0px;
+padding:0px 0px 0px 20px;
+min-height:50px;
+max-height:50px;
+border-bottom-width:1px;
+margin-left:30px;
+}
+
+/*SettingsAddNetwork
+----------------------------------*/
+#SettingsAddNetwork{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsAddNetwork #settingsMenuListCont QLabel{
+margin:10px 40px 5px 40px;
+}
+#SettingsAddNetwork #settingsMenuListCont QLineEdit, #SettingsAddNetwork #settingsMenuListCont QPushButton, #SettingsAddNetwork #settingsMenuListCont QComboBox{
+margin:0px 40px;
+min-height:40px;
+max-height:40px;
+}
+#SettingsAddNetwork #settingsMenuListCont QCheckBox{
+margin:15px 40px 80px 40px;
+}
+#SettingsAddNetwork #connectBtn{
+padding:0px 20px;
+min-height:40px;
+max-height:40px;
+border-radius:5px;
+border-width:1px;
+}
+#SettingsAddNetwork #addvancedSettingsBtn{
+padding:0px 20px;
+min-height:40px;
+max-height:40px;
+border-radius:5px;
+border-width:1px;
+}
+#settingsMenuListCont QPushButton#securityBtn{
+padding:0px 0px 0px 20px;
+min-height:53px;
+max-height:53px;
+border-radius:8px;
+border-width:1px;
+}
+#settingsMenuListCont #securityBtnComboBox{
+padding:0px 0px 0px 20px;
+min-height:53px;
+max-height:53px;
+border-radius:8px;
+border-width:1px;
+}
+
+/*WifiSecurityLayer
+--------------------------*/
+#WifiSecurityLayer{
+min-width:540px;
+max-width:540px;
+}
+#WifiSecurityLayerCont{
+min-width:538px;
+max-width:538px;
+border-width:1px;
+border-radius:8px;
+}
+#WifiSecurityLayerCont QPushButton{
+padding:0px 20px;
+min-height:55px;
+max-height:55px;
+border-bottom-width:1px;
+}
+/*SettingsNetworkWifiInfo
+------------------------------------*/
+#SettingsNetworkWifilInfo{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsNetworkWifilInfo #settingsMenuListCont QWidget{
+border-bottom-width:1px;
+margin:0px 20px;
+}
+#SettingsNetworkWifilInfo #settingsMenuListCont QLabel{
+margin:0px 40px 0px 40px;
+}
+#SettingsNetworkWifilInfo #securityLbl, #SettingsNetworkWifilInfo #signalLbl, #SettingsNetworkWifilInfo #ipAddressLbl, #SettingsNetworkWifilInfo #subnetMaskLbl ,#SettingsNetworkWifilInfo #routerLbl, #SettingsNetworkWifilInfo #dnsLbl, #SettingsNetworkWifilInfo #proxyLbl{
+}
+#deleteNetworkBtn{
+margin:0px 20px 20px 20px;
+padding:0px 20px;
+min-height:40px;
+max-height:40px;
+border-radius:5px;
+border-width:1px;
+}
+#disconnectNetworkBtn{
+margin:0px 0px 20px 0px;
+padding:0px 20px;
+min-height:40px;
+max-height:40px;
+border-radius:5px;
+border-width:1px;
+}
+#editWifiDataBtn{
+margin:0px 0px 20px 0px;
+padding:0px 20px;
+min-height:40px;
+max-height:40px;
+border-radius:5px;
+border-width:1px;
+}
+/*SettingsWiFiPasswordMenu
+--------------------------*/
+#SettingsWiFiPasswordMenu{
+min-width:600px;
+max-width:600px;
+min-height:800px;
+max-height:800px;
+}
+#connectingWifiCont{
+min-width:453px;
+max-width:453px;
+min-height:338px;
+max-height:338px;
+border-width:2px;
+border-radius:8px;
+}
+#connectingWifiCont #hiddenPassword{
+margin:5px 0px 20px 12px;
+min-width:400px;
+max-width:400px;
+}
+#connectingWifiCont #connectWifiHeader{
+margin:0px 10px 5px 10px;
+padding:0px 0px 0px 0px;
+min-height:50px;
+max-height:50px;
+font-size:22px;
+border-width:1px;
+}
+#connectingWifiCont #connectTitleLbl{
+padding:0px 0px 0px 10px;
+}
+#connectingWifiCont #wifiNameLbl{
+margin:0px 20px 0px 14px;
+font-size:22px;
+}
+#connectingWifiCont #passwordLbl{
+margin:0px 0px 0px 18px;
+}
+#connectingWifiCont #passwordLineEdit{
+margin:0px 17px 0px 17px;
+/*min-width:368px;
+max-width:368px;*/
+border-width:2px;
+}
+#connectingWifiCont #acceptBtn{
+margin:0px 0px 10px 0px;
+padding:0px 20px;
+min-height:40px;
+max-height:40px;
+border-radius:5px;
+border-width:2px;
+}
+#connectingWifiCont #cancelBtn{
+margin:0px 20px 10px 20px;
+padding:0px 20px;
+min-height:40px;
+max-height:40px;
+border-radius:5px;
+border-width:2px;
+}
+/*SettingsWiFiDetail
+---------------------------*/
+#SettingsWiFiDetail{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsWiFiDetail #ButtonsContEdit QPushButton{
+padding:0px 15px;
+margin:0px 15px 0px 0px;
+min-height:50px;
+max-height:50px;
+border-radius:5px;
+border-width:1px;
+}
+#ButtonsContEdit QPushButton#disconnectBtn{
+margin:0px 20px 0px 0px;
+}
+#SettingsWiFiDetail #settingsMenuListCont QLabel{
+border-width:1px;
+font-size:19px;
+}
+#wifiStatusTit, #subnetMask, #signal, #security, #router, #ipAddress, #dns, #Proxy{
+font-weight:bold;
+padding:20px 0px 20px 25px;
+margin:0px 0px 0px 20px;
+}
+#wifiNameLabel, #subnetEdit, #signal_data, #security_data, #routerEdit, #ipAddressEdit, #dnsEdit, #Proxy_data{
+padding:20px 25px 20px 0px;
+margin:0px 20px 0px 0px;
+}
+
+
+/*SettingsSwitchOffTimeMenu
+----------------------*/
+#SettingsSwitchOffTimeMenu{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#switchOffLbl{
+padding:0px 50px 20px 50px;
+}
+#SettingsSwitchOffTimeMenu QPushButton{
+padding:0px 0px 0px 25px;
+}
+#SettingsSwitchOffTimeMenu QPushButton#hours2Btn{
+border-top-left-radius:8px;
+border-top-right-radius:8px;
+}
+#SettingsSwitchOffTimeMenu QPushButton#week1Btn{
+border-bottom-left-radius:8px;
+border-bottom-right-radius:8px;
+}
+/*SettingsEnergySaving
+-------------------------*/
+#SettingsEnergySaving{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#settingsMenuListCont #sleepTimeBtn{
+}
+#settingsMenuListCont #switchOffBtn{
+}
+/*SettingsAboutUs
+------------------------------------------*/
+#SettingsAboutUs{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#SettingsAboutUs #listView{
+margin:20px 40px;
+}
+#SettingsAboutUs #settingsMenuListCont QLabel{
+margin:0px 40px;
+font-size:17px;
+}
+#SettingsAboutUs #settingsMenuListCont #versionTitleLbl{
+margin-top:15px;
+margin-bottom:15px;
+font-size:20px;
+}
+#SettingsAboutUs #settingsMenuListCont #creditsLbl{
+margin-top:15px;
+font-size:18px;
+}
+#SettingsAboutUs #settingsMenuListCont #developersLbl, #SettingsAboutUs #settingsMenuListCont #graphicDesignLbl, #SettingsAboutUs #settingsMenuListCont #frontDeveloperLbl, #SettingsAboutUs #settingsMenuListCont #uxLbl, #SettingsAboutUs #settingsMenuListCont #qaLbl, #SettingsAboutUs #settingsMenuListCont #productManagerLbl{
+margin-top:15px;
+margin-bottom:0px;
+font-size:18px;
+}
+

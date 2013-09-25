@@ -1,0 +1,287 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* StoreBrowser
+--------------------------*/
+#StoreBrowser{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#StoreBrowser #searchCont{
+margin:0px 20px;
+min-height:60px;
+max-height:60px;
+border-width:1px;
+}
+#searchCont #homeBtn{
+margin-left:5px;
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+}
+#searchCont #categoryDownLayerBtn{
+padding-right:40px;
+}
+#searchCont #storeSearchLineEdit{
+padding-left:40px;
+min-width:0px;
+max-width:458px;
+min-height:55px;
+max-height:55px;
+border-radius:0;
+}
+#StoreBrowser #searchCont #clearSearchBtn{
+margin:0px;
+min-width:46px;
+max-width:46px;
+min-height:55px;
+max-height:55px;
+border-width:0px;
+}
+#StoreBrowser #SubcategoryBar {
+min-height:47px;
+max-height:47px;
+border-width:1px;
+}
+#StoreBrowser #SubcategoryBar #backBtn{
+margin:0px 10px 0px 20px;
+min-width:78px;
+max-width:78px;
+min-height:45px;
+max-height:45px;
+}
+#StoreBrowser #SubcategoryBar #subcategoryLbl{
+font-size:20px;
+}
+#StoreBrowser #actionsBar{
+min-height:54px;
+max-height:54px;
+border-width:1px;
+}
+#StoreBrowser #actionsBar #showResultsLbl{
+margin-left:25px;
+font-size:17px;
+}
+#StoreBrowser #actionsBar #bookActionsSelectBtn{
+margin-right:15px;
+padding:0px 40px 0px 10px;
+min-width:180px;
+max-width:180px;
+min-height:41px;
+max-height:41px;
+font-size:18px;
+border-width:2px;
+border-radius:8px;
+}
+#StoreBrowser #actionsBar #gridModeBtn{
+margin:0px 25px 0px 0px;
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+border-width:2px;
+}
+#StoreBrowser #actionsBar #listModeBtn{
+margin:0px 25px 0px 0px;
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+border-width:2px;
+}
+#StoreBrowser #booksContainer{
+min-width:600px;
+max-width:600px;
+min-height:595px;
+max-height:595px;
+}
+/*StoreIconGridViewer
+--------------------------*/
+#StoreIconGridViewer{
+min-width:600px;
+max-width:600px;
+min-height:595px;
+max-height:595px;
+}
+#iconGridViewerCont #book1, #iconGridViewerCont #book2, #iconGridViewerCont #book3, #iconGridViewerCont #book4, #iconGridViewerCont #book5, #iconGridViewerCont #book6{
+min-width:190px;
+max-width:190px;
+min-height:260px;
+min-height:260px;
+}
+/*StoreIconGridViewerItem
+------------------------------------*/
+
+#StoreIconGridViewerItem {
+min-width:190px;
+max-width:190px;
+min-height:240px;
+max-height:240px;
+}
+#IconGridViewerItemCont {
+min-width:190px;
+max-width:190px;
+min-height:228px;
+max-height:228px;
+}
+#IconBookItemCont{
+min-width:190px;
+max-width:190px;
+min-height:240px;
+max-height:240px;
+}
+#IconFileItemCont{
+min-width:190px;
+max-width:190px;
+min-height:240px;
+max-height:240px;
+}
+#IconGridViewerItemCont #coverCont #topLeftLbl{
+min-width:20px;
+max-width:20px;
+min-height:5px;
+max-height:5px;
+}
+#IconGridViewerItemCont #coverCont #topCenterLbl{
+min-width:140px;
+max-width:140px;
+min-height:5px;
+max-height:5px;
+}
+#IconGridViewerItemCont #coverCont #topRightLbl{
+min-width:19px;
+max-width:19px;
+min-height:5px;
+max-height:5px;
+}
+#IconGridViewerItemCont #coverCont #centerLeftLbl{
+min-width:20px;
+max-width:20px;
+min-height:210px;
+max-height:210px;
+}
+#IconGridViewerItemCont #coverCont #cover, #IconGridViewerItemCont #coverCont #cover #coverLabel{
+min-width:140px;
+max-width:140px;
+min-height:210px;
+max-height:210px;
+}
+#IconGridViewerItemCont #coverCont #centerRightLbl{
+min-width:19px;
+max-width:19px;
+min-height:210px;
+max-height:210px;
+}
+#IconGridViewerItemCont #coverCont #bottomLeftLbl{
+min-width:20px;
+max-width:20px;
+min-height:7px;
+max-height:7px;
+}
+#IconGridViewerItemCont #coverCont #bottomCenterLbl{
+min-width:140px;
+max-width:140px;
+min-height:7px;
+max-height:7px;
+}
+#IconGridViewerItemCont #coverCont #bottomRightLbl{
+min-width:19px;
+max-width:19px;
+min-height:7px;
+max-height:7px;
+}
+#coverFileLbl{
+min-width:185px;
+max-width:185px;
+min-height:190px;
+max-height:190px;
+}
+#coverCont #titleLbl,#cover #titleLbl{
+min-width:140px;
+max-width:140px;
+padding:120px 0px 0px 0px;
+font-size:15px;
+}
+#coverCont #fileNameLbl,#cover #fileNameLbl{
+min-width:140px;
+max-width:140px;
+min-height:35px;
+max-height:35px;
+font-size:15px;
+}
+
+#iconGridViewerCont #newTagLbl,#StoreIconGridViewerItem #newTagLbl{
+min-width:180px;
+max-width:180px;
+min-height:229px;
+max-height:229px;
+padding:0px 0px 0px 0px;
+font-size:16px;
+}
+#iconGridViewerCont #selectBookLbl, #StoreIconGridViewerItem #selectBookLbl{
+min-width:190px;
+max-width:190px;
+min-height:230px;
+max-height:230px;
+}
+
+
+
+
+/*StorePageHandler
+----------------------------*/
+#pageStoreViewerCont{
+min-width:600px;
+max-width:600px;
+min-height:50px;
+max-height:50px;
+}
+#VerticalPagerHandler{
+margin-top:7px;
+min-height:43px;
+max-height:43px;
+}
+#VerticalPagerHandler #pageStoreViewerCont{
+margin-top:1px;
+min-height:50px;
+max-height:50px;
+}
+#VerticalPagerHandler #pageStoreViewerCont #forwardButton{
+margin-top:1px;
+min-width:90px;
+max-width:90px;
+min-height:50px;
+max-height:50px;
+}
+#VerticalPagerHandler #pageStoreViewerCont #backButton{
+margin-top:1px;
+min-width:90px;
+max-width:90px;
+min-height:50px;
+max-height:50px;
+}
+#VerticalPagerHandler #pageLabel{
+margin-top:1px;
+min-height:50px;
+max-height:50px;
+}

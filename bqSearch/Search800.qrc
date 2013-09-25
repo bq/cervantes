@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="res/search_styles_generic.qss">res/search_styles_generic.qss</file>
+        <file alias="res/search_styles.qss">res/800/search_styles.qss</file>
+        <file alias="res/book_epub_list.png">res/800/book_epub_list.png</file>
+        <file alias="res/book_pdf_list.png">res/800/book_pdf_list.png</file>
+        <file alias="res/corrupted_list.png">res/800/corrupted_list.png</file>
+        <file alias="res/doc_list.png">res/800/doc_list.png</file>
+        <file alias="res/folder_list.png">res/800/folder_list.png</file>
+        <file alias="res/gif_list.png">res/800/gif_list.png</file>
+        <file alias="res/jpg_list.png">res/800/jpg_list.png</file>
+        <file alias="res/pdf_list.png">res/800/pdf_list.png</file>
+        <file alias="res/png_list.png">res/800/png_list.png</file>
+        <file alias="res/txt_list.png">res/800/txt_list.png</file>
+        <file alias="res/unknow_list.png">res/800/unknow_list.png</file>
+        <file alias="res/book_txt_list.png">res/800/book_txt_list.png</file>
+        <file alias="res/book_unknow_list.png">res/800/book_unknow_list.png</file>
+        <file alias="res/store_file.png">res/800/store_file.png</file>
+        <file alias="res/device_file.png">res/800/device_file.png</file>
+    </qresource>
+</RCC>

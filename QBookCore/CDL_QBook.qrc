@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/QBook">
+        <file alias="cover">res/cdl/bookcover_1.png</file>
+        <file alias="cover_90">res/cdl/bookcover_90.png</file>
+    </qresource>
+</RCC>

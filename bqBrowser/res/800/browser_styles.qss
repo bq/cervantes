@@ -1,0 +1,329 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*SettingsBrowser
+----------------------------*/
+#Browser{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#navBarBrowser{
+min-height:60px;
+max-height:60px;
+border-width:1px;
+}
+#url{
+margin-left:8px;
+padding:0px 0px 0px 10px;
+min-width:295px;
+max-width:295px;
+min-height:55px;
+max-height:55px;
+border-radius:0;
+}
+#homeBtn{
+margin:0px 0px 0px 15px;
+min-width:45px;
+max-width:45px;
+min-height:50px;
+max-height:50px;
+}
+#reloadbtn{
+margin:0px 6px 0px 0px;
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+}
+#stopbtn{
+margin:0px 4px 0px 0px;
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+}
+#QbookWebView{
+}
+#bottomBrowser{
+min-height:50px;
+max-height:50px;
+border-width:1px;
+}
+#pagerBrowserCont{
+margin:0px 0px 0px 20px;
+min-width:100px;
+max-width:100px;
+min-height:45px;
+max-height:45px;
+border-width:2px;
+border-radius:5;
+}
+#backbtn{
+margin:0px 0px 0px 20px;
+}
+#forwardbtn{
+}
+#backbtn,#forwardbtn{
+min-width:50px;
+max-width:50px;
+}
+#browserBar{
+min-width:600px;
+max-width:600px;
+min-height:55px;
+max-height:55px;
+}
+#browserBarCont{
+border-width:2px;
+}
+#webViewFooterCont{
+min-height:55px;
+max-height:55px;
+border-width:2px;
+}
+#webViewFooter{
+}
+#spacerBrowserBottomLeft{
+min-width:20px;
+max-width:20px;
+}
+#zoomInBtn{
+margin:0px 0px 0px 40px;
+min-width:45px;
+max-width:45px;
+min-height:50px;
+max-height:50px;
+}
+#zoomOutBtn{
+margin:0px 0px 0px 40px;
+min-width:45px;
+max-width:45px;
+min-height:50px;
+max-height:50px;
+}
+#favobtn{
+margin:0px 0px 0px 60px;
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+}
+#addfavobtn{
+margin:0px 50px 0px 0px;
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+}
+#Browser #Go{
+margin:0px 4px 0px 0px;
+min-width:55px;
+max-width:55px;
+min-height:50px;
+max-height:50px;
+border-width:1px;
+border-radius:5;
+}
+#Browser #clearSearchBtn{
+margin:0px 5px 0px 0px;
+min-width:40px;
+max-width:40px;
+min-height:55px;
+max-height:55px;
+}
+/*BrowserFavo
+------------------------------*/
+#BrowserFavoCont{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#verticalFrame{
+margin:20px;
+padding:0px 0px 12px 0px;
+border-width:10px;
+border-radius:10px;
+min-width:540px;
+max-width:540px;
+min-height:680px;
+max-height:680px;
+}
+#commandbar2 {
+margin:0px 0px 0px 0px;
+padding:0px 0px 10px 15px;
+min-height:40px;
+max-height:40px;
+border-width:2px;
+}
+#commandbar2 #year{
+margin:10px 0px 0px 0px;
+}
+#commandbar2 #closeBtn{
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+}
+#frame_2 #deleteBtn, #frame_2 #selectBtn{
+margin:0px 0px 0px 15px;
+padding:0px 15px;
+min-height:40px;
+max-height:40px;
+border-width:1px;
+border-radius:5px;
+}
+#stackedWidget{
+margin:0px 20px 20px 20px;
+}
+#frame_2{
+margin:0px 0px 0px 0px;
+min-height:55px;
+max-height:55px;
+}
+/*BrowserFavo
+------------------------------*/
+#BrowserFavo{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#BrowserFavoCont{
+margin:20px;
+padding:0px 0px 12px 0px;
+border-width:10px;
+border-radius:10px;
+min-width:540px;
+max-width:540px;
+min-height:680px;
+max-height:680px;
+}
+#browserSectionHeader {
+margin:20px 30px 0px;
+padding:0px 0px 10px 15px;
+min-height:50px;
+max-height:50px;
+border-width:2px;
+}
+#browserSectionHeader #sectionTitleLbl{
+margin:25px 0px 0px 45px;
+}
+#browserSectionHeader #year{
+margin:10px 0px 0px 0px;
+}
+#browserSectionHeader #closeBtn{
+margin:30px 45px 0px 0px;
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+}
+#actionCont #deleteBtn{
+margin:0px 0px 0px 45px;
+padding:0px 15px 0px 55px;
+min-height:40px;
+max-height:40px;
+border-width:1px;
+border-radius:5px;
+}
+#actionCont #selectBtn{
+margin:0px 0px 0px 15px;
+padding:0px 15px 0px 55px;
+min-width:180px;
+max-width:180px;
+min-height:40px;
+max-height:40px;
+border-width:1px;
+border-radius:5px;
+}
+#stackedWidget{
+margin:0px 20px 20px 20px;
+}
+#actionCont{
+margin:0px 30px;
+min-height:55px;
+max-height:55px;
+}
+#BrowserFavoListCont #Item1,
+#BrowserFavoListCont #Item2,
+#BrowserFavoListCont #Item3,
+#BrowserFavoListCont #Item4,
+#BrowserFavoListCont #Item5,
+#BrowserFavoListCont #Item6,
+#BrowserFavoListCont #Item7,
+#BrowserFavoListCont #Item8{
+margin:0px 30px;
+min-width:540px;
+max-width:540px;
+min-height:65px;
+max-height:65px;
+border-width:1px;
+}
+#checkBtn{
+margin:0px 10px 10px 40px;
+min-height:55px;
+max-height:55px;
+min-width:50px;
+max-width:50px;
+}
+#EventLabel{
+padding-top:10px;
+}
+/*BrowserFavoItem
+---------------------*/
+#BrowserFavoItem{
+min-width:500px;
+max-width:500px;
+}
+#BrowserFavoItemCont{
+min-width:500px;
+max-width:500px;
+min-height:65px;
+max-height:65px;
+}
+#BrowserFavoItemCont #time{
+font-size:19px;
+}
+#page_slider{
+}
+#downPageBtn{
+min-width:45px;
+max-width:45px;
+min-height:45px;
+max-height:45px;
+margin:0px 0px 0px 30px;
+}
+#upPageBtn{
+min-width:45px;
+max-width:45px;
+min-height:45px;
+max-height:45px;
+margin:0px 30px 0px 0px;
+}
+#EventUrl{
+margin-right:50px;
+}
+#EventLabel{
+margin-right:50px;
+}
+

@@ -1,0 +1,72 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*QBookApp
+----------------------------*/
+#QBookApp{
+min-width:758px;
+max-width:758px;
+min-height:1024px;
+max-height:1024px;
+}
+#QBookApp #titleBar{
+min-width:758px;
+max-width:758px;
+min-height:63px;
+max-height:63px;
+}
+
+#DeviceInfoDialog{
+min-width:758px;
+max-width:758px;
+min-height:1024px;
+max-height:1024px;
+}
+#DeviceInfoDialog QCheckBox::indicator {
+width: 64px;
+height: 64px;
+}
+#DeviceInfoDialog #settingsMenuListCont{
+margin:0px 22px;
+}
+#DeviceInfoDialog #okButton{
+min-width:130px;
+max-width:130px;
+min-height:58px;
+max-height:58px;
+}
+#DeviceInfoDialog #settingsMenuListCont QWidget{
+margin:0px 30px;
+border-width:2px;
+}
+#DeviceInfoDialog #settingsMenuListCont QWidget QLabel{
+padding:0px 10px;
+font-size:23px;
+}
+#versionLutLbl, #modelLbl, #mdeviceIDLbl, #edpTypeLbl,#edpTemperatureLbl, #internalMemLbl, #auxLbl, #diccioLbl, #bateryLbl, #tconLbl, #softwareLbl, #MACadressLbl, #externalMemLbl, #panelTypeLbl, #idDeviceLbl,#internalVersionLbl,#rootFsLbl, #kernelVersionLbl{
+min-width:190px;
+max-width:190px;
+}
+#versionLutLbl, #modelLbl, #mdeviceIDLbl, #edpTypeLbl,#edpTemperatureLbl, #internalMemLbl, #auxLbl, #diccioLbl, #bateryLbl, #tconLbl, #softwareLbl, #MACadressLbl, #externalMemLbl, #panelTypeLbl{
+}
+#DeviceInfoDialog #settingsMenuListCont QWidget #internalVersionValLbl{
+margin-left:0px;
+font-size:13px;
+}

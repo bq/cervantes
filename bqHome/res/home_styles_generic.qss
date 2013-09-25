@@ -1,0 +1,416 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*Home
+-------------------*/
+#Home{
+background: #FFFFFF url(":/res/bg_home.png") repeat-x top left;
+/*background-color:#FFF;*/
+}
+#currentBookCont{
+/*background:qlineargradient(x1:0, y1:0, x2:0, y2:1,	stop:0 #DADADA, stop:0.82 #FFF, stop:0.83 #ADADAF, stop:0.88 #CFCFD1, stop:0.89 #D1D2D3, stop:1 #F5F5F5);*/
+}
+#readBookBtn{
+background-color:transparent;
+}
+#currentBookCoverCont{
+}
+#currentBookCoverLbl{
+background-color: #FFFFFF;
+background-position:center center;
+background-repeat:no-repeat;
+}
+#currentBookTopLeft{
+background-image: url(:/res/book_front_top_left.png) ;
+background-position:bottom right;
+background-repeat:no-repeat;
+}
+#currentBookTopCenter{
+background-image: url(:/res/book_front_top_center.png) ;
+background-position:bottom left;
+background-repeat:no-repeat;
+}
+#currentBookTopRight{
+background-image: url(:/res/book_front_top_right.png) ;
+background-position:bottom left;
+background-repeat:no-repeat;
+}
+#currentBookCenterLeft{
+background-image: url(:/res/book_front_center_left.png) ;
+background-position:top right;
+background-repeat:no-repeat;
+}
+#currentBookCenterRight{
+background-image: url(:/res/book_front_center_right.png) ;
+background-position:top left;
+background-repeat:no-repeat;
+}
+#currentBookBottomLeft{;
+background-image: url(:/res/book_front_bottom_left.png) ;
+background-position:top right;
+background-repeat:no-repeat;
+}
+#currentBookBottomCenter{
+background-image: url(:/res/book_front_bottom_center.png) ;
+background-position:top right;
+background-repeat:no-repeat;
+}
+#currentBookBottoRight{
+background-image: url(:/res/book_front_bottom_right.png) ;
+background-position:top left;
+background-repeat:no-repeat;
+}
+#currentBookData{
+}
+
+#currentBookCont #bookTitleLbl{
+font-family: 'Lato';
+font-weight:bold;
+}
+#currentBookCont #authorLbl, #currentBookCont #readLbl, #currentBookCont #lastAccessLbl, #currentBookCont #dateAccessLbl{
+font-family: 'Lato';
+}
+#currentBookCont #pagLbl,#currentBookCont #currentPagLbl,#currentBookCont #endBracketsLbl,#currentBookCont #separatorLbl,#currentBookCont #totalPagLbl, #currentBookCont #percentLbl{
+color:#303030;
+}
+#currentBookCont #readLbl, #currentBookCont #readingPercentLbl, #currentBookCont #separatorReadLbl,#currentBookCont #percentLbl{
+color:#303030;
+}
+#actionsBar{
+/*background:qlineargradient(x1:0, y1:0, x2:0, y2:1,	stop:0 #FFF, stop:1 #EFEFEF);*/
+}
+#HomeBooksList{
+/*background:qlineargradient(x1:0, y1:0, x2:0, y2:1,	stop:0 #DADADA, stop:0.82 #FFF, stop:0.83 #ADADAF, stop:0.88 #CFCFD1, stop:0.89 #D1D2D3, stop:1 #F5F5F5);*/
+}
+#actionsBar #recommendedBtn{
+font-weight:bold;
+color:#303030;
+background-image: url(:/res/arrow.png);
+background-color: transparent;
+background-repeat: no-repeat;
+background-position: center right;
+text-transform:uppercase;
+}
+#showAllBtn{
+color:#404040;
+}
+#appMenu{
+/*background:qlineargradient(x1:0, y1:0, x2:0, y2:1,	stop:0 #F9F9F9, stop:1 #D1D2D2);*/
+}
+#appMenu QPushButton{
+text-align:bottom;
+font-weight:bold;
+color:#303030;
+}
+#searchBtn{
+background:   transparent url(:/res/search_app.png) no-repeat top center;
+}
+#libraryBtn{
+background: transparent url(:/res/library_app.png) no-repeat top center;
+}
+#storeBtn{
+background: transparent url(:/res/store_app.png) no-repeat top center;
+}
+#settingsBtn{
+background: transparent url(:/res/settings_app.png) no-repeat top center;
+}
+#helpBtn{
+background: transparent url(:/res/help_app.png) no-repeat top center;
+}
+/*New styles
+------------------*/
+#lastAccessCont{
+}
+#currentBookCont #dateAccessLbl, #currentBookCont #lastAccessLbl{
+color:#303030;
+}
+#bookAccessCont{
+}
+#currentBookCont #bookAccessCont #bookAccessLbl, #currentBookCont #bookAccessCont #numberAccessLbl{
+color:#303030;
+}
+/*HomeBookList
+------------------*/
+#HomeBooksList{
+/*background:qlineargradient(x1:0, y1:0, x2:0, y2:1,	stop:0 #DADADA, stop:0.82 #FFF, stop:0.83 #ADADAF, stop:0.88 #CFCFD1, stop:0.89 #D1D2D3, stop:1 #F5F5F5);*/
+}
+#previousBtn{
+background-image: url(:/res/previous_book.png) ;
+background-repeat:no-repeat;
+background-position: center;
+}
+#previousBtn:disabled{
+background:none;
+}
+#nextBtn{
+background-image: url(:/res/next_book.png) ;
+background-repeat:no-repeat;
+background-position: center;
+}
+#nextBtn:disabled{
+background:none;
+}
+#cover1Cont #topLeft1Lbl{
+background-image: url(":/res/book_front_top_left.png") ;
+background-position:right bottom;
+background-repeat:no-repeat;
+}
+#cover1Cont #topCenter1Lbl{
+background-image: url(":/res/book_front_top_center.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#cover1Cont #topRight1Lbl{
+background-image: url(":/res/book_front_top_right.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#cover1Cont #centerLeft1Lbl{
+background-image: url(":/res/book_front_center_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#cover1Cont #cover1{
+background-color: #FFFFFF;
+background-position:center center;
+background-repeat:no-repeat;
+}
+#cover1Cont #centerRight1Lbl{
+background-image: url(":/res/book_front_center_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#cover1Cont #bottomLeft1Lbl{
+background-image: url(":/res/book_front_bottom_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#cover1Cont #bottomCenter1Lbl{
+background-image: url(":/res/book_front_bottom_center.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#cover1Cont #bottomRight1Lbl{
+background-image: url(":/res/book_front_bottom_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#cover2Cont #topLeft2Lbl{
+background-image: url(":/res/book_front_top_left.png") ;
+background-position:right bottom;
+background-repeat:no-repeat;
+}
+#cover2Cont #topCenter2Lbl{
+background-image: url(":/res/book_front_top_center.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#cover2Cont #topRight2Lbl{
+background-image: url(":/res/book_front_top_right.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#cover2Cont #centerLeft2Lbl{
+background-image: url(":/res/book_front_center_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#cover2Cont #cover2{
+min-width:140px;
+max-width:758px;
+min-height:210px;
+max-height:846px;
+background-color: #FFFFFF;
+background-position:center center;
+}
+#cover2Cont #centerRight2Lbl{
+background-image: url(":/res/book_front_center_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#cover2Cont #bottomLeft2Lbl{
+background-image: url(":/res/book_front_bottom_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#cover2Cont #bottomCenter2Lbl{
+background-image: url(":/res/book_front_bottom_center.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#cover2Cont #bottomRight2Lbl{
+background-image: url(":/res/book_front_bottom_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#cover3Cont #topLeft3Lbl{
+background-image: url(":/res/book_front_top_left.png") ;
+background-position:right bottom;
+background-repeat:no-repeat;
+}
+#cover3Cont #topCenter3Lbl{
+background-image: url(":/res/book_front_top_center.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#cover3Cont #topRight3Lbl{
+background-image: url(":/res/book_front_top_right.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#cover3Cont #centerLeft3Lbl{
+background-image: url(":/res/book_front_center_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#cover3Cont #cover3{
+background-color: #FFFFFF;
+background-position:center center;
+background-repeat:no-repeat;
+}
+#cover3Cont #centerRight3Lbl{
+background-image: url(":/res/book_front_center_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#cover3Cont #bottomLeft3Lbl{
+background-image: url(":/res/book_front_bottom_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#cover3Cont #bottomCenter3Lbl{
+background-image: url(":/res/book_front_bottom_center.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#cover3Cont #bottomRight3Lbl{
+background-image: url(":/res/book_front_bottom_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+/*HomeBookList
+-------------------------*/
+#HomeBooksListItem{
+}
+#HomeBooksListItem #coverLbl{
+background-image: url(":/res/book_front_cover.png") ;
+background-position:center center;
+background-repeat:no-repeat;
+}
+#authorLabel{
+text-align:center;
+}
+#titleLabel{
+text-align:center;
+}
+/*HomeBooksListOptions
+----------------*/
+#HomeBooksListOptions{
+}
+#arrowPopupLbl{
+background: url(:res/arrow_popup.png) no-repeat top left;
+}
+#optionsListCont{
+border-style:solid;
+border-color:#707070;
+background-color:#FFFFFF;
+}
+#optionsListCont QPushButton{
+text-align:left;
+border-style:solid;
+border-color:#707070;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#optionsListCont QPushButton#recentBtn{
+border:none;
+}
+/*New, sanpled and archived tags
+---------------------------------*/
+#newTagLbl{
+background-position:bottom center;
+background-repeat:no-repeat;
+background-image:url(:/res/new_tag.png);
+}
+#archiveTagLbl {
+background-position:center center;
+background-repeat:no-repeat;
+image:url(:/res/archive_tag.png);
+}
+#sampleTagLbl{
+color:#FFF;
+background-position:top left;
+background-repeat:no-repeat;
+background-image:url(:/res/sample_tag_notext_sup.png);
+text-align:left;
+}
+#subscriptionTagLbl{
+color:#FFF;
+background-position:top left;
+background-repeat:no-repeat;
+background-image:url(:/res/sample_tag_notext_sup.png);
+text-align:left;
+}
+/*#Pruebas #label{
+color:#000;
+font-weight:bold;
+font-size:28px;
+}*/
+/*#Pruebas #label_2{
+color:#0F0F0F;
+font-weight:bold;
+font-size:28px;
+}*/
+/*#Pruebas #label_3{
+color:#1F1F1F;
+font-weight:bold;
+font-size:28px;
+}/*
+/*#Pruebas #label_4{
+color:#303030;
+font-weight:bold;
+font-size:28px;
+}*/
+/*#Pruebas #label_5{
+color:#404040;
+font-weight:bold;
+font-size:28px;
+}*/
+/*#Pruebas #label_6{
+color:#505050;
+font-weight:bold;
+font-size:28px;
+}*/
+/*000
+0F
+1F MALO
+30
+40
+50
+60
+70
+80
+90
+A2
+C7
+DA
+ED
+FF*/

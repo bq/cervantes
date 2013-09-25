@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="res/common_styles_generic.qss">common_styles_generic.qss</file>
+        <file alias="res/common_styles.qss">800/common_styles.qss</file>
+        <file alias="starting.png">800/starting.png</file>
+        <file alias="startingSD.png">800/startingSD.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,31 @@
+
+@font-face {
+        font-family : serif, Serif;
+        font-weight : normal;
+        font-style: normal;
+        color: black;
+        src: url("res:///fonts/Vera.ttf")
+}
+
+@font-face {
+        font-family: serif, Serif;
+        font-style: italic, oblique;
+        font-weight: normal;
+        color: black;
+        src: url("res:///fonts/VeraIt.ttf")
+}
+@font-face {
+        font-family: serif, Serif;
+        font-style: normal;
+        font-weight: bold;
+        color: black;
+        src: url("res:///fonts/VeraBd.ttf")
+}
+@font-face {
+        font-family: serif, Serif;
+        font-style: italic, oblique;
+        font-weight: bold;
+        color: black;
+        src: url("res:///fonts/VeraBI.ttf")
+}
+

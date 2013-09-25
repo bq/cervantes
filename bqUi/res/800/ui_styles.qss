@@ -1,0 +1,225 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*Keyboard
+-------------------------------------*/
+
+#Keyboard{
+min-width:600px;
+max-width:600px;
+min-height:300px;
+max-height:300px;
+/*min-height:800px;
+max-height:800px;*/
+}
+#keyboardCont {
+min-width:600px;
+max-width:600px;
+min-height:300px;
+max-height:300px;
+border-top-width:2px;
+border-bottom-width:2px;
+}
+#keyboardCont KeyboardButton{
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+font-size:25px;
+border-width:2px;
+border-radius: 5px;
+}
+#keyboardCont #verticalFrame{
+min-width:581px;
+max-width:581px;
+min-height:300px;
+max-height:300px;
+}
+#keyboardCont #newLineBtn{
+min-width:50px;
+max-width:50px;
+}
+#keyboardCont KeyboardButton#enter{
+min-width:109px;
+max-width:109px;
+border-width:1px;
+}
+
+
+#keyboardCont #cancelKeyboardBtn{
+min-width:103px;
+max-width:103px;
+font-size:22px;
+border-width:0px;
+}
+
+#keyboardCont KeyboardButton#deleteChar{
+min-width:50px;
+max-width:50px;
+}
+
+#keyboardCont KeyboardButton#numeric{
+min-width:65px;
+max-width:65px;
+}
+#keyboardCont KeyboardButton#space{
+min-width:166px;
+max-width:166px;
+}
+#keyboardCont KeyboardButton#specialChar{
+min-width:107px;
+max-width:107px;
+font-size:22px;
+}
+#keyboardCont KeyboardButton#next, #keyboardCont KeyboardButton#cursorRight{
+border-width:2px;
+font-weight:bold;
+}
+#keyboardCont KeyboardButton#previous, #keyboardCont KeyboardButton#cursorLeft{
+border-width:2px;
+font-weight:bold;
+}
+
+#keyboardCont KeyboardButton#shift{
+min-width:49px;
+max-width:49px;
+min-height:49px;
+max-height:49px;
+border-width:2px;
+}
+
+/* KeyboardLayer
+---------------------------------*/
+#keyboardLayerCont{
+border-width:2px;
+border-radius: 4px;
+min-height:55px;
+max-height:185px;
+}
+#buttonGrid KeyboardButton, #buttonGrid KeyboardButton{
+min-width:48px;
+max-width:48px;
+min-height:48px;
+max-height:48px;
+font-size:25px;
+border-width:1px;
+border-radius: 5px;
+margin-bottom:0px;
+margin-right:5px;
+}
+#keyboardLayerCont #downLine, #keyboardLayerCont #upLine{
+min-height:57px;
+max-height:57px;
+}
+#LayerCloseBtn{
+margin:0px 0px 20px 0px;
+min-width:40px;
+max-width:40px;
+min-height:50px;
+max-height:50px;
+}
+
+/*StatusBar
+-------------------------*/
+#StatusBar{
+min-width:600px;
+max-width:600px;
+min-height:50px;
+max-height:50px;
+}
+#StatusBarCenterCont{
+min-width:600px;
+max-width:600px;
+min-height:50px;
+max-height:50px;
+}
+#StatusBarCont{
+min-width:560px;
+max-width:560px;
+min-height:50px;
+max-height:50px;
+}
+#StatusBarCont #currentSectionLbl{
+padding:0px 0px 0px 0px;
+min-height:50px;
+max-height:50px;
+font-size:20px;
+min-width:250px;
+max-width:500px;
+}
+#StatusBarCont #currentReadBtn{
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+}
+#StatusBarCont #lightBtn{
+padding:0px 10px 0px 0px;
+min-width:23px;
+max-width:23px;
+min-height:50px;
+max-height:50px;
+}
+#StatusBarCont #batteryLbl{
+padding:0px 0px 0px 0px;
+min-width:32px;
+max-width:32px;
+min-height:50px;
+max-height:50px;
+}
+#StatusBarCont #timeLbl{
+margin:8px 0px;
+padding:0px 10px 0px 0px;
+min-height:37px;
+max-height:37px;
+font-size:18px;
+}
+#StatusBarCont #usbConnectedLbl{
+padding:0px 10px 0px 0px;
+min-width:15px;
+max-width:15px;
+min-height:50px;
+max-height:50px;
+}
+#StatusBarCont #syncSpinnerLbl{
+padding:0px 10px 0px 0px;
+min-width:27px;
+max-width:27px;
+min-height:50px;
+max-height:50px;
+}
+#StatusBarCont #wifiBtn{
+padding:0px 10px 0px 0px;
+min-width:27px;
+max-width:27px;
+min-height:50px;
+max-height:50px;
+}
+#StatusBarCont #spinnerLbl{
+padding:0px 10px 0px 0px;
+min-width:30px;
+max-width:30px;
+min-height:50px;
+max-height:50px;
+}
+#SeparateVertical {
+min-height:235px;
+max-height:235px;
+}

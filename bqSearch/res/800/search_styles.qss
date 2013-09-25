@@ -1,0 +1,122 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*Search
+----------------------------*/
+#Search{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#Search #searchHeader{
+min-height:75px;
+max-height:75px;
+border-width:1px;
+}
+#Search #searchLineEdit{
+min-width:468px;
+max-width:468px;
+min-height:55px;
+max-height:55px;
+padding:0px 0px 0px 40px;
+border-width:0px;
+}
+#Search #clearSearchBtn{
+min-width:46px;
+max-width:46px;
+min-height:55px;
+max-height:55px;
+}
+#SearchResultItem1, #SearchResultItem2, #SearchResultItem3, #SearchResultItem4, #SearchResultItem5, #SearchResultItem6, #SearchResultItem7, #SearchResultItem8, #SearchResultItem9{
+min-height:60px;
+max-height:60px;
+}
+#SearchResultItemShop1, #SearchResultItemShop2, #SearchResultItemShop3, #SearchResultItemShop4, #SearchResultItemShop5, #SearchResultItemShop6, #SearchResultItemShop7, #SearchResultItemShop8, #SearchResultItemShop9{
+min-height:60px;
+max-height:60px;
+}
+#resultNumberCont{
+min-height:64px;
+max-height:64px;
+border-width:1px;
+}
+#resultNumberCont #showResultLbl{
+padding:0px 4px 0px 20px;
+}
+#resultNumberCont #resultsNumberLbl{
+padding:0px 4px 0px 0px;
+}
+#shopOnlineBtn{
+padding-left:60px;
+min-height:60px;
+max-height:60px;
+}
+#deviceBooksBtn{
+padding-left:60px;
+min-height:60px;
+max-height:60px;
+}
+/*SearchResultItem
+----------------------------*/
+#SearchItemCont , SearchItem, #SearchItemShopCont, SearchItemShop{
+min-width:600px;
+max-width:600px;
+min-height:59px;
+max-height:59px;
+border-width:1px;
+}
+#SearchItemCont #fileTypeLbl, SearchItem #fileTypeLbl, #SearchItemShopCont #fileTypeLbl, SearchItemShop #fileTypeLbl{
+margin:10px 0px 0px 0px;
+min-width:60px;
+max-width:60px;
+}
+#SearchItemCont #searchTitle,SearchItem #searchTitle, #SearchItemShopCont #searchTitle,SearchItemShop #searchTitle{
+margin:6px 0px 0px 0px;
+}
+#SearchItemCont #searchAuthor, SearchItem #searchAuthor, #SearchItemShopCont #searchAuthor, SearchItemShop #searchAuthor{
+}
+/*VerticalPagerHandler
+------------------------*/
+#Search #verticalPagerHandler{
+min-width:600px;
+max-width:600px;
+min-height:60px;
+max-height:60px;
+border-width:1px;
+}
+#verticalPagerHandler #downPageBtn{
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+margin:0px 0px 0px 30px;
+}
+#verticalPagerHandler #upPageBtn{
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+margin:0px 30px 0px 0px;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+padding:0px 5px 0px 5px;
+font-size:17px;
+}

@@ -1,0 +1,1415 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*Viewer
+-------------------*/
+#Viewer{
+background-color:#FFF;
+}
+#bookMarkCont{
+}
+#ViewerCont{
+background:transparent;
+}
+#bookMarkCont #bookmarkImg{
+background:url(":/res/bookmark.png") no-repeat top center;
+}
+#ViewerCont #textBody{
+background-color:transparent;
+}
+#ViewerCont #pageWindow{
+}
+#noteLbl{
+background:  url(":/res/note_ico.png") no-repeat top left;
+}
+#highlightedLbl{
+background:  url(":/res/highlighted_ico.png") no-repeat top left;
+}
+#textBody{
+background-color:transparent;
+}
+#buySampleBtn{
+text-align:center;
+color:#000000;
+background:  url(":/res/buy_book.png") no-repeat top left;
+}
+#viewerHeader #titleLbl{
+font-weight:bold;
+}
+
+/*Landscape*/
+#ViewerContLandscape{
+background:transparent;
+}
+#pageWindowLandscape{
+}
+#bookMarkContLandscape{
+}
+#buySampleLandscapeBtn{
+text-align:center;
+color:#000000;
+background:  url(":/res/buy_book_landscape.png") no-repeat top left;
+}
+#bookMarkContLandscape #bookmarkImg{
+background:url(":/res/bookmark_landscape.png") no-repeat top center;
+}
+#titleLandscapeLbl{
+text-align:left;
+}
+#dateTimeLandscapeLbl{
+text-align:right;
+}
+#viewerHeaderLandscape{
+}
+#viewerHeaderLandscape #dateTimeLandscapeLbl{
+}
+#viewerHeaderLandscape #titleLandscapeLbl{
+font-weight:bold;
+}
+/*ViewerFloatingNote
+-------------------------------*/
+#ViewerFloatingNote{
+}
+#noteImg{
+background: url(":/res/note_ico.png") no-repeat top left;
+}
+/*ViewerPageHandler
+-------------------------------*/
+#ViewerPageHandler{
+}
+#pageText{
+color:#000;
+text-align:right;
+}
+#readingPercentLbl{
+color:#000;
+}
+#pageBackBtn{
+background-color:transparent;
+background-image: url(:/res/page_back_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center right;
+}
+#pdfMenuBtn{
+background-image: url(:/res/pdf-ico.png) ;
+background-repeat: no-repeat;
+background-position:center right;
+}
+#toFinishChapLbl, #readedLbl, #pagToFinishLbl{
+color:#000;
+}
+
+/*ViewerMenu
+------------------------*/
+#ViewerMenu{
+}
+#viewerMenuCont {
+border-top-style:solid;
+border-top-color:#909090;
+background-color:#F0F0F0;
+}
+#viewerMenuCont QPushButton{
+text-align:bottom;
+color:#303030;
+}
+#viewerMenuCont #contentsBtn{
+background:  url(":/res/content.png") no-repeat top center;
+}
+#viewerMenuCont #summaryBtn{
+background:  url(":/res/datasheet.png") no-repeat top center;
+}
+#viewerMenuCont #gotoPageBtn{
+background:  url(":/res/goto.png") no-repeat top center;
+}
+#viewerMenuCont #appaeranceBtn{
+background:  url(":/res/appearance.png") no-repeat top center;
+}
+#viewerMenuCont #searchBtn{
+background:  url(":/res/search.png") no-repeat top center;
+}
+#ViewerMenu #chapterCont{
+border-top-style:solid;
+border-top-color:#909090;
+background-color:#EDEDED;
+}
+#ViewerMenu #chapterCont #chapterNameLbl{
+color:#303030;
+}
+#ViewerMenu #chapterCont #chapterPageLbl{
+color:#505050;
+}
+#ViewerMenu #chapterCont #chapterTitleLbl{
+color:#303030;
+}
+#ViewerMenu #chapterCont #chapterAuthorLbl{
+color:#505050;
+}
+/*Viewer popups
+-----------------------------------*/
+#popupCont{
+border-style:solid;
+border-color:#505050;
+background-color:#FFFFFF;
+}
+#headerPopup{
+border-color:#D0D0D0;
+border-style:solid;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#popupCont{
+}
+#arrowCont{
+}
+#topArrowLbl{
+background:  url(":/res/arrow_top.png") no-repeat  bottom right;
+}
+#bottomArrowLbl{
+background:  url(":/res/arrow_bottom.png") no-repeat  bottom right;
+}
+/*ViewerVerticalPagerPopup
+--------------------*/
+#ViewerVerticalPagerPopup{
+}
+#ViewerVerticalPagerPopup QPushButton, ViewerVerticalPagerPopup QPushButton{
+}
+ViewerVerticalPagerPopup #downPageBtn{
+border:none;
+background:transparent url(":/res/down_pager_btn.png") no-repeat center center;
+}
+ViewerVerticalPagerPopup #upPageBtn{
+border:none;
+background:transparent url(":/res/up_pager_btn.png") no-repeat center center;
+}
+
+
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl, #pagTextLbl, #ofTextLbl{
+color:#404040;
+text-align:left;
+}
+#SearchContextMenuCont #ofLbl{
+color:#000000;
+}
+/*ViewerTextActionsPopup
+-----------------*/
+#ViewerTextActionsPopup{
+}
+#ViewerTextActionsPopup #headerPopup{
+border:none;
+}
+#ViewerTextActionsPopup #headerPopup{
+border:none;
+}
+#headerPopup #closeBtn{
+background: url(":/res/close.png") no-repeat center center;
+}
+#ViewerTextActionsPopup #definitionTextBrowser {
+border-style:solid;
+border-color:#C0C0C0;
+background-color:#FFFFFF;
+}
+#actionsCont QPushButton, #seeCompleteDefinition{
+border-style:solid;
+border-color:#707070;
+background-color:#E0E0E0;
+}
+/*ViewerEditNotePopup
+----------------*/
+#ViewerEditNotePopup{
+}
+#noteTextBrowser{
+border-style:solid;
+border-color:#C0C0C0;
+background-color:#FFFFFF;
+}
+#noteTextEdit{
+border-style:solid;
+border-color: #BDBDBE;
+}
+#ViewerEditNotePopup #saveNoteBtn{
+border-style:solid;
+border-color:#707070;
+background-color:#E0E0E0;
+}
+#ViewerEditNotePopup #editNoteBtn{
+border-style:solid;
+border-color:#707070;
+background-color:#E0E0E0;
+}
+/*ViewerDictionaryDefinitionPopup
+--------------------------------*/
+#ViewerDictionaryDefinitionPopup{
+}
+#changeDictionaryBtn{
+text-align:left;
+border-style:solid;
+border-color:#707070;
+background:  url(":/res/arrow_margin.png") no-repeat center right;
+}
+#backSearchBtn{
+background-color:transparent;
+background-image: url(:/res/back-def.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+/*DictionaryLayer
+-------------------------*/
+#DictionaryLayer{
+}
+#DictionaryLayerCont {
+border-style:solid;
+border-color:#707070;
+background-color:#FFF;
+}
+#DictionaryLayer QPushButton {
+text-align:left;
+border-bottom-style:solid;
+border-bottom-color:#707070;
+}
+#DictionaryLayer QPushButton:checked {
+/*background: url(":/res/check.png") no-repeat center right;*/
+background-color:#DADADA;
+border-left-style:solid;
+border-left-color:#707070;
+border-right-style:solid;
+border-right-color:#707070;
+}
+#DictionaryLayer QPushButton#dictBtn0:checked{
+}
+#DictionaryLayer QPushButton:disabled {
+font-weight:normal;
+color:#666;
+}
+/*ViewerSearchWordPopup
+--------------------------*/
+#ViewerSearchWordPopup{
+border-style:solid;
+border-color:#707070;
+background-color:#FFFFFF;
+}
+#ViewerSearchPopup{
+}
+#ViewerSearchPopup #headerPopup #closeBtn{
+background-position:center;
+}
+#ViewerSearchWordPopup #headerPopup, #ViewerSearchPopup #headerPopup{
+}
+#ViewerSearchPopup #resultsNumLbl{
+color:#606060;
+}
+#searchLineEdit{
+border:none;
+background-color:#FFFFFF;
+background-image: url(:/res/bg_search_input.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#clearSearchBtn{
+border:none;
+background-image: url(:/res/bg_clear_search.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SearchResultItem1,#SearchResultItem2,#SearchResultItem3, #SearchResultItem4, #SearchResultItem5, #SearchResultItem6{
+border-style:solid;
+border-color: #D0D0D0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#processSearchCont #processLbl{
+}
+#processSearchCont #spinnerLbl{
+background:url(:/res/spinner_Ico.png) no-repeat center center;
+}
+
+/*ViewerSearchResultItem
+-------------------*/
+#ViewerSearchResultItem {
+}
+#ViewerSearchResultItem QLabel{
+}
+#ViewerSearchResultItem QLabel#searchResultPageLbl, #ViewerSearchPopup QLabel#searchResultPageLbl{
+color:#666666;
+}
+#ViewerSearchResultItem QLabel#searchResultTextLbl{
+}
+/*ViewerAppearancePopup
+-------------------------*/
+#ViewerAppearancePopupOld{
+}
+#ViewerAppearancePopupCont{
+}
+#marginSpacingCont QLabel{
+}
+#ViewerAppearancePopupOld #headerPopup #closeBtn{
+background-position:center;
+}
+#sizeCont QPushButton{
+}
+#sizeCont QPushButton:checked{
+}
+#sizeCont #size1{
+}
+#sizeCont #size2{
+}
+#sizeCont #size3{
+}
+#sizeCont #size4{
+}
+#sizeCont #size5{
+}
+#sizeCont #size6{
+}
+#sizeCont #size7{
+}
+#sizeCont #size8{
+}
+#fontsCont{
+border-style:solid;
+border-color:#666666;
+}
+#fontsCont QPushButton{
+border-style:solid;
+border-color:#666666;
+border-top:none;
+border-right:none;
+border-left:none;
+}
+#fontsCont #LatinModernBtn{
+font-family:'Latin Modern Mono Light';
+}
+#fontsCont #NoticiaTextBtn{
+font-family:'Noticia Text';
+}
+#fontsCont #RobotoBtn{
+font-family:'Droid serif';
+}
+#fontsCont #VeraSansBtn{
+font-family:'Bitstream Vera Sans';
+}
+#fontsCont #cuprumBtn{
+font-family:'Cuprum';
+}
+#fontsCont QPushButton:checked{
+background-repeat: no-repeat;
+background-image: url(":/res/check.png");
+background-position: center right;
+}
+#appearanceCont #marginsLbl{
+}
+#marginCont #margin1Btn{
+background-repeat: no-repeat;
+background-image: url(":/res/margin_1.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#marginCont #margin1Btn:disabled{
+background-repeat: no-repeat;
+background-image: url(":/res/margin_opacity_1.png");
+background-position: top center;
+background-color:#DADADA;
+}
+#marginCont #margin1Btn:checked{
+background-image: url(":/res/current_margin_1.png");
+}
+#marginCont #margin2Btn{
+background-repeat: no-repeat;
+background-image: url(":/res/margin_2.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#marginCont #margin2Btn:disabled{
+background-repeat: no-repeat;
+background-image: url(":/res/margin_opacity_2.png");
+background-position: top center;
+background-color:#DADADA;
+}
+#marginCont #margin2Btn:checked{
+background-image: url(":/res/current_margin_2.png");
+}
+#marginCont #margin3Btn{
+background-repeat: no-repeat;
+background-image: url(":/res/margin_3.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#marginCont #margin3Btn:disabled{
+background-repeat: no-repeat;
+background-image: url(":/res/margin_opacity_3.png");
+background-position: top center;
+background-color:#DADADA;
+}
+#marginCont #margin3Btn:checked{
+background-image: url(":/res/current_margin_3.png");
+}
+#justifyCont #justify1Btn{
+background-repeat: no-repeat;
+background-image: url(":/res/justify_text_1.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#justifyCont #justify1Btn:disabled{
+background-repeat: no-repeat;
+background-image: url(":/res/justify_text_opacity_1.png");
+background-position: top center;
+background-color:#DADADA;
+}
+#justifyCont #justify1Btn:checked{
+background-image: url(":/res/current_justify_text_1.png");
+}
+#justifyCont #justify2Btn{
+background-repeat: no-repeat;
+background-image: url(":/res/justify_text_2.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#justifyCont #justify2Btn:disabled{
+background-repeat: no-repeat;
+background-image: url(":/res/justify_text_opacity_2.png");
+background-position: top center;
+background-color:#DADADA;
+}
+#justifyCont #justify2Btn:checked{
+background-image: url(":/res/current_justify_text_2.png");
+}
+#justifyCont #justify3Btn{
+background-repeat: no-repeat;
+background-image: url(":/res/justify_text_3.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#justifyCont #justify3Btn:disabled{
+background-repeat: no-repeat;
+background-image: url(":/res/justify_text_opacity_3.png");
+background-position: top center;
+background-color:#DADADA;
+}
+#justifyCont #justify3Btn:checked{
+background-image: url(":/res/current_justify_text_3.png");
+}
+#modeCont #onlyTextModeBtn{
+background-repeat: no-repeat;
+background-image: url(":/res/only_text.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#modeCont #onlyTextModeBtn:checked{
+background-image: url(":/res/current_only_text.png");
+}
+#modeCont #withImageModeBtn{
+background-repeat: no-repeat;
+background-image: url(":/res/with_images.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#modeCont #withImageModeBtn:checked{
+background-image: url(":/res/current_show_images.png");
+}
+#appearanceCont #spacingLbl{
+}
+#spacingCont #spacing1Btn{
+background-repeat: no-repeat;
+background-image: url(":/res/line_spacing_1.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#spacingCont #spacing1Btn:disabled{
+background-repeat: no-repeat;
+background-image: url(":/res/line_spacing_opacity_1.png");
+background-position: top center;
+background-color:#DADADA;
+}
+#spacingCont #spacing1Btn:checked{
+background-image: url(":/res/current_line_spacing_1.png");
+}
+#spacingCont #spacing2Btn{
+background-repeat: no-repeat;
+background-image: url(":/res/line_spacing_2.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#spacingCont #spacing2Btn:disabled{
+background-repeat: no-repeat;
+background-image: url(":/res/line_spacing_opacity_2.png");
+background-position: top center;
+background-color:#DADADA;
+}
+#spacingCont #spacing2Btn:checked{
+background-image: url(":/res/current_line_spacing_2.png");
+}
+#spacingCont #spacing3Btn{
+background-repeat: no-repeat;
+background-image: url(":/res/line_spacing_3.png");
+background-position: top center;
+background-color:#FFFFFF;
+}
+#spacingCont #spacing3Btn:disabled{
+background-repeat: no-repeat;
+background-image: url(":/res/line_spacing_opacity_3.png");
+background-position: top center;
+background-color:#DADADA;
+}
+#spacingCont #spacing3Btn:checked{
+background-image: url(":/res/current_line_spacing_3.png");
+}
+#publisherConfBtn{
+text-align:left;
+border-style:solid;
+border-color:#666666;
+background-repeat: no-repeat;
+background-image: none;
+background-position: center right;
+}
+#publisherConfBtn:checked{
+text-align:left;
+border-style:solid;
+border-color:#666666;
+background-repeat: no-repeat;
+background-image: url(":/res/check.png");
+background-position: center right;
+}
+#ViewerAppearancePopupOld #justifyLbl{
+}
+#ViewerAppearancePopupOld #justifyBtn{
+background-image:url(:/res/off_btn.png);
+background-position: left center;
+}
+#ViewerAppearancePopupOld #justifyBtn:checked{
+background-image:url(:/res/on_btn.png);
+background-position: left center;
+}
+#ViewerAppearancePopupOld #justifySpacer {
+}
+/*ViewerGotoPopup
+-------------------------*/
+#ViewerGotoPopup{
+}
+#numericKeyboardCont QPushButton{
+background-repeat: no-repeat;
+background-image: url(":/res/number_cont.png");
+background-position:center center;
+}
+#ViewerGotoPopup #numberPageEdit{
+background-repeat: no-repeat;
+background-image: url(":/res/bg_input.png");
+background-position:center center;
+border:none;
+}
+#numericKeyboardCont QPushButton#deleteCharBtn{
+background-image: url(":/res/clear_char_cont.png");
+}
+#numericKeyboardCont QPushButton#goToBtn{
+color:#FFFFFF;
+background-image: url(":/res/goto_cont.png");
+}
+#bookLimitsCont QPushButton#beginningBtn{
+color:#FFFFFF;
+background: url(":/res/beginning_page_cont.png") no-repeat center center;
+}
+#bookLimitsCont QPushButton#endBtn{
+color:#FFFFFF;
+background: url(":/res/end_page_cont.png") no-repeat center center;
+}
+#ViewerGotoPopup #searchLineEdit{
+background:none;
+}
+/*ViewerBookSummary
+---------------------------*/
+#ViewerBookSummary{
+border:none;
+/*background:url(":/res/bgSynopsisPopup.png") repeat-x top left;*/
+}
+#ViewerBookSummary #bookActionsCont{
+border-top-style:solid;
+border-top-color:#505050;
+border-bottom-style:solid;
+border-bottom-color:#707070;
+background-color:transparent;
+}
+#ViewerBookSummary #bookActionsCont QPushButton{
+background-position:top center;
+background-repeat:no-repeat;
+border-right-style:solid;
+border-right-color:#707070;
+border-left-style:solid;
+border-left-color:#FFFFFF;
+background-color:transparent;
+}
+#ViewerBookSummary #bookActionsCont #removeBtn{
+background-image:url(:/res/remove-icon.png);
+}
+#ViewerBookSummary #bookActionsCont #exportNotesBtn{
+background-image:url(:/res/export-icon.png);
+}
+#ViewerBookSummary #bookActionsCont #buyBookBtn{
+background-image:url(:/res/purchase-icon.png);
+}
+#ViewerBookSummary #bookActionsCont #copyToSDBtn{
+background-image:url(:/res/sd-icon.png);
+}
+#ViewerBookSummary #bookActionsCont #archiveBtn{
+background-image:url(:/res/archive-icon.png);
+}
+#ViewerBookSummary #headerPopup{
+border:none;
+}
+#ViewerBookSummary #headerPopup #closeBtn{
+background-position:center;
+}
+#ViewerBookSummary #popupCont{
+background:#FFF url(":/res/bgSynopsisPopup.png") repeat-x top left;
+}
+#ViewerBookSummary #synopsisLbl{
+}
+#ViewerBookSummary #summaryTextBrowser{
+}
+#ViewerBookSummary #cover{
+background-color:#FFF;
+}
+#ViewerBookSummary #numberPagesCont{
+}
+#ViewerBookSummary #textTotalPagesLbl{
+}
+#ViewerBookSummary #numberTotalPagesLbl{
+}
+/*ViewerContentsPopup
+--------------------------------*/
+#ViewerContentsPopup{
+}
+#ViewerContentsPopup #headerPopup{
+background-color:#F0F0F0;
+}
+#ViewerContentsPopup #headerPopup #closeBtn{
+background-position:center;
+}
+#ViewerContentsPopup #contentsTabBtn{
+text-align:left;
+background:url(":/res/contents_tabs.png") no-repeat center left;
+background-color:#FFFFFF;
+}
+#ViewerContentsPopup #contentsTabBtn:checked{
+background-color:#DADADA;
+}
+#ViewerContentsPopup #notesTabBtn{
+border-right-style:solid;
+text-align:left;
+border-right-color:#C7C7C7;
+background-color:#FFFFFF;
+background:url(":/res/notes_tabs.png") no-repeat center left;
+}
+#ViewerContentsPopup #notesTabBtn:checked{
+background-color:#DADADA;
+}
+#arrowTabsCont{
+border-top-style:solid;
+border-top-color:#C7C7C7;
+}
+#arrowTabsCont #contentsTabArrowLbl{
+background:url(":/res/tab_arrrow.png") no-repeat top center;
+}
+#arrowTabsCont #notesTabArrowLbl{
+background:url(":/res/tab_arrrow.png") no-repeat top right;
+}
+#ViewerContentsPopup #Content{
+}
+#ViewerContentsList{
+border-style:solid;
+border-color:#808080;
+}
+#ViewerContentsList ViewerContentsItem{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#ViewerContentsList #BookIndexItem9{
+border:none;
+}
+/*ViewerContentsItem
+--------------*/
+#ViewerContentsItemCont{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-bottom:none;
+border-right:none;
+}
+ViewerContentsItem{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+ViewerContentsItem #contentLbl{
+}
+ViewerContentsItem #notesNumberLbl{
+background:url(":/res/note_ico.png") no-repeat center right;
+}
+ViewerContentsItem #hightlightedNumberLbl{
+background:url(":/res/highlighted_ico.png") no-repeat center right;
+}
+ViewerContentsItem #bookmarksNumberLbl{
+background:url(":/res/bookmark_ico.png") no-repeat center right;
+}
+#ViewerContentsList ViewerContentsItem{
+}
+#ViewerContentsList ViewerContentsItem:checked{
+background-color:#DADADA;
+}
+#ViewerContentsList ViewerContentsItem#BookIndexItem1:checked{
+}
+#ViewerContentsList ViewerContentsItem#BookIndexItem9:checked{
+}
+#ViewerContentsList ViewerContentsItem:unchecked{
+background-color:#FFF;
+}
+#ViewerContentsList ViewerContentsItem#BookIndexItem1:unchecked{
+}
+#ViewerContentsList ViewerContentsItem#BookIndexItem9:unchecked{
+}
+/*ViewerAnnotationsList
+----------------------*/
+#ViewerAnnotationsList{
+}
+#Content{
+}
+#annotationActions {
+border-style:solid;
+border-color:#808080;
+}
+#annotationActions QPushButton {
+border-style:solid;
+border-left:none;
+border-bottom:none;
+border-top:none;
+border-color:#808080;
+}
+#annotationActions QPushButton:disabled {
+color:#909090;
+}
+#annotationActions QPushButton:checked {
+background-color:#EDEDED;
+}
+#annotationActions QPushButton#bookmarksAnnotationsBtn {
+border-none;
+}
+#annotationsCont{
+border-style:solid;
+border-color:#808080;
+}
+#annotationsCont #Annotation1, #annotationsCont #Annotation2,#annotationsCont #Annotation3,#annotationsCont #Annotation4{
+}
+/*ViewerAnnotationItem
+-----------------------*/
+#ViewerAnnotationItemCont, ViewerAnnotationItem {
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+ViewerAnnotationItem #typeAnnotationLbl{
+background-repeat:no-repeat;
+background-position: top center;
+background-image:url(":/res/note_ico.png");
+}
+ViewerAnnotationItem #annotationPageLbl{
+text-align:left;
+color:#303030;
+}
+ViewerAnnotationItem #annotationDateLbl{
+text-align:right;
+color:#303030;
+}
+ViewerAnnotationItem #annotationTextLbl{
+}
+ViewerAnnotationItem #noteTextLbl{
+color:#505050;
+}
+
+/*ViewerTextActionsMenu
+-----------------------------*/
+#ViewerTextActionsMenu{
+}
+#ViewerTextActionsMenu #popupCont{
+border-style:solid;
+border-color:#505050;
+background-color:#FFFFFF;
+}
+#ViewerTextActionsMenu #popupCont QPushButton{
+border-style:solid;
+border-color:#707070;
+border-top:none;
+border-left:none;
+border-bottom:none;
+}
+#ViewerTextActionsMenu #popupCont QPushButton#deleteActionBtn{
+/*border:none;*/
+}
+#ViewerTextActionsMenu #popupCont QPushButton#searchActionBtn{
+border:none;
+}
+#ViewerBookListActions{
+}
+#ViewerBookListActionsCont{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#ViewerBookListActions QPushButton{
+text-align:left;
+border-style:dotted;
+border-color:#808080;
+}
+#ViewerBookListActions QPushButton#deleteBookBtn{
+border-left:none;
+border-bottom:none;
+}
+
+/*ViewerNoteActionsPopup
+----------------------------------*/
+#ViewerNoteActionsPopup{
+}
+#ViewerNoteActionsPopup #popupCont{
+border-style:solid;
+border-color:#505050;
+background-color:#FFFFFF;
+}
+#ViewerNoteActionsPopup #actionsCont{
+border-style:solid;
+border-color:#707070;
+background-color:#E0E0E0;
+}
+#ViewerNoteActionsPopup #popupCont #actionsCont QPushButton{
+border-style:solid;
+border-color:#707070;
+border-top:none;
+border-left:none;
+border-bottom:none;
+background-color:transparent;
+}
+#ViewerNoteActionsPopup #popupCont #actionsNoteCont QPushButton{
+border-style:solid;
+border-color:#707070;
+background-color:transparent;
+}
+#ViewerNoteActionsPopup #popupCont QPushButton#searchActionBtn{
+border:none;
+}
+#ViewerNoteActionsPopup #popupCont #actionsCont QPushButton#deleteNoteBtn{
+border:none;
+}
+/*ViewerSearchContextMenu
+----------------------------------*/
+#ViewerSearchContextMenu{
+
+}
+#SearchContextMenuCont{
+border-style:solid;
+border-color:#505050;
+background-color:#D0D0D0;
+}
+#listBtn{
+color:#303030;
+border-style:solid;
+border-color:#505050;
+font-weight:bold;
+background:#FFF url(":/res/back.png") no-repeat left center;
+}
+#ViewerSearchCenterCont{
+background-color:#FFF;
+}
+#ViewerSearchContextMenu #headerSearch{
+}
+#ViewerSearchContextMenu #closeBtn{
+background:transparent url(":/res/close.png")  no-repeat center center;
+}
+#SearchContextMenuCont #resultIndexLbl{
+font-weight:bold;
+}
+#SearchContextMenuCont #ofLbl{
+color:#000000;
+}
+#SearchContextMenuCont #numResultsLbl{
+}
+#SearchContextMenuCont #previousBtn{
+border-style:solid;
+border-color:#505050;
+background:url(":/res/previous_btn.png") no-repeat center;
+background-color:#FFF;
+}
+#SearchContextMenuCont #nextBtn{
+border-style:solid;
+border-color:#505050;
+border-left:none;
+background:url(":/res/next_btn.png") no-repeat center;
+background-color:#FFF;
+}
+/*ViewerAppearancePopup
+-------------------------*/
+#ViewerAppearancePopup{
+}
+#ViewerAppearancePopup #bottomArrowLbl{
+}
+#ViewerAppearancePopup #popupCont{
+}
+#headerCont{
+border-color:#808080;
+border-style:solid;
+border-left:none;
+border-right:none;
+border-top:none;
+}
+#headerCont #closeBtn{
+background: url(":/res/close.png") no-repeat center center;
+}
+#headerCont #textAjustLbl{
+color:#000;
+}
+#editorialCont{
+border-color:#808080;
+border-style:solid;
+}
+#editorialCont:disabled{
+background-color:#DADADA;
+}
+#editorialCont #editorialBtn{
+background-image: url(:/res/off_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+border:none;
+}
+#editorialCont #editorialBtn:checked{
+background-image: url(:/res/on_btn.png) ;
+background-position:center left;
+}
+#editorialCont #editorialLbl{
+color:#000;
+}
+#editorialCont #editorialLbl:disabled{
+color:#707070;
+}
+#ViewerAppearancePopup #sizeCont{
+}
+#ViewerAppearancePopup #sizeCont QPushButton{
+background-color:#FFF;
+border-color:#808080;
+border-style:solid;
+color:#000;
+font-weight:normal;
+}
+#ViewerAppearancePopup #sizeCont QPushButton:checked{
+background-color:#000;
+color:#FFF;
+}
+#ViewerAppearancePopup #sizeCont QPushButton:disabled{
+background-color:#DADADA;
+color:#707070;
+}
+#ViewerAppearancePopup #sizeCont #size1{
+}
+#ViewerAppearancePopup #sizeCont #size2{
+}
+#ViewerAppearancePopup #sizeCont #size3{
+}
+#ViewerAppearancePopup #sizeCont #size4{
+}
+#ViewerAppearancePopup #sizeCont #size5{
+}
+#ViewerAppearancePopup #sizeCont #size6{
+}
+#ViewerAppearancePopup #sizeCont #size7{
+}
+#ViewerAppearancePopup #sizeCont #size8{
+}
+#bodyCont{
+}
+#fontTypeCont{
+border-color:#808080;
+border-style:solid;
+}
+#fontTypeCont:disabled{
+background-color:#DADADA;
+}
+#ViewerAppearancePopup #fontTypeCont #fontTypeLbl{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+text-align:center;
+}
+#ViewerAppearancePopup #fontTypeCont #fontTypeLbl:disabled{
+color:#707070;
+}
+#fontTypeCont QPushButton{
+/*background-color:#FFF;*/
+color:#000;
+text-align:left;
+}
+#fontTypeCont QPushButton:checked{
+background-color:#000;
+color:#FFF;
+}
+#fontTypeCont QPushButton:disabled{
+background-color:#DADADA;
+color:#707070;
+}
+#stylesTextCont{
+
+}
+#stylesTextCont #justifyCont{
+border-style:solid;
+border-color:#808080;
+}
+#stylesTextCont #justifyCont:disabled{
+background-color:#DADADA;
+}
+#stylesTextCont #justifyCont #justifyLbl{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+text-align:center;
+}
+#stylesTextCont #justifyCont #justifyLbl:disabled{
+color:#707070;
+}
+#stylesTextCont #justifyCont QPushButton{
+}
+#stylesTextCont #marginCont{
+border-style:solid;
+border-color:#808080;
+}
+#stylesTextCont #marginCont:disabled{
+background-color:#DADADA;
+}
+#stylesTextCont #marginCont #marginsLbl{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+text-align:center;
+}
+#stylesTextCont #marginCont #marginsLbl:disabled{
+color:#707070;
+}
+#stylesTextCont #marginCont QPushButton{
+}
+#stylesTextCont #spacingCont{
+border-style:solid;
+border-color:#808080;
+}
+#stylesTextCont #spacingCont:disabled{
+background-color:#DADADA;
+}
+#stylesTextCont #spacingCont #spacingLbl{
+border-color:#808080;
+border-left:none;
+border-right:none;
+border-style:solid;
+border-top:none;
+text-align:center;
+}
+#stylesTextCont #spacingCont #spacingLbl:disabled{
+color:#707070;
+}
+#stylesTextCont #spacingCont QPushButton{
+}
+#stylesTextCont #seeImagesCont{
+border-style:solid;
+border-color:#808080;
+}
+#stylesTextCont #seeImagesCont:disabled{
+background-color:#DADADA;
+}
+#stylesTextCont #seeImagesCont #seeImagesLbl {
+/*color:#707070;*/
+}
+#stylesTextCont #seeImagesCont #seeImagesLbl:disabled {
+color:#707070;
+}
+#stylesTextCont #seeImagesCont #seeImagesBtn{
+background-image: url(:/res/off_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+border:none;
+}
+#stylesTextCont #seeImagesCont #seeImagesBtn:checked{
+background-image:url(:/res/on_btn.png);
+background-position: center left;
+}
+/*ViewerAnnotationActions
+-----------------------*/
+#ViewerAnnotationActions{}
+#ViewerAnnotationActions #horizontalWidget{}
+#ViewerAnnotationActions #popupCont{
+border-style:solid;
+border-color:#505050;
+background-color:#FFFFFF;
+}
+#ViewerAnnotationActions #popupCont QPushButton{
+border-style:solid;
+border-color:#707070;
+border-top:none;
+border-left:none;
+border-bottom:none;
+}
+#ViewerAnnotationActions #popupCont #copyActionBtn{}
+#ViewerAnnotationActions #popupCont #gotoActionBtn{
+border:none;
+}
+#ViewerAnnotationActions #topArrowLbl{
+background:  url(":/res/arrow_top.png") no-repeat center bottom;
+}
+/* ViewerDelimiter
+------------------------*/
+#ViewerDelimiter #delimiter{
+background-color:#000000;
+}
+#ViewerDelimiter #teardrop{
+background:  url(":/res/select_text_bottom.png") no-repeat center top;
+}
+#ViewerDelimiter #teardropTop{
+background:  url(":/res/select_text_top.png") no-repeat center bottom;
+}
+/* ViewerPdfPageHandler
+-----------------------*/
+#ViewerPdfPageHandlerCont{
+background-color:#FFFFFF;
+border-top-style:solid;
+border-top-color:#909090;
+}
+#ViewerPdfPageHandlerCont QPushButton{
+border:none;
+}
+#ViewerPdfPageHandlerCont #zoomMinusBtn{
+border-right-style:solid;
+border-right-color:#909090;
+background:url(":/res/zoom-out-pdf-ico.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerCont #zoomPlusBtn{
+border-right-style:solid;
+border-right-color:#909090;
+background:url(":/res/zoom-pdf-ico.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerCont #closeBtn{
+border-left-style:solid;
+border-left-color:#909090;
+background:url(":/res/close-pdf-ico.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerCont #heightAdjustBtn{
+background:url(":/res/move-ver-dir-pdf-ico.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerCont #landscapeModeBtn{
+background:url(":/res/rotate-pdf-ico.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerCont #fullScreenBtn{
+background:url(":/res/move-all-dir-pdf-ico.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerCont #widthAdjustBtn{
+background:url(":/res/move-hor-dir-pdf-ico.png") no-repeat center center;
+}
+/*MiniatureView
+--------------------------*/
+#miniature, #miniatureCont #miniature, #miniatureCont MiniatureView{
+background-color:#404040;
+border-style:solid;
+border-color:#000000;
+}
+#MiniatureView{
+background-color:#404040;
+border-style:solid;
+border-color:#000000;
+}
+#MiniatureView #frame, #miniature #frame, #miniatureCont #miniature #frame, #miniatureCont MiniatureView #frame{
+border-style:solid;
+border-color:#303030;
+}
+#screenshotCont{
+}
+#screenshotLbl{
+background-color:#FFF;
+border-style:solid;
+border-color:#000000;
+color:#000;
+}
+#screenshotCont QLabel{
+color:#FFF;
+}
+#pageCont, #zoomCont{
+
+}
+#pageCont #pageLbl, #zoomCont #zoomLbl{
+}
+#zoomLbl, #zoomValueLbl{
+font-weight:bold;
+}
+
+/* ViewerPdfPageHandlerLandscape
+-----------------------*/
+#ViewerPdfPageHandlerLandscapeCont{
+background-color:#FFFFFF;
+border-left-style:solid;
+border-left-color:#909090;
+}
+#ViewerPdfPageHandlerLandscapeCont QPushButton{
+border:none;
+}
+#ViewerPdfPageHandlerLandscapeCont #zoomMinusBtn{
+border-top-style:solid;
+border-top-color:#909090;
+background:url(":/res/zoom-out-pdf-ico-landscape.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerLandscapeCont #zoomPlusBtn{
+border-top-style:solid;
+border-top-color:#909090;
+background:url(":/res/zoom-pdf-ico-landscape.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerLandscapeCont #closeBtn{
+border-bottom-style:solid;
+border-bottom-color:#909090;
+background:url(":/res/close-pdf-ico-landscape.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerLandscapeCont #heightAdjustBtn{
+background:url(":/res/move-ver-dir-pdf-ico-landscape.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerLandscapeCont #landscapeModeBtn{
+background:url(":/res/rotate-pdf-ico-landscape.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerLandscapeCont #fullScreenBtn{
+background:url(":/res/move-all-dir-pdf-ico-landscape.png") no-repeat center center;
+}
+#ViewerPdfPageHandlerLandscapeCont #widthAdjustBtn{
+background:url(":/res/move-hor-dir-pdf-ico-landscape.png") no-repeat center center;
+}
+/* ViewerPageHandleLandscape
+-----------------------*/
+#ViewerPageHandleLandscapeCont{
+background-color:#FFF;
+}
+#verticalSliderContent QSlider{
+border-style: solid;
+border-color: #404040;
+}
+#verticalSliderContent QSlider::groove:vertical {
+background: qlineargradient(x1:0, y1:0, x2:1 y2:0,
+    stop:0 #404040, stop:1 #A2A2A2);
+border-style: solid;
+border-color: #404040;
+}
+#verticalSliderContent QSlider::sub-page:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #A2A2A2, stop:1 #FFF);
+border-style: solid;
+border-color: #404040;
+border-right:none;
+}
+#verticalSliderContent QSlider::add-page:vertical {
+border-style: solid;
+border-color: #404040;
+border-left:none;
+}
+#verticalSliderContent QSlider::handle:vertical {
+background:url(":/res/empty.png") no-repeat center center;
+}
+#verticalSliderContent QSlider::handle:vertical:hover{
+background:url(":/res/empty.png") no-repeat center center;
+}
+#verticalSliderContent QSlider::handle:vertical:pressed {
+background:url(":/res/empty.png") no-repeat center center;
+}
+#verticalSliderContent QSlider::sub-page:vertical:disabled {
+background: #BBB;
+}
+#verticalSliderContent QSlider::add-page:vertical:disabled {
+background: #EEE;
+}
+#verticalSliderContent QSlider::handle:vertical:disabled {
+background:none;
+}
+
+
+/*ViewerPageHandler
+-------------------------------*/
+#ViewerPageHandleLandscape {
+}
+#ViewerPageHandleLandscapeCont #pageText{
+color:#000;
+text-align:right;
+}
+#ViewerPageHandleLandscapeCont #readingPercentLbl{
+color:#000;
+}
+#ViewerPageHandleLandscapeCont #pageBackBtn, #ViewerContLandscape #pageBackBtn{
+background-image: url(:/res/page_back_btn_landscape.png);
+background-repeat: no-repeat;
+background-position:center center;
+}
+#ViewerPageHandleLandscapeCont #pdfMenuBtn, #ViewerContLandscape #pdfMenuBtn{
+background-image: url(:/res/pdf-ico-landscape.png);
+background-repeat: no-repeat;
+background-position:center center;
+}
+#ViewerPageHandleLandscapeCont #toFinishChapLbl, #ViewerPageHandleLandscapeCont #readedLbl, #ViewerPageHandleLandscapeCont #pagToFinishLbl{
+color:#000;
+}
+/*MiniatureViewLandscape
+--------------------------*/
+#MiniatureViewLandscape,MiniatureViewLandscape{
+background-color:#404040;
+border-style:solid;
+border-color:#000000;
+}
+#MiniatureViewLandscape #frame,MiniatureViewLandscape #frame{
+border-style:solid;
+border-color:#404040;
+}
+#screenshotLandscapeCont{
+}
+#screenshotLandscapeCont #screenshotLbl{
+background-color:#FFF;
+border-style:solid;
+border-color:#000000;
+}
+#screenshotLandscapeCont QLabel{
+color:#FFF;
+}
+#screenshotLandscapeCont #pageCont, #screenshotLandscapeCont #zoomCont{
+
+}
+#screenshotLandscapeCont #pageCont #pageLbl, #screenshotLandscapeCont #zoomCont #zoomLbl{
+text-align:left;
+}
+#screenshotLandscapeCont #zoomLbl, #screenshotLandscapeCont #zoomValueLbl{
+font-weight:bold;
+}

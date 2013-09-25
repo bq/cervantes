@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Search</class>
+ <widget class="QWidget" name="Search">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>750</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>600</width>
+    <height>750</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Helvetica Neue</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="searchHeader" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>600</width>
+       <height>76</height>
+      </size>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="MyQLineEdit" name="searchLineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>508</width>
+          <height>55</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>508</width>
+          <height>55</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Enter text to search here...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="clearSearchBtn">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="SilentQPushButton" name="deviceBooksBtn">
+     <property name="text">
+      <string>Libros del dispositivo</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="resultNumberCont" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="showResultLbl">
+        <property name="text">
+         <string>Mostrando</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="resultsNumberLbl">
+        <property name="text">
+         <string>3</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="resultsLbl">
+        <property name="text">
+         <string>resultados</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="SearchItem" name="SearchResultItem1" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItem" name="SearchResultItem2" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItem" name="SearchResultItem3" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItem" name="SearchResultItem4" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItem" name="SearchResultItem5" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItem" name="SearchResultItem6" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItem" name="SearchResultItem7" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItem" name="SearchResultItem8" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItem" name="SearchResultItem9" native="true"/>
+   </item>
+   <item>
+    <widget class="SilentQPushButton" name="shopOnlineBtn">
+     <property name="text">
+      <string>Libros de la tienda online</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="SearchItemShop" name="SearchResultItemShop4" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItemShop" name="SearchResultItemShop6" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItemShop" name="SearchResultItemShop5" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItemShop" name="SearchResultItemShop1" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItemShop" name="SearchResultItemShop7" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItemShop" name="SearchResultItemShop8" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItemShop" name="SearchResultItemShop3" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItemShop" name="SearchResultItemShop2" native="true"/>
+   </item>
+   <item>
+    <widget class="SearchItemShop" name="SearchResultItemShop9" native="true"/>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="SearchPagerCont" name="verticalPagerHandler" native="true"/>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SilentQPushButton</class>
+   <extends>QPushButton</extends>
+   <header>SilentQPushButton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MyQLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>MyQLineEdit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>SearchPagerCont</class>
+   <extends>QWidget</extends>
+   <header>SearchPagerCont.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SearchItem</class>
+   <extends>QWidget</extends>
+   <header>SearchItem.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SearchItemShop</class>
+   <extends>QWidget</extends>
+   <header>SearchItemShop.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../Search800.qrc"/>
+ </resources>
+ <connections/>
+</ui>

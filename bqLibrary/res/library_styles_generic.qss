@@ -1,0 +1,1228 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* Library
+--------------------------*/
+#Library{
+/*background-color:#FFF;*/
+background:#FFF url(":/res/bg_library_new.png") repeat-x left top;
+}
+#Library #searchCont{
+border-color:#808080;
+border-style:solid;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#searchCont #librarySearchLineEdit{
+border:none;
+background-color:#FFFFFF;
+background-image: url(:/res/bg_search_input.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#Library #searchCont #clearSearchBtn{
+border:none;
+background-image: url(:/res/bg_clear_search.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#searchCont #closeSearchBtn{
+border-color:#606060;
+border-style:solid;
+}
+#Library #selectAllBooksBtn{
+border-color:#808080;
+background-color:#FFFFFF;
+border-style:solid;
+}
+#Library #editBooksBtn{
+border-right-color:#808080;
+text-decoration:underline;
+border-right-style:solid;
+text-align:right;
+}
+#Library #deleteBooksBtn{
+text-decoration:underline;
+text-align:left;
+}
+#searchCont  #synchronizeBtn{
+background:  url(":/res/synchronize.png") no-repeat center center;
+}
+#searchCont  #storeBtn{
+background:  url(":/res/store_btn.png") no-repeat center center;
+}
+#searchCont  #searchBtn{
+background:  url(":/res/search_library_btn.png") no-repeat center center;
+}
+#topActions{
+/*border-color:#808080;
+border-style:solid;*/
+}
+#topActions #categoryLbl{
+text-transform:uppercase;
+}
+#searchCont #bookActionsSelectBtn{
+text-align:left;
+background-image:  url(":/res/arrow_action.png");
+background-repeat: no-repeat;
+background-position: center right;
+}
+#sortBooksCont #showBooksSelectBtn{
+border-color:#808080;
+border-style:solid;
+background-color:#FFFFFF;
+background-image:  url(":/res/arrow_margin.png");
+background-repeat: no-repeat;
+background-position: center right;
+}
+#sortBooksCont #addColectionBtn{
+border-color:#808080;
+border-style:solid;
+background-color:#FFFFFF;
+background-image:  url(":/res/add-collection-btn.png");
+background-repeat: no-repeat;
+background-position: center right;
+}
+#topActions #pathDotsLbl{
+}
+#topActions #pathLbl{
+text-decoration:underline;
+}
+#booksContainer{
+/*background:  url(":/res/bg_icon_books.png") no-repeat top center;*/
+}
+#sortBooksCont{
+border-color:#606060;
+border-style:solid;
+background-color:#FFF;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#sortBooksCont #allCollectionsLbl{
+text-align:left;
+}
+#sortBooksCont #sortIconBtn{
+background-image:  url(":res/grid-btn.png");
+background-repeat: no-repeat;
+background-position: center left;
+}
+
+#sortBooksCont #sortListBtn{
+background-image:  url(":res/list-btn.png");
+background-repeat: no-repeat;
+background-position: center left;
+}
+
+#sortBooksCont #backToCollectionsBtn{
+margin:0px 25px 0px 25px;
+background-image:  url(":res/back_Btn.png");
+background-repeat: no-repeat;
+background-position: center left;
+}
+#sortByBtn{
+border-color:#707070;
+border-style:solid;
+background-color:#FFFFFF;
+background-image:  url(":/res/arrow_margin.png");
+background-repeat: no-repeat;
+background-position: center right;
+}
+#memoryType{
+/*background-image:  url(":/res/bg_sd.png");
+background-repeat: no-repeat;
+background-position: center left;*/
+}
+#memoryType #internalMemoryBtn{
+border-color:#707070;
+border-style:solid;
+}
+#memoryType #sdBtn{
+border-color:#707070;
+border-style:solid;
+border-right:none;
+}
+#sortBooksCont #recentSortBtn{
+border-color:#808080;
+border-style:solid;
+border-right:none;
+background-color:#FFFFFF;
+}
+
+#sortBooksCont #titleSortBtn{
+border-color:#808080;
+border-style:solid;
+background-color:#FFFFFF;
+}
+
+#sortBooksCont #authorSortBtn{
+border-color:#808080;
+border-style:solid;
+border-left:none;
+background-color:#FFFFFF;
+}
+
+#sortBooksCont #fileNameBtn{
+border-color:#808080;
+border-style:solid;
+border-right:none;
+}
+
+#sortBooksCont #lastModifyBtn{
+border-color:#808080;
+border-style:solid;
+border-left:none;
+background-color:#FFFFFF;
+}
+/*breadcrumb
+-------------------*/
+#breadCrumb QPushButton{
+text-decoration:underline;
+}
+/*LibraryIconGridViewer
+--------------------------*/
+#LibraryIconGridViewer{
+/*background:  url(":/res/bg_icon_books.png") no-repeat top center;*/
+}
+#iconGridViewerCont #book1, #iconGridViewerCont #book2, #iconGridViewerCont #book3, #iconGridViewerCont #book4, #iconGridViewerCont #book5, #iconGridViewerCont #book6{
+}
+/*LibraryIconGridViewerItem
+------------------------------------*/
+#IconGridViewerItemCont #coverCont #topLeftLbl{
+background-image: url(":/res/book_front_top_left.png") ;
+background-position:right bottom;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #topCenterLbl{
+background-image: url(":/res/book_front_top_center.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #topRightLbl{
+background-image: url(":/res/book_front_top_right.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #centerLeftLbl{
+background-image: url(":/res/book_front_center_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #coverLabel{
+/*image: url(":/res/no_cover.png") ;*/
+/*background-color: #FFFFFF;*/
+background-position:center center;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #centerRightLbl{
+background-image: url(":/res/book_front_center_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #bottomLeftLbl{
+background-image: url(":/res/book_front_bottom_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #bottomCenterLbl{
+background-image: url(":/res/book_front_bottom_center.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #bottomRightLbl{
+background-image: url(":/res/book_front_bottom_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#coverFileLbl{
+background-image: url(":/res/unknow_file_ico.png") ;
+background-position: bottom center;
+background-repeat:no-repeat;
+}
+#coverCont #fileNameLbl,#cover #fileNameLbl{
+text-align:center;
+}
+#cover #titleLbl{
+text-align:center;
+}
+#cover #authorLbl{
+text-align:center;
+}
+#coverLbl #authorLbl{
+color:#333333;
+}
+#fileTitleLbl{
+}
+#LibraryIconGridViewerItem #newTagLbl{
+background-position:bottom left;
+background-repeat:no-repeat;
+background-image:url(:/res/new_tag.png);
+}
+#LibraryIconGridViewerItem #archiveTagLbl{
+background-position:top left;
+background-repeat:no-repeat;
+background-image:url(:/res/archive_tag.png);
+}
+#iconGridViewerCont #downloadBtn, #LibraryIconGridViewerItem #downloadBtn{
+background-image: url(":/res/download_btn.png") ;
+background-position:top left;
+background-repeat:no-repeat;
+background-color:transparent;
+}
+#iconGridViewerCont #sampleTagLbl,
+#iconGridViewerCont #subscriptionTagLbl{
+background-position:left top;
+background-repeat:no-repeat;
+}
+#iconGridViewerCont #readingTagLbl, #LibraryIconGridViewerItem #readingTagLbl{
+background-image: url(":/res/bookmark_tag.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#LibraryIconGridViewerItem #selectBookLbl{
+background-image: url(":/res/select_book.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#LibraryIconGridViewerItem #sampleTagLbl,
+#LibraryIconGridViewerItem #subscriptionTagLbl{
+color:#FFF;
+background-position:top left;
+background-repeat:no-repeat;
+background-image:url(:/res/sample_tag_notext_sup.png);
+}
+/*LibraryLineGridViewer
+--------------------------*/
+#LibraryLineGridViewerCont, #LibraryLineGridViewer{
+background-color:#FFFFFF;
+}
+#LibraryLineGridViewerCont #book1, #LibraryLineGridViewerCont #book2, #LibraryLineGridViewerCont #book3, #LibraryLineGridViewerCont #book4, #LibraryLineGridViewerCont #book5, #LibraryLineGridViewerCont #book6{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+/*LibraryLineGridViewerItem
+------------------------*/
+#LibraryReadingLineGridViewer, #LibraryReadingLineGridViewerCont{
+background-color:#FFFFFF;
+}
+#LibraryLineGridViewerItemCont,LibraryLineGridViewerItem{
+/*border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;*/
+}
+#LibraryReadingLineGridViewerCont #VerticalPagerHandler{
+}
+#LibraryReadingLineGridViewerCont #book1{
+border-style:solid;
+border-color:#808080;
+border-left:none;
+border-right:none;
+}
+#LibraryReadingLineGridViewerCont #book2, #LibraryReadingLineGridViewerCont #book3 {
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#LibraryReadingLineGridViewerCont #mainBookInfoCont{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#LibraryReadingLineGridViewerCont #book1{
+border-style:solid;
+border-color:#808080;
+border-left:none;
+border-right:none;
+}
+#LibraryReadingLineGridViewerCont #book2, #LibraryReadingLineGridViewerCont #book3{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#LibraryLineGridViewerItem #typeCont,LibraryLineGridViewerItem #typeCont{
+}
+#LibraryLineGridViewerItem #titleLbl,LibraryLineGridViewerItem #titleLbl{
+font-weight:bold;
+}
+#LibraryLineGridViewerItem #authorLbl,LibraryLineGridViewerItem #authorLbl{
+color:#303030;
+font-weight:normal;
+}
+#LibraryLineGridViewerItem #typeCont #iconTypeFileLbl,LibraryLineGridViewerItem #typeCont #iconTypeFileLbl{
+background-image: url(":/res/unknow_list_big.png") ;
+background-position:top center;
+background-repeat:no-repeat;
+}
+#LibraryLineGridViewerItem #typeCont #readingProgressLbl,LibraryLineGridViewerItem #typeCont #readingProgressLbl{
+}
+#LibraryLineGridViewerItemCont #newTagLbl{
+image: url(":/res/new_list_notext.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+text-transform:uppercase;
+font-weight:bold;
+}
+#LibraryLineGridViewerItemCont #archiveTagLbl{
+image: url(":/res/new_list_notext.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+text-transform:uppercase;
+font-weight:bold;
+}
+#LibraryLineGridViewerItemCont #sampleTagLbl{
+background-position:top 3px;
+background-repeat:no-repeat;
+background-image:url(:/res/sample_list_notext.png);
+}
+#LibraryLineGridViewerItemCont #subscriptionTagLbl{
+background-position:top 3px;
+background-repeat:no-repeat;
+background-image:url(:/res/sample_list_notext.png);
+}
+#LibraryLineGridViewerItemCont #titleLbl{
+text-align:center;
+}
+#LibraryLineGridViewerItemCont #authorLbl{
+text-align:center;
+}
+#LibraryLineGridViewerItem #sampleTagLbl{
+image: url(":/res/sample_list_notext.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+text-transform:uppercase;
+font-weight:bold;
+}
+#LibraryLineGridViewerItem #subscriptionTagLbl{
+image: url(":/res/subscription_list_notext.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+text-transform:uppercase;
+font-weight:bold;
+}
+#LibraryLineGridViewerItemCont #downloadBtn,LibraryLineGridViewerItem #downloadBtn{
+background-image: url(":/res/download-list.png") ;
+background-position:center center;
+background-repeat:no-repeat;
+}
+#LibraryLineGridViewerItemCont #selectBookLbl ,LibraryLineGridViewerItem #selectBookLbl{
+image: url(":/res/select_book.png") ;
+background-position:top left;
+background-repeat:no-repeat;
+}
+
+#LibraryReadingLineGridViewerCont #coverCont #topLeftLbl{
+background-image: url(":/res/book_front_top_left.png") ;
+background-position:right bottom;
+background-repeat:no-repeat;
+}
+#LibraryReadingLineGridViewerCont #coverCont #topCenterLbl{
+background-image: url(":/res/book_front_top_center.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#LibraryReadingLineGridViewerCont #coverCont #topRightLbl{
+background-image: url(":/res/book_front_top_right.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#LibraryReadingLineGridViewerCont #coverCont #centerLeftLbl{
+background-image: url(":/res/book_front_center_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#LibraryReadingLineGridViewerCont #coverCont #coverLbl{
+image: url(":/res/no_cover.png") ;
+background-position:center center;
+background-repeat:no-repeat;
+}
+#LibraryReadingLineGridViewerCont #coverCont #newTagLbl{
+background-position:bottom center;
+background-repeat:no-repeat;
+background-image:url(:/res/new_tag.png);
+}
+#LibraryReadingLineGridViewerCont #coverCont #sampleTagLbl{
+color:#FFF;
+background-position:top left;
+background-repeat:no-repeat;
+background-image:url(:/res/sample_tag_notext_sup.png);
+text-align:left;
+}
+#LibraryReadingLineGridViewerCont #coverCont #subscriptionTagLbl{
+color:#FFF;
+background-position:top left;
+background-repeat:no-repeat;
+background-image:url(:/res/sample_tag_notext_sup.png);
+text-align:left;
+}
+#LibraryReadingLineGridViewerCont #coverCont #coverLbl #authorLbl_2, #LibraryReadingLineGridViewerCont #coverCont #coverLbl #titleLbl{
+image:none;
+background:none;
+}
+#LibraryReadingLineGridViewerCont #coverCont #centerRightLbl{
+background-image: url(":/res/book_front_center_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#LibraryReadingLineGridViewerCont #coverCont #bottomLeftLbl{
+background-image: url(":/res/book_front_bottom_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#LibraryReadingLineGridViewerCont #coverCont #bottomCenterLbl{
+background-image: url(":/res/book_front_bottom_center.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#LibraryReadingLineGridViewerCont #coverCont #bottomRightLbl{
+background-image: url(":/res/book_front_bottom_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#coverFileLbl{
+background-image: url(":/res/unknow_file_ico.png") ;
+background-position: bottom center;
+background-repeat:no-repeat;
+}
+#titleLbl{
+}
+#coverLbl #authorLbl{
+color:#303030;
+}
+/*LibraryReadingIconGridViewer
+-----------------------------*/
+#LibraryReadingIconGridViewer{
+}
+#LibraryReadingIconGridViewerCont{
+}
+#currentBookCont{
+/*background:qlineargradient(x1:0, y1:0, x2:0, y2:1,	stop:0 #DADADA, stop:0.82 #FFF, stop:0.83 #ADADAF, stop:0.88 #CFCFD1, stop:0.89 #D1D2D3, stop:1 #F5F5F5);*/
+}
+#readBookBtn{
+background-color:transparent;
+}
+#currentBookData{
+}
+#LibraryReadingIconGridViewerCont #currentBookCoverLbl{
+background-color: #FFFFFF;
+background-position:center center;
+background-repeat:no-repeat;
+}
+#LibraryReadingIconGridViewerCont #currentBookCoverCont #newTagLbl{
+background-position:bottom center;
+background-repeat:no-repeat;
+background-image:url(:/res/new_tag.png);
+}
+#LibraryReadingIconGridViewerCont #currentBookCoverCont #sampleTagLbl{
+color:#FFF;
+background-position:top left;
+background-repeat:no-repeat;
+background-image:url(:/res/sample_tag_notext_sup.png);
+text-align:left;
+}
+#LibraryReadingIconGridViewerCont #currentBookCoverCont #subscriptionTagLbl{
+color:#FFF;
+background-position:top left;
+background-repeat:no-repeat;
+background-image:url(:/res/sample_tag_notext_sup.png);
+text-align:left;
+}
+#LibraryReadingIconGridViewerCont #currentBookTopLeft{
+background-image: url(:/res/book_front_top_left.png) ;
+background-position:bottom right;
+background-repeat:no-repeat;
+}
+#LibraryReadingIconGridViewerCont #currentBookTopCenter{
+background-image: url(:/res/book_front_top_center.png) ;
+background-position:bottom left;
+background-repeat:no-repeat;
+}
+#LibraryReadingIconGridViewerCont #currentBookTopRight{
+background-image: url(:/res/book_front_top_right.png) ;
+background-position:bottom left;
+background-repeat:no-repeat;
+}
+#LibraryReadingIconGridViewerCont #currentBookCenterLeft{
+background-image: url(:/res/book_front_center_left.png) ;
+background-position:top right;
+background-repeat:no-repeat;
+}
+#LibraryReadingIconGridViewerCont #currentBookCenterRight{
+background-image: url(:/res/book_front_center_right.png) ;
+background-position:top left;
+background-repeat:no-repeat;
+}
+#LibraryReadingIconGridViewerCont #currentBookBottomLeft{
+background-image: url(:/res/book_front_bottom_left.png) ;
+background-position:top right;
+background-repeat:no-repeat;
+}
+#LibraryReadingIconGridViewerCont #currentBookBottomCenter{
+background-image: url(:/res/book_front_bottom_center.png) ;
+background-position:top right;
+background-repeat:no-repeat;
+}
+#LibraryReadingIconGridViewerCont #currentBookBottoRight{
+background-image: url(:/res/book_front_bottom_right.png) ;
+background-position:top left;
+background-repeat:no-repeat;
+}
+#LibraryReadingLineGridViewerCont #currentBookData #dateAccessLbl,
+#LibraryReadingLineGridViewerCont #currentBookData #lastAccessLbl,
+#LibraryReadingIconGridViewerCont #currentBookData #dateAccessLbl,
+#LibraryReadingIconGridViewerCont #currentBookData #lastAccessLbl{
+color:#303030;
+font-family: 'Lato';
+}
+#currentBookData{
+}
+#currentBookCont #bookTitleLbl{
+font-family: 'Lato';
+font-weight:bold;
+}
+#currentBookCont #authorLbl{
+font-family: 'Lato';
+}
+#currentBookCont #pagLbl,#currentBookCont #currentPagLbl,#currentBookCont #endBracketsLbl,#currentBookCont #separatorLbl,#currentBookCont #totalPagLbl, #currentBookCont #percentLbl{
+color:#303030;
+}
+#currentBookCont #readLbl, #currentBookCont #readingPercentLbl, #currentBookCont #separatorReadLbl{
+color:#303030;
+}
+/*Viewer popups
+-----------------------------------*/
+#popupCont{
+border-style:solid;
+border-color:#505050;
+background-color:#FFFFFF;
+}
+#arrowCont{
+}
+#topArrowLbl{
+background:  url(":/res/arrow_top.png") no-repeat  bottom right;
+}
+#bottomArrowLbl{
+background:  url(":/res/arrow_bottom.png") no-repeat  bottom right;
+}
+/*LibraryBooksFilterLayer
+-------------------------------*/
+#LibraryBooksFilterLayer{
+}
+#LibraryBooksFilterLayer QPushButton {
+text-align:left;
+border-bottom-style:solid;
+border-bottom-color:#707070;
+}
+#LibraryBooksFilterLayer QPushButton:disabled {
+font-weight:normal;
+color:#666;
+}
+#LibraryBooksFilterLayer QPushButton#internalMemoryBtn,  #LibraryBooksFilterLayer QPushButton#sdBtn{
+background:transparent;
+}
+#LibraryBooksFilterLayer QPushButton#allBooksBtn,  #LibraryBooksFilterLayer QPushButton#storeBooksBtn,  #LibraryBooksFilterLayer QPushButton#browserFileBtn,  #LibraryBooksFilterLayer QPushButton#myCollectionsBtn{
+background-repeat:no-repeat;
+background-position:center right;
+}
+/*LibraryBooksSubFilterLayer
+-------------------------------*/
+#LibraryBooksSubFilterLayer{
+}
+#LibraryBooksSubFilterLayer QPushButton {
+text-align:left;
+border-bottom-style:solid;
+border-bottom-color:#707070;
+background-color:#FFF;
+background-repeat:no-repeat;
+background-position:center right;
+}
+#LibraryBooksSubFilterLayer QPushButton#archivedBtn{
+border-top-style:solid;
+border-top-color:#707070;
+}
+#LibraryAllBooksFilterLayerCont QPushButton {
+text-align:left;
+border-bottom-style:solid;
+border-bottom-color:#707070;
+background-position:center right;
+}
+#LibraryBooksSubFilterLayer QPushButton:disabled {
+font-weight:normal;
+color:#666;
+}
+#LibraryBooksSubFilterLayer #popupCont{
+background-color:#505050;
+}
+#LibraryBooksSubFilterLayer QPushButton#allBooksBtn{
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#LibraryBooksSubFilterLayer QPushButton#subscriptionBooksBtn{
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#LibraryBooksSubFilterLayer QPushButton#archivedPremiumBtn, #LibraryAllBooksFilterLayerCont QPushButton#readBooksBtn{
+border-bottom:none;
+}
+/*LibrarySortBooksByLayer
+--------------------------------*/
+#LibrarySortBooksByLayer{
+}
+#LibrarySortBooksByLayer QPushButton {
+text-align:left;
+border-bottom-style:solid;
+border-bottom-color:#707070;
+}
+#LibrarySortBooksByLayer QPushButton:disabled {
+font-weight:normal;
+color:#666;
+}
+/*#LibraryBooksFilterLayer QPushButton#internalMemoryBtn,  #LibraryBooksFilterLayer QPushButton#sdBtn{
+background-color:#EDEDED;
+background-repeat:no-repeat;
+background-position:center right;
+}*/
+#LibrarySortBooksByLayer QPushButton#recentSortBtn,  #LibrarySortBooksByLayer QPushButton#authorSortBtn,  #LibrarySortBooksByLayer QPushButton#titleSortBtn{
+background-repeat:no-repeat;
+background-position:center right;
+}
+/*LibrarySortBrowserBooksByLayer
+--------------------------------*/
+#LibrarySortBrowserBooksByLayer{
+}
+#LibrarySortBrowserBooksByLayer QPushButton {
+text-align:left;
+border-bottom-style:solid;
+border-bottom-color:#707070;
+}
+#LibrarySortBrowserBooksByLayer QPushButton:disabled {
+font-weight:normal;
+color:#666;
+}
+/*#LibraryBooksFilterLayer QPushButton#internalMemoryBtn,  #LibraryBooksFilterLayer QPushButton#sdBtn{
+background-color:#EDEDED;
+background-repeat:no-repeat;
+background-position:center right;
+}*/
+#LibrarySortBrowserBooksByLayer QPushButton#modDateSortBtn,  #LibrarySortBrowserBooksByLayer QPushButton#titleSortBtn{
+background-repeat:no-repeat;
+background-position:center right;
+}
+#LibrarySortBrowserBooksByLayer QPushButton#modDateSortBtn {
+border:none;
+}
+/*LibraryBooksToShowFilterLayer
+-------------------------------*/
+#LibraryBooksToShowFilterLayer{
+}
+#LibraryBooksToShowFilterLayer QPushButton {
+text-align:left;
+border-bottom-style:solid;
+border-bottom-color:#707070;
+}
+#LibraryBooksToShowFilterLayer QPushButton:disabled {
+font-weight:normal;
+color:#666;
+}
+#LibraryBooksToShowFilterLayer QPushButton#internalMemoryBtn,  #LibraryBooksToShowFilterLayer QPushButton#sdBtn{
+background-color:#EDEDED;
+background-repeat:no-repeat;
+background-position:center right;
+}
+#LibraryBooksToShowFilterLayer QPushButton#allBooksBtn,  #LibraryBooksToShowFilterLayer QPushButton#downloadBooksBtn,  #LibraryBooksToShowFilterLayer QPushButton#nowReadingBtn,  #LibraryBooksToShowFilterLayer QPushButton#archivedBtn{
+background-repeat:no-repeat;
+background-position:center right;
+}
+/*BookSummaryPopup
+---------------------------*/
+#headerPopup #closeBtn{
+background:  url(":/res/close.png") no-repeat top center;
+}
+#BookSummaryPopup{
+}
+#BookSummaryPopup #headerPopup{
+border:none;
+}
+#BookSummaryPopup #headerPopup #closeBtn{
+background-position:center center;
+}
+#BookSummaryPopup #popupCont{
+background:url(":/res/bgSynopsisPopup.png") repeat-x top left;
+}
+#BookSummaryPopup #synopsisLbl{
+}
+#BookSummaryPopup #summaryTextBrowser{
+}
+/*LibraryBookListActions
+---------------------------*/
+#LibraryBookListActions{
+}
+#LibraryBookListActionsCont{
+border-style:solid;
+border-color:#707070;
+background-color:#FFFFFF;
+}
+#LibraryBookListActions QPushButton{
+border-style:dotted;
+border-color:#707070;
+text-align:left;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#LibraryBookListActions QPushButton#deleteBookBtn{
+border:none;
+}
+
+/*LibraryPageHandler
+----------------------------*/
+#VerticalPagerHandler{
+}
+#pageLibraryViewerCont #forwardButton{
+background-image: url(:/res/next-icon.png);
+background-position:center center;
+background-repeat:no-repeat;
+border-left-style:solid;
+border-left-color:#303030;
+}
+#pageLibraryViewerCont #backButton{
+background-image: url(:/res/prev-icon.png);
+background-position:center center;
+background-repeat:no-repeat;
+border-right-style:solid;
+border-right-color:#303030;
+}
+QSlider#pagerSlider::groove:horizontal {
+background: transparent;
+}
+QSlider#pagerSlider::sub-page:horizontal {
+}
+QSlider#pagerSlider::add-page:horizontal {
+background-color:#858688;
+}
+QSlider#pagerSlider::handle:horizontal {
+background:url(:/res/slider_indicator.png) no-repeat center;
+}
+QSlider#pagerSlider::handle:horizontal:hover {
+background:url(:/res/slider_indicator.png) no-repeat center;
+}
+QSlider#pagerSlider::handle:horizontal:pressed {
+background:none;
+}
+QSlider#pagerSlider::sub-page:horizontal:disabled {
+background-color:#858688;
+}
+QSlider#pagerSlider::add-page:horizontal:disabled {
+background-color:#858688;
+}
+QSlider#pagerSlider::handle:horizontal:disabled {
+background-color:#858688;
+}
+#pageLibraryViewerCont #pageLabel{
+text-align:right;
+}
+/*LibraryActionsMenu
+-----------------------*/
+#LibraryActionsMenu{}
+#LibraryActionsMenu #horizontalWidget{}
+#LibraryActionsMenu #popupCont{
+border-style:solid;
+border-color:#505050;
+background-color:#FFFFFF;
+}
+#LibraryActionsMenu #popupCont QPushButton{
+border-style:solid;
+border-color:#707070;
+border-top:none;
+border-left:none;
+border-bottom:none;
+}
+#LibraryActionsMenu #popupCont #copyActionBtn{}
+#LibraryActionsMenu #popupCont #deleteActionBtn{
+border:none;
+}
+#LibraryActionsMenu #topArrowLbl{
+background:  url(":/res/arrow_top.png") no-repeat center bottom;
+}
+/*LibraryBookSummary
+-----------------------*/
+#LibraryBookSummary #bookSummaryDataContainer #actionsContainer #moreActionsBtn,
+#LibraryBookSummary #bookSummaryDataContainer #actionsContainer #readSampleBtn,
+#LibraryBookSummary #bookSummaryDataContainer #actionsContainer #bookStatusBtn{
+}
+#LibraryBookSummary #bookActionsCont{
+border-top-style:solid;
+border-top-color:#505050;
+border-bottom-style:solid;
+border-bottom-color:#707070;
+background-color:transparent;
+}
+#LibraryBookSummary #bookActionsCont QPushButton{
+background-position:top center;
+background-repeat:no-repeat;
+border-right-style:solid;
+border-right-color:#707070;
+border-left-style:solid;
+border-left-color:#FFFFFF;
+background-color:transparent;
+}
+#LibraryBookSummary #bookActionsCont #bookActionBtn{
+background-image:url(:/res/remove-icon.png);
+}
+#LibraryBookSummary #bookActionsCont #removeBtn{
+background-image:url(:/res/remove-icon.png);
+}
+#LibraryBookSummary #bookActionsCont #exportNotesBtn{
+background-image:url(:/res/export-icon.png);
+}
+#LibraryBookSummary #bookActionsCont #buyBookBtn{
+background-image:url(:/res/purchase-icon.png);
+}
+#LibraryBookSummary #bookActionsCont #copyToSDBtn{
+background-image:url(:/res/sd-icon.png);
+}
+#LibraryBookSummary #bookActionsCont #archiveBtn{
+background-image:url(:/res/archive-icon.png);
+}
+#bookSummaryDataContainer #priceCont{
+}
+#LibraryBookSummary #bookSummaryDataContainer #spacerBottomLbl{
+}
+#LibraryBookSummary #numberPagesCont{
+}
+#LibraryBookSummary #numberTotalPagesLbl{
+}
+#LibraryBookSummary #textTotalPagesLbl{
+}
+
+#LibraryBookSummary #coverCont,
+#LibraryBookSummary #cover{
+background-color: transparent;
+}
+
+/*LibraryImageFullScreen
+--------------------------*/
+#LibraryImageFullScreen{
+background-color:#FFF;
+}
+#pageHandlerImage{
+border-top-color:#808080;
+border-top-style:solid;
+background-color:#FFF;
+}
+#LibraryImageFullScreenCont #closeBtn{
+border-color:#666;
+border-style:solid;
+background: #FFF url(":/res/close.png") no-repeat center center;
+}
+#btnImageNext{
+border-left-style:solid;
+border-left-color:#303030;
+background:transparent url(":res/next-icon.png") no-repeat center center;
+}
+#btnImageBack{
+border-right-style:solid;
+border-right-color:#303030;
+background:transparent url(":res/prev-icon.png") no-repeat center center;
+}
+#pageHandlerImage #imageTitle{
+    font-weight:bold;
+}
+/*LibraryLineGridCollections
+-----------------------------------*/
+#LibraryLineGridCollections{
+background-color:#FFFFFF;
+}
+#LibraryLineGridCollections #book1, #LibraryLineGridCollections #book2, #LibraryLineGridCollections #book3, #LibraryLineGridCollections #book4,
+#LibraryLineGridCollections #book5, #LibraryLineGridCollections #book6, #LibraryLineGridCollections #book7, #LibraryLineGridCollections #book8, #LibraryLineGridCollections #book9{
+border-bottom-color:#808080;
+border-bottom-style:solid;
+}
+/*LibraryLineGridCollectionsItem
+-----------------------------------*/
+#LineGridCollectionsItemCont{
+}
+#collectionTitleLabel{
+font-weight:bold;
+}
+#booksNumberLlb{
+}
+#booksNumberValueLbl{
+}
+#deleteCollectionBtn{
+background:   url(":/res/remove-icon.png") no-repeat center center;
+}
+#editCollectionBtn{
+border-left-color:#808080;
+border-left-style:solid;
+background:  url(":/res/edit-icon.png") no-repeat center center;
+}
+#goToBookBtn{
+background:transparent;
+}
+
+/*LibraryEditCollection
+-----------------------------------*/
+#LibraryEditCollection{
+background-color:#FFFFFF;
+}
+#LibraryEditCollection #headerCont{
+border-bottom-style:solid;
+border-bottom-color:#909090;
+}
+#collectionActionTitle{
+font-weight:bold;
+}
+#collectionContainer{
+border-style:solid;
+border-color:#303030;
+}
+#collectionContainer #actionsCont{
+border-bottom-style:solid;
+border-bottom-color:#909090;
+}
+#collectionContainer #actionsCont QPushButton{
+border-style:solid;
+border-color:#808080;
+background: #E0E0E0 url(:res/check-group.png) no-repeat center left;
+}
+#collectionContainer #actionsCont QPushButton#unSelectAllBtn{
+margin-right:30px;
+background-image:url(:/res/uncheck-group.png) ;
+}
+#LibraryEditCollection #editCollectionNameCont{
+}
+#editCollectionNameCont #collectionNameLineEdit{
+border-style:solid;
+border-color:#808080;
+border-right:none;
+border-top-right-radius:none;
+border-bottom-right-radius:none;
+}
+#editCollectionNameCont #clearInputBtn{
+border-style:solid;
+border-color:#808080;
+border-left:none;
+background:  url(:res/clear_input.png) no-repeat center center;
+}
+#LibraryEditCollection #closeSearchBtn{
+text-align:left;
+border-color:#606060;
+border-style:solid;
+background: transparent url(:res/close_popup_ico.png) no-repeat center right;
+}
+#LibraryEditCollection #bottomActionCont{
+border-top-style:solid;
+border-top-color:#808080;
+}
+#LibraryEditCollection #saveCollectionBnt{
+text-align:left;
+font-weight:bold;
+background: transparent url(:/res/save-icon.png) no-repeat center left;
+}
+#LibraryEditCollection #saveCollectionBnt:disabled {
+color:#666;
+background: transparent url(:/res/save-icons-disabled.png) no-repeat center left;
+}
+/* LibraryBookToCollectionItem
+--------------------------*/
+#LibraryBookToCollectionItem, #BookToCollectionItemCont{
+}
+#addBookToCollectionBtn{
+background: url(:/res/uncheck-group.png) no-repeat center right;
+}
+#addBookToCollectionBtn:checked{
+background: url(:res/check-group.png) no-repeat center right;
+}
+#bookTitleLabel{
+font-weight:bold;
+}
+#booksNumberLlb{
+}
+/* VerticalPager
+--------------------------*/
+#VerticalPager{
+border-top-style:solid;
+border-top-color:#808080;
+}
+#pageLibraryViewerCont #upButton{
+background-image: url(:/res/up-small-btn.png);
+background-position:center center;
+background-repeat:no-repeat;
+}
+#pageLibraryViewerCont #downButton{
+background-image: url(:/res/down-small-btn.png);
+background-position:center center;
+background-repeat:no-repeat;
+}
+#VerticalPager #pageLabel{
+}
+/*LibraryLineGridCollections
+-----------------------------------*/
+#LibraryLineGridCollections{
+background-color:#FFFFFF;
+}
+#LibraryLineGridCollections #book1, #LibraryLineGridCollections #book2, #LibraryLineGridCollections #book3, #LibraryLineGridCollections #book4,
+#LibraryLineGridCollections #book5, #LibraryLineGridCollections #book6, #LibraryLineGridCollections #book7, #LibraryLineGridCollections #book8, #LibraryLineGridCollections #book9{
+border-bottom-color:#808080;
+border-bottom-style:solid;
+}
+/*LibraryLineGridCollectionsItem
+-----------------------------------*/
+#LineGridCollectionsItemCont{
+}
+#collectionTitleLabel{
+font-weight:bold;
+}
+#booksNumberLlb{
+}
+#booksNumberValueLbl{
+}
+#deleteCollectionBtn{
+background:   url(":/res/remove-icon.png") no-repeat center center;
+}
+#editCollectionBtn{
+border-left-color:#808080;
+border-left-style:solid;
+background:  url(":/res/edit-icon.png") no-repeat center center;
+}
+#goToBookBtn{
+background:transparent;
+}
+
+/*LibraryEditCollection
+-----------------------------------*/
+#LibraryEditCollection{
+background-color:#FFFFFF;
+}
+#LibraryEditCollection #headerCont{
+border-bottom-style:solid;
+border-bottom-color:#909090;
+}
+#collectionActionTitle{
+font-weight:bold;
+}
+#collectionContainer{
+border-style:solid;
+border-color:#303030;
+}
+#collectionContainer #actionsCont{
+border-bottom-style:solid;
+border-bottom-color:#909090;
+}
+#collectionContainer #actionsCont QPushButton{
+border-style:solid;
+border-color:#808080;
+background: #E0E0E0 url(:res/check-group.png) no-repeat center left;
+}
+#collectionContainer #actionsCont QPushButton#unSelectAllBtn{
+margin-right:30px;
+background-image:url(:/res/uncheck-group.png) ;
+}
+#LibraryEditCollection #editCollectionNameCont{
+}
+#editCollectionNameCont #collectionNameLineEdit{
+border-style:solid;
+border-color:#808080;
+border-right:none;
+border-top-right-radius:none;
+border-bottom-right-radius:none;
+}
+#editCollectionNameCont #clearInputBtn{
+border-style:solid;
+border-color:#808080;
+border-left:none;
+background:  url(:res/clear_input.png) no-repeat center center;
+}
+#LibraryEditCollection #closeSearchBtn{
+text-align:left;
+border-color:#606060;
+border-style:solid;
+background: transparent url(:res/close_popup_ico.png) no-repeat center right;
+}
+#LibraryEditCollection #bottomActionCont{
+border-top-style:solid;
+border-top-color:#808080;
+}
+#LibraryEditCollection #saveCollectionBnt{
+text-align:left;
+font-weight:bold;
+background: transparent url(:/res/save-icon.png) no-repeat center left;
+}
+/* LibraryBookToCollectionItem
+--------------------------*/
+#LibraryBookToCollectionItem, #BookToCollectionItemCont{
+}
+#addBookToCollectionBtn{
+background: url(:/res/uncheck-group.png) no-repeat center right;
+}
+#addBookToCollectionBtn:checked{
+background: url(:res/check-group.png) no-repeat center right;
+}
+#bookTitleLabel{
+font-weight:bold;
+}
+#booksNumberLlb{
+}
+/* VerticalPager
+--------------------------*/
+#VerticalPager{
+border-top-style:solid;
+border-top-color:#808080;
+}
+#pageLibraryViewerCont #upButton{
+background-image: url(:/res/up-small-btn.png);
+background-position:center center;
+background-repeat:no-repeat;
+}
+#pageLibraryViewerCont #downButton{
+background-image: url(:/res/down-small-btn.png);
+background-position:center center;
+background-repeat:no-repeat;
+}
+#VerticalPager #pageLabel{
+}
+
+#collectionContainer #pageLibraryViewerCont  #upButton{
+background-image: url(:/res/up-small-btn.png);
+background-position:center center;
+background-repeat:no-repeat;
+}
+#collectionContainer #pageLibraryViewerCont #downButton{
+background-image: url(:/res/down-small-btn.png);
+background-position:center center;
+background-repeat:no-repeat;
+}
+

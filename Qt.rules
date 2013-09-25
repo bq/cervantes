@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisualStudioToolFile
+	Name="Qt"
+	Version="8.00"
+	>
+	<Rules>
+		<CustomBuildRule
+			Name="lrelease"
+			DisplayName="Qt Linguist Tool"
+			CommandLine="&quot;$(QTDIR)/bin/lrelease.exe&quot; [compress] [nounfinished] [removeidentical] [inputs] -qm &quot;$(OutDir)/langs/$(InputName).qm&quot;"
+			Outputs="&quot;$(OutDir)/langs/$(InputName).qm&quot;"
+			FileExtensions="*.ts"
+			ExecutionDescription="Qt lrelease [inputs]"
+			>
+			<Properties>
+				<BooleanProperty
+					Name="compress"
+					DisplayName="Compress"
+					Category="Options"
+					Description="Compress the .qm files"
+					Switch="-compress"
+				/>
+				<BooleanProperty
+					Name="nounfinished"
+					DisplayName="No unfinished translations"
+					Category="Options"
+					Description="Do not include unfinished translations"
+					Switch="-nounfinished"
+				/>
+				<BooleanProperty
+					Name="removeidentical"
+					DisplayName="Remove identical"
+					Category="Options"
+					Description="If the translated text is the same as the source text, do not include the message"
+					Switch="-removeidentical"
+					DefaultValue="true"
+				/>
+			</Properties>
+		</CustomBuildRule>
+		<CustomBuildRule
+			Name="rcc"
+			DisplayName="Qt Resource Tool"
+			CommandLine="&quot;$(QTDIR)/bin/rcc.exe&quot; -binary [inputs] -o &quot;$(OutDir)/langs/$(InputName).rcc&quot;&#x0D;&#x0A;&quot;$(QTDIR)/bin/rcc.exe&quot; -name &quot;$(InputName)&quot; -no-compress [inputs] -o .\gen\qrc_$(InputName).cpp"
+			Outputs="&quot;$(OutDir)/langs/$(InputName).rcc&quot;;.\gen\qrc_$(InputName).cpp"
+			FileExtensions="*.qrc"
+			ExecutionDescription="Qt rcc [inputs]"
+			>
+			<Properties>
+			</Properties>
+		</CustomBuildRule>
+	</Rules>
+</VisualStudioToolFile>

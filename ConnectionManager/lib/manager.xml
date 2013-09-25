@@ -1,0 +1,82 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+	<interface name="net.connman.Manager">
+		<method name="GetProperties">
+			<arg name="properties" type="a{sv}" direction="out"/>
+			<annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+		</method>
+		<method name="SetProperty">
+			<arg name="name" type="s" direction="in"/>
+			<arg name="value" type="v" direction="in"/>
+		</method>
+		<method name="GetTechnologies">
+			<arg name="technologies" type="a(oa{sv})" direction="out"/>
+			<annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="TechnologiesList"/>
+		</method>
+		<method name="RemoveProvider">
+			<arg name="provider" type="o" direction="in"/>
+		</method>
+		<method name="GetServices">
+			<arg name="services" type="a(oa{sv})" direction="out"/>
+			<annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="TechnologiesList"/>
+		</method>
+		<method name="ConnectProvider">
+			<arg name="provider" type="a{sv}" direction="in"/>
+			<annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="QVariantMap"/>
+			<arg name="path" type="o" direction="out"/>
+		</method>
+		<method name="RegisterAgent">
+			<arg name="path" type="o" direction="in"/>
+		</method>
+		<method name="UnregisterAgent">
+			<arg name="path" type="o" direction="in"/>
+		</method>
+		<method name="RegisterCounter">
+			<arg name="path" type="o" direction="in"/>
+			<arg name="accuracy" type="u" direction="in"/>
+			<arg name="period" type="u" direction="in"/>
+		</method>
+		<method name="UnregisterCounter">
+			<arg name="path" type="o" direction="in"/>
+		</method>
+		<method name="CreateSession">
+			<arg name="settings" type="a{sv}" direction="in"/>
+			<annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="QVariantMap"/>
+			<arg name="notifier" type="o" direction="in"/>
+			<arg name="session" type="o" direction="out"/>
+		</method>
+		<method name="DestroySession">
+			<arg name="session" type="o" direction="in"/>
+		</method>
+		<method name="RequestPrivateNetwork">
+			<arg name="path" type="o" direction="out"/>
+			<arg name="settings" type="a{sv}" direction="out"/>
+			<annotation name="com.trolltech.QtDBus.QtTypeName.Out1" value="QVariantMap"/>
+			<arg name="socket" type="h" direction="out"/>
+			<annotation name="com.trolltech.QtDBus.QtTypeName.Out2" value="QString"/>
+		</method>
+		<method name="ReleasePrivateNetwork">
+			<arg name="path" type="o" direction="in"/>
+		</method>
+		<signal name="PropertyChanged">
+			<arg name="name" type="s"/>
+			<arg name="value" type="v"/>
+		</signal>
+		<signal name="TechnologyAdded">
+			<arg name="path" type="o"/>
+			<arg name="properties" type="a{sv}"/>
+			<annotation name="com.trolltech.QtDBus.QtTypeName.In1" value="QVariantMap"/>
+		</signal>
+		<signal name="TechnologyRemoved">
+			<arg name="path" type="o"/>
+		</signal>
+		<signal name="ServicesChanged">
+			<arg name="changed" type="a(oa{sv})"/>
+			<annotation name="com.trolltech.QtDBus.QtTypeName.In0" value="TechnologiesList"/>
+			<arg name="removed" type="ao"/>
+		</signal>
+	</interface>
+	<node name="net"/>
+</node>
+

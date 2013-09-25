@@ -1,0 +1,59 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="res/book1.png">res/800/book1.png</file>
+        <file alias="res/book2.png">res/800/book2.png</file>
+        <file alias="res/book3.png">res/800/book3.png</file>
+        <file alias="res/next_book.png">res/800/next_book.png</file>
+        <file alias="res/next_book_disable.png">res/800/next_book_disable.png</file>
+        <file alias="res/previous_book.png">res/800/previous_book.png</file>
+        <file alias="res/previous_book_disable.png">res/800/previous_book_disable.png</file>
+        <file alias="res/current_book.png">res/800/current_book.png</file>
+        <file alias="res/arrow.png">res/800/arrow.png</file>
+        <file alias="res/help_app.png">res/800/help_app.png</file>
+        <file alias="res/library_app.png">res/800/library_app.png</file>
+        <file alias="res/search_app.png">res/800/search_app.png</file>
+        <file alias="res/settings_app.png">res/800/settings_app.png</file>
+        <file alias="res/store_app.png">res/800/store_app.png</file>
+        <file alias="res/arrow_popup.png">res/800/arrow_popup.png</file>
+        <file alias="res/settings_app_1024.png">res/800/settings_app_1024.png</file>
+        <file alias="res/cover.png">res/800/cover.png</file>
+        <file alias="res/book_front_bottom_center.png">res/800/book_front_bottom_center.png</file>
+        <file alias="res/book_front_bottom_left.png">res/800/book_front_bottom_left.png</file>
+        <file alias="res/book_front_bottom_right.png">res/800/book_front_bottom_right.png</file>
+        <file alias="res/book_front_center_left.png">res/800/book_front_center_left.png</file>
+        <file alias="res/book_front_center_right.png">res/800/book_front_center_right.png</file>
+        <file alias="res/book_front_cover.png">res/800/book_front_cover.png</file>
+        <file alias="res/book_front_top_center.png">res/800/book_front_top_center.png</file>
+        <file alias="res/book_front_top_left.png">res/800/book_front_top_left.png</file>
+        <file alias="res/book_front_top_right.png">res/800/book_front_top_right.png</file>
+        <file alias="res/cover_open_book.png">res/800/cover_open_book.png</file>
+        <file alias="res/open_book_bottom_center.png">res/800/open_book_bottom_center.png</file>
+        <file alias="res/open_book_bottom_left.png">res/800/open_book_bottom_left.png</file>
+        <file alias="res/open_book_bottom_right.png">res/800/open_book_bottom_right.png</file>
+        <file alias="res/open_book_center_left.png">res/800/open_book_center_left.png</file>
+        <file alias="res/open_book_center_right.png">res/800/open_book_center_right.png</file>
+        <file alias="res/open_book_top_center.png">res/800/open_book_top_center.png</file>
+        <file alias="res/open_book_top_left.png">res/800/open_book_top_left.png</file>
+        <file alias="res/open_book_top_right.png">res/800/open_book_top_right.png</file>
+        <file>res/800/open_book_shadow.png</file>
+        <file alias="res/bg_home.png">res/800/bg_home.png</file>
+        <file alias="res/unknow_book.png">res/800/unknow_book.png</file>
+        <file alias="res/home_styles.qss">res/800/home_styles.qss</file>
+        <file alias="res/home_styles_generic.qss">res/home_styles_generic.qss</file>
+        <file alias="res/check_ico.png">res/800/check_ico.png</file>
+        <file alias="res/bg_home_1.png">res/800/bg_home_1.png</file>
+        <file alias="res/bg_home_2.png">res/800/bg_home_2.png</file>
+        <file alias="res/bg_home_3.png">res/800/bg_home_3.png</file>
+        <file alias="res/bg_home_4.png">res/800/bg_home_4.png</file>
+        <file alias="res/bg_home_6.png">res/800/bg_home_6.png</file>
+        <file alias="res/bg_home_7.png">res/800/bg_home_7.png</file>
+        <file alias="res/bg_home_9.png">res/800/bg_home_9.png</file>
+        <file alias="res/bg_home_10.png">res/800/bg_home_10.png</file>
+        <file alias="res/bg_home_11.png">res/800/bg_home_11.png</file>
+        <file alias="res/bg_home_31.png">res/800/bg_home_31.png</file>
+        <file alias="res/bg_home_41.png">res/800/bg_home_41.png</file>
+        <file>Home800.qrc</file>
+        <file alias="res/sample_tag_notext_nomargin.png">res/800/sample_tag_notext_nomargin.png</file>
+        <file alias="res/sample_tag_notext_sup.png">res/800/sample_tag_notext_sup.png</file>
+    </qresource>
+</RCC>

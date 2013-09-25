@@ -1,0 +1,950 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* Library
+--------------------------*/
+#Library{
+min-width:758px;
+max-width:758px;
+min-height:960px;
+max-height:960px;
+}
+#Library #searchCont{
+margin:0px 25px;
+min-height:76px;
+max-height:76px;
+border-width:2px;
+}
+#searchCont #sortBooksLbl{
+margin-left:25px;
+font-size:24px;
+font-weight:bold;
+}
+#Library #selectAllBooksBtn{
+margin-right:25px;
+min-height:58px;
+max-height:58px;
+padding:0px 38px;
+border-width:1px;
+border-radius:6px;
+}
+#Library #editBooksBtn{
+margin-right:25px;
+min-height:58px;
+max-height:58px;
+padding:0px 38px;
+border-width:1px;
+border-radius:6px;
+}
+#Library #sortBooksCont #archiveBooksBtn, #Library #sortBooksCont #deleteBooksBtn, #Library #sortBooksCont #closeEditBooksBtn{
+border-color:#808080;
+background-color:#FFFFFF;
+border-style:solid;
+padding:0px 38px;
+margin:0px 0px 0px 20px;
+min-height:58px;
+max-height:58px;
+border-width:2px;
+border-radius:6px;
+}
+#searchCont #librarySearchLineEdit{
+margin-left:25px;
+padding-left:58px;
+min-width:0px;
+max-width:660px;
+min-height:70px;
+max-height:70px;
+border-radius:0;
+}
+#Library #searchCont #clearSearchBtn{
+margin:0px;
+min-width:70px;
+max-width:70px;
+min-height:70px;
+max-height:70px;
+border-width:0px;
+}
+#searchCont #closeSearchBtn{
+margin:0px 25px;
+min-height:58px;
+max-height:58px;
+padding:0px 38px;
+border-width:2px;
+border-radius:6px;
+}
+#searchCont  #synchronizeBtn{
+margin:0px 25px 0px 20px;
+min-width:58px;
+max-width:58px;
+min-height:58px;
+max-height:58px;
+}
+#topActions{
+/*margin:0px 20px;*/
+min-height:67px;
+max-height:67px;
+border-width:1px;
+}
+#topActions #bookActionsSelectBtn{
+padding:0px 25px 0px 0px;
+margin:0px 0px 0px 25px;
+}
+#topActions #showResultsLbl{
+margin:0px 0px 0px 25px;
+}
+#topActions #pathDotsLbl{
+padding:0px 5px 0px 20px;
+}
+#topActions #pathLbl{
+}
+#breadCrumb{
+padding:0px 20px 0px 20px;
+}
+#booksContainer{
+min-height:730px;
+max-height:813px;
+}
+#sortBooksCont{
+margin:0px 25px;
+min-height:81px;
+max-height:81px;
+border-top-width:2px;
+border-top-radius:23px;
+}
+#sortBooksCont #sortIconBtn{
+margin:0px 0px 0px 25px;
+min-width:64px;
+max-width:64px;
+min-height:51px;
+max-height:51px;
+border-width:2px;
+border-top-left-radius:6px;
+border-bottom-left-radius:6px;
+}
+#sortBooksCont #sortListBtn{
+margin:0px 25px 0px 0px;
+min-width:64px;
+max-width:64px;
+min-height:51px;
+max-height:51px;
+border-width:2px;
+border-top-right-radius:6px;
+border-bottom-right-radius:6px;
+}
+#sortBooksCont #recentSortBtn{
+padding:0px 38px;
+min-height:51px;
+max-height:51px;
+border-width:2px;
+border-top-left-radius:6px;
+border-bottom-left-radius:6px;
+}
+#sortBooksCont #titleSortBtn{
+padding:0px 38px;
+min-height:51px;
+max-height:51px;
+border-width:2px;
+}
+#sortBooksCont #authorSortBtn{
+padding:0px 38px;
+min-height:51px;
+max-height:51px;
+border-width:2px;
+border-top-right-radius:6px;
+border-bottom-right-radius:6px;
+}
+#sortBooksCont #fileNameBtn{
+padding:0px 35px;
+min-height:51px;
+max-height:51px;
+border-width:2px;
+border-top-left-radius:6px;
+border-bottom-left-radius:6px;
+}
+#sortBooksCont #lastModifyBtn{
+margin:0px 1px 0px 0px;
+padding:0px 35px;
+min-height:51px;
+max-height:51px;
+border-width:2px;
+border-top-right-radius:6px;
+border-bottom-right-radius:6px;
+}
+/*LibraryIconGridViewer
+--------------------------*/
+#LibraryIconGridViewer{
+min-width:758px;
+max-width:758px;
+min-height:730px;
+max-height:730px;
+}
+#iconGridViewerCont #book1, #iconGridViewerCont #book2, #iconGridViewerCont #book3, #iconGridViewerCont #book4, #iconGridViewerCont #book5, #iconGridViewerCont #book6{
+min-width:243px;
+max-width:243px;
+min-height:307px;
+min-height:307px;
+}
+/*LibraryIconGridViewerItem
+------------------------------------*/
+#fileCont{
+min-width:243px;
+max-width:243px;
+}
+#LibraryIconGridViewerItem {
+min-width:243px;
+max-width:243px;
+min-height:307px;
+max-height:307px;
+}
+#IconGridViewerItemCont {
+min-width:243px;
+max-width:243px;
+min-height:300px;
+max-height:300px;
+}
+#IconBookItemCont{
+min-width:243px;
+max-width:243px;
+min-height:307px;
+max-height:307px;
+}
+#IconFileItemCont{
+min-width:243px;
+max-width:243px;
+min-height:307px;
+max-height:307px;
+}
+#currentBookCoverLbl{
+min-width:172px;
+max-width:172px;
+min-height:260px;
+max-height:260px;
+}
+#currentBookTopLeft{
+min-width:66px;
+max-width:66px;
+min-height:64px;
+max-height:64px;
+}
+#currentBookTopCenter{
+min-width:172px;
+max-width:172px;
+min-height:64px;
+max-height:64px;
+}
+#currentBookTopRight{
+min-width:51px;
+max-width:51px;
+min-height:64px;
+max-height:64px;
+}
+#currentBookCenterLeft{
+min-width:66px;
+max-width:66px;
+min-height:260px;
+max-height:260px;
+}
+#currentBookCenterRight{
+min-width:51px;
+max-width:51px;
+min-height:260px;
+max-height:260px;
+}
+#currentBookBottomLeft{
+min-width:66px;
+max-width:66px;
+min-height:32px;
+max-height:32px;
+}
+#currentBookBottomCenter{
+min-width:172px;
+max-width:172px;
+min-height:32px;
+max-height:32px;
+}
+#currentBookBottomRight{
+min-width:51px;
+max-width:51px;
+min-height:32px;
+max-height:32px;
+}
+#IconGridViewerItemCont #coverCont #topLeftLbl{
+min-width:25px;
+max-width:25px;
+min-height:6px;
+max-height:6px;
+}
+#IconGridViewerItemCont #coverCont #topCenterLbl{
+min-width:172px;
+max-width:172px;
+min-height:6px;
+max-height:6px;
+}
+#IconGridViewerItemCont #coverCont #topRightLbl{
+min-width:24px;
+max-width:24px;
+min-height:6px;
+max-height:6px;
+}
+#IconGridViewerItemCont #coverCont #centerLeftLbl{
+min-width:25px;
+max-width:25px;
+min-height:260px;
+max-height:260px;
+}
+#IconGridViewerItemCont #coverCont #cover, #IconGridViewerItemCont #coverCont #cover #coverLabel{
+min-width:172px;
+max-width:172px;
+min-height:260px;
+max-height:260px;
+}
+#IconGridViewerItemCont #coverCont #centerRightLbl{
+min-width:24px;
+max-width:24px;
+min-height:260px;
+max-height:260px;
+}
+#IconGridViewerItemCont #coverCont #bottomLeftLbl{
+min-width:25px;
+max-width:25px;
+min-height:17px;
+max-height:17px;
+}
+#IconGridViewerItemCont #coverCont #bottomCenterLbl{
+min-width:172px;
+max-width:172px;
+min-height:17px;
+max-height:17px;
+}
+#IconGridViewerItemCont #coverCont #bottomRightLbl{
+min-width:24px;
+max-width:24px;
+min-height:17px;
+max-height:17px;
+}
+#coverFileLbl{
+min-width:237px;
+max-width:237px;
+min-height:243px;
+max-height:243px;
+}
+#coverCont #titleLbl,#cover #titleLbl{
+min-width:179px;
+max-width:179px;
+min-height:51px;
+max-height:51px;
+padding-top:148px;
+font-size:20px;
+}
+#coverCont #fileNameLbl,#cover #fileNameLbl{
+min-width:179px;
+max-width:179px;
+min-height:45px;
+max-height:45px;
+font-size:21px;
+}
+#coverCont #authorLbl,#cover #authorLbl{
+min-width:179px;
+max-width:179px;
+font-size:18px;
+min-height:25px;
+max-height:25px;
+padding-top:197px;
+}
+#fileTitleLbl{
+font-size:21px;
+}
+#iconGridViewerCont #newTagLbl, #LibraryIconGridViewerItem #newTagLbl{
+min-width:220px;
+max-width:220px;
+min-height:288px;
+max-height:288px;
+padding:0px 0px -3px 0px;
+font-size:19px;
+}
+#iconGridViewerCont #archiveTagLbl,#LibraryIconGridViewerItem #archiveTagLbl{
+min-width:221px;
+max-width:221px;
+min-height:283px;
+max-height:283px;
+padding:0px 0px 0px 0px;
+font-size:19px;
+}
+#iconGridViewerCont #downloadBtn, #LibraryIconGridViewerItem #downloadBtn{
+min-width:221px;
+max-width:221px;
+min-height:283px;
+max-height:283px;
+padding:0px 0px 0px 0px;
+}
+#iconGridViewerCont #readingTagLbl,  #LibraryIconGridViewerItem  #readingTagLbl{
+min-width:237px;
+max-width:237px;
+min-height:243px;
+max-height:243px;
+}
+#iconGridViewerCont #sampleTagLbl,  #LibraryIconGridViewerItem  #sampleTagLbl{
+/*min-width:195px;
+max-width:195px;
+min-height:273px;
+max-height:273px;*/
+min-width:86px;
+max-width:86px;
+min-height:86px;
+max-height:86px;
+margin:0px 0px 0px 0px;
+font-size:19px;
+}
+#iconGridViewerCont #subscriptionTagLbl, #LibraryIconGridViewerItem #subscriptionTagLbl{
+min-width:243px;
+max-width:243px;
+min-height:294px;
+max-height:294px;
+}
+#iconGridViewerCont #selectBookLbl{
+min-width:243px;
+max-width:243px;
+min-height:294px;
+max-height:294px;
+}
+/*IconGridViewer
+--------------------------*/
+#LibraryLineGridViewer{
+min-width:758px;
+max-width:758px;
+min-height:730px;
+max-height:813px;
+}
+#LibraryLineGridViewer #book1, #LibraryLineGridViewer #book2, #LibraryLineGridViewer #book3, #LibraryLineGridViewer #book4, #LibraryLineGridViewer #book5, #LibraryLineGridViewer #book6, #book7{
+margin:0px;
+padding:0px;
+min-height:110px;
+min-height:110px;
+border-width:1px;
+}
+/*LibraryLineGridViewerItem
+------------------------*/
+#LibraryReadingLineGridViewer,#LibraryReadingLineGridViewerCont{
+min-width:758px;
+max-width:758px;
+min-height:723px;
+min-height:723px;
+}
+#LibraryLineGridViewerItemCont,LibraryLineGridViewerItem{
+min-width:758px;
+max-width:758px;
+min-height:110px;
+max-height:110px;
+}
+#LibraryReadingLineGridViewerCont #book1, #LibraryReadingLineGridViewerCont #book2, #LibraryReadingLineGridViewerCont #book3{
+margin:0px;
+padding:0px;
+min-height:110px;
+max-height:110px;
+border-width:1px;
+}
+#LibraryReadingLineGridViewerCont #VerticalPagerHandler{
+min-height:51px;
+min-height:51px;
+}
+#LibraryReadingLineGridViewerCont #mainBookInfoCont{
+min-height:326px;
+max-height:326px;
+border-width:1px;
+}
+#LibraryLineGridViewerItemCont #typeCont,LibraryLineGridViewerItem #typeCont{
+min-width:102px;
+max-width:102px;
+}
+#LibraryLineGridViewerItemCont #titleLbl,LibraryLineGridViewerItem #titleLbl{
+min-width:410px;
+max-width:410px;
+min-height:51px;
+max-height:51px;
+font-size:28px;
+}
+#LibraryLineGridViewerItemCont #authorLbl,LibraryLineGridViewerItem #authorLbl{
+min-width:410px;
+max-width:410px;
+min-height:25px;
+max-height:25px;
+font-size:24px;
+}
+#LibraryLineGridViewerItemCont #typeCont #iconTypeFileLbl,LibraryLineGridViewerItem #typeCont #iconTypeFileLbl{
+margin:15px 0px 0px 0px;
+min-width:102px;
+max-width:102px;
+min-height:64px;
+max-height:64px;
+}
+#LibraryLineGridViewerItemCont #typeCont #readingProgressLbl,LibraryLineGridViewerItem #typeCont #readingProgressLbl{
+font-size:22px;
+}
+#LibraryLineGridViewerItemCont #newTagLbl,LibraryLineGridViewerItem #newTagLbl{
+min-width:56px;
+max-width:56px;
+min-height:110px;
+max-height:110px;
+font-size:20px;
+}
+#LibraryLineGridViewerItemCont #archiveTagLbl,LibraryLineGridViewerItem #archiveTagLbl{
+min-width:56px;
+max-width:56px;
+min-height:110px;
+max-height:110px;
+font-size:18px;
+}
+#LibraryLineGridViewerItemCont #sampleTagLbl,LibraryLineGridViewerItem #sampleTagLbl{
+min-width:56px;
+max-width:56px;
+min-height:110px;
+max-height:110px;
+font-size:20px;
+}
+#LibraryLineGridViewerItemCont #subscriptionTagLbl,LibraryLineGridViewerItem #subscriptionTagLbl{
+min-width:56px;
+max-width:56px;
+min-height:110px;
+max-height:110px;
+font-size:20px;
+}
+#LibraryLineGridViewerItemCont #downloadBtn,LibraryLineGridViewerItem #downloadBtn{
+min-width:64px;
+max-width:64px;
+min-height:110px;
+max-height:110px;
+font-size:20px;
+}
+#LibraryLineGridViewerItemCont #selectBookLbl ,LibraryLineGridViewerItem #selectBookLbl{
+min-width:89px;
+max-width:89px;
+min-height:110px;
+max-height:110px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #topLeftLbl{
+min-width:25px;
+max-width:25px;
+min-height:14px;
+max-height:14px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #topCenterLbl{
+min-width:172px;
+max-width:172px;
+min-height:14px;
+max-height:14px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #topRightLbl{
+min-width:24px;
+max-width:24px;
+min-height:14px;
+max-height:14px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #centerLeftLbl{
+min-width:25px;
+max-width:25px;
+min-height:260px;
+max-height:260px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #coverLbl, #LibraryReadingLineGridViewerCont #coverCont #coverTagsCont{
+min-width:172px;
+max-width:172px;
+min-height:260px;
+max-height:260px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #newTagLbl{
+min-width:172px;
+max-width:172px;
+min-height:265px;
+max-height:265px;
+padding:0px 0px -3px 0px;
+font-size:19px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #sampleTagLbl{
+min-width:86px;
+max-width:86px;
+min-height:86px;
+max-height:86px;
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+font-size:19px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #centerRightLbl{
+min-width:24px;
+max-width:24px;
+min-height:260px;
+max-height:260px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #bottomLeftLbl{
+min-width:25px;
+max-width:25px;
+min-height:20px;
+max-height:20px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #bottomCenterLbl{
+min-width:172px;
+max-width:172px;
+min-height:20px;
+max-height:20px;
+}
+#LibraryReadingLineGridViewerCont #coverCont #bottomRightLbl{
+min-width:19px;
+max-width:19px;
+min-height:20px;
+max-height:20px;
+}
+/*LibraryReadingIconGridViewer
+-----------------------------*/
+#LibraryReadingIconGridViewer,#LibraryReadingIconGridViewerCont{
+min-width:758px;
+max-width:758px;
+min-height:723px;
+max-height:723px;
+}
+#LibraryReadingIconGridViewerCont #VerticalPagerHandler{
+min-height:51px;
+min-height:51px;
+}
+#LibraryReadingIconGridViewerCont #currentBookData{
+min-width:435px;
+max-width:435px;
+}
+#LibraryReadingIconGridViewerCont #currentBookCoverLbl{
+min-width:150px;
+max-width:150px;
+min-height:225px;
+max-height:225px;
+}
+#LibraryReadingIconGridViewerCont #currentBookCoverCont #newTagLbl{
+min-width:150px;
+max-width:150px;
+min-height:230px;
+max-height:230px;
+padding:0px 0px -3px 0px;
+font-size:19px;
+}
+#LibraryReadingIconGridViewerCont #currentBookCoverCont #sampleTagLbl{
+min-width:86px;
+max-width:86px;
+min-height:86px;
+max-height:86px;
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+font-size:19px;
+}
+#LibraryReadingIconGridViewerCont #currentBookTopLeft{
+min-width:25px;
+max-width:25px;
+min-height:48px;
+max-height:48px;
+}
+#LibraryReadingIconGridViewerCont #currentBookTopCenter{
+min-width:150px;
+max-width:150px;
+min-height:48px;
+max-height:48px;
+}
+#LibraryReadingIconGridViewerCont #currentBookTopRight{
+min-width:24px;
+max-width:24px;
+min-height:48px;
+max-height:48px;
+}
+#LibraryReadingIconGridViewerCont #currentBookCenterLeft{
+min-width:25px;
+max-width:25px;
+min-height:225px;
+max-height:225px;
+}
+#LibraryReadingIconGridViewerCont #currentBookCenterRight{
+min-width:24px;
+max-width:24px;
+min-height:225px;
+max-height:225px;
+}
+#LibraryReadingIconGridViewerCont #currentBookBottomLeft{
+min-width:25px;
+max-width:25px;
+min-height:29px;
+max-height:29px;
+}
+#LibraryReadingIconGridViewerCont #currentBookBottomCenter{
+min-width:150px;
+max-width:150px;
+min-height:29px;
+max-height:29px;
+}
+#LibraryReadingIconGridViewerCont #currentBookBottoRight{
+min-width:24px;
+max-width:24px;
+min-height:29px;
+max-height:29px;
+}
+#mainBookInfoCont{
+min-width:758px;
+max-width:758px;
+min-height:339px;
+max-height:339px;
+}
+#currentBookCont{
+min-width:758px;
+max-width:758px;
+min-height:339px;
+max-height:339px;
+}
+#readBookBtn{
+min-width:758px;
+max-width:758px;
+min-height:339px;
+max-height:339px;
+}
+#currentBookData{
+min-width:390px;
+max-width:390px;
+}
+#currentBookCont #readingLbl{
+margin:45px 0px 19px 0px;
+font-size: 32px;
+}
+#currentBookCont #bookTitleLbl{
+font-size:36px;
+}
+#currentBookCont #authorLbl{
+font-size:28px;
+}
+#currentBookCont #pagLbl,#currentBookCont #currentPagLbl,#currentBookCont #endBracketsLbl,#currentBookCont #separatorLbl,#currentBookCont #totalPagLbl,  #currentBookCont #percentLbl{
+margin:19px 0px 0px 0px;
+font-size:22px;
+}
+#currentBookCont #readLbl, #currentBookCont #readingPercentLbl, #currentBookCont #separatorReadLbl{
+margin:19px 5px 0px 0px;
+font-size:22px;
+}
+/*Viewer popups
+-----------------------------------*/
+#popupCont{
+padding:0px;
+border-width:12px;
+border-radius:12px;
+}
+#arrowCont, #arrowCont2{
+min-height:24px;
+max-height:24px;
+}
+#topArrowLbl, #bottomArrowLbl{
+min-width:40px;
+max-width:40px;
+min-height:25px;
+max-height:25px;
+}
+/*LibraryBooksFilterLayer
+-------------------------------*/
+#LibraryBooksFilterLayer{
+min-width:758px;
+max-width:758px;
+min-height:960px;
+max-height:960px;
+}
+#LibraryBooksFilterLayerCont{
+min-width:460px;
+max-width:460px;
+min-height:0px;
+max-height:800px;
+}
+#LibraryBooksFilterLayer #spacerTop{
+min-height:115px;
+max-height:115px;
+}
+#LibraryBooksFilterLayerCont #spacerLeft{
+min-width:50px;
+max-width:50px;
+}
+#LibraryBooksFilterLayer QPushButton {
+padding:0px 0px 0px 19px;
+border-bottom-width:1px;
+min-height:90px;
+max-height:90px;
+}
+#LibraryBooksFilterLayer QPushButton#internalMemoryBtn,  #LibraryBooksFilterLayer QPushButton#sdBtn{
+}
+/*LibraryBooksSubFilterLayer
+-------------------------------*/
+#LibraryBooksSubFilterLayer{
+min-width:758px;
+max-width:758px;
+min-height:960px;
+max-height:960px;
+}
+#HorizontalCont{
+min-height:0px;
+max-height:800px;
+}
+#LibraryBooksFilterLayerCont{
+min-width:460px;
+max-width:460px;
+min-height:0px;
+max-height:800px;
+}
+#LibraryBooksSubFilterLayer #spacerTop{
+min-height:115px;
+max-height:115px;
+}
+#LibraryBooksSubFilterLayer #spacerLeft{
+min-width:50px;
+max-width:50px;
+}
+#LibraryBooksSubFilterLayer QPushButton {
+padding:0px 0px 0px 19px;
+border-bottom-width:1px;
+min-height:90px;
+max-height:90px;
+}
+#LibraryBooksSubFilterLayer #spacingLayerLbl{
+min-height:12px;
+max-height:12px;
+}
+#LibraryBooksSubFilterLayer QPushButton#allBooksBtn,  #LibraryBooksSubFilterLayer QPushButton#activeBooksBtn,  #LibraryBooksSubFilterLayer QPushButton#sampleBooksBtn,  #LibraryBooksSubFilterLayer QPushButton#subscriptionBooksBtn{
+}
+#LibraryBooksSubFilterLayer QPushButton#allBooksBtn{
+border-top-left-radius:12px;
+border-top-right-radius:12px;
+}
+#LibraryBooksSubFilterLayer QPushButton#subscriptionBooksBtn{
+border-bottom-left-radius:12px;
+border-bottom-right-radius:12px;
+}
+#LibraryBooksSubFilterLayer QPushButton#archivedBtn{
+border-radius:12px;
+}
+/*LibrarySortBooksByLayer
+-------------------------------*/
+#LibrarySortBooksByLayer{
+min-width:758px;
+max-width:758px;
+min-height:960px;
+max-height:960px;
+}
+#HorizontalCont{
+min-height:0px;
+max-height:800px;
+}
+#LibrarySortBooksByLayerCont{
+min-width:380px;
+max-width:380px;
+min-height:0px;
+max-height:800px;
+}
+#LibrarySortBooksByLayer #spacerTop{
+min-height:115px;
+max-height:115px;
+}
+#LibrarySortBooksByLayer #spacerLeft{
+min-width:150px;
+max-width:150px;
+}
+#LibrarySortBooksByLayer QPushButton {
+padding:0px 0px 0px 19px;
+border-bottom-width:1px;
+min-height:50px;
+max-height:50px;
+}
+
+/*BookSummaryPopup
+---------------------------*/
+#headerPopup #closeBtn{
+min-width:64px;
+max-width:64px;
+min-height:64px;
+max-height:64px;
+}
+#BookSummaryPopup{
+min-width:691px;
+max-width:691px;
+min-height:755px;
+max-height:755px;
+}
+#BookSummaryPopup #headerPopup{
+margin:0px 0px 0px 0px;
+padding:0px;
+}
+#BookSummaryPopup #headerPopup #closeBtn{
+min-width:64px;
+max-width:64px;
+min-height:64px;
+max-height:64px;
+}
+#BookSummaryPopup #popupCont{
+padding:0px 19px 0px 19px;
+}
+#BookSummaryPopup #synopsisLbl{
+margin:0px 0px 0px 0px;
+padding-left:0px;
+padding-right:0px;
+}
+#BookSummaryPopup #summaryTextBrowser{
+min-height:243px;
+max-height:243px;
+margin-left:0px;
+margin-right:0px;
+padding-left:0px;
+padding-right:0px;
+}
+/*LibraryBookListActions
+---------------------------*/
+#LibraryBookListActions{
+margin-right:1px;
+min-width:254px;
+max-width:254px;
+min-height:64px;
+max-height:64px;
+border-width:2px;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+}
+#LibraryBookListActions QPushButton{
+padding:0px 25px;
+margin-right:1px;
+border-width:1px;
+}
+/*LibraryPageHandler
+----------------------------*/
+#pageLibraryViewerCont{
+min-width:758px;
+max-width:758px;
+min-height:66px;
+max-height:66px;
+}
+#VerticalPagerHandler{
+min-height:66px;
+max-height:66px;
+}
+#pageLibraryViewerCont #forwardButton{
+margin-top:0px;
+min-width:230px;
+max-width:230px;
+min-height:60px;
+max-height:60px;
+}
+#pageLibraryViewerCont #backButton{
+margin-top:0px;
+min-width:230px;
+max-width:230px;
+min-height:60px;
+max-height:60px;
+}

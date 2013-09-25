@@ -1,0 +1,9 @@
+include(QBookApp.pri)
+
+
+linux-arm-g++ {
+    HEADERS -= ./inc/QBookEmu.h
+    SOURCES -= ./src/QBookEmu.cpp
+    FORMS -= ./ui/QBookEmu.ui
+}
+

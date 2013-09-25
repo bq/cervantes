@@ -1,0 +1,213 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* StoreBrowser
+--------------------------*/
+#StoreBrowser{
+background:#FFF url(":/res/bg_store.png") repeat-x left bottom;
+}
+#StoreBrowser #searchCont{
+border-color:#909090;
+border-style:solid;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#searchCont #homeBtn{
+background-image: url(:/res/home-store.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center center;
+}
+#searchCont #categoryDownLayerBtn{
+background-image: url(:/res/harrow-down-layer.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center right;
+}
+#StoreBrowser #storeSearchLineEdit{
+border:none;
+background-color:#FFFFFF;
+background-image: url(:/res/bg_search_input.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#StoreBrowser #searchCont #clearSearchBtn{
+border:none;
+background-image: url(:/res/bg_clear_search.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#StoreBrowser #SubcategoryBar {
+border-color:#909090;
+border-style:solid;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#StoreBrowser #SubcategoryBar #backBtn{
+background-image: url(:/res/back_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#StoreBrowser #SubcategoryBar #subcategoryLbl{
+color:#202020;
+}
+#StoreBrowser #actionsBar{
+border-color:#909090;
+border-style:solid;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#StoreBrowser #actionsBar #bookActionsSelectBtn{
+text-align:left;
+border-style:solid;
+border-color:#505050;
+background-image: url(:res/arrow-select.png) ;
+background-color: #FFF;
+background-repeat: no-repeat;
+background-position:center right;
+}
+
+#StoreBrowser #actionsBar #gridModeBtn{
+background-image: url(:res/grid-mode.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center center;
+}
+#StoreBrowser #actionsBar #listModeBtn{
+background-image: url(:res/list-mode.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center center;
+}
+
+/*StoreIconGridViewer
+--------------------------*/
+#StoreIconGridViewer{
+}
+#iconGridViewerCont #book1, #iconGridViewerCont #book2, #iconGridViewerCont #book3, #iconGridViewerCont #book4, #iconGridViewerCont #book5, #iconGridViewerCont #book6{
+}
+/*StoreIconGridViewerItem
+------------------------------------*/
+#IconGridViewerItemCont #coverCont #topLeftLbl{
+background-image: url(":/res/book_front_top_left.png") ;
+background-position:right bottom;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #topCenterLbl{
+background-image: url(":/res/book_front_top_center.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #topRightLbl{
+background-image: url(":/res/book_front_top_right.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #centerLeftLbl{
+background-image: url(":/res/book_front_center_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #coverLabel{
+/*image: url(":/res/no_cover.png") ;*/
+/*background-color: #FFFFFF;*/
+background-position:left center;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #centerRightLbl{
+background-image: url(":/res/book_front_center_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #bottomLeftLbl{
+background-image: url(":/res/book_front_bottom_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #bottomCenterLbl{
+background-image: url(":/res/book_front_bottom_center.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #coverCont #bottomRightLbl{
+background-image: url(":/res/book_front_bottom_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#coverFileLbl{
+background-image: url(":/res/unknow_file_ico.png") ;
+background-position: bottom center;
+background-repeat:no-repeat;
+}
+#IconGridViewerItemCont #newTagLbl{
+}
+#titleLbl{
+}
+#coverLbl #authorLbl{
+color:#333333;
+}
+#fileTitleLbl{
+}
+#iconGridViewerCont #newTagLbl, #StoreIconGridViewerItem #newTagLbl{
+background-position:center left;
+background-repeat:no-repeat;
+background-image:url(:/res/new_tag.png);
+}
+
+#StoreLineGridViewerItemCont #selectBookLbl{
+background-image: url(":/res/select_book.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#StoreLineGridViewerItemCont #titleLbl{
+text-align:center;
+}
+#StoreLineGridViewerItemCont #authorLbl{
+text-align:center;
+}
+
+
+
+
+
+
+
+
+
+/*StorePageHandler
+----------------------------*/
+#VerticalPagerHandler{
+}
+#pageStoreViewerCont #forwardButton{
+background-image: url(:/res/arrow_bottom_pager.png);
+background-position:center right;
+background-repeat:no-repeat;
+}
+#pageStoreViewerCont #backButton{
+background-image: url(:/res/arrow_top_pager.png);
+background-position:center left;
+background-repeat:no-repeat;
+}

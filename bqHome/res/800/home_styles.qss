@@ -1,0 +1,506 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*Home
+-------------------*/
+#Home{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#mainBookInfoCont{
+min-width:600px;
+max-width:600px;
+min-height:305px;
+max-height:305px;
+}
+#currentBookCont{
+min-width:600px;
+max-width:600px;
+min-height:305px;
+max-height:305px;
+}
+#readBookBtn{
+min-width:600px;
+max-width:600px;
+min-height:305px;
+max-height:305px;
+}
+#currentBookCoverLbl, #currentBookCoverCont{
+min-width:140px;
+max-width:140px;
+min-height:210px;
+max-height:210px;
+}
+#currentBookCoverCont #newTagLbl{
+min-width:140px;
+max-width:140px;
+min-height:210px;
+max-height:210px;
+padding:0px 0px -2px 4px;
+font-size:16px;
+}
+#currentBookCoverCont #sampleTagLbl{
+min-width:72px;
+max-width:72px;
+min-height:72px;
+max-height:72px;
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+font-size:15px;
+}
+#currentBookCoverCont #subscriptionTagLbl{
+min-width:72px;
+max-width:72px;
+min-height:72px;
+max-height:72px;
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+font-size:15px;
+}
+#currentBookTopLeft{
+min-width:30px;
+max-width:30px;
+min-height:11px;
+max-height:11px;
+}
+#currentBookTopCenter{
+min-width:140px;
+max-width:140px;
+min-height:11px;
+max-height:11px;
+}
+#currentBookTopRight{
+min-width:25px;
+max-width:25px;
+min-height:11px;
+max-height:11px;
+}
+#currentBookCenterLeft{
+min-width:30px;
+max-width:30px;
+min-height:210px;
+max-height:210px;
+}
+#currentBookCenterRight{
+min-width:25px;
+max-width:25px;
+min-height:210px;
+max-height:210px;
+}
+#currentBookBottomLeft{
+min-width:30px;
+max-width:30px;
+min-height:26px;
+max-height:26px;
+}
+#currentBookBottomCenter{
+min-width:140px;
+max-width:140px;
+min-height:26px;
+max-height:26px;
+}
+#currentBookBottoRight{
+min-width:25px;
+max-width:25px;
+min-height:26px;
+max-height:26px;
+}
+#currentBookData{
+min-width:305px;
+max-width:305px;
+}
+#currentBookCont #readingLbl{
+margin:65px 0px 6px 0px;
+font-size: 24px;
+}
+#currentBookCont #bookTitleLbl{
+font-size:30px;
+}
+#currentBookCont #authorLbl{
+font-size:20px;
+}
+#currentBookCont #pagLbl,#currentBookCont #currentPagLbl,#currentBookCont #endBracketsLbl,#currentBookCont #separatorLbl,#currentBookCont #totalPagLbl,  #currentBookCont #percentLbl{
+margin:10px 0px 0px 0px;
+font-size:17px;
+}
+#currentBookCont #readLbl,#currentBookCont #separatorReadLbl,#currentBookCont #percentLbl{
+margin:4px 4px 0px 0px;
+font-size:17px;
+}
+#currentBookCont #readingPercentLbl{
+margin:4px 4px 0px 1px;
+font-size:17px;
+}
+#actionsBar{
+min-height:35px;
+max-height:35px;
+}
+#HomeBooksList{
+min-height:275px;
+max-height:275px;
+}
+#actionsBar #recommendedBtn{
+padding:0px 45px 0px 0px;
+min-height:35px;
+max-height:35px;
+}
+#showAllBtn{
+min-height:35px;
+max-height:35px;
+font-size:18px;
+}
+#appMenu{
+min-height:135px;
+max-height:135px;
+}
+#appMenu QPushButton{
+min-height:90px;
+max-height:90px;
+}
+#searchBtn{
+}
+#libraryBtn{
+}
+#storeBtn{
+}
+#settingsBtn{
+}
+#helpBtn{
+}
+/*New styles
+------------------*/
+#lastAccessCont{
+}
+#dateAccessLbl,#lastAccessLbl{
+margin:6px 4px 0px -3px;
+font-size:17px;
+}
+#bookAccessCont{
+}
+#bookAccessLbl,#numberAccessLbl{
+margin:6px 4px 0px -3px;
+font-size:17px;
+}
+
+/*HomeBookList
+------------------*/
+#HomeBooksList,#homeBooksList,HomeBooksList{
+min-height:275px;
+max-height:275px;
+}
+#previousCont{
+min-width:42px;
+max-width:42px;
+}
+#previousBtn{
+margin:0px 0px 0px 0px;
+min-width:42px;
+max-width:42px;
+min-height:50px;
+max-height:50px;
+}
+#nextCont{
+min-width:38px;
+max-width:38px;
+}
+#nextBtn{
+margin:0px 10px 0px 0px;
+min-width:38px;
+max-width:38px;
+min-height:50px;
+max-height:50px;
+}
+#cover1Cont #topLeft1Lbl{
+min-width:10px;
+max-width:10px;
+min-height:11px;
+max-height:11px;
+}
+#cover1Cont #topCenter1Lbl{
+min-width:140px;
+max-width:140px;
+min-height:11px;
+max-height:11px;
+}
+#cover1Cont #topRight1Lbl{
+min-width:25px;
+max-width:25px;
+min-height:11px;
+max-height:11px;
+}
+#cover1Cont #centerLeft1Lbl{
+min-width:10px;
+max-width:10px;
+min-height:210px;
+max-height:210px;
+}
+#cover1Cont #cover1{
+min-width:140px;
+max-width:140px;
+min-height:210px;
+max-height:210px;
+}
+#cover1Cont #centerRight1Lbl{
+min-width:25px;
+max-width:25px;
+min-height:210px;
+max-height:210px;
+}
+#cover1Cont #bottomLeft1Lbl{
+min-width:10px;
+max-width:10px;
+min-height:20px;
+max-height:20px;
+}
+#cover1Cont #bottomCenter1Lbl{
+min-width:140px;
+max-width:140px;
+min-height:20px;
+max-height:20px;
+}
+#cover1Cont #bottomRight1Lbl{
+min-width:25px;
+max-width:25px;
+min-height:20px;
+max-height:20px;
+}
+#cover2Cont #topLeft2Lbl{
+min-width:10px;
+max-width:10px;
+min-height:11px;
+max-height:11px;
+}
+#cover2Cont #topCenter2Lbl{
+min-width:140px;
+max-width:140px;
+min-height:11px;
+max-height:11px;
+}
+#cover2Cont #topRight2Lbl{
+min-width:25px;
+max-width:25px;
+min-height:11px;
+max-height:11px;
+}
+#cover2Cont #centerLeft2Lbl{
+min-width:10px;
+max-width:10px;
+min-height:210px;
+max-height:210px;
+}
+#cover2Cont #cover2{
+min-width:140px;
+max-width:140px;
+min-height:210px;
+max-height:210px;
+}
+#cover2Cont #centerRight2Lbl{
+min-width:25px;
+max-width:25px;
+min-height:210px;
+max-height:210px;
+}
+#cover2Cont #bottomLeft2Lbl{
+min-width:10px;
+max-width:10px;
+min-height:20px;
+max-height:20px;
+}
+#cover2Cont #bottomCenter2Lbl{
+min-width:140px;
+max-width:140px;
+min-height:20px;
+max-height:20px;
+}
+#cover2Cont #bottomRight2Lbl{
+min-width:25px;
+max-width:25px;
+min-height:20px;
+max-height:20px;
+}
+#cover3Cont #topLeft3Lbl{
+min-width:10px;
+max-width:10px;
+min-height:11px;
+max-height:11px;
+}
+#cover3Cont #topCenter3Lbl{
+min-width:140px;
+max-width:140px;
+min-height:11px;
+max-height:11px;
+}
+#cover3Cont #topRight3Lbl{
+min-width:14px;
+max-width:14px;
+min-height:11px;
+max-height:11px;
+}
+#cover3Cont #centerLeft3Lbl{
+min-width:10px;
+max-width:10px;
+min-height:210px;
+max-height:210px;
+}
+#cover3Cont #cover3{
+min-width:140px;
+max-width:140px;
+min-height:210px;
+max-height:210px;
+}
+#cover3Cont #centerRight3Lbl{
+min-width:14px;
+max-width:14px;
+min-height:210px;
+max-height:210px;
+}
+#cover3Cont #bottomLeft3Lbl{
+min-width:10px;
+max-width:10px;
+min-height:20px;
+max-height:20px;
+}
+#cover3Cont #bottomCenter3Lbl{
+min-width:140px;
+max-width:140px;
+min-height:20px;
+max-height:20px;
+}
+#cover3Cont #bottomRight3Lbl{
+min-width:14px;
+max-width:14px;
+min-height:20px;
+max-height:20px;
+}
+/*HomeBookList
+-------------------------*/
+#HomeBooksListItem{
+min-width:140px;
+max-width:140px;
+min-height:210px;
+max-height:210px;
+}
+#HomeBooksListItem #coverLbl,HomeBooksListItem #coverLbl,HomeBooksListItem #authorLbl,HomeBooksListItem #titleLbl{
+min-width:140px;
+max-width:140px;
+min-height:210px;
+max-height:210px;
+}
+#authorLabel, #coverAuthorLbl{
+min-width:140px;
+max-width:140px;
+min-height:20px;
+max-height:20px;
+padding-top:158px;
+font-size:15px;
+}
+#titleLabel, #coverTitleLbl{
+min-width:140px;
+max-width:140px;
+min-height:40px;
+max-height:40px;
+padding-top:118px;
+font-size:16px;
+}
+/*HomeBooksListOptions
+----------------*/
+#HomeBooksListOptions{
+min-width:600px;
+max-width:600px;
+min-height:800px;
+max-height:800px;
+}
+#HomeBooksListOptionsCont{
+min-width:420px;
+max-width:420px;
+min-height:280px;
+max-height:280px;
+}
+#HomeBooksListOptions #spacerTop{
+min-height:310px;
+max-height:310px;
+}
+#HomeBooksListOptions #spacerLeft{
+min-width:30px;
+max-width:30px;
+}
+#arrowPopupLbl{
+min-height:17px;
+max-height:17px;
+}
+#optionsListCont{
+border-width:4px;
+border-radius:8px;
+}
+#optionsListCont QPushButton{
+padding:0px 0px 0px 20px;
+border-width:1px;
+}
+/*New, sanpled and archived tags
+---------------------------------*/
+#newTagLbl{
+min-width:140px;
+max-width:140px;
+min-height:220px;
+max-height:220px;
+padding:0px 0px -2px 4px;
+font-size:16px;
+}
+#archiveTagLbl{
+min-width:140px;
+max-width:140px;
+min-height:210px;
+max-height:210px;
+padding:0px 0px 0px 0px;
+font-size:16px;
+}
+HomeBooksListItem #sampleTagLbl, #HomeBooksListItem #sampleTagLbl{
+/*min-width:173px;
+max-width:173px;
+min-height:210px;
+max-height:210px;
+margin:0px 0px 0px 0px;
+padding:0px 0px 10px 0px;*/
+min-width:70px;
+max-width:70px;
+min-height:75px;
+max-height:75px;
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+font-size:15px;
+}
+HomeBooksListItem #subscriptionTagLbl, #HomeBooksListItem #subscriptionTagLbl{
+/*min-width:173px;
+max-width:173px;
+min-height:210px;
+max-height:210px;
+margin:0px 0px 0px 0px;
+padding:0px 0px 10px 0px;*/
+min-width:70px;
+max-width:70px;
+min-height:75px;
+max-height:75px;
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+font-size:15px;
+}
+

@@ -1,0 +1,752 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* iCervantes
+---------------------------------*/
+*{
+font-size:26px;
+}
+QWidget#bqViewerCont {
+}
+QPushButton{
+outline:0px;
+font-size:25px;
+}
+QHBoxLayout, QVBoxLayout{
+margin:0px;
+padding:0px;
+}
+QFrame {
+}
+QLabel {
+}
+QLineEdit{
+min-height:70px;
+max-height:70px;
+padding:0px 20px;
+font-size:25px;
+border-width:2px;
+border-radius: 10px;
+}
+QTextEdit{
+padding:25px;
+}
+QRadioButton,QCheckBox{
+}
+QRadioButton::indicator,QCheckBox::indicator {
+min-height:75px;
+max-height:75px;
+min-width:70px;
+max-width:70px;
+}
+QCheckBox::indicator {
+min-height:75px;
+max-height:75px;
+min-width:70px;
+max-width:70px;
+}
+QCheckBox::indicator:unchecked {
+min-height:65px;
+max-height:65px;
+min-width:62px;
+max-width:62px;
+width: 62px;
+height: 65px;
+}
+QCheckBox::indicator:unchecked:pressed {
+}
+QCheckBox::indicator:unchecked:pressed {
+}
+QCheckBox::indicator:checked {
+min-height:65px;
+max-height:65px;
+min-width:62px;
+max-width:62px;
+width: 62px;
+height: 65px;
+}
+QCheckBox::indicator:checked:pressed {
+}
+QCheckBox::indicator:checked:pressed {
+}
+QCheckBox::indicator:indeterminate:pressed {
+}
+QCheckBox::indicator:indeterminate:pressed {
+}
+#checkBtn{
+width: 60px;
+height: 60px;
+border-width:1px;
+border-radius: 6px;
+}
+QComboBox{
+padding:0px 20px;
+min-height:40px;
+max-height:40px;
+border-width:1px;
+border-radius: 6px;
+}
+QComboBox::drop-down{
+min-width:32px;
+max-width:32px;
+}
+QComboBox QAbstractItemView{
+border-width:1px;
+}
+
+/*Progress Bar
+---------------------*/
+QProgressBar{
+min-height:12px;
+max-height:12px;
+border-width:1px;
+border-radius: 5px;
+}
+QProgressBar:chunk{
+}
+QSlider{
+}
+QSlider::groove:horizontal {
+/*border-width: 1px;
+border-radius: 5px;*/
+height: 15px;
+}
+QSlider::sub-page:horizontal {
+margin-left:15px;
+border-width: 1px;
+height: 15px;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
+}
+QSlider::add-page:horizontal {
+margin-right:15px;
+border-width: 1px;
+height: 15px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+}
+QSlider::handle:vertical {
+background-color:#000;
+min-width:64px;
+max-width:64px;
+min-height:66px;
+max-height:66px;
+width:66px;
+height:66px;
+}
+QSlider::handle:horizontal {
+min-width:64px;
+max-width:64px;
+min-height:64px;
+max-height:64px;
+width:64px;
+height:64px;
+margin-top: -25px;
+margin-bottom: -22px;
+}
+QSlider::handle:horizontal:hover {
+}
+QSlider::sub-page:horizontal:disabled {
+}
+QSlider::add-page:horizontal:disabled {
+}
+QSlider::handle:horizontal:disabled {
+}
+
+#content, #content2{
+}
+/*VerticalPagerHandler
+------------------------*/
+#VerticalPagerHandler{
+min-width:717px;
+max-width:717px;
+margin:0px 25px;
+min-height:51px;
+max-height:51px;
+border-top-width:1px;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+}
+#VerticalPagerHandler #downPageBtn{
+min-width:58px;
+max-width:58px;
+min-height:58px;
+max-height:58px;
+margin:0px 0px 0px 38px;
+}
+#VerticalPagerHandler #upPageBtn{
+min-width:58px;
+max-width:58px;
+min-height:58px;
+max-height:58px;
+margin:0px 38px 0px 0px;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+padding:0px 6px 0px 6px;
+font-size:22px;
+}
+#closePopupBtn{
+margin:0px 0px 0px 0px;
+min-width:64px;
+max-width:64px;
+min-height:64px;
+max-height:64px;
+}
+/*Dialogs
+-------------------------*/
+#footerPopup{
+min-height:102px;
+max-height:102px;
+}
+/*ConfirmDialog
+--------------------*/
+#ConfirmDialog{
+min-width:602px;
+max-width:602px;
+min-height:312px;
+max-height:312px;
+border-radius:10px;
+}
+#ConfirmDialog #bg{
+border-width:2px;
+border-radius:10px;
+}
+#ConfirmDialog QLabel{
+padding:0px 25px;
+}
+#ConfirmDialog #ok{
+padding:0px 25px;
+min-width:154px;
+max-width:154px;
+min-height:58px;
+max-height:58px;
+border-width:2px;
+border-radius:10px;
+}
+/*SelectionDialog
+--------------------*/
+#SelectionDialog{
+min-width:602px;
+max-width:602px;
+min-height:282px;
+max-height:282px;
+}
+#SelectionDialog #bg{
+border-width:2px;
+border-radius:10px;
+}
+#SelectionDialog QLabel{
+padding:0px 25px;
+}
+#SelectionDialog #cancelBtn{
+padding:0px 25px;
+min-width:120px;
+max-width:120px;
+min-height:58px;
+max-height:58px;
+border-width:2px;
+border-radius:8px;
+}
+#SelectionDialog #okBtn{
+padding:0px 20px;
+min-width:154px;
+max-width:154px;
+min-height:58px;
+max-height:58px;
+border-width:2px;
+border-radius:10px;
+}
+/*CorruptedDialog
+--------------------*/
+#CorruptedDialog{
+min-width:704px;
+max-width:704px;
+min-height:282px;
+max-height:282px;
+border-width:2px;
+border-radius:10px;
+}
+#corruptedPopup_Cont{
+padding:0px 12px;
+min-width:678px;
+max-width:678px;
+}
+#corruptedPopup_Cont QLabel{
+padding:0px 12px;
+}
+#corruptedPopup_Cont #horizontalFrame{
+min-height:90px;
+max-height:90px;
+}
+#corruptedPopup_Cont #formatBtn{
+margin:0px 6px;
+padding:0px 12px;
+min-width:0px;
+max-width:602px;
+min-height:58px;
+max-height:58px;
+border-width:2px;
+font-size:22px;
+border-radius:10px;
+}
+#corruptedPopup_Cont #mountBtn,#CorruptedDialog #noMountBtn{
+margin:0px 6px;
+padding:0px 12px;
+min-width:154px;
+max-width:154px;
+min-height:58px;
+max-height:58px;
+border-width:2px;
+font-size:22px;
+border-radius:10px;
+}
+/*InfoDialog
+------------------------*/
+#InfoDialog{
+min-width:758px;
+max-width:758px;
+min-height:1024px;
+max-height:1024px;
+}
+#InfoDialogCont #bgdialog{
+min-width:602px;
+max-width:602px;
+min-height:277px;
+max-height:277px;
+border-width:2px;
+border-radius:10px;
+}
+#InfoDialog #bgdialog QLabel{
+padding:0px 25px;
+}
+#InfoDialog #bgdialog #spinerLbl{
+min-height:134px;
+max-height:134px;
+}
+/*ProgressDialog
+------------------------*/
+#ProgressDialog{
+min-width:758px;
+max-width:758px;
+min-height:1024px;
+max-height:1024px;
+}
+#ProgressDialogCont{
+min-width:758px;
+max-width:758px;
+min-height:1024px;
+max-height:1024px;
+}
+#ProgressDialogCont #bg{
+min-width:602px;
+max-width:602px;
+min-height:277px;
+max-height:277px;
+border-width:2px;
+border-radius:10px;
+}
+#ProgressDialog #bg QLabel{
+margin:32px 0px 0px 0px;
+padding:0px 25px;
+}
+#ProgressDialog #progressCont{
+min-height:78px;
+max-height:78px;
+}
+#ProgressDialog #hideBtn{
+padding:0px 20px;
+min-width:154px;
+max-width:154px;
+min-height:58px;
+max-height:58px;
+border-width:2px;
+border-radius:10px;
+}
+#ProgressDialog #cancelBtn{
+padding:0px 25px;
+min-width:154px;
+max-width:154px;
+min-height:58px;
+max-height:58px;
+border-width:2px;
+border-radius:10px;
+}
+/* Overlay
+---------------------*/
+#shadow, #ElfAppMenu, #whiteShadow{
+}
+#whiteCont{
+}
+
+/*LibraryBookSummary
+------------------*/
+#LibraryBookSummary{
+min-width:758px;
+max-width:758px;
+min-height:960px;
+max-height:960px;
+}
+#LibraryBookSummaryCont{
+min-width:709px;
+max-width:709px;
+min-height:858px;
+max-height:858px;
+border-width:4px;
+border-radius:17px;
+}
+#bookSummaryActions #HeaderCont{
+min-height:58px;
+max-height:58px;
+}
+#bookSummaryActions #currentBookLbl{
+}
+#bookSummaryActions #coverCont{
+}
+#bookSummaryActions #coverCont #authorLbl{
+min-width:140px;
+max-width:140px;
+font-size:18px;
+min-height:25px;
+max-height:25px;
+padding-top:172px;
+}
+#bookSummaryActions #coverCont #titleLbl{
+min-width:140px;
+max-width:140px;
+min-height:51px;
+max-height:51px;
+padding-top:123px;
+font-size:20px;
+}
+#bookSummaryActions #topLeftLbl{
+min-width:22px;
+max-width:22px;
+min-height:15px;
+max-height:15px;
+}
+#bookSummaryActions #topCenterLbl{
+min-width:140px;
+max-width:140px;
+min-height:15px;
+max-height:15px;
+}
+#bookSummaryActions #topRightLbl{
+min-width:25px;
+max-width:25px;
+min-height:15px;
+max-height:15px;
+}
+#bookSummaryActions #centerLeftLbl{
+min-width:22px;
+max-width:22px;
+min-height:210px;
+max-height:210px;
+}
+#bookSummaryActions #cover, #bookSummaryActions #coverLbl, #LibraryBookSummary #coverLbl{
+min-width:140px;
+max-width:140px;
+min-height:210px;
+max-height:210px;
+}
+#bookSummaryActions #centerRightLbl{
+min-width:25px;
+max-width:25px;
+min-height:210px;
+max-height:210px;
+}
+#bookSummaryActions #bottomLeftLbl{
+min-width:22px;
+max-width:22px;
+min-height:25px;
+max-height:25px;
+}
+#bookSummaryActions #bottomCenterLbl{
+min-width:140px;
+max-width:140px;
+min-height:25px;
+max-height:25px;
+}
+#bookSummaryActions #bottomRightLbl{
+min-width:25px;
+max-width:25px;
+min-height:25px;
+max-height:25px;
+}
+#LibraryBookSummary #PaginationCont{
+min-height:64px;
+max-height:64px;
+}
+#bookTitleLbl{
+font-size:29px;
+}
+#bookSummaryDataContainer #bookAuthorLbl{
+font-size:26px;
+}
+#bookSummaryDataContainer #bookPriceLbl {
+font-size:29px;
+}
+#priceCont{
+min-height:38px;
+max-height:38px;
+}
+#SynopsisCont{
+min-height:64px;
+max-height:64px;
+}
+#synopsisLbl{
+margin:0px 25px;
+border-width:1px;
+}
+#actionsContainer #buyBookBtn{
+margin:6px 20px 0px 0px;
+padding:0px 20px;
+min-height:58px;
+max-height:58px;
+border-width:2px;
+border-radius:6px;
+}
+#actionsContainer #moreActionsBtn{
+margin:4px 1px 0px 0px;
+padding:0px 0px 0px 19px;
+min-width:237px;
+max-width:237px;
+min-height:58px;
+max-height:58px;
+font-size:27px;
+border-width:2px;
+border-radius:6px;
+}
+#actionsContainer #bookActionBtn{
+margin:4px 1px 0px 0px;
+padding:0px 25px 0px 25px;
+min-width:180px;
+max-width:290px;
+min-height:58px;
+max-height:58px;
+font-size:27px;
+border-width:2px;
+border-radius:6px;
+}
+#actionsContainer #readSampleBtn{
+margin:4px 0px 0px 0px;
+padding:0px 20px;
+min-height:58px;
+max-height:58px;
+border-width:2px;
+border-radius:6px;
+font-size:27px;
+}
+#actionsContainer #bookStatusBtn{
+margin:4px 1px 0px 0px;
+padding:0px 25px 0px 25px;
+min-width:180px;
+max-width:290px;
+min-height:58px;
+max-height:58px;
+font-size:27px;
+border-width:2px;
+border-radius:6px;
+}
+#summaryTextBrowser{
+font-size:22px;
+}
+#LibraryBookSummaryCont LibraryPageHandler, #ViewerBookSummaryCont ViewerVerticalPagerPopup{
+min-width:640px;
+max-width:640px;
+min-height:45px;
+max-height:45px;
+}
+#actionsContainer {
+margin-left:38px;
+min-width:448px;
+max-width:448px;
+}
+
+/*SettingsQuickSettingsPopup
+------------------------*/
+#SettingsQuickSettingsPopup{
+min-width:758px;
+max-width:758px;
+min-height:960px;
+max-height:960px;
+}
+#QuickSettingsCont{
+min-width:585px;
+max-width:585px;
+min-height:384px;
+max-height:384px;
+margin-bottom:128px;
+border-width:2px;
+border-radius:10px;
+}
+#headerPopupCont{
+margin:0px 25px;
+min-height:58px;
+max-height:58px;
+border-width:1px;
+}
+#titlePopupLbl{
+padding:0px 0px 0px 12px;
+font-size:23px;
+}
+#contentPopup{
+min-width:531px;
+max-width:531px;
+min-height:269px;
+max-height:269px;
+margin:25px 0px 0px 0px;
+border-width:1px;
+border-radius:10px;
+}
+#contentPopup #screenLightCont,#contentPopup  #wifiCont{
+border-width:1px;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#contentPopup #wifiStatusBtn, #contentPopup #screenLightStatusBtn{
+padding:0px 12px 0px 0px;
+min-width:130px;
+max-width:130px;
+min-height:40px;
+max-height:40px;
+}
+#contentPopup #wifiLbl, #contentPopup #brightnessLbl,#contentPopup #screenLightLbl{
+padding:0px 0px 0px 12px;
+}
+#contentPopup #brightnessCont{
+border-width:1px;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+}
+#contentPopup #brightnessLbl{
+padding:20px 0px 0px 12px;
+border-width:1px;
+}
+#contentPopup #brightnessMaxLbl{
+min-width:38px;
+max-width:38px;
+min-height:38px;
+max-height:38px;
+margin:0px 12px 0px 0px;
+}
+#contentPopup #brightnessMinLbl{
+min-width:38px;
+max-width:38px;
+min-height:38px;
+max-height:38px;
+margin:0px 0px 0px 12px;
+}
+#contentPopup #brightnessSlider{
+margin:25px 0px 25px 0px;
+/*min-width:305px;
+max-width:305px;*/
+}
+/*Search
+----------------------------*/
+#Search{
+min-width:758px;
+max-width:758px;
+min-height:960px;
+max-height:960px;
+}
+#Search #searchHeader{
+min-height:90px;
+max-height:90px;
+border-width:1px;
+}
+#Search #searchLineEdit{
+min-width:612px;
+max-width:612px;
+min-height:70px;
+max-height:70px;
+padding:0px 0px 0px 51px;
+border-width:0px;
+}
+#Search #clearSearchBtn{
+min-width:59px;
+max-width:59px;
+min-height:70px;
+max-height:70px;
+}
+#SearchResultItem1, #SearchResultItem2, #SearchResultItem3, #SearchResultItem4, #SearchResultItem5, #SearchResultItem6, #SearchResultItem7, #SearchResultItem8, #SearchResultItem9{
+min-height:77px;
+max-height:77px;
+}
+#resultNumberCont{
+min-height:77px;
+max-height:77px;
+border-width:1px;
+}
+#resultNumberCont #showResultLbl{
+padding:0px 5px 0px 25px;
+}
+#resultNumberCont #resultsNumberLbl{
+padding:0px 5px 0px 0px;
+}
+/*SearchResultItem
+----------------------------*/
+#SearchItem {
+min-width:758px;
+max-width:758px;
+min-height:59px;
+max-height:59px;
+border-width:1px;
+}
+#SearchItem #fileTypeLbl{
+margin:12px 0px 0px 0px;
+min-width:58px;
+max-width:58px;
+}
+#SearchItem #searchTitle{
+margin:6px 0px 0px 0px;
+}
+#SearchItem #searchAuthor{
+}
+/*VerticalPagerHandler
+------------------------*/
+#SearchPagerCont{
+min-width:720px;
+max-width:720px;
+margin:0px 25px;
+min-height:50px;
+max-height:50px;
+border-top-width:1px;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+}
+#SearchPagerCont #downPageBtn{
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+margin:0px 0px 0px 35px;
+}
+#SearchPagerCont #upPageBtn{
+min-width:50px;
+max-width:50px;
+min-height:50px;
+max-height:50px;
+margin:0px 35px 0px 0px;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+padding:0px 6px 0px 6px;
+font-size:21px;
+}

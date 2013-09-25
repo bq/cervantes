@@ -1,0 +1,34 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+	<interface name="net.connman.Service">
+		<method name="GetProperties">
+			<arg name="properties" type="a{sv}" direction="out"/>
+			<annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
+			<annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+		</method>
+		<method name="SetProperty">
+			<arg name="name" type="s" direction="in"/>
+			<arg name="value" type="v" direction="in"/>
+		</method>
+		<method name="ClearProperty">
+			<arg name="name" type="s" direction="in"/>
+		</method>
+		<method name="Connect"/>
+		<method name="Disconnect"/>
+		<method name="Remove"/>
+		<method name="MoveBefore">
+			<arg name="service" type="o" direction="in"/>
+		</method>
+		<method name="MoveAfter">
+			<arg name="service" type="o" direction="in"/>
+		</method>
+		<method name="ResetCounters"/>
+		<signal name="PropertyChanged">
+			<arg name="name" type="s"/>
+			<arg name="value" type="v"/>
+		</signal>
+		<property name="State" type="s" access="readonly"/>
+	</interface>
+</node>
+

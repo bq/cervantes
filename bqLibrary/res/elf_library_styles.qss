@@ -1,0 +1,486 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* bqLibrary
+--------------------------------------------------*/
+/* New library
+------------------------*/
+#ElfLibrary{
+background-color:#FFFFFF;
+}
+#ElfLibrary #tabCont SilentQPushButton{
+padding:0px 15px;
+background-position:bottom center;
+background-repeat:no-repeat;
+}
+#ElfLibrary #tabCont QPushButton{
+padding:0px 15px;
+background-position:bottom center;
+background-repeat:no-repeat;
+}
+#ElfLibrary #tabCont #fnacEbooks{
+min-width:150px;
+max-width:150px;
+background-image: url(:/res/tab-default.png);
+}
+#ElfLibrary #tabCont #myFiles{
+min-width:150px;
+max-width:150px;
+background-image: url(:/res/tab-default.png);
+}
+#ElfLibrary #tabCont #allFiles{
+min-width:90px;
+max-width:90px;
+background-image: url(:/res/tab-all-files.png);
+}
+#ElfLibrary #tabCont #updateButton{
+padding:0px;
+min-width:55px;
+max-width:55px;
+min-height:50px;
+max-height:50px;
+text-align:left;
+background-repeat:no-repeat;
+background-position:center center;
+background-image: url(:/res/library_sync.png);
+}
+#ElfLibrary #tabCont #updateButton:pressed{
+background-image: url(:/res/library_sync_pressed.jpg);
+}
+
+/*#ElfLibraryContent
+---------------------*/
+#selectBooksCont{
+min-height:55px;
+max-height:55px;
+background-color:#FFFFFF;
+}
+#selectBooksCont QLabel{
+min-height:55px;
+max-height:55px;
+font-size:18px;
+}
+#selectBooksCont #sortIconBtn{
+min-width:45px;
+max-width:45px;
+min-height:55px;
+max-height:55px;
+border-right:none;
+background-image:url(:/res/elf_show_icon.png);
+background-repeat:no-repeat;
+background-position:right bottom;
+}
+#selectBooksCont #sortListBtn{
+margin:0px 5px 0px 0px;
+min-width:45px;
+max-width:45px;
+min-height:55px;
+max-height:55px;
+background-image:url(:/res/elf_show_list.png);
+background-repeat:no-repeat;
+background-position:left bottom;
+}
+#selectBooksCont #internalMemory{
+min-width:40px;
+max-width:40px;
+min-height:40px;
+max-height:40px;
+border:1px solid #000000;
+border-right:none;
+background-image:url(:/res/elf_bqfiles.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+#selectBooksCont #microsdMemory{
+margin:0px 10px 0px 0px;
+min-width:40px;
+max-width:40px;
+min-height:40px;
+max-height:40px;
+border:1px solid #000000;
+background-image:url(:/res/elf_microsd.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+
+#selectBooksCont #sortButton{
+padding:0px 10px 0px 10px;
+margin: 13px 0px 0px 10px;
+min-width:110px;
+max-width:110px;
+min-height:40px;
+max-height:40px;
+text-align:left;
+border: 1px solid #000000;
+border-radius: 4px;
+background-repeat:no-repeat;
+background-position:right;
+background-image: url(:/res/elf_combo_arrow.png);
+}
+#libraryEmpty #emptyIcon{
+min-height:270px;
+max-height:270px;
+font-size:20px;
+background-repeat:no-repeat;
+background-position:bottom;
+background-image: url(:/res/elf_empty_library.png);
+}
+#libraryEmpty #buyBooksBtn{
+padding:0px 15px 0px 15px;
+min-width:200px;
+max-width:200px;
+min-height:60px;
+max-height:60px;
+color:#FFFFFF;
+text-transform:uppercase;
+background-color:#000000;
+border-radius: 4px
+}
+
+#selectBooksCont #selectMemory{
+padding:0px 10px 0px 10px;
+margin:13px 0px 0px 10px;
+min-width:170px;
+max-width:170px;
+min-height:40px;
+max-height:40px;
+text-align:left;
+border: 1px solid #000000;
+border-radius: 4px;
+background-repeat:no-repeat;
+background-position:right;
+}
+#selectBooksCont #showHideArchiveFilesBtn{
+margin: 13px 0px 0px 10px;
+padding:0px 10px 0px 10px;
+min-height:40px;
+max-height:40px;
+min-width:150px;
+max-width:150px;
+border: 1px solid #000000;
+background-color:#FFFFFF;
+border-radius: 4px;
+}
+#loansTagLbl{
+margin-top:10px;
+min-height:160px;
+max-height:160px;
+min-width:192px;
+max-width:192px;
+background-repeat:no-repeat;
+background-position:bottom right;
+background-image: url(:/res/loans.png);
+}
+/*#sampleTagLbl{
+margin-top:10px;
+min-height:40px;
+max-height:40px;
+min-width:11px;
+max-width:11px;
+background-repeat:no-repeat;
+background-position:bottom right;
+background-image: url(:/res/sample.png);
+}*/
+#sampleTagLbl{
+padding:0px 0px 3px 0px;
+min-width:190px;
+max-width:190px;
+min-height:157px;
+max-height:157px;
+font-size:12px;
+text-transform:uppercase;
+background-repeat:no-repeat;
+background-position:bottom center;
+background-image: url(:/res/sample_ico.png);
+}
+#subscriptionTagLbl{
+padding:0px 0px 3px 0px;
+min-width:190px;
+max-width:190px;
+min-height:157px;
+max-height:157px;
+font-size:12px;
+text-transform:uppercase;
+background-repeat:no-repeat;
+background-position:bottom center;
+background-image: url(:/res/sample_ico.png);
+}
+#archiveTagLbl{
+padding:0px 0px 5px 0px;
+min-width:192px;
+max-width:192px;
+min-height:155px;
+max-height:155px;
+font-size:12px;
+text-transform:uppercase;
+background-repeat:no-repeat;
+background-position:bottom center;
+background-image: url(:/res/archive-ico.png);
+}
+/* ElfLibraryBrowserMenu
+-------------------------*/
+#ElfLibraryBrowserMenuCont{
+background-color:#FFFFFF;
+}
+#internalMenCont{
+border:1px solid #000000;
+border-top:none;
+border-right:none;
+border-left:none;
+background-repeat:no-repeat;
+background-position:left;
+background-image: url(:/res/elf_internal_memory.png);
+}
+#sdMenCont{
+border:1px solid #000000;
+border-top:none;
+border-right:none;
+border-left:none;
+background-repeat:no-repeat;
+background-position:left;
+background-image: url(:/res/elf_microsd_memory.png);
+}
+#internalMenCont QLabel, #sdMenCont QLabel {
+font-size:17px;
+}
+#internalMenCont #internalMemoryTitle, #sdMenCont #sdMemoryTitle {
+font-size:20px;
+font-weight:bold;
+}
+#sdMenArrow,#iMenArrow{
+min-width:18px;
+max-width:18px;
+background-position:center;
+background-repeat:no-repeat;
+background-image: url(:/res/next_arrow.png);
+}
+/* ElfLibraryCont
+-------------------------*/
+#elfLibraryCont{
+background-color:#FFFFFF;
+}
+
+#ElfLibraryCont #myLibraryLabel{
+padding:0px 10px 0px 0px;
+font-size:19px;
+font-weight:bold;
+}
+#ElfLibraryCont #shortIconBtn{
+min-width:43px;
+max-width:43px;
+min-height:48px;
+max-height:48px;
+background-image:url(:/res/show_icon_on.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+#ElfLibraryCont #shortListBtn{
+min-width:43px;
+max-width:43px;
+min-height:48px;
+max-height:48px;
+background-image:url(:/res/show_inline.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+#ElfLibraryCont #selectBooksCont{
+min-height:50px;
+max-height:50px;
+background-color:#FFFFFF;
+border-bottom:2px solid #000000;
+}
+#ElfLibraryCont #selectBooksCont QLabel{
+font-size:16px;
+}
+#ElfLibraryCont #groupsBtn{
+padding:0px 15px 0px 15px;
+min-height:40px;
+max-height:40px;
+text-align:left;
+color:#FFFFFF;
+text-transform:uppercase;
+background-color:#FFFFFF;
+border: 1px solid #000000;
+border-radius: 4px
+}
+#ElfLibraryCont #filterBooksBtn{
+padding-left:10px;
+min-width:150px;
+max-width:150px;
+min-height:40px;
+max-height:40px;
+text-align:left;
+background-color:#FFFFFF;
+border: 1px solid #000000;
+border-radius: 4px;
+background-repeat:no-repeat;
+background-position:right;
+background-image:  url(:/res/elf_combo_arrow.png);
+}
+#addBooksToGroupBtn {
+min-height:100px;
+max-height:100px;
+font-size:16px;
+text-align:bottom;
+text-transform:uppercase;
+background-repeat:no-repeat;
+background-position:center;
+background-image: url(:/res/elf_add_group.png);
+}
+/*LibrarySearch
+-------------------------*/
+#searchLibraryItemCont{
+min-width:570px;
+max-width:570px;
+min-height:55px;
+max-height:55px;
+background-color:#FFFFFF;
+border: 1px solid #000000;
+border-left:none;
+border-right:none;
+border-top:none;
+}
+
+#searchLibraryItemCont #itemCont{
+background-color:#FFFFFF;
+}
+#searchLibraryItemCont #searchTitle{
+font-size:16px;
+font-weight:bold;
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+#searchLibraryItemCont #resultNumber{
+font-size:25px;
+font-weight:bold;
+}
+#searchLibraryItemCont #searchAuthor{
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+#clearSearchLineBtn{
+min-height:35px;
+max-height:35px;
+min-width:43px;
+max-width:43px;
+background-repeat:no-repeat;
+background-image: url(:/res/clear.png);
+background-position:right;
+border:none;
+}
+/* bqShowGroups
+-------------------------*/
+#LibraryGroupItemCont{
+border-bottom:1px solid #000000;
+}
+#LibraryGroupItemCont #groupNameBtn{
+padding:0px 0px 0px 10px;
+text-align:left;
+background-repeat:no-repeat;
+background-position:right;
+background-image: url(:/res/elf_contents_arrow.png);
+}
+
+/*BookSummary
+---------------------------------*/
+#bqBookSummaryWhite{
+background-color:#FFF;
+}
+#bookSummaryCont{
+background-color:#FFF;
+background-color:#FFFFFF;
+border:2px solid #000000;
+border-radius: 10px;
+}
+#bookSummaryCont #sectionTitle{
+font-size:18px;
+}
+#bookSummaryCont #bookTitleCont{
+min-height:53px;
+max-height:53px;
+background-color:#FFF;
+border-bottom: 2px solid #C0C0C0;
+}
+#bookSummaryCont #coverLabel{
+min-width:140px;
+max-width:140px;
+min-height:135px;
+max-height:135px;
+background-repeat:no-repeat;
+background-position:top;
+}
+#bookSummaryCont #sinopsisLabel{
+padding: 10px 0px;
+
+}
+#bookMainInfoCont, #topicCont, #editorCont, #languageCont, #idCont, #publishedCont{
+border: 1px solid #FFFFFF;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#bookSummaryCont #idCont{
+border-bottom: none;
+}
+#bookSummaryCont #idCont #idValue{
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+#bookSummaryCont #topicTitle, #bookSummaryCont #editorTitle, #bookSummaryCont #languageTitle, #bookSummaryCont #idTitle, #bookSummaryCont #publishedTitle{
+font-weight:bold;
+font-size:18px;
+min-width:140px;
+max-width:140px;
+}
+#bookTitleLabel{
+margin:0px 0px 20px 0px;
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+font-size:19px;
+min-height:100px;
+max-height:100px;
+}
+#bookSummaryCont #bookTitleLabel{
+font-weight:bold;
+}
+#bookSummaryCont #authorLabel{
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+font-size:18px;
+}
+#bookSummaryCont #lastRead,#bookSummaryCont #lastReadValue{
+font-size:16px;
+}
+#bookSummaryCont #tabCont #summaryButton{
+border: 2px solid #000;
+background-color:#FFF;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom:none;
+}
+#bookSummaryCont #buyBookBtn{
+padding:0px 10px;
+color:#000;
+text-transform:uppercase;
+min-width:85px;
+max-width:85px;
+min-height:33px;
+max-height:33px;
+background-color:#FFF;
+border: 1px solid #000;
+border-radius: 4;
+}
+/* Search is in bqcommon.qss
+-----------------------------*/

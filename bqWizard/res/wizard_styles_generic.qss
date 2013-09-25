@@ -1,0 +1,178 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* Wizard
+--------------------------------------------------*/
+#actionButtonsWizardCont QPushButton, #WizardFooterButtons QPushButton{
+color:#FFFFFF;
+font-weight:bold;
+background-color:#303030;
+border-color:#303030;
+text-transform:uppercase;
+}
+/*SelectLanguage
+-------------------*/
+#WizardLanguage{
+background-color:#DADADA;
+}
+#LanguageMenuListCont{
+border-style: solid;
+border-color: #404040;
+/*border-bottom-color: #000;*/
+background-color:#FFFFFF;
+}
+#LanguageMenuListCont QPushButton{
+text-align:left;
+font-weight:normal;
+border-bottom-style: solid;
+border-bottom-color: #C7C7C7;
+}
+#LanguageMenuListCont QPushButton#porBtn{
+border-bottom:none;
+}
+#LanguageMenuListCont QPushButton:hover, #LanguageMenuListCont QPushButton:checked{
+background: url(":/res/check_ico.png") no-repeat center right;
+}
+#languageHeaderCont{
+background-color:#F0F0F0;
+}
+#languageHeaderCont #langTitleLbl{
+text-transform:uppercase;
+color:#303030;
+font-weight:bold;
+}
+/*WizardWelcome
+----------------------*/
+#WizardWelcome{
+background-color:#C0C0C0;
+}
+#wizardWelcomeCont{
+border-style: solid;
+border-color: #404040;
+background-color:#FFFFFF;
+}
+#welcomeHeaderCont{
+background-color:#F0F0F0;
+}
+#activateIconLbl{
+background-image: url(:/res/activate-device.png);
+background-position:center center;
+background-repeat:no-repeat;
+}
+#welcomeHeaderCont #welcomeTitleLbl{
+text-transform:uppercase;
+color:#303030;
+font-weight:bold;
+}
+#WizardWelcome #skipBtn, #WizardWelcome #WizardFooterButtons #pushButton{
+color:#303030;
+background-color:#FFFFFF;
+border-color:#303030;
+border-style:solid;
+}
+#WizardWelcome #logoLbl{
+background-repeat:no-repeat;
+background-position:center;
+background-image: url(:/res/bq/fnac.png);
+}
+#WizardWelcome #welcomeLbl{
+font-weight:bold;
+font-family:'Roboto', sans-serif;
+}
+#WizardWelcome #enyoyLbl, #WizardWelcome #isTouchLbl{
+font-style:italic;
+font-family:'Roboto', sans-serif;
+text-align:left;
+}
+/*WizardFinish
+-------------------------------*/
+#WizardFinish{
+background-color:#FFFFFF;
+}
+#WizardFinish #proccessOkLbl{
+background-repeat:no-repeat;
+background-position:center;
+background-image: url(:/res/ok_wizard.png);
+}
+#WizardFinish #finishOkLbl{
+font-weight:bold;
+}
+#WizardFinish #linkLbl{
+}
+/*SelectLanguage
+-------------------*/
+#WizardDateTime{
+background-color:#DADADA;
+}
+#DateTimeMenuListCont{
+border-style: solid;
+border-color: #404040;
+/*border-bottom-color: #000;*/
+background-color:#FFFFFF;
+}
+#DateTimeMenuListCont QWidget{
+text-align:left;
+font-weight:normal;
+border-bottom-style: solid;
+border-bottom-color: #C7C7C7;
+}
+#DateTimeMenuListCont QWidget:hover, #DateTimeMenuListCont QWidget:checked{
+/*background: url(":/res/check_ico.png") no-repeat center right;*/
+}
+#dateTimeHeaderCont{
+background-color:#F0F0F0;
+}
+#dateTimeHeaderCont #dateTimeTitleLbl{
+text-transform:uppercase;
+color:#303030;
+font-weight:bold;
+}
+/*WizardDateTimeItemCont
+------------------------*/
+#gtmLbl{
+font-weight:bold;
+}
+#checkTimezoneLbl{
+background: url(":/res/check_ico.png") no-repeat center right;
+background-repeat:no-repeat;
+}
+/*WizardPagerCont
+------------------------*/
+#WizardPagerCont, #wizardPagerCont {
+background-color:#DADADA;
+}
+#WizardPagerCont #downPageBtn, #wizardPagerCont #downPageBtn{
+border:none;
+background:transparent  url(":/res/down_pager_ico.png") no-repeat center center;
+}
+#WizardPagerCont #upPageBtn, #wizardPagerCont #upPageBtn{
+border:none;
+background:transparent  url(":/res/up_pager_ico.png") no-repeat center center;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+color:#333333;
+text-align:left;
+}
+#horizontalWidget{
+background-color:#000;
+}
+#horizontalWidget QLabel{
+background-color:#444;
+}

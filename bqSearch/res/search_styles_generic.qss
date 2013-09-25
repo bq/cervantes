@@ -1,0 +1,131 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*Search
+----------------------------*/
+#Search{
+background-color:#FFFFFF;
+}
+#Search #searchHeader{
+background-color:#FFFFFF;
+border-style:solid;
+border-color:#C7C7C7;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#Search #searchLineEdit{
+border-style:solid;
+border-color:transparent;
+background-color:#FFFFFF;
+background-image: url(:/res/bg_search_input.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#Search #clearSearchBtn{
+background-image: url(:/res/bg_clear_search.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SearchResultItem1, #SearchResultItem2, #SearchResultItem3, #SearchResultItem4, #SearchResultItem5, #SearchResultItem6, #SearchResultItem7, #SearchResultItem8, #SearchResultItem9{
+}
+#SearchResultItemShop1, #SearchResultItemShop2, #SearchResultItemShop3, #SearchResultItemShop4, #SearchResultItemShop5, #SearchResultItemShop6, #SearchResultItemShop7, #SearchResultItemShop8, #SearchResultItemShop9{
+}
+#resultNumberCont{
+background-color:#FFFFFF;
+border-style:solid;
+border-color:#C7C7C7;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#shopOnlineBtn{
+text-align:left;
+border-style:solid;
+border-color:#C7C7C7;
+border-top:none;
+border-left:none;
+border-right:none;
+background-image: url(:/res/store_file.png) ;
+background-color: #E0E0E0;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#deviceBooksBtn{
+text-align:left;
+border-style:solid;
+border-color:#C7C7C7;
+border-top:none;
+border-left:none;
+border-right:none;
+background-image: url(:/res/device_file.png) ;
+background-color: #E0E0E0;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#resultNumberCont #showResultLbl{
+}
+#resultNumberCont #resultsNumberLbl{
+}
+/*SearchItem, SearchItemShop
+----------------------------*/
+#SearchItem, SearchItem, #SearchItemShop, SearchItemShop {
+background-color:#FFFFFF;
+border-style:solid;
+border-color:#C7C7C7;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#SearchItem #fileTypeLbl, SearchItem #fileTypeLbl, #SearchItemShop #fileTypeLbl, SearchItemShop #fileTypeLbl{
+/*background-image: url(:/res/unknow_list.png) ;*/
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:top center ;
+}
+#SearchItem #searchTitle, SearchItem #searchTitle, #SearchItemShop #searchTitle, SearchItemShop #searchTitle{
+font-weight:bold;
+}
+#SearchItem #searchAuthor, SearchItem #searchAuthor, #SearchItemShop #searchAuthor, SearchItemShop #searchAuthor{
+}
+/* SearchPagerCont
+-----------------------------*/
+#verticalPagerHandler{
+background-color:#EDEDED;
+border-style:solid;
+border-color:#C7C7C7;
+border-left:none;
+border-right:none;
+border-bottom:none;
+}
+#verticalPagerHandler #downPageBtn{
+border:none;
+background:transparent  url(":/res/down_pager_btn.png") no-repeat center center;
+}
+#verticalPagerHandler #upPageBtn{
+border:none;
+background:transparent  url(":/res/up_pager_btn.png") no-repeat center center;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+color:#404040;
+text-align:left;
+}

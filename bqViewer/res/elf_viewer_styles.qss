@@ -1,0 +1,1403 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*bqViewer
+-------------------------------------------------*/
+#bqViewerCont #upBtn{
+background-image:url(:/res/up.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+#bqViewerPageCont QLabel{
+font-size:13px;
+}
+#viewerMenuCont{
+background-color:#FFF;
+border:2px solid #000;
+border-radius: 4;
+}
+#viewerMenuCont #vline_1,#viewerMenuCont #vline_2,#viewerMenuCont #vline_3,#viewerMenuCont #vline_4{
+}
+#viewerMenuCont QFrame{
+border-left:1px solid #000;
+border-right:1px solid #FFF;
+}
+#viewerMenuCont QFrame#contentMenu{
+border-left:none;
+}
+#viewerMenuCont QFrame#reflowMenu{
+border-right:none;
+}
+#viewerMenuCont QPushButton{
+padding:0px 0px 15px 0px;
+text-align:bottom;
+text-transform:uppercase;
+font-size:12px;
+}
+#viewerMenuCont #contentMenu #contentBtn{
+color:#000;background-color:#FFF;
+border-radius: 4;
+background-repeat:no-repeat;
+background-position:top;
+background-image:url(:/res/bq_index_menu.png);
+}
+#viewerMenuCont #contentMenu #contentBtn:pressed{
+
+}
+#viewerMenuCont #searchMenu #searchBtn{
+color:#000;
+background-image:url(:/res/elf_search_menu.png);
+background-repeat:no-repeat;
+background-position:top;
+}
+#viewerMenuCont #searchMenu #searchBtn:pressed{
+
+}
+#viewerMenuCont #gotoPageMenu #gotoPageBtn{
+color:#000;
+background-image:url(:/res/goto_menu.png);
+background-repeat:no-repeat;
+background-position:top;
+}
+#viewerMenuCont #gotoPageMenu #gotoPageBtn:pressed{
+
+}
+#viewerMenuCont #appaeranceMenu #appaeranceBtn{
+color:#000;
+background-image:url(:/res/fonts_menu.png);
+background-repeat:no-repeat;
+background-position:top;
+}
+#viewerMenuCont #appaeranceMenu #appaeranceBtn:pressed{
+
+}
+#viewerMenuCont #summaryMenu #summaryBtn{
+color:#000;
+background-image: url(:/res/elf_summary_menu.png);
+background-repeat:no-repeat;
+background-position:top;
+}
+#viewerMenuCont #summaryMenu #summaryBtn:pressed{
+
+}
+#viewerMenuCont #summaryMenu {
+border-right:none;
+}
+#buySampleBtn{
+/* bqcommon.qss */
+}
+/*Search
+--------------------------*/
+#totalResultsCont{
+border-bottom: 2px solid #000;
+}
+#searchFormCont{
+background-color:#FFF;
+border-bottom: 2px solid #000;
+}
+#searchLineEdit{
+padding: 0px 5px 0px 45px;
+min-height:35px;
+max-height:35px;
+min-width:379px;
+max-width:379px;
+color:#000;
+border-style: solid;
+border: 1px solid #000;
+border-radius: 6px;
+background-color:#FFF;
+background-image:url(:/res/elf_search.png);
+background-repeat:no-repeat;
+background-position:left;
+}
+#searchFormCont #searchButton{
+min-width:90px;
+max-width:90px;
+min-height:35px;
+max-height:35px;
+color:#FFF;
+text-transform:uppercase;
+background-color:#000;
+border-radius: 4;
+}
+#searchFormCont #searchButton:pressed{
+color:#000;
+border:1px solid #000;
+background-color:#FFF;
+}
+#clearSearchLine, #clearSearchButton,#clearAdobeId, #clearPassword{
+min-height:27px;
+max-height:27px;
+min-width:27px;
+max-width:27px;
+background-repeat:no-repeat;
+background-image: url(:/res/clear.png);
+background-position:right;
+border:none;
+}
+#searchItemCont,#itemCont{
+min-width:570px;
+max-width:570px;
+min-height:55px;
+max-height:55px;
+background-color:#FFF;
+border-bottom: 1px solid #000;
+}
+#searchItemCont #itemCont:selected{
+background-color:#000;
+border-radius: 4;
+}
+#itemCont #chapterPageNumber{
+font-size:16px;
+font-weight:bold;
+}
+#itemCont #resultNumber{
+margin-top:5px;
+font-size:25px;
+font-weight:bold;
+}
+#itemCont #resultSearch{
+font-style:italic;
+}
+#itemCont{
+border-bottom:1px solid #000;
+background-color:#FFF;
+}
+/* bqBookContents
+---------------------------*/
+#bookContentsCont  #tabCont{
+background-color:#FFF;
+}
+#bookContentsCont  #tabCont QPushButton{
+color:#000;
+}
+#bookContentsCont, #bookMarkupsCont, #bookBookmarksCont{
+background-color:#FFF;
+}
+#bookContentsCont #tabCont #markupsTabBtn{
+color:#000;
+border: 2px solid #000;
+background-color:#FFF;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom:none;
+}
+#bookMarkupsCont #tabCont #markupsTabBtn{
+color:#000;
+border: 2px solid #000;
+background-color:#FFF;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom:none;
+}
+#bookBookmarksCont #tabCont #bookmarkTabBtn{
+color:#000;
+border: 2px solid #000;
+background-color:#FFF;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom:none;
+}
+#deleteAllCont{
+border-bottom: 2px solid #000;
+}
+#deleteAllBtn{
+min-width:133px;
+max-width:133px;
+min-height:0px;
+max-height:50px;
+color:#FFF;
+text-transform:uppercase;
+background-color:#000;
+border-radius: 4;
+}
+#deleteAllBtn:pressed{
+color:#000;
+border:1px solid #000;
+background-color:#FFF;
+}
+#contentsItemCont{
+min-width:570px;
+max-width:570px;
+min-height:51px;
+max-height:51px;
+background-color:#FFF;
+/*border-bottom: 1px solid #000;*/
+background-repeat:no-repeat;
+background-position:right;
+}
+#contentsItemCont #chapterPageNumber{
+font-size:14px;
+font-weight:bold;
+}
+#contentsItemCont #resultPageNumber{
+margin:0px 50px 0px 0px;
+font-size:16px;
+font-weight:bold;
+}
+#contentsItemCont #markupCont #marckupText{
+margin:0px 50px 0px 0px;
+font-weight:bold;
+font-size:14px;
+font-style:italic;
+}
+#noteListIcon{
+min-width:14px;
+max-width:14px;
+min-height:17px;
+max-height:17px;
+background-repeat:no-repeat;
+background-image: url(:/res/elf_note_ico.png);
+background-position:left;
+border:none;
+}
+#contentsItemCont #actionDateLabel, #contentsItemCont #actionText{
+font-size:13px;
+}
+#contentsItemCont #resultSearch{
+font-style:italic;
+}
+#contentsItemCont #goToContentBtn{
+color:#FFF;
+background-image: url(:/res/elf_contents_arrow.png);
+background-repeat:no-repeat;
+background-position:right;
+}
+#contentsItemCont #goToContentBtn:pressed{
+color:#000;
+background-image: url(:/res/elf_contents_arrow_pressed.png);
+border-radius: 4;
+background-color: rgba(255, 255, 255, 170);
+}
+#itemChapterMyNoteCont #pageText{
+font-size:18px;
+font-weight:bold;
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+#myNoteType{
+min-width:24px;
+max-width:24px;
+min-height:24px;
+max-height:24px;
+background-repeat:no-repeat;
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+#myNoteTextSelected{
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+#itemChapterMyNoteCont{
+background-color:#FFF;
+border-bottom: 1px solid #000;
+}
+#goToMyNoteBtn:pressed{
+border-radius: 4;
+background-color: rgba(255, 255, 255, 170);
+}
+/* bqBookSearch
+---------------------------*/
+#bookDictionaryCont, #bookWikipediaCont, #bookGoogleCont{
+background-color:#FFF;
+}
+#bookDictionaryCont{
+border: 2px solid #000;
+border-radius: 4;
+}
+
+#bookDictionaryCont #elfSearchResult{
+font-family: 'Lato';
+padding-bottom: 4px;
+}
+#bookDictionaryCont #changeDictionary{
+padding:0px 10px 0px 10px;
+margin: 0px 0px 0px 10px;
+min-width:300px;
+max-width:300px;
+min-height:45px;
+max-height:45px;
+text-align:left;
+font-size:17px;
+border: 1px solid #000000;
+border-radius: 4px;
+background-repeat:no-repeat;
+background-position:right;
+background-image: url(:/res/elf_combo_arrow.png);
+}
+#bookDictionaryCont #backSearchBtn{
+/*padding:0px 10px 0px 10px;
+margin: 0px 0px 0px 10px;
+min-width:94px;
+max-width:94px;
+min-height:45px;
+max-height:45px;
+font-size:17px;
+border: 1px solid #000000;
+border-radius: 4px;*/
+padding:0px 0px 0px 5px;
+min-width:94px;
+max-width:94px;
+min-height:50px;
+max-height:50px;
+color:#000;
+text-transform:uppercase;
+background-repeat:no-repeat;
+background-position:left;
+background-image:  url(:/res/bq_back_pressed.png);
+}
+#bookDictionaryCont #backSearchBtn:pressed{
+color:#FFF;
+background-image:  url(:/res/bq_back.png);
+}
+#bookDictionaryCont #changeDictionary:pressed{
+color:#FFFFFF;
+border:1px solid #000000;
+background-color:#000000;
+}
+#bookDictionaryCont #tabCont #dictionaryTabBtn{
+border: 2px solid #000;
+background-color:#FFF;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom:none;
+}
+#bookWikipediaCont #tabCont #wikipediaTabBtn{
+border: 2px solid #000;
+background-color:#FFF;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom:none;
+}
+
+#bookGoogleCont #tabCont #googleTabBtn{
+border: 2px solid #000;
+background-color:#FFF;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom:none;
+}
+
+#bookDictionaryCont #verticalPageCont{
+min-width:470px;
+max-width:470px;
+min-height:50px;
+max-height:50px;
+}
+#bookDictionaryCont #backBtn{
+padding:0px;
+color:#000;
+min-height:40px;
+max-height:40px;
+text-transform:uppercase;
+background-image: url();
+background-color:#FFF;
+border:1px solid #000;
+border-radius:4px;
+}
+#bookDictionaryCont #backBtn:pressed{
+padding:0px;
+background:none;
+color:#FFF;
+background-color:#000;
+border:1px solid #FFF;
+border-radius:4px;
+}
+/*DictionaryLayer
+-------------------*/
+#DictionaryLayerCont{
+min-width:316px;
+max-width:316px;
+min-height:301px;
+max-height:301px;
+text-align:left;
+background-color:#FFFFFF;
+border: 2px solid #000000;
+border-radius: 4px
+}
+#DictionaryLayerCont QPushButton#EN_ES{
+border:none;
+}
+#DictionaryLayerCont QPushButton:pressed{
+color:#FFFFFF;
+border-radius:4;
+background-color:#000000;
+}
+#DictionaryLayerCont #dictBtn0, #DictionaryLayerCont #dictBtn1, #DictionaryLayerCont #dictBtn2, #DictionaryLayerCont #dictBtn3, #DictionaryLayerCont #dictBtn4{
+padding:0px 0px 0px 20px;
+min-height:61px;
+max-height:61px;
+text-align:left;
+font-size:17px;
+border:1px solid #000000;
+border-top:none;
+border-right:none;
+border-left:none;
+}
+#DictionaryLayerCont #dictBtn4{
+border:none;
+}
+#DictionaryLayerCont #verticalPageCont,#DictionaryLayerCont #VerticalPager{
+min-width:445px;
+max-width:445px;
+}
+
+/*SeeNote
+----------------------------*/
+#popupCont #lastActionBtn{
+padding:0px 15 0px 0px;
+font-size:13px;
+}
+/*Edit Note
+--------------------------------*/
+#totalLinesValue{
+margin:0px 0px 0px 0px;
+font-size:13px;
+}
+#saveBtn{
+padding:0px 15px 0px 15px;
+min-height:33px;
+max-height:33px;
+color:#000;
+text-transform:uppercase;
+background-color:#FFF;
+border: 1px solid #000;
+border-radius: 4px
+}
+#saveBtn:pressed{
+color:#FFF;
+border:1px solid #000;
+background-color:#000;
+}
+#removeBtn{
+padding:0px 15px 0px 15px;
+min-height:33px;
+max-height:33px;
+color:#000;
+text-transform:uppercase;
+background-color:#FFF;
+border: 1px solid #000;
+border-radius: 4px
+}
+#removeBtn:pressed{
+color:#FFF;
+border:1px solid #000;
+background-color:#000;
+}
+
+#headerPopup #saveBtn{
+padding:0px 0px 0px 0px;
+min-width:100px;
+max-width:100px;
+}
+
+/*BookSummary
+---------------------------------*/
+#bqBookSummaryWhite{
+background-color:#FFF;
+}
+#bookSummaryCont{
+background-color:#FFF;
+background-color:#FFFFFF;
+border:2px solid #000000;
+border-radius: 10px;
+}
+#bookSummaryCont #sectionTitle{
+font-size:18px;
+}
+#bookSummaryCont #bookTitleCont{
+min-height:53px;
+max-height:53px;
+background-color:#FFF;
+border-bottom: 2px solid #C0C0C0;
+}
+#bookSummaryCont #coverLabel{
+min-width:140px;
+max-width:140px;
+min-height:200px;
+max-height:200px;
+background-repeat:no-repeat;
+background-position:top;
+}
+#bookSummaryCont #sinopsisLabel{
+padding: 10px 0px;
+
+}
+#bookMainInfoCont, #topicCont, #editorCont, #languageCont, #idCont, #publishedCont{
+border: 1px solid #FFFFFF;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#bookSummaryCont #idCont{
+border-bottom: none;
+}
+#bookSummaryCont #idValue{
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+#bookSummaryCont #topicTitle, #bookSummaryCont #editorTitle, #bookSummaryCont #languageTitle, #bookSummaryCont #idTitle, #bookSummaryCont #publishedTitle{
+font-weight:bold;
+font-size:18px;
+min-width:140px;
+max-width:140px;
+}
+#bookTitleLabel{
+margin:0px 0px 20px 0px;
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+font-size:22px;
+min-height:100px;
+max-height:100px;
+}
+#bookSummaryCont #bookTitleLabel{
+font-weight:bold;
+}
+#bookSummaryCont #authorLabel{
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+font-size:18px;
+}
+#bookSummaryCont #lastRead,#bookSummaryCont #lastReadValue{
+font-size:16px;
+}
+#bookSummaryCont #tabCont #summaryButton{
+border: 2px solid #000;
+background-color:#FFF;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom:none;
+}
+#bookSummaryCont #buyBookBtn{
+padding:0px 10px;
+color:#000;
+text-transform:uppercase;
+min-width:85px;
+max-width:85px;
+min-height:33px;
+max-height:33px;
+background-color:#FFF;
+border: 1px solid #000;
+border-radius: 4;
+}
+/* Index book
+----------------------------*/
+#elfBookIndexCont{
+background-color:#FFF;
+}
+#elfBookIndexCont #tabCont{
+}
+#elfBookIndexCont #tabCont QPushButton{
+color:#000;
+}
+#elfBookIndexCont #tabCont #contentsTabBtn{
+color:#000;
+border: 2px solid #000;
+background-color:#FFF;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom:none;
+}
+#PageHandlerUpDown{
+border-top:2px solid #C0C0C0;
+background-color:#FFF;
+}
+#PageHandlerUpDown #pageUp{
+min-width:45px;
+max-width:45px;
+background-image:url(:/res/up.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+#PageHandlerUpDown #pageUp:pressed{
+background-color:#000;
+border-radius: 4;
+background-image:url(:/res/up_disabled.png);
+}
+#PageHandlerUpDown #pageDown{
+min-width:45px;
+max-width:45px;
+background-image:url(:/res/down.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+#PageHandlerUpDown #pageDown:pressed{
+background-color:#000;
+border-radius: 4;
+background-image:url(:/res/down_disabled.png);
+}
+
+
+/*bqFnacEbookSummary
+------------------------*/
+#bqFnacEbookSummary{
+background-color:#FFF;
+}
+#FnacEbookSummaryCont #authorLabel{
+margin-top:10px;
+}
+#FnacEbookSummaryCont #bookTitleLabel{
+margin-top:5px;
+font-size:20px;
+font-weight:bold;
+}
+#FnacEbookSummaryCont #coverLabel{
+min-width:134px;
+max-width:134px;
+min-height:180px;
+max-height:180px;
+background-image: url(:/res/elf_no_cover.png);
+background-repeat:no-repeat;
+background-position:top;
+}
+#FnacEbookSummaryCont #desciptionTitle{
+font-size:18px;
+font-weight:bold;
+}
+#FnacEbookSummaryCont #readMoreDesBtn{
+text-align:left;
+font-weight:bold;
+text-transform:uppercase;
+}
+#FnacEbookSummaryCont #readMoreDesBtn:pressed{
+color:#505050;
+}
+#FnacEbookSummaryCont #readBtn{
+padding:0px 15px;
+min-width:100px;
+max-width:100px;
+min-height:50px;
+max-height:50px;
+color:#FFF;
+font-weight:bold;
+text-transform:uppercase;
+background-color:#000;
+border-radius: 4px;
+}
+#FnacEbookSummaryCont #readBtn:pressed{
+color:#000;
+border:1px solid #000;
+background-color:#FFF;
+}
+#FnacEbookSummaryCont #totalRatingsLabel, #FnacEbookSummaryCont #totalRatingsValue{
+text-decoration:underline;
+}
+#FnacEbookSummaryCont #ratingsStar{
+min-height:20px;
+max-height:20px;
+background-image: url(:/res/rating_star_0.png);
+background-repeat:no-repeat;
+}
+#FnacEbookSummaryCont #lastOpinionName{
+font-weight:bold;
+}
+#FnacEbookSummaryCont #lastOpinionDate{
+font-size:15px;
+}
+#FnacEbookSummaryCont #lastOpinionValue{
+text-style:italic;
+}
+#FnacEbookSummaryCont #valorationsLabel{
+color:#FFF;
+font-weight:bold;
+text-transform:uppercase;
+}
+#FnacEbookSummaryCont #valorationsLabel{
+color:#000;
+font-weight:bold;
+text-transform:uppercase;
+background-image: url(:/res/elf_contents_arrow_pressed.png);
+background-repeat:no-repeat;
+background-position:right;
+}
+#FnacEbookSummaryCont #opinionsBtn{
+padding:0px 10px;
+text-transform:uppercase;
+}
+#FnacEbookSummaryCont #opinionsBtn:pressed{
+color:#FFF;
+background-color:#000;
+border-radius: 4px;
+}
+#otherBooksCont #coverLabel1,#otherBooksCont #coverLabel2{
+background-image: url(:/res/elf_nocover.png);
+background-repeat:no-repeat;
+}
+#otherBooksCont #titleBook1,#otherBooksCont #titleBook2{
+font-size:16px;
+font-weight:bold;
+}
+#otherBooksCont #authorBook1,#otherBooksCont #authorBook2{
+}
+#FnacEbookSummaryCont #otherCustomerBuying{
+padding:5px 0px;
+font-weight:bold;
+border-top:1px solid #000;
+border-bottom:1px solid #000;
+}
+
+/*bqSelectedTextMenu (?) BookMenu
+----------------------------*/
+#bookMenuCont{
+background-color:#FFF;
+border:2px solid #000;
+border-radius: 4;
+}
+#vline_1,#vline_2,#vline_3,#vline_4,#vline_5,#vline_6{
+border-left:1px solid #000;
+}
+/**bqSelectednote**/
+#noteName{
+font-size:16px;
+font-weight:bold;
+}
+
+#note{
+min-height:100px;
+max-height:100px;
+min-width:515px;
+max-width:515px;
+padding-top:0px;
+}
+
+/*bqSelectedWordMenu
+------------*/
+
+#buttonsCont QPushButton{
+min-height:40px;
+max-height:40px;
+color:#000;
+font-size:15px;
+text-transform:uppercase;
+border: 1px solid #000;
+border-radius: 4;
+}
+#buttonsCont QPushButton:pressed{
+color:#FFF;
+background-color:#000;
+border-radius: 4;
+}
+
+#buttonsCont #vline_1,#buttonsCont #vline_2{
+border-left:none;
+}
+
+#buttonsCont{
+min-width:510px;
+max-width:510px;
+min-height:40px;
+max-height:40px;
+border-Bottom: 1px solid #000;
+padding-bottom:10px;
+padding-top:5px;
+padding-left:5px;
+}
+
+
+#viewFullDef {
+min-height:40px;
+max-height:40px;
+min-width:520px;
+max-width:520px;
+color:#000;
+font-size:16px;
+border: 1px solid #000;
+border-radius: 4;
+}
+
+#viewFullDef:pressed{
+color:#FFF;
+background-color:#000;
+border-radius: 4;
+}
+
+#word{
+text-align: left;
+font-family; serif;
+font-size: 21px;
+font-weight: bold;
+padding-top:5px;
+}
+#Definition{
+min-height:170px;
+max-height:170px;
+min-width:475px;
+max-width:475px;
+font-size: 20px;
+padding-top:0px;
+font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+#copyright{
+text-align: right;
+font-family; serif;
+font-size: 11px;
+}
+
+#buttonsCont #vline_1,#buttonsCont #vline_2{
+border-left:none;
+}
+/*bqGotoPopup
+----------------------------------------------------*/
+#numericKeyBoardCont{
+min-width:340px;
+max-width:340px;
+}
+#formGotoCont #numberPageEdit{
+padding: 0px 30px 0px 10px;
+min-height:40px;
+max-height:40px;
+min-width:300px;
+max-width:300px;
+font-size:18px;
+background-repeat:no-repeat;
+background-position:left;
+}
+#formGotoCont #num0, #numberGridFrame #num1, #numberGridFrame #num2, #numberGridFrame #num3, #numberGridFrame #num4, #numberGridFrame #num5, #numberGridFrame #num6, #numberGridFrame #num7, #numberGridFrame #num8, #numberGridFrame #num9, #numberGridFrame #previousPage, #numberGridFrame #nextPage{
+min-width:100px;
+max-width:100px;
+min-height:50px;
+max-height:50px;
+height:50px;
+font-size:25px;
+background-color:#FFFFFF;
+border:2px solid #000000;
+border-radius: 5px;
+}
+#formGotoCont #num0:pressed, #bqGotoPopup #num1:pressed, #bqGotoPopup #num2:pressed, #bqGotoPopup #num3:pressed, #bqGotoPopup #num4:pressed, #bqGotoPopup #num5:pressed, #bqGotoPopup #num6:pressed, #bqGotoPopup #num7:pressed, #bqGotoPopup #num8:pressed, #bqGotoPopup #num9:pressed, #bqGotoPopup{
+color:#FFF;
+background-color:#000;
+}
+
+#bqGotoPopup #closeBtn{
+text-align:center;
+color:#000;
+text-transform:uppercase;
+min-width:85px;
+max-width:85px;
+min-height:33px;
+max-height:33px;
+background-color:#FFF;
+border: 1px solid #000;
+border-radius: 4;
+}
+#bqGotoPopup #closeBtn:pressed{
+color:#FFF;
+background-color:#000;
+}
+#formGotoCont #clearSearchLine{
+min-height:27px;
+max-height:27px;
+min-width:27px;
+max-width:27px;
+}
+#formGotoCont #deleteOne{
+min-width:100px;
+max-width:100px;
+min-height:50px;
+max-height:50px;
+color:#FFFFFF;
+background-image:url(:/res/deleteOne_over.png);
+background-repeat:no-repeat;
+background-position:center center;
+border:2px solid #000;
+border-radius: 4;
+}
+#formGotoCont #deleteOne:pressed{
+color:#FFF;
+background-color:#000;
+}
+#gotoCont #numberGridFrame #nextPage{
+font-weight:bold;
+background-image:url(:/res/next_arrow.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+#gotoCont #numberGridFrame #nextPage:pressed{
+color:#FFF;
+background-color:#000;
+}
+#gotoCont #numberGridFrame #previousPage{
+background-image:url(:/res/previous_arrow.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+#gotoCont #numberGridFrame #previousPage:pressed{
+color:#FFF;
+background-color:#000;
+}
+#gotoCont #go{
+min-height:50px;
+max-height:50px;
+min-width:217px;
+max-width:217px;
+text-transform:uppercase;
+color:#000;
+background-color:#FFF;
+border:2px solid #000;
+border-radius: 4;
+font-weight:bold;
+}
+#gotoCont #go:pressed{
+color:#FFF;
+background-color:#000;
+}
+/*bqAppearancePopup
+--------------------------------------------------*/
+
+#appearanceCont QLabel{
+text-transform:uppercase;
+font-weight:bold;
+}
+#SizeHorCont QLabel{
+text-transform:uppercase;
+font-weight:bold;
+}
+#appearanceCont QPushButton:checked{
+color:#FFFFFF;
+background-color:#000000;
+border-radius: 4;
+}
+#appearanceCont QPushButton:disabled{
+color:#909090;
+background-color:none;
+border-radius: 4;
+}
+#SizeHorCont QPushButton:checked{
+color:#FFFFFF;
+background-color:#000000;
+border-radius: 4;
+}
+#SizeHorCont QPushButton:disabled{
+color:#909090;
+border-radius: 4;
+}
+
+#appearanceCont #fontsCont QFrame{
+border-bottom:1px solid #000000;
+}
+#appearanceCont #fontsCont QPushButton{
+min-height:35px;
+max-height:35px;
+}
+#appearanceCont #fontLabel,#appearanceCont #reflowLabel {
+margin-bottom:10px;
+}
+#appearanceCont, #appearanceCont QFrame#noReflowCont, #appearanceCont QFrame#droidSerifCont{
+border:none;
+}
+#marginsCont, #spacingCont{
+background-color:#FFFFFF;
+border:1px solid #000000;
+border-radius: 4;
+}
+#marginAndSpacingCont QPushButton{
+margin:0px 10px;
+min-height:57px;
+max-height:57px;
+min-width:49px;
+max-width:49px;
+background-repeat:no-repeat;
+background-position:center;
+background-color:#FFF;
+}
+#marginAndSpacingCont QPushButton:checked{
+border:5px solid #000000;
+border-radius: 5;
+}
+#marginAndSpacingCont QPushButton:disabled{
+border:5px solid #909090;
+border-radius: 5;
+}
+
+#noMarginBtn, #noMarginBtn:checked{
+background-image:url(:/res/margin-none.png);
+}
+#mediumMarginBtn, #mediumMarginBtn:checked{
+background-image:url(:/res/margin-medium.png);
+}
+#topMarginBtn, #topMarginBtn:checked{
+background-image:url(:/res/margin-top.png);
+}
+#noSpacingBtn, #noSpacingBtn:checked{
+background-image:url(:/res/spacing-none.png);
+}
+#mediumSpacingBtn, #mediumSpacingBtn:checked{
+background-image:url(:/res/spacing-medium.png);
+}
+#topSpacingBtn, #topSpacingBtn:checked{
+background-image:url(:/res/spacing-top.png);
+}
+
+#noMarginBtn:disabled{
+background-image:url(:/res/margin-none-disabled.png);
+}
+#mediumMarginBtn:disabled{
+background-image:url(:/res/margin-medium-disabled.png);
+}
+#topMarginBtn:disabled{
+background-image:url(:/res/margin-top-disabled.png);
+}
+#noSpacingBtn:disabled{
+background-image:url(:/res/spacing-none-disabled.png);
+}
+#mediumSpacingBtn:disabled{
+background-image:url(:/res/spacing-medium-disabled.png);
+}
+#topSpacingBtn:disabled{
+background-image:url(:/res/spacing-top-disabled.png);
+}
+#defaultStylesBtn{
+min-height:55px;
+max-height:55px;
+text-align:left;
+padding-left:60px;
+background-repeat:no-repeat;
+background-position:center left;
+background-image:url(:/res/unchecked.png);
+}
+#appearanceCont #defaultStylesBtn:checked{
+background-image:url(:/res/checked.png);
+background-color:#FFFFFF;
+color:#000;
+}
+#SizeHorCont #sizeCont{
+min-width:540px;
+max-width:540px;
+min-height:60px;
+max-height:60px;
+background-color:#FFFFFF;
+border:1px solid #000000;
+border-radius: 4;
+}
+#SizeHorCont #size1{
+font-size:14px;
+}
+#SizeHorCont #size2{
+font-size:18px;
+}
+#SizeHorCont #size3{
+font-size:24px;
+}
+#SizeHorCont #size4{
+font-size:32px;
+}
+#SizeHorCont #size5{
+font-size:35px;
+}
+#SizeHorCont #size6{
+font-size:41px;
+}
+#SizeHorCont #size7{
+font-size:48px;
+}
+#SizeHorCont #size8{
+font-size:51px;
+}
+
+#SizeHorCont #size1Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size2Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size3Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size4Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size5Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size6Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size7Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size8Cont{
+min-height:58px;
+max-height:58px;
+
+}
+
+#appearanceCont #fontLabel,#appearanceCont #reflowLabel {
+margin-bottom:10px;
+}
+#appearanceCont, #appearanceCont QFrame#noReflowCont, #appearanceCont QFrame#droidSerifCont{
+border:none;
+}
+#SizeHorCont #sizeCont{
+min-width:540px;
+max-width:540px;
+min-height:60px;
+max-height:60px;
+background-color:#FFFFFF;
+border:1px solid #000000;
+border-radius: 4;
+}
+#SizeHorCont #size1{
+font-size:14px;
+}
+#SizeHorCont #size2{
+font-size:18px;
+}
+#SizeHorCont #size3{
+font-size:24px;
+}
+#SizeHorCont #size4{
+font-size:32px;
+}
+#SizeHorCont #size5{
+font-size:35px;
+}
+#SizeHorCont #size6{
+font-size:41px;
+}
+#SizeHorCont #size7{
+font-size:48px;
+}
+#SizeHorCont #size8{
+font-size:51px;
+}
+
+#SizeHorCont #size1Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size2Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size3Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size4Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size5Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size6Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size7Cont{
+border-right:1px solid #000000;
+min-height:58px;
+max-height:58px;
+
+}
+#SizeHorCont #size8Cont{
+min-height:58px;
+max-height:58px;
+
+}
+#fontsCont #droidSerifBtn{
+font-size:28px;
+font-family:'Droid Serif';
+}
+#fontsCont #VeraSansBtn{
+font-size:28px;
+font-family:'Bitstream Vera Sans';
+}
+#fontsCont #NoticiaTextBtn{
+font-size:28px;
+font-family:'Noticia Text';
+}
+#fontsCont #LatinModernBtn{
+font-size:28px;
+font-family:'Latin Modern Mono Light';
+}
+#fontsCont #cuprumBtn{
+font-size:28px;
+font-family:'Cuprum';
+}
+
+#appearanceCont #reflowScreenCont{
+min-width:188px;
+max-width:188px;
+min-height:178px;
+max-height:178px;
+background-color:#FFFFFF;
+border:1px solid #000000;
+border-radius: 4;
+}
+#appearanceCont #noReflowBtn{
+padding:0px 0px 5px 0px;
+text-align:bottom;
+background-image: url(:/res/bq_no_reflow.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+#appearanceCont #noReflowBtn:checked{
+color:#FFFFFF;
+background-image: url(:/res/bq_no_reflow_pressed.png);
+}
+#appearanceCont #reflowBtn{
+padding:0px 0px 5px 0px;
+text-align:bottom;
+background-image: url(:/res/bq_reflow.png);
+background-repeat:no-repeat;
+background-position:center;
+}
+#appearanceCont #reflowBtn:checked{
+color:#FFFFFF;
+background-image: url(:/res/bq_reflow_pressed.png);
+}
+#appearanceCont #fontsCont{
+min-width:318px;
+max-width:318px;
+min-height:228px;
+max-height:228px;
+background-color:#FFFFFF;
+border-top:1px solid #000000;
+border-left:1px solid #000000;
+border-right:1px solid #000000;
+border-radius: 4;
+}
+/* bqSearchResultsPopup
+--------------------------------*/
+#popupCont #newSearchBtn{
+padding:0px 0px 0px 50px;
+text-align:left;
+color:#FFF;
+border:1px solid #000;
+background-color:#000;
+background-repeat:no-repeat;
+background-image: url(:/res/search_grey.png);
+background-position:left;
+border:none;
+}
+#popupCont #newSearchBtn:pressed{
+color:#000;
+border:1px solid #000;
+background-color:#FFF;
+}
+#searchResults{
+background-color:#FFF;
+}
+
+/* SearchContextMenu
+----------------------------*/
+#SearchContextMenuCont{
+min-width:570px;
+max-width:570px;
+min-height:50px;
+max-height:50px;
+border:2px solid #000000;
+border-radius:8px;
+background-color:#FFFFFF;
+}
+#listButton{
+padding:0px 0px 0px 0px;
+min-height:52px;
+max-height:52px;
+min-width:91px;
+max-height:91px;
+color:#000000;
+font-weight:bold;
+text-transform:uppercase;
+background:transparent url(":/res/back.png") no-repeat left center;
+}
+#listButton:pressed{
+color:#FFF;
+background-image:  url(":/res/back_pressed.png");
+}
+#closeButton{
+padding:0px 12px 0px 0px;
+font-size:16px;
+min-height:50px;
+max-height:50px;
+min-width:91px;
+max-width:91px;
+color:#FFFFFF;
+font-weight:bold;
+text-align:right;
+text-transform:uppercase;
+background:transparent url(":/res/close_search.png") no-repeat center right;
+}
+#closeButton:hover{
+background:none;
+color:#000000;
+}
+#SearchContextMenuCont #resultLbl{
+padding:0px 0px 0px 0px;
+font-size:18px;
+}
+#SearchContextMenuCont #resultIndex{
+padding:0px 0px 0px 5px;
+font-size:18px;
+font-weight:bold;
+}
+#SearchContextMenuCont #ofLbl{
+padding:0px 0px 0px 0px;
+font-size:18px;
+}
+#SearchContextMenuCont #numResults{
+padding:0px 10px 0px 0px;
+font-size:18px;
+}
+#SearchContextMenuCont #previousButton{
+min-width:54px;
+max-width:54px;
+min-height:50px;
+max-height:50px;
+background:url(":/res/search-left-cont.jpg") no-repeat center;
+}
+
+#SearchContextMenuCont #nextButton{
+min-width:52px;
+max-width:52px;
+min-height:50px;
+max-height:50px;
+background:url(":/res/search-right-cont.jpg") no-repeat center;
+}
+

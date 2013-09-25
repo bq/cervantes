@@ -1,0 +1,79 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*QBookApp
+----------------------------*/
+#QBookApp{
+min-width:600px;
+max-width:600px;
+min-height:750px;
+max-height:750px;
+}
+#QBookApp #titleBar{
+min-width:600px;
+max-width:600px;
+min-height:50px;
+max-height:50px;
+}
+
+#DeviceInfoDialog{
+min-width:600px;
+max-width:600px;
+min-height:800px;
+max-height:800px;
+}
+#DeviceInfoDialog QCheckBox::indicator {
+width: 50px;
+height: 50px;
+}
+#DeviceInfoDialog #settingsMenuListCont{
+margin:0px 22px;
+}
+#DeviceInfoDialog #okButton{
+min-width:100px;
+max-width:100px;
+min-height:45px;
+max-height:45px;
+}
+#DeviceInfoDialog #settingsMenuListCont QWidget{
+margin:0px 24px;
+border-width:1px;
+}
+#DeviceInfoDialog #settingsMenuListCont QWidget QLabel{
+padding:0px 10px;
+font-size:18px;
+}
+#versionLutLbl, #modelLbl, #mdeviceIDLbl, #edpTypeLbl,#edpTemperatureLbl, #internalMemLbl, #auxLbl, #diccioLbl, #bateryLbl, #tconLbl, #softwareLbl, #MACadressLbl, #externalMemLbl, #panelTypeLbl, #idDeviceLbl,#internalVersionLbl,#rootFsLbl, #kernelVersionLbl{
+min-width:160px;
+max-width:160px;
+}
+#internalVersionLbl{
+padding:0px 0px 0px 10px;
+margin:0px 10px 0px 0px;
+max-width:130px;
+}
+#DeviceInfoDialog #settingsMenuListCont QWidget #internalVersionValLbl{
+margin:0px 24px 0px 0px;
+padding:0px 10px 0px 0px;
+font-size:10px;
+}
+#DeviceInfoDialog #settingsMenuListCont QWidget #kernelVersionVaLbl{
+font-size:12px;
+}

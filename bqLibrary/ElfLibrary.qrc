@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/loans.png</file>
+        <file>res/sample.png</file>
+        <file>res/library_sync.png</file>
+        <file>res/library_sync_pressed.jpg</file>
+        <file>res/sample_ico.png</file>
+        <file>res/tab-all-files.png</file>
+        <file>res/tab-default.png</file>
+        <file>res/archive-ico.png</file>
+    </qresource>
+</RCC>

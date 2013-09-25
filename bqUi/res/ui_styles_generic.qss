@@ -1,0 +1,185 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*Keyboard
+-------------------------------------*/
+#Keyboard{
+background-color:transparent;
+}
+#keyboardCont {
+font-family: 'Lato';
+border-top-style:solid;
+border-bottom-style:solid;
+background-color:#FFFFFF;
+}
+#keyboardCont KeyboardButton{
+font-family: 'Lato';
+background-color:#FFFFFF;
+border-style:solid;
+font-weight:bold;
+}
+#keyboardCont #newLineBtn{
+color:#FFFFFF;
+background-color:#0F0F0F;
+background-image:url(:/res/ic-keyboard_enter.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+#keyboardCont KeyboardButton#enter{
+color:#FFFFFF;
+font-weight:bold;
+border-style:solid;
+background-color:#0F0F0F;
+background-repeat:no-repeat;
+background-position:center center;
+}
+
+#keyboardCont #cancelKeyboardBtn{
+text-transform:uppercase;
+color:#FFFFFF;
+border-style:solid;
+background-color:#0F0F0F;
+}
+
+#keyboardCont #deleteChar{
+color:#FFFFFF;
+background-color:#0F0F0F;
+background-image:url(:/res/ic-deleteOne.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+
+#keyboardCont KeyboardButton#numeric{
+}
+#keyboardCont KeyboardButton#space{
+background-image:url(:/res/spacer.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+#keyboardCont KeyboardButton#specialChar{
+}
+#keyboardCont #next, #keyboardCont #cursorRight{
+color:#FFFFFF;
+border-style:solid;
+background-color:#0F0F0F;
+background-image:url(:/res/ic-nextChar.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+#keyboardCont #next:disabled, #keyboardCont #cursorRight:disabled, #keyboardCont #cursorRight:hover, #keyboardCont #cursorRight:pressed, #keyboardCont #cursorRight:indeterminate {
+color:#FFFFFF;
+border-style:solid;
+background-color:#0F0F0F;
+background-image:url(:/res/ic-nextChar.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+#keyboardCont #previous, #keyboardCont #cursorLeft{
+color:#FFFFFF;
+border-style:solid;
+background-color:#0F0F0F;
+background-image:url(:/res/ic-previousChar.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+#keyboardCont #previous:disabled, #keyboardCont #cursorLeft:disabled{
+color:#FFFFFF;
+border-style:solid;
+background-color:#0F0F0F;
+background-image:url(:/res/ic-previousChar.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+
+#keyboardCont #shift{
+color:#FFFFFF;
+border-style:solid;
+
+background-color:#0F0F0F;
+background-image:  url(:/res/ic-shift_over.png);
+background-repeat:no-repeat;
+background-position:center center;
+}
+
+/* KeyboardLayer
+---------------------------------*/
+
+#keyboardLayerCont{
+background-color:#DADADA;
+border-style:solid;
+
+}
+#buttonGrid KeyboardButton, #buttonGrid KeyboardButton{
+color:#000;
+background-color:#FFF;
+border-style:solid;
+}
+
+#LayerCloseBtn{
+color:#FFF;
+background-repeat:no-repeat;
+background-position:center;
+background-image:  url(:/res/close_popup_ico.png);
+}
+/*StatusBar
+-------------------------*/
+#StatusBar {
+background-color:#FFFFFF;
+}
+#StatusBarCenterCont {
+background:#F2F2F2 url(:res/bg_header.png) repeat-x bottom left;
+}
+#StatusBarCont #currentSectionLbl{
+font-weight:bold;
+color:#0F0F0F;
+}
+#StatusBarCont #currentReadBtn{
+background: url(:/res/read_Btn.png) no-repeat center left;
+}
+#StatusBarCont #lightBtn{
+background:url(:res/light_off_Ico.png) no-repeat center left;
+}
+#StatusBarCont #lightBtn:checked{
+background:url(:res/light_on_Ico.png) no-repeat center left;
+}
+#StatusBarCont #batteryLbl{
+background-image:url(:res/battery_7.png);
+background-repeat:no-repeat;
+background-position:center left;
+}
+#StatusBarCont #timeLbl{
+border-left:none;
+border-top:none;
+border-bottom:none;
+}
+#StatusBarCont #usbConnectedLbl{
+background:url(:/res/usb_Ico.png) no-repeat center left;
+}
+#StatusBarCont #syncSpinnerLbl{
+background:url(:/res/sync_spinner_btn.png) no-repeat center left;
+}
+#StatusBarCont #wifiBtn{
+background-repeat:no-repeat;
+background-position:center left;
+background-image:url(:/res/wifi_0_Ico.png) ;
+}
+#StatusBarCont #spinnerLbl{
+background:url(:/res/spinner_Ico.png) no-repeat center left;
+}

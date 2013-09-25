@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="res/qbookapp_styles.qss">res/800/qbookapp_styles.qss</file>
+        <file alias="restoring_screen_ca.png">res/800/restoring_screen_ca.png</file>
+        <file alias="restoring_screen_en.png">res/800/restoring_screen_en.png</file>
+        <file alias="restoring_screen_es.png">res/800/restoring_screen_es.png</file>
+        <file alias="restoring_screen_pt.png">res/800/restoring_screen_pt.png</file>
+        <file alias="restDeviceImage.png">res/800/restDeviceImage.png</file>
+        <file alias="factoryReset.png">res/800/factoryReset.png</file>
+        <file alias="lowBatteryImage.png">res/800/lowBatteryImage.png</file>
+        <file alias="powerOffDeviceImage.png">res/800/powerOffDeviceImage.png</file>
+        <file alias="restoring_screen_eu.png">res/800/restoring_screen_eu.png</file>
+        <file alias="emptyBatteryImage.png">res/800/emptyBatteryImage.png</file>
+        <file alias="restoring_screen_gl.png">res/800/restoring_screen_gl.png</file>
+        <file alias="recoverError_ca.png">res/800/recoverError_ca.png</file>
+        <file alias="recoverError_en.png">res/800/recoverError_en.png</file>
+        <file alias="recoverError_es.png">res/800/recoverError_es.png</file>
+        <file alias="recoverError_eu.png">res/800/recoverError_eu.png</file>
+        <file alias="recoverError_pt.png">res/800/recoverError_pt.png</file>
+        <file alias="recoverError_gl.png">res/800/recoverError_gl.png</file>
+        <file alias="factoryReset_E60Q22.png">res/800/factoryReset_E60Q22.png</file>
+    </qresource>
+</RCC>

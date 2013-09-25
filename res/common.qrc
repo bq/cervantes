@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/common">
+        <file>common.qss</file>
+        <file>bqcommon.qss</file>
+        <file>starting.png</file>
+    </qresource>
+</RCC>

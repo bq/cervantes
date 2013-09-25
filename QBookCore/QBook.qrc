@@ -1,0 +1,325 @@
+<RCC>
+    <qresource prefix="/QBook">
+        <file alias="black">res/black.png</file>
+        <file alias="white">res/white.png</file>
+        <file alias="recharge">res/recharge.png</file>
+        <file alias="cover2">res/bookcover_+-.png</file>
+        <file alias="cover3">res/bookcover_ABC.PNG</file>
+        <file alias="cover_ba3">res/bookcover_ba3.png</file>
+        <file alias="sleep">res/6_System Sleep.png</file>
+        <file alias="black_90">res/black_90.png</file>
+        <file alias="white_90">res/white_90.png</file>
+        <file alias="sleep_90">res/6_System Sleep_90.png</file>
+        <file alias="low_battery">res/low_battery.png</file>
+    </qresource>
+    <qresource prefix="/MenuDialog">
+        <file alias="cancel">res/menudialog/btn_sub-menu_cancel.png</file>
+        <file alias="radio_normal">res/menudialog/btn_radiobt_nor.png</file>
+        <file alias="radio_highlight">res/menudialog/btn_radiobt_hl.png</file>
+        <file alias="left">res/menudialog/submenu_arrow_prepage.png</file>
+        <file alias="right">res/menudialog/submenu_arrow_nextpage.png</file>
+        <file alias="menu_title">res/menudialog/up_submenu_bk.png</file>
+        <file alias="dictionary">res/menudialog/btn_sub-menu_dictionary_nor.png</file>
+        <file alias="gotomarklist">res/menudialog/btn_sub-menu_go marks_nor.png</file>
+        <file alias="gotopage">res/menudialog/btn_sub-menu_go to page_nor.png</file>
+        <file alias="highlight">res/menudialog/btn_sub-menu_highlight_nor.png</file>
+        <file alias="info">res/menudialog/btn_sub-menu_info_nor.png</file>
+        <file alias="reading_mode">res/menudialog/btn_sub-menu_layout_nor.png</file>
+        <file alias="addnote">res/menudialog/btn_sub-menu_note_nor.png</file>
+        <file alias="opmode_off">res/menudialog/btn_sub-menu_op_off.png</file>
+        <file alias="opmode">res/menudialog/btn_sub-menu_op_on.png</file>
+        <file alias="addbookmark">res/menudialog/btn_sub-menu_setbookmark_nor.png</file>
+        <file alias="settings">res/menudialog/btn_sub-menu_settings_nor.png</file>
+        <file alias="font">res/menudialog/btn_sub-menu_sFont_nor.png</file>
+        <file alias="toc">res/menudialog/btn_sub-menu_toc_nor.png</file>
+        <file alias="remove_bookmark">res/menudialog/btn_sub-menu_unset bookmark_nor.png</file>
+        <file alias="tts">res/menudialog/btn_sub-ttc_nor.png</file>
+        <file alias="menu_body">res/menudialog/center_submenu_bk.png</file>
+        <file alias="menu_bottom">res/menudialog/down_submenu_bk.png</file>
+        <file alias="zoom">res/menudialog/btn_sub-menu_zoom.png</file>
+        <file alias="changefont">res/menudialog/btn_sub-menu_font.png</file>
+        <file alias="fontsize">res/menudialog/btn_sub-menu_fontsize.png</file>
+        <file alias="fullscreen">res/menudialog/btn_sub-menu_fullscreen.png</file>
+        <file alias="turnpage">res/menudialog/btn_sub-menu_turnpage.png</file>
+        <file alias="fitscreen">res/menudialog/btn_sub-menu_fitscreen.png</file>
+        <file alias="rotate">res/menudialog/btn_sub-menu_rotate.png</file>
+        <file alias="volume">res/menudialog/btn_sub-menu_volume.png</file>
+        <file alias="search">res/menudialog/btn_sub-menu_search.png</file>
+    </qresource>
+    <qresource prefix="/Home">
+        <file alias="arrow">res/home/arrow.png</file>
+        <file alias="all-mark">res/home/BTN-all marks_nor.png</file>
+        <file alias="back">res/home/BTN-Back_nor.png</file>
+        <file alias="book">res/home/BTN-book_nor.png</file>
+        <file alias="continue-reading">res/home/BTN-Continue Reading_nor.png</file>
+        <file alias="image">res/home/BTN-Image_nor.png</file>
+        <file alias="internet">res/home/BTN-internet_nor.png</file>
+        <file alias="music">res/home/BTN-Music_nor.png</file>
+        <file alias="more">res/home/BTN-More_nor.png</file>
+        <file alias="store">res/home/BTN-Store_nor.png</file>
+        <file alias="setting">res/home/BTN-Setup_nor.png</file>
+        <file>res/home/split.png</file>
+        <file alias="file-manager">res/home/BTN-FileManager_nor.png</file>
+        <file alias="none">res/home/BTN-None_nor.PNG</file>
+        <file alias="right">res/home/btn_move_right.png</file>
+        <file alias="left">res/home/btn_move_left.png</file>
+        <file alias="tools">res/home/BTN-Tools_nor.png</file>
+        <file alias="game">res/home/BTN-game_nor.png</file>
+        <file alias="RSS">res/home/BTN-RSS_nor.png</file>
+        <file alias="movistar_logo">res/home/movistar_logo.png</file>
+        <file alias="book_e">res/home/e.png</file>
+        <file alias="config_icon">res/home/config.png</file>
+        <file alias="person_icon">res/home/person.png</file>
+        <file alias="footer_logos">res/home/footer_logos.png</file>
+    </qresource>
+    <qresource prefix="/QSetting">
+        <file>res/setting/icon_year_bg.PNG</file>
+        <file>res/setting/btn_arrow_down_hl.PNG</file>
+        <file>res/setting/btn_arrow_down_nor.PNG</file>
+        <file>res/setting/btn_arrow_up_hl.PNG</file>
+        <file>res/setting/btn_arrow_up_nor.PNG</file>
+        <file>res/setting/btn_setup_clock.png</file>
+        <file>res/setting/btn_setup_clock_hl.png</file>
+        <file>res/setting/btn_setup_clock_nor.png</file>
+        <file>res/setting/btn_setup_date.png</file>
+        <file>res/setting/btn_setup_date_hl.png</file>
+        <file>res/setting/btn_setup_date_nor.png</file>
+        <file>res/setting/icon_0_hl.PNG</file>
+        <file>res/setting/icon_0_nor.PNG</file>
+        <file>res/setting/icon_1_hl.PNG</file>
+        <file>res/setting/icon_1_nor.PNG</file>
+        <file>res/setting/icon_2_hl.PNG</file>
+        <file>res/setting/icon_2_nor.PNG</file>
+        <file>res/setting/icon_3_hl.PNG</file>
+        <file>res/setting/icon_3_nor.PNG</file>
+        <file>res/setting/icon_4_hl.PNG</file>
+        <file>res/setting/icon_4_nor.PNG</file>
+        <file>res/setting/icon_5_hl.PNG</file>
+        <file>res/setting/icon_5_nor.PNG</file>
+        <file>res/setting/icon_6_hl.PNG</file>
+        <file>res/setting/icon_6_nor.PNG</file>
+        <file>res/setting/icon_7_hl.PNG</file>
+        <file>res/setting/icon_7_nor.PNG</file>
+        <file>res/setting/icon_8_hl.PNG</file>
+        <file>res/setting/icon_8_nor.PNG</file>
+        <file>res/setting/icon_9_hl.PNG</file>
+        <file>res/setting/icon_9_nor.PNG</file>
+        <file>res/setting/icon_colon.png</file>
+        <file>res/setting/icon_divider.png</file>
+        <file>res/setting/icon_slash.PNG</file>
+        <file>res/setting/icon_monthday_bg.PNG</file>
+        <file alias="setting-arrow-left">res/setting/btn_font_setting_arrow left_nor.png</file>
+        <file alias="setting-arrow-right">res/setting/btn_font_setting_arrow right_nor.png</file>
+        <file alias="setting-bg">res/setting/btn_font_setting_bg_nor.png</file>
+        <file alias="setting-text-bg">res/setting/btn_font_setting_text_bg_nor.png</file>
+        <file alias="setting-yes">res/setting/btn_yes_nor.PNG</file>
+        <file alias="setting-no">res/setting/btn_cancel_nor.PNG</file>
+        <file alias="setting-blank">res/setting/btn_blank.png</file>
+    </qresource>
+    <qresource prefix="/QSetting/wifi">
+        <file>res/setting/wifi/btn_connect_nor2.png</file>
+        <file>res/setting/wifi/btn_wifi_power_nor.png</file>
+        <file>res/setting/wifi/btn_refresh_nor2.PNG</file>
+        <file>res/setting/wifi/icon_wifi_lock.png</file>
+        <file>res/setting/wifi/btn_arrow left_hl.png</file>
+        <file>res/setting/wifi/btn_arrow left_nor.png</file>
+        <file>res/setting/wifi/btn_arrow right_hl.png</file>
+        <file>res/setting/wifi/btn_arrow right_nor.png</file>
+        <file>res/setting/wifi/btn_cancel_hl.PNG</file>
+        <file>res/setting/wifi/btn_cancel_nor.PNG</file>
+        <file alias="check">res/setting/wifi/btn_checkbox_hl.PNG</file>
+        <file alias="uncheck">res/setting/wifi/btn_checkbox_nor.PNG</file>
+        <file>res/setting/wifi/btn_connect_hl.png</file>
+        <file>res/setting/wifi/btn_connect_nor.png</file>
+        <file>res/setting/wifi/btn_disconnect_hl.png</file>
+        <file>res/setting/wifi/btn_disconnect_nor.png</file>
+        <file>res/setting/wifi/btn_HidNet_hl.PNG</file>
+        <file>res/setting/wifi/btn_HidNet_nor.PNG</file>
+        <file>res/setting/wifi/btn_3G_nor.PNG</file>
+        <file>res/setting/wifi/btn_popup_cancel_hl.png</file>
+        <file>res/setting/wifi/btn_popup_cancel_nor.png</file>
+        <file>res/setting/wifi/btn_popup_ok_hl.PNG</file>
+        <file>res/setting/wifi/btn_popup_ok_nor.PNG</file>
+        <file>res/setting/wifi/btn_radiobt_hl.PNG</file>
+        <file>res/setting/wifi/btn_radiobt_nor.PNG</file>
+        <file>res/setting/wifi/btn_refresh_hl.PNG</file>
+        <file>res/setting/wifi/btn_refresh_nor.PNG</file>
+        <file>res/setting/wifi/btn_renew lease_hl.PNG</file>
+        <file>res/setting/wifi/btn_renew lease_nor.PNG</file>
+        <file>res/setting/wifi/btn_save_hl.png</file>
+        <file>res/setting/wifi/btn_save_nor.png</file>
+        <file>res/setting/wifi/btn_security_arrow left_hl.PNG</file>
+        <file>res/setting/wifi/btn_security_arrow left_nor.png</file>
+        <file>res/setting/wifi/btn_security_arrow right_hl.PNG</file>
+        <file>res/setting/wifi/btn_security_arrow right_nor.png</file>
+        <file>res/setting/wifi/btn_security_nor.png</file>
+        <file>res/setting/wifi/btn_wifi_off.png</file>
+        <file>res/setting/wifi/btn_wifi_on.png</file>
+        <file>res/setting/wifi/icon_anttena_not connecting.png</file>
+        <file>res/setting/wifi/icon_anttena_search.png</file>
+        <file>res/setting/wifi/icon_anttena_try.png</file>
+        <file>res/setting/wifi/icon_connected success.png</file>
+        <file>res/setting/wifi/icon_connecting.png</file>
+        <file>res/setting/wifi/icon_IPtextplace.png</file>
+        <file>res/setting/wifi/icon_popup_IP_bg.png</file>
+        <file>res/setting/wifi/icon_popup_securuty_bg.png</file>
+        <file>res/setting/wifi/icon_popupkey_name_bg.png</file>
+        <file>res/setting/wifi/icon_statusbar_bg.png</file>
+        <file>res/setting/wifi/icon_textplace.png</file>
+        <file>res/setting/wifi/icon_title_bg.png</file>
+        <file>res/setting/wifi/btn_wifi_on_nor.png</file>
+        <file>res/setting/wifi/btn_setup_clock_hl.png</file>
+        <file>res/setting/wifi/btn_setup_clock_nor.png</file>
+        <file>res/setting/wifi/btn_setup_date_hl.png</file>
+        <file>res/setting/wifi/btn_setup_date_nor.png</file>
+        <file>res/setting/wifi/btn_wifi_off_hl.png</file>
+        <file>res/setting/wifi/btn_wifi_off_nor.png</file>
+        <file>res/setting/wifi/btn_wifi_on_hl.png</file>
+        <file>res/setting/wifi/btn_delete_hl.png</file>
+        <file>res/setting/wifi/btn_renew delete_nor.PNG</file>
+        <file>res/setting/wifi/icon_Hidden.png</file>
+        <file>res/setting/wifi/btn_hadden_save_hl.png</file>
+        <file>res/setting/wifi/btn__hadden_save_nor.png</file>
+        <file>res/setting/wifi/icon_wifi_setup.png</file>
+        <file>res/setting/wifi/btn_wifi_off_nor2.png</file>
+        <file>res/setting/wifi/icon_title_bg2.png</file>
+        <file>res/setting/wifi/btn_wifi_on_nor2.png</file>
+        <file>res/setting/wifi/icon_textplace2.png</file>
+        <file>res/setting/wifi/btn_zone_hl.png</file>
+        <file>res/setting/wifi/btn_zone_nor.png</file>
+        <file>res/setting/wifi/add.png</file>
+    </qresource>
+    <qresource prefix="/menu">
+        <file alias="tab-all-mark-focus">res/menu/btn_tab_all-mark_foc.png</file>
+        <file alias="tab-all-mark">res/menu/btn_tab_all-mark_nor.png</file>
+        <file alias="tab-book-list-focus">res/menu/btn_tab_book-list_foc.png</file>
+        <file alias="tab-book-list">res/menu/btn_tab_book-list_nor.png</file>
+        <file alias="tab-daily-focus">res/menu/btn_tab_daily_foc.png</file>
+        <file alias="tab-daily">res/menu/btn_tab_daily_nor.png</file>
+        <file alias="tab-favorite-focus">res/menu/btn_tab_favorite_foc.png</file>
+        <file alias="tab-favorite">res/menu/btn_tab_favorite_nor.png</file>
+        <file alias="tab-internet-focus">res/menu/btn_tab_internet_foc.png</file>
+        <file alias="tab-internet">res/menu/btn_tab_internet_nor.png</file>
+        <file alias="tab-next">res/menu/btn_tab_next-page_nor.png</file>
+        <file alias="tab-setting">res/menu/btn_tab_setup_nor.png</file>
+        <file alias="tab-audio-focus">res/menu/btn_tab_Audio_foc.png</file>
+        <file alias="tab-blank">res/menu/btn_tab_blank_nor.png</file>
+        <file alias="tab-image-focus">res/menu/btn_tab_image_foc.png</file>
+        <file alias="tab-image">res/menu/btn_tab_image_nor.png</file>
+        <file alias="tab-next-new2">res/menu/btn_tab_next-page-2_nor.png</file>
+        <file alias="tab-next-new">res/menu/btn_tab_next-page-_nor.png</file>
+        <file alias="tab-setting-focus">res/menu/btn_tab_setup_foc.png</file>
+        <file alias="tab-audio">res/menu/btn_tab_Audio_nor.png</file>
+        <file alias="tab-filemanager">res/menu/btn_tab_file manager_nor.png</file>
+        <file alias="tab-filemanager-focus">res/menu/btn_tab_file manager_foc.png</file>
+        <file alias="tab-tools">res/menu/btn_tab_tools_nor.png</file>
+        <file alias="tab-game-focus">res/menu/btn_tab_game_foc.png</file>
+        <file alias="tab-game">res/menu/btn_tab_game_nor.PNG</file>
+        <file alias="tab-tools-focus">res/menu/btn_tab_tools_foc.png</file>
+        <file alias="tab-rss-focus">res/menu/btn_tab_rss_foc.png</file>
+        <file alias="tab-rss">res/menu/btn_tab_rss_nor.png</file>
+        <file alias="tab-store-focus">res/menu/btn_tab_shop_foc.png</file>
+        <file alias="tab-store">res/menu/btn_tab_shop_nor.png</file>
+    </qresource>
+    <qresource prefix="/antenna">
+        <file alias="antenna-4">res/anttena/icon_anttena_4.png</file>
+        <file alias="icon_3g">res/anttena/icon_3g.png</file>
+        <file alias="antenna-0">res/anttena/icon_anttena_0.png</file>
+        <file alias="antenna-1">res/anttena/icon_anttena_1.png</file>
+        <file alias="antenna-2">res/anttena/icon_anttena_2.png</file>
+        <file alias="antenna-3">res/anttena/icon_anttena_3.png</file>
+    </qresource>
+    <qresource prefix="/battery">
+        <file alias="battery-3">res/battery/icon_battery_3.png</file>
+        <file alias="battery-0">res/battery/icon_battery_0.png</file>
+        <file alias="battery-1">res/battery/icon_battery_1.png</file>
+        <file alias="battery-2">res/battery/icon_battery_2.png</file>
+        <file alias="battery-charge">res/battery/icon_battery_recharge.png</file>
+        <file alias="battery-warning">res/battery/icon_battery_lowpower.png</file>
+    </qresource>
+    <qresource prefix="/allmark">
+        <file alias="allmark-mark">res/allmarks/icon_allmark_star.png</file>
+        <file alias="allmark-highlight">res/allmarks/icon_allmark_highlight.png</file>
+        <file alias="allmark-note">res/allmarks/icon_allmark_note.png</file>
+        <file alias="allmark-hwrnote">res/allmarks/icon_allmark_hwrnote.png</file>
+    </qresource>
+    <qresource prefix="/title">
+        <file alias="status-bg">res/title/icon_statusbar_bg.png</file>
+        <file alias="bookmark-nor">res/title/btn_star_nor.png</file>
+        <file alias="bookmark-hl">res/title/btn_star_hl.png</file>
+        <file>res/battery/icon_usb.png</file>
+        <file alias="opmode">res/title/icon_OP mode.png</file>
+        <file alias="no-function">res/title/no function.png</file>
+        <file alias="busy">res/title/busy.png</file>
+        <file>res/title/downloading.png</file>
+    </qresource>
+    <qresource prefix="/list">
+        <file alias="cover_mark">res/list/iconview_bookmark.png</file>
+        <file alias="read-progress-bg">res/list/icon_read-progress_bg.png</file>
+        <file alias="mark">res/list/btn_mark_nor.png</file>
+        <file alias="divider">res/list/icon_booklist_line.png</file>
+        <file alias="continue-reading">res/list/icon_continue-reading.png</file>
+        <file alias="countinue-divider">res/list/icon_continue read-line.png</file>
+        <file alias="search-ok">res/list/btn_sub-menu_top_ok_nor.png</file>
+        <file alias="search-cancel">res/list/btn_sub-menu_top_cancel_nor.png</file>
+        <file alias="search-bg">res/list/icon_search_bg.png</file>
+        <file alias="arrow-top">res/list/icon_scroll bar_arrow_top .png</file>
+        <file alias="arrow-down">res/list/icon_scroll bar_arrow_ down.png</file>
+        <file alias="scroll-down">res/list/icon_scroll bar_3.png</file>
+        <file alias="scroll-top">res/list/icon_scroll bar_1.png</file>
+        <file alias="drm">res/list/icon_drm.png</file>
+        <file alias="search-del">res/list/btn_sub-menu_top_del_nor.png</file>
+        <file alias="default_txt">res/list/txt.png</file>
+        <file alias="broken">res/list/broken.jpg</file>
+    </qresource>
+    <qresource prefix="/toolbar">
+        <file alias="icon_list_mode">res/toolbar/list+icon_mode.png</file>
+        <file alias="icon_mode">res/toolbar/icon_mode.png</file>
+        <file alias="list_mode">res/toolbar/list_mode.png</file>
+        <file alias="view">res/toolbar/btn_view_nor.png</file>
+        <file alias="sort-icon">res/toolbar/btn_sort_nor.png</file>
+        <file alias="sort-divider">res/toolbar/icon_pupup-line.png</file>
+        <file alias="sort-button-top">res/toolbar/icon_pupup-bg_prs_top.png</file>
+        <file alias="sort-button-last">res/toolbar/icon_pupup-bg_prs_last.png</file>
+        <file alias="sort-button-middle">res/toolbar/icon_pupup-bg_prs_middle.png</file>
+        <file alias="check">res/toolbar/icon_connected success.png</file>
+        <file>res/toolbar/list_sort.png</file>
+        <file>res/toolbar/movistar.png</file>
+        <file alias="default_cover">res/toolbar/default_cover.png</file>
+        <file>res/toolbar/btn_search.png</file>
+    </qresource>
+    <qresource prefix="/prompt">
+        <file>res/Prompt/icon_Prompt_yes no pupup-bg .png</file>
+        <file>res/Prompt/btn_back_hl.PNG</file>
+        <file>res/Prompt/btn_back_nor.PNG</file>
+        <file>res/Prompt/btn_yes_hl.PNG</file>
+        <file>res/Prompt/btn_yes_nor.PNG</file>
+        <file>res/Prompt/icon_Prompt_ok.png</file>
+        <file>res/Prompt/icon_Prompt_pupup-bg.png</file>
+        <file>res/Prompt/icon_Prompt_warning.png</file>
+        <file>res/Prompt/icon_Prompt_wrong.png</file>
+        <file alias="loading">res/Prompt/icon_Prompt_watting.png</file>
+        <file>res/Prompt/icon_Prompt_no function.png</file>
+        <file>res/Prompt/icon_Prompt_no function-bg.png</file>
+        <file>res/Prompt/icon_Prompt_Sync.png</file>
+        <file>res/Prompt/btn_power off_nor.png</file>
+        <file>res/Prompt/btn_sleep mode_nor.png</file>
+        <file>res/Prompt/btn_cancel_nor.PNG</file>
+        <file>res/Prompt/btn_power off_nor2.png</file>
+        <file>res/Prompt/btn_sleep mode_nor2.png</file>
+        <file>res/Prompt/btn_bq_power_shutdown.png</file>
+        <file>res/Prompt/btn_bq_power_sleep.png</file>
+        <file>res/Prompt/icon_Prompt_pupup-bg2.png</file>
+        <file alias="button-empty">res/Prompt/btn_empty.PNG</file>
+    </qresource>
+    <qresource prefix="/browser">
+        <file>res/browser/icon_home.png</file>
+        <file>res/browser/zoom_out_icon.png</file>
+        <file>res/browser/BACK ON.png</file>
+        <file>res/browser/bookmark_button_ON.png</file>
+        <file>res/browser/browser_stop_on.png</file>
+        <file>res/browser/Forward_on.png</file>
+        <file>res/browser/refresh_ON.png</file>
+        <file>res/browser/zoom_in_icon.png</file>
+    </qresource>
+</RCC>

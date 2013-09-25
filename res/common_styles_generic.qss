@@ -1,0 +1,531 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* iCervantes
+---------------------------------*/
+*{
+background:none;
+color:#0F0F0F;
+font-family: 'Roboto';
+}
+
+QWidget#bqViewerCont {
+background-color: #FFFFFF;
+font-family: 'Roboto';
+}
+QPushButton{
+border:none;
+font-weight:bold;
+background-color: transparent;
+background-repeat:no-repeat;
+background-position:left;
+}
+QHBoxLayout, QVBoxLayout{
+}
+QFrame {
+border: none;
+}
+QLabel {
+font-family: 'Roboto';
+}
+QLineEdit{
+font-family: 'Lato';
+color:#0F0F0F;
+font-weight:bold;
+border-style: solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+QTextEdit{
+background-color:transparent;
+}
+QRadioButton,QCheckBox{
+outline:none;
+color:#0F0F0F;
+}
+QRadioButton::indicator,QCheckBox::indicator {
+}
+QCheckBox{
+}
+QCheckBox::indicator {
+border:none;
+}
+QCheckBox::indicator:unchecked {
+border:none;
+background: url(":/res/unchecked.png") no-repeat center right;
+}
+QCheckBox::indicator:unchecked:pressed {
+border:none;
+background: url(":/res/unchecked.png") no-repeat center right;
+}
+QCheckBox::indicator:unchecked:pressed {
+border:none;
+background: url(":/res/unchecked.png") no-repeat center right;
+}
+QCheckBox::indicator:checked {
+border:none;
+background: url(":/res/checkbox_checked.png") no-repeat center right;
+}
+QCheckBox::indicator:checked:pressed {
+border:none;
+background: url(":/res/checkbox_checked.png") no-repeat center right;
+}
+QCheckBox::indicator:checked:pressed {
+border:none;
+background: url(":/res/checkbox_checked.png") no-repeat center right;
+}
+QCheckBox::indicator:indeterminate:pressed {
+border:none;
+background: url(":/res/checkbox_checked.png") no-repeat center right;
+}
+QCheckBox::indicator:indeterminate:pressed {
+border:none;
+background: url(":/res/checkbox_checked.png") no-repeat center right;
+}
+#checkBtn{
+border-style: solid;
+border-color:#000000;
+}
+QComboBox{
+color:#000000;
+background-color:#FFFFFF;
+border-style: solid;
+border-color:#000000;
+}
+QComboBox::drop-down{
+background-repeat:no-repeat;
+background-position:left;
+background-image:  url(:/res/bq/combo_arrow.png);
+}
+QComboBox QAbstractItemView{
+background-color:#FFFFFF;
+border-style: solid;
+border-color:#000000;
+}
+
+/*Progress Bar
+---------------------*/
+QProgressBar{
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+    stop:0 #A2A2A2, stop:1 #FFF);
+border-style: solid;
+border-color: #404040;
+}
+QProgressBar:chunk{
+color:#FFFFFF;
+background: qlineargradient(x1:0, y1:0, x2:0 y2:1,
+    stop:0 #404040, stop:1 #A2A2A2);
+border-style: solid;
+border-color: #404040;
+}
+QSlider::groove:horizontal {
+/*border-style: solid;
+border-color: #404040;*/
+background: transparent;
+}
+QSlider::sub-page:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:0 y2:1,
+    stop:0 #404040, stop:1 #A2A2A2);
+border-style: solid;
+border-color: #404040;
+border-right:none;
+}
+QSlider::add-page:horizontal {
+/*background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+    stop:0 #A0A0A0, stop:1 #FFF);*/
+background: qlineargradient(x1:0, y1:0, x2:0 y2:1,
+    stop:0 #404040, stop:1 #A2A2A2);
+border-style: solid;
+border-color: #404040;
+border-left:none;
+}
+QSlider::handle:horizontal {
+background:url(:/res/progress_Indicator.png) no-repeat center;
+}
+QSlider::handle:horizontal:hover{
+background:url(:/res/progress_Indicator.png) no-repeat center;
+}
+QSlider::handle:horizontal:pressed {
+background:none;
+}
+QSlider::sub-page:horizontal:disabled {
+background: #BBB;
+}
+QSlider::add-page:horizontal:disabled {
+background: #EEE;
+}
+QSlider::handle:horizontal:disabled {
+background:none;
+}
+
+#content, #content2{
+background-color:#FFFFFF;
+}
+/*VerticalPagerHandler
+------------------------*/
+#VerticalPagerHandler{
+}
+#VerticalPagerHandler #downPageBtn, ViewerVerticalPagerPopup #downPageBtn{
+border:none;
+background:transparent  url(":/res/down_pager_btn.png") no-repeat center right;
+}
+#VerticalPagerHandler #upPageBtn, ViewerVerticalPagerPopup #upPageBtn{
+border:none;
+background:transparent  url(":/res/up_pager_btn.png") no-repeat center left;
+}
+#VerticalPagerHandler #upPageBtn:pressed, ViewerVerticalPagerPopup #upPageBtn:pressed{
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+color:#404040;
+text-align:left;
+}
+#closePopupBtn{
+background: transparent url(:res/close_popup_ico.png) no-repeat center center;
+}
+/*Dialogs
+-------------------------*/
+/*ConfirmDialog
+--------------------*/
+#ConfirmDialog{
+}
+#ConfirmDialog #bg{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#ConfirmDialog QLabel{
+text-align:center;
+}
+#ConfirmDialog #ok{
+border-style:solid;
+border-color:#808080;
+background-color:#EDEDED;
+}
+/*SelectionDialog
+--------------------*/
+#SelectionDialog{
+}
+#SelectionDialog #bg{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#SelectionDialog QLabel{
+text-align:center;
+}
+#SelectionDialog #cancelBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#SelectionDialog #okBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#EDEDED;
+}
+/*CorruptedDialog
+--------------------*/
+#CorruptedDialog{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#corruptedPopup_Cont{
+}
+#corruptedPopup_Cont QLabel{
+text-align:center;
+}
+#corruptedPopup_Cont #horizontalFrame{
+}
+#corruptedPopup_Cont #formatBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#EDEDED;
+}
+#corruptedPopup_Cont #mountBtn,#CorruptedDialog #noMountBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+/*InfoDialog
+------------------------*/
+#InfoDialog{
+background:transparent;
+}
+#InfoDialogCont #bgdialog{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#InfoDialog #bgdialog QLabel{
+text-align:center;
+}
+#InfoDialog #bgdialog #spinerLbl{
+background: url(":res/spinner.png") no-repeat top center;
+}
+/*ProgressDialog
+------------------------*/
+#ProgressDialog{
+background:transparent;
+}
+#ProgressDialogCont{
+background:transparent;
+}
+#ProgressDialogCont #bg{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#ProgressDialog #bg QLabel{
+text-align:center;
+}
+#ProgressDialog #progressCont{
+}
+#ProgressDialog #hideBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#EDEDED;
+}
+#ProgressDialog #cancelBtn{
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+/*ElfPowerOffDialog
+------------------------*/
+#ElfPowerOffDialog{
+border-style:solid;
+border-color:#606060;
+background-color:#FFFFFF;
+}
+#ElfPowerOffDialog #bg QLabel{
+text-align:center;
+}
+/* Overlay
+---------------------*/
+#shadow, #ElfAppMenu, #whiteShadow{
+background-color:transparent;
+background-color: rgba(0, 0, 0, 255);
+}
+#whiteCont{
+background-color:#FFFFFF;
+}
+
+/*LibraryBookSummary
+------------------*/
+#LibraryBookSummary{
+background-color:transparent;
+}
+#LibraryBookSummaryCont{
+background:#FFF url(":/res/bgSynopsisPopup.png") repeat-x top left;
+border-style:solid;
+border-color:#505050;
+}
+#currentBookCont #currentBookLbl{
+background-image: url(:/res/current_book.png) ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#coverCont{
+}
+#bookSummaryActions  #cover{
+background-color:#FFF;
+background-repeat:no-repeat;
+background-position:center center;
+}
+#bookSummaryActions #topLeftLbl{
+background-image: url(":/res/book_front_top_left.png") ;
+background-position:right bottom;
+background-repeat:no-repeat;
+}
+#bookSummaryActions #topCenterLbl{
+background-image: url(":/res/book_front_top_center.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#bookSummaryActions #topRightLbl{
+background-image: url(":/res/book_front_top_right.png") ;
+background-position:left bottom;
+background-repeat:no-repeat;
+}
+#bookSummaryActions #centerLeftLbl{
+background-image: url(":/res/book_front_center_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#bookSummaryActions #centerCenterLbl{
+background-image: url(":/res/book_front_cover.png") ;
+background-position:top left;
+background-repeat:no-repeat;
+}
+#bookSummaryActions #centerRightLbl{
+background-image: url(":/res/book_summary_front_center_right.png") ;
+background-position:left top;
+background-repeat:no-repeat;
+}
+#bookSummaryActions #bottomLeftLbl{
+background-image: url(":/res/book_front_bottom_left.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#bookSummaryActions #bottomCenterLbl{
+background-image: url(":/res/book_front_bottom_center.png") ;
+background-position:right top;
+background-repeat:no-repeat;
+}
+#bookSummaryActions #bottomRightLbl{
+/*background-image: url(":/res/book_front_bottom_right.png") ;*/
+background-position:left top;
+background-repeat:no-repeat;
+}
+#bookSummaryActions #bookTitleLbl{
+font-weight:bold;
+}
+#synopsisLbl{
+border-style:solid;
+border-color:#808080;
+border-top:none;
+border-left:none;
+border-right:none;
+color:#333333;
+}
+#bookSummaryDataContainer #bookPriceLbl {
+font-weight:bold;
+}
+#priceCont{
+}
+#actionsContainer #buyBookBtn{
+background-color:#D0D0D0;
+border-style:solid;
+border-color:#808080;
+}
+#actionsContainer #moreActionsBtn{
+background:url(":/res/arrow_for_buttons.png") no-repeat center right;
+border-style:solid;
+border-color:#707070;
+background-color:#FFFFFF;
+text-align:left;
+}
+#actionsContainer #bookActionBtn{
+border-style:solid;
+border-color:#707070;
+background-color:#FFFFFF;
+text-align:center;
+}
+#actionsContainer #bookStatusBtn{
+background:url(":/res/arrow_for_buttons.png") no-repeat center right;
+border-style:solid;
+border-color:#707070;
+background-color:#FFFFFF;
+text-align:left;
+}
+#actionsContainer #readSampleBtn{
+background-color:#FFFFFF;
+border-style:solid;
+border-color:#808080;
+background-color:#FFFFFF;
+}
+#summaryTextBrowser{
+}
+#VerticalPagination{
+}
+#actionsContainer {
+}
+
+
+/*Search
+----------------------------*/
+#Search{
+background-color:#FFFFFF;
+}
+#Search #searchHeader{
+background-color:#E0E0E0;
+border-style:solid;
+border-color:#C0C0C0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#Search #searchLineEdit{
+border-style:solid;
+border-color:transparent;
+background-color:#FFFFFF;
+background-image: url(:/res/bg_search_input.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#Search #clearSearchBtn{
+background-image: url(:/res/bg_clear_search.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#SearchResultItem1, #SearchResultItem2, #SearchResultItem3, #SearchResultItem4, #SearchResultItem5, #SearchResultItem6, #SearchResultItem7, #SearchResultItem8, #SearchResultItem9{
+}
+#resultNumberCont{
+background-color:#F0F0F0;
+border-style:solid;
+border-color:#C0C0C0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#resultNumberCont #showResultLbl{
+}
+#resultNumberCont #resultsNumberLbl{
+}
+/*SearchItem
+----------------------------*/
+#SearchItem {
+background-color:#FFFFFF;
+border-style:solid;
+border-color:#C0C0C0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#SearchItem #fileTypeLbl{
+background-image: url(:/res/unknow_list.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:top center ;
+}
+#SearchItem #searchTitle{
+font-weight:bold;
+}
+#SearchItem #searchAuthor{
+}
+/* SearchPagerCont
+-----------------------------*/
+#SearchPagerCont{
+}
+#SearchPagerCont #downPageBtn{
+border:none;
+background:transparent  url(":/res/down_pager_btn.png") no-repeat center center;
+}
+#SearchPagerCont #upPageBtn{
+border:none;
+background:transparent  url(":/res/up_pager_btn.png") no-repeat center center;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+color:#404040;
+text-align:left;
+}

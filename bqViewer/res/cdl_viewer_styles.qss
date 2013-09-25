@@ -1,0 +1,658 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* bqViewer
+---------------------------*/
+#bqViewer{
+background-color:#FFFFFF;
+}
+QWidget#textBody #text{
+padding:5px;
+vertical-align:top;
+font-size:18px;
+color:#000000;
+font-weight:normal;
+text-align:justify;
+margin-right:100px;
+
+}
+#CdlPageHandler{
+background-color:#FFFFFF;
+}
+#CdlPageHandler QLabel{
+font-weight:bold;
+text-align:center;
+}
+#CldPressedMenu{
+background-color:#FFFFFF;
+border:2px solid #000000;
+border-radius:4px;
+}
+#CldPressedMenu QPushButton{
+min-width:135px;
+max-width:135px;
+color:#000000;
+}
+#CldPressedMenu QPushButton:pressed{
+color:#FFFFFF;
+background-color:#C0C0C0;
+border-radius:4px;
+}
+/* CdlMyNotes
+---------------------*/
+#myNotesFooterCont{
+min-width:600px;
+max-width:600px;
+min-height:50px;
+max-height:50px;
+background-color:#C0C0C0;
+}
+#CdlMyNotes, #itemChapterMyNoteCont{
+background-color:#FFFFFF;
+}
+#myNoteTextSelected{
+font-style:italic;
+padding: 0px 15px 0px 0px;
+}
+
+/* CdlMyNotesSortLayer
+---------------------*/
+#MyNotesSortLayer #showBookCont QCheckbox{
+text-align:left;
+min-width:265px;
+max-width:265px;
+min-height:50px;
+max-height:50px;
+}
+
+/* Highlight Widget
+------------------*/
+#highlightImg{
+width:33px;
+height:44px;
+background-image:  url(:/res/edit.png);
+background-repeat:no-repeat;
+background-position:right;
+border:none;
+}
+
+/* Note Widget
+------------------*/
+#noteImg{
+background-image:url(:/res/note.png);
+background-repeat:no-repeat;
+background-position:left;
+border:none;
+}
+#notesCount{
+font-family:Arial, Helvetica, sans-serif;
+text-align:;
+font-weight:bold;
+}
+/* Bookmark Widget
+------------------*/
+#bookmarkImg{
+background-image:  url(:/res/bookmark.png);
+background-repeat:no-repeat;
+background-position:right;
+border:none;
+}
+
+/*Social Widget
+---------------*/
+#socialCount{
+padding:1px 0px 0px 0px;
+text-align:center;
+color:#FFFFFF;
+font-weight:bold;
+image:url(:res/social.png);
+background-repeat:no-repeat;
+background-position:right;
+border:none;
+}
+/*CdlTopMenu, CdlBottomMenu
+-------------------------------*/
+#cdlTopMenu{
+min-width:596px;
+max-width:596px;
+border:2px solid #000000;
+background-color:#FFFFFF;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+}
+#cdlBottomMenu{
+min-width:596px;
+max-width:596px;
+border:2px solid #000000;
+background-color:#FFFFFF;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+}
+#cdlTopMenu QPushButton, #cdlBottomMenu QPushButton{
+border-right:1px solid #000000;
+background-repeat:no-repeat;
+background-position:center;
+}
+#bookmarkMenu{
+background-image:  url(:/res/bookmark_menu.png);
+}
+#bookmarkMenu:pressed{
+background-image:  url(:/res/bookmark_menu_over.png);
+}
+#hightlightedMenu{
+background-image:  url(:/res/hightlighted_menu.png);
+}
+#hightlightedMenu:pressed{
+background-image:  url(:/res/hightlighted_menu_over.png);
+}
+#indexMenu{
+background-image:  url(:/res/index_menu.png);
+}
+#indexMenu:pressed{
+background-image:  url(:/res/index_menu_over.png);
+}
+#infoMenu{
+background-image:  url(:/res/info_menu.png);
+}
+#infoMenu:pressed{
+background-image:  url(:/res/info_menu_over.png);
+}
+#libraryMenu{
+background-image:  url(:/res/library_menu.png);
+}
+#libraryMenu:pressed{
+background-image:  url(:/res/library_menu_over.png);
+}
+#mynotesMenu{
+background-image:  url(:/res/mynotes_menu.png);
+}
+#mynotesMenu:pressed{
+background-image:  url(:/res/mynotes_menu_over.png);
+}
+#socialMenu{
+background-image:  url(:/res/social_menu.png);
+}
+#socialMenu:pressed{
+background-image:  url(:/res/social_menu_over.png);
+}
+#searchMenu{
+background-image:  url(:/res/search_menu.png);
+}
+#searchMenu:pressed{
+background-image:  url(:/res/search_menu_over.png);
+}
+#fontsizeMenu{
+background-image:  url(:/res/fontsize_menu.png);
+}
+#fontsizeMenu:pressed{
+background-color:#C0C0C0;
+background-image:  url(:/res/fontsize_menu_over.png);
+border-radius:4px;
+}
+#goToPage{
+background-image:  url(:/res/back_menu.png);
+}
+#goToPage:pressed{
+background-image:  url(:/res/back_menu_over.png);
+}
+#shareMenu{
+background-image:  url(:/res/share_menu.png);
+}
+#shareMenu:pressed{
+background-image:  url(:/res/share_menu_over.png);
+}
+#settingsMenu{
+background-image:  url(:/res/reflow.png);
+}
+#settingsMenu:pressed{
+background-image:  url(:/res/reflow_over.png);
+}
+
+#indexMenu:pressed, #infoMenu:pressed, #mynotesMenu:pressed, #searchMenu:pressed, #fontSizeMenu:pressed, #goToPage:pressed, #shareMenu:pressed, #settingsMenu:pressed{
+background-color:#C0C0C0;
+border-radius:4px;
+}
+
+
+/*LongPressCM.ui - NoteContextMenu
+-----------------------------------*/
+#LongPressCMCont{
+border:2px solid #000000;
+border-radius:4px;
+background-color:#FFFFFF;
+}
+#LongPressCMCont QPushButton{
+border:1px solid #000000;
+border-radius:4px;
+min-width:125px;
+max-width:125px;
+min-height:50px;
+max-height:50px;
+
+}
+#LongPressCMCont QPushButton:pressed{
+color:#FFFFFF;
+background-color: #C0C0C0;
+border-radius: 4;
+}
+
+#bookMenuCont QPushButton{
+border:1px solid #000000;
+border-radius:4px;
+min-height:30px;
+max-height:30px;
+
+}
+#bookMenuCont QPushButton:pressed{
+color:#FFFFFF;
+background-color: #C0C0C0;
+border-radius: 4;
+}
+
+#word{
+text-align: left;
+font-family; serif;
+font-size: 21px;
+font-weight: bold;
+padding-top:5px;
+}
+#Definition{
+min-height:90px;
+max-height:90px;
+min-width:475px;
+max-width:475px;
+padding-top:0px;
+}
+#copyright{
+text-align: right;
+font-family; serif;
+font-size: 11px;
+}
+/*FontSizePopup->ViewerFontSettings
+-----------------------------------------------------*/
+/*FontSizePopup->ViewerFontSettings
+-----------------------------------------------------*/
+#ViewerFontSettings, #CdlViewerFontSettings{
+min-width:570px;
+max-width:570px;
+min-height:650px;
+max-height:650px;
+}
+#ViewerFontSettings #PopUpBackground, #CdlViewerFontSettings #PopUpBackground{
+min-width:566px;
+max-width:566px;
+}
+#ViewerFontSettings #fontSize, #ViewerFontSettings #fontType, #CdlViewerFontSettings #fontSize, #CdlViewerFontSettings #fontType{
+color:#000;
+font-weight:bold;
+background-color:#FFF;
+}
+#downSize_0, #downSize_1, #downSize_2, #downSize_3, #downSize_4, #downSize_5, #downSize_6, #downSize_7{
+min-width:50px;
+max-width:50px;
+min-height:5px;
+max-height:5px;
+background-repeat:no-repeat;
+background-image:  url(:/res/font_selected_down.png);
+background-position:top;
+}
+#upSize_0, #upSize_1, #upSize_2, #upSize_3, #upSize_4, #upSize_6, #upSize_5, #upSize_7{
+min-width:50px;
+max-width:50px;
+min-height:5px;
+max-height:5px;
+background-repeat:no-repeat;
+background-image:  url(:/res/font_selected_up.png);
+background-position:bottom;
+}
+#leftSize_0, #leftSize_1, #leftSize_2, #leftSize_3, #leftSize_4, #leftSize_5, #leftSize_6, #leftSize_7, #leftSize_8{
+min-width:11px;
+max-width:11px;
+min-height:20px;
+max-height:20px;
+background-repeat:no-repeat;
+background-position:center;
+background-image:  url(:/res/font_selected_right.png);
+}
+#rightSize_0, #rightSize_1, #rightSize_2, #rightSize_3, #rightSize_4, #rightSize_5, #rightSize_6, #rightSize_7, #rightSize_8{
+min-width:11px;
+max-width:11px;
+min-height:20px;
+max-height:20px;
+background-repeat:no-repeat;
+background-image:  url(:/res/font_selected_left.png);
+background-position:center;
+}
+#ViewerFontSettings #titlePopup, #CdlViewerFontSettings  #titlePopup{
+padding-left:50px;
+font-size:25px;
+font-weight:bold;
+color:#000000;
+background-repeat:no-repeat;
+background-image:  url(:/res/fontsize_menu.png);
+background-position:left;
+
+}
+#ViewerFontSettings QPushButton, #CdlViewerFontSettings QPushButton{
+margin:0px;
+background-color:#FFFFFF;
+}
+#ViewerFontSettings #fontSizeCont, #CdlViewerFontSettings #fontSizeCont{
+min-width:528px;
+max-width:528px;
+min-height:48px;
+max-height:48px;
+border: 1px solid #000000;
+border-radius: 10px;
+background-color: #ffffff;
+}
+#ViewerFontSettings #fontSizeCont QPushButton, #CdlViewerFontSettings #fontSizeCont QPushButton{
+min-height:35px;
+max-height:35px;
+min-width:50px;
+max-width:50px;
+}
+#ViewerFontSettings #fontSizeCont QPushButton:pressed, #CdlViewerFontSettings #fontSizeCont QPushButton:pressed{
+min-width:50px;
+max-width:50px;
+color:#FFFFFF;
+background-color:#C0C0C0;
+border-radius:4px;
+}
+#ViewerFontSettings QPushButton#size0, #CdlViewerFontSettings QPushButton#size0{
+font-size:11px;
+}
+#ViewerFontSettings QPushButton#size1, #CdlViewerFontSettings QPushButton#size1{
+font-size:13px;
+}
+#ViewerFontSettings QPushButton#size2, #CdlViewerFontSettings QPushButton#size2{
+font-size:15px;
+}
+#ViewerFontSettings QPushButton#size3, #CdlViewerFontSettings QPushButton#size3{
+font-size:17px;
+}
+#ViewerFontSettings QPushButton#size4, #CdlViewerFontSettings QPushButton#size4{
+font-size:19px;
+}
+#ViewerFontSettings QPushButton#size5, #CdlViewerFontSettings QPushButton#size5{
+font-size:21px;
+}
+#ViewerFontSettings QPushButton#size6, #CdlViewerFontSettings QPushButton#size6{
+font-size:23px;
+}
+#ViewerFontSettings QPushButton#size7, #CdlViewerFontSettings QPushButton#size7{
+font-size:25px;
+}
+#ViewerFontSettings #fontSize, #ViewerFontSettings #fontType, #CdlViewerFontSettings #fontSize, #CdlViewerFontSettings #fontType{
+min-height:50px;
+max-height:50px;
+color:#000;
+background-color:#FFF;
+
+}
+#ViewerFontSettings #fontTypeCont, #CdlViewerFontSettings #fontTypeCont {
+min-width:528px;
+max-width:528px;
+min-height:298px;
+max-height:298px;
+border: 1px solid #000000;
+border-radius: 10px;
+}
+#ViewerFontSettings #fontTypeCont  QPushButton:pressed, #CdlViewerFontSettings #fontTypeCont  QPushButton:pressed{
+background-color:#C0C0C0;
+border-radius:4px;
+}
+#fontTypeCont QFrame QFrame{
+min-height:45px;
+max-height:45px;
+border-bottom:1px solid #000000;
+}
+#fontTypeCont #horizontalFrame_8{
+border-bottom:none;
+}
+#ViewerFontSettings #defaultValue, #CdlViewerFontSettings #defaultValue{
+min-height:40px;
+max-height:40px;
+font-size:18px;
+font-weight:bold;
+min-width:300px;
+max-width:300px;
+text-align:center;
+color:#000000;
+}
+
+
+/* GotoPopup
+----------------------------------------------------*/
+#GotoPopup{
+min-width:496px;
+max-width:496px;
+min-height:421px;
+max-height:4221px;
+border: 2px solid #000000;
+border-radius: 10px;
+background-color: #FFFFFF;
+}
+#GotoPopup #titlePopup{
+background-image:  url(:/res/goto.png);
+}
+#gotoFormCont{
+min-height:80px;
+max-height:80px;
+}
+#numberPageEdit{
+padding: 0px 5px;
+min-height:45px;
+max-height:45px;
+color:#000000;
+font-size:19px;
+border-style: solid;
+border: 1px solid #000000;
+border-radius: 8px;
+}
+
+#numericKeyPad QPushButton{
+margin-bottom:10px;
+min-height:50px;
+max-height:50px;
+min-width:105px;
+max-width:105px;
+font-weight:bold;
+font-size:25px;
+background-color: #FFFFFF;
+border-width: 1px;
+border-color: #000000;
+border-style: solid;
+border-radius: 4;
+}
+#numericKeyPad QPushButton#cover{
+font-size:20px;
+background-color: #C0C0C0;
+}
+#numericKeyPad QPushButton#deleteOne{
+background-image:  url(:/res/deleteOne.png);
+background-repeat:no-repeat;
+background-position:center;
+background-color: #C0C0C0;
+}
+#numericKeyPad QPushButton#go{
+font-size:20px;
+color:#000000;
+background-color: #C0C0C0;
+}
+#numericKeyPad QPushButton#go:pressed{
+color:#FFFFFF;
+background-color: #000000;
+}
+#numericKeyPad QPushButton#previousPage{
+background-image: url(:/res/previous_arrow.png);
+background-color: #C0C0C0;
+background-repeat:no-repeat;
+background-position:center;
+}
+#numericKeyPad QPushButton#nextPage{
+background-image: url(:/res/next_arrow.png);
+background-color: #C0C0C0;
+background-repeat:no-repeat;
+background-position:center;
+}
+
+/*  BookSummary!!!
+----------------------------*/
+#SingleGridViewerCont{
+background-color:#FFFFFF;
+}
+#mainSummaryInfoCont{
+min-height:340px;
+max-height:340px;
+border-bottom:1px solid #000000;
+}
+#SingleGridViewerCont #coverLabel{
+min-width:155px;
+max-width:155px;
+min-height:225px;
+max-height:225px;
+border-radius:4px;
+border:1px solid #000000;
+}
+#SingleGridViewerCont #authorLabel{
+min-height:20px;
+max-height:20px;
+color:#000000;
+font-size:16px;
+}
+#SingleGridViewerCont #titleLabel{
+margin-top:20px;
+color:#000000;
+font-size:20px;
+}
+#mainSummaryInfoCont #titleLabel{
+font-size:22px;
+}
+#SingleGridViewerCont #editorialLabelSummaryLibraryFooter{
+min-height:20px;
+max-height:20px;
+color:#000000;
+}
+#SingleGridViewerCont  #bookStatus, #SingleGridViewerCont  #currentPageLabel,#SingleGridViewerCont  #currentPageValue,#SingleGridViewerCont #bookStatusValue,#SingleGridViewerCont #totalPageLabel,#SingleGridViewerCont #ofLabel{
+font-size:16px;
+}
+#SingleGridViewerCont #readButton{
+padding:10px 15px;
+border-width: 1px;
+border-color: #000000;
+color:#FFFFFF;
+background-color:#000000;
+border-style: solid;
+border-radius: 4;
+background-color:#000000;
+}
+#SingleGridViewerCont #readButton:pressed{
+color:#000000;
+background-color:#C0C0C0;
+}
+#SingleGridViewerCont #removeButton{
+min-height:40px;
+max-height:40px;
+padding:0px 15px;
+border-width: 1px;
+border-color: #000000;
+border-style: solid;
+border-radius: 4;
+background:#C0C0C0;
+}
+#SingleGridViewerCont #removeButton:pressed{
+color:#FFFFFF;
+background-color:#000000;
+}
+#SingleGridViewerCont #closeBookButton{
+min-height:40px;
+max-height:40px;
+padding:0px 15px;
+border-width: 1px;
+border-color: #000000;
+border-style: solid;
+border-radius: 4;
+background:#C0C0C0;
+}
+#SingleGridViewerCont #closeBookButton:pressed{
+color:#FFFFFF;
+background-color:#000000;
+}
+#SingleGridViewerCont #memoryLabel,#SingleGridViewerCont  #memoryValue{
+margin-top:10px;
+font-size:15px;
+color:#000000;
+}
+#SingleGridViewerCont #lastSyncLabel, #SingleGridViewerCont #lastSyncValue{
+margin-bottom:10px;
+font-size:15px;
+color:#000000;
+}
+#SingleGridViewerCont #snLabel{
+margin-top:15px;
+font-size:18px;
+color:#000000;
+font-weight:bold;
+}
+#SingleGridViewerCont #sinopsisLabel{
+color:#000000;
+min-width:570px;
+max-width:570px;
+min-height:180px;
+max-height:180px;
+font-weight:normal;
+}
+
+/*  Index
+--------------------------------------*/
+#BookIndexCont, #GridViewerCont,#LineViewerCont{
+background:#FFFFFF;
+}
+
+
+
+#SingleGridViewerCont #LibraryFooterCont #indexButton{
+min-width:130px;
+max-width:130px;
+min-height:38px;
+max-height:38px;
+background:#FFFFFF;
+color:#000000;
+}
+
+#BookIndexCont #LibraryFooterCont #summaryButton{
+min-width:130px;
+max-width:130px;
+min-height:38px;
+max-height:38px;
+background:#FFFFFF;
+color:#000000;
+}
+#BookIndexCont #LibraryFooterCont #summaryButton:pressed{
+color:#FFFFFF;
+background-color:#000000;
+}
+#BookIndexItemCont{
+border-bottom:1px solid #000000;
+}
+#BookIndexItemCont QLabel{
+color:#000000;
+}

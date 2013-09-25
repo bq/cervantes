@@ -1,0 +1,220 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*SettingsBrowser
+----------------------------*/
+#Browser{
+background-color:#FFFFFF;
+}
+#navBarBrowser{
+border-bottom-style: solid;
+border-bottom-color: #808080;
+background-color:#F0F0F0;
+}
+#url{
+border:none;
+background-image: url(:/res/bg_url_input.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#homeBtn{
+background: url(":/res/home_browser.png") no-repeat center left;
+}
+#stopbtn{
+background: url(":/res/stop_browser.png") no-repeat center left;
+}
+#reloadbtn{
+background: url(":/res/reload_browser.png") no-repeat center left;
+}
+#QbookWebView{
+}
+#bottomBrowser{
+border-top-style: solid;
+border-top-color: #808080;
+background-color:#EDEDED;
+}
+#pagerBrowserCont{
+background: url(":/res/bg_next_previous_browser.png") no-repeat center center;
+}
+#backbtn{
+background: url(":/res/previous_btn.png") no-repeat center center;
+}
+#browserBarCont{
+background-color:#DADADA;
+border-color:#808080;
+border-style:solid;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#webViewFooterCont{
+background-color:#DADADA;
+border-color:#808080;
+border-style:solid;
+border-left:none;
+border-right:none;
+border-bottom:none;
+}
+#webViewFooter{
+}
+#forwardbtn{
+background: url(":/res/next_btn.png") no-repeat center center;
+}
+#spacerBrowserBottomLeft{
+}
+#zoomInBtn{
+background: url(":/res/zoom_in_ico.png") no-repeat center center;
+}
+#zoomOutBtn{
+background: url(":/res/zoom_out_ico.png") no-repeat center center;
+}
+#favobtn{
+background: url(":/res/favourite_ico.png") no-repeat center center;
+}
+#addfavobtn{
+background: url(":/res/add_favourite_ico.png") no-repeat center center;
+}
+#Browser #Go{
+font-weight:bold;
+background: url(":/res/go.png") no-repeat center center;
+}
+#Browser #clearSearchBtn{
+border:none;
+background-image: url(:/res/bg_clear_search.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center right;
+}
+/*BrowserFavo
+------------------------------*/
+#verticalFrame{
+border-style:solid;
+border-color:#505050;
+background-color:#FFFFFF;
+}
+#commandbar2 {
+border-style:solid;
+border-color:#D0D0D0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#commandbar2 #closeBtn{
+background:  url(":/res/close.png") no-repeat center center;
+}
+#frame_2 #deleteBtn, #frame_2 #selectBtn{
+border-style:solid;
+border-color:#707070;
+background-color:#FFF;
+}
+#frame_2{
+background-color:#DADADA;
+}
+#BrowserFavoItemCont{
+background-color:#FFFFFF;
+}
+#BrowserFavoItemCont QWidget, #BrowserFavoItemCont #widget_2{
+background-color:#FFFFFF;
+}
+#page_slider{
+}
+
+#downPageBtn{
+border:none;
+background:transparent  url(":/res/down_pager_btn.png") no-repeat center right;
+}
+#upPageBtn{
+border:none;
+background:transparent  url(":/res/up_pager_btn.png") no-repeat center left;
+}
+/*BrowserFavoList
+-------------------------*/
+#BrowserFavoCont{
+border-style:solid;
+border-color:#505050;
+background-color:#FFFFFF;
+}
+#browserSectionHeader {
+border-style:solid;
+border-color:#D0D0D0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#browserSectionHeader #closeBtn{
+background:  url(":/res/close.png") no-repeat center center;
+}
+#actionCont #deleteBtn, #actionCont #selectBtn{
+border-style:solid;
+border-color:#707070;
+background-color:#FFF;
+}
+#actionCont #deleteBtn{
+text-align:left;
+background:#FFF  url(":/res/remove-fav.png") no-repeat center left;
+}
+#actionCont #selectBtn{
+text-align:left;
+background:#FFF  url(":/res/select-all-fav.png") no-repeat center left;
+}
+#actionCont #selectBtn:checked{
+background:#FFF  url(":/res/deselect-all-fav.png") no-repeat center left;
+}
+#actionCont{
+background-color:#DADADA;
+}
+#BrowserFavoItemCont{
+background-color:#FFFFFF;
+}
+#BrowserFavoItemCont QWidget, #BrowserFavoItemCont #widget_2{
+background-color:#FFFFFF;
+}
+#page_slider{
+}
+
+#downPageBtn{
+border:none;
+background:transparent  url(":/res/down_pager_btn.png") no-repeat center right;
+}
+#upPageBtn{
+border:none;
+background:transparent  url(":/res/up_pager_btn.png") no-repeat center left;
+}
+#BrowserFavoListCont #Item1,
+#BrowserFavoListCont #Item2,
+#BrowserFavoListCont #Item3,
+#BrowserFavoListCont #Item4,
+#BrowserFavoListCont #Item5,
+#BrowserFavoListCont #Item6,
+#BrowserFavoListCont #Item7,
+#BrowserFavoListCont #Item8{
+border-style:solid;
+border-color:#707070;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#checkBtn{
+border:none;
+}
+#sectionTitleLbl{
+font-weight:bold;
+}

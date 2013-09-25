@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="res/back_btn.png">res/800/back_btn.png</file>
+        <file alias="res/bg_store.png">res/800/bg_store.png</file>
+        <file alias="res/buy_btn.png">res/800/buy_btn.png</file>
+        <file alias="res/categories-arrow.png">res/800/categories-arrow.png</file>
+        <file alias="res/close-summary.png">res/800/close-summary.png</file>
+        <file alias="res/down_page.png">res/800/down_page.png</file>
+        <file alias="res/grid-mode.png">res/800/grid-mode.png</file>
+        <file alias="res/list-mode.png">res/800/list-mode.png</file>
+        <file alias="res/store_styles.qss">res/800/store_styles.qss</file>
+        <file alias="res/up_page.png">res/800/up_page.png</file>
+        <file alias="res/store_styles_generic.qss">res/store_styles_generic.qss</file>
+        <file alias="res/arrow-down-layer.png">res/800/arrow-down-layer.png</file>
+        <file alias="res/home-store.png">res/800/home-store.png</file>
+        <file alias="res/arrow-select.png">res/800/arrow-select.png</file>
+    </qresource>
+</RCC>

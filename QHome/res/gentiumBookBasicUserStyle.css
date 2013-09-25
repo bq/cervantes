@@ -1,0 +1,31 @@
+
+@font-face {
+        font-family : serif, Serif;
+        font-weight : normal;
+        font-style: normal;
+        color: black;
+        src: url("res:///fonts/GenBas-Regular.ttf")
+}
+
+@font-face {
+        font-family: serif, Serif;
+        font-style: italic, oblique;
+        font-weight: normal;
+        color: black;
+        src: url("res:///fonts/GenBas-Italic.ttf")
+}
+@font-face {
+        font-family: serif, Serif;
+        font-style: normal;
+        font-weight: bold;
+        color: black;
+        src: url("res:///fonts/GenBas-Bold.ttf")
+}
+@font-face {
+        font-family: serif, Serif;
+        font-style: italic, oblique;
+        font-weight: bold;
+        color: black;
+        src: url("res:///fonts/GenBas-BoldItalic.ttf")
+}
+

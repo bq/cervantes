@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/reader">
+        <file alias="scroll-down">res/btn_photo_move_down.png</file>
+        <file alias="scroll-left">res/btn_reader_move_left.png</file>
+        <file alias="scroll-up">res/btn_reader_move_up.png</file>
+        <file alias="scroll-right">res/btn_reader_move_right.png</file>
+    </qresource>
+</RCC>

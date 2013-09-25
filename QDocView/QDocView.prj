@@ -1,0 +1,111 @@
+unix: DEFINES += LINUX_ENV
+
+linux-arm-g++: INCLUDEPATH += $${ROOTFS}/usr/include/crengine
+
+linux-arm-g++ {
+
+	LIBS += \
+     		-L$${ROOTFS}/usr/lib \
+     		-Wl,--start-group \
+     		-lfontconfig \
+     		-lcurl \
+     		-Wl,--end-group \
+     		-L$${ROOTFS}/usr/lib \
+                -lcrengine \
+                -lantiword \
+                -lchmlib \
+                -lfreetype \
+     		-ljpeg \
+                -lcurl \
+                -lssh2 \
+                -lgssapi_krb5 \
+		-L$${ROOTFS}/lib/arm-linux-gnueabi \
+                -lgcrypt \
+		-L$${ROOTFS}/usr/lib/arm-linux-gnueabi \
+		-lcrypto \
+                -lldap \
+                -llber \
+                -lkrb5 \
+                -lkrb5support \
+                -lidn \
+                -lgnutls \
+                -lk5crypto \
+                -lsasl2 \
+                -ltasn1 \
+                -lgpg-error \
+                -lcom_err \
+                -L$${ROOTFS}/lib \
+                -lkeyutils \
+                -lpng
+
+
+        isEmpty(DISABLE_ADOBE_SDK) {
+                LIBS += \
+                        -Wl,--start-group \
+                        $${ROOTFS}/usr/lib/libadept.a \
+                        $${ROOTFS}/usr/lib/libmschema.a \
+                        $${ROOTFS}/usr/lib/libhobbes.a \
+                        $${ROOTFS}/usr/lib/libfonts.a \
+                        $${ROOTFS}/usr/lib/libhyphen.a \
+                        $${ROOTFS}/usr/lib/libcts.a \
+                        $${ROOTFS}/usr/lib/libt3.a \
+                        $${ROOTFS}/usr/lib/libdp.a \
+                        $${ROOTFS}/usr/lib/libcryptopenssl.a \
+                        $${ROOTFS}/usr/lib/libexpat.a \
+                        $${ROOTFS}/usr/lib/libxml.a \
+                        -ladept \
+                        -lmschema \
+                        -lhobbes \
+                        -lfonts \
+                        -lhyphen \
+                        -lcts \
+                        -lt3 \
+                        -ldp \
+                        -lcrypto \
+                        -lcryptopenssl \
+                        -lexpat \
+                        -lxml \
+                        -Wl,--end-group
+        }
+
+} else {
+
+  INCLUDEPATH += \
+    $${EXT_LIBS_PATH}/icu/inc
+
+  unix: LIBS += \
+                -lcrypto \
+                -lssl \
+                -lcurl \
+                -ldl -lz \
+                $${ROOTFS}/usr/lib/libcrengine.a \
+                $${ROOTFS}/usr/lib/libz.a \
+                $${ROOTFS}/usr/lib/libpng.a \
+                -ljpeg \
+                $${ROOTFS}/usr/lib/libantiword.a \
+                $${ROOTFS}/usr/lib/libchmlib.a \
+                -lfreetype
+
+        isEmpty(DISABLE_ADOBE_SDK) {
+
+                unix: LIBS += \
+                        -Wl,--start-group \
+                        $${ROOTFS}/usr/lib/libadept.a \
+                        $${ROOTFS}/usr/lib/libmschema.a \
+                        $${ROOTFS}/usr/lib/libhobbes.a \
+                        $${ROOTFS}/usr/lib/libfonts.a \
+                        $${ROOTFS}/usr/lib/libhyphen.a \
+                        $${ROOTFS}/usr/lib/libcts.a \
+                        $${ROOTFS}/usr/lib/libt3.a \
+                        $${ROOTFS}/usr/lib/libdp.a \
+                        $${ROOTFS}/usr/lib/libcryptopenssl.a \
+                        $${ROOTFS}/usr/lib/libssl.a \
+                        $${ROOTFS}/usr/lib/libcrypto.a \
+                        $${ROOTFS}/usr/lib/libexpat.a \
+                        $${ROOTFS}/usr/lib/libxml.a \
+                        -Wl,--end-group
+        }
+}
+
+    
+include(QDocView.pri)
