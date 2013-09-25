@@ -1,0 +1,41 @@
+Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+ssh://hg@bitbucket.org/mundoreader/cervantes
+
+WHAT IS IT?
+-----------
+This is the source code for the e-book reader application running
+in bq Cervantes ereader. This application supports epub, fb2, mobi,
+doc, rtf and txt.PDF is only supported if adobe libraries are 
+available.
+
+DEVELOPMENT
+-----------
+It is possible for any developer owner of the application supported
+devices to develop his own features or improvements and execute it
+on his own device if the special developers firmware edition has
+been installed. See the following link for further info: 
+http://www.mibqyyo.com/actualidad/2013/07/15/bq-ereaders-developers-program
+
+HOW TO BUILD
+------------
+Script build.sh can be used to build the whole application in an
+easy way. Since the source code for this application makes use of
+private libraries protected by differentn license agreements that
+are not provided, it is necessary to include the following parameters:
+
+./build.sh -hackers -disable_adobe
+
+LICENSING
+--------- 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+See LICENSE file for further information
