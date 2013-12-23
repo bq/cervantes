@@ -36,10 +36,10 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
         (size < (1 << 10)) \
     ? (QString::number(size, 'f',precision) + tr(" b")) \
         : (size < (1 << 20)) \
-    ? (QString::number(static_cast<float>(size)/(1 << 10), 'f', precision) + tr(" Kb")) \
+    ? (QString::number(static_cast<float>(size)/(1 << 10), 'f', precision) + tr(" KB")) \
         : (size < (1 << 30)) \
-    ? (QString::number(static_cast<float>(size)/(1 << 20), 'f', precision) + tr(" Mb") ) \
-    : (QString::number(static_cast<float>(size)/(1 << 30), 'f', precision) + tr(" Gb"))
+    ? (QString::number(static_cast<float>(size)/(1 << 20), 'f', precision) + tr(" MB") ) \
+    : (QString::number(static_cast<float>(size)/(1 << 30), 'f', precision) + tr(" GB"))
 
 
 class PowerManagerLock;

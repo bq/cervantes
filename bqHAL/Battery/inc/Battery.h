@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define BATTERY_CHECK_TIME              20000 // Every 20 seconds awake
 #define BATTERY_LEVEL_FULL              100
 #define BATTERY_LEVEL_LOW               10
+#define BATTERY_LEVEL_LOW_2             5
 
 class QTimerEvent;
 
@@ -47,7 +48,7 @@ protected:
 
 signals:
     void batteryLevelFull();
-    void batteryLevelLow();
+    void batteryLevelLow(int);
     void batteryLevelCritical();
     void batteryLevelChanged(int);
 

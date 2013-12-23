@@ -36,6 +36,7 @@ DegreesLabel270::DegreesLabel270(QWidget *parent)
      : QLabel(parent)
  {
      setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+     alignment = Qt::AlignCenter;
  }
 
 DegreesLabel270::~DegreesLabel270()
@@ -44,11 +45,17 @@ DegreesLabel270::~DegreesLabel270()
     qDebug() << "--->" << Q_FUNC_INFO;
 }
 
-void DegreesLabel270::setText(const QString &newText)
- {
+void DegreesLabel270::setText(const QString& newText)
+{
      content = newText;
      update();
- }
+}
+
+void DegreesLabel270::setAlignment(const uint& newAlignment)
+{
+     alignment = newAlignment;
+     update();
+}
 
 void DegreesLabel270::paintEvent( QPaintEvent* event )
 {
@@ -67,6 +74,6 @@ void DegreesLabel270::drawRotatedText(QPainter *painter, float degrees, int x, i
     painter->save();
     painter->rotate(degrees);
     painter->translate(0, -width());
-    painter->drawText(0, 0, height(), width(), Qt::AlignLeft, text);
+    painter->drawText(0, 0, height(), width(), alignment, text);
     painter->restore();
  }

@@ -77,7 +77,7 @@ protected slots:
     void                                keyboardPressedChar             (const QString &);
     void                                handleClicked                   ();
     void                                handleSearchFinished            ();
-    void                                removeResultsFromSD             ();
+    void                                removeResults                   ();
 
 protected:
     virtual void                        keyReleaseEvent                 (QKeyEvent*);

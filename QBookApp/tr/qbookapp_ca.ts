@@ -96,7 +96,7 @@
     </message>
     <message>
         <source>Low battery. Please plug the device to a charger source.</source>
-        <translation>Bateria baixa. Si us plau, endolla el dispositiu al carregador.</translation>
+        <translation type="obsolete">Bateria baixa. Si us plau, endolla el dispositiu al carregador.</translation>
     </message>
     <message>
         <source>Critical battery level, please connect the charger. The ereader will be turned off.</source>
@@ -304,6 +304,18 @@ Si us plau, no extreguis la SD.</translation>
     <message>
         <source>Activar</source>
         <translation>Activar</translation>
+    </message>
+    <message>
+        <source>Critical battery level (%1%). Please plug the device to a charger source.</source>
+        <translation>Nivell crític de bateria (%1%). Si us plau, endolla el dispositiu al carregador.</translation>
+    </message>
+    <message>
+        <source>Low battery level(%1).</source>
+        <translation type="obsolete">Nivell baix de bateria (%1%).</translation>
+    </message>
+    <message>
+        <source>Battery level low(%1).</source>
+        <translation>Nivell baix de bateria (%1%).</translation>
     </message>
 </context>
 <context>

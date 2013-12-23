@@ -42,6 +42,9 @@ public:
     virtual                     ~SettingsDeviceOptionsMenu                  ();
     void                        connectWifiObserverDictionary               ();
     void                        setup                                       ();
+    void                        showReaderMenu                              ();
+    bool                        fromViewer                                  ();
+    void                        resetFromViewer                             ();
 
 #ifndef HACKERS_EDITION
 public slots:
@@ -58,7 +61,8 @@ private slots:
     void                        handleScreenSaver                           ();
 
     void                        hideTopElement                              ();
-
+    void                        returnToViewer                              ();
+    void                        showNewChild                                (QWidget *);
 
 private:
 
@@ -77,6 +81,9 @@ protected:
 
     /* http://qt-project.org/forums/viewthread/7340 */
     void                        paintEvent                                  (QPaintEvent *);
+
+signals:
+    void                        goToViewer                                  ();
 
 };
 

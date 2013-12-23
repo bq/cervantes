@@ -32,7 +32,7 @@ public:
     virtual ~MiniatureViewLandscape();
 
     void updatePdfMiniatureScreenshot(QPixmap& screenshot);
-    void setFrameGeometry(const double xP, const double yP, const double scale);
+    void setFrameGeometry(const double xoP, const double yoP, const double xfP, const double yfP);
     void setZoom(const int zoom);
     
 signals:
@@ -40,12 +40,17 @@ signals:
 public slots:
 
     void setPageChanged(int page, int, int total);
-    void setZoomChanged(double newZoom, double minZoom);
+    void setZoomChanged(double newZoom);
+    void changeAspectRatio(QRectF docRect);
 
 protected:
     /* http://qt-project.org/forums/viewthread/7340 */
     void paintEvent (QPaintEvent *);
 
+protected:
+    double m_aspectRatio;
+    QPixmap m_screenshot;
+    double WIDGET_ASPECT_RATIO;
 };
 
 #endif // MINIATUREVIEWLANDSCAPE_H

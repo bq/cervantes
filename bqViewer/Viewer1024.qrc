@@ -95,5 +95,7 @@
         <file alias="res/bookmark_landscape.png">res/1024/bookmark_landscape.png</file>
         <file alias="res/page_back_btn_landscape.png">res/1024/page_back_btn_landscape.png</file>
         <file alias="res/empty.png">res/1024/empty.png</file>
+        <file alias="res/viewer_conf_btn.png">res/1024/viewer_conf_btn.png</file>
+        <file alias="res/back-def.png">res/1024/back-def.png</file>
     </qresource>
 </RCC>

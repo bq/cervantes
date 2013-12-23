@@ -180,9 +180,19 @@
         <translation>Engenharia e desenvolvimento</translation>
     </message>
     <message utf8="true">
+        <location filename="../ui/SettingsAboutUs.ui" line="175"/>
+        <source>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="188"/>
         <source>Diseño gráfico</source>
         <translation>Desenho gráfico</translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsAboutUs.ui" line="198"/>
+        <source>Nieves Herreros, Sandra Salvador.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="208"/>
@@ -190,19 +200,39 @@
         <translation>Maquetagem</translation>
     </message>
     <message>
+        <location filename="../ui/SettingsAboutUs.ui" line="221"/>
+        <source>Eva Belmonte.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../ui/SettingsAboutUs.ui" line="234"/>
         <source>Experiencia de usuario</source>
         <translation>Experiência de utilizador</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../ui/SettingsAboutUs.ui" line="244"/>
+        <source>Mayte Vázquez.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/SettingsAboutUs.ui" line="257"/>
         <source>Calidad</source>
         <translation>Qualidade</translation>
     </message>
+    <message utf8="true">
+        <location filename="../ui/SettingsAboutUs.ui" line="270"/>
+        <source>Mercedes Trueba, Daniel Rodríguez, Ivan Ovejero, Jesús Talavera, Pablo Alonso, Álvaro Font, Raúl García-Serrano.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../ui/SettingsAboutUs.ui" line="283"/>
         <source>Jefe de producto</source>
         <translation>Chefe de produto</translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsAboutUs.ui" line="293"/>
+        <source>Ravin Dhalani.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/SettingsAboutUs.cpp" line="44"/>
@@ -848,7 +878,7 @@
     <message>
         <location filename="../ui/SettingsDeviceOptionsMenu.ui" line="159"/>
         <source>Idioma</source>
-        <translation>Idioma</translation>
+        <translation>Língua</translation>
     </message>
     <message>
         <location filename="../ui/SettingsDeviceOptionsMenu.ui" line="187"/>
@@ -873,7 +903,7 @@
     <message>
         <location filename="../ui/SettingsDeviceOptionsMenu.ui" line="236"/>
         <source>Salvapantallas</source>
-        <translation>Protector de ecrã</translation>
+        <translation>Protetor de ecrã</translation>
     </message>
     <message>
         <source>Tiempo de reposo</source>
@@ -882,7 +912,7 @@
     <message>
         <location filename="../src/SettingsDeviceOptionsMenu.cpp" line="118"/>
         <source>Recuerda activar tu dispositivo para disfrutar de los diccionarios.</source>
-        <translation>Lembre ativar o seu dispositivo para poder utilizar os dicionários.</translation>
+        <translation>Lembre-se de ativar o seu dispositivo para poder utilizar os dicionários.</translation>
     </message>
 </context>
 <context>
@@ -1266,17 +1296,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/SettingsPageScreenSaver.ui" line="81"/>
         <source>Salvapantallas</source>
-        <translation>Protector de ecrã</translation>
+        <translation>Protetor de ecrã</translation>
     </message>
     <message>
         <location filename="../ui/SettingsPageScreenSaver.ui" line="114"/>
         <source>Selecciona que mostrar en su salvapantallas</source>
-        <translation>Selecione a imagen a mostrar como protector de ecrã</translation>
+        <translation>Selecione a imagen a mostrar como protetor de ecrã</translation>
     </message>
     <message>
         <location filename="../ui/SettingsPageScreenSaver.ui" line="166"/>
         <source>Salvapantallas por defecto</source>
-        <translation>Protector de ecrã por defeito</translation>
+        <translation>Protetor de ecrã por defeito</translation>
     </message>
     <message>
         <location filename="../ui/SettingsPageScreenSaver.ui" line="197"/>
@@ -1440,7 +1470,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/SettingsReaderPageTurning.ui" line="763"/>
         <source>Choose the page turning options:</source>
-        <translation>Escolhe as opções para mudar de página</translation>
+        <translation>Escolha as opções para mudar de página</translation>
     </message>
     <message>
         <location filename="../ui/SettingsReaderPageTurning.ui" line="854"/>
@@ -1450,7 +1480,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../ui/SettingsReaderPageTurning.ui" line="897"/>
         <source>Número de pasos de página para hacer refresco</source>
-        <translation>Seleccionar a frequência de actualização na passagem de página</translation>
+        <translation>Seleccionar a frequência de actualização ao passar página</translation>
     </message>
     <message>
         <location filename="../ui/SettingsReaderPageTurning.ui" line="935"/>
@@ -1907,7 +1937,7 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
     <message>
         <location filename="../ui/SettingsUnLinkStoreDevice.ui" line="504"/>
         <source>Desconectar cuenta</source>
-        <translation>Desautorizar dispositivo</translation>
+        <translation>Desassociar dispositivo</translation>
     </message>
     <message>
         <location filename="../ui/SettingsUnLinkStoreDevice.ui" line="514"/>
@@ -2155,7 +2185,7 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
         <translation>bqOS-2.xx.x_FNAC</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="47"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="49"/>
         <source>Wait while searching available updates</source>
         <translation>Aguarde enquanto se procuram actualizações disponíveis</translation>
     </message>
@@ -2167,64 +2197,76 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="71"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="73"/>
         <source>There aren&apos;t new updates available while you are not linked.</source>
-        <translation>Para verificar se existem atualizações disponíveis os seu dispositivo deverá estar associado.</translation>
+        <translation>Para verificar se existem atualizações disponíveis o seu dispositivo deverá estar associado.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="80"/>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="126"/>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="133"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="82"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="129"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="136"/>
         <source>There aren&apos;t new updates available</source>
         <translation>Não há novas actualizações disponíveis</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="140"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="143"/>
         <source>There are a new version available:</source>
         <translation>Há uma nova actualização disponível</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="179"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="183"/>
         <source>No space available on the device.
 Please remove some files.</source>
         <translation>Não há espaço disponível no dispositivo. Por favor elimine alguns ficheiros.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="190"/>
         <source>Please connect the charger
 before the download.</source>
-        <translation>Por favor, conete o carregador antes do descarregamento.</translation>
+        <translation type="obsolete">Por favor, conete o carregador antes do descarregamento.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="206"/>
         <source>Please, don&apos;t disconnect the charger
  during the download.</source>
-        <translation>Por favor, não conete o carregador durante o descarregamento.</translation>
+        <translation type="obsolete">Por favor, não conete o carregador durante o descarregamento.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="211"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="195"/>
+        <source>Low battery level.
+Please connect the charger
+before the download.</source>
+        <translation>Nível de bateria abaixo de 50%. Por favor, ligue o carregador para iniciar o descarregamento da atualização.</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="213"/>
+        <source>Low battery level.
+Please, don&apos;t disconnect the charger
+ during the download.</source>
+        <translation>Nível de bateria abaixo de 50%. Por favor, mantenha o carregador ligado durante o processo de atualização.</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="219"/>
         <source>Downloading...
 This process may take several minutes </source>
         <translation>Descarregamento em curso... Este processo pode demorar alguns minutos</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="228"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="236"/>
         <source>Error downloading</source>
-        <translation>Erro ao descarregar</translation>
+        <translation>Erro de descarregamento. Por favor, volte a tentar.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="238"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="246"/>
         <source>Firmware download complete
 Restarting to apply changes.</source>
-        <translation>Instalação do firmware completa. A reiniciar para aplicar as mundanças.</translation>
+        <translation>Descarregamento do firmware concluído. A reiniciar para aplicar as mundanças.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="245"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="253"/>
         <source>Downloaded file is corrupted</source>
         <translation>O ficheiro descarregado está danificado</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="258"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="266"/>
         <source>Installation failed. Please try again in a few minutes</source>
         <translation>A instalação falhou. Por favor, aguarde uns minutos e tente novamente.</translation>
     </message>

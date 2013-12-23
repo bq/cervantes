@@ -102,6 +102,8 @@ void Settings::activateForm()
 void Settings::deactivateForm()
 {
     qDebug() << Q_FUNC_INFO;
+    if(m_deviceOptions && m_deviceOptions->fromViewer())
+        m_deviceOptions->resetFromViewer();
 }
 
 void Settings::handleDevicesBtn()
@@ -381,4 +383,23 @@ void Settings::handleAboutUsBtn()
             connect(m_aboutUs, SIGNAL(hideMe()), this, SLOT(hideElement()));
         }
         showElement(m_aboutUs);
+}
+
+
+void Settings::goToViewerMenu()
+{
+    while ( isChildSetting > 0 )
+    {
+        hideElement();
+    }
+    handleDevicesBtn();
+    m_deviceOptions->showReaderMenu();
+    connect(m_deviceOptions, SIGNAL(goToViewer()), this, SLOT(handleGoToViewer()));
+}
+
+void Settings::handleGoToViewer()
+{
+    qDebug() << Q_FUNC_INFO;
+    disconnect(m_deviceOptions, SIGNAL(goToViewer()), this, SLOT(handleGoToViewer()));
+    emit goToViewer();
 }

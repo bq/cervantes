@@ -102,11 +102,6 @@ bool QFwUpgradeOTA::checkOTAAvailable(){
     if (checkReply)
         delete checkReply;
 
-    if (updateInfo) {
-        delete updateInfo;
-        updateInfo = NULL;
-    }
-
     QString host = QBook::settings().value("wsServicesURL", "").toString();
     if (host.isEmpty()) {
         qDebug() << Q_FUNC_INFO << "wsServicesURL is empty, probably device not linked, aborting OTA check";
@@ -209,9 +204,9 @@ QVariantMap QFwUpgradeOTA::getOTAReleaseNotes() {
 
 
 
-bool QFwUpgradeOTA::enoughMemForUpdate(){
-    if (!updateInfo || !updateInfo->available)
-	return false;
+bool QFwUpgradeOTA::enoughMemForUpdate()
+{
+    qDebug() << Q_FUNC_INFO;
 
     unsigned long long freeSpace = Storage::getInstance()->getPrivatePartition()->getFreeSpace();
     qDebug() << Q_FUNC_INFO << "freeSpace: " << freeSpace << "OTA size: " << updateInfo->downloadSize;
@@ -453,6 +448,14 @@ bool QFwUpgradeOTA::doUpdate()
         qDebug() << Q_FUNC_INFO << "Cannot create symlink for system OTA installing from " << OTAFile << " to " << SYSTEM_OTA_PATH;
         return false;
     }
+
+    return true;
+}
+
+bool QFwUpgradeOTA::checkUpdateInfo()
+{
+    if(!updateInfo || !updateInfo->available)
+        return false;
 
     return true;
 }

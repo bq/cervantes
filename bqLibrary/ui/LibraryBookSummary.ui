@@ -459,6 +459,9 @@
             <property name="spacing">
              <number>0</number>
             </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
             <property name="bottomMargin">
              <number>0</number>
             </property>
@@ -473,6 +476,13 @@
              <widget class="QLabel" name="bookAuthorLbl">
               <property name="text">
                <string>Camilla Läckberg</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="formatLbl">
+              <property name="text">
+               <string>FB2</string>
               </property>
              </widget>
             </item>

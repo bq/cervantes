@@ -26,16 +26,23 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "QBookApp.h"
 #include "Viewer.h"
 
+#define BORDER_OFFSET           2
+#define FRAME_WIDTH             2
+#define SCREENSHOT_MARGIN       6
+
 #define PAGE_FORMAT QString("%1/%2")
 //const QString PAGE_FORMAT("%1/%2");
 const QString PERCENT_FORMAT("%1%");
 
 MiniatureView::MiniatureView(QWidget *parent) :
     QWidget(parent)
+  , m_aspectRatio(0)
 {
     setupUi(this);
 
-    frame->hide();
+    /// Values from viewer_styles.qss -> #miniatureTopSpacer
+    if (QBook::getResolution() == QBook::RES600x800) WIDGET_ASPECT_RATIO = 125.0 / 148.0;
+    else                                             WIDGET_ASPECT_RATIO = 160.0 / 189.0;
 }
 
 MiniatureView::~MiniatureView()
@@ -51,19 +58,46 @@ void MiniatureView::paintEvent (QPaintEvent *)
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void MiniatureView::setFrameGeometry(const double xP, const double yP, const double scale)
+void MiniatureView::changeAspectRatio(QRectF docRect)
 {
-    int x = screenshotLbl->x() + xP * screenshotLbl->width();
-    int y = screenshotLbl->y() + yP * screenshotLbl->height();
-    int w = screenshotLbl->width()  /* *0.9 */  /scale;
-    int h = screenshotLbl->height() /* *0.9 */ /scale;
+    double w = 0.0, h = 0.0;
+    int xOff = BORDER_OFFSET,
+        yOff = 0,
+        maxWidth  = miniatureTopSpacer->width(),
+        maxHeight = miniatureTopSpacer->height();
+
+    /// WIDTH:HEIGHT
+    m_aspectRatio = (double)docRect.width() / (double)docRect.height();
+    if (m_aspectRatio > WIDGET_ASPECT_RATIO)
+    {
+        w = maxWidth - 2*SCREENSHOT_MARGIN;
+        h = w/m_aspectRatio;
+    }
+    else
+    {
+        h = maxHeight - 2*SCREENSHOT_MARGIN;
+        w = h*m_aspectRatio;
+    }
+
+    // Centering.
+    xOff += (maxWidth  - w)/2;
+    yOff += (maxHeight - h)/2;
+
+    screenshotLbl->setGeometry(xOff, yOff, w, h);
+}
+
+void MiniatureView::setFrameGeometry(const double xoP, const double yoP, const double xfP, const double yfP)
+{
+    QPoint oP = screenshotLbl->mapTo(this, QPoint(0, 0));
+    int x = oP.x() + xoP * screenshotLbl->width();
+    int y = oP.y() + yoP * screenshotLbl->height();
+    int w = (xfP-xoP) * screenshotLbl->width();
+    int h = (yfP-yoP) * screenshotLbl->height();
+
+    if (w+4 <= screenshotLbl->width()  && xfP != 1) w += 4;
+    if (h+2 <= screenshotLbl->height() && yfP != 1) h += 2;
+
     frame->setGeometry(x, y, w, h);
-
-    // FIXME: El frame no se ajusta 100% bien posiblemente a causa del
-    // ajuste proporcionado por el 0.9:
-    // Estimar en casos se necesita y aplicarlo.
-
-    // FIXME: También necesitamos ajustar la forma de miniature a la del texto.
 }
 
 void MiniatureView::setPageChanged(int page, int, int total)
@@ -72,7 +106,7 @@ void MiniatureView::setPageChanged(int page, int, int total)
     pageValueLbl->setText(PAGE_FORMAT.arg(page).arg(total));
 }
 
-void MiniatureView::setZoomChanged(double newZoom, double /*minZoom*/)
+void MiniatureView::setZoomChanged(double newZoom)
 {
     /// FORMAT: zoom%
     zoomValueLbl->setText(PERCENT_FORMAT.arg((int)(newZoom*100)));
@@ -81,5 +115,6 @@ void MiniatureView::setZoomChanged(double newZoom, double /*minZoom*/)
 void MiniatureView::updatePdfMiniatureScreenshot(QPixmap& screenshot)
 {
     if (screenshot.isNull()) return;
+    m_screenshot = screenshot;
     screenshotLbl->setPixmap(screenshot.scaled(screenshotLbl->size()));
 }

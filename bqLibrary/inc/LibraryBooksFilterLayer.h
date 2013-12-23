@@ -36,6 +36,7 @@ public:
     virtual                             ~LibraryBooksFilterLayer            ();
 
     void                                setAllBooksChecked                  ();
+    void                                setBrowserChecked                   ();
 
     void                                setAllBooksNumber                   ( int size );
     void                                setStoreBooksNumber                 ( int size );

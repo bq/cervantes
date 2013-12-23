@@ -234,6 +234,11 @@ bool fileTimeLessThan( const QFileInfo* f1, const QFileInfo* f2)
         return f1->lastModified() < f2->lastModified();
 }
 
+bool stringLessThan( QString s1, QString s2)
+{
+     return s1.toLower() < s2.toLower();
+}
+
 void Model::getBooks (QList<const BookInfo*>& orderedList, SortType type, bool recursive, const QString& path, bool bIncludeArchivedBooks) {
         TBooks::const_iterator i = m_books.constBegin();
         TBooks::const_iterator itEnd = m_books.constEnd();
@@ -661,7 +666,9 @@ bool Model::writeNotesToFile(const BookInfo* bookInfo, const QString& fileType, 
 
 QStringList Model::getCollections()
 {
-    return m_backend->getCollections();
+    QStringList collections = m_backend->getCollections();
+    qSort(collections.begin(), collections.end(), stringLessThan);
+    return collections;
 }
 
 void Model::addCollection(QString collection)

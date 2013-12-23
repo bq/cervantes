@@ -49,6 +49,8 @@ private:
 signals:
 
     void        activatedOK                                         ();
+    void        showNewChild                                        (QWidget* widget);
+    void        hideChild                                           ();
 
 private slots:
 
@@ -58,7 +60,6 @@ private slots:
     void        handlePW                                            ();
     void        handleOK                                            ();
     void        handleLicenseBtn                                    ();
-    void        hideTopElement                                      ();
 
 protected:
 

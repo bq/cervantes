@@ -573,9 +573,9 @@ QString Home::getDateStyled( const QDateTime& date, bool isIcon){
         }
 
         if(isIcon){
-            return date.toString("dd/MM, hh:mm") + " h";
+            return date.toString(tr("dd/MM, hh:mm")) + " h";
         }else{
-            return date.toString("dd/MM/yy, ") + tr("a las") + date.toString(" hh:mm") + " h";
+            return date.toString(tr("dd/MM/yy, ")) + tr("a las") + date.toString(" hh:mm") + " h";
         }
 }
 

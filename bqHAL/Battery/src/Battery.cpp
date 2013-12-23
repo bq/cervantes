@@ -90,11 +90,11 @@ void Battery::checkBatteryLevel()
     int newLevel = getLevel();
     if(newLevel != _currentLevel) {
 
-        if(newLevel <= BATTERY_LEVEL_LOW
-                && newLevel < _currentLevel)
+        if(newLevel <= BATTERY_LEVEL_LOW && BATTERY_LEVEL_LOW < _currentLevel
+          || newLevel <= BATTERY_LEVEL_LOW_2 && BATTERY_LEVEL_LOW_2 < _currentLevel)
         {
             qDebug() << Q_FUNC_INFO << "Battery low" << newLevel;
-            emit batteryLevelLow();
+            emit batteryLevelLow(newLevel);
         }
         else if (newLevel == BATTERY_LEVEL_FULL
                    && newLevel > _currentLevel)

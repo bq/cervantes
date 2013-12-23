@@ -70,7 +70,7 @@
     </message>
     <message>
         <location filename="../src/Library.cpp" line="326"/>
-        <location filename="../src/Library.cpp" line="2233"/>
+        <location filename="../src/Library.cpp" line="2236"/>
         <source>Biblioteca</source>
         <translation>Biblioteca</translation>
     </message>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <location filename="../src/Library.cpp" line="623"/>
-        <location filename="../src/Library.cpp" line="3370"/>
+        <location filename="../src/Library.cpp" line="3385"/>
         <source>Sincronizando... Por favor, espera unos minutos</source>
         <translation>Sincronizando...Por favor, agarda uns minutos.</translation>
     </message>
@@ -177,8 +177,8 @@ mais algúns libros fallaron.</translation>
     </message>
     <message>
         <location filename="../src/Library.cpp" line="838"/>
-        <location filename="../src/Library.cpp" line="2103"/>
-        <location filename="../src/Library.cpp" line="3677"/>
+        <location filename="../src/Library.cpp" line="2107"/>
+        <location filename="../src/Library.cpp" line="3692"/>
         <source>Remove</source>
         <translation>Borrar</translation>
     </message>
@@ -208,173 +208,173 @@ mais algúns libros fallaron.</translation>
         <translation>Chegaches ó límite de subscricións da túa conta. Por favor arquiva algún libro antes de desarquivar.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2041"/>
+        <location filename="../src/Library.cpp" line="2046"/>
         <source>Document format not supported</source>
         <translation>Formato de documento non soportado</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2096"/>
+        <location filename="../src/Library.cpp" line="2100"/>
         <source>You are about to remove the file </source>
         <translation>Estás a piques de elimina-lo arquivo</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2099"/>
+        <location filename="../src/Library.cpp" line="2103"/>
         <source>from internal memory.</source>
         <translation>da memoria interna.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2101"/>
+        <location filename="../src/Library.cpp" line="2105"/>
         <source>from SD card.</source>
         <translation>da tarxeta SD.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2102"/>
-        <location filename="../src/Library.cpp" line="2160"/>
-        <location filename="../src/Library.cpp" line="2223"/>
+        <location filename="../src/Library.cpp" line="2106"/>
+        <location filename="../src/Library.cpp" line="2163"/>
+        <location filename="../src/Library.cpp" line="2226"/>
         <source>
 Do you want to continue?</source>
         <translation>
 ¿Desexas continuar?</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2111"/>
+        <location filename="../src/Library.cpp" line="2115"/>
         <source>File correctly removed.</source>
         <translation>Arquivo correctamente eliminado.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2120"/>
+        <location filename="../src/Library.cpp" line="2124"/>
         <source>Remove failure, the file can not be removed.</source>
         <translation>Fallo ó borra-lo arquivo. O arquivo non se pode eliminar.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2138"/>
+        <location filename="../src/Library.cpp" line="2140"/>
         <source>You are about to copy the file </source>
         <translation>Estás a piques de copiar o ficheiro </translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2143"/>
+        <location filename="../src/Library.cpp" line="2146"/>
         <source>SD card is not mounted.</source>
         <translation>A tarxeta SD non está montada.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2152"/>
+        <location filename="../src/Library.cpp" line="2155"/>
         <source>from internal memory to SD.</source>
         <translation>da memoria interna á tarxeta SD.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2156"/>
+        <location filename="../src/Library.cpp" line="2159"/>
         <source>from SD card to internal memory.</source>
         <translation>da tarxeta SD á memoria interna.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2161"/>
+        <location filename="../src/Library.cpp" line="2164"/>
         <source>Copy</source>
         <translation>Copiar</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2177"/>
+        <location filename="../src/Library.cpp" line="2180"/>
         <source>File correctly copied.</source>
         <translation>Arquivo copiado correctamente.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2187"/>
+        <location filename="../src/Library.cpp" line="2190"/>
         <source>Copy has failed. Please check your SD card.</source>
         <translation>A copia fallou. Por favor, comproba que introduciches a tarxeta SD correctamente.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2189"/>
+        <location filename="../src/Library.cpp" line="2192"/>
         <source>Copy failure, the file already exists.</source>
         <translation>Non se puido copiar, o ficheiro xa existe no destino.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2205"/>
+        <location filename="../src/Library.cpp" line="2208"/>
         <source>You are about to export notes from this book </source>
         <translation>Estás a piques de exportar as túas notas e resaltados deste libro</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2211"/>
+        <location filename="../src/Library.cpp" line="2214"/>
         <source>from your library to internal memory.</source>
         <translation>á memoria interna.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2215"/>
+        <location filename="../src/Library.cpp" line="2218"/>
         <source>from internal memory to internal memory.</source>
         <translation>á memoria interna.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2219"/>
+        <location filename="../src/Library.cpp" line="2222"/>
         <source>from SD card to SD card.</source>
         <translation>á tarxeta SD.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2225"/>
+        <location filename="../src/Library.cpp" line="2228"/>
         <source>Export</source>
         <translation>Exportar</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2239"/>
+        <location filename="../src/Library.cpp" line="2242"/>
         <source>Notes exported correctly.</source>
         <translation>Anotacións exportadas correctamente.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2801"/>
+        <location filename="../src/Library.cpp" line="2816"/>
         <source>Todas las colecciones</source>
         <translation>Todas as coleccións</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2822"/>
+        <location filename="../src/Library.cpp" line="2837"/>
         <source>%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2823"/>
+        <location filename="../src/Library.cpp" line="2838"/>
         <source> (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2901"/>
+        <location filename="../src/Library.cpp" line="2916"/>
         <source>Buscar</source>
         <translation>Buscar</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="2989"/>
-        <location filename="../src/Library.cpp" line="3124"/>
-        <location filename="../src/Library.cpp" line="3126"/>
+        <location filename="../src/Library.cpp" line="3006"/>
+        <location filename="../src/Library.cpp" line="3141"/>
+        <location filename="../src/Library.cpp" line="3143"/>
         <source>Mostrando (%1) resultados</source>
         <translation>Mostrando (%1) resultados</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="3444"/>
+        <location filename="../src/Library.cpp" line="3459"/>
         <source>Your book is being downloaded. Please wait.</source>
         <translation>O teu libro estase descargando. Por favor agarda.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="3474"/>
+        <location filename="../src/Library.cpp" line="3489"/>
         <source>Your book is now available at your Digital Editions folder</source>
         <translation>O teu libro está dispoñible no teu directorio Digital Editions.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="3507"/>
+        <location filename="../src/Library.cpp" line="3522"/>
         <source>Not enough space in the device</source>
         <translation>Non hai suficiente espazo no dispositivo.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="3509"/>
+        <location filename="../src/Library.cpp" line="3524"/>
         <source>Check your license activation</source>
         <translation>Comproba a túa licencia.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="3511"/>
+        <location filename="../src/Library.cpp" line="3526"/>
         <source>Download request has expired</source>
         <translation>A petición de descarga caducou.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="3512"/>
+        <location filename="../src/Library.cpp" line="3527"/>
         <source>Error while fulfilling book. </source>
         <translation>Erro ó obte-lo libro.</translation>
     </message>
     <message>
-        <location filename="../src/Library.cpp" line="3676"/>
+        <location filename="../src/Library.cpp" line="3691"/>
         <source>Are you sure you want to delete %1 collection?
 The books in the collection will not be deleted.</source>
         <translation>¿Estás seguro de que queres borrar a colección %1? Os libros contidos nela non se eliminarán.</translation>
@@ -485,57 +485,62 @@ The books in the collection will not be deleted.</source>
         <translation>Formulario</translation>
     </message>
     <message>
-        <location filename="../ui/LibraryBookSummary.ui" line="468"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="471"/>
         <source>La sombra de la sirena</source>
         <translation>A sombra da serea</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/LibraryBookSummary.ui" line="475"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="478"/>
         <source>Camilla Läckberg</source>
         <translation>Camilla Läckberg</translation>
     </message>
+    <message>
+        <location filename="../ui/LibraryBookSummary.ui" line="485"/>
+        <source>FB2</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message utf8="true">
-        <location filename="../ui/LibraryBookSummary.ui" line="494"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="504"/>
         <source>9,95€</source>
         <translation>9,95€</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/LibraryBookSummary.ui" line="529"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="539"/>
         <source>Total de páginas:</source>
         <translation>Total de páxinas:</translation>
     </message>
     <message>
-        <location filename="../ui/LibraryBookSummary.ui" line="536"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="546"/>
         <source>100</source>
         <translation>100</translation>
     </message>
     <message>
-        <location filename="../ui/LibraryBookSummary.ui" line="638"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="648"/>
         <source>Comprar</source>
         <translation>Mercar</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/LibraryBookSummary.ui" line="584"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="594"/>
         <source>Más acciones</source>
         <translation>Máis accións</translation>
     </message>
     <message>
-        <location filename="../ui/LibraryBookSummary.ui" line="654"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="664"/>
         <source>Copiar a SD</source>
         <translation>Copiar</translation>
     </message>
     <message>
-        <location filename="../ui/LibraryBookSummary.ui" line="670"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="680"/>
         <source>Exportar notas</source>
         <translation>Exportar notas</translation>
     </message>
     <message>
-        <location filename="../ui/LibraryBookSummary.ui" line="683"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="693"/>
         <source>Archivar</source>
         <translation>Arquivar</translation>
     </message>
     <message>
-        <location filename="../ui/LibraryBookSummary.ui" line="699"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="709"/>
         <source>Remove</source>
         <translation>Borrar</translation>
     </message>
@@ -544,12 +549,12 @@ The books in the collection will not be deleted.</source>
         <translation type="obsolete">Ler mostra</translation>
     </message>
     <message>
-        <location filename="../ui/LibraryBookSummary.ui" line="728"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="738"/>
         <source>Sinopsis</source>
         <translation>Sinopse</translation>
     </message>
     <message>
-        <location filename="../ui/LibraryBookSummary.ui" line="756"/>
+        <location filename="../ui/LibraryBookSummary.ui" line="766"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -562,32 +567,32 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;ssdsdsdsd&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/LibraryBookSummary.cpp" line="206"/>
+        <location filename="../src/LibraryBookSummary.cpp" line="213"/>
         <source>Copy</source>
         <translation>Copiar</translation>
     </message>
     <message>
-        <location filename="../src/LibraryBookSummary.cpp" line="236"/>
+        <location filename="../src/LibraryBookSummary.cpp" line="243"/>
         <source>Unarchive</source>
         <translation>Desarquivar</translation>
     </message>
     <message>
-        <location filename="../src/LibraryBookSummary.cpp" line="238"/>
+        <location filename="../src/LibraryBookSummary.cpp" line="245"/>
         <source>Archive</source>
         <translation>Arquivar</translation>
     </message>
     <message>
-        <location filename="../src/LibraryBookSummary.cpp" line="389"/>
+        <location filename="../src/LibraryBookSummary.cpp" line="396"/>
         <source>Leyendo</source>
         <translation>Lendo</translation>
     </message>
     <message>
-        <location filename="../src/LibraryBookSummary.cpp" line="392"/>
+        <location filename="../src/LibraryBookSummary.cpp" line="399"/>
         <source>Leido</source>
         <translation>Lido</translation>
     </message>
     <message>
-        <location filename="../src/LibraryBookSummary.cpp" line="395"/>
+        <location filename="../src/LibraryBookSummary.cpp" line="402"/>
         <source>No leido</source>
         <translation>Non lido</translation>
     </message>
@@ -790,9 +795,19 @@ p, li { white-space: pre-wrap; }
         <translation>Hoxe, ás</translation>
     </message>
     <message>
+        <location filename="../src/LibraryGridViewer.cpp" line="478"/>
+        <source>dd/MM, hh:mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/LibraryGridViewer.cpp" line="482"/>
         <source>a las</source>
         <translation>ás</translation>
+    </message>
+    <message>
+        <location filename="../src/LibraryGridViewer.cpp" line="482"/>
+        <source>dd/MM/yy, </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

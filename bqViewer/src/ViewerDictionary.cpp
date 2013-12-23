@@ -106,6 +106,7 @@ void ViewerDictionary::showSearch( const QString& searchedWord )
 
     m_parentViewer->hideAllElements();
     m_parentViewer->showElement(this);
+    this->setFocus();
     //Define a single step as the 75% of the normal height in the widget.
     vbar->setSingleStep(dictionaryDefinitionTextBrowser->height()*PERCENT_STEP_VALUE);
     setupPagination();
@@ -337,3 +338,11 @@ void ViewerDictionary::clearSearch()
     m_lastSearch.clear();
 }
 
+
+void ViewerDictionary::mousePressEvent( QMouseEvent* event )
+{
+    qDebug() << Q_FUNC_INFO;
+
+    event->accept();
+
+}

@@ -43,6 +43,7 @@ public:
     virtual                         ~Settings                    ();
     SettingsDeviceInfo*             showInformation              ();
     SettingsDeviceOptionsMenu*      getDeviceOptions             ();
+    void                            goToViewerMenu               ();
 
 public slots:
 
@@ -52,6 +53,7 @@ public slots:
 signals:
 
     void                goToHome                        ();
+    void                goToViewer                      ();
 
 private:
 
@@ -89,6 +91,7 @@ private slots:
     void                activateDevice                  ();
     void                connectWifiObserverWizard       ();
     void                disconnectWifiObserverWizard    ();
+    void                handleGoToViewer                ();
 };
 
 #endif // ELFSETTINGSMENU_H

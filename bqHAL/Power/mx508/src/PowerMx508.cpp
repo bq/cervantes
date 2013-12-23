@@ -39,38 +39,39 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "Battery.h"
 #endif
 
-/* Needed for calculating uptime values
- * If used in a second place move to generic location
- */ 
-#include <time.h>
+static QString wSources[] = {
+	"/sys/class/input/input0", /* keys */
+	"/sys/class/input/input1", /* touchscreen */
+	"/sys/class/mmc_host/mmc1", /* external sd card */
+};
+static int numSources = 3;
 
-#define MSEC_PER_SEC    1000L
-#define USEC_PER_MSEC   1000L
-#define NSEC_PER_MSEC   1000000L
-
-static qint64 monotonic_to_msecs()
+static void updateWakeupSources(int sleepFlag)
 {
-	struct timespec tv;
+	FILE *output;
+	int i;
 
-	clock_gettime(CLOCK_MONOTONIC, &tv);
-	return (qint64) tv.tv_sec * MSEC_PER_SEC + tv.tv_nsec / NSEC_PER_MSEC;
+	for (i = 0; i < numSources; i++) {
+		QString str = wSources[i] + "/device/power/wakeup";
+		/* set wakeup property */
+		output = fopen(str.toStdString().c_str(), "w");
+		if (!output) {
+			qDebug() << Q_FUNC_INFO << "wakeup file missing for " << wSources[i];
+			return;
+		}
+		fprintf(output, sleepFlag ? "disabled" : "enabled");
+		fclose(output);
+	}
 }
 
 PowerMx508::PowerMx508()
     : b_debugOn(false)
 {
-    FILE *output;
-
-    /* enable the wakeup property of the touchscreen by default.
+    /* enable the wakeup property of the wakeup sources by default.
      * It gets toggled for sleep in setSleepFlag
      */
-    output = fopen("/sys/class/input/input1/device/power/wakeup", "w");
-    if (!output) {
-        qDebug() << Q_FUNC_INFO << "wakeup file missing for input1";
-        return;
-    }
-    fprintf(output, "enabled");
-    fclose(output);
+    updateWakeupSources(0);
+
 #if defined(BATTERY_TEST) || defined(SHOWCASE)
     m_scheduledFLBlinkTime = QDateTime::currentDateTime().addSecs(FRONT_LIGHT_BLINK_PERIOD);
 #endif
@@ -96,8 +97,6 @@ bool PowerMx508::suspend(int autoWakeUpSecs)
 
     int ret;
     bool has_slept = false;
-    QString wakeup_data;
-    QFile *wakeDataFile;
 
     qDebug() << Q_FUNC_INFO << " autoWakeUpSecs: " << autoWakeUpSecs;
     b_processCanceled = false;
@@ -108,40 +107,8 @@ bool PowerMx508::suspend(int autoWakeUpSecs)
         return false;
     }
 
-    /* Check 1: is the finger on the screen */
-
-    wakeDataFile = new QFile("/sys/class/input/input1/device/power/wakeup_active");
-    if (wakeDataFile->open(QIODevice::ReadOnly | QIODevice::Text)) {
-        wakeup_data = QString(wakeDataFile->readLine()).trimmed();
-        wakeDataFile->close();
-    } else {
-        qDebug() << Q_FUNC_INFO << "read of wakeup_last failed";
-        wakeup_data = "0";
-    }
-    delete wakeDataFile;
-
-    if (wakeup_data.toInt()) {
-        qDebug() << Q_FUNC_INFO << "wakeup event in progress, not suspending";
+    if (wakeupActive(wSources, numSources))
         return false;
-    }
-
-    /* Check 2: was the finger on the screen less than a second ago */
-
-    wakeDataFile = new QFile("/sys/class/input/input1/device/power/wakeup_last_time_ms");
-    if (wakeDataFile->open(QIODevice::ReadOnly | QIODevice::Text)) {
-        wakeup_data = QString(wakeDataFile->readLine()).trimmed();
-        wakeDataFile->close();
-        qDebug() << "read wakeup_last" << wakeup_data.toLongLong();
-    } else {
-        qDebug() << Q_FUNC_INFO << "read of wakeup_last failed";
-        wakeup_data = "0";
-    }
-    delete wakeDataFile;
-
-    if (monotonic_to_msecs() - wakeup_data.toLongLong() < 1000) {
-        qDebug() << Q_FUNC_INFO << "recent wakeup event, not suspending";
-        return false;
-    }
 
 
     /* Initial read of the current wakeup_count
@@ -163,8 +130,7 @@ bool PowerMx508::suspend(int autoWakeUpSecs)
         RTCManager::setRTCAlarm(autoWakeUpSecs);
 
 #ifdef BATTERY_TEST
-    specialTestAction(false);
-    if(b_suspendDisabled)
+    if(doSpecialTestAction(false))
         return true;
 #endif
 
@@ -214,6 +180,7 @@ bool PowerMx508::suspend(int autoWakeUpSecs)
         has_slept = !ret;
 
 /*-----------------SUSPENDED---------------------------------*/
+
 /* has_slept is true, when the system really slept */
     }
 
@@ -250,7 +217,7 @@ bool PowerMx508::sleepCPU(int autoWakeUpSecs)
     RTCManager::setRTCAlarm(autoWakeUpSecs);
 
 #ifdef BATTERY_TEST
-    specialTestAction(true);
+    doSpecialTestAction(true);
     RTCManager::setRTCAlarm(SAMPLE_PERIOD);
 #endif
 
@@ -311,14 +278,7 @@ void PowerMx508::setSleepFlag(int sleepFlag)
     fprintf( output, "%d", sleepFlag);
     fclose(output);
 
-    /* set wakeup property of the touchscreen */
-    output = fopen("/sys/class/input/input1/device/power/wakeup", "w");
-    if (!output) {
-        qDebug() << Q_FUNC_INFO << "wakeup file missing for input1";
-        return;
-    }
-    fprintf(output, sleepFlag ? "disabled" : "enabled");
-    fclose(output);
+    updateWakeupSources(sleepFlag);
 }
 
 void PowerMx508::setDebug(bool status){

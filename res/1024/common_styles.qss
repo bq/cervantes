@@ -502,6 +502,9 @@ font-size:26px;
 #bookSummaryDataContainer #bookPriceLbl {
 font-size:29px;
 }
+#bookSummaryDataContainer #formatLbl{
+font-size:20px;
+}
 #priceCont{
 min-height:38px;
 max-height:38px;

@@ -37,6 +37,26 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDateTime>
 #endif
 
+#include <QFile>
+#include <QDebug>
+
+/* Needed for calculating uptime values
+ * If used in a second place move to generic location
+ */ 
+#include <time.h>
+
+#define MSEC_PER_SEC    1000L
+#define USEC_PER_MSEC   1000L
+#define NSEC_PER_MSEC   1000000L
+
+static qint64 monotonic_to_msecs()
+{
+	struct timespec tv;
+
+	clock_gettime(CLOCK_MONOTONIC, &tv);
+	return (qint64) tv.tv_sec * MSEC_PER_SEC + tv.tv_nsec / NSEC_PER_MSEC;
+}
+
 Power* Power::_instance = NULL;
 
 Power* Power::getInstance()
@@ -66,11 +86,11 @@ void Power::staticDone()
 }
 
 #ifdef BATTERY_TEST
-void Power::specialTestAction(bool slept){
+bool Power::doSpecialTestAction(bool slept){
 
     qDebug() << Q_FUNC_INFO << "#### BATTERY_TEST"<< BATTERY_TEST << "####";
 
-    b_suspendDisabled = Battery::getInstance()->getLevel() > START_POINT;
+    bool suspendDisabled = Battery::getInstance()->getLevel() > START_POINT;
 
     if(BATTERY_TEST == TEST_SLEEP && slept){
         while(Battery::getInstance()->getLevel() > START_POINT){
@@ -79,18 +99,11 @@ void Power::specialTestAction(bool slept){
                         << "% > threshold" << QString::number(START_POINT) << "%";
             Screen::getInstance()->refreshScreen(); // Refresh screen to empty battery faster
         }
-        return;
+        return true;
     }
 
-    else if(BATTERY_TEST == TEST_PAGES_QUICK)
-        RTCManager::setRTCAlarm(TURNING_QUICK_PERIOD);
-
-    else if(BATTERY_TEST == TEST_PAGES_NORMAL)
-        RTCManager::setRTCAlarm(TURNING_NORMAL_PERIOD);
-
-
     // Empty battery waiting for start level
-    for(int i = 0; i < 5 && b_suspendDisabled ; i++){ // Refresh screen to empty battery faster
+    for(int i = 0; i < 5 && suspendDisabled ; i++){ // Refresh screen to empty battery faster
         qDebug() << Q_FUNC_INFO << "Current:" << Battery::getInstance()->getLevel()
                     << "% > threshold" << QString::number(START_POINT) << "%";
         Screen::getInstance()->refreshScreen();
@@ -99,6 +112,8 @@ void Power::specialTestAction(bool slept){
 
     if(!slept)
         checkAndResetLight();
+
+    return suspendDisabled;
 }
 
 
@@ -127,3 +142,51 @@ void Power::checkAndResetLight(){
 }
 #endif
 
+bool Power::wakeupActive(QString *sources, int numSources) {
+	QString wakeup_data;
+	QFile *wakeDataFile;
+	int i;
+
+	for (i = 0; i < numSources; i++) {
+		QFile *wakeDataFile;
+
+		qDebug() << Q_FUNC_INFO << "checking wakeup source " << sources[i];
+
+		/* Check 1: is the wakeup active at _this_ moment */
+
+		wakeDataFile = new QFile(sources[i] + "/device/power/wakeup_active");
+		if (wakeDataFile->open(QIODevice::ReadOnly | QIODevice::Text)) {
+			wakeup_data = QString(wakeDataFile->readLine()).trimmed();
+			wakeDataFile->close();
+		} else {
+			qDebug() << Q_FUNC_INFO << "read of wakeup_last failed";
+			wakeup_data = "0";
+		}
+		delete wakeDataFile;
+
+		if (wakeup_data.toInt()) {
+			qDebug() << Q_FUNC_INFO << "wakeup event for " << sources[i] << " in progress, not suspending";
+			return true;
+		}
+
+		/* Check 2: was the wakeup event less than a second ago */
+
+		wakeDataFile = new QFile(sources[i] + "/device/power/wakeup_last_time_ms");
+		if (wakeDataFile->open(QIODevice::ReadOnly | QIODevice::Text)) {
+			wakeup_data = QString(wakeDataFile->readLine()).trimmed();
+			wakeDataFile->close();
+			qDebug() << "read wakeup_last" << wakeup_data.toLongLong();
+		} else {
+			qDebug() << Q_FUNC_INFO << "read of wakeup_last failed";
+			wakeup_data = "0";
+		}
+		delete wakeDataFile;
+
+		if (monotonic_to_msecs() - wakeup_data.toLongLong() < 1000) {
+			qDebug() << Q_FUNC_INFO << "recent wakeup event for " << sources[i] << ", not suspending";
+			return true;
+		}
+	}
+
+	return false;
+}

@@ -133,11 +133,19 @@
     </message>
     <message>
         <source>0 % leÃ­do</source>
-        <translation>0% irakurrita</translation>
+        <translation>% 0 irakurrita</translation>
     </message>
     <message utf8="true">
         <source>Subscripción</source>
         <translation>Premium</translation>
+    </message>
+    <message>
+        <source>dd/MM, hh:mm</source>
+        <translation>MM/dd, hh:mm</translation>
+    </message>
+    <message>
+        <source>dd/MM/yy, </source>
+        <translation>yy/MM/dd</translation>
     </message>
 </context>
 <context>

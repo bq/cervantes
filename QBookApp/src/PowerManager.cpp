@@ -57,8 +57,11 @@ QBookScreenSaver* PowerManager::screenLoader = NULL;
 QList<PowerManagerLock*> PowerManager::m_allLocks;
 QList<PowerManagerLock*> PowerManager::m_activeLocks;
 PowerManagerLock* PowerManager::m_internalLock = NULL;
-PowerManagerLock* PowerManager::m_failedSuspendLock = NULL;
+#if defined(SHOWCASE) || defined (BATTERY_TEST)
+int PowerManager::i_timeToWakeUp = SAMPLE_PERIOD - POWERMANAGER_AWAKE_MINIMUM_TIME/1000;
+#else
 int PowerManager::i_timeToWakeUp = POWERMANAGER_UPDATE_CLOCK_TIME;
+#endif
 int PowerManager::i_timePowerOffSecs = POWERMANAGER_TIME_POWEROFFSECS;
 int PowerManager::i_timeSleepSecs = POWERMANAGER_TIME_AUTOSLEEPSECS;
 QMutex PowerManager::m_mutex;
@@ -79,8 +82,6 @@ void PowerManager::initialize()
 {
     getInstance();
     m_internalLock = getNewLock(m_instance);
-    m_failedSuspendLock = getNewLock(m_instance);
-    m_failedSuspendLock->setTimeOut(POWERMANAGER_FAULTY_SUSPEND_PAUSE);
 }
 
 void PowerManager::start()
@@ -223,15 +224,8 @@ void PowerManager::goToSuspend()
 
     b_awakeDueToUser = false;
 
-#if defined(SHOWCASE) || defined (BATTERY_TEST)
-    /**
-      Special handling to avoid sleep in device exposed
-      in closed showcase or battery test
-    */
-    Power::getInstance()->suspend(i_timeToWakeUp);
-    emit backFromSuspend();
-    return;
-#endif
+#ifndef BATTERY_TEST // Prevent auto-sleep if Battery test
+#ifndef SHOWCASE    // Prevent auto-sleep if Showcase build
 
     // Self sleep if no user activity
     if(QDateTime::currentDateTime() >= m_scheduledSleepTime){
@@ -239,12 +233,20 @@ void PowerManager::goToSuspend()
         return;
     }
 
+#endif
+#endif
+
     /**
       RTC alarm to wake up is set only if last scheduled wake up
-      time has already expired and has to be reset
+      time has already expired and has to be reset.
+      Additionally, system time is synced with RTC time that is
+      more accurate.
     */
     if(m_scheduledRTCalarm < QDateTime::currentDateTime())
     {
+        if(!Power::getInstance()->isPowerKeyPressed())
+            RTCManager::setSystemDateFromHw();
+
         rtcAlarmSetting = i_timeToWakeUp;
         m_scheduledRTCalarm = QDateTime::currentDateTime().addSecs(rtcAlarmSetting);
         qDebug() << Q_FUNC_INFO << "RTC wake up scheduled at:" << m_scheduledRTCalarm.toString("hh:mm:ss.zzz");
@@ -261,11 +263,9 @@ void PowerManager::goToSuspend()
     {
         qDebug() << Q_FUNC_INFO << "SUSPEND FAILED, most likely a user event";
         m_scheduledRTCalarm = QDateTime::currentDateTime(); // Not to assume RTC as set
-        m_failedSuspendLock->activate();
     }
 
     emit backFromSuspend();
-
 }
 
 void PowerManager::returnFromSleep()

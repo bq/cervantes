@@ -29,6 +29,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDebug>
 #include <QScrollBar>
 
+#define MARGIN 10
+
 ViewerTextActionsPopup::ViewerTextActionsPopup(QWidget *parent) : QWidget(parent)
 {
     qDebug() << Q_FUNC_INFO;
@@ -69,6 +71,7 @@ void ViewerTextActionsPopup::setup( const QString& dictionaryDefinition, const Q
 
     // NOTE: These lines allow us to ensure the popupCont has the proper width
     show();
+    qDebug() << Q_FUNC_INFO << "Widget height" << height();
     layout()->invalidate();
     hide();
 
@@ -151,7 +154,12 @@ void ViewerTextActionsPopup::showEvent( QShowEvent* )
     }
     else //pos the widget inside the hili in the top position.
     {
-        int posY = m_bbox.top() + m_delimiterHeight;
+        int posY;
+        int bottomMargin = Screen::getInstance()->screenHeight() - MARGIN;
+        if(m_bbox.top() + m_delimiterHeight + height() < bottomMargin)
+            posY = m_bbox.top() + m_delimiterHeight;
+        else
+            posY = m_bbox.bottom() - height();
         pos.setY(posY);
     }
 

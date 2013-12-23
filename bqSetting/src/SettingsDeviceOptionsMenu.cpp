@@ -64,8 +64,14 @@ SettingsDeviceOptionsMenu::SettingsDeviceOptionsMenu(QWidget *parent) : FullScre
         connect(timeZone,       SIGNAL(hideMe()), this, SLOT(hideTopElement()));
         connect(energySaving,   SIGNAL(hideMe()), this, SLOT(hideTopElement()));
         connect(readMode,       SIGNAL(hideMe()), this, SLOT(hideTopElement()));
+        connect(energySaving,   SIGNAL(showNewChild(QWidget*)), this, SLOT(showNewChild(QWidget*)));
+        connect(readMode,       SIGNAL(showNewChild(QWidget*)), this, SLOT(showNewChild(QWidget*)));
+        connect(energySaving,   SIGNAL(hideChild()), this, SLOT(hideTopElement()));
+        connect(readMode,       SIGNAL(hideChild()), this, SLOT(hideTopElement()));
 #ifndef HACKERS_EDITION
         connect(dictionary,     SIGNAL(hideMe()), this, SLOT(hideTopElement()));
+        connect(dictionary,     SIGNAL(showNewChild(QWidget*)), this, SLOT(showNewChild(QWidget*)));
+        connect(dictionary,     SIGNAL(hideChild()), this, SLOT(hideTopElement()));
 #endif
         connect(screenSaver,    SIGNAL(hideMe()), this, SLOT(hideTopElement()));
 }
@@ -156,3 +162,32 @@ void SettingsDeviceOptionsMenu::paintEvent (QPaintEvent *){
          style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
+void SettingsDeviceOptionsMenu::showReaderMenu()
+{
+    handleReadMode();
+    readMode->goToReaderProgressMode();
+    connect(readMode, SIGNAL(returnToViewer()), this, SLOT(returnToViewer()));
+}
+
+void SettingsDeviceOptionsMenu::returnToViewer()
+{
+    qDebug() << Q_FUNC_INFO;
+    disconnect(readMode, SIGNAL(returnToViewer()), this, SLOT(returnToViewer()));
+    emit hideMe();
+    emit goToViewer();
+}
+
+bool SettingsDeviceOptionsMenu::fromViewer()
+{
+    return readMode->fromViewer();
+}
+
+void SettingsDeviceOptionsMenu::resetFromViewer()
+{
+    readMode->setFromViewer(false);
+}
+
+void SettingsDeviceOptionsMenu::showNewChild(QWidget * widget)
+{
+    ((Settings*)parent())->showElement(widget);
+}

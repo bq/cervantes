@@ -1004,9 +1004,19 @@
         <translation>Ingeniería y desarrollo</translation>
     </message>
     <message utf8="true">
+        <location filename="../ui/SettingsAboutUs.ui" line="175"/>
+        <source>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="188"/>
         <source>Diseño gráfico</source>
         <translation>Diseño gráfico</translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsAboutUs.ui" line="198"/>
+        <source>Nieves Herreros, Sandra Salvador.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="208"/>
@@ -1014,19 +1024,39 @@
         <translation>Maquetación</translation>
     </message>
     <message>
+        <location filename="../ui/SettingsAboutUs.ui" line="221"/>
+        <source>Eva Belmonte.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../ui/SettingsAboutUs.ui" line="234"/>
         <source>Experiencia de usuario</source>
         <translation>Experiencia de usuario</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../ui/SettingsAboutUs.ui" line="244"/>
+        <source>Mayte Vázquez.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/SettingsAboutUs.ui" line="257"/>
         <source>Calidad</source>
         <translation>Calidad</translation>
     </message>
+    <message utf8="true">
+        <location filename="../ui/SettingsAboutUs.ui" line="270"/>
+        <source>Mercedes Trueba, Daniel Rodríguez, Ivan Ovejero, Jesús Talavera, Pablo Alonso, Álvaro Font, Raúl García-Serrano.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../ui/SettingsAboutUs.ui" line="283"/>
         <source>Jefe de producto</source>
         <translation>Jefe de producto</translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsAboutUs.ui" line="293"/>
+        <source>Ravin Dhalani.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/SettingsAboutUs.cpp" line="44"/>
@@ -2731,7 +2761,7 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
     <message>
         <location filename="../ui/SettingsUnLinkStoreDevice.ui" line="504"/>
         <source>Desconectar cuenta</source>
-        <translation>Desautorizar dispositivo</translation>
+        <translation>Desenlazar dispositivo</translation>
     </message>
     <message>
         <location filename="../ui/SettingsUnLinkStoreDevice.ui" line="514"/>
@@ -2772,7 +2802,7 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
         <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="71"/>
         <source>If  you need to update your account, enter at
  %1</source>
-        <translation type="unfinished">Si necesitas actualizar tu cuenta, accede a  %1</translation>
+        <translation>Si necesitas actualizar tu cuenta, accede a %1</translation>
     </message>
     <message>
         <source>Subscription expired</source>
@@ -2979,69 +3009,81 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
         <translation>bqOS-2.xx.x_FNAC</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="47"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="49"/>
         <source>Wait while searching available updates</source>
         <translation>Espera mientras busca actualizaciones disponibles</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="71"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="73"/>
         <source>There aren&apos;t new updates available while you are not linked.</source>
         <translation>Para comprobar si existen actualizaciones disponibles debes tener enlazado tu dispositivo.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="80"/>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="126"/>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="133"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="82"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="129"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="136"/>
         <source>There aren&apos;t new updates available</source>
         <translation>No hay nuevas actualizaciones disponibles</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="140"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="143"/>
         <source>There are a new version available:</source>
         <translation>Hay una nueva versión disponible:</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="179"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="183"/>
         <source>No space available on the device.
 Please remove some files.</source>
         <translation>No hay espacio disponible en el dispositivo. Por favor elimina algunos archivos.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="190"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="195"/>
+        <source>Low battery level.
+Please connect the charger
+before the download.</source>
+        <translation>Nivel de batería por debajo del 50%. Por favor conecta el cargador para iniciar la descarga de la actualización.</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="213"/>
+        <source>Low battery level.
+Please, don&apos;t disconnect the charger
+ during the download.</source>
+        <translation>Nivel de batería por debajo del 50%. Por favor mantén el cargador conectado durante el proceso de actualización.</translation>
+    </message>
+    <message>
         <source>Please connect the charger
 before the download.</source>
-        <translation>Por favor, conecta el cargador antes de la descarga.</translation>
+        <translation type="obsolete">Por favor, conecta el cargador antes de la descarga.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="206"/>
         <source>Please, don&apos;t disconnect the charger
  during the download.</source>
-        <translation>Por favor, no desconectes el cargador durante la descarga.</translation>
+        <translation type="obsolete">Por favor, no desconectes el cargador durante la descarga.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="211"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="219"/>
         <source>Downloading...
 This process may take several minutes </source>
         <translation>Descargando... Este proceso puede tardar varios minutos</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="228"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="236"/>
         <source>Error downloading</source>
-        <translation>Error descargando</translation>
+        <translation>Error de descarga. Por favor, inténtalo de nuevo.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="238"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="246"/>
         <source>Firmware download complete
 Restarting to apply changes.</source>
-        <translation>Instalación del firmware completada. Reiniciando para aplicar los cambios.</translation>
+        <translation>Descarga del firmware completada. Reiniciando para aplicar los cambios.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="245"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="253"/>
         <source>Downloaded file is corrupted</source>
         <translation>El archivo descargado está dañado</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="258"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="266"/>
         <source>Installation failed. Please try again in a few minutes</source>
         <translation>La instalación ha fallado. Por favor inténtalo de nuevo en unos minutos.</translation>
     </message>

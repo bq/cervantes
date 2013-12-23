@@ -63,6 +63,7 @@ private slots:
     void                            handleGeneralTermsBtn               ();
     void                            connectWifiObserverAdobeDrm         ();
     void                            disconnectWifiObserverAdobeDrm      ();
+    void                            showNewChild                        (QWidget*);
 
 };
 

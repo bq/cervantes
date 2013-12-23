@@ -45,6 +45,7 @@ signals:
     void goToPageBtnPress();
     void indexReq();
     void summaryReq();
+    void viewerConfReq();
 };
 
 #endif // VIEWERMENU_H

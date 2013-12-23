@@ -42,7 +42,6 @@ private slots:
     void        showDeactivatedOK                                       ();
     void        showDeactivatedKO                                       ();
     void        handleLicenseBtn                                        ();
-    void        hideTopElement                                          ();
 
 private:
     SettingsGeneralTermsInfoAdobe* adobeInformation;
@@ -51,5 +50,9 @@ protected:
 
     /* http://qt-project.org/forums/viewthread/7340 */
     void        paintEvent                                              (QPaintEvent *);
+
+signals:
+    void        showNewChild                                            (QWidget *);
+    void        hideChild                                               ();
 };
 #endif // SETTINGSADOBEDRMUNLINKDEVICE_H

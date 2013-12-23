@@ -49,6 +49,7 @@ public:
     virtual void                                        stop                                    ();
 
     const QList<QDocView::Location*>&                   getContentList                          () const;
+    void                                                clearContentList                        ();
     void                                                repaint                                 ();
     void                                                calculatePageForChapters                ();
 

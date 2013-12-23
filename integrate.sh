@@ -4,7 +4,7 @@ echo Branch:$1
 echo User:$2
 
 hg pull -b $1 $2 
-hg up $1
+hg up -C $1
 hg merge default
 hg ci -m merge
 hg up default

@@ -79,7 +79,7 @@ SettingsDictionariesMenu::SettingsDictionariesMenu(QWidget* parent) : FullScreen
         detailInformation = new SettingsDictionariesInfo(this);
         detailInformation->hide();
 
-        connect(detailInformation, SIGNAL(hideMe()), this, SLOT(hideTopElement()));
+        connect(detailInformation, SIGNAL(hideMe()), this, SIGNAL(hideChild()));
         m_powerLock = PowerManager::getNewLock(this);
 }
 
@@ -201,7 +201,7 @@ void SettingsDictionariesMenu::showDictioInformation()
 {
         qDebug() << Q_FUNC_INFO;
         Screen::getInstance()->queueUpdates();
-        ((Settings*)parent())->showElement(detailInformation);
+        emit showNewChild(detailInformation);
         detailInformation->fillInfo();
         Screen::getInstance()->flushUpdates();
 }
@@ -224,12 +224,6 @@ void SettingsDictionariesMenu::paintDictios()
                 item->paint(DictionaryParams());
                 item->show();
         }
-}
-
-void SettingsDictionariesMenu::hideTopElement(){
-        qDebug() << Q_FUNC_INFO;
-
-        ((Settings *)parent())->hideElement();
 }
 
 void SettingsDictionariesMenu::paintEvent (QPaintEvent *)

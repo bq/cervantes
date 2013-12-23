@@ -51,16 +51,19 @@ public slots:
 signals:
     void                                goBack                              ();
     void                                pdfMenuBtnClicked                   ();
-    void                                pressEvent                          (TouchEvent*);
+    void                                tapEvent                            (TouchEvent*, bool);
+    void                                touchEvent                          (TouchEvent*);
 
 protected:
     void                                updatePageHandler                   ();
-    virtual void                        mousePressEvent                     (QMouseEvent*);
+    virtual void                        customEvent                         (QEvent*);
 
     int                                 m_currentPageIni;
     int                                 m_currentPageEnd;
     int                                 m_totalPages;
     bool                                m_pdfToolbarShowed;
+    MouseFilter*                        m_pMouseFilter;
+    int                                 m_visibleMask; // Indicates which info can be shown.
 
     enum EViewerPageHandlerMask
     {
@@ -73,9 +76,7 @@ protected:
         EVPHM_CLOSE_BTN     =   (1u << 5),
         EVPHM_PROGRESS      =   (1u << 6),
         EVPHM_CHAPTER       =   (1u << 7)
-    };
-
-    int                                 m_visibleMask;// Indicates which info can be shown.
+    };    
 };
 
 #endif // VIEWERPAGEHANDLER_H

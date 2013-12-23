@@ -2003,10 +2003,12 @@ void Library::itemClicked( const QString& path )
             {
                 if(m_filterMode == ELFM_SEARCH)
                 {
-                    closeSearchClicked();
+                    m_filterMode = ELFM_NONE;
                     openSearchPath(path);
+                    closeSearchClicked();
                     return;
                 }
+
                 qDebug() << Q_FUNC_INFO << " path = " << path << ", base: " << m_basePath << ", current: " << m_currentPath;
 
                 Screen::getInstance()->queueUpdates();
@@ -2093,9 +2095,8 @@ void Library::removeFile( const QString& path)
 {
     qDebug() << Q_FUNC_INFO << path;
 
-    m_currentView->clearActionsMenu();
-
     Screen::getInstance()->queueUpdates();
+    m_currentView->clearActionsMenu();
     QString removeText = tr("You are about to remove the file ");
 
     if(path.contains(Storage::getInstance()->getPublicPartition()->getMountPoint()))
@@ -2104,7 +2105,7 @@ void Library::removeFile( const QString& path)
         removeText += tr("from SD card.");
     removeText += tr("\nDo you want to continue?");
     SelectionDialog* removeDialog = new SelectionDialog(this, removeText, tr("Remove"));
-    Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
+    Screen::getInstance()->setMode(Screen::MODE_SAFE,true,FLAG_WAITFORCOMPLETION,Q_FUNC_INFO);
     Screen::getInstance()->flushUpdates();
     removeDialog->exec();
 
@@ -2133,14 +2134,13 @@ void Library::copyFile(const QString& path)
 {
     qDebug() << Q_FUNC_INFO << path;
 
-    m_currentView->clearActionsMenu();
-
     QFileInfo fi = QFileInfo(path);
     QString destination;
 
     QString copyText = tr("You are about to copy the file ");
 
     Screen::getInstance()->queueUpdates();
+    m_currentView->clearActionsMenu();
     StoragePartition* partition = Storage::getInstance()->getRemovablePartition();
     if(path.contains(Storage::getInstance()->getPublicPartition()->getMountPoint()) && (!partition || !partition->isMounted())){
         InfoDialog* errorDialog = new InfoDialog(this,tr("SD card is not mounted."));
@@ -2163,7 +2163,7 @@ void Library::copyFile(const QString& path)
     copyText += tr("\nDo you want to continue?");
     SelectionDialog* copyDialog = new SelectionDialog(this, copyText, tr("Copy"));
     m_bookSummary->hideListActionsMenu();
-    Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
+    Screen::getInstance()->setMode(Screen::MODE_SAFE,true,FLAG_WAITFORCOMPLETION,Q_FUNC_INFO);
     Screen::getInstance()->flushUpdates();
     copyDialog->exec();
 
@@ -2449,7 +2449,10 @@ void Library::modelChanged( const QString& path, int updateType )
         } else if( m_filterMode == ELFM_EDIT_COLLECTION)
             handleEditCollection(m_collection);
         else if(m_filterMode == ELFM_COLLECTIONS)
+        {
+            m_filterMode = ELFM_NONE;
             myCollectionsSelected();
+        }
         else
             changeFilterMode(m_filterMode);
     }
@@ -2468,11 +2471,8 @@ bool Library::reloadModel()
         Screen::getInstance()->queueUpdates();
         if(m_filterMode == ELFM_COLLECTIONS)
         {
-            m_currentView->stop();
-            hideAllElements();
-            m_page = 0;
-            m_totalPages = 0;
-            m_currentView->start();
+            m_filterMode = ELFM_NONE;
+            myCollectionsSelected();
         }
         else if(m_filterMode != ELFM_NONE && m_filterMode != ELFM_SEARCH)
             changeFilterMode(m_filterMode);
@@ -2667,25 +2667,29 @@ void Library::fillCurrentPathFiles()
     loadDir(m_basePath + m_currentPath);
 }
 
-void Library::openSearchPath(const QString &path)
+void Library::openSearchPath(const QString &path, bool fromHomeSearch)
 {
     m_currentIconView = m_iconGridViewer;
     m_currentLineView = m_lineGridViewer;
-    if(Storage::getInstance()->getRemovablePartition() && path.contains(Storage::getInstance()->getRemovablePartition()->getMountPoint())) {
-        m_filterMode = ELFM_SD;
-        changeFilterMode(ELFM_SD);
-//        m_booksFilterLayer->setSDChecked();
-        m_basePath = Storage::getInstance()->getRemovablePartition()->getMountPoint();
+    m_sourceMode = ELSM_BROWSER;
+
+    if(fromHomeSearch)
+    {
         m_currentPath = "";
-//        bookActionsSelectBtn->setText(m_booksFilterLayer->getSDCardName());
-    }
-    else {
-        m_filterMode = ELFM_INTERNAL;
-        changeFilterMode(ELFM_INTERNAL);
-//        m_booksFilterLayer->setInternalMemoryChecked();
-        m_basePath = Storage::getInstance()->getPublicPartition()->getMountPoint();
-        m_currentPath = "";
-//        bookActionsSelectBtn->setText(m_booksFilterLayer->getInternalMemoryName());
+        m_booksFilterLayer->setBrowserChecked();
+        if(Storage::getInstance()->getRemovablePartition() && path.contains(Storage::getInstance()->getRemovablePartition()->getMountPoint()))
+        {
+            m_basePath = Storage::getInstance()->getRemovablePartition()->getMountPoint();
+            sdSelected(m_currentPath);
+            m_filterMode = ELFM_SD;
+        }
+        else
+        {
+            m_basePath = Storage::getInstance()->getPublicPartition()->getMountPoint();
+            internalMemorySelected(m_currentPath);
+            m_filterMode = ELFM_INTERNAL;
+        }
+        changeFilterMode(m_filterMode);
     }
     showBrowserFilterUIStuff();
     itemClicked(path);
@@ -2987,7 +2991,9 @@ void Library::performSearch()
     deleteSearchData();
 
     // Set Paths
-    if(Storage::getInstance()->getRemovablePartition() && Storage::getInstance()->getRemovablePartition()->isMounted())
+    if(Storage::getInstance()->getRemovablePartition()
+            && Storage::getInstance()->getRemovablePartition()->isMounted()
+            && m_filterMode == ELFM_SD)
         m_basePath = Storage::getInstance()->getRemovablePartition()->getMountPoint();
 
     if(m_filterMode != ELFM_SEARCH)
@@ -3257,6 +3263,7 @@ void Library::closeSearchClicked( )
         break;
     case ELFM_INTERNAL:
         browserFileSelected(m_currentPath);
+        internalMemorySelected(m_currentPath);
         break;
     default:
         myBooksSelected();

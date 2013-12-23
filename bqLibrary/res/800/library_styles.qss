@@ -1242,11 +1242,11 @@ max-height:56px;
 border-right-width:1px;
 }
 #pageLibraryViewerCont #pageLabel{
-margin:1px 0px 0px 0px;
+margin:1px 0px 0px 14px;
 min-height:56px;
 max-height:56px;
-min-width:100px;
-max-width:100px;
+min-width:120px;
+max-width:120px;
 }
 #pageLibraryViewerCont #pageLabel{
 margin-top:1px;
@@ -1258,8 +1258,8 @@ QSlider#pagerSlider{
 margin-right:0px;
 min-height:56px;
 max-height:56px;
-min-width:310px;
-max-width:310px;
+min-width:275px;
+max-width:275px;
 }
 QSlider#pagerSlider::groove:horizontal {
 height: 5px;
@@ -1360,17 +1360,17 @@ border-left-width:1px;
 margin:5px 0px 6px -5px;
 }
 #bookSummaryDataContainer #priceCont{
-max-height:21px;
-min-height:21px;
+max-height:15px;
+min-height:15px;
 margin:6px 0px 0px;
 }
 #LibraryBookSummary  #spacerBottomLbl{
-max-height:15px;
-min-height:15px;
+max-height:14px;
+min-height:14px;
 }
 #LibraryBookSummary #numberPagesCont{
-max-height:21px;
-min-height:21px;
+max-height:18px;
+min-height:18px;
 margin:6px 0px 0px;
 }
 #LibraryBookSummary #numberTotalPagesLbl{

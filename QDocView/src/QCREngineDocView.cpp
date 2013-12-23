@@ -30,8 +30,20 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDebug>
 #include <QDir>
 #include <cmath>
+#include "sys/types.h"
+#include "sys/sysinfo.h"
 
 #include "Screen.h"
+#include "Fb2MetaDataExtractor.h"
+#include "PowerManager.h"
+#include "QBookApp.h"
+#include "ConfirmDialog.h"
+#include "InfoDialog.h"
+
+/// min ram free, after which swapping to disk should occur
+#ifndef DOCUMENT_CACHING_MIN_RAM_FREE
+#define DOCUMENT_CACHING_MIN_RAM_FREE 0xF00000 // 15Mb
+#endif
 
 #define CR_FONT_SIZE_BEST        22.0
 #define CR_FONT_SIZE_DOC_SD      12
@@ -57,7 +69,6 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define TXT_LAYOUT_MARGIN       5
 #define TXT_PAGE_CALC_UNITS     25
 #define TXT_PAGE_UPDATE_UNITS   20
-#define TXT_MAX_FILE_SIZE       (16 * 1024 * 1024)
 
 #ifdef MX508  
 #define CR_FONT_PATH        "/usr/lib/fonts"
@@ -77,6 +88,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define CR_DEFAULT_JUSTIFY_VALUE    2
 
 #include <QFontDatabase>
+#include <QLayout>
 #include "QCREngineDocView.h"
 
 static lString8 readFileToString( const char * fname ) 
@@ -161,8 +173,10 @@ QCREngineDocView::QCREngineDocView(QWidget* parent) : QDocView(parent)
         }
     }
 
-    viewPortSize.setHeight(parent->height());
-    viewPortSize.setWidth(parent->width());
+    QMargins layoutMargins = parent->layout()->contentsMargins();
+
+    viewPortSize.setHeight(parent->height() - layoutMargins.top() - layoutMargins.bottom());
+    viewPortSize.setWidth(parent->width() - layoutMargins.left() - layoutMargins.right());
     qDebug() << "Initializing font manager with path: " << QBook::fontsDirPath();
   
     if(!InitFontManager( lString8(QBook::fontsDirPath().toUtf8().constData()) ))
@@ -191,8 +205,6 @@ QCREngineDocView::QCREngineDocView(QWidget* parent) : QDocView(parent)
 
     if (css.length() > 0)
         text_view->setStyleSheet( css );*/
-
-    setDocFont();
 
     text_view->setBackgroundColor(0xFFFFFF);
     text_view->setTextColor(0);
@@ -248,9 +260,62 @@ QUrl QCREngineDocView::url() const
 void QCREngineDocView::setupAppearance()
 {
     setDocFont();
-    setScaleFactor(QBook::settings().value("setting/reader/font_size/cr3", m_fontSizeMin).toInt());
     setDefaultSpacing();
     setDefaultJustification();
+}
+
+void QCREngineDocView::restartApp()
+{
+    qDebug() << Q_FUNC_INFO << "*********************************RESTART APP*********************************";;
+    QApplication::quit();
+}
+
+void QCREngineDocView::doRestartApp()
+{
+    QBookApp::instance()->enableUserEvents();
+    QBookApp::instance()->getStatusBar()->setBusy(false);
+
+    ConfirmDialog* confirmDialog = new ConfirmDialog(this,tr("The device must be rebooted."));
+    Screen::getInstance()->setMode(Screen::MODE_SAFE,true,FLAG_FULLSCREEN_UPDATE,Q_FUNC_INFO);
+    confirmDialog->exec();
+    delete confirmDialog;
+
+    QBookApp::instance()->disableUserEvents();
+
+    qDebug() << Q_FUNC_INFO << "*********************************RESTART*********************************";
+    PowerManagerLock* lock = PowerManager::getNewLock(this);
+    lock->activate();    
+    QBookApp::instance()->cancelSync();
+    QBookApp::instance()->showRestoringImage();
+    Screen::getInstance()->lockScreen();
+    QBookApp::instance()->syncModel();
+    QBook::settings().sync();
+    restartApp();
+}
+
+bool QCREngineDocView::enoughMemoryAvailable()
+{
+    qDebug() << Q_FUNC_INFO;
+
+    struct sysinfo memInfo;
+    sysinfo (&memInfo);
+    long long freeRam;
+    sysinfo (&memInfo);
+    freeRam = memInfo.freeram;
+    freeRam *= memInfo.mem_unit;
+
+    qDebug() << Q_FUNC_INFO << "********************************************************************** FREE RAM: " << freeRam;
+
+    if (freeRam < DOCUMENT_CACHING_MIN_RAM_FREE)
+    {
+        system("sync && sysctl -w vm.drop_caches=3");
+        sysinfo (&memInfo);
+        freeRam = memInfo.freeram;
+        freeRam *= memInfo.mem_unit;
+        qDebug() << Q_FUNC_INFO << "**********************************************************************TRY TO FREE UP MEMORY: " << freeRam;
+    }
+
+    return (freeRam > DOCUMENT_CACHING_MIN_RAM_FREE);
 }
 
 void QCREngineDocView::setUrl(const QUrl& url)
@@ -264,26 +329,29 @@ void QCREngineDocView::setUrl(const QUrl& url)
     
     if (file.size() <=0 ||file.size() > TXT_MAX_FILE_SIZE || !file.open(QFile::ReadOnly)) 
     {    
+        emit stateChanged(LOAD_FAILED);
         emit errorOccurred(tr("Can't open the book!"), EDVLE_GENERIC_ERROR);
-
         return;
     }
 
     if(!fontMan || !fontMan->GetFontCount())
     {
     	qDebug("[QCREngineDocView] GetFontCount failed"); 
-    	 // emit stateChanged(LOAD_FAILED);
+        emit stateChanged(LOAD_FAILED);
         emit errorOccurred(tr("Can't open the book!"), EDVLE_GENERIC_ERROR);
     	return;
     }
 
     setupAppearance();
 
+    // Prevent memory overload.
+    if (!enoughMemoryAvailable()) doRestartApp();
+
     qDebug("[QCREngineDocView]  LoadDocument .... ");
     if(!text_view|| !text_view->LoadDocument((const char *) url.toLocalFile().toUtf8()))
     {
     	qDebug("[QCREngineDocView]  LoadDocument failed");
-    	// emit stateChanged(LOAD_FAILED);
+        emit stateChanged(LOAD_FAILED);
         emit errorOccurred(tr("Can't open the book!"), EDVLE_GENERIC_ERROR);
     	return;
     }
@@ -920,7 +988,8 @@ void QCREngineDocView::updatePageNumber()
 }
 
 void QCREngineDocView::setMargin(double top, double right, double bottom, double left)
-{    
+{
+    qDebug() << Q_FUNC_INFO << left << top << right << bottom;
     text_view->setPageMargins(lvRect(left, top, right, bottom));
 }
 

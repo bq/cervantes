@@ -63,6 +63,10 @@ SettingsMyAccountMenu::SettingsMyAccountMenu(QWidget* parent) : FullScreenWidget
         connect(settingsAdobeDrmLinkDevice, SIGNAL(activatedOK()), this, SLOT(activated()));
         connect(settingsAdobeDrmLinkDevice, SIGNAL(hideMe()), this, SLOT(hideTopElement()));
         connect(settingsAdobeDrmUnLinkDevice, SIGNAL(hideMe()), this, SLOT(hideTopElement()));
+        connect(settingsAdobeDrmLinkDevice, SIGNAL(showNewChild(QWidget*)), this, SLOT(showNewChild(QWidget*)));
+        connect(settingsAdobeDrmUnLinkDevice, SIGNAL(showNewChild(QWidget*)), this, SLOT(showNewChild(QWidget*)));
+        connect(settingsAdobeDrmLinkDevice, SIGNAL(hideChild()), this, SLOT(hideTopElement()));
+        connect(settingsAdobeDrmUnLinkDevice, SIGNAL(hideChild()), this, SLOT(hideTopElement()));
 #endif
         connect(detailInformation, SIGNAL(hideMe()), this, SLOT(hideTopElement()));
         connect(settingsUnLinkStoreDevice, SIGNAL(hideMe()), this, SLOT(hideTopElement()));
@@ -191,4 +195,10 @@ void SettingsMyAccountMenu::showEvent ( QShowEvent * )
         myAccountBtn->show();
     else
         myAccountBtn->hide();
+}
+
+void SettingsMyAccountMenu::showNewChild(QWidget * widget)
+{
+    qDebug() << Q_FUNC_INFO;
+    ((Settings*)parent())->showElement(widget);
 }

@@ -45,7 +45,7 @@ SettingsPageScreenSaver::SettingsPageScreenSaver(QWidget* parent) : FullScreenWi
         setBtnChecked(imageRecentBookBtn, true);
         break;
     case QBookScreenSaver::STORED_IMAGES:
-        //setBtnChecked(storedImagesBtn, true);
+        setBtnChecked(storedImagesBtn, true);
         break;
     default:
         qWarning() << Q_FUNC_INFO << "Unexpected setting";

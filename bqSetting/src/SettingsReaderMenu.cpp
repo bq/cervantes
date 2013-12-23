@@ -27,8 +27,11 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "SettingsReaderPageTurning.h"
 #include "SettingsReaderProgressBar.h"
 #include "QBook.h"
+#include "QBookApp.h"
+#include "StatusBar.h"
 
 SettingsReaderMenu::SettingsReaderMenu(QWidget *parent)  : FullScreenWidget(parent)
+  , b_fromViewer(false)
 {
         setupUi(this);
 
@@ -58,19 +61,32 @@ SettingsReaderMenu::~SettingsReaderMenu()
 void SettingsReaderMenu::showReaderPageTurning()
 {
     qDebug() << Q_FUNC_INFO;
-    ((Settings*)parent())->showElement(settingsReaderPageTurning);
+    emit showNewChild(settingsReaderPageTurning);
 }
 
 void SettingsReaderMenu::showReaderProgressBar()
 {
     qDebug() << Q_FUNC_INFO;
-    ((Settings*)parent())->showElement(settingsReaderProgressBar);
+    emit showNewChild(settingsReaderProgressBar);
 }
 
 void SettingsReaderMenu::hideTopElement(){
         qDebug() << Q_FUNC_INFO;
 
-        ((Settings *)parent())->hideElement();
+        if(b_fromViewer)
+        {
+            QBookApp::instance()->getStatusBar()->setSpinner(true);
+            Screen::getInstance()->queueUpdates();
+        }
+        emit hideChild();
+        if(b_fromViewer)
+        {
+            b_fromViewer = false;
+            emit hideMe();
+            emit returnToViewer();
+            Screen::getInstance()->flushUpdates();
+            QBookApp::instance()->getStatusBar()->setSpinner(false);
+        }
 }
 
 void SettingsReaderMenu::paintEvent (QPaintEvent *){
@@ -79,3 +95,9 @@ void SettingsReaderMenu::paintEvent (QPaintEvent *){
          QPainter p(this);
          style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
  }
+
+void SettingsReaderMenu::goToReaderProgressMode()
+{
+    b_fromViewer = true;
+    showReaderProgressBar();
+}

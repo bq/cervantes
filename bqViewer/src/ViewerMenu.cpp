@@ -38,6 +38,7 @@ ViewerMenu::ViewerMenu(QWidget *parent): QWidget(parent)
     connect(gotoPageBtn,    SIGNAL(clicked()),  SIGNAL(goToPageBtnPress()));
     connect(summaryBtn,     SIGNAL(clicked()),  SIGNAL(summaryReq()));
     connect(contentsBtn,    SIGNAL(clicked()),  SIGNAL(indexReq()));
+    connect(viewerConfBtn,  SIGNAL(clicked()),  SIGNAL(viewerConfReq()));
     hide();
     chapterCont->hide();
     chapterNameLbl->hide();
@@ -64,6 +65,8 @@ void ViewerMenu::setCurrentChapter(const QString& title, int pagesLeft)
 
 void ViewerMenu::hideBar()
 {
-    chapterCont->hide();
+    chapterCont->show();
+    chapterNameLbl->hide();
+    chapterPageLbl->hide();
 }
 

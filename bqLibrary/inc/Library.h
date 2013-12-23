@@ -166,7 +166,7 @@ public:
 public slots:
     void                                itemClicked                         ( const QString& path );
     void                                itemLongPressed                     ( const QString& path );
-    void                                openSearchPath                      ( const QString& path );
+    void                                openSearchPath                      ( const QString& path , bool fromHomeSearch = false);
 
     void                                modelChanged                        ( const QString& path, int ); // Call it when the model has changed
     void                                changeReadState                     ( const BookInfo* bookInfo, BookInfo::readStateEnum state );

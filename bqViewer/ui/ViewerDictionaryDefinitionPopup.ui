@@ -32,80 +32,46 @@
    <property name="spacing">
     <number>0</number>
    </property>
-   <property name="leftMargin">
+   <property name="margin">
     <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>10</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>10</number>
    </property>
    <item>
-    <widget class="QWidget" name="arrowCont" native="true">
-     <property name="maximumSize">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
       <size>
-       <width>16777215</width>
-       <height>19</height>
+       <width>20</width>
+       <height>40</height>
       </size>
      </property>
-     <widget class="QLabel" name="topArrowLbl">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>2</y>
-        <width>24</width>
-        <height>17</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="indent">
-       <number>0</number>
-      </property>
-     </widget>
-    </widget>
+    </spacer>
    </item>
    <item>
-    <widget class="QFrame" name="popupCont">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>10000</width>
-       <height>10000</height>
-      </size>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+    <widget class="QWidget" name="ViewerDictionaryDefinitionPopupCont" native="true">
+     <layout class="QVBoxLayout" name="ViewerDictiossnaryDefinitionPopupCont">
       <property name="spacing">
        <number>0</number>
       </property>
-      <property name="margin">
-       <number>0</number>
+      <property name="topMargin">
+       <number>1</number>
       </property>
       <item>
-       <widget class="QFrame" name="headerPopup">
+       <widget class="QFrame" name="popupCont">
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>72</height>
+          <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
-          <height>72</height>
+          <width>10000</width>
+          <height>10000</height>
          </size>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout">
+        <layout class="QVBoxLayout" name="verticalLayout">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -113,111 +79,174 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Diccionario</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
+          <widget class="QFrame" name="headerPopup">
+           <property name="minimumSize">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>0</width>
+             <height>72</height>
             </size>
            </property>
-          </spacer>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>72</height>
+            </size>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Diccionario</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="closeBtn">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="closeBtn">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>0</number>
            </property>
-           <property name="focusPolicy">
-            <enum>Qt::NoFocus</enum>
+           <property name="leftMargin">
+            <number>2</number>
            </property>
-           <property name="text">
-            <string/>
+           <property name="topMargin">
+            <number>0</number>
            </property>
+           <item>
+            <widget class="QPushButton" name="backSearchBtn">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="changeDictionaryBtn">
+             <property name="text">
+              <string>Selecciona diccionario</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="bqQTextBrowser" name="dictionaryDefinitionTextBrowser">
+           <property name="textInteractionFlags">
+            <set>Qt::NoTextInteraction</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="ViewerVerticalPagerPopup" name="VerticalPagerPopup" native="true">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="margin">
+             <number>0</number>
+            </property>
+           </layout>
           </widget>
          </item>
         </layout>
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <property name="spacing">
-         <number>0</number>
+       <widget class="QWidget" name="arrowCont" native="true">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>19</height>
+         </size>
         </property>
-        <property name="leftMargin">
-         <number>2</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QPushButton" name="backSearchBtn">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="changeDictionaryBtn">
-          <property name="text">
-           <string>Selecciona diccionario</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="bqQTextBrowser" name="dictionaryDefinitionTextBrowser">
-        <property name="textInteractionFlags">
-         <set>Qt::NoTextInteraction</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="ViewerVerticalPagerPopup" name="VerticalPagerPopup" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <property name="spacing">
+        <widget class="QLabel" name="topArrowLbl">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>2</y>
+           <width>24</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="indent">
           <number>0</number>
          </property>
-         <property name="margin">
-          <number>0</number>
-         </property>
-        </layout>
+        </widget>
        </widget>
       </item>
      </layout>
     </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>

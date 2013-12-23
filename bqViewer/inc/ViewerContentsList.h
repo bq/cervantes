@@ -39,6 +39,7 @@ public:
     virtual ~ViewerContentsList();
 
 public:
+    void                                                clearTableOfContent                 ();
     void                                                setTableOfContent                   ( QDocView::TableOfContent* toc );
     void                                                setLocationList                     ( QList<const BookLocation*>* locationList );
     void                                                setBook                             ( const BookInfo* );

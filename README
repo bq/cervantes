@@ -17,14 +17,24 @@ on his own device if the special developers firmware edition has
 been installed. See the following link for further info: 
 http://www.mibqyyo.com/actualidad/2013/07/15/bq-ereaders-developers-program
 
-HOW TO BUILD
-------------
+HOW TO BUILD FOR ARM
+--------------------
 Script build.sh can be used to build the whole application in an
 easy way. Since the source code for this application makes use of
 private libraries protected by differentn license agreements that
 are not provided, it is necessary to include the following parameters:
 
 ./build.sh -hackers -disable_adobe
+
+NOTE: It is necessary to use a 32 bits version of Linux. Ubuntu is recommended.
+
+HOW TO BUILD AND EMULATE IN x86 PC
+----------------------------------
+It is possible to emulate the application in a 32 bits linux machine, to do so
+just execute the following script:
+
+./emulate.sh -hackers -disable_adobe -prefix /home/alex/program/cervantes/bqeReaderSDK
+
 
 LICENSING
 --------- 

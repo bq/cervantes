@@ -40,8 +40,6 @@ private slots:
     void                        handleSleepTime                             ();
     void                        handleSwitchOffTime                         ();
 
-    void                        hideTopElement                              ();
-
 private:
 
     SettingsSleepTimeMenu*      sleepTime;
@@ -53,6 +51,10 @@ protected:
 
     /* http://qt-project.org/forums/viewthread/7340 */
     void                        paintEvent                                  (QPaintEvent *);
+
+signals:
+    void                        showNewChild                                (QWidget*);
+    void                        hideChild                                   ();
 
 };
 

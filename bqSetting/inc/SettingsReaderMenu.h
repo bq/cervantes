@@ -43,10 +43,15 @@ public:
                     SettingsReaderMenu                          (QWidget *);
     virtual         ~SettingsReaderMenu                         ();
 
+    void            goToReaderProgressMode                      ();
+    bool            fromViewer                                  () { return b_fromViewer; }
+    void            setFromViewer                               (bool isFromViewer) { b_fromViewer = isFromViewer; }
+
 private:
 
     SettingsReaderPageTurning*      settingsReaderPageTurning;
     SettingsReaderProgressBar*      settingsReaderProgressBar;
+    bool                            b_fromViewer;
 
 protected:
 
@@ -55,9 +60,14 @@ protected:
 
 private slots:
 
-    void                            showReaderPageTurning               ();
+    void                            showReaderPageTurning               ();  
     void                            showReaderProgressBar               ();
     void                            hideTopElement                      ();
+
+signals:
+    void                            returnToViewer                      ();
+    void                            showNewChild                        (QWidget*);
+    void                            hideChild                           ();
 
 };
 

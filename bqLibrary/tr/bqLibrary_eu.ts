@@ -529,6 +529,10 @@ p, li { white-space: pre-wrap; }
         <source>Copy</source>
         <translation>Kopiatu</translation>
     </message>
+    <message>
+        <source>FB2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LibraryBookToCollectionItem</name>
@@ -712,6 +716,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>a las</source>
         <translation>Ordua:</translation>
+    </message>
+    <message>
+        <source>dd/MM, hh:mm</source>
+        <translation>MM/dd, hh:mm</translation>
+    </message>
+    <message>
+        <source>dd/MM/yy, </source>
+        <translation>yy/MM/dd,</translation>
     </message>
 </context>
 <context>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>64</width>
-    <height>758</height>
+    <width>94</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
      <x>0</x>
      <y>0</y>
      <width>66</width>
-     <height>758</height>
+     <height>600</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -33,9 +33,9 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="QPushButton" name="closeBtn">
+     <widget class="QPushButton" name="zoomPlusBtn">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+       <sizepolicy hsizetype="Ignored" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -49,9 +49,9 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="landscapeModeBtn">
+     <widget class="QPushButton" name="zoomMinusBtn">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+       <sizepolicy hsizetype="Ignored" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -65,7 +65,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="heightAdjustBtn">
+     <widget class="QPushButton" name="fullScreenBtn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -97,7 +97,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="fullScreenBtn">
+     <widget class="QPushButton" name="heightAdjustBtn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -113,9 +113,9 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="zoomMinusBtn">
+     <widget class="QPushButton" name="landscapeModeBtn">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Ignored" vsizetype="Expanding">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -129,9 +129,9 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="zoomPlusBtn">
+     <widget class="QPushButton" name="closeBtn">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Ignored" vsizetype="Expanding">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>

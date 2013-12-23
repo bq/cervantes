@@ -35,6 +35,7 @@ public:
     DegreesLabel270(QWidget *parent);
     virtual ~DegreesLabel270();
     void setText(const QString &text);
+    void setAlignment(const uint& newAlignment);
 
 protected:
     void paintEvent(QPaintEvent *);
@@ -42,6 +43,7 @@ protected:
 
 private:
     QString content;
+    uint    alignment;
 };
 
 #endif // DEGREESLABEL270_H

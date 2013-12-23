@@ -117,6 +117,13 @@ void ViewerContentsPopup::initContentList()
     m_chaptersWidget->setTableOfContent(m_parentViewer->docView()->tableOfContent());
 }
 
+void ViewerContentsPopup::clearContentList()
+{
+    qDebug() << Q_FUNC_INFO;
+
+    m_chaptersWidget->clearTableOfContent();
+}
+
 void ViewerContentsPopup::setCurrentView()
 {
     if(m_currentView == m_marksWidget)
@@ -173,6 +180,8 @@ const QList<QDocView::Location*>& ViewerContentsPopup::getContentList() const
 void ViewerContentsPopup::calculatePageForChapters()
 {
     qDebug() << Q_FUNC_INFO;
+
+    if (getContentList().isEmpty()) return;
 
     QList<QDocView::Location*>::const_iterator it = getContentList().constBegin();
     QList<QDocView::Location*>::const_iterator itEnd = getContentList().constEnd();

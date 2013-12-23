@@ -26,10 +26,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #if defined(BATTERY_TEST) || defined(SHOWCASE)
 #include <QDateTime>
 
-#define TURNING_QUICK_PERIOD        1
-#define TURNING_NORMAL_PERIOD       33     // Period - POWERMANAGER_AWAKE_USER_TIME
 #define FRONT_LIGHT_BLINK_PERIOD    21600  // Re-switch on the light every 6 hours because
-                                           // microcontroller auto switch off after cetain time
+                                           // microcontroller auto switch off after certain time
 #endif
 struct input_event;
 
@@ -71,15 +69,15 @@ public:
     virtual void setLed(bool) = 0;
 
 #if defined(BATTERY_TEST) || defined(SHOWCASE)
-    void specialTestAction(bool slept);
+    bool doSpecialTestAction(bool slept);
     void checkAndResetLight();
 
-    bool b_suspendDisabled;
     QDateTime m_scheduledFLBlinkTime;
 #endif
 
 protected:
     bool b_processCanceled;
+    virtual bool wakeupActive(QString *sources, int numSources);
 
 private:
     static Power* _instance;

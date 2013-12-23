@@ -84,7 +84,11 @@ Interneten</translation>
     <name>QCREngineDocView</name>
     <message>
         <source>Can&apos;t open the book!</source>
-        <translation>Ezin da liburua ireki!</translation>
+        <translation>Ezin da liburua ireki.</translation>
+    </message>
+    <message>
+        <source>The device must be rebooted.</source>
+        <translation>Gailua berrabiarazi behar da.</translation>
     </message>
 </context>
 </TS>

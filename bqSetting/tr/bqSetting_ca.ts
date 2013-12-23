@@ -176,9 +176,19 @@
         <translation>Enginyeria i desenvolupament</translation>
     </message>
     <message utf8="true">
+        <location filename="../ui/SettingsAboutUs.ui" line="175"/>
+        <source>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="188"/>
         <source>Diseño gráfico</source>
         <translation>Disseny gràfic</translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsAboutUs.ui" line="198"/>
+        <source>Nieves Herreros, Sandra Salvador.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="208"/>
@@ -186,19 +196,39 @@
         <translation>Maquetació</translation>
     </message>
     <message>
+        <location filename="../ui/SettingsAboutUs.ui" line="221"/>
+        <source>Eva Belmonte.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../ui/SettingsAboutUs.ui" line="234"/>
         <source>Experiencia de usuario</source>
         <translation>Experiència d&apos;usuari</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../ui/SettingsAboutUs.ui" line="244"/>
+        <source>Mayte Vázquez.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/SettingsAboutUs.ui" line="257"/>
         <source>Calidad</source>
         <translation>Qualitat</translation>
     </message>
+    <message utf8="true">
+        <location filename="../ui/SettingsAboutUs.ui" line="270"/>
+        <source>Mercedes Trueba, Daniel Rodríguez, Ivan Ovejero, Jesús Talavera, Pablo Alonso, Álvaro Font, Raúl García-Serrano.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../ui/SettingsAboutUs.ui" line="283"/>
         <source>Jefe de producto</source>
         <translation>Cap de producte</translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsAboutUs.ui" line="293"/>
+        <source>Ravin Dhalani.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/SettingsAboutUs.cpp" line="44"/>
@@ -2151,7 +2181,7 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
         <translation>bqOS-2.xx.x_FNAC</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="47"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="49"/>
         <source>Wait while searching available updates</source>
         <translation>Espera mentre es cerquen actualitzacions disponibles</translation>
     </message>
@@ -2163,65 +2193,77 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="71"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="73"/>
         <source>There aren&apos;t new updates available while you are not linked.</source>
         <translation>Per a comprovar si existeixen actualitzacions disponibles has de tenir enllaçat el teu dispositiu.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="80"/>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="126"/>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="133"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="82"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="129"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="136"/>
         <source>There aren&apos;t new updates available</source>
         <translation>No hi ha noves actualitzacions disponibles</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="140"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="143"/>
         <source>There are a new version available:</source>
         <translation>Hi ha una nova versió disponible:</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="179"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="183"/>
         <source>No space available on the device.
 Please remove some files.</source>
         <translation>No hi ha espai disponible al dispositiu.
 Si us plau, esborra alguns arxius.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="190"/>
         <source>Please connect the charger
 before the download.</source>
-        <translation>Si us plau, connecta el carregador abans de la descàrrega.</translation>
+        <translation type="obsolete">Si us plau, connecta el carregador abans de la descàrrega.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="206"/>
         <source>Please, don&apos;t disconnect the charger
  during the download.</source>
-        <translation>Si us plau, no desconnectis el carregador durant la descàrrega.</translation>
+        <translation type="obsolete">Si us plau, no desconnectis el carregador durant la descàrrega.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="211"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="195"/>
+        <source>Low battery level.
+Please connect the charger
+before the download.</source>
+        <translation>Nivell de bateria per sota del 50%. Si us plau, connecta el carregador per a iniciar la descàrrega de l&apos;actualització.</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="213"/>
+        <source>Low battery level.
+Please, don&apos;t disconnect the charger
+ during the download.</source>
+        <translation>Nivell de bateria per sota del 50%. Si us plau, mantingues el carregador connectat durant el procés d&apos;actualització.</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="219"/>
         <source>Downloading...
 This process may take several minutes </source>
         <translation>Descarregant... Aquest procés pot trigar uns quants minuts</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="228"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="236"/>
         <source>Error downloading</source>
-        <translation>Error a la descàrrega</translation>
+        <translation>Error de descàrrega. Si us plau, torni-ho a intentar.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="238"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="246"/>
         <source>Firmware download complete
 Restarting to apply changes.</source>
-        <translation>Instal·lació del firmware completada. Tornant a iniciar per a aplicar els canvis.</translation>
+        <translation>Descàrrega del firmware completada. Tornant a iniciar per a aplicar els canvis.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="245"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="253"/>
         <source>Downloaded file is corrupted</source>
         <translation>L&apos;arxiu descarregat està danyat</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="258"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="266"/>
         <source>Installation failed. Please try again in a few minutes</source>
         <translation>La instal·lació ha fallat. Si us plau torni-ho a intentar un altre cop d&apos;aquí uns minuts.</translation>
     </message>

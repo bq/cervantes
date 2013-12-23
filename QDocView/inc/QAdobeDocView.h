@@ -152,11 +152,14 @@ public:
 
     virtual void takeMiniatureScreenshot();
     virtual void scrolling();
+    virtual void positioningMiniature();
 
 signals:
     void arrowShow          (QList<bool>);
-    void zoomChange         (double newZoom, double minZoom);
+    void zoomChange         (double newZoom);
     void pdfZoomLevelChange (int level);
+    void aspectRatio        (QRectF);
+    void pageModeReflow     ();
 
 public slots:
 
@@ -230,7 +233,6 @@ protected:
     bool pdfGoToPage        (LocationRef& loc);
 
     bool screenshot          ();
-    void positioningMiniature();
 
     bool setScaleFactorOnNextZoomedPage     (double factor, double delta_x = 0, double delta_y = 0);
     bool setScaleFactorOnPreviousZoomedPage (double factor, double delta_x = 0, double delta_y = 0);

@@ -409,6 +409,11 @@ color:#333333;
 #bookSummaryDataContainer #bookPriceLbl {
 font-weight:bold;
 }
+#bookSummaryDataContainer #formatLbl{
+text-transform:uppercase;
+}
+#bookSummaryActions QLabel{
+}
 #priceCont{
 }
 #actionsContainer #buyBookBtn{

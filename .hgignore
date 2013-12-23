@@ -45,12 +45,7 @@ re:^bqUtils/lib/
 moc_*.cpp
 re:^library/lib/
 libbqModelLibrary.so*
-*.qrc~
-*.ui~
 re:^bqWizard/src/WebWizard\.cpp\.rej$
 *.rej
 *.bak
-*.css~
-*.h~
-*.cpp~
-*.qrc~
+*~

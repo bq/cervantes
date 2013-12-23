@@ -23,6 +23,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "MetaDataExtractor.h"
 
+#define TXT_MAX_FILE_SIZE       (16 * 1024 * 1024)
+
 class Fb2MetaDataExtractor
 {
 public:

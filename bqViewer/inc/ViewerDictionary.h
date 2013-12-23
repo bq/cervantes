@@ -60,6 +60,7 @@ protected:
    QString                          getDictionaryName                       ( const QString& ) const;
    int                              getDictionaryPosition                   ( const QString& ) const;
    virtual void                     paintEvent                              ( QPaintEvent* );
+   virtual void                     mousePressEvent                         ( QMouseEvent* );
 
 private slots:
    void                             showChangeDictionaryWidget              ();

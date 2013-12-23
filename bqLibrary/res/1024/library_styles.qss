@@ -1329,20 +1329,20 @@ border-left-width:1px;
 #LibraryBookSummary #bookActionsCont #archiveBtn{
 }
 #bookSummaryDataContainer #priceCont{
-min-height:40px;
-max-height:40px;
+min-height:30px;
+max-height:30px;
 }
 #LibraryBookSummary #bookSummaryActions #bookAuthorLbl{
 max-height:40px;
 min-height:40px;
 }
 #LibraryBookSummary #bookSummaryDataContainer #spacerBottomLbl{
-max-height:25px;
-min-height:25px;
+max-height:20px;
+min-height:20px;
 }
 #LibraryBookSummary #numberPagesCont{
-max-height:40px;
-min-height:40px;
+max-height:35px;
+min-height:35px;
 }
 #LibraryBookSummary #numberTotalPagesLbl{
 font-size:22px;

@@ -813,22 +813,14 @@ void ViewerMarkHandler::handleDelimiterPressEvent(QPoint const eventPoint)
 
     if((m_staticHighlightPoint = m_viewerDelimiters[0]->getHighlightPoint()) == eventPoint)
     {
-        m_staticHighlightPoint = m_viewerDelimiters[1]->getHighlightPoint()/* - QPoint(0, 0)*/;
-        //dynamicHighlightPoint += QPoint(0, 0);
+        m_staticHighlightPoint = m_viewerDelimiters[1]->getHighlightPoint();
         m_movingRightDelimiter = false;
     }
     else
-    {
-        //m_staticHighlightPoint += QPoint(0 , 0);
-        //dynamicHighlightPoint -= QPoint(0, 0);
         m_movingRightDelimiter = true;
-    }
-
 
     int i_dynHiliId = isHighlighted(dynamicHighlightPoint); // >= 0 if exists, It should be ever well.
     int i_statHiliId = isHighlighted(m_staticHighlightPoint);
-
-
 
     if(m_movingRightDelimiter)
     {
@@ -841,17 +833,9 @@ void ViewerMarkHandler::handleDelimiterPressEvent(QPoint const eventPoint)
         while((i_statHiliId = isHighlighted(m_staticHighlightPoint)) < 0) m_staticHighlightPoint -= QPoint(1, 0);
     }
 
-
     if(i_dynHiliId < 0 || i_statHiliId < 0 || i_dynHiliId != i_statHiliId) return;
 
     int i_hiliId = i_dynHiliId;
-
-    /*if((i_hiliId = i_dynHiliId) < 0)
-    {
-        if((i_hiliId = i_statHiliId) < 0) return;
-    }*/
-
-
     m_modifyingMark = true;
 
     m_tempHighlightRect = m_currentDoc->getHighlightBBox(i_hiliId);
@@ -864,7 +848,6 @@ void ViewerMarkHandler::handleDelimiterPressEvent(QPoint const eventPoint)
     }
 
     m_currentDoc->removeHighlight(i_hiliId);
-    m_currentDoc->setBlockPaintEvents(true);
 
     Screen::getInstance()->queueUpdates();
     Screen::getInstance()->setMode(Screen::MODE_QUICK, false, FLAG_PARTIALSCREEN_UPDATE, Q_FUNC_INFO);
@@ -874,7 +857,7 @@ void ViewerMarkHandler::handleDelimiterPressEvent(QPoint const eventPoint)
 
     // Hide popups
     hideTextActions();
-
+    m_currentDoc->setBlockPaintEvents(true);
     m_modifyingMark = true;
     m_firstDelimiterMoveEvent = true;
 }

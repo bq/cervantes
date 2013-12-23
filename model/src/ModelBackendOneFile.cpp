@@ -437,6 +437,7 @@ BookInfo* ModelBackendOneFile::loadBook (QXmlStreamReader& xml)
                         if (name == "collection") {
                             QString collection = xml.readElementText();
                             info->addCollection(collection);
+                            addCollection(collection);
                         }
 
                     }
@@ -540,6 +541,7 @@ BookInfo* ModelBackendOneFile::loadDefaultInfo( const QString& path )
         // TODO: No están todos los atributos.
     }
 
+    bookInfo->readingStatus = BookInfo::NO_READ_BOOK;
     bookInfo->path = path;
     if (path.toLower().endsWith(".epub") || path.toLower().endsWith(".fb2"))
          bookInfo->fontSize = 2;
@@ -1138,6 +1140,7 @@ void ModelBackendOneFile::addCollection(QString collection)
     }
     if(!isAddedYet)
         m_collections->append(collection);
+    m_pathsMount.insert(_privatePartition,true);
 }
 
 void ModelBackendOneFile::removeCollection(QString collection)
@@ -1150,6 +1153,7 @@ void ModelBackendOneFile::removeCollection(QString collection)
             break;
         }
     }
+    m_pathsMount.insert(_privatePartition,true);
 }
 
 QStringList ModelBackendOneFile::getCollections()

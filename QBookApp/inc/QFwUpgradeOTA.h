@@ -79,6 +79,7 @@ public:
     bool getCancelRequested(){ return cancelRequested;}
     QString getOTAVersionString();
     QVariantMap getOTAReleaseNotes();
+    bool checkUpdateInfo();
 
 signals:
     void OTAProgress(int);

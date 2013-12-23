@@ -59,10 +59,9 @@ ViewerContentsList::~ViewerContentsList()
     qDebug() << Q_FUNC_INFO;
     m_bookIndexList.clear();
 
-    qDeleteAll(m_contentList.begin(), m_contentList.end());
-    m_contentList.clear();
+    clearTableOfContent();
 
-   delete m_locations;
+    delete m_locations;
     m_locations = NULL;
 }
 
@@ -70,12 +69,17 @@ void ViewerContentsList::setBook(const BookInfo* book) {
     m_book = book;
 }
 
+void ViewerContentsList::clearTableOfContent()
+{
+    qDeleteAll(m_contentList.begin(), m_contentList.end());
+    m_contentList.clear();
+}
+
 void ViewerContentsList::setTableOfContent( QDocView::TableOfContent* toc )
 {
     qDebug() << Q_FUNC_INFO;
 
-    qDeleteAll(m_contentList.begin(), m_contentList.end());
-    m_contentList.clear();
+    clearTableOfContent();
 
     // TODO: Launch it in other thread so the book opening is not affected.
 

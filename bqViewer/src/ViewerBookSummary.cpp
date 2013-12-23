@@ -158,16 +158,20 @@ void ViewerBookSummary::setBook(const BookInfo* book)
     numberTotalPagesLbl->setText(QString::number(pages));
 
     synopsisLbl->setText(tr("Sinopsis"));
+    summaryTextBrowser->setText(m_book->synopsis);
     if(!m_book->synopsis.isEmpty())
-        summaryTextBrowser->setText(m_book->synopsis);
+        synopsisLbl->show();
     else
-        summaryTextBrowser->setText("");
+        synopsisLbl->hide();
 
     //Define a single step as the 75% of the normal height in the widget.
     vbar->setSingleStep(summaryTextBrowser->height()*PERCENT_STEP_VALUE);
 
     m_viewerListActions->setButtonsState(m_book->readingStatus);
     setActionsBtnText(m_book->readingStatus);
+
+    //Format
+    formatLbl->setText(m_book->format);
 
     if(m_book->m_type != BookInfo::BOOKINFO_TYPE_DEMO && !m_book->m_archived && countMarks > 0)
         exportNotesBtn->show();
@@ -536,6 +540,9 @@ void ViewerBookSummary::changeReadState(int state)
     SelectionDialog* readDialog = new SelectionDialog(this, readText, tr("Change"));
     Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
     readDialog->exec();
+
+    if(!readDialog->result())
+        return;
 
     Screen::getInstance()->queueUpdates();
     QBookApp::instance()->goToHome();

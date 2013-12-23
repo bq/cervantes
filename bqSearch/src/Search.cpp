@@ -124,7 +124,8 @@ Search::Search (QWidget* parent) : QBookForm(parent)
 
         model = QBookApp::instance()->getModel();
 
-        connect(Storage::getInstance(), SIGNAL(partitionUmounted(StoragePartition*)), this, SLOT(removeResultsFromSD()));
+        connect(model, SIGNAL(modelChanged(QString,int)), this, SLOT(removeResults()));
+        connect(Storage::getInstance(), SIGNAL(partitionUmounted(StoragePartition*)), this, SLOT(removeResults()));
 
         m_powerLock = PowerManager::getNewLock(this);
         init();
@@ -147,7 +148,7 @@ void Search::activateForm()
 
         QBookApp::instance()->getStatusBar()->setMenuTitle(tr("Search"));
 
-        if(b_searchDirty && (m_books.size() + m_files.size() + m_dirs.size())> 0) // Previous search. Updates it just in case the model has changed
+        if(b_searchDirty) // Previous search. Updates it just in case the model has changed
             show();
 }
 
@@ -371,7 +372,8 @@ void Search::searchInPath(const QString& path, const QString& searchStr)
                     books_author.append(bookInfo);
                 }
             }
-            else if(bqUtils::simplify(filePath).contains(searchStr, Qt::CaseInsensitive))
+            else if(bqUtils::simplify(filePath).contains(searchStr, Qt::CaseInsensitive) &&
+                    !filePath.contains(Storage::getInstance()->getPrivatePartition()->getMountPoint()))
             {
                 qDebug() << Q_FUNC_INFO << "Adding filePath: " << filePath;
                 QFileInfo* file = new QFileInfo(fi);
@@ -634,7 +636,7 @@ void Search::openPath(const QString& path)
             QFileInfo fi(path);
             if(fi.isDir())
             {
-                QBookApp::instance()->getLibrary()->openSearchPath(path);
+                QBookApp::instance()->getLibrary()->openSearchPath(path, true);
                 QBookApp::instance()->goToLibrary();
             }
             else
@@ -707,7 +709,7 @@ void Search::handleSearchFinished()
 }
 
 /** Refreshes local results when the model changes (SD extracted) */
-void Search::removeResultsFromSD()
+void Search::removeResults()
 {
         if(m_files.size() + m_books.size() + m_dirs.size() <= 0) // No results, no need to refresh
             return;

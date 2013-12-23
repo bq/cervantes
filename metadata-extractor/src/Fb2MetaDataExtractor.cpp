@@ -27,6 +27,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QImageReader>
 
 
+#define BYTES_TO_READ       10240
+
 bool isImage(const QString& path);
 
 bool Fb2MetaDataExtractor::getMetaData(MetaData& /*data*/)
@@ -73,19 +75,22 @@ bool Fb2MetaDataExtractor::getAuthorMetaData(const QByteArray& data, QString& au
                 if ((streamData.readNext() == QXmlStreamReader::StartElement  && streamData.name() == "author") &&
                      streamData.readNextStartElement())
                 {
+                    bool isStartElement = true;
                     while (!streamData.atEnd())
                     {
-                        if (streamData.name() == "first-name" && streamData.readNext() == QXmlStreamReader::Characters)
+                        if (isStartElement && streamData.name() == "first-name" && streamData.readNext() == QXmlStreamReader::Characters)
                         {
                             firstName = streamData.text().toString();
-                            streamData.readNextStartElement();
+                            streamData.skipCurrentElement();
+                            isStartElement = streamData.readNextStartElement();
                         }
-                        else if (streamData.name() == "middle-name" && streamData.readNext() == QXmlStreamReader::Characters)
+                        else if (isStartElement && streamData.name() == "middle-name" && streamData.readNext() == QXmlStreamReader::Characters)
                         {
                             middleName = streamData.text().toString();
-                            streamData.readNextStartElement();
+                            streamData.skipCurrentElement();
+                            isStartElement = streamData.readNextStartElement();
                         }
-                        else if (streamData.name() == "last-name" && streamData.readNext() == QXmlStreamReader::Characters)
+                        else if (isStartElement && streamData.name() == "last-name" && streamData.readNext() == QXmlStreamReader::Characters)
                         {
                             lastName = streamData.text().toString();
                         }
@@ -98,7 +103,7 @@ bool Fb2MetaDataExtractor::getAuthorMetaData(const QByteArray& data, QString& au
             break;
         }
         else if (streamData.name() == "document-info" || // Ensures author node withim title-info node.
-                 streamData.name() == "body") return false; //  Ensures break before the end.
+                 streamData.name() == "body") break; //  Ensures break before the end.
     } // End WHILE
 
     if (streamData.hasError())
@@ -145,18 +150,16 @@ bool Fb2MetaDataExtractor::getDescriptionMetaData(const QByteArray& data, QStrin
                     streamData.readNextStartElement() &&
                     streamData.name() == "p")
             {
-TEXT:           if (!streamData.atEnd() && // Prevent memory overflow in goto loop within main loop.
-                     streamData.readNext() == QXmlStreamReader::Characters)
+                if (streamData.readNext() == QXmlStreamReader::Characters)
                 {
                     if (several) description += '\n';
                     description += streamData.text().toString();
+                    streamData.skipCurrentElement();
                     several = true;
                 }
-                else if (streamData.name() == "p") goto TEXT; // For allow empty "p" tags.
-                else break;
             }
         }
-        else if (streamData.name() == "body") return false; //  Ensures break before the end.
+        else if (streamData.name() == "body") break; //  Ensures break before the end.
     }
 
     if (streamData.hasError())
@@ -164,6 +167,8 @@ TEXT:           if (!streamData.atEnd() && // Prevent memory overflow in goto lo
         qDebug() << Q_FUNC_INFO << streamData.error();
         // TODO: do error handling
     }
+
+    qDebug() << Q_FUNC_INFO << description;
 
     if(description.isEmpty()) return false;
     return true;
@@ -223,7 +228,7 @@ bool Fb2MetaDataExtractor::getPublisherMetaData(const QByteArray& data, QString&
             }
             else return false;
         }
-        else if (streamData.name() == "body") return false; //  Ensures break before the end.
+        else if (streamData.name() == "body") break; //  Ensures break before the end.
     }
 
     if (streamData.hasError())
@@ -239,8 +244,8 @@ bool Fb2MetaDataExtractor::getMetaData(const QString& fb2Filename, QString& titl
 {
 
     QFile file(fb2Filename);
-    if (!file.open(QIODevice::ReadOnly)) return false;
-    QByteArray data = file.readAll();
+    if (!file.open(QIODevice::ReadOnly) || file.size() > TXT_MAX_FILE_SIZE) return false;
+    QByteArray data = file.read(BYTES_TO_READ);
     file.close();
     if (data.isEmpty()) return false;
 
@@ -332,7 +337,7 @@ bool Fb2MetaDataExtractor::getCoverFileNameMetaData(const QByteArray& data, QStr
 
             if (!coverFileName.isEmpty()) break;
         }
-        else if (streamData.name() == "body") return false; //  Ensures break before the end.
+        else if (streamData.name() == "body") break; //  Ensures break before the end.
     }// end While
 
 
@@ -349,7 +354,7 @@ bool Fb2MetaDataExtractor::getCoverFileNameMetaData(const QByteArray& data, QStr
 bool Fb2MetaDataExtractor::extractCover(const QString& fb2Filename, const QString& coverPath)
 {
     QFile file(fb2Filename);
-    if (!file.open(QIODevice::ReadOnly)) return false;
+    if (!file.open(QIODevice::ReadOnly) || file.size() > TXT_MAX_FILE_SIZE) return false;
     QByteArray data = file.readAll();
     file.close();
     if (data.isEmpty()) return false;

@@ -159,7 +159,7 @@ public:
 
     Home* m_home;
 
-    void setOTAUpdating() { b_isOTAUpdating = true; }
+    void setOTAUpdating( bool value) { b_isOTAUpdating = value; }
     bool userEventsBlocked() { return b_userEventsBlocked; }
     bool isViewerCurrentForm();
     bool isSleeping(){ return b_isSleeping;}
@@ -292,7 +292,7 @@ protected slots:
     void handleUsbStateChanged(bool state);
     void handleRemoveableChanged(bool state, const QString& path);
 
-    void handleLowBattery();
+    void handleLowBattery(int);
     void handleCriticalBattery();
     void handleFullBattery();
 
@@ -314,6 +314,8 @@ protected slots:
 
     void checkScreensaverCover();
     void checkScreensaverCoverAfterSync();
+    void handleViewerConf();
+    void handleGoToViewer();
 
 
 protected:
@@ -384,7 +386,6 @@ private:
     bool b_synchronizing;
     bool isPoweringOff;
     bool b_keyBlocked;
-    bool b_screenShotDone;
     bool b_lazyDelete;
     bool b_isResumingWifi;
 

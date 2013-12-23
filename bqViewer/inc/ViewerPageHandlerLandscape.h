@@ -33,15 +33,24 @@ public:
     ViewerPageHandlerLandscape(QWidget*);
     virtual ~ViewerPageHandlerLandscape();
 
-    void                                setCurrentPageMode                  ( bool isPdf );
+
     bool                                shouldBeShown                       ();
     void                                hideBackBtn                         ();
     void                                showBackBtn                         ();
-
+    void                                hideTitle                           ();
+    void                                showTitle                           ();
+    void                                hideDateTime                        ();
+    void                                showDateTime                        ();
     void                                setCurrentPage                      (int value);
-    virtual void                        updateDisplay                       ();
     void                                hideChapterInfo                     ();
+
     void                                setPdfToolbarState                  (bool shouldBeShown){m_pdfToolbarShowed = shouldBeShown;}
+    void                                setCurrentPageMode                  (bool isPdf);
+    void                                updateBookTitle                     (const QString& title);
+    void                                updateDateTime                      (const QString& dateTime);
+    bool                                dateTimeisVisible                   ();
+
+    virtual void                        updateDisplay                       ();
 
 public slots:
     void                                handlePageChange                    (int, int, int);
@@ -55,12 +64,12 @@ signals:
 
 protected:
     void                                updatePageHandler                   ();
-    virtual void                        mousePressEvent                     (QMouseEvent*);
 
     int                                 m_currentPageIni;
     int                                 m_currentPageEnd;
     int                                 m_totalPages;
     bool                                m_pdfToolbarShowed;
+    int                                 m_visibleMask; // Indicates which info can be shown.
 
     enum EViewerPageHandlerMask
     {
@@ -72,10 +81,10 @@ protected:
         EVPHM_PDF           =   (1u << 4),
         EVPHM_CLOSE_BTN     =   (1u << 5),
         EVPHM_PROGRESS      =   (1u << 6),
-        EVPHM_CHAPTER       =   (1u << 7)
+        EVPHM_CHAPTER       =   (1u << 7),
+        EVPHM_BOOK_TITLE    =   (1u << 8),
+        EVPHM_DATE_TIME     =   (1u << 9)
     };
-
-    int                                 m_visibleMask;// Indicates which info can be shown.
 };
 
 #endif // VIEWERPAGEHANDLERLANDSCAPE_H

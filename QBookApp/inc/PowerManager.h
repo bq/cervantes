@@ -82,7 +82,6 @@ private:
     static int i_timePowerOffSecs;
     static QBookScreenSaver* screenLoader;
     static PowerManagerLock* m_internalLock;
-    static PowerManagerLock* m_failedSuspendLock;
     static QMutex m_mutex;
     QDateTime m_scheduledSleepTime;
     QDateTime m_scheduledRTCalarm;

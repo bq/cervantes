@@ -102,7 +102,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Testu-etiketa</translation>
     </message>
     <message>
         <source>Zoom:</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Testu-etiketa</translation>
     </message>
     <message>
         <source>Zoom:</source>
@@ -601,6 +601,10 @@ Jarraitu nahi al duzu?</translation>
         <source>Copy file</source>
         <translation>Kopiatu</translation>
     </message>
+    <message>
+        <source>FB2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ViewerContentsItem</name>
@@ -894,7 +898,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message utf8="true">
         <source>págs. fin cap.</source>
-        <translation>kap. am. orr.</translation>
+        <translation>orr. kap. am.</translation>
+    </message>
+    <message>
+        <source>%1%</source>
+        <translation>% %1</translation>
     </message>
 </context>
 <context>
@@ -905,7 +913,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message utf8="true">
         <source>págs. fin de capítulo</source>
-        <translation>kapitulu amaierarako orrialdeak</translation>
+        <translation>orr. kap. am.</translation>
     </message>
     <message>
         <source>XX</source>
@@ -921,7 +929,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>40%</source>
-        <translation type="unfinished">% 40</translation>
+        <translation type="obsolete">% 40</translation>
+    </message>
+    <message>
+        <source>Titulo del libro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>100%</source>
+        <translation type="unfinished">% 40 {100%?}</translation>
+    </message>
+    <message>
+        <source>18:40</source>
+        <translation type="unfinished">% 40 {18:40?}</translation>
     </message>
 </context>
 <context>

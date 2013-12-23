@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Low battery. Please plug the device to a charger source.</source>
-        <translation>Bateria gutxi. Konektatu gailua bateria kargatzeko iturri batera.</translation>
+        <translation type="obsolete">Bateria gutxi. Konektatu gailua bateria kargatzeko iturri batera.</translation>
     </message>
     <message>
         <source>Critical battery level, please connect the charger. The ereader will be turned off.</source>
@@ -311,6 +311,18 @@ Mesedez, ez atera SD-a.</translation>
     <message>
         <source>Activar</source>
         <translation>Aktibatu</translation>
+    </message>
+    <message>
+        <source>Critical battery level (%1%). Please plug the device to a charger source.</source>
+        <translation>Bateria maila kritikoa (%%1). Konektatu gailua bateria kargatzeko iturri batera.</translation>
+    </message>
+    <message>
+        <source>Low battery level(%1).</source>
+        <translation type="obsolete">Bateria maila baxua (% %1).</translation>
+    </message>
+    <message>
+        <source>Battery level low(%1).</source>
+        <translation>Bateria maila baxua (% %1).</translation>
     </message>
 </context>
 <context>

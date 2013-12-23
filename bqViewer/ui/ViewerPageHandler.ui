@@ -27,7 +27,7 @@
     <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>10</number>
+    <number>0</number>
    </property>
    <property name="bottomMargin">
     <number>0</number>
@@ -193,13 +193,6 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="pagerViewerSpacerRight">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item>
     <widget class="QPushButton" name="pdfMenuBtn">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
@@ -207,6 +200,13 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="pagerViewerSpacerRight">
      <property name="text">
       <string/>
      </property>

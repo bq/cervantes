@@ -119,6 +119,14 @@ void LibraryBooksFilterLayer::setAllBooksChecked()
     browserFileBtn->setStyleSheet(UNCHECKED);
 }
 
+void LibraryBooksFilterLayer::setBrowserChecked()
+{
+    allBooksBtn->setStyleSheet(UNCHECKED);
+    storeBooksBtn->setStyleSheet(UNCHECKED);
+    myCollectionsBtn->setStyleSheet(UNCHECKED);
+    browserFileBtn->setStyleSheet(CHECKED);
+}
+
 void LibraryBooksFilterLayer::setAllBooksNumber( int size )
 {
     allBooksBtn->setText(m_allBooksName + " ("+ QString::number(size) + ")");

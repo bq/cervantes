@@ -152,7 +152,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "SyncHelper.h"
 
 #define TIME_TO_AUTOCONNECT_LOCK             25
-#define TIME_SHOW_LOWBATTERY_DIALOG        5000 // Miliseconds
+#define TIME_SHOW_LOWBATTERY_DIALOG       30000 // Miliseconds
 #define TIME_SHOW_CRITICALBATTERY_DIALOG  30000 // Miliseconds
 #define TIME_SHOW_SUBSCRIPTION_DIALOG     60000 // Miliseconds
 #define TIME_SHOW_ACTIVATION_DIALOG       7200  // 2 hours
@@ -196,7 +196,6 @@ QBookApp::QBookApp(QWidget* parent, Qt::WFlags flags)
     , b_synchronizing(false)
     , isPoweringOff(false)
     , b_keyBlocked(false)
-    , b_screenShotDone(false)
     , b_lazyDelete(false)
     , m_library(NULL)
     , m_settingsMenu(NULL)
@@ -382,9 +381,13 @@ QBookApp::QBookApp(QWidget* parent, Qt::WFlags flags)
     connect(&m_timer_light, SIGNAL(timeout()), &m_timer_light, SLOT(stop()));
     connect(&m_powerKeyWatcher, SIGNAL(timeout()),this, SLOT(checkLongPressPowerOff()));
 
-    // Init power key watcher
+    // Init timers
     m_powerKeyWatcher.setSingleShot(false); // Periodic
     m_powerKeyWatcher.setInterval(POWER_KEY_WATCHER_PERIOD);
+    m_timer_powerButton.setSingleShot(true);
+    m_timer_powerButton.setInterval(POWERBUTTON_LONGPRESS_TIMER);
+    m_timer_light.setSingleShot(true);
+    m_timer_light.setInterval(LIGHT_LONGPRESS_TIMER);
 
     if(DeviceInfo::getInstance()->hasFrontLight() && FrontLight::getInstance()->isFrontLightActive())
     {
@@ -860,6 +863,7 @@ void QBookApp::initViewer()
     m_viewer->hide();
 
     connect(m_viewer, SIGNAL(loadDocError()),   this,     SLOT(loadDocError()));
+    connect(m_viewer, SIGNAL(viewerConf()),     this,     SLOT(handleViewerConf()));
 }
 
 void QBookApp::initLibrary()
@@ -1174,14 +1178,18 @@ void QBookApp::doAddForm( QBookForm* form )
         m_forms.append(form);
 }
 
-void QBookApp::handleLowBattery()
+void QBookApp::handleLowBattery(int level)
 {
     qDebug() << Q_FUNC_INFO;
 
     if(ADConverter::getInstance()->getStatus() != ADConverter::ADC_STATUS_NO_WIRE)
         return; // Charging. We don't need to warn
 
-    QString message = tr("Low battery. Please plug the device to a charger source.");
+    QString message;
+    if(level <= BATTERY_LEVEL_LOW_2)
+        message = tr("Critical battery level (%1%). Please plug the device to a charger source.").arg(level);
+    else
+        message = tr("Battery level low(%1).").arg(level);
     PowerManagerLock* powerLock = PowerManager::getNewLock(this);
     powerLock->activate();
 
@@ -1439,6 +1447,9 @@ void QBookApp::handleRemoveableChanged(bool state, const QString& path)
      /* true means partition is mounted and false partition is umounted*/
     if (state)
     {
+        PowerManagerLock *mountingLock = PowerManager::getNewLock();
+        mountingLock->activate();
+
         if(!readingFilesdialog)
             readingFilesdialog = new InfoDialog(this, tr("Reading files..."));
 
@@ -1455,7 +1466,8 @@ void QBookApp::handleRemoveableChanged(bool state, const QString& path)
             delete readingFilesdialog;
             readingFilesdialog = NULL;
         }
-
+        mountingLock->release();
+        delete mountingLock;
     }else
         m_pModel->removeDir(path);
 
@@ -1565,22 +1577,30 @@ bool QBookApp::checkDebugMagicFile(const QString& magicFileName, const QString& 
 
     if (event->key() == QBook::QKEY_POWER) {
             event->accept();
-            if(m_timer_light.isActive()){ // Home key pressed -> screenShot
+            if(m_timer_light.isActive()) // Home key pressed -> screenShot
+            {
                 m_homeKeyLock->release();
                 m_timer_light.stop();
-                b_screenShotDone = true;
                 takeScreenShot();
-
             }
-            else{ // Sleep or shutdown process
+            else // Sleep or shutdown process
+            {
                 m_powerKeyLock->activate();
-                m_timer_powerButton.setSingleShot(true);
-                m_timer_powerButton.start(POWERBUTTON_LONGPRESS_TIMER);
+                m_timer_powerButton.start();
             }
     }else if(event->key() == QBook::QKEY_HOME){
             event->accept();
-            m_homeKeyLock->activate();
-            m_timer_light.start(LIGHT_LONGPRESS_TIMER);
+            if(m_timer_powerButton.isActive())
+            {
+                m_powerKeyLock->release();
+                m_timer_powerButton.stop();
+                takeScreenShot();
+            }
+            else
+            {
+                m_homeKeyLock->activate();
+                m_timer_light.start();
+            }
     }else
         QWidget::keyPressEvent(event);
 }
@@ -1598,7 +1618,7 @@ bool QBookApp::checkDebugMagicFile(const QString& magicFileName, const QString& 
         m_homeKeyLock->release();
 
         // No more action if release after FL switch on
-        if(!m_timer_light.isActive())
+        if(!m_timer_light.isActive() )
             return;
 
         m_timer_light.stop();
@@ -1627,15 +1647,14 @@ bool QBookApp::checkDebugMagicFile(const QString& magicFileName, const QString& 
     }
     else if (event->key() == QBook::QKEY_POWER)
     {
-        qDebug() << Q_FUNC_INFO << "Release of power key. Send to sleep";
+        qDebug() << Q_FUNC_INFO << "Release of power key";
 
         if (m_timer_powerButton.isActive()){
             m_timer_powerButton.stop();
             m_powerKeyLock->release();
+            if(!b_powerOffOngoing && !b_keyBlocked) // Hack to block going to sleep inmediatly after wake up. EREADER-2000
+                goToSleep();
         }
-        if(!b_powerOffOngoing && !b_keyBlocked && !b_screenShotDone) // Hack to block going to sleep inmediatly after wake up. EREADER-2000
-            goToSleep();
-        b_screenShotDone = false;
         event->accept();
     }
     else if (!event->modifiers())
@@ -2414,7 +2433,7 @@ void QBookApp::checkLink()
         return;
 
     QBook::settings().setValue("setting/lastLinkCheck", QVariant(QDateTime::currentDateTime().toString(Qt::ISODate)));
-
+    m_lastLinkCheck = QDateTime::currentDateTime();
 
     if(!mass_storage)
     {
@@ -2424,7 +2443,7 @@ void QBookApp::checkLink()
         linkSelect->exec();
         bool result = linkSelect->result();
         delete linkSelect;
-        if(result)
+        if(result && getCurrentForm() != m_webWizard)
             goToWizard();
     }
 #endif
@@ -2756,7 +2775,7 @@ void QBookApp::connectDialogSlots()
     connect(ADConverter::getInstance(), SIGNAL(chargerStatusChange(bool)), this, SLOT(handleChargerChanged(bool)));
     connect(ADConverter::getInstance(), SIGNAL(pcPresentStatusChange(bool)), this, SLOT(handleUsbStateChanged(bool)), Qt::QueuedConnection);
 
-    connect(Battery::getInstance(), SIGNAL(batteryLevelLow()), this, SLOT(handleLowBattery()));
+    connect(Battery::getInstance(), SIGNAL(batteryLevelLow(int)), this, SLOT(handleLowBattery(int)));
     connect(Battery::getInstance(), SIGNAL(batteryLevelCritical()), this, SLOT(handleCriticalBattery()));
     connect(Battery::getInstance(), SIGNAL(batteryLevelFull()), this,SLOT(handleFullBattery()));
 
@@ -2845,6 +2864,8 @@ void QBookApp::goToSleep()
         return;
     }
 
+    disableUserEvents();
+
     emit startSleep();
 
     if(DeviceInfo::getInstance()->hasFrontLight() && FrontLight::getInstance()->isFrontLightActive()){
@@ -2868,8 +2889,6 @@ void QBookApp::goToSleep()
     Screen::getInstance()->flushUpdates();
 
     showSleep();
-
-    disableUserEvents();
 
     PowerManager::getInstance()->goToSleep();
 }
@@ -3043,9 +3062,9 @@ void QBookApp::prepareToSleep()
     if (!QBook::settings().value("wifi/disabled",false).toBool()){
         qDebug() << Q_FUNC_INFO << "Wifi is enabeld but device is not linked. Not trying to sync, just powering off wifi before sleep";
         powerOffWifi();
-        syncModel();
+        QtConcurrent::run(this, &QBookApp::syncModel);
     } else {
-        syncModel();
+        QtConcurrent::run(this, &QBookApp::syncModel);
         qDebug() << Q_FUNC_INFO << "Wifi is disabled, so do not launch a sync before sleep";
     }
     b_cancelSleep = false;
@@ -3882,6 +3901,7 @@ void QBookApp::checkOTAFile()
 
         //Workaround to reboot device after OTA to take the full kernel
         showRestoringImage();
+        QCoreApplication::flush();
         qApp->processEvents();
         system("reboot");
     }
@@ -4206,6 +4226,7 @@ void QBookApp::askForActivationDevice()
         return;
 
     QBook::settings().setValue("setting/lastActivatedCheck", QVariant(QDateTime::currentDateTime().toString(Qt::ISODate)));
+    m_lastActivatedCheck = QDateTime::currentDateTime();
 
     if(!mass_storage)
     {
@@ -4215,7 +4236,7 @@ void QBookApp::askForActivationDevice()
         linkSelect->exec();
         bool result = linkSelect->result();
         delete linkSelect;
-        if(result)
+        if(result && getCurrentForm() != m_webWizard)
             goToWizard();
 
     }
@@ -4298,4 +4319,29 @@ QString QBookApp::getImageResource(const QString& path, bool isLine)
             return QString::fromUtf8("res/unknow_file.png");
         break;
     }
+}
+
+void QBookApp::handleViewerConf()
+{
+    getStatusBar()->setSpinner(true);
+    Screen::getInstance()->queueUpdates();
+    if(!m_settingsMenu)
+    {
+        goToSettings();
+        m_settingsMenu->goToViewerMenu();
+    }
+    else
+    {
+        m_settingsMenu->goToViewerMenu();
+        goToSettings();
+    }
+    connect(m_settingsMenu, SIGNAL(goToViewer()), this, SLOT(handleGoToViewer()));
+    Screen::getInstance()->flushUpdates();
+    getStatusBar()->setSpinner(false);
+}
+
+void QBookApp::handleGoToViewer()
+{
+    disconnect(m_settingsMenu, SIGNAL(goToViewer()), this, SLOT(handleGoToViewer()));
+    openLastContent();
 }

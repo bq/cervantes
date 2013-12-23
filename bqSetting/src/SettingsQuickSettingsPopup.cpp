@@ -51,6 +51,7 @@ SettingsQuickSettingsPopup::SettingsQuickSettingsPopup(QWidget *parent) : QWidge
         connect(brightnessSumBtn, SIGNAL(longPressed()), this, SLOT(handleBrightnessIncreaseLongPressed()));
 
         connect(FrontLight::getInstance(), SIGNAL(frontLightPower(bool)), this, SLOT(paintLight(bool)));
+        connect(QBookApp::instance(), SIGNAL(startSleep()), this, SLOT(handleClosePopupBtn()));
 
         QFile fileSpecific(":/res/settings_styles.qss");
         QFile fileCommons(":/res/settings_styles_generic.qss");
@@ -233,7 +234,6 @@ void SettingsQuickSettingsPopup::powerWifi(bool on)
         QBookApp::instance()->setPoweringOff(false);
         ConnectionManager::getInstance()->powerWifi(true);
         ConnectionManager::getInstance()->setOnline();
-        QBook::settings().sync();
         QBookApp::instance()->finishedResumingWifi();
     }
     else
@@ -243,6 +243,5 @@ void SettingsQuickSettingsPopup::powerWifi(bool on)
         ConnectionManager::getInstance()->powerWifi(false);
         Wifi::getInstance()->powerOff();
         QBook::settings().setValue("wifi/disabled",true);
-        QBook::settings().sync();
     }
 }

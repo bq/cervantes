@@ -244,6 +244,7 @@ public:
     virtual void clearAbortProcessing() = 0;
 
     virtual void takeMiniatureScreenshot() = 0;
+    virtual void positioningMiniature() = 0;
     virtual void scrolling() = 0;
 
     inline bool getCanOverrideFonts() const { return m_canOverrideFonts; }

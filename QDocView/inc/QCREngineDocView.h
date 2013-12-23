@@ -120,6 +120,7 @@ public:
 
    virtual void takeMiniatureScreenshot(){}
    virtual void scrolling(){}
+   virtual void positioningMiniature(){}
 
 
 public slots:
@@ -135,6 +136,7 @@ private slots:
     void            jumpToPosition                  ();
     void            updateLoadState                 ();
     void            updatePageNumber                ();
+    void            restartApp                      ();
 
 protected:
     virtual void    resizeEvent                     (QResizeEvent* event);
@@ -145,6 +147,9 @@ protected:
     LVDocView* getDocView() { return text_view;}		
 	
    QDocView::TableOfContent* tableOfContent();
+
+   bool             enoughMemoryAvailable           ();
+   void             doRestartApp                    ();
 
 private:
     QUrl m_url;

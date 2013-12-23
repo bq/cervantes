@@ -109,17 +109,17 @@
         <translation>Axuda</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="57"/>
+        <location filename="../src/Home.cpp" line="81"/>
         <source>Guia de Ayuda</source>
         <translation>Guía de Axuda</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="88"/>
+        <location filename="../src/Home.cpp" line="116"/>
         <source>Inicio</source>
         <translation>Inicio</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="193"/>
+        <location filename="../src/Home.cpp" line="217"/>
         <source>Recientes</source>
         <translation>Recentes</translation>
     </message>
@@ -132,45 +132,55 @@
         <translation type="obsolete">Novidades</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="357"/>
-        <location filename="../src/Home.cpp" line="377"/>
+        <location filename="../src/Home.cpp" line="400"/>
+        <location filename="../src/Home.cpp" line="420"/>
         <source>Autor Desconocido</source>
         <translation>Autor descoñecido</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="364"/>
+        <location filename="../src/Home.cpp" line="407"/>
         <source>%1 % leÃ­do</source>
         <translation>%1% lido</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="366"/>
+        <location filename="../src/Home.cpp" line="409"/>
         <source>0 % leÃ­do</source>
         <translation>0% lido</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="501"/>
+        <location filename="../src/Home.cpp" line="561"/>
         <source>Ayer</source>
         <translation>Onte</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="503"/>
+        <location filename="../src/Home.cpp" line="563"/>
         <source>Ayer a las</source>
         <translation>Onte, ás</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="508"/>
+        <location filename="../src/Home.cpp" line="568"/>
         <source>Hoy</source>
         <translation>Hoxe</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="510"/>
+        <location filename="../src/Home.cpp" line="570"/>
         <source>Hoy a las</source>
         <translation>Hoxe, ás</translation>
     </message>
     <message>
-        <location filename="../src/Home.cpp" line="518"/>
+        <location filename="../src/Home.cpp" line="576"/>
+        <source>dd/MM, hh:mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/Home.cpp" line="578"/>
         <source>a las</source>
         <translation>ás</translation>
+    </message>
+    <message>
+        <location filename="../src/Home.cpp" line="578"/>
+        <source>dd/MM/yy, </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -204,7 +214,7 @@
         <translation>Premium</translation>
     </message>
     <message>
-        <location filename="../src/HomeBooksListItem.cpp" line="58"/>
+        <location filename="../src/HomeBooksListItem.cpp" line="79"/>
         <source>Autor Desconocido</source>
         <translation>Autor descoñecido</translation>
     </message>
@@ -218,19 +228,19 @@
     </message>
     <message>
         <location filename="../ui/HomeBooksListOptions.ui" line="129"/>
-        <location filename="../src/HomeBooksListOptions.cpp" line="21"/>
+        <location filename="../src/HomeBooksListOptions.cpp" line="41"/>
         <source>Recomendados para ti</source>
         <translation>Recomendados para ti</translation>
     </message>
     <message>
         <location filename="../ui/HomeBooksListOptions.ui" line="142"/>
-        <location filename="../src/HomeBooksListOptions.cpp" line="26"/>
+        <location filename="../src/HomeBooksListOptions.cpp" line="46"/>
         <source>Novedades</source>
         <translation>Novidades</translation>
     </message>
     <message>
         <location filename="../ui/HomeBooksListOptions.ui" line="155"/>
-        <location filename="../src/HomeBooksListOptions.cpp" line="31"/>
+        <location filename="../src/HomeBooksListOptions.cpp" line="51"/>
         <source>Top Ventas</source>
         <translation>Top Vendas</translation>
     </message>

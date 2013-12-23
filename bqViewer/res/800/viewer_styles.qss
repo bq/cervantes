@@ -47,8 +47,8 @@ max-height:55px;
 #textBody{
 min-width:600px;
 max-width:600px;
-min-height:745px;
-max-height:745px;
+min-height:800px;
+max-height:800px;
 }
 #noteLbl{
 min-width:18px;
@@ -131,11 +131,10 @@ max-width:55px;
 min-height:55px;
 max-height:55px;
 }
-#titleLandscapeLbl{
-font-size:16px;
-}
 #dateTimeLandscapeLbl{
 font-size:16px;
+min-height:50px;
+max-height:50px;
 }
 #viewerHeaderLandscape{
 min-width:50px;
@@ -145,9 +144,6 @@ max-height:800px;
 }
 #viewerHeaderLandscape #dateTimeLandscapeLbl{
 padding:35px 0px 0px 0px;
-}
-#viewerHeaderLandscape #titleLandscapeLbl{
-padding:0px 0px 30px 0px;
 }
 #miniatureCont{
 min-width:600px;
@@ -176,6 +172,13 @@ max-width:600px;
 min-height:800px;
 max-height:800px;
 }
+#miniatureLandscapeCont #miniatureLandscape, #miniatureLandscapeCont MiniatureViewLandscape{
+min-width:200px;
+max-width:200px;
+min-height:125px;
+max-height:125px;
+border-width:1px;
+}
 #miniatureLandscapeLeftSpacer{
 min-width:80px;
 max-width:80px;
@@ -202,8 +205,8 @@ max-width:600px;
 min-height:55px;
 max-height:55px;
 }
-#pageText{
-margin:0px 0px 0px 25px;
+#ViewerPageHandler #pageText, ViewerPageHandler #pageText, #pageWindow #pageText{
+margin:0px 0px 0px 85px;
 min-width:125px;
 max-width:125px;
 font-size:16px;
@@ -227,12 +230,12 @@ min-height:50px;
 max-height:50px;
 }
 #pagerViewerSpacerLeft{
-min-width:25px;
-max-width:25px;
+min-width:20px;
+max-width:20px;
 }
 #pagerViewerSpacerRight{
-min-width:5px;
-max-width:5px;
+min-width:20px;
+max-width:20px;
 }
 #readingProgress{
 margin-top:5px;
@@ -243,7 +246,11 @@ border-radius:3px;
 #toFinishChapLbl, #readedLbl, #pagToFinishLbl{
 font-size:16px;
 }
-#verticalWidget #readedLbl{
+#ViewerPageHandler QLabel, ViewerPageHandler QLabel, #pageWindow QLabel{
+}
+#horizontalWidget QLabel{
+}
+#ViewerPageHandler #verticalWidget #horizontalWidget #readedLbl{
 min-width:95px;
 max-width:95px;
 }
@@ -252,8 +259,8 @@ min-width:45px;
 max-width:45px;
 }
 #spacerNoPercentNoBakcLbl{
-min-width:122px;
-max-width:122px;
+min-width:70px;
+max-width:70px;
 }
 /*ViewerMenu
 ------------------------*/
@@ -312,6 +319,11 @@ font-weight:bold;
 }
 #ViewerMenu #chapterCont #chapterAuthorLbl{
 font-size:19px;
+}
+#viewerConfBtn{
+min-width:50px;
+max-width:50px;
+border-left-width:1px;
 }
 /* Viewer Popups
 ------------------*/
@@ -519,6 +531,12 @@ border-width:1px;
 /*ViewerDictionaryDefinitionPopup
 --------------------------------*/
 #ViewerDictionaryDefinitionPopup{
+min-width:600px;
+max-width:600px;
+min-height:800px;
+max-height:800px;
+}
+#ViewerDictionaryDefinitionPopupCont{
 min-width:600px;
 max-width:600px;
 min-height:720px;
@@ -1643,11 +1661,11 @@ min-height:800px;
 max-height:800px;
 }
 #ViewerPdfPageHandlerLandscapeCont{
-min-width:50px;
-max-width:50px;
+min-width:49px;
+max-width:49px;
 min-height:800px;
 max-height:800px;
-border-left-width:1px;
+border-right-width:1px;
 }
 #ViewerPdfPageHandlerLandscapeCont QPushButton{
 min-height:70px;
@@ -1656,15 +1674,15 @@ max-height:70px;
 #ViewerPdfPageHandlerLandscapeCont #zoomMinusBtn{
 min-height:0px;
 max-height:200px;
-border-top-width:1px;
+border-bottom-width:1px;
 }
 #ViewerPdfPageHandlerLandscapeCont #zoomPlusBtn{
 min-height:0px;
 max-height:200px;
-border-top-width:1px;
+border-bottom-width:1px;
 }
 #ViewerPdfPageHandlerLandscapeCont #closeBtn{
-border-bottom-width:1px;
+border-top-width:1px;
 }
 #ViewerPdfPageHandlerLandscapeCont #heightAdjustBtn{
 }
@@ -1700,16 +1718,11 @@ min-height:201px;
 max-height:201px;
 }
 #screenshotLbl{
-min-width:110px;
+/*min-width:110px;
 max-width:110px;
 min-height:148px;
-max-height:148px;
+max-height:148px;*/
 border-width:1px;
-}
-#screenshotCont QLabel{
-}
-#pageCont, #zoomCont{
-
 }
 #pageCont #pageLbl, #zoomCont #zoomLbl{
 padding:0px 2px 0px 8px;
@@ -1720,14 +1733,28 @@ font-size:15px;
 #pageValueLbl{
 font-size:15px;
 }
-#miniatureToSpacer{
-min-height:8px;
-max-height:8px;
+/*#screenshotLblCont{
+min-width:125px;
+max-width:125px;
+min-height:148px;
+max-height:148px;
+}*/
+#miniatureTopSpacer{
+min-width:125px;
+max-width:125px;
+min-height:148px;
+max-height:148px;
+}
+#miniatureRightSpacer{
+min-width:148px;
+max-width:148px;
+min-height:125px;
+max-height:125px;
 }
 
 /*ViewerPageHandleLandscape
 -------------------------------*/
-#ViewerPageHandleLandscape ,ViewerPageHandleLandscape, #pageWindowLandscape, #ViewerPageHandleLandscapeCont{
+#ViewerPageHandleLandscape ,ViewerPageHandleLandscape, #pageWindowLandscape, #ViewerPageHandlerLandscapeCont{
 min-width:55px;
 max-width:55px;
 min-height:800px;
@@ -1742,39 +1769,30 @@ font-size:16px;
 #pageSpacerLblLandscapeCont{
 min-width:150px;
 }
-#ViewerPageHandleLandscapeCont #readingPercentLbl{
-margin:0px 0px 0px 0px;
-font-size:16px;
-}
 #verticalSliderContent #horizontalWidget{
 min-width:20px;
 max-width:20px;
 }
-#ViewerPageHandleLandscapeCont #pageBackCont{
+#ViewerPageHandlerLandscapeCont #pageBackCont{
 margin:15px 0px 0px 0px;
 min-height:65px;
 max-height:65px;
 }
-#ViewerPageHandleLandscapeCont #horizontalWidget{
+#ViewerPageHandlerLandscapeCont #horizontalWidget{
 max-width:30px;
 }
-#ViewerPageHandleLandscapeCont #pdfMenuBtn, #ViewerContLandscape #pdfMenuBtn{
+#ViewerPageHandlerLandscapeCont #pdfMenuBtn,
+#ViewerPageHandlerLandscapeCont #pageBackBtn{
 min-height:50px;
 max-height:50px;
 min-width:50px;
 max-width:50px;
 }
-#ViewerPageHandleLandscapeCont #pageBackBtn, #ViewerContLandscape #pageBackBtn{
-min-height:50px;
-max-height:50px;
-min-width:50px;
-max-width:50px;
-}
-#ViewerPageHandleLandscapeCont #pagerViewerSpacerLeft{
+#ViewerPageHandlerLandscapeCont #pagerViewerSpacerLeft{
 min-height:25px;
 max-height:25px;
 }
-#ViewerPageHandleLandscapeCont #pagerViewerSpacerRight{
+#ViewerPageHandlerLandscapeCont #pagerViewerSpacerRight{
 min-height:5px;
 max-height:5px;
 }
@@ -1795,46 +1813,103 @@ border-color: #404040;
 }
 #verticalSliderContent #toFinishChapLbl{
 }
-#ViewerPageHandleLandscapeCont #toFinishChapLbl, #ViewerPageHandleLandscapeCont #readedLbl, #ViewerPageHandleLandscapeCont #pagToFinishLbl{
+#ViewerPageHandlerLandscapeCont #toFinishChapLbl,
+#ViewerPageHandlerLandscapeCont #readedLbl,
+#ViewerPageHandlerLandscapeCont #pagToFinishLbl,
+#ViewerPageHandlerLandscapeCont #titleLandscapeLbl,
+#ViewerPageHandlerLandscapeCont #readingPercentLbl{
 font-size:16px;
 }
-#ViewerPageHandleLandscapeCont #readedLbl{
+#ViewerPageHandlerLandscapeCont #titleLandscapeLbl{
+min-height:210px;
+max-height:210px;
 }
-#ViewerPageHandleLandscapeCont #spacerNoPercentLbl{
+#ViewerPageHandlerLandscapeCont #noTitleLandscapeLbl{
+min-height:210px;
+max-height:210px;
+}
+#ViewerPageHandlerLandscapeCont #readingPercentLbl{
 min-height:45px;
 max-height:45px;
 }
-#ViewerPageHandleLandscapeCont #spacerNoPercentNoBakcLbl{
-min-height:80px;
-max-height:80px;
+#ViewerPageHandlerLandscapeCont #noReadingPercentLbl{
+min-height:38px;
+max-height:38px;
 }
-#miniatureLeftSpacer{
-min-width:80px;
-max-width:80px;
+#ViewerPageHandlerLandscapeCont #readedLbl{
+padding:6px 0px 0px 0px;
+min-height:63px;
+max-height:63px;
 }
+#ViewerPageHandlerLandscapeCont #noReadedLbl{
+min-height:63px;
+max-height:63px;
+}
+#ViewerPageHandlerLandscapeCont #pageText{
+min-height:100px;
+max-height:100px;
+min-width:0px;
+max-width:100px;
+font-size:16px;
+}
+#ViewerPageHandlerLandscapeCont #noPageText{
+min-height:100px;
+max-height:100px;
+}
+#ViewerPageHandlerLandscapeCont #pagToFinishLbl{
+min-height:54px;
+max-height:54px;
+}
+#ViewerPageHandlerLandscapeCont #noPagToFinishLbl{
+min-height:54px;
+max-height:54px;
+}
+#ViewerPageHandlerLandscapeCont #toFinishChapLbl{
+padding:6px 0px 0px 0px;
+min-height:121px;
+max-height:121px;
+}
+#ViewerPageHandlerLandscapeCont #noToFinishChapLbl{
+min-height:121px;
+max-height:121px;
+}
+#ViewerPageHandlerLandscapeCont #marginText{
+min-height:5px;
+max-height:5px;
+}
+#ViewerPageHandlerLandscapeCont #marginText2{
+min-height:5px;
+max-height:5px;
+}
+#ViewerPageHandlerLandscapeCont QLabel{
+border:2px solid #000;
+min-width:0px;
+max-width:125px;
+}
+
 /*MiniatureViewLandscape
 --------------------------*/
 #MiniatureViewLandscape,MiniatureViewLandscape{
-min-height:165px;
-max-height:165px;
-min-width:165px;
-max-width:165px;
+min-height:125px;
+max-height:125px;
+min-width:200px;
+max-width:200px;
 border-width:1px;
 }
 #MiniatureViewLandscape #frame,MiniatureViewLandscape #frame{
 border-width:2px;
 }
 #screenshotLandscapeCont{
-min-width:165px;
-max-width:165px;
-min-height:165px;
-max-height:165px;
+min-height:125px;
+max-height:125px;
+min-width:200px;
+max-width:200px;
 }
-#screenshotLandscapeCont #screenshotLbl{
-min-width:110px;
+#screenshotLbl{
+/*min-width:110px;
 max-width:110px;
 min-height:148px;
-max-height:148px;
+max-height:148px;*/
 border-width:2px;
 }
 #screenshotLandscapeCont QLabel{
@@ -1861,10 +1936,10 @@ max-height:30px;
 min-height:40px;
 max-height:40px;
 }
-#minLeftSpacer{
+/*#miniatureRightSpacer{
 min-width:5px;
 max-width:5px;
-}
+}*/
 #pageLandscapeSpacer{
 min-height:5px;
 max-height:5px;

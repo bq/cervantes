@@ -37,8 +37,8 @@ ViewerPageHandler::ViewerPageHandler(QWidget *parent) :
     QWidget(parent)
   , m_currentPageIni(0)
   , m_currentPageEnd(0)
-  , m_visibleMask(EVPHM_NONE)
   , m_pdfToolbarShowed(false)
+  , m_visibleMask(EVPHM_NONE)  
 {
     qDebug() << Q_FUNC_INFO;
 
@@ -48,18 +48,31 @@ ViewerPageHandler::ViewerPageHandler(QWidget *parent) :
 
     readingProgress->setMinimum(0);
     readingProgress->setMaximum(100);
+
+    // Install Mouse filter
+    m_pMouseFilter = new MouseFilter(this);
+    this->installEventFilter(m_pMouseFilter);
 }
 
 ViewerPageHandler::~ViewerPageHandler()
 {
     qDebug() << Q_FUNC_INFO;
+
+    delete m_pMouseFilter;
+    m_pMouseFilter = NULL;
 }
 
-void ViewerPageHandler::mousePressEvent(QMouseEvent* received)
+void ViewerPageHandler::customEvent(QEvent* received)
 {
-    TouchEvent *event = new TouchEvent(received->pos(), MouseFilter::TAP);
-    emit pressEvent(event);
-    received->accept();
+    if (received->type() != (int)MouseFilter::TOUCH_EVENT)
+    {
+        qDebug() << "UNEXPECTED TYPE";
+        return;
+    }
+
+    TouchEvent *event = static_cast<TouchEvent*>(received);
+    if (event->touchType() == MouseFilter::TAP) emit tapEvent(event, true);
+    else                                        emit touchEvent(event);
 }
 
 void ViewerPageHandler::updatePageHandler()
@@ -155,27 +168,24 @@ void ViewerPageHandler::updateDisplay()
 {
     qDebug() << Q_FUNC_INFO;
 
-    if(m_currentPageIni == 0) // Hide page on cover
+    Screen::getInstance()->queueUpdates();
+    Screen::getInstance()->setMode(Screen::MODE_QUICK, true, FLAG_WAITFORCOMPLETION, Q_FUNC_INFO);
+
+    if(m_currentPageIni != 0) // Hide page on cover
     {
-        pageText->hide();
-        readingPercentLbl->hide();
-        return;
+        if(m_currentPageIni != m_currentPageEnd)
+            pageText->setText(DOUBLE_PAGE_FORMAT.arg(m_currentPageIni).arg(m_currentPageEnd).arg(m_totalPages));
+        else
+            pageText->setText(SINGLE_PAGE_FORMAT.arg(m_currentPageIni).arg(m_totalPages));
+
+        int percent = 0;
+        if(m_totalPages != 0) percent = int((m_currentPageEnd)*100/m_totalPages);
+        readingPercentLbl->setText(QString(tr("%1%")).arg(percent));// FIXME: ¿por qué hay un método setCurrentPage?
+        readingProgress->setValue(percent);
     }
 
-    if(m_currentPageIni != m_currentPageEnd)
-        pageText->setText(DOUBLE_PAGE_FORMAT.arg(m_currentPageIni).arg(m_currentPageEnd).arg(m_totalPages));
-    else
-        pageText->setText(SINGLE_PAGE_FORMAT.arg(m_currentPageIni).arg(m_totalPages));
-
-    int percent = 0;
-    if(m_totalPages != 0)
-        percent = int((m_currentPageEnd)*100/m_totalPages);
-    readingPercentLbl->setText(QString("%1%").arg(percent));// FIXME: ¿por qué hay un método setCurrentPage?
-    Screen::getInstance()->queueUpdates();
-    readingProgress->setValue(percent);
-
-    update();
     updatePageHandler();
+
     Screen::getInstance()->flushUpdates();
 }
 
@@ -212,11 +222,8 @@ void ViewerPageHandler::setCurrentPageMode( bool isPdf )
 
 bool ViewerPageHandler::shouldBeShown()
 {
-    if(m_pdfToolbarShowed) return false;
-
-    if(m_visibleMask != EVPHM_NONE)
-        return true;
-
+    if (m_pdfToolbarShowed) return false;
+    if (m_visibleMask)      return true;
     return false;
 }
 

@@ -25,6 +25,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "SettingsUpdateDeviceAuto.h"
 #include "QBook.h"
+#include "Battery.h"
 #include "InfoDialog.h"
 #include "QBookApp.h"
 #include "ConfirmDialog.h"
@@ -35,6 +36,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "ProgressDialog.h"
 #include "json.h"
 
+#define BATTERY_LEVEL_FOR_OTA 50
 #define MAGIC_UPDATE_CODE 255
 #define PERCENT_STEP_VALUE 0.75
 
@@ -172,26 +174,36 @@ void SettingsUpdateDeviceAuto::gotOTACheckResult(int result) {
 
 void SettingsUpdateDeviceAuto::updateAutomatic()
 {
-    QBookApp::instance()->setOTAUpdating();
-
     qDebug() << Q_FUNC_INFO;
-        // Check memory availability
-    if (!m_fwCheck->enoughMemForUpdate()){
+
+    if(!m_fwCheck->checkUpdateInfo())
+    {
+        m_fwCheck->checkOTAAvailable();
+        ConfirmDialog* confirmDialog = new ConfirmDialog(this,tr("Error downloading.\n Please try again."));
+        Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
+        confirmDialog->exec();
+        delete confirmDialog;
+        return;
+    }
+
+    if (!m_fwCheck->enoughMemForUpdate()) // Check memory availability
+    {
         ConfirmDialog* confirmDialog = new ConfirmDialog(this,tr("No space available on the device.\nPlease remove some files."));
         Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
-            confirmDialog->exec();
-            delete confirmDialog;
-            return;
-        }
+        confirmDialog->exec();
+        delete confirmDialog;
+        return;
+    }
 
-        // Check the charger
-        if(m_converter->getStatus() == ADConverter::ADC_STATUS_NO_WIRE)
+    // Check the charger
+    if(m_converter->getStatus() == ADConverter::ADC_STATUS_NO_WIRE)
+    {
+        if(Battery::getInstance()->getLevel() < BATTERY_LEVEL_FOR_OTA)
         {
-
-            SelectionDialog* dialogSelect = new SelectionDialog(this,tr("Please connect the charger\nbefore the download."));
+            SelectionDialog* dialogSelect = new SelectionDialog(this,tr("Low battery level.\nPlease connect the charger\nbefore the download."));
             while(m_converter->getStatus() == ADConverter::ADC_STATUS_NO_WIRE)
             {
-            Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
+                Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
                 dialogSelect->exec();
                 if(!dialogSelect->result())
                 {
@@ -200,15 +212,19 @@ void SettingsUpdateDeviceAuto::updateAutomatic()
                 }
             }
             delete dialogSelect;
-
         }
-        else
+    }
+    else
+    {
+        if(Battery::getInstance()->getLevel() < BATTERY_LEVEL_FOR_OTA)
         {
-            InfoDialog* infoDialog = new InfoDialog(this,tr("Please, don't disconnect the charger\n during the download."), 1000);
+            InfoDialog* infoDialog = new InfoDialog(this,tr("Low battery level.\nPlease, don't disconnect the charger\n during the download."), 3000);
             infoDialog->showForSpecifiedTime();
             delete infoDialog;
         }
+    }
 
+    QBookApp::instance()->setOTAUpdating(true);
     ProgressDialog *downloadingDialog = new ProgressDialog(this,tr("Downloading...\nThis process may take several minutes "));
     connect(m_fwCheck, SIGNAL(OTAProgress(int)), downloadingDialog, SLOT(setProgressBar(int)));
     connect(downloadingDialog, SIGNAL(cancel()), m_fwCheck, SLOT(requestCancel()));
@@ -220,6 +236,7 @@ void SettingsUpdateDeviceAuto::updateAutomatic()
         Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
         downloadingDialog->accept();
         delete downloadingDialog;
+        QBookApp::instance()->setOTAUpdating(false);
         return;
     }
 
@@ -230,6 +247,7 @@ void SettingsUpdateDeviceAuto::updateAutomatic()
         Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
         infoDialog->exec();
         delete infoDialog;
+        QBookApp::instance()->setOTAUpdating(false);
         return;
     }
 
@@ -247,6 +265,7 @@ void SettingsUpdateDeviceAuto::updateAutomatic()
         Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
         infoDialog->exec();
         delete infoDialog;
+        QBookApp::instance()->setOTAUpdating(false);
         return;
     }
 
@@ -270,6 +289,8 @@ void SettingsUpdateDeviceAuto::updateAutomatic()
         ::sync();
         QCoreApplication::exit(MAGIC_UPDATE_CODE);
     }
+
+    QBookApp::instance()->setOTAUpdating(false);
 }
 
 void SettingsUpdateDeviceAuto::paintEvent (QPaintEvent *){

@@ -43,8 +43,8 @@ SettingsEnergySaving::SettingsEnergySaving(QWidget *parent) : FullScreenWidget(p
     sleepTime->hide();
     switchOffTime->hide();
 
-    connect(sleepTime,      SIGNAL(hideMe()), this, SLOT(hideTopElement()));
-    connect(switchOffTime,  SIGNAL(hideMe()), this, SLOT(hideTopElement()));
+    connect(sleepTime,      SIGNAL(hideMe()), this, SIGNAL(hideChild()));
+    connect(switchOffTime,  SIGNAL(hideMe()), this, SIGNAL(hideChild()));
 }
 
 SettingsEnergySaving::~SettingsEnergySaving()
@@ -53,13 +53,13 @@ SettingsEnergySaving::~SettingsEnergySaving()
 void SettingsEnergySaving::handleSleepTime()
 {
     qDebug() << Q_FUNC_INFO << "Calling sleepTime";
-    ((Settings*)parent())->showElement(sleepTime);
+    emit showNewChild(sleepTime);
 }
 
 void SettingsEnergySaving::handleSwitchOffTime()
 {
     qDebug() << Q_FUNC_INFO << "Calling switchOffTime";
-    ((Settings*)parent())->showElement(switchOffTime);
+    emit showNewChild(switchOffTime);
 }
 
 void SettingsEnergySaving::keyReleaseEvent(QKeyEvent *event)
@@ -73,12 +73,6 @@ void SettingsEnergySaving::keyReleaseEvent(QKeyEvent *event)
         return;
     }
     QWidget::keyReleaseEvent(event);
-}
-
-void SettingsEnergySaving::hideTopElement()
-{
-    qDebug() << Q_FUNC_INFO;
-    ((Settings *)parent())->hideElement();
 }
 
 void SettingsEnergySaving::paintEvent (QPaintEvent *)

@@ -84,12 +84,14 @@ private slots:
         void                                    back                                ( );
         void                                    forward                             ( );
         void                                    paintDictios                        ( );
-        void                                    hideTopElement                      ( );
         void                                    activateExtraDicts                  ( );
         void                                    downloadCanceled                    ( );
         void                                    downloadDictionaries                ( );
         void                                    disconnectDictionaryWifiObserver    ( );
 
+signals:
+        void                                    showNewChild                        (QWidget*);
+        void                                    hideChild                           ( );
 };
 
 

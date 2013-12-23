@@ -181,6 +181,10 @@ void LibraryBookSummary::setBook( const BookInfo* book )
 
     // Synopsis
     summaryTextBrowser->setText(book->synopsis);
+    if(!book->synopsis.isEmpty())
+        synopsisLbl->show();
+    else
+        synopsisLbl->hide();
     //Define a single step as the 75% of the normal height in the widget.
     vbar->setSingleStep(summaryTextBrowser->height()*PERCENT_STEP_VALUE);
     if(!m_bookInfo->lastReadLink.isEmpty() && book->pageCount > 0)
@@ -194,6 +198,9 @@ void LibraryBookSummary::setBook( const BookInfo* book )
 
     m_bookListActions->setButtonsState(m_bookInfo->readingStatus);
     setActionsBtnText(m_bookInfo->readingStatus);
+
+    //Format
+    formatLbl->setText(m_bookInfo->format);
 
     if(m_bookInfo->m_type != BookInfo::BOOKINFO_TYPE_DEMO && !m_bookInfo->m_archived && countMarks > 0)
         exportNotesBtn->show();

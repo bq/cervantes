@@ -458,7 +458,7 @@ void StatusBar::switchLight(bool on)
 
 void StatusBar::showBatteryDialog()
 {
-        InfoDialog* batteryLevel = new InfoDialog(this, tr("Battery level = %1").arg(Battery::getInstance()->getLevel()));
+        InfoDialog* batteryLevel = new InfoDialog(this, tr("Battery level = %1").arg(Battery::getInstance()->getLevel()), 2000);
         Screen::getInstance()->setMode(Screen::MODE_SAFE, true, Q_FUNC_INFO);
         batteryLevel->hideSpinner();
         batteryLevel->showForSpecifiedTime();

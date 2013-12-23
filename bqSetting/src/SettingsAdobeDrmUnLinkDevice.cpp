@@ -43,7 +43,7 @@ SettingsAdobeDrmUnLinkDevice::SettingsAdobeDrmUnLinkDevice(QWidget* parent): Ful
     connect(overrideDeviceBtn,SIGNAL(clicked()), this, SLOT(handleDeactivate()));
     connect(backBtn,SIGNAL(clicked()),this,SIGNAL(hideMe()));
     connect(licenseAdobeBtn, SIGNAL(clicked()), this, SLOT(handleLicenseBtn()));
-    connect(adobeInformation, SIGNAL(hideMe()), this, SLOT(hideTopElement()));
+    connect(adobeInformation, SIGNAL(hideMe()), this, SIGNAL(hideChild()));
 
     connect(AdobeDRM::getInstance(), SIGNAL(unlinkOK()), this, SLOT(showDeactivatedOK()));
     connect(AdobeDRM::getInstance(), SIGNAL(unlinkKO()), this, SLOT(showDeactivatedKO()));
@@ -109,14 +109,9 @@ void SettingsAdobeDrmUnLinkDevice::handleLicenseBtn(){
         qDebug() << Q_FUNC_INFO;
 
         Screen::getInstance()->queueUpdates();
-        ((Settings*)parent())->showElement(adobeInformation);
+        emit showNewChild(adobeInformation);
         adobeInformation->fillInfo();
         Screen::getInstance()->flushUpdates();
-}
-
-void SettingsAdobeDrmUnLinkDevice::hideTopElement(){
-        qDebug() << Q_FUNC_INFO;
-        ((Settings*)parent())->hideElement();
 }
 
 void SettingsAdobeDrmUnLinkDevice::setEmail()

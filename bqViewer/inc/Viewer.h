@@ -62,7 +62,8 @@ class ViewerDictionary;
 class ViewerStepsManager;
 class QDateTime;
 
-#define SCROLL_AREA_WIDTH 120
+#define SCROLL_AREA_WIDTH       120
+#define SCROLL_AREA_WIDTH_HD    153
 
 enum HighlightPopupType {
     INIT_SINGLE_WORD_POPUP,
@@ -163,7 +164,7 @@ public:
 
     // PDF miniature
     void                                                    updatePdfMiniatureScreenshot                ( QPixmap& screenshot );
-    void                                                    updatePdfMiniatureLocation                  ( double viewXOffsetPercent, double viewYOffsetPercent, double scale );
+    void                                                    updatePdfMiniatureLocation                  ( double xoPercent, double yoPercent, double xfPerdcent, double yfPercent );
     void                                                    enablePdfMode                               ( bool enable = true);
 
 protected:
@@ -189,12 +190,16 @@ protected:
     void                                                    pushHistory                                 ();
     void                                                    showTimeTitleLabels                         ();
     void                                                    setUpperMargin                              ();
+    void                                                    updateLandscapeMargins                      ();
     bool                                                    isPdfBtnAllowed                             ();
     bool                                                    isTopScrollArea                             (QPoint& tapPoint);
     bool                                                    isBottomScrollArea                          (QPoint& tapPoint);
     bool                                                    isLeftScrollArea                            (QPoint& tapPoint);
     bool                                                    isRightScrollArea                           (QPoint& tapPoint);
     bool                                                    checkSecondaryAxisSwipe                     ( TouchEvent* );
+    bool                                                    headerShouldBeShown                         ();
+    void                                                    handlePdfToolbarDuringDictioSearch          ();
+    bool                                                    checkChapterInfoAvailability                ();
 
     int                                                     i_loadState;
     int                                                     i_hiliId;
@@ -203,6 +208,7 @@ protected:
     int                                                     i_refreshCounter;
     int                                                     i_maxQuickRefresh;
     int                                                     i_minPxSwipeLenght;
+    int                                                     i_scrollAreaWidth;
     bool                                                    b_hiliMode;
     bool                                                    b_pdfModeSupported;
     bool                                                    b_reloading;
@@ -259,6 +265,7 @@ signals:
 
     void                                                    zoomOut                                     ();
     void                                                    zoomIn                                      ();
+    void                                                    viewerConf                                  ();
 
 public slots:
     void                                                    modelChanged                                ( QString, int );
@@ -275,6 +282,8 @@ public slots:
     void                                                    showBookmark                                ( bool );
     void                                                    checkAndExtractCover                        ();
     void                                                    resetViewerWidgets                          ();
+    void                                                    handleLandscapeMode                         ();
+    void                                                    handlePageModeReflow                        ();
 
 protected slots:
     void                                                    handleLoadState                             (int);
@@ -284,7 +293,6 @@ protected slots:
     void                                                    handleSummaryReq                            ();
     void                                                    goPageBack                                  ();
     void                                                    pdfMenuBtnClicked                           ();
-    void                                                    handleLandscapeMode                         ();
     void                                                    closePdfToolsWindow                         ();
     void                                                    screenAdjust                                ();
     void                                                    widthAdjust                                 ();
@@ -303,8 +311,8 @@ protected slots:
     void                                                    handleErrorAfterLoading                     ( QString, int );
     void                                                    handleWarningsAfterLoading                  ( QStringList warnings );
     void                                                    removeBook                                  ( BookInfo* );
-    //void                                                    showBookmark                                ( bool );
     void                                                    processPressEvent                           ( TouchEvent*, bool eventFromViewerPageHandler = false);
+    void                                                    processTouchEvent                        ( TouchEvent* event );
     void                                                    menuPopUpShow                               ( ViewerMenuPopUp* popup, bool showStatusBar = true );
     void                                                    menuPopUpHide                               ();
 
@@ -318,7 +326,6 @@ protected slots:
     void                                                    disconnectWifi();
     void                                                    registerStepRead();
     void                                                    clearStepsProcess();
-    void                                                    handleViewerPageHandlerPressEvent           ( TouchEvent* );
 
 private:
     QWidget*                                                m_currentWidget;

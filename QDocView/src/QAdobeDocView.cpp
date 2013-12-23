@@ -1023,10 +1023,8 @@ void QAdobeDocView::setUrl(const QUrl& url)
     m_url = url;
     updateTitle();
 
-
-    m_isHorizontal = (m_isPdf) ? url.path().contains(".v.", Qt::CaseInsensitive) : false;
-
     emit urlChanged(m_url);
+    emit aspectRatio(documentRect());
 }
 
 QString QAdobeDocView::backend() const
@@ -1119,7 +1117,8 @@ bool QAdobeDocView::setPageMode(PageMode mode)
         m_renderer->setPageDecoration(deco);
     }
 
-    //updateNaturalSize();
+    if (m_pageMode == MODE_REFLOW_PAGES) emit pageModeReflow();
+
     updateOffsetXY();
     setAutoFitMode(AUTO_FIT_BEST);
     if(loc)
@@ -1228,7 +1227,7 @@ bool QAdobeDocView::setScaleFactorOnNextZoomedPage(double factor, double delta_x
         m_offsetY = 0;
     }
 
-    return updateScaleAndView(factor);;
+    return updateScaleAndView(factor);
 }
 
 bool QAdobeDocView::setScaleFactorOnPreviousZoomedPage(double factor, double delta_x, double delta_y)
@@ -1295,9 +1294,13 @@ bool QAdobeDocView::updateScaleAndView(double factor)
 
     if (m_isPdf && !m_isFontScalable) emit pdfZoomLevelChange(sizeLevel());
 
-    emit zoomChange(m_scale, m_curFitFactor);
+    emit zoomChange(m_scale);
 
-    return updateViewport();
+    bool result = updateViewport();
+
+    if (m_isPdf && !m_isFontScalable) positioningMiniature();
+
+    return result;
 }
 
 /*-------------------------------------------------------------------------*/
@@ -2266,18 +2269,24 @@ void QAdobeDocView::takeMiniatureScreenshot()
     Screen::getInstance()->flushUpdates();
 }
 
+#define FINE_ADJUST_PERCENT_X 1.02
+
 bool QAdobeDocView::screenshot()
 {
-    // TODO: try to don't take a screenshot if miniature is hide.
+    QPixmap screenshot = QPixmap::grabWidget((QWidget*)this);
 
-    QPixmap screenshot = QPixmap::grabWidget((QWidget*)parent());
-    if (!screenshot.isNull())
-    {
-        QBookApp::instance()->getViewer()->updatePdfMiniatureScreenshot(screenshot);
-        return true;
-    }
+    if (screenshot.isNull()) return false;
 
-    return false;
+
+    QRect docRect = documentRect().toRect();
+    docRect = m_trans.mapRect(docRect);
+    screenshot = screenshot.copy(docRect.left(), docRect.top(), docRect.width()*FINE_ADJUST_PERCENT_X, docRect.height());
+
+    if (screenshot.isNull()) return false;
+
+    QBookApp::instance()->getViewer()->updatePdfMiniatureScreenshot(screenshot);
+
+    return true;
 }
 
 void QAdobeDocView::scrolling()
@@ -2288,13 +2297,25 @@ void QAdobeDocView::scrolling()
 
 void QAdobeDocView::positioningMiniature()
 {
-    double viewXOffsetPercent = getDocViewXOffsetPercent();
-    double viewYOffsetPercent = getDocViewYOffsetPercent();
-    double scale = scaleFactor();
+    /// drawScrolls(QPainter& painter, const QRect& wr, const QRect& clip)
+    QRect wr = rect();//, clip = event->rect();
+    double xoP = 0, yoP = 0, xfP = 1, yfP = 1;
+    QRectF dev = documentRect();
+    dev = m_trans.mapRect(dev);
 
-    QBookApp::instance()->getViewer()->updatePdfMiniatureLocation(viewXOffsetPercent, viewYOffsetPercent, scale);
+    if (!m_isHorizontal || isHardPageMode())
+    {
+        if (dev.left()  < wr.left()  - Q_SCROLL_FUZZY_GAP) xoP = -dev.left()/(double)dev.width();
+        if (dev.right() > wr.right() + Q_SCROLL_FUZZY_GAP) xfP = (wr.right()-dev.left())/(double)dev.width();
+    }
 
-    qDebug() << "OFFSET:" << viewXOffsetPercent << "," << viewYOffsetPercent;
+    if (m_isHorizontal || isHardPageMode())
+    {
+        if (dev.top()    < wr.top()    - Q_SCROLL_FUZZY_GAP) yoP = -dev.top()/(double)dev.height();
+        if (dev.bottom() > wr.bottom() + Q_SCROLL_FUZZY_GAP) yfP = (wr.bottom()-dev.top())/(double)dev.height();
+    }
+
+    QBookApp::instance()->getViewer()->updatePdfMiniatureLocation(xoP, yoP, xfP, yfP);
 }
 
 /** END OF PDF PAGE CHANGE HANDLE *************************/
@@ -3382,7 +3403,9 @@ bool QAdobeDocView::updateMetrics()
     int sw = m_surface->width();
     int sh = m_surface->height();
 
-    m_scale = autoFitFactor(m_autoFit);
+    double newScale = autoFitFactor(m_autoFit);
+    if (m_scale != newScale) emit zoomChange(newScale);
+    m_scale = newScale;
     double f = m_isFontScalable ? 1.0 : m_scale;    
     double w = f * m_docSize.width();
     double h = f * m_docSize.height();

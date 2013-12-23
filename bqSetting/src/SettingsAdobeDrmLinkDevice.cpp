@@ -53,7 +53,7 @@ SettingsAdobeDrmLinkDevice::SettingsAdobeDrmLinkDevice(QWidget* parent): FullScr
         connect(idAdobeLineEdit, SIGNAL(clicked()), this, SLOT(handleID()));
         connect(passAdobeLineEdit, SIGNAL(clicked()), this, SLOT(handlePW()));
         connect(licenseAdobeBtn, SIGNAL(clicked()), this, SLOT(handleLicenseBtn()));
-        connect(adobeInformation, SIGNAL(hideMe()), this, SLOT(hideTopElement()));
+        connect(adobeInformation, SIGNAL(hideMe()), this, SIGNAL(hideChild()));
 
         connect(AdobeDRM::getInstance(), SIGNAL(linkOK()),      this, SLOT(showActivatedOK()));
         connect(AdobeDRM::getInstance(), SIGNAL(linkKO(int)),   this, SLOT(showActivatedKO(int)));
@@ -80,14 +80,9 @@ void SettingsAdobeDrmLinkDevice::handleLicenseBtn(){
         qDebug() << Q_FUNC_INFO;
 
         Screen::getInstance()->queueUpdates();
-        ((Settings*)parent())->showElement(adobeInformation);
+        emit showNewChild(adobeInformation);
         adobeInformation->fillInfo();
         Screen::getInstance()->flushUpdates();
-}
-
-void SettingsAdobeDrmLinkDevice::hideTopElement(){
-        qDebug() << Q_FUNC_INFO;
-        ((Settings *)parent())->hideElement();
 }
 
 void SettingsAdobeDrmLinkDevice::handleID(){
