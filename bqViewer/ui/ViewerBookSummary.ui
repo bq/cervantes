@@ -643,7 +643,16 @@
                   <property name="spacing">
                    <number>0</number>
                   </property>
-                  <property name="margin">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>2</number>
+                  </property>
+                  <property name="bottomMargin">
                    <number>0</number>
                   </property>
                   <item>
@@ -659,6 +668,29 @@
                     </property>
                     <property name="text">
                      <string>Más acciones</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_9">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Fixed</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>10</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="SilentQPushButton" name="addToCollectionBtn">
+                    <property name="text">
+                     <string>Colecciones</string>
                     </property>
                    </widget>
                   </item>
@@ -923,6 +955,12 @@ p, li { white-space: pre-wrap; }
  </widget>
  <customwidgets>
   <customwidget>
+   <class>ViewerVerticalPagerPopup</class>
+   <extends>QWidget</extends>
+   <header>ViewerVerticalPagerPopup.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>SilentQPushButton</class>
    <extends>QPushButton</extends>
    <header>SilentQPushButton.h</header>
@@ -930,13 +968,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>bqQTextBrowser</class>
    <extends>QTextBrowser</extends>
-   <header>bqQTextBrowser.h</header>
-  </customwidget>
-  <customwidget>
-   <class>ViewerVerticalPagerPopup</class>
-   <extends>QWidget</extends>
-   <header>ViewerVerticalPagerPopup.h</header>
-   <container>1</container>
+   <header location="global">bqQTextBrowser.h</header>
   </customwidget>
  </customwidgets>
  <resources>

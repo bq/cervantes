@@ -70,7 +70,7 @@ void SearchItem::paintBook()
 {
     qDebug() << "--->" << Q_FUNC_INFO;
     searchTitle->setText(book->title);
-    if(book->author == "--")
+    if(book->author == "---")
         searchAuthor->setText(tr("Autor Desconocido"));
     else
         searchAuthor->setText(book->author);

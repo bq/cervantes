@@ -42,6 +42,13 @@
      <number>0</number>
     </property>
     <item>
+     <widget class="QLabel" name="pagerViewerSpacerLeft">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="pageBackBtn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -49,13 +56,6 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="pagerViewerSpacerLeft">
       <property name="text">
        <string/>
       </property>
@@ -76,8 +76,17 @@
        <property name="spacing">
         <number>0</number>
        </property>
-       <property name="margin">
+       <property name="leftMargin">
         <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>3</number>
        </property>
        <item>
         <widget class="QProgressBar" name="readingProgress">
@@ -136,9 +145,22 @@
               </widget>
              </item>
              <item>
+              <widget class="QLabel" name="titleLeftMargin">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="DegreesLabel270" name="readingPercentLbl">
                <property name="text">
                 <string>100%</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               </property>
+               <property name="indent">
+                <number>0</number>
                </property>
               </widget>
              </item>
@@ -151,20 +173,6 @@
              </item>
              <item>
               <widget class="QLabel" name="noReadingPercentLbl">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="DegreesLabel270" name="readedLbl">
-               <property name="text">
-                <string>leído</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="noReadedLbl">
                <property name="text">
                 <string/>
                </property>
@@ -218,28 +226,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="marginText2">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QLabel" name="noPagToFinishLbl">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="DegreesLabel270" name="toFinishChapLbl">
-               <property name="text">
-                <string>págs. fin de capítulo</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="noToFinishChapLbl">
                <property name="text">
                 <string/>
                </property>
@@ -252,13 +239,6 @@
         </widget>
        </item>
       </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="pagerViewerSpacerRight">
-      <property name="text">
-       <string/>
-      </property>
      </widget>
     </item>
     <item>
@@ -278,7 +258,7 @@
      <widget class="DegreesLabel270" name="dateTimeLandscapeLbl">
       <property name="minimumSize">
        <size>
-        <width>60</width>
+        <width>0</width>
         <height>0</height>
        </size>
       </property>
@@ -290,7 +270,20 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QLabel" name="pagerViewerSpacerRight">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
    </layout>
+   <zorder>verticalSliderContent</zorder>
+   <zorder>pdfMenuBtn</zorder>
+   <zorder>dateTimeLandscapeLbl</zorder>
+   <zorder>pageBackBtn</zorder>
+   <zorder>pagerViewerSpacerLeft</zorder>
+   <zorder>pagerViewerSpacerRight</zorder>
   </widget>
  </widget>
  <customwidgets>

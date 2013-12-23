@@ -36,6 +36,7 @@ class Viewer;
 class Keyboard;
 class ViewerSearchResultItem;
 class ViewerSearchContextMenu;
+class ViewerSearchContextMenuLandscape;
 
 class ViewerSearchPopup : public ViewerMenuPopUp, protected Ui::ViewerSearchPopup
 {
@@ -95,7 +96,8 @@ protected:
     bool                                m_userTyped;
     bool                                b_goToSearch;
 
-    ViewerSearchContextMenu *           m_navigationMenu;
+    ViewerSearchContextMenu*            m_navigationMenu;
+    ViewerSearchContextMenuLandscape*   m_navigationMenuLandscape;
     int                                 i_currentShownResultIndex;
     int                                 i_firstShownIndex;
 

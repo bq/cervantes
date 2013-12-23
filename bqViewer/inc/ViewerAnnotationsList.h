@@ -72,12 +72,14 @@ private:
     int                                                 m_locationsTypeCount[BookLocation::TYPE_COUNT];
     BookLocation::Type                                  m_currentView;
     QButtonGroup*                                       m_buttonGroup;
+    ViewerAnnotationActions*                            m_actions;
 
     void                                                paintEvent                          (QPaintEvent* );
     void                                                mouseReleaseEvent                   (QMouseEvent* );
     void                                                setBookmarksCheck                   ( );
     void                                                setAllNotesCheck                    ( );
-    ViewerAnnotationActions*                            m_actions;
+    void                                                setupGUI                            (const QString& extension);
+
 
 signals:
     void                                                navigateToMark                      ( const QString& );

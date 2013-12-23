@@ -388,6 +388,8 @@ BookInfo* ModelBackendOneFile::loadBook (QXmlStreamReader& xml)
                 info->fontSize = xml.readElementText().toDouble();
             } else if (name == "page-mode") {
                 info->pageMode = xml.readElementText().toInt();
+            } else if (name == "page-orientation") {
+                info->orientation = (BookInfo::orientationEnum)xml.readElementText().toInt();
             } else if (name == "corrupted") {
                 info->corrupted = xml.readElementText().toInt();
             } else if (name == "type") {
@@ -459,6 +461,29 @@ BookInfo* ModelBackendOneFile::loadBook (QXmlStreamReader& xml)
                 info->readingStatus = BookInfo::READ_BOOK;
         }
     }
+
+    //For added mobi books try to extract the metadata if the author has the previous empty string.
+    if(info->format == "mobi" && info->author =="--")
+    {
+        info->author = "";
+        info->title = "";
+        info->thumbnail = "";
+        if(MetaDataExtractor::getMetaData(info->path, info->title, info->author, info->publisher, info->publishTime, info->synopsis, info->format, info->isDRMFile) == true)
+        {
+            if(info->title.isEmpty())
+                info->title = QFileInfo(info->path).baseName();
+
+            if(info->author.isEmpty())
+                info->author = QString("---");
+
+            info->setCSSFileList(MetaDataExtractor::extractCSS(info->path));
+        }
+    }
+
+    //Change the empty string for author to prevent extract the metadata again.
+    else if(info->author == "--")
+        info->author = QString("---");
+
     return info;
 }
 BookLocation* ModelBackendOneFile::loadMark (QXmlStreamReader& xml)
@@ -528,8 +553,9 @@ BookInfo* ModelBackendOneFile::loadDefaultInfo( const QString& path )
         if(bookInfo->title.isEmpty())
             bookInfo->title = QFileInfo(path).baseName();
 
+        //New empty string for author field and use to translate the unknow author string.
         if(bookInfo->author.isEmpty())
-            bookInfo->author = QString("--");
+            bookInfo->author = QString("---");
 
         bookInfo->setCSSFileList(MetaDataExtractor::extractCSS(path));
     } else {
@@ -543,7 +569,7 @@ BookInfo* ModelBackendOneFile::loadDefaultInfo( const QString& path )
 
     bookInfo->readingStatus = BookInfo::NO_READ_BOOK;
     bookInfo->path = path;
-    if (path.toLower().endsWith(".epub") || path.toLower().endsWith(".fb2"))
+    if (!path.toLower().endsWith(".pdf"))
          bookInfo->fontSize = 2;
 
     return bookInfo;
@@ -574,6 +600,7 @@ void ModelBackendOneFile::add( const BookInfo* book )
     {
         BookInfo *newBookInfo = new BookInfo(*book);
         newBookInfo->setCSSFileList(MetaDataExtractor::extractCSS(book->path));
+        newBookInfo->readingStatus = BookInfo::NO_READ_BOOK;
         m_books->insert(book->path, newBookInfo);
     } else {
         if (!book->m_archived && book->getCSSFileList().isEmpty())
@@ -746,6 +773,7 @@ void ModelBackendOneFile::saveBookInfo (const BookInfo* info, QXmlStreamWriter &
     xml.writeTextElement("last-read-page", QString::number(info->lastReadPage));
     xml.writeTextElement("font-size", QString::number(info->fontSize));
     xml.writeTextElement("page-mode", QString::number(info->pageMode));
+    xml.writeTextElement("page-orientation", QString::number(info->orientation));
     xml.writeTextElement("corrupted", QString::number(info->corrupted));
     xml.writeTextElement("type", QString::number(info->m_type));
     xml.writeTextElement("archived", QString::number(info->m_archived));

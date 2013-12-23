@@ -879,6 +879,7 @@ background:  url(":/res/arrow_top.png") no-repeat center bottom;
 /*LibraryBookSummary
 -----------------------*/
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #moreActionsBtn,
+#LibraryBookSummary #bookSummaryDataContainer #actionsContainer #addToCollectionBtn,
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #readSampleBtn,
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #bookStatusBtn{
 }
@@ -1224,5 +1225,10 @@ background-repeat:no-repeat;
 background-image: url(:/res/down-small-btn.png);
 background-position:center center;
 background-repeat:no-repeat;
+}
+/*LibraryCollectionLayer
+---------------------------*/
+#CollectionLayerCont #VerticalPagerPopup QPushButton, #CollectionLayerCont ViewerVerticalPagerPopup QPushButton{
+background-position:center
 }
 

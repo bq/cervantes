@@ -38,6 +38,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "Storage.h"
 #include "EpubMetaDataExtractor.h"
 #include "Fb2MetaDataExtractor.h"
+#include "MobiMetaDataExtractor.h"
 #include "Library.h"
 
 #include "SettingsReaderMenu.h"
@@ -148,6 +149,7 @@ Viewer::Viewer(QWidget* parent)
     // Book Summary
     m_bookSummary = new ViewerBookSummary(this);
     connect(m_bookSummary,  SIGNAL(hideMe()),                       this, SLOT(hideAllElements()));
+    connect(m_bookSummary,  SIGNAL(addNewCollection(const BookInfo*)), this, SIGNAL(createNewCollection(const BookInfo*)));
     m_bookSummary->hide();
 
     // Goto popup
@@ -181,7 +183,7 @@ Viewer::Viewer(QWidget* parent)
 
     // Screen icons
     connect(bookmark,               SIGNAL(changeBookmark()),       this,           SLOT(handleBookmark()));
-    //connect(bookmarkLandscape,      SIGNAL(changeBookmark()),       this,           SLOT(handleBookmark()));
+    connect(bookmarkLandscape,      SIGNAL(changeBookmark()),       this,           SLOT(handleBookmark()));
 #ifndef HACKERS_EDITION
     connect(buySampleBtn,           SIGNAL(clicked()),              this,           SLOT(buyBook()));
 #endif
@@ -304,8 +306,8 @@ void Viewer::activateForm()
     if(m_docView && m_bookInfo)
     {
         m_bookInfo->pageCount = m_docView->pageCount() - 1;
-        pageWindow->setCurrentPage(m_bookInfo->readingProgress*100);
-        pageWindowLandscape->setCurrentPage(m_bookInfo->readingProgress*100);
+        pageWindow->setCurrentReadingPercent(m_bookInfo->readingProgress*100);
+        pageWindowLandscape->setCurrentReadingPercent(m_bookInfo->readingProgress*100);
         pageWindow->setCurrentPageMode(isPdfBtnAllowed());
         pageWindowLandscape->setCurrentPageMode(isPdfBtnAllowed());
     }
@@ -622,18 +624,21 @@ void Viewer::resetViewerWidgets()
     pdfToolsWindow->hide();
     pdfToolsWindowLandscape->hide();
     pdfToolsWindow->setLandscapeImages(false);
-    viewerHeader->show();
     miniature->hide();
     miniatureLandscape->hide();
 
     if (m_docView && m_docView->isHorizontal())
     {
         ViewerCont->hide();
+        viewerHeader->hide();
+        bookMarkCont->hide();
         ViewerContLandscape->show();
     }
     else
     {
         ViewerCont->show();
+        viewerHeader->show();
+        bookMarkCont->show();
         ViewerContLandscape->hide();
     }
 }
@@ -780,17 +785,14 @@ void Viewer::loadDocument()
     time.start();
 
     textBody->layout()->removeWidget(m_docView);
-
     i_docExtension = getFileExtension(qs_docPath);
 
-    setUpperMargin();
+    setTextBodyMargins(m_bookInfo);
 
     if(i_docExtension == EXT_EPUB)
         connect(m_markHandler, SIGNAL(numPageMarks(int,int)), this, SLOT(numPageMarks(int,int)), Qt::UniqueConnection);
 
-
-    delete m_docView;
-    m_docView = 0;
+    delete m_docView; m_docView = 0;
 
     /// Load book
     QUrl url = QUrl::fromLocalFile(qs_docPath);
@@ -806,6 +808,7 @@ void Viewer::loadDocument()
     m_docView->setBlockPaintEvents(true);
     m_docView->setBookInfo(*m_bookInfo);
     m_docView->setFormActivated(true);
+
     // Set textBody and m_viewer size
     setTextBodyGeometry();
     m_viewerAppearancePopup->applyMargin();// NOTE: This needs to be done before m_docView->setUrl
@@ -1291,6 +1294,7 @@ void Viewer::customEvent(QEvent* received)
 void Viewer::processTouchEvent(TouchEvent* event)
 {
     qDebug() << Q_FUNC_INFO << "Type=" << event->type() << ",POS=" << event->pos();
+    if(QBookApp::instance()->isSleeping()) return;
 
     switch(event->touchType())
     {
@@ -1606,6 +1610,9 @@ void Viewer::hideAllElements() // TODO: Rename properly
     if(m_viewerMenu && m_viewerMenu->isVisible())
         m_viewerMenu->hide();
 
+    if(m_bookSummary && m_bookSummary->isVisible() && m_bookInfo)
+        m_bookInfo->update(m_bookSummary->getBookInfo());
+
     QBookApp::instance()->getStatusBar()->hide();
 
     menuPopUpHide();
@@ -1654,17 +1661,21 @@ Keyboard* Viewer::hideKeyboard()
     return QBookApp::instance()->hideKeyboard();
 }
 
+void Viewer::backBtnHandling()
+{
+    m_screenSteps = 0;
+    pushHistory();
+}
+
 void Viewer::gotoSearchWordPage(const QString &str)
 {
     qDebug() << Q_FUNC_INFO << str;
 
     Screen::getInstance()->queueUpdates();
     b_hiliMode = true;//Set true to delete all highlights after the search.
-    if(getCurrentDocExt() != EXT_PDF)
-    {
-        m_screenSteps = 0;
-        pushHistory();
-    }
+
+    backBtnHandling();
+
     // TODO: handle the five lines bellow inside gotoBookmark function
     m_docView->setBlockPaintEvents(true);
     m_markHandler->addTempHighlight(str);
@@ -1684,11 +1695,7 @@ void Viewer::goToMark(const QString& ref)
 
     Screen::getInstance()->queueUpdates();
     hideAllElements();
-    if(getCurrentDocExt() != EXT_PDF)
-    {
-        m_screenSteps = 0;
-        pushHistory();
-    }
+    backBtnHandling();
 
     // TODO: handle the four lines bellow inside gotoBookmark function
     m_docView->setBlockPaintEvents(true);
@@ -2354,11 +2361,7 @@ void Viewer::setCurrentChapterInfo()
 void Viewer::goToPage(int pageNumber)
 {
     m_powerLock->activate();
-    if(getCurrentDocExt() != EXT_PDF)
-    {
-        m_screenSteps = 0;
-        pushHistory();
-    }
+    backBtnHandling();
     docView()->gotoPage(pageNumber);
     m_powerLock->release();
 }
@@ -2410,7 +2413,7 @@ void Viewer::handlePageModeReflow()
     pageWindowLandscape->setPdfToolbarState(false);
     pageWindow->setPdfToolbarState(false);
     pageWindow->updateDisplay();
-    updateLandscapeMargins();
+    setTextBodyMargins(m_bookInfo);
 }
 
 void Viewer::handleLandscapeMode()
@@ -2419,12 +2422,18 @@ void Viewer::handleLandscapeMode()
 
     if(!m_docView) return;
 
+    Screen::getInstance()->queueUpdates();
+
+    if (m_docView->sizeLevel() > 0) m_docView->setBlockPaintEvents(true);
+
     m_viewerMenu->hide();
+
+    bool goingToLandscapeMode = false;
 
     if(m_docView->isHorizontal())
     {
-        m_docView->setHorizontal(false);
         viewerHeader->show();
+        bookMarkCont->show();
         viewerHeaderLandscape->hide();
 
         if(pdfToolsWindowLandscape->isVisible())
@@ -2449,8 +2458,9 @@ void Viewer::handleLandscapeMode()
     }
     else // LANDSCAPE MODE
     {
-        m_docView->setHorizontal(true);
+        goingToLandscapeMode = true;
         viewerHeader->hide();
+        bookMarkCont->hide();
         viewerHeaderLandscape->show();
 
         if(pdfToolsWindow->isVisible())
@@ -2474,12 +2484,18 @@ void Viewer::handleLandscapeMode()
         ViewerContLandscape->show();
     }
 
-    updateLandscapeMargins();
+    setTextBodyMargins(goingToLandscapeMode);
+    setHorizontal(goingToLandscapeMode);
 
-    QBookApp::instance()->getStatusBar()->hide();
-    m_docView->takeMiniatureScreenshot();
+    QBookApp::instance()->getStatusBar()->hide();    
+    m_docView->takeMiniatureScreenshot();    
+    updateZoom();
     m_docView->update(); // FIXME: allow refresh in SD.
     m_docView->positioningMiniature();
+
+    m_docView->setBlockPaintEvents(false);
+    Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
+    Screen::getInstance()->flushUpdates();
 }
 
 void Viewer::closePdfToolsWindow()
@@ -2506,7 +2522,7 @@ void Viewer::closePdfToolsWindow()
 void Viewer::screenAdjust()
 {
     m_powerLock->activate();
-    m_docView->setScaleFactor(m_docView->autoFitFactor(QDocView::AUTO_FIT_BEST));
+    m_docView->displayFit(QDocView::AUTO_FIT_BEST);
     m_docView->update(); // FIXME: allow refresh in SD.
     m_powerLock->release();
 }
@@ -2514,7 +2530,7 @@ void Viewer::screenAdjust()
 void Viewer::widthAdjust()
 {
     m_powerLock->activate();
-    m_docView->setScaleFactor(m_docView->autoFitFactor(QDocView::AUTO_FIT_WIDTH));
+    m_docView->displayFit(QDocView::AUTO_FIT_WIDTH);
     m_docView->update(); // FIXME: allow refresh in SD.
     m_powerLock->release();
 }
@@ -2522,9 +2538,18 @@ void Viewer::widthAdjust()
 void Viewer::heightAdjust()
 {
     m_powerLock->activate();
-    m_docView->setScaleFactor(m_docView->autoFitFactor(QDocView::AUTO_FIT_HEIGHT));
+    m_docView->displayFit(QDocView::AUTO_FIT_HEIGHT);
     m_docView->update(); // FIXME: allow refresh in SD.
     m_powerLock->release();
+}
+
+void Viewer::setHorizontal(bool on)
+{
+    if (!m_docView->isHardModePDF()) return;
+
+    m_docView->setHorizontal(on);
+    if (on) m_bookInfo->orientation = BookInfo::ORI_LANDSCAPE;
+    else    m_bookInfo->orientation = BookInfo::ORI_PORTRAIT;
 }
 
 void Viewer::numPageMarks( int /*notesCount*/, int /*highlightsCount*/ )
@@ -2622,9 +2647,15 @@ void Viewer::disconnectWifi()
 
 void Viewer::showBookmark(bool show)
 {    
-    bookmark->setLandscapeMode(m_docView->isHorizontal());
-    if (show) bookmark->raise();
-    bookmark->updateDisplay(show);
+    ViewerBookmark* mark = 0;
+
+    if (m_docView->isHorizontal()) mark = bookmarkLandscape;
+    else                           mark = bookmark;
+
+    if (!mark) return;
+
+    if (show) mark->raise();
+    mark->updateDisplay(show);
 }
 
 void Viewer::menuPopUpShow( ViewerMenuPopUp* popup, bool showStatusBar )
@@ -2709,6 +2740,7 @@ void Viewer::prepareViewerBeforeSleep()
 
     if(!m_docView) return;
 
+    m_docView->setBlockPaintEvents(false);
     m_searchPopup->stopSearch();
     m_markHandler->cancelMarkOp();
     m_powerLock->release();
@@ -2806,21 +2838,6 @@ void Viewer::checkAndExtractCover()
 {
     qDebug() << Q_FUNC_INFO;
 
-    if(m_bookInfo->path.contains(Storage::getInstance()->getPrivatePartition()->getMountPoint()))
-        return; // No action if purchased book, cover downloaded
-
-    // Get expected thumbnail image path
-    QFileInfo fi(m_bookInfo->path);
-
-    // Check dir
-    QDir dir(fi.absolutePath());
-    if(!dir.exists( ".thumbnail/"))
-        dir.mkdir( ".thumbnail/");
-
-    QString thumbnailPath(fi.absolutePath() + QDir::separator() + ".thumbnail"
-                          + QDir::separator() + fi.fileName() + THUMBNAIL_SUFIX);
-    thumbnailPath = thumbnailPath.replace("\'", "");  //Books with apostrophe the title cant load the thumbnail already generated.
-
     QFileInfo thumbnailFile(m_bookInfo->thumbnail);
     bool coverToDownscale = !thumbnailFile.completeBaseName().endsWith(THUMBNAIL_SUFIX)
                             && !m_bookInfo->thumbnail.endsWith(NO_COVER_RESOURCE)
@@ -2829,26 +2846,7 @@ void Viewer::checkAndExtractCover()
 
     // Extract thumbnail if empty yet or old (big size)
     if(m_bookInfo->thumbnail.isEmpty() || coverToDownscale)
-    {        
-        bool gotCover = MetaDataExtractor::extractCover(m_bookInfo->path, thumbnailPath);
-        if (!gotCover) thumbnailPath = QDocView::coverPage(m_bookInfo->path, thumbnailPath); // Render 1st page if not have cover.
-
-        QImageReader image(thumbnailPath);
-        QFile imageFile(thumbnailPath);
-        if(!image.canRead())
-        {
-            qWarning() << Q_FUNC_INFO << "Error extracting cover";
-            return;
-        }
-        else
-        {
-            Library::fromCover2Thumbnail(thumbnailPath);
-            QImageReader modifiedImage(thumbnailPath);
-            thumbnailPath += "." + modifiedImage.format();
-            imageFile.rename(thumbnailPath);
-        }
-        m_bookInfo->thumbnail = thumbnailPath;
-    }
+        QBookApp::instance()->generateBookCover(m_bookInfo);
 }
 
 void Viewer::repaintContentList()
@@ -2902,7 +2900,7 @@ void Viewer::showTimeTitleLabels()
         {
             if(m_docView->isHorizontal())
             {
-                pageWindowLandscape->updateBookTitle(bqUtils::truncateStringToLength(m_bookInfo->title, STRING_MAX_LENGTH_LANDSCAPE));
+                pageWindowLandscape->updateBookTitle(m_bookInfo->title);
                 pageWindowLandscape->showTitle();
             }
             else
@@ -2966,7 +2964,10 @@ void Viewer::updateTime()
 
 bool Viewer::hasChangedOptions()
 {
-    return (m_showTitle != QBook::settings().value("setting/showBookTitle", false).toBool() || m_showDateTime != QBook::settings().value("setting/showDateTime", false).toBool());
+    if(!m_showTitle && !m_showDateTime)
+        return (QBook::settings().value("setting/showBookTitle", false).toBool() || QBook::settings().value("setting/showDateTime", false).toBool());
+    else if(m_showTitle || m_showDateTime)
+        return (!QBook::settings().value("setting/showBookTitle", false).toBool() && !QBook::settings().value("setting/showDateTime", false).toBool());
 }
 
 bool Viewer::headerShouldBeShown()
@@ -2976,32 +2977,39 @@ bool Viewer::headerShouldBeShown()
             m_bookInfo->m_type == BookInfo::BOOKINFO_TYPE_DEMO);
 }
 
-void Viewer::setUpperMargin()
+void Viewer::setTextBodyMargins(BookInfo* bookInfo)
+{
+    setTextBodyMargins(i_docExtension == EXT_PDF && bookInfo->orientation == BookInfo::ORI_LANDSCAPE);
+}
+
+void Viewer::setTextBodyMargins(bool isPdfModeLandscape)
 {
     QMargins margins(0, 0, 0, 0);
 
-    if (headerShouldBeShown())
+    /// LEFT
+    if(isPdfModeLandscape)
     {
-        if (i_docExtension == EXT_PDF) margins.setTop(viewerHeader->height());
-        else                           margins.setTop(viewerHeader->height()/2);
+        margins.setLeft(pageWindowLandscape->width());
+    }
+    else
+    {
+        /// TOP
+        if (headerShouldBeShown())
+        {
+            if (i_docExtension == EXT_PDF) margins.setTop(viewerHeader->height());
+            else                           margins.setTop(viewerHeader->height()/2);
+
+
+        }
+
+        /// BOTTOM
+        if (isUsingCR3((SupportedExt) i_docExtension)) margins.setBottom(pageWindow->height()*0.85);
+        else                                           margins.setBottom(pageWindow->height());
     }
 
-    if (isUsingCR3((SupportedExt) i_docExtension)) margins.setBottom(pageWindow->height()*0.85);
-    else                                           margins.setBottom(pageWindow->height());
-
-    textBody->layout()->setContentsMargins(margins);
-
     emit upperMarginUpdate(margins.top());
-}
-
-void Viewer::updateLandscapeMargins()
-{
-    if(i_docExtension == EXT_PDF && m_docView->isHorizontal())
-        textBody->layout()->setContentsMargins(pageWindowLandscape->width(), 0, 0, 0);
-    else
-        setUpperMargin();
-
-    m_docView->setFormActivated(true);
+    textBody->layout()->setContentsMargins(margins);
+    if (m_docView) m_docView->setFormActivated(true);
 }
 
 int Viewer::getUpperMargin()
@@ -3043,7 +3051,7 @@ void Viewer::enablePdfMode(bool enable)
         if (m_docView->isHorizontal())
         {
             // Back to non-landscape mode.            
-            m_docView->setHorizontal(false);
+            setHorizontal(false);
             QBookApp::instance()->getStatusBar()->hide();
             resetScreen();
         }
@@ -3057,4 +3065,9 @@ bool Viewer::isPdfBtnAllowed()
 {
     if (m_docView && m_bookInfo) return m_bookInfo->pageMode != QDocView::MODE_REFLOW_PAGES && getCurrentDocExt() == Viewer::EXT_PDF;
     else return false;
+}
+
+void Viewer::updateZoom()
+{
+    m_docView->updateScaleByLevel();
 }

@@ -21,6 +21,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "AfterUpdateWorker.h"
 #include "QBook.h"
 #include "Storage.h"
+#include "bqUtils.h"
 #include <QFile>
 #include <QDir>
 #include <QDebug>
@@ -156,36 +157,13 @@ void AfterUpdateWorker::copyNewImages()
 
     /////////////////////////////////////////////////////
 
-    qDebug() << "Removed new images:" << removeDir(imagePath);
+    qDebug() << "Removed new images:" << bqUtils::removeDir(imagePath);
 }
 
 void AfterUpdateWorker::setActivated()
 {
     if(QBook::settings().value("setting/linked", false).toBool())
         QBook::settings().setValue("setting/activated", true);
-}
-
-bool AfterUpdateWorker::removeDir(const QString dirName)
-{
-    bool result;
-    QDir dir(dirName);
-
-    if (dir.exists(dirName)) {
-        Q_FOREACH(QFileInfo info, dir.entryInfoList(QDir::NoDotAndDotDot | QDir::System | QDir::Hidden  | QDir::AllDirs | QDir::Files, QDir::DirsFirst)) {
-            if (info.isDir()) {
-                result = removeDir(info.absoluteFilePath());
-            }
-            else {
-                result = QFile::remove(info.absoluteFilePath());
-            }
-
-            if (!result) {
-                return result;
-            }
-        }
-        result = dir.rmdir(dirName);
-    }
-    return result;
 }
 
 void AfterUpdateWorker::removeExpiredDictionaries()

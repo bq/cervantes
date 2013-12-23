@@ -68,7 +68,7 @@ color:#000000;
 background:  url(":/res/buy_book_landscape.png") no-repeat top left;
 }
 #bookMarkContLandscape #bookmarkImg{
-background:url(":/res/bookmark_landscape.png") no-repeat top center;
+background:url(":/res/bookmark_landscape.png") no-repeat left center;
 }
 /*ViewerFloatingNote
 -------------------------------*/
@@ -93,7 +93,7 @@ background-color:transparent;
 background-image: url(:/res/page_back_btn.png) ;
 background-color: transparent;
 background-repeat: no-repeat;
-background-position:center right;
+background-position:center center;
 }
 #pdfMenuBtn{
 background-image: url(:/res/pdf-ico.png) ;
@@ -941,7 +941,6 @@ background-color:#FFF;
 background:transparent url(":/res/close.png")  no-repeat center center;
 }
 #SearchContextMenuCont #resultIndexLbl{
-font-weight:bold;
 }
 #SearchContextMenuCont #ofLbl{
 color:#000000;
@@ -959,6 +958,48 @@ border-style:solid;
 border-color:#505050;
 border-left:none;
 background:url(":/res/next_btn.png") no-repeat center;
+background-color:#FFF;
+}
+/*ViewerSearchContextMenuLandscape
+----------------------------------*/
+#ViewerSearchContextMenuLandscape{
+}
+#ViewerSearchContextMenuLandscape #resultCountLbl{
+border-style:solid;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont{
+border-style:solid;
+border-color:#505050;
+background-color:#D0D0D0;
+}
+#ViewerSearchContextMenuLandscape #listBtn{
+color:#303030;
+border-style:solid;
+border-color:#505050;
+font-weight:bold;
+background:#FFF url(":/res/back.png") no-repeat left center;
+}
+#ViewerSearchContextMenuLandscape #ViewerSearchCenterCont{
+background-color:#FFF;
+}
+#ViewerSearchContextMenuLandscape #headerSearch{
+}
+#ViewerSearchContextMenuLandscape #closeBtn{
+background:transparent url(":/res/close.png")  no-repeat center center;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont #previousBtn{
+border-none;
+border-style:solid;
+border-color:#505050;
+background:url(":/res/pre_landscape_btn.png") no-repeat center;
+background-color:#FFF;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont #nextBtn{
+border-none;
+border-style:solid;
+border-color:#505050;
+border-top:none;
+background:url(":/res/nex_landscape_btn.png") no-repeat center;
 background-color:#FFF;
 }
 /*ViewerAppearancePopup
@@ -1338,8 +1379,7 @@ border:0px solid #999;
 #ViewerPageHandlerLandscapeCont #titleLandscapeLbl{
 }
 #ViewerPageHandlerLandscapeCont #readingPercentLbl{
-}
-#ViewerPageHandlerLandscapeCont #readedLbl{
+text-align:left;
 }
 #ViewerPageHandlerLandscapeCont #spacerNoPercentNoBakcLbl,
 #ViewerPageHandlerLandscapeCont #spacerNoPercentLbl{
@@ -1391,4 +1431,11 @@ text-align:left;
 }
 #screenshotLandscapeCont #zoomLbl, #screenshotLandscapeCont #zoomValueLbl{
 font-weight:bold;
+}
+/*LibraryCollectionLayer
+---------------------------*/
+#ViewerCollectionLayer{
+}
+#CollectionLayerCont #VerticalPagerPopup QPushButton, #CollectionLayerCont ViewerVerticalPagerPopup QPushButton{
+background-position:center;
 }

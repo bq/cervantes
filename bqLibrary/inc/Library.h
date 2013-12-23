@@ -185,6 +185,8 @@ public slots:
     void                                connectedToPc                       ( bool );
     void                                reportedStoreLink                   ( );
     void                                setImageList                        (QList<QString> imagesList);
+    void                                createNewCollection                 (const BookInfo* bookToAdd);
+    void                                setFromViewer                       (bool fromViewer) { b_isFromViewer = fromViewer; }
 
 protected:
 
@@ -195,6 +197,8 @@ protected:
 
 signals:
     void                                searchFinished                      ();
+    void                                fileCopied                          ( int );
+    void                                returnToViewer                      ();
 
 #ifndef HACKERS_EDITION
     void                                syncFinished                        ();
@@ -296,7 +300,6 @@ protected slots:
     void                                handleFulfillmentError              ( QString errorMsg );
     void                                hideEditCollection                  ();
 
-
 private:
     enum ELibraryItemClickedMode
     {
@@ -342,6 +345,7 @@ private:
     void                                showMyCollectionFilterUIStuff       ();
     void                                showCollectionFilterUIStuff         ();
     void                                showBrowserFilterUIStuff            ();
+    bool                                copyDir                             ( const QString&,const QString&, int& filesToCopy, int& filesCopied, int& positivelyCopied);
 
 //    void                                updateSelectedBooks                 ();
 
@@ -411,10 +415,12 @@ private:
 
     bool                                clearKeyboard                       ();
     bool                                hideKeyboard                        ();
+    void                                showKeyboard                        ();
 
     PowerManagerLock*                   m_powerLock;
     bool                                b_unarchivingBook;
     bool                                b_hasSearch;
+    bool                                b_isFromViewer;
 
     InfoDialog*                         m_waitingDialog;
     void                                processFulfillment                  ( const QString& path );

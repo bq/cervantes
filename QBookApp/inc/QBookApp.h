@@ -149,7 +149,7 @@ public:
     WebWizard* browserWizard();
 #endif
 
-    static bool isImage                 ( const QString& );
+    bool isImage                        ( const QString& );
     Browser*    browser                 ();
     void        emitSwipe               (int);
     bool        isLinked                ( );
@@ -188,6 +188,8 @@ public:
     void                                                        enablePowerKeyWatcher                           (bool);
     void                                                        shuttingDown                                    ( );
     QString                                                     getImageResource                                (const QString& path, bool isLine = false);
+    void                                                        generateBookCover                               ( BookInfo* );
+    QList<QByteArray>                                           getSupportedImageslist                          ( );
 
 signals:
     void popupForm();
@@ -316,7 +318,7 @@ protected slots:
     void checkScreensaverCoverAfterSync();
     void handleViewerConf();
     void handleGoToViewer();
-
+    void createNewCollection(const BookInfo* bookToAdd);
 
 protected:
     virtual void init();
@@ -488,6 +490,7 @@ private:
     bool b_isBuying;
     bool b_wizardFromStore;
     QProcess *offlineHelper;
+    QList<QByteArray> supportedImageslist;
 };
 
 #endif

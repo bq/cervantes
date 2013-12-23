@@ -283,38 +283,38 @@
         <translation>Adobe lizentzia</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="95"/>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="107"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="90"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="102"/>
         <source>Enviar</source>
         <translation>Bidali</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="122"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="117"/>
         <source>Adobe ID is empty.</source>
         <translation>Adobe IDa hutsik dago.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="131"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="126"/>
         <source>Password is empty.</source>
         <translation>Pasahitza hutsik dago.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="142"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="137"/>
         <source>Please wait, activation in progress ...</source>
         <translation>Itxaron, aktibatzen ari da...</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="165"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="160"/>
         <source>Device successfully activated!</source>
         <translation>Gailua behar bezala aktibatu da.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="190"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="185"/>
         <source>Error during activation, please try again</source>
         <translation>Errorea aktibatzean. Saiatu berriro.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="198"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="193"/>
         <source>The account reached the maximum activations.</source>
         <translation>Onartutako aktibazio kopurua gainditu du kontuak.</translation>
     </message>
@@ -607,102 +607,107 @@
         <translation>Brasil / Porto Velho</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="134"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="128"/>
+        <source>%1, %2 %3 %4</source>
+        <translation>%1, %4(e)ko, %3 %2a</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="136"/>
         <source>Monday</source>
         <translation>Astelehena</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="136"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="138"/>
         <source>Tuesday</source>
         <translation>Asteartea</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="138"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="140"/>
         <source>Wednesday</source>
         <translation>Asteazkena</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="140"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="142"/>
         <source>Thursday</source>
         <translation>Osteguna</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="142"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="144"/>
         <source>Friday</source>
         <translation>Ostirala</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="144"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="146"/>
         <source>Saturday</source>
         <translation>Larunbata</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="146"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="148"/>
         <source>Sunday</source>
         <translation>Igandea</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="153"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="155"/>
         <source>January</source>
         <translation>Urtarrila</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="155"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="157"/>
         <source>February</source>
         <translation>Otsaila</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="157"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="159"/>
         <source>March</source>
         <translation>Martxoa</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="159"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="161"/>
         <source>April</source>
         <translation>Apirila</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="161"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="163"/>
         <source>May</source>
         <translation>Maiatza</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="163"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="165"/>
         <source>June</source>
         <translation>Ekaina</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="165"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="167"/>
         <source>July</source>
         <translation>Uztaila</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="167"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="169"/>
         <source>August</source>
         <translation>Abuztua</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="169"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="171"/>
         <source>September</source>
         <translation>Iraila</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="171"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="173"/>
         <source>October</source>
         <translation>Urria</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="173"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="175"/>
         <source>November</source>
         <translation>Azaroa</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="175"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="177"/>
         <source>December</source>
         <translation>Abendua</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="297"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="299"/>
         <source>Hora cambiada correctamente</source>
         <translation>Ordua behar bezala aldatu da.</translation>
     </message>
@@ -848,12 +853,12 @@
         <translation>Eguneratu gailua</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDeviceInfo.cpp" line="125"/>
+        <location filename="../src/SettingsDeviceInfo.cpp" line="126"/>
         <source>Do you want to restore device? This will delete all your personal account data</source>
         <translation>Gailua fabrikako balioekin leheneratu nahi duzu? Zure kontuaren datu pertsonal guztiak ezabatuko dira.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDeviceInfo.cpp" line="141"/>
+        <location filename="../src/SettingsDeviceInfo.cpp" line="142"/>
         <source>This process can take a few minutes. At the end, the device will be powered off</source>
         <translation>Prozesuak zenbait minutu iraun ditzake. Amaitutakoan, gailua itzali egingo da</translation>
     </message>
@@ -910,7 +915,7 @@
         <translation type="obsolete">Itxaron-denbora</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDeviceOptionsMenu.cpp" line="118"/>
+        <location filename="../src/SettingsDeviceOptionsMenu.cpp" line="124"/>
         <source>Recuerda activar tu dispositivo para disfrutar de los diccionarios.</source>
         <translation>Gogoratu gailua aktibatu behar duzula hiztegiak erabili ahal izateko.</translation>
     </message>
@@ -999,32 +1004,32 @@ Dixio Teknologia - © 2011 Semantix</translation>
         <translation>Hiztegia behar bezala aldatu da.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="274"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="268"/>
         <source>Downloading dictionary, please wait for a few minutes.</source>
         <translation>Hiztegia deskargatzen. Itxaron minutu batzuk.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="308"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="302"/>
         <source>Downloading complements, please wait for a few minutes.</source>
         <translation>Osagarriak deskargatzen. Itxaron minutu batzuk.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="324"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="318"/>
         <source>Download failed. Please try again.</source>
         <translation>Deskargak huts egin du. Saiatu berriro.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="337"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="331"/>
         <source>Installing...</source>
         <translation>Instalatzen…</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="375"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="369"/>
         <source>Installing success. Now the system will be turned off.</source>
         <translation>Instalatzen amaitu da. Orain gailua itzali egingo da.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="386"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="380"/>
         <source>Install failed. Please try again.</source>
         <translation>Instalazioak huts egin du. Saiatu berriro.</translation>
     </message>
@@ -1647,44 +1652,36 @@ amaierarako orr.</translation>
 <context>
     <name>SettingsRestoreDefaultValues</name>
     <message>
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="32"/>
         <source>Form</source>
-        <translation>Inprimakia</translation>
+        <translation type="obsolete">Inprimakia</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="68"/>
         <source>Atrás</source>
-        <translation>Atzera</translation>
+        <translation type="obsolete">Atzera</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="87"/>
         <source>Restaurar valores de fábrica</source>
-        <translation>Leheneratu fabrikako balioak</translation>
+        <translation type="obsolete">Leheneratu fabrikako balioak</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="153"/>
         <source>Este proceso borrará todos los datos de tu dispositivo</source>
-        <translation>Prozesu honek gailuko datu guztiak ezabatuko ditu</translation>
+        <translation type="obsolete">Prozesu honek gailuko datu guztiak ezabatuko ditu</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="181"/>
         <source>¿Estás seguro de que quieres restaurar los valores de fábrica de tu dispositivo?</source>
-        <translation>Ziur gailuaren fabrikako balioak leheneratu nahi dituzula?</translation>
+        <translation type="obsolete">Ziur gailuaren fabrikako balioak leheneratu nahi dituzula?</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="221"/>
         <source>Restaurar dispositivo</source>
-        <translation>Leheneratu gailua</translation>
+        <translation type="obsolete">Leheneratu gailua</translation>
     </message>
     <message>
-        <location filename="../src/SettingsRestoreDefaultValues.cpp" line="42"/>
         <source>Do you want to restore the device to default settings? This will delete all your personal data</source>
-        <translation>Gailuaren ezarpen lehenetsiak leheneratu nahi dituzu? Datu pertsonal guztiak ezabatuko dira</translation>
+        <translation type="obsolete">Gailuaren ezarpen lehenetsiak leheneratu nahi dituzu? Datu pertsonal guztiak ezabatuko dira</translation>
     </message>
     <message>
-        <location filename="../src/SettingsRestoreDefaultValues.cpp" line="49"/>
         <source>This process can take a few minutes.</source>
-        <translation>Prozesu honek zenbait minutu iraun ditzake.</translation>
+        <translation type="obsolete">Prozesu honek zenbait minutu iraun ditzake.</translation>
     </message>
 </context>
 <context>
@@ -2220,7 +2217,13 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
         <translation>Bertsio berri bat dago erabilgarri:</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="183"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="182"/>
+        <source>Error downloading.
+ Please try again.</source>
+        <translation>Errorea behera kargatzean. Mesedez, saiatu berriro.</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="191"/>
         <source>No space available on the device.
 Please remove some files.</source>
         <translation>Ez dago memoriarik gailuan. Kendu zenbait fitxategi.</translation>
@@ -2236,43 +2239,43 @@ before the download.</source>
         <translation type="obsolete">Ez deskonektatu kargagailua deskargatu bitartean.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="195"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="203"/>
         <source>Low battery level.
 Please connect the charger
 before the download.</source>
         <translation>Bateria maila % 50 aren azpitik. Mesedez, konektatu kargagailua, eguneratzearen behera-kargatzea hasteko.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="213"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="221"/>
         <source>Low battery level.
 Please, don&apos;t disconnect the charger
  during the download.</source>
         <translation>Bateria maila % 50 aren azpitik. Mesedez, mantendu ezazu kargagailua konektatuta eguneratze prozesu bitartean.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="219"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="228"/>
         <source>Downloading...
 This process may take several minutes </source>
         <translation>Deskargatzen... Prozesuak zenbait minutu iraun ditzake</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="236"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="246"/>
         <source>Error downloading</source>
         <translation>Errorea behera kargatzean. Mesedez, saiatu berriro.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="246"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="257"/>
         <source>Firmware download complete
 Restarting to apply changes.</source>
         <translation>Firmware-aren deskarga osatu da. Berrabiarazi egin da aldaketak aplikatzeko.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="253"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="264"/>
         <source>Downloaded file is corrupted</source>
         <translation>Deskargatutako fitxategia hondatuta dago</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="266"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="278"/>
         <source>Installation failed. Please try again in a few minutes</source>
         <translation>Instalazioak huts egin du. Saiatu berriro minutu gutxi barru.</translation>
     </message>

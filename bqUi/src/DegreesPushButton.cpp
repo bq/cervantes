@@ -26,10 +26,11 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QTextLayout>
 #include <QStyleOption>
 
-#define ROTATE90 270
+#define ROTATE270 90
 
 DegreesPushButton::DegreesPushButton(QWidget *parent) :QPushButton(parent)
 {
+    alignment = Qt::AlignCenter;
 }
 
 DegreesPushButton::~DegreesPushButton()
@@ -46,14 +47,14 @@ void DegreesPushButton::paintEvent( QPaintEvent* )
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
     QTextLayout textLayout(text(), p.font());
     textLayout.beginLayout();
-    drawRotatedText(&p, ROTATE90, width(), height()/2, text());
+    drawRotatedText(&p, ROTATE270, width(), height()/2, text());
 }
 
 void DegreesPushButton::drawRotatedText(QPainter *painter, float degrees, int x, int y, const QString &text)
  {
     painter->save();
-    painter->translate(x, y);
     painter->rotate(degrees);
-    painter->drawText(-x, -y, height(), width(), Qt::AlignCenter, text);
+    painter->translate(0, -width());
+    painter->drawText(0, 0, height(), width(), alignment, text);
     painter->restore();
  }

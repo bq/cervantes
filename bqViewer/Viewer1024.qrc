@@ -97,5 +97,8 @@
         <file alias="res/empty.png">res/1024/empty.png</file>
         <file alias="res/viewer_conf_btn.png">res/1024/viewer_conf_btn.png</file>
         <file alias="res/back-def.png">res/1024/back-def.png</file>
+        <file alias="res/pre_landscape_btn.png">res/1024/pre_landscape_btn.png</file>
+        <file alias="res/nex_landscape_btn.png">res/1024/nex_landscape_btn.png</file>
+        <file alias="res/plus-ico.png">res/1024/plus-ico.png</file>
     </qresource>
 </RCC>

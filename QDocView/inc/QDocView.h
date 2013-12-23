@@ -155,22 +155,25 @@ public:
     virtual PageMode pageMode() const = 0;
     virtual bool isPageModeSupported(PageMode mode) = 0;
     virtual bool setPageMode(PageMode mode) = 0;
+    virtual bool isHardModePDF() const = 0;
 
+    virtual void   displayFit(AutoFitMode mode) = 0;
     virtual double autoFitFactor(AutoFitMode mode) const = 0;
     virtual AutoFitMode autoFitMode() const = 0;
-    virtual void setAutoFitMode(AutoFitMode mode) = 0;
+    virtual void  setAutoFitMode(AutoFitMode mode) = 0;
 
     virtual double scaleStep() const = 0;
     virtual double scaleFactor() const = 0;
     virtual double maxScaleFactor() const = 0;
-    virtual bool   setScaleFactor(double factor, double delta_x = 0, double delta_y = 0) = 0;
+    virtual bool   setScaleFactor(double factor, double delta_x = 0, double delta_y = 0) = 0; // TODO: make private
     virtual void   setMargin(double top, double right, double bottom, double left) = 0;
     virtual QPoint getTopLeftMargin(void) {return QPoint();}
     virtual int    sizeLevel() const = 0;
     virtual int    pageCount() const = 0;
     virtual int    pageNumberForScreen(int* end = 0) const = 0;
     virtual int    getPageEnd() const = 0;
-    virtual int getPageBegin() const =0;
+    virtual int    getPageBegin() const = 0;
+    virtual void   updateScaleByLevel() = 0;
 
     virtual double getDocViewXOffsetPercent() const = 0;
     virtual double getDocViewYOffsetPercent() const = 0;

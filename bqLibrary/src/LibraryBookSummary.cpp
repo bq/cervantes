@@ -22,7 +22,9 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "Library.h"
 #include "BookInfo.h"
+#include "Model.h"
 #include "LibraryBookListActions.h"
+#include "LibraryCollectionLayer.h"
 #include "bqUtils.h"
 #include "QBookApp.h"
 #include "Storage.h"
@@ -37,8 +39,15 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #define STRING_MAX_LENGTH 28
+#define COLLECTION_MAX_LENGTH 11
 #define ICON_LIBRARY_STRING_MAX_LENGTH 10
 #define PERCENT_STEP_VALUE 0.75
+
+#define FONT_SIZE_HD "font-size:24px;"
+#define LITTLE_FONT_SIZE_HD "font-size:22px;"
+#define FONT_SIZE_SD "font-size:18px;"
+#define LITTLE_FONT_SIZE_SD "font-size:15px;"
+
 
 LibraryBookSummary::LibraryBookSummary( QWidget* parent ) :
     GestureWidget(parent)
@@ -52,10 +61,17 @@ LibraryBookSummary::LibraryBookSummary( QWidget* parent ) :
     connect(archiveBtn,     SIGNAL(clicked()),  this, SLOT(archiveBook()));
     connect(removeBtn,      SIGNAL(clicked()),  this, SLOT(removeBook()));
     connect(moreActionsBtn, SIGNAL(clicked()),  this, SLOT(moreActionsClicked()));
+    connect(addToCollectionBtn, SIGNAL(clicked()),  this, SLOT(addToCollectionClicked()));
 
     m_bookListActions = new LibraryBookListActions(this);
     m_bookListActions->hide();
     connect(m_bookListActions,  SIGNAL(readStateChanged(int)),   this, SLOT(changeReadState(int)));
+
+    m_collectionLayer = new LibraryCollectionLayer(this);
+    m_collectionLayer->hide();
+    connect(m_collectionLayer, SIGNAL(addCollection(QString)),   this, SLOT(addBookToCollection(QString)));
+    connect(m_collectionLayer, SIGNAL(removeCollection(QString)),   this, SLOT(removeBookToCollection(QString)));
+    connect(m_collectionLayer, SIGNAL(createCollection()), this, SLOT(createNewCollection()));
 
     connect(VerticalPagination,   SIGNAL(previousPageReq()),   this, SLOT(synopsisUp()));
     connect(VerticalPagination,   SIGNAL(nextPageReq()),       this, SLOT(synopsisDown()));
@@ -68,6 +84,9 @@ LibraryBookSummary::~LibraryBookSummary()
 {
     delete m_bookListActions;
     m_bookListActions = NULL;
+
+    delete m_collectionLayer;
+    m_collectionLayer = NULL;
 }
 
 void LibraryBookSummary::paintEvent(QPaintEvent* )
@@ -136,7 +155,7 @@ void LibraryBookSummary::setBook( const BookInfo* book )
         titleLbl->show();
 
         // Author
-        if(book->author == "--")
+        if(book->author == "---")
             authorLbl->setText(bqUtils::truncateStringToLength(tr("Autor Desconocido"), ICON_LIBRARY_STRING_MAX_LENGTH));
         else
             authorLbl->setText(bqUtils::truncateStringToLength(book->author, ICON_LIBRARY_STRING_MAX_LENGTH));
@@ -146,7 +165,8 @@ void LibraryBookSummary::setBook( const BookInfo* book )
 
         // Cover
         coverLbl->setPixmap(NULL);
-        coverLbl->setStyleSheet("image:url(:/res/no_cover.png)");
+        QString imageCover = QBookApp::instance()->getImageResource(book->path);
+        coverLbl->setStyleSheet("image:url(" + imageCover + ")");
     }
     else if(book->isCorrupted())
     {
@@ -198,6 +218,10 @@ void LibraryBookSummary::setBook( const BookInfo* book )
 
     m_bookListActions->setButtonsState(m_bookInfo->readingStatus);
     setActionsBtnText(m_bookInfo->readingStatus);
+
+    QStringList bookCollectionList = m_bookInfo->getCollectionsList();
+    m_collectionLayer->setup(bookCollectionList);
+    setCollectionLayerBtnText(bookCollectionList);
 
     //Format
     formatLbl->setText(m_bookInfo->format);
@@ -252,15 +276,14 @@ void LibraryBookSummary::setBook( const BookInfo* book )
 
 void LibraryBookSummary::close()
 {
-    m_bookListActions->hide();
+    hideElements();
     hide();
 }
 
 void LibraryBookSummary::buyBookClicked()
 {
     qDebug() << Q_FUNC_INFO;
-    if(m_bookListActions)
-        m_bookListActions->hide();
+    hideElements();
 
     emit buyBook(m_bookInfo);
 }
@@ -269,24 +292,46 @@ void LibraryBookSummary::moreActionsClicked()
 {
     qDebug() << Q_FUNC_INFO;
 
-    if(!m_bookListActions->isVisible())
+    Screen::getInstance()->queueUpdates();
+    if(!hideElements())
     {
-        Screen::getInstance()->queueUpdates();
         QPoint pos(moreActionsBtn->mapToGlobal(QPoint(0,0)));
         pos.setY(pos.y() + moreActionsBtn->height());
         m_bookListActions->move(mapFromGlobal(pos));
         m_bookListActions->resize(moreActionsBtn->width(), m_bookListActions->height());
         m_bookListActions->show();
         Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_PARTIALSCREEN_UPDATE, Q_FUNC_INFO);
-        Screen::getInstance()->flushUpdates();
     }
     else
     {
-        Screen::getInstance()->queueUpdates();
         m_bookListActions->hide();
         Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
-        Screen::getInstance()->flushUpdates();
     }
+    Screen::getInstance()->flushUpdates();
+
+}
+
+void LibraryBookSummary::addToCollectionClicked()
+{
+    qDebug() << Q_FUNC_INFO;
+
+    Screen::getInstance()->queueUpdates();
+    if(!hideElements())
+    {
+        QPoint pos(addToCollectionBtn->mapToGlobal(QPoint(0,0)));
+        pos.setY(pos.y() + addToCollectionBtn->height());
+        m_collectionLayer->move(mapFromGlobal(pos));
+        m_collectionLayer->resize(addToCollectionBtn->width(), m_collectionLayer->height());
+        m_collectionLayer->paint();
+        m_collectionLayer->show();
+        Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_PARTIALSCREEN_UPDATE, Q_FUNC_INFO);
+    }
+    else
+    {
+        m_collectionLayer->hide();
+        Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
+    }
+    Screen::getInstance()->flushUpdates();
 }
 
 void LibraryBookSummary::copyBook()
@@ -327,11 +372,8 @@ void LibraryBookSummary::mouseReleaseEvent( QMouseEvent* event )
 {
     qDebug() << Q_FUNC_INFO;
 
-    if(m_bookListActions->isVisible())
-    {
+    if(hideElements())
         event->accept();
-        m_bookListActions->hide();
-    }
 }
 
 void LibraryBookSummary::synopsisDown()
@@ -381,11 +423,16 @@ void LibraryBookSummary::setupPagination (int initialPage){
 }
 
 //Needed to handle screen refresh
-void LibraryBookSummary::hideListActionsMenu()
+bool LibraryBookSummary::hideElements()
 {
     qDebug() << Q_FUNC_INFO;
-    if(m_bookListActions->isVisible())
+    if(m_bookListActions->isVisible() || m_collectionLayer->isVisible())
+    {
         m_bookListActions->hide();
+        m_collectionLayer->hide();
+        return true;
+    }
+    return false;
 }
 
 void LibraryBookSummary::setActionsBtnText(BookInfo::readStateEnum state)
@@ -402,4 +449,73 @@ void LibraryBookSummary::setActionsBtnText(BookInfo::readStateEnum state)
         moreActionsBtn->setText(tr("No leido"));
         break;
     }
+}
+
+void LibraryBookSummary::setCollectionLayerBtnText(QStringList collectionList)
+{
+    qDebug() << Q_FUNC_INFO;
+    if(collectionList.empty())
+        addToCollectionBtn->setText(tr("Colecciones"));
+    else if (collectionList.size() == 1)
+    {
+        if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+        {
+            if(collectionList[0].size() >= 10)
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
+            else
+                addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
+        }
+        else
+        {
+            if(collectionList[0].size() >= 10)
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
+            else
+                addToCollectionBtn->setStyleSheet(FONT_SIZE_SD);
+        }
+        addToCollectionBtn->setText(bqUtils::truncateStringToLength(tr("%1").arg(collectionList[0]), COLLECTION_MAX_LENGTH));
+    }
+    else
+    {
+        if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+        {
+            if(collectionList.size() >= 10)
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
+            else
+                addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
+        }
+        addToCollectionBtn->setText(tr("En %1 colecciones").arg(collectionList.size()));
+    }
+}
+
+void LibraryBookSummary::addBookToCollection(QString collectionName)
+{
+    qDebug() << Q_FUNC_INFO;
+    BookInfo* book = new BookInfo (*m_bookInfo);
+    book->addCollection(collectionName);
+    QStringList bookCollectionList = book->getCollectionsList();
+    setCollectionLayerBtnText(bookCollectionList);
+    QBookApp::instance()->getModel()->updateBook(book);
+    delete book;
+    book = NULL;
+}
+
+void LibraryBookSummary::removeBookToCollection(QString collectionName)
+{
+    qDebug() << Q_FUNC_INFO;
+    BookInfo* book = new BookInfo (*m_bookInfo);
+    book->removeCollection(collectionName);
+    QStringList bookCollectionList = book->getCollectionsList();
+    setCollectionLayerBtnText(bookCollectionList);
+    QBookApp::instance()->getModel()->updateBook(book);
+    delete book;
+    book = NULL;
+}
+
+void LibraryBookSummary::createNewCollection()
+{
+    qDebug() << Q_FUNC_INFO;
+    Screen::getInstance()->queueUpdates();
+    hideElements();
+    emit addNewCollection(m_bookInfo);
+    Screen::getInstance()->flushUpdates();
 }

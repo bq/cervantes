@@ -248,7 +248,7 @@ void Browser::addtofavo()
     qDebug() << Q_FUNC_INFO;
 
     QUrl qUrl  = webview->url();
-    QString url = qUrl.toEncoded(QUrl::RemoveQuery);
+    QString url = qUrl.toEncoded();
     url.replace(QRegExp("[(][0-9]+%[)]$"), "");
     url = url.trimmed();
     QString s = webview->title();
@@ -636,12 +636,10 @@ void Browser::processDownload()
                 book->lastTimeRead = QDateTime::currentDateTime();
 
             QBookApp::instance()->getModel()->addBook(book);
-
-            const BookInfo* bookInfo = QBookApp::instance()->getModel()->getBookInfo(filePath);
-            if(openBookReq && bookInfo)
+            if(openBookReq)
             {
                 qDebug() << Q_FUNC_INFO << "opening book";
-                emit openBook(bookInfo);
+                emit openBook(book);
             }
 
             QBookApp::instance()->syncModel();
@@ -1314,4 +1312,6 @@ void Browser::populateBookInfo(BookInfo* book)
 
      MetaDataExtractor::getMetaData(book->path, book->title, book->author, book->publisher, book->publishTime, book->synopsis, book->format, book->isDRMFile);
      book->corrupted = false;
+     if (book->format != "pdf")
+          book->fontSize = 2;
 }

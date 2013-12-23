@@ -6,7 +6,6 @@ HEADERS +=  ./inc/Settings.h \
             ./inc/SettingsGeneralTermsInfo.h \
             ./inc/SettingsDeviceInfo.h \
             ./inc/SettingsTechnicalInfo.h \
-            ./inc/SettingsRestoreDefaultValues.h \
             ./inc/SettingsUpdateDeviceAuto.h \
             ./inc/SettingsDeviceOptionsMenu.h \
             ./inc/SettingsDateTimeMenu.h \
@@ -48,7 +47,6 @@ SOURCES +=  ./src/Settings.cpp \
             ./src/SettingsGeneralTermsInfo.cpp \
             ./src/SettingsDeviceInfo.cpp \
             ./src/SettingsTechnicalInfo.cpp \
-            ./src/SettingsRestoreDefaultValues.cpp \
             ./src/SettingsUpdateDeviceAuto.cpp \
             ./src/SettingsDeviceOptionsMenu.cpp \
             ./src/SettingsDateTimeMenu.cpp \
@@ -99,7 +97,6 @@ FORMS += ./ui/Settings.ui \
         ./ui/SettingsGeneralTermsInfoAdobe.ui \
         ./ui/SettingsDeviceInfo.ui \
         ./ui/SettingsTechnicalInfo.ui \
-        ./ui/SettingsRestoreDefaultValues.ui \
         ./ui/SettingsDeviceOptionsMenu.ui \
         ./ui/SettingsSleepTimeMenu.ui \
         ./ui/SettingsLanguageMenu.ui \

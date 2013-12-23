@@ -12,7 +12,7 @@
         <translation type="obsolete">El llibre s&apos;està descarregant. En breu el tindràs disponible a la teva biblioteca!</translation>
     </message>
     <message>
-        <location filename="../src/WebStore.cpp" line="588"/>
+        <location filename="../src/WebStore.cpp" line="608"/>
         <source>Open downloaded book?</source>
         <translation>El llibre ja es troba accessible. Vols llegir-lo ara?</translation>
     </message>
@@ -25,18 +25,18 @@
         <translation type="obsolete">Error en processar les credencials.</translation>
     </message>
     <message>
-        <location filename="../src/WebStore.cpp" line="188"/>
+        <location filename="../src/WebStore.cpp" line="208"/>
         <source>Tienda</source>
         <translation>Botiga</translation>
     </message>
     <message>
-        <location filename="../src/WebStore.cpp" line="208"/>
+        <location filename="../src/WebStore.cpp" line="228"/>
         <source>The access to the store failed. Please try again in a few minutes</source>
         <translation>L&apos;accés a la botiga ha fallat. Si us plau, torna-ho a intentar en uns minuts.</translation>
     </message>
     <message>
-        <location filename="../src/WebStore.cpp" line="263"/>
-        <location filename="../src/WebStore.cpp" line="434"/>
+        <location filename="../src/WebStore.cpp" line="283"/>
+        <location filename="../src/WebStore.cpp" line="454"/>
         <source>Not connected. Please try it again in a few minutes</source>
         <translation>No connectat. Si us plau, torna-ho a intentar en uns minuts.</translation>
     </message>
@@ -53,27 +53,27 @@
         <translation type="obsolete">Descàrrega no suportada.</translation>
     </message>
     <message>
-        <location filename="../src/WebStore.cpp" line="704"/>
+        <location filename="../src/WebStore.cpp" line="724"/>
         <source>Downloading book...</source>
         <translation>Descarregant llibre ...</translation>
     </message>
     <message>
-        <location filename="../src/WebStore.cpp" line="562"/>
+        <location filename="../src/WebStore.cpp" line="582"/>
         <source>Ha habido un problema descargando el libro.</source>
         <translation>S&apos;ha produït un problema en descarregar el llibre.</translation>
     </message>
     <message>
-        <location filename="../src/WebStore.cpp" line="336"/>
+        <location filename="../src/WebStore.cpp" line="356"/>
         <source>Accept</source>
         <translation>Acceptar</translation>
     </message>
     <message>
-        <location filename="../src/WebStore.cpp" line="586"/>
+        <location filename="../src/WebStore.cpp" line="606"/>
         <source>Open downloaded sample?</source>
         <translation>Obrir la mostra descarregada?</translation>
     </message>
     <message>
-        <location filename="../src/WebStore.cpp" line="623"/>
+        <location filename="../src/WebStore.cpp" line="643"/>
         <source>Your session has expired. Please enter again.</source>
         <translation>La teva sessió ha expirat. Si us plau, torna a entrar.</translation>
     </message>

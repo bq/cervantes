@@ -23,6 +23,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QString>
 #include <QTextDocument>
 #include <QDebug>
+#include <QDir>
+#include <QFontMetrics>
 
 QString bqUtils::truncateStringToLength(const QString& toTruncate, int length, bool wholeWords, const QString& appendStr)
 {
@@ -44,6 +46,12 @@ QString bqUtils::truncateStringToLength(const QString& toTruncate, int length, b
     truncated.append(appendStr);
 
     return truncated;
+}
+
+QString bqUtils::truncateStringToWidth(const QString& toTruncate,const int nPixels,const QFont& font)
+{
+    QFontMetrics fontMetrics(font);
+    return fontMetrics.elidedText(toTruncate, Qt::ElideRight, nPixels);
 }
 
 QString bqUtils::specialCharactersFromUtf8(const QString& text)
@@ -131,4 +139,120 @@ QString bqUtils::simplify( const QString& str )
     result.replace(QChar(252), "u");
 
     return result;
+}
+
+bool bqUtils::removeDir(const QString& dirName)
+{
+    qDebug() << Q_FUNC_INFO << " dirName: " << dirName;
+    bool result = true;
+    QDir dir(dirName);
+
+    if (dir.exists(dirName))
+    {
+        qDebug() << Q_FUNC_INFO << "1";
+        foreach(QFileInfo info, dir.entryInfoList(QDir::NoDotAndDotDot | QDir::System | QDir::Hidden  | QDir::AllDirs | QDir::Files, QDir::DirsFirst))
+        {
+            qDebug() << Q_FUNC_INFO << "2: " << info.absoluteFilePath();
+            if (info.isDir())
+            {
+                qDebug() << Q_FUNC_INFO << "3: " << info.absoluteFilePath();
+                result = removeDir(info.absoluteFilePath());
+            }else
+                result = QFile::remove(info.absoluteFilePath());
+
+            if (!result)
+            {
+                qDebug() << Q_FUNC_INFO << "4";
+                return result;
+            }
+        }
+        qDebug() << Q_FUNC_INFO << "5: " << dirName;
+        result = QDir().rmdir(dirName);
+        qDebug() << Q_FUNC_INFO << "result: " << result;
+    }
+
+    return result;
+}
+
+bool bqUtils::copyDir(const QString &srcPath, const QString &dstPath)
+{
+    qDebug() << Q_FUNC_INFO;
+    QDir parentDstDir(QFileInfo(dstPath).path());
+    if (parentDstDir.exists(QFileInfo(dstPath).path()) && !parentDstDir.mkdir(QFileInfo(dstPath).fileName()))
+        return false;
+
+    QDir srcDir(srcPath);
+    foreach(const QFileInfo &info, srcDir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot))
+    {
+        QString srcItemPath = srcPath + "/" + info.fileName();
+        QString dstItemPath = dstPath + "/" + info.fileName();
+        if (info.isDir())
+        {
+            if (info.exists() && !copyDir(srcItemPath, dstItemPath))
+                return false;
+        }
+        else if (info.isFile())
+        {
+            if (!QFile::exists(dstItemPath) && !QFile::copy(srcItemPath, dstItemPath))
+                return false;
+        }
+        else
+            qDebug() << "Unhandled item" << info.filePath() << "in cpDir";
+    }
+
+    return true;
+}
+
+bool bqUtils::filesToCopy( const QString& path, int& booksToLoad )
+{
+    qDebug() << Q_FUNC_INFO;
+    QDir dir(path);
+    if(!dir.exists())
+        return false;
+
+    dir.setFilter(QDir::AllDirs | QDir::NoDotAndDotDot | QDir::Files | QDir::Readable);
+    dir.setSorting(QDir::DirsFirst | QDir::Name);
+
+    QStringList sub_list;
+    QStringList list = dir.entryList();
+
+    QStringList::const_iterator i = list.begin();
+    QStringList::const_iterator itEnd = list.end();
+
+    QFileInfo fi;
+    while(i != itEnd)
+    {
+        QString file_path = dir.filePath(*i);
+        fi.setFile(file_path);
+
+        if(!fi.exists())
+            return false;
+
+        const QString& name = fi.fileName();
+
+        if (!name.startsWith(".") && fi.isDir()) {
+            sub_list += file_path;
+            ++i;
+            continue;
+        }
+
+        if (name.startsWith(".")) {
+            ++i;
+            continue;
+        }
+
+        ++booksToLoad;
+        ++i;
+    }
+
+    QStringList::const_iterator j = sub_list.begin();
+    while(j != sub_list.end())
+    {
+        if(!filesToCopy(*j, booksToLoad))
+            return false;
+        ++j;
+    }
+
+    qDebug() << Q_FUNC_INFO << "booksToLoad: " << booksToLoad;
+    return true;
 }

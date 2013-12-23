@@ -37,8 +37,11 @@ public:
                                                 LibraryEditCollection               (QWidget* parent=0);
     virtual                                     ~LibraryEditCollection              ();
 
-    void                                        setup                               (const QString&);
+    void                                        setup                               (const QString&, const BookInfo *book=NULL);
     void                                        paint                               ();
+    void                                        checkBookToAdd                      (const BookInfo* bookInfo);
+    bool                                        isFromBookSummary                   () { return b_fromBookSummary; }
+    bool                                        collectionSaved                     () { return b_collectionSaved; }
 
 signals:
     void                                        hideMe                              ();
@@ -80,6 +83,8 @@ private:
     Keyboard*                                   m_keyboard;
     bool                                        m_newCollection;
     bool                                        m_pageChanged;
+    bool                                        b_fromBookSummary;
+    bool                                        b_collectionSaved;
 
 };
 

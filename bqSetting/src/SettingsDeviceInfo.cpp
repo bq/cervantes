@@ -31,7 +31,6 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "SettingsDateTimeMenu.h"
 #include "SettingsSleepTimeMenu.h"
 #include "SettingsReaderMenu.h"
-#include "SettingsRestoreDefaultValues.h"
 #include "SettingsUpdateDeviceAuto.h"
 #include "SettingsTechnicalInfo.h"
 #include "ConnectionManager.h"
@@ -40,6 +39,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "QBook.h"
 #include "QBookApp.h"
 #include "Model.h"
+#include "DeviceInfo.h"
+#include "FrontLight.h"
 
 SettingsDeviceInfo::SettingsDeviceInfo(QWidget *parent) : FullScreenWidget(parent)
 {
@@ -145,10 +146,14 @@ void SettingsDeviceInfo::restoreDevice()
 
     QBookApp::instance()->disableUserEvents();
     QBookApp::instance()->getSyncHelper()->SetServerTimestamp(0);
-    QBookApp::instance()->syncModel();
     QBookApp::instance()->showRestoringImage();
+    QBookApp::instance()->syncModel();
 
     Screen::getInstance()->queueUpdates();
+
+    if(DeviceInfo::getInstance()->hasFrontLight() && FrontLight::getInstance()->isFrontLightActive())
+        FrontLight::getInstance()->switchFrontLight(false);
+
     // Remove private books from model
     QBookApp::instance()->getModel()->removeDir(Storage::getInstance()->getPrivatePartition()->getMountPoint());
 

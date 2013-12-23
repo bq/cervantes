@@ -245,3 +245,19 @@ void SettingsQuickSettingsPopup::powerWifi(bool on)
         QBook::settings().setValue("wifi/disabled",true);
     }
 }
+
+void SettingsQuickSettingsPopup::mouseReleaseEvent(QMouseEvent* event)
+{
+        qDebug() << Q_FUNC_INFO;
+
+        int yMin = QuickSettingsCont->y();
+        //Remove the height of the vertical spacer.
+        int yMax = yMin + headerPopupCont->height() + contentPopup->height();
+
+        //Hide popUp only when press outside.
+        if(yMin > event->y() || yMax < event->y())
+        {
+            handleClosePopupBtn();
+            event->accept();
+        }
+}

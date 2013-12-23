@@ -33,12 +33,12 @@ public:
     ViewerPageHandler(QWidget*);
     virtual ~ViewerPageHandler();
 
-    void                                setCurrentPageMode                  ( bool isPdf );
+    void                                setCurrentPageMode                  (bool isPdf);
     bool                                shouldBeShown                       ();
     void                                hideBackBtn                         ();
     void                                showBackBtn                         ();
 
-    void                                setCurrentPage                      (int value);
+    void                                setCurrentReadingPercent            (int value);
     virtual void                        updateDisplay                       ();
     void                                hideChapterInfo                     ();
     void                                setPdfToolbarState                  (bool shouldBeShown){m_pdfToolbarShowed = shouldBeShown;}

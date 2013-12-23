@@ -149,8 +149,9 @@ void LibraryGridViewer::fileLongPress(const QString &path)
 {
     qDebug() << Q_FUNC_INFO << path;
     QFileInfo fi(path);
-    if(fi.isDir() || m_library->getFilterMode() == Library::ELFM_COLLECTIONS)
+    if(m_library->getFilterMode() == Library::ELFM_COLLECTIONS)
         return;
+
     int i;
     int itemsPerPage = getItemsPerPage();
     m_actionsMenu->setFile(path);

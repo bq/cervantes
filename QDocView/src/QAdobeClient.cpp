@@ -283,6 +283,7 @@ QAdobeClient::QAdobeClient()
     : m_loaded(false)
     , m_aborted(false)
     , m_editorFonts(true)
+    , m_hasIncorrectCSS(false)
 {
     // do nothing
 }
@@ -333,7 +334,7 @@ dpio::Stream* QAdobeClient::getResourceStream(const dp::String& spec, unsigned i
     //Change to current font
     if(::strncmp( urlUtf8, "res:///userStyle.css", 20 ) == 0)
     {
-        if (!m_editorFonts)
+        if (!m_editorFonts || m_hasIncorrectCSS)
         {
             qDebug() << Q_FUNC_INFO << "Loading our css";
             url = dp::String("file:///tmp/epub.css");

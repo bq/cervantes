@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "BookInfo.h"
 #include "PopUp.h"
 #include "ViewerBookListActions.h"
+#include "ViewerCollectionLayer.h"
 #include "QBook.h"
 #include "Screen.h"
 #include "Model.h"
@@ -47,8 +48,14 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define BOOKSUMMARY_AUTHOR_MAX_LENGTH 30
 #define ICON_VIEWER_STRING_MAX_LENGTH 10
 #define PERCENT_STEP_VALUE 0.75
+#define COLLECTION_MAX_LENGTH 12
 
 #define USERGUIDEPATH "/app/share/userGuides/"
+
+#define FONT_SIZE_HD "font-size:24px;"
+#define LITTLE_FONT_SIZE_HD "font-size:22px;"
+#define FONT_SIZE_SD "font-size:18px;"
+#define LITTLE_FONT_SIZE_SD "font-size:15px;"
 
 ViewerBookSummary::ViewerBookSummary(Viewer* viewer) :
     ViewerMenuPopUp(viewer), m_powerLock(NULL)
@@ -60,6 +67,12 @@ ViewerBookSummary::ViewerBookSummary(Viewer* viewer) :
     m_viewerListActions->hide();
     connect(m_viewerListActions,    SIGNAL(readStateChanged(int)),   this, SLOT(changeReadState(int)));
 
+    m_collectionLayer = new ViewerCollectionLayer(this);
+    m_collectionLayer->hide();
+    connect(m_collectionLayer, SIGNAL(addCollection(QString)),   this, SLOT(addBookToCollection(QString)));
+    connect(m_collectionLayer, SIGNAL(removeCollection(QString)),   this, SLOT(removeBookToCollection(QString)));
+    connect(m_collectionLayer, SIGNAL(createCollection()), this, SLOT(createNewCollection()));
+
     connect(closeBtn,               SIGNAL(clicked()),          this,           SIGNAL(hideMe()));
 
     connect(copyToSDBtn,            SIGNAL(clicked()),          this,           SLOT(copyBook()));
@@ -67,6 +80,7 @@ ViewerBookSummary::ViewerBookSummary(Viewer* viewer) :
     connect(removeBtn,              SIGNAL(clicked()),          this,           SLOT(deleteBook()));
     connect(archiveBtn,             SIGNAL(clicked()),          this,           SLOT(storeBook()));
     connect(moreActionsBtn,         SIGNAL(clicked()),          this,           SLOT(moreActionsClicked()));
+    connect(addToCollectionBtn,     SIGNAL(clicked()),          this,           SLOT(addToCollectionClicked()));
     connect(buyBookBtn,             SIGNAL(clicked()),          this,           SLOT(buyBook()));
 
     connect(VerticalPager,          SIGNAL(previousPageReq()),  this,           SLOT(previousPage()));
@@ -84,6 +98,9 @@ ViewerBookSummary::~ViewerBookSummary()
 
     delete m_viewerListActions;
     m_viewerListActions = NULL;
+
+    delete m_collectionLayer;
+    m_collectionLayer = NULL;
 }
 
 void ViewerBookSummary::setup()
@@ -98,6 +115,7 @@ void ViewerBookSummary::start()
 void ViewerBookSummary::stop()
 {
     m_viewerListActions->hide();
+    m_collectionLayer->hide();
 }
 
 void ViewerBookSummary::setBook(const BookInfo* book)
@@ -121,7 +139,7 @@ void ViewerBookSummary::setBook(const BookInfo* book)
         titleLbl->show();
 
         // Author
-        if(book->author == "--")
+        if(book->author == "---")
             authorLbl->setText(bqUtils::truncateStringToLength(tr("Autor Desconocido"), ICON_VIEWER_STRING_MAX_LENGTH));
         else
             authorLbl->setText(bqUtils::truncateStringToLength(book->author, ICON_VIEWER_STRING_MAX_LENGTH));
@@ -129,7 +147,8 @@ void ViewerBookSummary::setBook(const BookInfo* book)
 
         // Cover
         coverLbl->setPixmap(NULL);
-        coverLbl->setStyleSheet("image:url(:/res/no_cover.png)");
+        QString imageCover = QBookApp::instance()->getImageResource(book->path);
+        coverLbl->setStyleSheet("image:url(" + imageCover + ")");
     }
     else
     {
@@ -169,6 +188,9 @@ void ViewerBookSummary::setBook(const BookInfo* book)
 
     m_viewerListActions->setButtonsState(m_book->readingStatus);
     setActionsBtnText(m_book->readingStatus);
+    QStringList bookCollectionList = m_book->getCollectionsList();
+    m_collectionLayer->setup(bookCollectionList);
+    setCollectionLayerBtnText(bookCollectionList);
 
     //Format
     formatLbl->setText(m_book->format);
@@ -272,10 +294,9 @@ void ViewerBookSummary::moreActionsClicked()
 {
     qDebug() << Q_FUNC_INFO;
 
+    Screen::getInstance()->queueUpdates();
     if(!m_viewerListActions->isVisible())
     {
-        Screen::getInstance()->queueUpdates();
-
         QPoint pos(moreActionsBtn->mapToGlobal(QPoint(0,0)));
         pos.setY(pos.y() + moreActionsBtn->height());
         m_viewerListActions->move(mapFromGlobal(pos));
@@ -283,15 +304,37 @@ void ViewerBookSummary::moreActionsClicked()
         m_viewerListActions->show();
 
         Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_PARTIALSCREEN_UPDATE, Q_FUNC_INFO);
-        Screen::getInstance()->flushUpdates();
     }
     else
     {
-        Screen::getInstance()->queueUpdates();
         m_viewerListActions->hide();
         Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
-        Screen::getInstance()->flushUpdates();
     }
+    Screen::getInstance()->flushUpdates();
+
+}
+
+void ViewerBookSummary::addToCollectionClicked()
+{
+    qDebug() << Q_FUNC_INFO;
+
+    Screen::getInstance()->queueUpdates();
+    if(!m_collectionLayer->isVisible())
+    {
+        QPoint pos(addToCollectionBtn->mapToGlobal(QPoint(0,0)));
+        pos.setY(pos.y() + addToCollectionBtn->height());
+        m_collectionLayer->move(mapFromGlobal(pos));
+        m_collectionLayer->resize(addToCollectionBtn->width(), m_collectionLayer->height());
+        m_collectionLayer->paint();
+        m_collectionLayer->show();
+        Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_PARTIALSCREEN_UPDATE, Q_FUNC_INFO);
+    }
+    else
+    {
+        m_collectionLayer->hide();
+        Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
+    }
+    Screen::getInstance()->flushUpdates();
 }
 
 void ViewerBookSummary::storeBook()
@@ -553,4 +596,76 @@ void ViewerBookSummary::changeReadState(int state)
     Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
     Screen::getInstance()->flushUpdates();
     dialog->showForSpecifiedTime();
+}
+
+void ViewerBookSummary::setCollectionLayerBtnText(QStringList collectionList)
+{
+    qDebug() << Q_FUNC_INFO;
+    if(collectionList.empty())
+        addToCollectionBtn->setText(tr("Colecciones"));
+    else if (collectionList.size() == 1)
+    {
+        if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+        {
+            if(collectionList[0].size() >= 10)
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
+            else
+                addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
+        }
+        else
+        {
+            if(collectionList[0].size() >= 10)
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
+            else
+                addToCollectionBtn->setStyleSheet(FONT_SIZE_SD);
+        }
+        addToCollectionBtn->setText(bqUtils::truncateStringToLength(tr("%1").arg(collectionList[0]), COLLECTION_MAX_LENGTH));
+
+    }
+    else
+    {
+        if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+        {
+            if(collectionList.size() >= 10)
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
+            else
+                addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
+        }
+        addToCollectionBtn->setText(tr("En %1 colecciones").arg(collectionList.size()));
+    }
+}
+
+void ViewerBookSummary::addBookToCollection(QString collectionName)
+{
+    qDebug() << Q_FUNC_INFO;
+    BookInfo* book = new BookInfo(*m_book);
+    book->addCollection(collectionName);
+    QStringList bookCollectionList = book->getCollectionsList();
+    setCollectionLayerBtnText(bookCollectionList);
+    QBookApp::instance()->getModel()->updateBook(book);
+    m_book = QBookApp::instance()->getModel()->getBookInfo(book->path);
+    delete book;
+}
+
+void ViewerBookSummary::removeBookToCollection(QString collectionName)
+{
+    qDebug() << Q_FUNC_INFO;
+    BookInfo* book = new BookInfo(*m_book);
+    book->removeCollection(collectionName);
+    QStringList bookCollectionList = book->getCollectionsList();
+    setCollectionLayerBtnText(bookCollectionList);
+    QBookApp::instance()->getModel()->updateBook(book);
+    m_book = QBookApp::instance()->getModel()->getBookInfo(book->path);
+    delete book;
+}
+
+void ViewerBookSummary::createNewCollection()
+{
+    qDebug() << Q_FUNC_INFO;
+    Screen::getInstance()->queueUpdates();
+    m_parentViewer->hideAllElements();
+    const BookInfo* book = QBookApp::instance()->getModel()->getBookInfo(m_book->path);
+    qDebug() << Q_FUNC_INFO << book->title << book->path;
+    emit addNewCollection(book);
+    Screen::getInstance()->flushUpdates();
 }

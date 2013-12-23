@@ -37,7 +37,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define COLLECTION_MAX_LENGTH 20
 
 
-LibraryEditCollection::LibraryEditCollection(QWidget *parent) : GestureWidget(parent)
+LibraryEditCollection::LibraryEditCollection(QWidget *parent) : GestureWidget(parent) , b_fromBookSummary(false), b_collectionSaved(false)
 {
         setupUi(this);
 
@@ -94,12 +94,13 @@ void LibraryEditCollection::paintEvent (QPaintEvent *)
          style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-void LibraryEditCollection::setup (const QString& collection)
+void LibraryEditCollection::setup (const QString& collection, const BookInfo* book)
 {
     qDebug() << Q_FUNC_INFO;
     m_listBooks->clear();
     m_books.clear();
     m_collection = collection;
+    b_collectionSaved = false;
 
     if(m_collection != "")
     {
@@ -119,7 +120,17 @@ void LibraryEditCollection::setup (const QString& collection)
     }
     QBookApp::instance()->getModel()->getAllBooks(m_books);
     qSort(m_books.begin(), m_books.end(), titleLessThan);
-    m_page = 0;
+    if(!book)
+    {
+        m_page = 0;
+        b_fromBookSummary =false;
+    }
+    else
+    {
+        b_fromBookSummary =true;
+        int pos = m_books.indexOf(book);
+        m_page = pos / ITEMS_PER_PAGE;
+    }
     if(m_books.size() % ITEMS_PER_PAGE == 0)
         m_totalPages = m_books.size() / ITEMS_PER_PAGE;
     else
@@ -206,22 +217,19 @@ void LibraryEditCollection::saveCollection()
     if(m_collection == m_initialText || m_collection.trimmed().isEmpty())
         return;
 
+    if(checkCollectionExist() && m_collection != m_initialCollectionName)
+    {
+        SelectionDialog* overrideCollection = new SelectionDialog(this, tr("¿Deseas sobreescribir la coleccion del mismo nombre? No se mantendran los libros guardados en ella."));
+        Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
+        overrideCollection->exec();
+        int result = overrideCollection->result();
+        delete overrideCollection;
+        if(result == QDialog::Rejected)
+            return;
+    }
+    b_collectionSaved = true;
     if(!m_newCollection && m_collection != m_initialCollectionName)
         removeOlderCollection();
-
-    else if (m_newCollection)
-    {
-        if(checkCollectionExist())
-        {
-            SelectionDialog* overrideCollection = new SelectionDialog(this, tr("¿Deseas sobreescribir la coleccion del mismo nombre? No se mantendran los libros guardados en ella."));
-            Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
-            overrideCollection->exec();
-            int result = overrideCollection->result();
-            delete overrideCollection;
-            if(result == QDialog::Rejected)
-                return;
-        }
-    }
     saveItemsInfo();
 
     QHash<QString, bool>::const_iterator it = m_listBooks->constBegin();
@@ -387,6 +395,7 @@ void LibraryEditCollection::selectAll()
 
     if(m_keyboard && m_keyboard->isVisible())
         m_keyboard->hide();
+    checkCollectionName();
 
     Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
     Screen::getInstance()->flushUpdates();
@@ -408,6 +417,7 @@ void LibraryEditCollection::unSelectAll()
 
     if(m_keyboard && m_keyboard->isVisible())
         m_keyboard->hide();
+    checkCollectionName();
     Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
     Screen::getInstance()->flushUpdates();
 }
@@ -495,8 +505,14 @@ void LibraryEditCollection::setPageChanged()
 {
     qDebug() << Q_FUNC_INFO;
     m_pageChanged = true;
+    checkCollectionName();
     if(m_keyboard && m_keyboard->isVisible())
+    {
+        Screen::getInstance()->queueUpdates();
         m_keyboard->hide();
+        Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
+        Screen::getInstance()->flushUpdates();
+    }
 }
 
 bool LibraryEditCollection::checkCollectionExist()
@@ -515,6 +531,8 @@ bool LibraryEditCollection::checkCollectionExist()
 void LibraryEditCollection::handleClose()
 {
     qDebug() << Q_FUNC_INFO;
+    if(m_keyboard && m_keyboard->isVisible())
+        m_keyboard->hide();
     m_listBooks->clear();
     m_books.clear();
     saveCollectionBnt->setEnabled(false);
@@ -524,8 +542,21 @@ void LibraryEditCollection::handleClose()
 void LibraryEditCollection::checkCollectionName()
 {
     qDebug() << Q_FUNC_INFO;
-    if(collectionNameLineEdit->text().trimmed().isEmpty())
+    if(collectionNameLineEdit->text().trimmed().isEmpty() || collectionNameLineEdit->text() == m_initialText)
         saveCollectionBnt->setEnabled(false);
     else if(!saveCollectionBnt->isEnabled())
         saveCollectionBnt->setEnabled(true);
+}
+
+void LibraryEditCollection::checkBookToAdd(const BookInfo* bookInfo)
+{
+    for(int i = 0; i < ITEMS_PER_PAGE; ++i)
+    {
+        LibraryBookToCollectionItem* item = items[i];
+        if(item->getBook() == bookInfo)
+        {
+            item->setChecked(true);
+            break;
+        }
+    }
 }

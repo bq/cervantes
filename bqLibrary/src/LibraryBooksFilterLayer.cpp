@@ -119,12 +119,28 @@ void LibraryBooksFilterLayer::setAllBooksChecked()
     browserFileBtn->setStyleSheet(UNCHECKED);
 }
 
+void LibraryBooksFilterLayer::setStoreBooksChecked()
+{
+    allBooksBtn->setStyleSheet(UNCHECKED);
+    storeBooksBtn->setStyleSheet(CHECKED);
+    myCollectionsBtn->setStyleSheet(UNCHECKED);
+    browserFileBtn->setStyleSheet(UNCHECKED);
+}
+
 void LibraryBooksFilterLayer::setBrowserChecked()
 {
     allBooksBtn->setStyleSheet(UNCHECKED);
     storeBooksBtn->setStyleSheet(UNCHECKED);
     myCollectionsBtn->setStyleSheet(UNCHECKED);
     browserFileBtn->setStyleSheet(CHECKED);
+}
+
+void LibraryBooksFilterLayer::setCollectionsChecked()
+{
+    allBooksBtn->setStyleSheet(UNCHECKED);
+    storeBooksBtn->setStyleSheet(UNCHECKED);
+    myCollectionsBtn->setStyleSheet(CHECKED);
+    browserFileBtn->setStyleSheet(UNCHECKED);
 }
 
 void LibraryBooksFilterLayer::setAllBooksNumber( int size )

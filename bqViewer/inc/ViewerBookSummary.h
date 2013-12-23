@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 class Viewer;
 class ViewerBookListActions;
+class ViewerCollectionLayer;
 class PowerManagerLock;
 
 class ViewerBookSummary : public ViewerMenuPopUp,
@@ -45,6 +46,8 @@ public:
     virtual void                                                stop                                ();
 
     void                                                        setActionsBtnText                   ( BookInfo::readStateEnum );
+    const BookInfo*                                             getBookInfo                         () { return m_book; }
+
 public slots:
     void                                                        previousPage                        ();
     void                                                        nextPage                            ();
@@ -52,19 +55,28 @@ public slots:
 
 private:
     ViewerBookListActions*                                      m_viewerListActions;
+    ViewerCollectionLayer*                                      m_collectionLayer;
     const BookInfo*                                             m_book;
     void                                                        setupPagination                     ();
     void                                                        paintEvent                          ( QPaintEvent* );
     PowerManagerLock*                                           m_powerLock;
     QScrollBar*                                                 vbar;
 
+signals:
+    void                                                        addNewCollection                    (const BookInfo*);
+
 private slots:
     void                                                        moreActionsClicked                  ();
+    void                                                        addToCollectionClicked              ();
     void                                                        copyBook                            ();
     void                                                        storeBook                           ();
     void                                                        deleteBook                          ();
     void                                                        exportNotes                         ();
     void                                                        changeReadState                     ( int );
+    void                                                        setCollectionLayerBtnText           (QStringList collectionList);
+    void                                                        addBookToCollection                 (QString collectionName);
+    void                                                        removeBookToCollection              (QString collectionName);
+    void                                                        createNewCollection                 ();
 };
 
 #endif // VIEWERBOOKSUMMARY_H

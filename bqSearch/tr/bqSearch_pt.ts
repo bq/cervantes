@@ -39,23 +39,23 @@
         <translation>Livros da loja online</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="128"/>
-        <location filename="../src/Search.cpp" line="507"/>
+        <location filename="../src/Search.cpp" line="150"/>
+        <location filename="../src/Search.cpp" line="538"/>
         <source>Search</source>
         <translation>Procurar</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="416"/>
+        <location filename="../src/Search.cpp" line="446"/>
         <source>Mostrando (0) resultados</source>
         <translation>Mostrando 0 resultados.</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="425"/>
+        <location filename="../src/Search.cpp" line="455"/>
         <source>Mostrando %1 - %2 de %3 resultados</source>
         <translation>Mostrando %1-%2 resultados de %3.</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="613"/>
+        <location filename="../src/Search.cpp" line="649"/>
         <source>Document format not supported</source>
         <translation>Formato de documento não suportado</translation>
     </message>
@@ -78,10 +78,8 @@
         <translation>autor</translation>
     </message>
     <message>
-        <location filename="../src/SearchItem.cpp" line="55"/>
-        <location filename="../src/SearchItem.cpp" line="63"/>
-        <location filename="../src/SearchItem.cpp" line="81"/>
-        <location filename="../src/SearchItem.cpp" line="89"/>
+        <location filename="../src/SearchItem.cpp" line="74"/>
+        <location filename="../src/SearchItem.cpp" line="91"/>
         <source>Autor Desconocido</source>
         <translation>Autor desconhecido</translation>
     </message>

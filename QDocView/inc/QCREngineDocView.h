@@ -50,18 +50,21 @@ public:
     virtual PageMode pageMode() const;
     virtual bool isPageModeSupported(PageMode mode);
     virtual bool setPageMode(PageMode mode);
+    virtual bool isHardModePDF() const {return false;}
 
+    virtual void   displayFit(AutoFitMode mode);
     virtual double autoFitFactor(AutoFitMode mode) const;
     virtual AutoFitMode autoFitMode() const;
-    virtual void setAutoFitMode(AutoFitMode mode);
+    virtual void   setAutoFitMode(AutoFitMode mode);
 
     virtual double scaleStep() const;
     virtual double scaleFactor() const;
     virtual double maxScaleFactor() const;
-    virtual void setMargin(double, double, double, double);
+    virtual void   setMargin(double, double, double, double);
     virtual double minScaleFactor() const;
-    virtual void setDefaultSpacing() const;
-    virtual void setDefaultJustification() const;
+    virtual void   setDefaultSpacing() const;
+    virtual void   setDefaultJustification() const;
+    virtual void   updateScaleByLevel() {}
 
     virtual int getFontSize() const;
     virtual void setDocFont() const;

@@ -527,12 +527,23 @@ border-radius:6px;
 }
 #actionsContainer #moreActionsBtn{
 margin:4px 1px 0px 0px;
-padding:0px 0px 0px 19px;
-min-width:237px;
-max-width:237px;
+padding:0px 0px 0px 10px;
+min-width:210px;
+max-width:210px;
 min-height:58px;
 max-height:58px;
-font-size:27px;
+font-size:24px;
+border-width:2px;
+border-radius:6px;
+}
+#actionsContainer #addToCollectionBtn{
+margin:4px 0px 0px 0px;
+padding:0px 0px 0px 10px;
+min-width:224px;
+max-width:224px;
+min-height:58px;
+max-height:58px;
+font-size:24px;
 border-width:2px;
 border-radius:6px;
 }
@@ -578,17 +589,52 @@ max-height:45px;
 }
 #actionsContainer {
 margin-left:38px;
-min-width:448px;
-max-width:448px;
+min-width:465px;
+max-width:465px;
 }
-
+/*LibraryCollectionLayer ViewerCollectionLayer
+---------------------------*/
+#CollectionLayerCont {
+border-width:2px;
+border-bottom-left-radius:6px;
+border-bottom-right-radius:6px;
+border-top-left-radius:0px;
+border-top-right-radius:0px;
+}
+#CollectionLayerCont #collectionItem0,#CollectionLayerCont #collectionItem1, #CollectionLayerCont #collectionItem2, #CollectionLayerCont #collectionItem3,#CollectionLayerCont #collectionItem4{
+min-height:64px;
+max-height:64px;
+border-width:2px;
+}
+#CollectionLayerCont #collectionTitleLbl {
+padding:0px 44px 0px 10px;
+min-height:64px;
+max-height:64px;
+border-width:2px;
+}
+#CollectionLayerCont #collectionTitleLbl:checked{
+border-left-width:2px;
+border-right-width:2px;
+}
+#CollectionLayerCont QPushButton#addNewCollection{
+padding-left: 0px;
+padding-right:0px;
+min-height:64px;
+max-height:64px;
+border-bottom-width:3px;
+margin:0px 2px 0 2px;
+}
+#CollectionLayerCont #collectionTitleLbl:disabled {
+}
+#CollectionLayerCont #VerticalPagerPopup, #CollectionLayerCont ViewerVerticalPagerPopup{
+}
 /*SettingsQuickSettingsPopup
 ------------------------*/
 #SettingsQuickSettingsPopup{
 min-width:758px;
 max-width:758px;
-min-height:960px;
-max-height:960px;
+min-height:1024px;
+max-height:1024px;
 }
 #QuickSettingsCont{
 min-width:585px;

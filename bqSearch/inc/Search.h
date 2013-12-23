@@ -94,6 +94,7 @@ private:
     QList<SearchItem*>                  books;
     QList<SearchItemShop*>              shopBooks;
     int                                 page;
+    int                                 i_searchSize;
     int                                 getTotalPages                   ();
     Model*                              model;
     bool                                m_userTyped;

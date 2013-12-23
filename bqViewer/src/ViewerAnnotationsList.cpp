@@ -108,9 +108,15 @@ void ViewerAnnotationsList::setBook( const BookInfo* book )
             m_locationsPaintList.append(*it);
     }
 
-    if(book->format == "pdf")
+    setupGUI(book->format);
+}
+
+void ViewerAnnotationsList::setupGUI(const QString& extension)
+{
+    if(extension == "pdf" || Viewer::isUsingCR3(extension))
         setBookmarksCheck();
-    else {
+    else
+    {
         if(m_currentView != BookLocation::ALL_IN_BOOK)
             return;
         else

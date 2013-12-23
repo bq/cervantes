@@ -1191,9 +1191,9 @@ max-height:220px;
 ---------------------------*/
 #LibraryBookListActions{
 min-width:0px;
-max-width:194px;
-min-height:200px;
-max-height:200px;
+max-width:192px;
+min-height:185px;
+max-height:185px;
 }
 #LibraryBookListActionsCont{
 border-width:2px;
@@ -1205,6 +1205,7 @@ border-bottom-width:1px;
 max-height:50px;
 min-height:50px;
 padding:0px 20px;
+font-size:18px;
 }
 /*LibraryPageHandler
 ----------------------------*/
@@ -1324,6 +1325,7 @@ border-width:0px;
 /*LibraryBookSummary
 -----------------------*/
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #moreActionsBtn,
+#LibraryBookSummary #bookSummaryDataContainer #actionsContainer #addToCollectionBtn,
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #readSampleBtn,
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #bookStatusBtn{
 margin-top:12px;
@@ -1396,6 +1398,20 @@ min-height:40px;
 max-height:40px;
 padding-top:95px;
 font-size:16px;
+}
+/*LibraryCollectionLayer
+---------------------------*/
+#LibraryCollectionLayer{
+min-width:188px;
+max-width:188px;
+min-height:400px;
+max-height:400px;
+}
+#CollectionLayerCont #VerticalPagerPopup, #CollectionLayerCont ViewerVerticalPagerPopup{
+min-width:188px;
+max-width:188px;
+min-height:50px;
+max-height:50px;
 }
 /*LibraryLineGridCollections
 -----------------------------------*/

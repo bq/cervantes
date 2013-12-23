@@ -55,7 +55,7 @@ void ViewerBookmark::updateDisplay( bool toCheck )
 
 void ViewerBookmark::setLandscapeMode( bool isLandscape )
 {
-    if (isLandscape) bookmarkImg->setStyleSheet("background:url(:/res/bookmark_landscape.png) no-repeat bottom center");
+    if (isLandscape) bookmarkImg->setStyleSheet("background-image:url(:/res/bookmark_landscape.png) no-repeat center right");
     else             bookmarkImg->setStyleSheet("background:url(:/res/bookmark.png) no-repeat top center");
 }
 

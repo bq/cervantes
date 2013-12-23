@@ -213,38 +213,38 @@
         <translation>Licencia de Adobe</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="95"/>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="107"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="90"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="102"/>
         <source>Enviar</source>
         <translation>Enviar</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="122"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="117"/>
         <source>Adobe ID is empty.</source>
         <translation>Adobe ID está baleiro.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="131"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="126"/>
         <source>Password is empty.</source>
         <translation>O contrasinal está baleiro.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="142"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="137"/>
         <source>Please wait, activation in progress ...</source>
         <translation>Por favor agarda, a activación está en progreso...</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="165"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="160"/>
         <source>Device successfully activated!</source>
         <translation>Dispositivo activado con éxito.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="190"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="185"/>
         <source>Error during activation, please try again</source>
         <translation>Erro durante a activación, por favor inténtao de novo.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="198"/>
+        <location filename="../src/SettingsAdobeDrmLinkDevice.cpp" line="193"/>
         <source>The account reached the maximum activations.</source>
         <translation>A conta alcanzou o número máximo de activacións.</translation>
     </message>
@@ -521,102 +521,107 @@
         <translation>Brasil / Porto Velho</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="134"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="128"/>
+        <source>%1, %2 %3 %4</source>
+        <translation>%1, %2 %3 %4</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="136"/>
         <source>Monday</source>
         <translation>Luns</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="136"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="138"/>
         <source>Tuesday</source>
         <translation>Martes</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="138"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="140"/>
         <source>Wednesday</source>
         <translation>Mércores</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="140"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="142"/>
         <source>Thursday</source>
         <translation>Xoves</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="142"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="144"/>
         <source>Friday</source>
         <translation>Venres</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="144"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="146"/>
         <source>Saturday</source>
         <translation>Sábado</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="146"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="148"/>
         <source>Sunday</source>
         <translation>Domingo</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="153"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="155"/>
         <source>January</source>
         <translation>Xaneiro</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="155"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="157"/>
         <source>February</source>
         <translation>Febreiro</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="157"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="159"/>
         <source>March</source>
         <translation>Marzo</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="159"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="161"/>
         <source>April</source>
         <translation>Abril</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="161"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="163"/>
         <source>May</source>
         <translation>Maio</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="163"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="165"/>
         <source>June</source>
         <translation>Xuño</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="165"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="167"/>
         <source>July</source>
         <translation>Xullo</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="167"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="169"/>
         <source>August</source>
         <translation>Agosto</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="169"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="171"/>
         <source>September</source>
         <translation>Setembro</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="171"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="173"/>
         <source>October</source>
         <translation>Outubro</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="173"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="175"/>
         <source>November</source>
         <translation>Novembro</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="175"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="177"/>
         <source>December</source>
         <translation>Decembro</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDateTimeMenu.cpp" line="297"/>
+        <location filename="../src/SettingsDateTimeMenu.cpp" line="299"/>
         <source>Hora cambiada correctamente</source>
         <translation>Hora cambiada correctamente.</translation>
     </message>
@@ -762,12 +767,12 @@
         <translation>Actualizar dispositivo</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDeviceInfo.cpp" line="125"/>
+        <location filename="../src/SettingsDeviceInfo.cpp" line="126"/>
         <source>Do you want to restore device? This will delete all your personal account data</source>
         <translation>¿Desexas restaurar o dispositivo cos valores de fábrica? Isto eliminará tódolos datos persoais da túa conta.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDeviceInfo.cpp" line="141"/>
+        <location filename="../src/SettingsDeviceInfo.cpp" line="142"/>
         <source>This process can take a few minutes. At the end, the device will be powered off</source>
         <translation>Este proceso pode durar uns minutos. Ó finalizar apagarase o dispositivo</translation>
     </message>
@@ -820,7 +825,7 @@
         <translation>Gardapantallas</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDeviceOptionsMenu.cpp" line="118"/>
+        <location filename="../src/SettingsDeviceOptionsMenu.cpp" line="124"/>
         <source>Recuerda activar tu dispositivo para disfrutar de los diccionarios.</source>
         <translation>Lembra activar o teu dispositivo para poder usar os dicionarios.</translation>
     </message>
@@ -909,32 +914,32 @@ Tecnología Dixio - © 2011 Semantix</translation>
         <translation>Dicionario cambiado correctamente.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="274"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="268"/>
         <source>Downloading dictionary, please wait for a few minutes.</source>
         <translation>Descargando dicionarios. Agarda uns minutos, por favor.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="308"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="302"/>
         <source>Downloading complements, please wait for a few minutes.</source>
         <translation>Descargando complementos. Agarda uns minutos, por favor.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="324"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="318"/>
         <source>Download failed. Please try again.</source>
         <translation>Fallo na descarga. Inténtao de novo, por favor.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="337"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="331"/>
         <source>Installing...</source>
         <translation>Instalando...</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="375"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="369"/>
         <source>Installing success. Now the system will be turned off.</source>
         <translation>Instalación finalizada. Agora apagarase o dispositivo.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDictionariesMenu.cpp" line="386"/>
+        <location filename="../src/SettingsDictionariesMenu.cpp" line="380"/>
         <source>Install failed. Please try again.</source>
         <translation>Fallo na instalación. Inténtao de novo, por favor.</translation>
     </message>
@@ -1620,44 +1625,36 @@ fin de capítulo</translation>
 <context>
     <name>SettingsRestoreDefaultValues</name>
     <message>
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="32"/>
         <source>Form</source>
-        <translation>Formulario</translation>
+        <translation type="obsolete">Formulario</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="68"/>
         <source>Atrás</source>
-        <translation>Atrás</translation>
+        <translation type="obsolete">Atrás</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="87"/>
         <source>Restaurar valores de fábrica</source>
-        <translation>Restaurar valores de fábrica</translation>
+        <translation type="obsolete">Restaurar valores de fábrica</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="153"/>
         <source>Este proceso borrará todos los datos de tu dispositivo</source>
-        <translation>Este proceso borrará tódolos datos do teu dispositivo</translation>
+        <translation type="obsolete">Este proceso borrará tódolos datos do teu dispositivo</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="181"/>
         <source>¿Estás seguro de que quieres restaurar los valores de fábrica de tu dispositivo?</source>
-        <translation>¿Estás seguro de que queres restaurar os valores de fábrica do teu dispositivo?</translation>
+        <translation type="obsolete">¿Estás seguro de que queres restaurar os valores de fábrica do teu dispositivo?</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsRestoreDefaultValues.ui" line="221"/>
         <source>Restaurar dispositivo</source>
-        <translation>Restaurar dispositivo</translation>
+        <translation type="obsolete">Restaurar dispositivo</translation>
     </message>
     <message>
-        <location filename="../src/SettingsRestoreDefaultValues.cpp" line="42"/>
         <source>Do you want to restore the device to default settings? This will delete all your personal data</source>
-        <translation>¿Desexas restaurar os valores de fábrica? Borrará tódolos teus datos persoais</translation>
+        <translation type="obsolete">¿Desexas restaurar os valores de fábrica? Borrará tódolos teus datos persoais</translation>
     </message>
     <message>
-        <location filename="../src/SettingsRestoreDefaultValues.cpp" line="49"/>
         <source>This process can take a few minutes.</source>
-        <translation>Este proceso pode tardar uns minutos.</translation>
+        <translation type="obsolete">Este proceso pode tardar uns minutos.</translation>
     </message>
 </context>
 <context>
@@ -2083,20 +2080,26 @@ Ata o XX/XX/XXXX disfrutarás dun período de cortesía para terminar de ler os 
         <translation>Hai unha nova versión dispoñible:</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="183"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="182"/>
+        <source>Error downloading.
+ Please try again.</source>
+        <translation>Erro de descarga. Por favor, inténtao de novo.</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="191"/>
         <source>No space available on the device.
 Please remove some files.</source>
         <translation>Non hai espazo dispoñible no dispositivo. Por favor elimina algúns arquivos.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="195"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="203"/>
         <source>Low battery level.
 Please connect the charger
 before the download.</source>
         <translation>Nivel da batería por debaixo do 50%. Por favor, conecta o cargador para iniciar a descarga da actualización.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="213"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="221"/>
         <source>Low battery level.
 Please, don&apos;t disconnect the charger
  during the download.</source>
@@ -2113,29 +2116,29 @@ before the download.</source>
         <translation type="obsolete">Por favor, non desconectes o cargador durante a descarga.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="219"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="228"/>
         <source>Downloading...
 This process may take several minutes </source>
         <translation>Descargando...Este proceso pode tardar varios minutos</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="236"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="246"/>
         <source>Error downloading</source>
         <translation>Erro de descarga. Por favor, inténtao de novo.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="246"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="257"/>
         <source>Firmware download complete
 Restarting to apply changes.</source>
         <translation>Descarga do firmware completada. Reiniciando para aplicar os cambios.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="253"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="264"/>
         <source>Downloaded file is corrupted</source>
         <translation>O arquivo descargado está danado</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="266"/>
+        <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="278"/>
         <source>Installation failed. Please try again in a few minutes</source>
         <translation>A instalación fallou. Por favor inténteo de novo nuns minutos.</translation>
     </message>

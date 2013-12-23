@@ -106,13 +106,11 @@ void LibraryPageSlider::mouseReleaseEvent(QMouseEvent* event)
     if(!b_sliderMoved)
         m_currentPage = m_sliderPage;
 
-    qDebug() << Q_FUNC_INFO << " m_currentPage: " << m_currentPage;
     b_sliderPressed = false;
     b_sliderMoved = false;
 
-    qDebug() << Q_FUNC_INFO << "SliderPage: " << m_sliderPage << "m_currentPage: " << m_currentPage << " m_initialPage: " << m_initialPage;
     if(m_initialPage == m_currentPage && m_totalPages > 1)
-        setValue(float((float(100) / (m_totalPages - 1))) * m_currentPage);
+        setValue(float((float(100) / float(m_totalPages - 1))) * m_currentPage);
     else
         emit jumpSliderPage(m_currentPage);
 

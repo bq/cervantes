@@ -79,6 +79,9 @@ Library::Library( QWidget* parent ) :
   , m_lastMode(ELFM_NONE)
   , m_viewMode(ELVM_ICON)
   , m_itemClickedMode(ELICM_OPEN_CONTENT)
+  , m_booksSortMode(ELSM_DATE)
+  , m_newBooksSortMode(ELSM_TITLE)
+  , m_filesSortMode(EFSM_NAME)
   , m_keyboard(NULL)
   , m_userTyped(false)
   , m_userEvent(false)
@@ -87,9 +90,6 @@ Library::Library( QWidget* parent ) :
   , m_bookInfoToUnarchive(NULL)
   , b_unarchivingBook(false)
   , b_hasSearch(false)
-  , m_booksSortMode(ELSM_DATE)
-  , m_newBooksSortMode(ELSM_TITLE)
-  , m_filesSortMode(EFSM_NAME)
 {
     setupUi(this);
 
@@ -230,6 +230,7 @@ Library::Library( QWidget* parent ) :
     connect(m_bookSummary,          SIGNAL(copyBook(const QString&)),           this, SLOT(copyFile(const QString&)));
     connect(m_bookSummary,          SIGNAL(exportNotes(const QString)),         this, SLOT(exportNotes(QString)));
     connect(m_bookSummary,          SIGNAL(changeReadState(const BookInfo*, BookInfo::readStateEnum)),   this, SLOT(changeReadState(const BookInfo*,BookInfo::readStateEnum)));
+    connect(m_bookSummary,          SIGNAL(addNewCollection(const BookInfo*)),  this, SLOT(createNewCollection(const BookInfo*)));
 
     //
 
@@ -804,6 +805,7 @@ void Library::changeReadState( const BookInfo* bookInfo, BookInfo::readStateEnum
     {
         QBookApp::instance()->getModel()->changeReadState(QBookApp::instance()->getModel()->getBookInfo(bookInfo->path), state);
         summaryHiding();
+        reloadModel();
     }
 
     delete readDialog;
@@ -843,11 +845,11 @@ void Library::removeBook( const BookInfo* book )
     {
         Screen::getInstance()->queueUpdates();
 
-        m_bookSummary->hideListActionsMenu();
+        m_bookSummary->hideElements();
         Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
+        summaryHiding();
         QBookApp::instance()->getSyncHelper()->removeBook(book->path);
         QBookApp::instance()->getModel()->removeBook(book);
-        summaryHiding();
 
         Screen::getInstance()->flushUpdates();
 
@@ -895,9 +897,10 @@ void Library::archiveBook( const BookInfo* bookInfo )
     if(archiveDialog->result()){
         qDebug () << Q_FUNC_INFO << "Start archiving";
         Screen::getInstance()->queueUpdates();
+        summaryHiding();
         QBookApp::instance()->getModel()->archiveBook(bookInfo);
         QBookApp::instance()->getSyncHelper()->archiveBook(bookInfo->path);
-        summaryHiding();
+        reloadModel();
         Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
         Screen::getInstance()->flushUpdates();
     }
@@ -971,6 +974,8 @@ void Library::unArchivedBook(int status, bool /*dirtyLibrary*/)
     }
 
     b_unarchivingBook = false;
+    summaryHiding();
+    reloadModel();
     m_powerLock->release();
     if(m_filterMode == ELFM_STORE_ARCHIVED && m_books.size() == 0)
     {
@@ -1300,6 +1305,7 @@ void Library::newBooksSelected()
 
     if(m_filterMode != ELFM_STORE_NEW)
     {
+        m_filterMode = ELFM_STORE_NEW;
         QBookApp::instance()->getStatusBar()->setSpinner(true);
 
         Screen::getInstance()->queueUpdates();
@@ -1310,8 +1316,8 @@ void Library::newBooksSelected()
         m_currentLineView = m_lineGridViewer;
         fillNewDataCallback = &Library::fillNewData;
 
-        // Sort mode
-        sortCurrentDataCallback = &Library::sortBooksByDate;
+        handleBooksSortModeUI();
+        setBooksSortModeCallback();
 
         changeFilterMode(ELFM_STORE_NEW);
 
@@ -1540,6 +1546,8 @@ void Library::internalMemorySelected( QString path)
 
         Screen::getInstance()->queueUpdates();
 
+        hideAllElements();
+
         internalMemoryBtn->setStyleSheet(PRESSED);
         sdBtn->setStyleSheet(RELEASED);
 
@@ -1576,6 +1584,7 @@ void Library::sdSelected( QString path )
         QBookApp::instance()->getStatusBar()->setSpinner(true);
 
         Screen::getInstance()->queueUpdates();
+        hideAllElements();
 
         internalMemoryBtn->setStyleSheet(RELEASED);
         sdBtn->setStyleSheet(PRESSED);
@@ -1670,6 +1679,9 @@ void Library::sortBooksByAuthorClicked()
 {
     qDebug() << Q_FUNC_INFO << "m_books: " << m_books.size();
 
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
+
     QBookApp::instance()->getStatusBar()->setSpinner(true);
 
     Screen::getInstance()->queueUpdates();
@@ -1694,11 +1706,15 @@ void Library::sortBooksByAuthorClicked()
     Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
     Screen::getInstance()->setUpdateScheme(Screen::SCHEME_MERGE, true);
     Screen::getInstance()->flushUpdates();
+    delete powerLock;
 }
 
 void Library::sortBooksByTitleClicked()
 {
     qDebug() << Q_FUNC_INFO;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
 
     QBookApp::instance()->getStatusBar()->setSpinner(true);
     Screen::getInstance()->queueUpdates();
@@ -1723,11 +1739,15 @@ void Library::sortBooksByTitleClicked()
     Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
     Screen::getInstance()->setUpdateScheme(Screen::SCHEME_MERGE, true);
     Screen::getInstance()->flushUpdates();
+    delete powerLock;
 }
 
 void Library::sortBooksByDateClicked()
 {
     qDebug() << Q_FUNC_INFO;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
 
     QBookApp::instance()->getStatusBar()->setSpinner(true);
 
@@ -1750,11 +1770,15 @@ void Library::sortBooksByDateClicked()
     Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
     Screen::getInstance()->setUpdateScheme(Screen::SCHEME_MERGE, true);
     Screen::getInstance()->flushUpdates();
+    delete powerLock;
 }
 
 void Library::sortFilesByNameClicked()
 {
     qDebug() << Q_FUNC_INFO;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
 
     QBookApp::instance()->getStatusBar()->setSpinner(true);
 
@@ -1778,11 +1802,15 @@ void Library::sortFilesByNameClicked()
     Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
     Screen::getInstance()->setUpdateScheme(Screen::SCHEME_MERGE, true);
     Screen::getInstance()->flushUpdates();
+    delete powerLock;
 }
 
 void Library::sortFilesByDateClicked()
 {
     qDebug() << Q_FUNC_INFO;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
 
     QBookApp::instance()->getStatusBar()->setSpinner(true);
 
@@ -1806,6 +1834,7 @@ void Library::sortFilesByDateClicked()
     Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
     Screen::getInstance()->setUpdateScheme(Screen::SCHEME_MERGE, true);
     Screen::getInstance()->flushUpdates();
+    delete powerLock;
 }
 
 void Library::sortBooksByAuthor()
@@ -1921,7 +1950,6 @@ void Library::summaryHiding()
     m_bookSummary->close();
     m_currentView->getPageHandler()->show();
 
-    reloadModel();
     int currentPage = m_page;
 
     while( currentPage > 0 )
@@ -2082,7 +2110,12 @@ void Library::itemLongPressed( const QString& path )
         Screen::getInstance()->queueUpdates();
         m_currentView->getPageHandler()->hide();
 
-        //Need to fill info after show the info to obtain correctly the pages of textBrowser.
+        if(bookInfo->thumbnail.isEmpty())
+        {
+            BookInfo* book = new BookInfo(*bookInfo);
+            QBookApp::instance()->generateBookCover(book);
+        }
+
         m_bookSummary->show();
         m_bookSummary->setBook(bookInfo);
 
@@ -2095,9 +2128,14 @@ void Library::removeFile( const QString& path)
 {
     qDebug() << Q_FUNC_INFO << path;
 
-    Screen::getInstance()->queueUpdates();
     m_currentView->clearActionsMenu();
-    QString removeText = tr("You are about to remove the file ");
+    QFileInfo fi(path);
+    QString removeText = tr("You are about to remove the ");
+
+    if(fi.isDir())
+        removeText += tr("folder ");
+    else
+        removeText += tr("file ");
 
     if(path.contains(Storage::getInstance()->getPublicPartition()->getMountPoint()))
         removeText += tr("from internal memory.");
@@ -2105,23 +2143,48 @@ void Library::removeFile( const QString& path)
         removeText += tr("from SD card.");
     removeText += tr("\nDo you want to continue?");
     SelectionDialog* removeDialog = new SelectionDialog(this, removeText, tr("Remove"));
-    Screen::getInstance()->setMode(Screen::MODE_SAFE,true,FLAG_WAITFORCOMPLETION,Q_FUNC_INFO);
-    Screen::getInstance()->flushUpdates();
+    Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
     removeDialog->exec();
 
     if(removeDialog->result())
     {
-        if(QFile::remove(path))  {
-            InfoDialog* dialog = new InfoDialog(this,tr("File correctly removed."));
+        bool result = false;
+        if(fi.isDir())
+        {
+            QBookApp::instance()->getStatusBar()->setBusy(true);
+            result = bqUtils::removeDir(path);
+            QBookApp::instance()->getModel()->removeDir(path);
+
+            QBookApp::instance()->getStatusBar()->setBusy(false);
+            Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
+        }
+        else
+            result = QFile::remove(path);
+
+        if(result)
+        {
+            InfoDialog* dialog;
+            if(fi.isDir())
+                dialog = new InfoDialog(this,tr("Folder correctly removed."));
+            else
+                dialog = new InfoDialog(this,tr("File correctly removed."));
+
             dialog->hideSpinner();
             Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
             dialog->showForSpecifiedTime();
             delete dialog;
+
             system("sync");
             changeFilterMode(m_filterMode);
         }
-        else {
-            InfoDialog* dialog = new InfoDialog(this,tr("Remove failure, the file can not be removed."));
+        else
+        {
+            InfoDialog* dialog;
+            if(fi.isDir())
+                dialog = new InfoDialog(this,tr("Remove failure, the folder can not be removed."));
+            else
+                dialog = new InfoDialog(this,tr("Remove failure, the file can not be removed."));
+
             dialog->hideSpinner();
             dialog->showForSpecifiedTime();
             delete dialog;
@@ -2134,13 +2197,23 @@ void Library::copyFile(const QString& path)
 {
     qDebug() << Q_FUNC_INFO << path;
 
-    QFileInfo fi = QFileInfo(path);
-    QString destination;
-
-    QString copyText = tr("You are about to copy the file ");
-
     Screen::getInstance()->queueUpdates();
     m_currentView->clearActionsMenu();
+
+    QFileInfo fi(path);
+    QString destination;
+
+    QString copyText = tr("You are about to copy the ");
+    bool isDir = false;
+    if(fi.isDir())
+    {
+        isDir = true;
+        copyText += tr("folder ");
+    }
+    else
+        copyText += tr("file ");
+
+
     StoragePartition* partition = Storage::getInstance()->getRemovablePartition();
     if(path.contains(Storage::getInstance()->getPublicPartition()->getMountPoint()) && (!partition || !partition->isMounted())){
         InfoDialog* errorDialog = new InfoDialog(this,tr("SD card is not mounted."));
@@ -2161,39 +2234,103 @@ void Library::copyFile(const QString& path)
     }
 
     copyText += tr("\nDo you want to continue?");
+    qDebug() << Q_FUNC_INFO << "destination: " << destination;
+    ConfirmDialog* errorDialog = NULL;
+
+    if((QFile::exists(destination) && isDir) || !isDir && QDir(destination).exists())
+    {
+        QFileInfo fileDestination(destination);
+        if(!fileDestination.isDir())
+            errorDialog = new ConfirmDialog(this, tr("The file already exists.\nPlease delete the file before copy it."));
+        else
+            errorDialog = new ConfirmDialog(this, tr("Already exists a folder with this name.\nPlease delete the file before copy it."));
+    }
+
+    if(errorDialog)
+    {
+        Screen::getInstance()->setMode(Screen::MODE_SAFE,true,FLAG_WAITFORCOMPLETION, Q_FUNC_INFO);
+        Screen::getInstance()->flushUpdates();
+        errorDialog->showForSpecifiedTime(5000);
+        delete errorDialog;
+        errorDialog = NULL;
+        return;
+    }
     SelectionDialog* copyDialog = new SelectionDialog(this, copyText, tr("Copy"));
-    m_bookSummary->hideListActionsMenu();
-    Screen::getInstance()->setMode(Screen::MODE_SAFE,true,FLAG_WAITFORCOMPLETION,Q_FUNC_INFO);
+    m_bookSummary->hideElements();
+    Screen::getInstance()->setMode(Screen::MODE_SAFE,true,FLAG_WAITFORCOMPLETION, Q_FUNC_INFO);
     Screen::getInstance()->flushUpdates();
     copyDialog->exec();
 
     if(copyDialog->result())
     {
-        QBookApp::instance()->getStatusBar()->setBusy(true);
+        summaryHiding();
         m_powerLock->activate();
         QFile file(destination);
-
         InfoDialog* dialog;
-        if(QFile::copy(path, destination))
+        ProgressDialog* copyingFilesDialog;
+
+        int filesToLoad = 0;
+        int filesCopied = 0;
+        int positivelyCopied = 0;
+        bool result = false;
+        if(fi.isDir())
         {
+            qDebug() << Q_FUNC_INFO << "before files to copy";
+            if(bqUtils::filesToCopy(path, filesToLoad))
+            {
+                copyingFilesDialog = new ProgressDialog(this, tr("Copying files..."));
+                copyingFilesDialog->hideCancelButton();
+                copyingFilesDialog->setHideBtn(false);
+                copyingFilesDialog->setTextValue(false);
+                copyingFilesDialog->setModal(true);
+                copyingFilesDialog->show();
+
+                QCoreApplication::flush();
+                QCoreApplication::processEvents();
+                connect(this, SIGNAL(fileCopied(int)), copyingFilesDialog, SLOT(setProgressBar(int)), Qt::UniqueConnection);
+                qDebug() << Q_FUNC_INFO << "filesToLoad: " << filesToLoad << " filesCopied: " << filesCopied;
+                result = copyDir(path, destination, filesToLoad, filesCopied, positivelyCopied);
+
+                qDebug() << Q_FUNC_INFO << " filesCopied: " << filesCopied;
+                copyingFilesDialog->hide();
+                delete copyingFilesDialog;
+                copyingFilesDialog = NULL;
+            }
+        }else
+        {
+            QBookApp::instance()->getStatusBar()->setBusy(true);
+            result = QFile::copy(path, destination);
             QBookApp::instance()->getStatusBar()->setBusy(false);
-            dialog = new InfoDialog(this,tr("File correctly copied."));
+        }
+
+        if(result)
+        {
+            if(fi.isDir())
+                dialog = new InfoDialog(this,tr("Folder correctly copied."),3000);
+            else
+                dialog = new InfoDialog(this,tr("File correctly copied."),3000);
+
             dialog->hideSpinner();
-            Screen::getInstance()->flushUpdates();
             dialog->showForSpecifiedTime();
+            QBookApp::instance()->getModel()->addDir(destination);
             QBookApp::instance()->getModel()->loadDefaultInfo(destination);
             QtConcurrent::run(QBookApp::instance(), &QBookApp::syncModel);
         }
-        else {
-            QBookApp::instance()->getStatusBar()->setBusy(false);
-            if(!file.exists())
-                dialog = new InfoDialog(this,tr("Copy has failed. Please check your SD card."));
+        else
+        {
+            if(!fi.isDir())
+            {
+                if(!file.exists())
+                    dialog = new InfoDialog(this,tr("Copy has failed. Please check your SD card."));
+                else
+                    dialog = new InfoDialog(this,tr("Copy failure, the file already exists."));
+            }
             else
-                dialog = new InfoDialog(this,tr("Copy failure, the file already exists."));
+                dialog = new InfoDialog(this,tr("Copy has failed. Please check your SD card."));
 
             dialog->hideSpinner();
-            Screen::getInstance()->flushUpdates();
             dialog->showForSpecifiedTime();
+            QtConcurrent::run(QBookApp::instance(), &QBookApp::syncModel);
         }
         delete dialog;
         m_powerLock->release();
@@ -2234,7 +2371,7 @@ void Library::exportNotes(const QString& path)
         Screen::getInstance()->queueUpdates();
         BookInfo* book = QBookApp::instance()->openDocWithoutActivateForm(bookInfo);
         QBookApp::instance()->getStatusBar()->setMenuTitle(tr("Biblioteca"));
-        m_bookSummary->hideListActionsMenu();
+        m_bookSummary->hideElements();
         if(QBookApp::instance()->getModel()->writeNotesToFile(book, "html", destination))
         {
             QBookApp::instance()->getStatusBar()->setBusy(false);
@@ -2484,6 +2621,9 @@ bool Library::reloadModel()
 
 void Library::changeFilterMode( ELibraryFilterMode mode )
 {
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
+
     m_booksFilterLayer->hide();
 
     m_filterMode = mode;
@@ -2517,6 +2657,7 @@ void Library::changeFilterMode( ELibraryFilterMode mode )
                 m_booksSubFilterLayer->setAllBooksChecked();
                 allBooksSelected();
             }
+            delete powerLock;
             return;
         }
     }
@@ -2536,7 +2677,7 @@ void Library::changeFilterMode( ELibraryFilterMode mode )
         showCollectionFilterUIStuff();
     // Show the new current view (maybe it will start running tasks like generating thumbnails)
     m_currentView->start();
-
+    delete powerLock;
 }
 
 void Library::changeViewMode( ELibraryViewMode mode )
@@ -2912,18 +3053,12 @@ void Library::searchLineEditClicked()
 
 //    QBookApp::instance()->getStatusBar()->setBusy(false);
 
-    // Show keyboard
-    m_keyboard = QBookApp::instance()->showKeyboard(tr("Buscar"));
-    m_keyboard->handleMyQLineEdit(librarySearchLineEdit);
-    connect(m_keyboard, SIGNAL(actionRequested()), this, SLOT(performSearch()));
-    connect(m_keyboard, SIGNAL(newLinePressed()),  this, SLOT(performSearch()));
-    connect(m_keyboard, SIGNAL(pressedChar(const QString &)), this, SLOT(keyboardPressedChar(const QString &)));
-    //
-
     if(!m_userTyped)
     {
         librarySearchLineEdit->clear();
     }
+    if(!m_keyboard->isVisible())
+        showKeyboard();
 }
 
 void Library::keyboardPressedChar( const QString& input )
@@ -2963,6 +3098,8 @@ void Library::searchClicked()
 
     m_sourceMode = ELSM_SEARCH;
     m_filterMode = ELFM_SEARCH;
+
+    showKeyboard();
 
     Screen::getInstance()->flushUpdates();
 }
@@ -3049,18 +3186,18 @@ void Library::searchInFilesRecursively( const QString& path, const QString& patt
             m_dirs.append(dir);
         }
         else if(bookInfo) {
-            if(bookInfo->title.contains(pattern, Qt::CaseInsensitive))
+            if(bqUtils::simplify(bookInfo->title).contains(pattern, Qt::CaseInsensitive))
             {
                 qDebug() << Q_FUNC_INFO << "Adding filePath: " << filePath;
                 books_title.append(bookInfo);
             }
-            else if(bookInfo->author.contains(pattern, Qt::CaseInsensitive))
+            else if(bqUtils::simplify(bookInfo->author).contains(pattern, Qt::CaseInsensitive))
             {
                 qDebug() << Q_FUNC_INFO << "Adding filePath: " << filePath;
                 books_author.append(bookInfo);
             }
         }
-        else if(filePath.contains(pattern, Qt::CaseInsensitive) )
+        else if(bqUtils::simplify(filePath).contains(pattern, Qt::CaseInsensitive) )
         {
             qDebug() << Q_FUNC_INFO << "Adding filePath: " << filePath;
             QFileInfo* file = new QFileInfo(fi);
@@ -3169,7 +3306,6 @@ void Library::cancelSearch()
 
         QBookApp::instance()->getStatusBar()->setSpinner(false);
     }
-    b_hasSearch = false;
 }
 
 void Library::searchClear()
@@ -3202,6 +3338,7 @@ void Library::closeSearchClicked( )
     sortBooksCont->show();
     showResultsLbl->hide();
     m_userTyped = false;
+    b_hasSearch = false;
     clearKeyboard();
     qDebug() << Q_FUNC_INFO << m_books.size() << m_files.size() << m_searchBooks.size();
 
@@ -3311,6 +3448,18 @@ void Library::keyReleaseEvent( QKeyEvent* event )
 
     QBookForm::keyReleaseEvent(event);
 }
+
+void Library::showKeyboard()
+{
+    // Show keyboard
+    m_keyboard = QBookApp::instance()->showKeyboard(tr("Buscar"));
+    m_keyboard->handleMyQLineEdit(librarySearchLineEdit);
+    connect(m_keyboard, SIGNAL(actionRequested()), this, SLOT(performSearch()));
+    connect(m_keyboard, SIGNAL(newLinePressed()),  this, SLOT(performSearch()));
+    connect(m_keyboard, SIGNAL(pressedChar(const QString &)), this, SLOT(keyboardPressedChar(const QString &)));
+    //
+}
+
 
 bool Library::clearKeyboard()
 {
@@ -3542,12 +3691,13 @@ void Library::viewActiveBooks()
 
 void Library::handleBooksSortModeUI()
 {
-    if(m_filterMode == ELFM_ALL_NEW && m_sourceMode == ELSM_ALL)
+    if((m_filterMode == ELFM_ALL_NEW && m_sourceMode == ELSM_ALL)
+        || (m_filterMode == ELFM_STORE_NEW && m_sourceMode == ELSM_STORE))
         m_sortBooksByLayer->enableRecent(false);
     else
         m_sortBooksByLayer->enableRecent(true);
 
-    if(m_filterMode == ELFM_ALL_NEW)
+    if(m_filterMode == ELFM_ALL_NEW || m_filterMode == ELFM_STORE_NEW)
     {
         switch(m_newBooksSortMode)
         {
@@ -3586,7 +3736,7 @@ void Library::handleBooksSortModeUI()
 
 void Library::setBooksSortModeCallback()
 {
-    if(m_filterMode == ELFM_ALL_NEW)
+    if(m_filterMode == ELFM_ALL_NEW || m_filterMode == ELFM_STORE_NEW)
     {
         switch(m_newBooksSortMode)
         {
@@ -3718,7 +3868,28 @@ void Library::hideEditCollection()
     Screen::getInstance()->queueUpdates();
     if(m_editCollection->isVisible())
         m_editCollection->hide();
-    myCollectionsSelected();
+    if(!m_editCollection->isFromBookSummary() || m_editCollection->collectionSaved() && !b_isFromViewer)
+        myCollectionsSelected();
+    else
+    {
+        switch(m_sourceMode)
+        {
+        case ELSM_ALL:
+            m_booksFilterLayer->setAllBooksChecked();
+            break;
+        case ELSM_STORE:
+            m_booksFilterLayer->setStoreBooksChecked();
+            break;
+        case ELSM_BROWSER:
+            m_booksFilterLayer->setBrowserChecked();
+            break;
+        }
+    }
+    if(b_isFromViewer)
+    {
+        setFromViewer(false);
+        emit returnToViewer();
+    }
     Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
     Screen::getInstance()->setUpdateScheme(Screen::SCHEME_MERGE, true);
     Screen::getInstance()->flushUpdates();
@@ -3758,7 +3929,7 @@ void Library::selectCollection(const QString& collection)
 bool Library::isCurrentPathEmpty () const
 {
     qDebug() << Q_FUNC_INFO;
-    if(m_filterMode == ELFM_INTERNAL || m_filterMode == ELFM_SD)
+    if(m_filterMode == ELFM_INTERNAL || m_filterMode == ELFM_SD || (m_filterMode == ELFM_SEARCH && !b_hasSearch))
         return m_currentPath.size() == 0;
     else
         return true;
@@ -3874,4 +4045,74 @@ void Library::setImageList(QList<QString> imagesList)
     m_images.clear();
     m_reloadModel = false;
     m_images = imagesList;
+}
+
+bool Library::copyDir(const QString &srcPath, const QString &dstPath, int& filesToCopy, int& filesCopied, int& positivelyCopied)
+{
+    qDebug() << Q_FUNC_INFO << " filesToCopy:" << filesToCopy << " filesCopied: " << filesCopied;
+
+    QDir parentDstDir(QFileInfo(dstPath).path());
+
+    if(parentDstDir.exists(QFileInfo(dstPath).fileName()))
+    {
+        qDebug() << Q_FUNC_INFO << "folder already exits. Do nothing and continue";
+    }
+    else if(!parentDstDir.mkdir(QFileInfo(dstPath).fileName()))
+    {
+        qDebug() << Q_FUNC_INFO << "cannot create the folder";
+        return false;
+    }
+
+    QDir srcDir(srcPath);
+    foreach(const QFileInfo &info, srcDir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot))
+    {
+        QString srcItemPath = srcPath + "/" + info.fileName();
+        QString dstItemPath = dstPath + "/" + info.fileName();
+        if (info.isDir())
+        {
+            if(!copyDir(srcItemPath, dstItemPath, filesToCopy, filesCopied, positivelyCopied))
+            {
+                qDebug() << Q_FUNC_INFO << "cannot copy the folder";
+                return false;
+            }
+        }
+        else if (info.isFile())
+        {
+            qDebug() << Q_FUNC_INFO << "fileName" << info.fileName();
+            if(QFile::exists(dstItemPath))
+            {
+                qDebug() << Q_FUNC_INFO << "folder already exits. Do nothing and continue";
+                filesCopied++;
+                int progress = ((100 * (float)filesCopied) /  filesToCopy);
+                emit fileCopied(progress);
+            }
+            else if (!QFile::copy(srcItemPath, dstItemPath))
+            {
+                qDebug() << Q_FUNC_INFO << "cannot copy:" << srcItemPath << " to: " << dstItemPath;
+                return false;
+            }
+            else
+            {
+                positivelyCopied++;
+                filesCopied++;
+                int progress = ((100 * (float)filesCopied) /  filesToCopy);
+                emit fileCopied(progress);
+            }
+        }
+        else
+            qDebug() << Q_FUNC_INFO << "Unhandled item" << info.filePath() << "in cpDir";
+    }
+
+    return true;
+}
+
+void Library::createNewCollection(const BookInfo* bookToAdd)
+{
+    qDebug() << Q_FUNC_INFO << bookToAdd->title;
+    m_booksFilterLayer->setCollectionsChecked();
+    hideAllElements();
+    QString collection = "";
+    m_editCollection->setup(collection, bookToAdd);
+    m_editCollection->show();
+    m_editCollection->checkBookToAdd(bookToAdd);
 }

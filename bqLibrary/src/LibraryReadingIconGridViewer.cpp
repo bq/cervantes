@@ -125,7 +125,7 @@ void LibraryReadingIconGridViewer::paintBooks()
             coverTitleLbl->setText(bqUtils::truncateStringToLength(bookInfo->title, COVER_STRING_MAX_LENGTH));
             coverTitleLbl->show();
             // Author
-            if(bookInfo->author == "--")
+            if(bookInfo->author == "---")
                 coverAuthorLbl->setText(tr("Autor Desconocido"));
             else
                 coverAuthorLbl->setText(bqUtils::truncateStringToLength(bookInfo->author, COVER_STRING_MAX_LENGTH));

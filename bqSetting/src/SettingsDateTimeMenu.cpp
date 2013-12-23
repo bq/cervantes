@@ -122,9 +122,11 @@ void SettingsDateTimeMenu::timerEvent(QTimerEvent *event){
 void SettingsDateTimeMenu::updateTime(){
 
         QString day = QDateTime::currentDateTime().toString(("dddd"));
-        QString date = QDateTime::currentDateTime().toString((", d "));
+        QString date = QDateTime::currentDateTime().toString(("d"));
         QString month = QDateTime::currentDateTime().toString(("MMMM"));
-        QString time = getDate(day) + date + getMonth(month) + QDateTime::currentDateTime().toString(" yyyy hh:mm");
+        QString year = QDateTime::currentDateTime().toString("yyyy");
+        QString completeDate(tr("%1, %2 %3 %4").arg(getDate(day)).arg(date).arg(getMonth(month)).arg(year));
+        QString time = completeDate + QDateTime::currentDateTime().toString(" hh:mm");
         dateTimeValueLbl->setText(time);
 }
 

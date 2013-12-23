@@ -32,11 +32,11 @@ ViewerSearchContextMenu::ViewerSearchContextMenu(QWidget *parent) :
 {
     qDebug() << "--->" << Q_FUNC_INFO;
     setupUi(this);
-    connect(closeBtn,SIGNAL(clicked()),SIGNAL(close()));
-    connect(listBtn,SIGNAL(pressed()),SIGNAL(backToList()));
-    connect(previousBtn,SIGNAL(clicked()),SIGNAL(previousResult()));
-    connect(nextBtn,SIGNAL(clicked()),SIGNAL(nextResult()));
 
+    connect(closeBtn,    SIGNAL(clicked()),SIGNAL(close()));
+    connect(listBtn,     SIGNAL(pressed()),SIGNAL(backToList()));
+    connect(previousBtn, SIGNAL(clicked()),SIGNAL(previousResult()));
+    connect(nextBtn,     SIGNAL(clicked()),SIGNAL(nextResult()));
 }
 
 ViewerSearchContextMenu::~ViewerSearchContextMenu()

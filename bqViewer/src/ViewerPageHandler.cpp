@@ -154,7 +154,7 @@ void ViewerPageHandler::handlePageChange(int start, int end, int total)
     qDebug() << Q_FUNC_INFO << "finished";
 }
 
-void ViewerPageHandler::setCurrentPage(int value)
+void ViewerPageHandler::setCurrentReadingPercent(int value)
 {
     readingPercentLbl->setText(QString("%1%").arg(value));
 }
@@ -180,7 +180,7 @@ void ViewerPageHandler::updateDisplay()
 
         int percent = 0;
         if(m_totalPages != 0) percent = int((m_currentPageEnd)*100/m_totalPages);
-        readingPercentLbl->setText(QString(tr("%1%")).arg(percent));// FIXME: ¿por qué hay un método setCurrentPage?
+        setCurrentReadingPercent(percent);
         readingProgress->setValue(percent);
     }
 
@@ -246,8 +246,8 @@ void ViewerPageHandler::showBackBtn()
 void ViewerPageHandler::resetPager()
 {
     qDebug() << Q_FUNC_INFO;
-    m_currentPageIni = 0;
-    m_currentPageEnd = 0;
+    //m_currentPageIni = 0;
+    //m_currentPageEnd = 0;
     pageText->hide();
     readingPercentLbl->hide();
     readedLbl->hide();

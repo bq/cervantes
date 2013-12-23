@@ -18,27 +18,37 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 *************************************************************************/
 
-#ifndef ELFRESTOREDEVICE_H
-#define ELFRESTOREDEVICE_H
+#ifndef VIEWERSEARCHCONTEXTMENULANDSCAPE_H
+#define VIEWERSEARCHCONTEXTMENULANDSCAPE_H
 
-#include "FullScreenWidget.h"
-#include "ui_SettingsRestoreDefaultValues.h"
+#include "ui_ViewerSearchContextMenuLandscape.h"
+#include "PopUp.h"
 
 
-class SettingsRestoreDefaultValues : public FullScreenWidget , protected Ui::SettingsRestoreDefaultValues
+class ViewerSearchContextMenuLandscape :  public PopUp
+                                         ,protected Ui::ViewerSearchContextMenuLandscape
 {
     Q_OBJECT
 
 public:
-                SettingsRestoreDefaultValues                (QWidget *parent);
-    virtual     ~SettingsRestoreDefaultValues               ();
+    ViewerSearchContextMenuLandscape(QWidget*);
+    virtual ~ViewerSearchContextMenuLandscape();
 
-protected slots:
+public slots:
+    void setCurrentResultIndex(uint);
+    void setTotalResults(uint);
 
-    void        restoreToDefault                            ();
-    /* http://qt-project.org/forums/viewthread/7340 */
-    void        paintEvent                                  (QPaintEvent *);
+signals:
+    void close();
+    void previousResult();
+    void nextResult();
+    void backToList();
+
+protected:
+    void mousePressEvent(QMouseEvent *);
+
+    uint ui_totalResults, ui_indexResult;
 
 };
 
-#endif // ELFRESTOREDEVICE_H
+#endif // VIEWERSEARCHCONTEXTMENULANDSCAPE_H

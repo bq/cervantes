@@ -53,6 +53,7 @@ BookInfo::BookInfo(const QString& _path)
     , readingPercentage(0)
     , fontSize(0.0)
     , pageMode(0)
+    , orientation(ORI_PORTRAIT)
     , timestamp(0)
     , publisher("")
     , synopsis("")
@@ -94,6 +95,7 @@ BookInfo::BookInfo(const BookInfo& other)
     , readingPercentage(other.readingPercentage)
     , fontSize(other.fontSize)
     , pageMode(other.pageMode)
+    , orientation(other.orientation)
     , timestamp(other.timestamp)
     , publisher(other.publisher)
     , synopsis(other.synopsis)
@@ -410,6 +412,11 @@ int BookInfo::update(const BookInfo *other) {
 
     if (pageMode != other->pageMode) {
         pageMode = other->pageMode;
+        updateType |= UPDATE_READING_METADATA;
+    }
+
+    if (orientation != other->orientation) {
+        orientation = other->orientation;
         updateType |= UPDATE_READING_METADATA;
     }
 

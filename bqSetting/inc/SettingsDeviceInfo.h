@@ -24,7 +24,6 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "FullScreenWidget.h"
 #include "ui_SettingsDeviceInfo.h"
 
-class SettingsRestoreDefaultValues;
 class SettingsUpdateDeviceAuto;
 class SettingsTechnicalInfo;
 class SettingsDictionariesMenu;

@@ -88,17 +88,17 @@
         <translation>QBookApp</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="684"/>
+        <location filename="../src/QBookApp.cpp" line="688"/>
         <source>Restore Default Success</source>
         <translation>Settings restored correctly</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="696"/>
+        <location filename="../src/QBookApp.cpp" line="700"/>
         <source>Language changed successfully</source>
         <translation>Language changed correctly.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="999"/>
+        <location filename="../src/QBookApp.cpp" line="1003"/>
         <source>Link failed. Please try it again in a few minutes.</source>
         <translation>An error occurred while linking. Please try again in a few minutes.</translation>
     </message>
@@ -107,57 +107,57 @@
         <translation type="obsolete">Low battery. Please connect the device to a power source.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1208"/>
+        <location filename="../src/QBookApp.cpp" line="1212"/>
         <source>Critical battery level, please connect the charger. The ereader will be turned off.</source>
         <translation>Battery level critical: please connect the charger. The e-reader will be switched off.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1257"/>
+        <location filename="../src/QBookApp.cpp" line="1261"/>
         <source>Battery full.</source>
         <translation>Battery full.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1299"/>
+        <location filename="../src/QBookApp.cpp" line="1303"/>
         <source>Cargador conectado. Nivel de bateria: </source>
         <translation>Charger connected. Battery level: </translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1301"/>
+        <location filename="../src/QBookApp.cpp" line="1305"/>
         <source>Cargador desconectado. Nivel de bateria: </source>
         <translation>Charger not connected. Battery level: </translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1334"/>
+        <location filename="../src/QBookApp.cpp" line="1338"/>
         <source>No se puede conectar el modo almacenamiento mientras se estÃ¡ sincronizando.</source>
         <translation>Mass storage mode cannot be activated while your device is synchronizing.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1448"/>
+        <location filename="../src/QBookApp.cpp" line="1456"/>
         <source>Reading files...</source>
         <translation>Reading files...</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1508"/>
+        <location filename="../src/QBookApp.cpp" line="1517"/>
         <source>Device already authorised for hackers firmware installation</source>
         <translation>The device is now authorised for the installation of firmware for developers.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1688"/>
+        <location filename="../src/QBookApp.cpp" line="1704"/>
         <source>New version available: </source>
         <translation>Update available: </translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1688"/>
+        <location filename="../src/QBookApp.cpp" line="1704"/>
         <source>Do you want to view details and download?</source>
         <translation>Would you like to view details and download?</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1739"/>
+        <location filename="../src/QBookApp.cpp" line="1756"/>
         <source>Disconnect USB from CPU before power off the device.</source>
         <translation>Unmount the device before switching it off.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1746"/>
+        <location filename="../src/QBookApp.cpp" line="1763"/>
         <source>Are you sure you want to turn off the device?</source>
         <translation>Are you sure you want to switch off the device?</translation>
     </message>
@@ -166,13 +166,13 @@
         <translation type="obsolete">e-books</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2039"/>
-        <location filename="../src/QBookApp.cpp" line="2132"/>
+        <location filename="../src/QBookApp.cpp" line="2059"/>
+        <location filename="../src/QBookApp.cpp" line="2152"/>
         <source>Your subscription has expired so the book can&apos;t be opened.</source>
         <translation>You cannot open the book because your subscription has expired.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2199"/>
+        <location filename="../src/QBookApp.cpp" line="2219"/>
         <source>Wifi connection is disabled. Would you like to turn it on?</source>
         <translation>The Wi-Fi connection is switched off. Would you like to switch it on?</translation>
     </message>
@@ -181,206 +181,206 @@
         <translation type="obsolete">Why don&apos;t you make the most of your device and activate it? </translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1189"/>
+        <location filename="../src/QBookApp.cpp" line="1193"/>
         <source>Battery level low(%1).</source>
         <translation>Battery level low (%1%).</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2426"/>
+        <location filename="../src/QBookApp.cpp" line="2448"/>
         <source>Â¿Por que no enlazas el dispositivo para poder hacer uso de los diccionarios y recibir avisos de las actualizaciones disponibles?</source>
         <translation>Why don&apos;t you link your device so you can use the dictionaries and be informed of new updates?</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2426"/>
+        <location filename="../src/QBookApp.cpp" line="2448"/>
         <source>Enlazar</source>
         <translation>Link</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2426"/>
-        <location filename="../src/QBookApp.cpp" line="4217"/>
+        <location filename="../src/QBookApp.cpp" line="2448"/>
+        <location filename="../src/QBookApp.cpp" line="4241"/>
         <source>Mas tarde</source>
         <translation>Later</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2482"/>
+        <location filename="../src/QBookApp.cpp" line="2504"/>
         <source>La extracciÃ³n de la tarjeta MicroSD ha generado un error. 
  Si desea seguir usandola o cualquier otra debe reiniciar el dispositivo</source>
         <translation>Extracting the SD card has caused an error.
 If you wish to continue using it, you must restart the device</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2507"/>
+        <location filename="../src/QBookApp.cpp" line="2529"/>
         <source>The SD card was removed. The current book has been closed.</source>
         <translation>The SD has been removed. The current book has been closed.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2508"/>
-        <location filename="../src/QBookApp.cpp" line="3711"/>
+        <location filename="../src/QBookApp.cpp" line="2530"/>
+        <location filename="../src/QBookApp.cpp" line="3733"/>
         <source>Accept</source>
         <translation>Accept</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2539"/>
+        <location filename="../src/QBookApp.cpp" line="2561"/>
         <source>An error was detected in internal device memory
 What do you want to do?</source>
         <translation>An error has been detected in the device&apos;s internal memory.
 What do you want to do?</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2541"/>
+        <location filename="../src/QBookApp.cpp" line="2563"/>
         <source>An error was detected in removable memory
 What do you want to do?</source>
         <translation>An error has been detected in the device&apos;s removable memory.
 What do you want to do?</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2552"/>
+        <location filename="../src/QBookApp.cpp" line="2574"/>
         <source>Please, wait until the memory is formatted.</source>
         <translation>Please wait until the memory has been formatted.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2573"/>
+        <location filename="../src/QBookApp.cpp" line="2595"/>
         <source>This memory is not recognised, please verify it with your computer.</source>
         <translation>This memory is not recognised. Please verify it with a computer.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2693"/>
+        <location filename="../src/QBookApp.cpp" line="2715"/>
         <source>This device is not linked to any account. It would be locally unlink. Please wait for a few minutes.</source>
         <translation>This device is not linked to any accounts. It will be unlinked locally. Please wait a few minutes.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2846"/>
+        <location filename="../src/QBookApp.cpp" line="2868"/>
         <source>Disconnect USB from CPU before send to sleep the device.</source>
         <translation>Unmount the device before putting it into Sleep mode.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3438"/>
+        <location filename="../src/QBookApp.cpp" line="3460"/>
         <source>Are you sure you want to enable Hackers firmware installation?</source>
         <translation>Are you sure you wish to enable the installation of firmware for developers?</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3449"/>
+        <location filename="../src/QBookApp.cpp" line="3471"/>
         <source>Enabling Hackers firmware installation will void your warranty. Are you really sure you want to continue?</source>
         <translation>This process will mark your device as suitable for the installation of firmware for developers. Are you sure you wish to continue?</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3473"/>
+        <location filename="../src/QBookApp.cpp" line="3495"/>
         <source>Notification over the network is required to allow Hackers firmware. Aborting</source>
         <translation>You need a network connection in order to install firmware for developers. Cancelling.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3520"/>
+        <location filename="../src/QBookApp.cpp" line="3542"/>
         <source>Error obtaining auth from bq servers for firmware installation. Aborting</source>
         <translation>Error while obtaining authorisation from bq servers for the firmware installation. Cancelling.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3529"/>
+        <location filename="../src/QBookApp.cpp" line="3551"/>
         <source>Device not authorized for developers firmware installation, please contact customer support to get authorization</source>
         <translation>This device is not authorised for the installation of firmware for developers. Please contact product support in order to obtain authorisation.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3540"/>
+        <location filename="../src/QBookApp.cpp" line="3562"/>
         <source>Hackers firmware installation enabled. Download firmware, place it on SD card and power on the device while holding home button pressed.</source>
         <translation>Installation of firmware for developers has been enabled. Download the firmware, save it to a card and follow the normal installation procedures.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3643"/>
+        <location filename="../src/QBookApp.cpp" line="3665"/>
         <source>Nuevos libros encontrados: </source>
         <translation>New books found: </translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3647"/>
+        <location filename="../src/QBookApp.cpp" line="3669"/>
         <source>
 Por favor no extraigas la SD.</source>
         <translation>
 Please do not remove the SD card.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3697"/>
+        <location filename="../src/QBookApp.cpp" line="3719"/>
         <source>Screenshot saved to </source>
         <translation>Screenshot saved to </translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3710"/>
+        <location filename="../src/QBookApp.cpp" line="3732"/>
         <source>Ha ocurrido un problema con la wifi.
 Por favor, reinicia el dispositivo si necesitas seguir usandola.</source>
         <translation>There was a problem with the Wi-Fi.
 Please, restart the device if you need to continue using it.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3944"/>
+        <location filename="../src/QBookApp.cpp" line="3967"/>
         <source>New dictionaries available. Do you want to proceed with installation?</source>
         <translation>New dictionary available. Do you want to download it?</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="3965"/>
+        <location filename="../src/QBookApp.cpp" line="3988"/>
         <source>You can perform the installation later from dictionary settings.</source>
         <translation>You can carry out the installation later by going to Settings &gt; Device options &gt; Dictionaries &gt; Activate additional dictionaries</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="4021"/>
-        <location filename="../src/QBookApp.cpp" line="4048"/>
-        <location filename="../src/QBookApp.cpp" line="4120"/>
+        <location filename="../src/QBookApp.cpp" line="4044"/>
+        <location filename="../src/QBookApp.cpp" line="4071"/>
+        <location filename="../src/QBookApp.cpp" line="4143"/>
         <source>Your subscription has expired.</source>
         <translation>Your subscription has expired. Renew it in order to continue enjoying your Premium content.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="4026"/>
-        <location filename="../src/QBookApp.cpp" line="4050"/>
+        <location filename="../src/QBookApp.cpp" line="4049"/>
+        <location filename="../src/QBookApp.cpp" line="4073"/>
         <source>Your subscription will be expired today.</source>
         <translation>Your subscription expires today and you will not be able to continue reading your Premium eBooks offline on your eReader. More information can be found in the Help section at the store.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="4031"/>
-        <location filename="../src/QBookApp.cpp" line="4052"/>
+        <location filename="../src/QBookApp.cpp" line="4054"/>
+        <location filename="../src/QBookApp.cpp" line="4075"/>
         <source>Your subscription will be expired tomorrow.</source>
         <translation>You have 1 day left in which to read your Premium e-books offline with your e-reader. For more information visit the Help section in the store.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="4035"/>
+        <location filename="../src/QBookApp.cpp" line="4058"/>
         <source>Your subscription will be expired in %1 days.</source>
         <translation>You have %1 days left in which to read your Premium e-books offline with your e-reader. For more information visit the Help section in the store.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="4074"/>
-        <location filename="../src/QBookApp.cpp" line="4101"/>
+        <location filename="../src/QBookApp.cpp" line="4097"/>
+        <location filename="../src/QBookApp.cpp" line="4124"/>
         <source>Your trial period has expired.</source>
         <translation>Your trial period has expired.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="4079"/>
-        <location filename="../src/QBookApp.cpp" line="4103"/>
+        <location filename="../src/QBookApp.cpp" line="4102"/>
+        <location filename="../src/QBookApp.cpp" line="4126"/>
         <source>Your trial period will be expired today.</source>
         <translation>Your trial period expires today.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="4084"/>
-        <location filename="../src/QBookApp.cpp" line="4105"/>
+        <location filename="../src/QBookApp.cpp" line="4107"/>
+        <location filename="../src/QBookApp.cpp" line="4128"/>
         <source>Your trial period will be expired tomorrow.</source>
         <translation>Your trial period expires tomorrow.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="4088"/>
+        <location filename="../src/QBookApp.cpp" line="4111"/>
         <source>Your trial period will be expired in %1 days.</source>
         <translation>Your trial period expires in %1 days.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="4217"/>
+        <location filename="../src/QBookApp.cpp" line="4241"/>
         <source>Haz uso de los diccionarios y de las actualizaciones activando tu dispositivo en un solo paso.</source>
         <translation>Use the dictionaries and receive updates by activating your device with a single step.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="4217"/>
+        <location filename="../src/QBookApp.cpp" line="4241"/>
         <source>Activar</source>
         <translation>Activate</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1364"/>
+        <location filename="../src/QBookApp.cpp" line="1369"/>
         <source>Activate mass storage device? Book will be closed and the device will be temporarily not operable.</source>
         <translation>Do you wish to activate the mass storage mode? The book will be closed and the device will stop working temporarily.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1187"/>
+        <location filename="../src/QBookApp.cpp" line="1191"/>
         <source>Critical battery level (%1%). Please plug the device to a charger source.</source>
         <translation>Battery level critical (%1%). Please connect the device to a power source.</translation>
     </message>
@@ -389,17 +389,17 @@ Please, restart the device if you need to continue using it.</translation>
         <translation type="obsolete">Battery level low (%1%).</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1368"/>
+        <location filename="../src/QBookApp.cpp" line="1373"/>
         <source>Activate mass storage device? Device will be temporarily not operable.</source>
         <translation>Do you wish to activate the mass storage mode? The device will stop working temporarily.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="1990"/>
+        <location filename="../src/QBookApp.cpp" line="2010"/>
         <source>Browser</source>
         <translation>Internet</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2024"/>
+        <location filename="../src/QBookApp.cpp" line="2044"/>
         <source>Cannot open book. It is corrupted</source>
         <translation>The book cannot be opened. It is invalid.</translation>
     </message>
@@ -408,7 +408,7 @@ Please, restart the device if you need to continue using it.</translation>
         <translation type="obsolete">Access denied. Check your Adobe DRM license.</translation>
     </message>
     <message>
-        <location filename="../src/QBookApp.cpp" line="2081"/>
+        <location filename="../src/QBookApp.cpp" line="2101"/>
         <source>Document format not supported</source>
         <translation>Unsupported format.</translation>
     </message>
@@ -631,7 +631,7 @@ Please, restart the device if you need to continue using it.</translation>
     <message>
         <location filename="../src/QBookScreenSaver.cpp" line="160"/>
         <location filename="../src/QBookScreenSaver.cpp" line="162"/>
-        <location filename="../src/QBookScreenSaver.cpp" line="175"/>
+        <location filename="../src/QBookScreenSaver.cpp" line="196"/>
         <source>Press the Power button to resume</source>
         <translation>Press the Power button to resume</translation>
     </message>

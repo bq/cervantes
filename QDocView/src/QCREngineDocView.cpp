@@ -400,8 +400,6 @@ bool QCREngineDocView::setPageMode(PageMode mode)
     return mode == MODE_SCROLL;
 }
 
-/*-------------------------------------------------------------------------*/
-
 QString QCREngineDocView::backend() const
 {
     return "fb2";
@@ -410,6 +408,13 @@ QString QCREngineDocView::backend() const
 QString QCREngineDocView::title() const
 {
     return QString::fromWCharArray(text_view->getTitle().c_str(), text_view->getTitle().length() );
+}
+
+/*-------------------------------------------------------------------------*/
+
+void QCREngineDocView::displayFit(AutoFitMode mode)
+{
+    setScaleFactor(autoFitFactor(mode));
 }
 
 double QCREngineDocView::autoFitFactor(AutoFitMode mode) const

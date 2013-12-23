@@ -22,14 +22,19 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define BQUTILS_H
 
 #include <QString>
+#include <QFont>
 
 class bqQTextBrowser;
 class bqUtils {
 
 public:
-    static QString      truncateStringToLength              ( const QString& , int, bool wholeWords = true, const QString& appendStr = QString("..."));
+    static QString      truncateStringToLength              ( const QString& toTruncate, int nChars, bool wholeWords = true, const QString& appendStr = QString("..."));
+    static QString      truncateStringToWidth               ( const QString& toTruncate,const int nPixels,const QFont& font );
     static QString      specialCharactersFromUtf8           ( const QString& text );
     static QString      simplify                            ( const QString& str );
+    static bool         removeDir                           ( const QString& dirName );
+    static bool         copyDir                             ( const QString &src, const QString &dest );
+    static bool         filesToCopy                         ( const QString& path, int& booksToLoad );
 };
 
 #endif // BQUTILS_H

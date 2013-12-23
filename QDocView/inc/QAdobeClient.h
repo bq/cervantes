@@ -63,6 +63,7 @@ public:
     void stopProcessing();
     void clearAbortProcessing();
     void setEditorFonts ( bool editorFonts ) { m_editorFonts = editorFonts; }
+    void setIncorrectCSS ( bool incorrectCSS ) { m_hasIncorrectCSS = incorrectCSS; }
 
 signals:
     void stateChanged(int state);
@@ -78,6 +79,7 @@ private:
     bool m_loaded;
     bool m_aborted;
     bool m_editorFonts;
+    bool m_hasIncorrectCSS;
 };
 
 /*-------------------------------------------------------------------------*/

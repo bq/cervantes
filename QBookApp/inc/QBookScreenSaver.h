@@ -59,6 +59,8 @@ signals:
 
 private:
     int screenType;
+    QString formatsList;
+    QList<QByteArray> supportedImageslist;
 };
 
 #endif

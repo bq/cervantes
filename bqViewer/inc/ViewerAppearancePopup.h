@@ -32,7 +32,6 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 class QWidget;
 class Viewer;
 class BookInfo;
-class PowerManagerLock;
 class QButtonGroup;
 class QFrame;
 class Viewer;
@@ -98,7 +97,7 @@ public:
     virtual void                        start                               ();
     virtual void                        stop                                ();
 
-    inline int                          getFontSizeId                       () const { return m_currentFontSizeId; }
+    inline int                          getFontSizeId                       () const;
 
     void                                applyMargin                         ();
 
@@ -131,18 +130,22 @@ protected:
 
     void                                setupBook                           ( const BookInfo* );
     void                                setupUiButtons                      ();
+    void                                setSizeButtonsAspect                (const uint newFontSize);
+    bool                                withinSizeButtonsRange              ();
 
     void                                applySizeChange                     ();
 
     void                                savePageMode                        ();
+    bool                                isPdfHardMode                       () const;
+
 
     QMap<eMargin, MarginPercentage>     m_marginMap;
     QStringList                         m_spacingList;
 
-    PowerManagerLock*                   m_powerLock;
-
+    bool                                m_fontSizeOutOfRange;
     bool                                m_defaultSettings;
     int                                 m_currentFontSizeId;
+    uint                                m_currentPdfZoomLevelId;
     int                                 m_currentFontNameId;
     int                                 m_currentPageMode;
     eMargin                             m_currentMarginValue;

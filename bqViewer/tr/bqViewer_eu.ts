@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>%1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1</translation>
     </message>
     <message>
         <source>Please, remember to activate the device to use</source>
@@ -605,6 +605,36 @@ Jarraitu nahi al duzu?</translation>
         <source>FB2</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Colecciones</source>
+        <translation>Bilduma</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation>%1</translation>
+    </message>
+    <message>
+        <source>En %1 colecciones</source>
+        <translation>%1 bildumatan</translation>
+    </message>
+</context>
+<context>
+    <name>ViewerCollectionItem</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Inprimakia</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation type="unfinished">Testu-etiketa</translation>
+    </message>
+</context>
+<context>
+    <name>ViewerCollectionLayer</name>
+    <message utf8="true">
+        <source>Añadir colección </source>
+        <translation>Bilduma sortu</translation>
+    </message>
 </context>
 <context>
     <name>ViewerContentsItem</name>
@@ -902,7 +932,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>%1%</source>
-        <translation>% %1</translation>
+        <translation type="obsolete">% %1</translation>
     </message>
 </context>
 <context>
@@ -913,7 +943,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message utf8="true">
         <source>págs. fin de capítulo</source>
-        <translation>orr. kap. am.</translation>
+        <translation type="obsolete">orr. kap. am.</translation>
     </message>
     <message>
         <source>XX</source>
@@ -925,7 +955,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message utf8="true">
         <source>leído</source>
-        <translation>irakurria</translation>
+        <translation type="obsolete">irakurria</translation>
     </message>
     <message>
         <source>40%</source>
@@ -942,6 +972,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>18:40</source>
         <translation type="unfinished">% 40 {18:40?}</translation>
+    </message>
+    <message>
+        <source>%1% reading</source>
+        <translation>% %1 irakurria</translation>
+    </message>
+    <message>
+        <source>%1 pag. to chap. end</source>
+        <translation>%1 orr. kap. am.</translation>
     </message>
 </context>
 <context>
@@ -971,6 +1009,21 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>of</source>
         <translation>-en</translation>
+    </message>
+</context>
+<context>
+    <name>ViewerSearchContextMenuLandscape</name>
+    <message>
+        <source>Listado</source>
+        <translation type="unfinished">Zerrendatua</translation>
+    </message>
+    <message>
+        <source>Resultado</source>
+        <translation type="unfinished">Emaitza</translation>
+    </message>
+    <message>
+        <source>Result %1 of %2</source>
+        <translation>Emaitza %1-en %2</translation>
     </message>
 </context>
 <context>

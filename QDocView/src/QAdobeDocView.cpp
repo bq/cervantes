@@ -713,6 +713,7 @@ QAdobeDocView::QAdobeDocView(dpdoc::Document* doc, QAdobeClient* client, QWidget
     , m_isFormActivated(false)
     , m_isPdf(false)
     , m_scale(1.0)
+    , m_pdfZoomLevel(0)
     , m_offsetX(0)
     , m_offsetY(0)
     , m_hiliBegin(0)
@@ -793,6 +794,7 @@ QSet<QString> QAdobeDocView::extractCSSFromEpub()
     QString spacing = spacingSettings.readAll().data();
     spacingSettings.close();
 
+    spacing.append("font-size:1.00em;");
     int justifyValue = QBook::settings().value("setting/reader/justify/epub", 2).toInt();
     if(justifyValue == 0)
         spacing.append("\ntext-align:justify; text-justify:auto;");
@@ -833,7 +835,16 @@ QSet<QString> QAdobeDocView::extractCSSFromEpub()
             qDebug() << Q_FUNC_INFO << "Writing CSS file: " << cssPath << ": " << cssSize << " bytes";
             QString contentFile(data);
 
+
+            // Removing imports
+            contentFile = contentFile.replace(QRegExp("@import[^;]*;"), "");
+            contentFile = contentFile.replace(QRegExp("@[^;]*;"), "");
+
+            //Check if CSS has incorrect fields.
+            checkIncorrectFieldCSS(contentFile);
+
             QRegExp fontFamilyRX("font-family\\s*:[\\w'-,\\s\"]*;");
+
 
             int pos = 0;
             QStringList list;
@@ -864,9 +875,8 @@ QSet<QString> QAdobeDocView::extractCSSFromEpub()
             }
 
             // Removing imports
-            contentFile = contentFile.replace(QRegExp("@import[^;]*;"), "");
-            contentFile = contentFile.replace(QRegExp("@[^;]*;"), "");
             contentFile = contentFile.replace(QRegExp("\\{(\\s*([a-zA-Z-])*:[^\n]*\n\\s*)+\\}"), QString("{%1}").arg(spacing));
+
             justifyValue = QBook::settings().value("setting/reader/justify/epub", 2).toInt();
             if(justifyValue == 0)
                 contentFile = contentFile.replace(QRegExp("(text-align\\s*:[\\w'-,\\s\"]*;)"), QString("text-align: justify;"));
@@ -907,11 +917,31 @@ void QAdobeDocView::cleanExtractedCSS()
     }
 }
 
+void QAdobeDocView::checkIncorrectFieldCSS(QString &content)
+{
+    qDebug() << Q_FUNC_INFO;
+
+    if(content.contains(QRegExp("(font-size\\s*:[^;]*pt;)")))
+    {
+        qDebug() << "Detect incorrect CSS";
+        m_host->setIncorrectCSS(true);
+        content = content.remove(QRegExp("(font-size\\s*:[^;]*;)"));
+
+    }
+    if(content.contains(QRegExp("(line-height\\s*:[^;]*pt;)")))
+    {
+        qDebug() << "Detect incorrect CSS";
+        m_host->setIncorrectCSS(true);
+        content = content.remove(QRegExp("(line-height\\s*:[^;]*;)"));
+    }
+}
+
 void QAdobeDocView::addExtraCSSFiles(QSet<QString>& originalFamilySet)
 {
     qDebug() << Q_FUNC_INFO;
 
-    if(!m_canOverrideFonts)
+    bool editorFonts = QBook::settings().value("setting/reader/editorFonts", true).toBool();
+    if(!m_canOverrideFonts || editorFonts)
     {
         qDebug() << Q_FUNC_INFO << "We cannot override fonts";
         return;
@@ -1060,6 +1090,11 @@ bool QAdobeDocView::isHardPageMode() const
     return m_pageMode == MODE_HARD_PAGES || m_pageMode == MODE_HARD_PAGES_2UP;
 }
 
+bool QAdobeDocView::isHardModePDF() const
+{
+     return m_isPdf && isHardPageMode();
+}
+
 bool QAdobeDocView::setPageMode(PageMode mode)
 {
     if (!m_renderer) return false;
@@ -1136,6 +1171,11 @@ bool QAdobeDocView::setPageMode(PageMode mode)
 
 /*-------------------------------------------------------------------------*/
 
+void QAdobeDocView::displayFit(AutoFitMode mode)
+{
+    setScaleFactor(autoFitFactor(mode));
+}
+
 double QAdobeDocView::autoFitFactor(AutoFitMode mode) const
 {
     qDebug() << Q_FUNC_INFO << mode;
@@ -1181,17 +1221,17 @@ void QAdobeDocView::setAutoFitMode(AutoFitMode mode)
 
 double QAdobeDocView::pdfScaleStep() const
 {
-    return (MAX_PDF_ZOOM - 1)*minScaleFactor()/(NUM_AVAILABLE_SIZES - 1);
+    return (MAX_PDF_ZOOM - 1)*minScaleFactor()/(MAX_PDF_ZOOM_LEVEL - 1);
 }
 
 double QAdobeDocView::scaleStep() const
 {
-    return m_isFontScalable ? EPUB_INTERNAL_SIZE : pdfScaleStep(); //PDF_INTERNAL_SIZE;
+    return m_isFontScalable ? EPUB_INTERNAL_SIZE : pdfScaleStep();
 }
 
 double QAdobeDocView::maxScaleFactor() const
 {
-    return m_isFontScalable ? Q_FONT_SIZE_MAX : autoFitFactor(AUTO_FIT_PAGE) + 1.25;// TODO: ¿Y este magic number?
+    return m_isFontScalable ? Q_FONT_SIZE_MAX : pdfScaleStep()*(MAX_PDF_ZOOM_LEVEL - 1) + minScaleFactor();
 }
 
 double QAdobeDocView::minScaleFactor() const 
@@ -1283,12 +1323,12 @@ bool QAdobeDocView::updateScaleAndView(double factor)
     m_curFitFactor= autoFitFactor(AUTO_FIT_PAGE);
     if ((factor <= m_curFitFactor) && m_isPdf )
     {
-        m_scale = m_curFitFactor;
+        updateScale(m_curFitFactor);
         m_autoFit = AUTO_FIT_PAGE;
     }
     else
     {
-        m_scale = factor;
+        updateScale(factor);
         m_autoFit = AUTO_FIT_NONE;
     }
 
@@ -1301,6 +1341,15 @@ bool QAdobeDocView::updateScaleAndView(double factor)
     if (m_isPdf && !m_isFontScalable) positioningMiniature();
 
     return result;
+}
+
+void QAdobeDocView::updateScale(const double factor)
+{
+    m_scale = factor;
+
+    // Update m_pdfZoomLevel
+    m_pdfZoomLevel = qRound((m_scale - autoFitFactor(AUTO_FIT_PAGE)) / pdfScaleStep());
+    if(m_pdfZoomLevel < 0 || m_pdfZoomLevel > (MAX_PDF_ZOOM_LEVEL - 1)) m_pdfZoomLevel = 0;
 }
 
 /*-------------------------------------------------------------------------*/
@@ -2061,7 +2110,12 @@ bool QAdobeDocView::isHorizontal() const
 
 bool QAdobeDocView::setHorizontal(bool on)
 {
+    if (m_isHorizontal == on) return false;
     m_isHorizontal = on;
+
+    // TODO: handle margins during these process    
+
+    uint memZoomLevel = m_pdfZoomLevel;
 
     if (m_renderer)
     {
@@ -2070,6 +2124,8 @@ bool QAdobeDocView::setHorizontal(bool on)
         updateViewport();
         updateSurface(m_surface->rect());
     }
+
+    m_pdfZoomLevel = memZoomLevel;
 
     return true;
 }
@@ -2251,14 +2307,16 @@ void QAdobeDocView::takeMiniatureScreenshot()
         double auxScale = m_scale;
         // Set zoom at minimun.
         m_scale = autoFitFactor(AUTO_FIT_PAGE);
-        //setScaleFactor(m_scale, 0, delta_y);
+
+        bool auxBlockPaintEvents = m_blockPaintEvents;
+        m_blockPaintEvents = false;
         updateViewport();
 
         screenshot();
 
+        m_blockPaintEvents = auxBlockPaintEvents;
         // Hold the old zoom.
         m_scale = auxScale;
-        //setScaleFactor(m_scale, 0, delta_y);
         updateViewport();
 
     }
@@ -2384,6 +2442,10 @@ bool QAdobeDocView::gotoPage(int pos)
 QDocView::Location* QAdobeDocView::bookmark()
 {
     if (!m_renderer) return 0;
+
+    qDebug() << Q_FUNC_INFO << "Locking mutex";
+    QMutexLocker locker(&s_adobeConcurrentMutex);
+    qDebug() << Q_FUNC_INFO << "After locking mutex";
 
     dp::ref<dpdoc::Location> start = m_renderer->getScreenBeginning();
     if (!start) return 0;
@@ -3325,6 +3387,8 @@ QPoint QAdobeDocView::getTopLeftMargin(void) const
 void QAdobeDocView::setBookInfo(const BookInfo& bookInfo)
 {
     QDocView::setBookInfo(bookInfo);
+    if (bookInfo.orientation == BookInfo::ORI_LANDSCAPE) setHorizontal(true);
+    else                                                 setHorizontal(false);
     bool editorFonts = QBook::settings().value("setting/reader/editorFonts", true).toBool();
     m_host->setEditorFonts(editorFonts);
 }
@@ -3404,8 +3468,12 @@ bool QAdobeDocView::updateMetrics()
     int sh = m_surface->height();
 
     double newScale = autoFitFactor(m_autoFit);
-    if (m_scale != newScale) emit zoomChange(newScale);
-    m_scale = newScale;
+    if (m_scale != newScale)
+    {
+        emit zoomChange(newScale);
+        updateScale(newScale);
+    }
+
     double f = m_isFontScalable ? 1.0 : m_scale;    
     double w = f * m_docSize.width();
     double h = f * m_docSize.height();
@@ -3455,7 +3523,7 @@ bool QAdobeDocView::updateMetrics()
         }
     } else {
 	    if(qAbs(m_scale - mat.a) > 0.01)
-    	    m_scale = mat.a;
+            updateScale(mat.a);
     }
 
     updateOffsetXY();
@@ -3812,35 +3880,29 @@ void QAdobeDocView::setFontSizeOrScalePercentage(int size)
 
 int QAdobeDocView::sizeLevel() const
 {
-	if(m_isFontScalable)
-		return (m_scale - Q_FONT_SIZE_MIN) / EPUB_INTERNAL_SIZE;
-	else
-	{
-        int level = qRound((m_scale - autoFitFactor(AUTO_FIT_PAGE)) / pdfScaleStep());
-        if(level < 0 || level > (NUM_AVAILABLE_SIZES - 1))
-			return 0;
-		else
-			return level;
-	}
+    if (m_isFontScalable) return (m_scale - Q_FONT_SIZE_MIN) / EPUB_INTERNAL_SIZE;
+    else                  return m_pdfZoomLevel;
+}
+
+void QAdobeDocView::updateScaleByLevel()
+{
+    setScaleFactor(scaleStep()*m_pdfZoomLevel + minScaleFactor());
 }
 
 void QAdobeDocView::zoomIn()
 {
 	if(m_isFontScalable)
 	{
-		if(m_scale < Q_FONT_SIZE_MAX)
-        {
-			setScaleFactor(m_scale + EPUB_INTERNAL_SIZE);
-        }
+        if (m_scale < Q_FONT_SIZE_MAX)
+            setScaleFactor(m_scale + EPUB_INTERNAL_SIZE);
 	}
-	else
-	{
-        if(m_scale + pdfScaleStep() <= autoFitFactor(AUTO_FIT_PAGE) + pdfScaleStep() * (NUM_AVAILABLE_SIZES - 1))
-        {
-            setScaleFactor(m_scale + pdfScaleStep());
-            //emit pdfZoomLevelChange(sizeLevel());
-        }
-	}
+    else
+    {
+        if (m_pdfZoomLevel + 1 <= MAX_PDF_ZOOM_LEVEL - 1)
+            setScaleFactor(pdfScaleStep()*(++m_pdfZoomLevel) + minScaleFactor());
+        else if (m_scale < maxScaleFactor())
+            setScaleFactor(maxScaleFactor());
+    }
 
     if (m_isPdf) scrolling();
 
@@ -3851,17 +3913,16 @@ void QAdobeDocView::zoomOut()
 {
 	if(m_isFontScalable)
 	{
-		if(m_scale > Q_FONT_SIZE_MIN)
-			setScaleFactor(m_scale - EPUB_INTERNAL_SIZE);
+        if (m_scale > Q_FONT_SIZE_MIN)
+            setScaleFactor(m_scale - EPUB_INTERNAL_SIZE);
 	}
-	else
-	{
-		if(m_scale > autoFitFactor(AUTO_FIT_PAGE))
-        {
-            setScaleFactor(m_scale - pdfScaleStep());
-            //emit pdfZoomLevelChange(sizeLevel());
-        }
-	}
+    else
+    {
+        if (m_pdfZoomLevel - 1 >= 0)
+            setScaleFactor(pdfScaleStep()*(--m_pdfZoomLevel) + minScaleFactor());
+        else if (m_scale > minScaleFactor())
+            setScaleFactor(minScaleFactor());
+    }
 
     if (m_isPdf) scrolling();
 

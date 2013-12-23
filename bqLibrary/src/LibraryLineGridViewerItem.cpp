@@ -78,7 +78,7 @@ void LibraryLineGridViewerItem::setBook( const BookInfo* book, Library::ELibrary
     titleLbl->setText(bqUtils::truncateStringToLength(book->title, TITLE_MAX_LENGTH));
 
     // Author
-    if(book->author == "--")
+    if(book->author == "---")
         authorLbl->setText(tr("Autor Desconocido"));
     else
         authorLbl->setText(bqUtils::truncateStringToLength(book->author, AUTHOR_MAX_LENGTH));
@@ -98,10 +98,20 @@ void LibraryLineGridViewerItem::setBook( const BookInfo* book, Library::ELibrary
     else
         subscriptionTagLbl->hide();*/
 
-    if(book->getLocations().size() <= 0 && book->lastReadLink.isEmpty() && !book->m_archived && filter != Library::ELFM_ALL_NEW)
-        newTagLbl->show();
-    else
+    int state = book->readingStatus;
+    switch(state)
+    {
+    case BookInfo::NO_READ_BOOK:
+        if(book->lastReadLink.isEmpty())
+            newTagLbl->show();
+        else
+            newTagLbl->hide();
+        break;
+    case BookInfo::READ_BOOK:
+    case BookInfo::READING_BOOK:
         newTagLbl->hide();
+        break;
+    }
 }
 
 void LibraryLineGridViewerItem::setFile( const QFileInfo* file )

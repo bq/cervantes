@@ -156,7 +156,7 @@ pero algunos libros han fallado.</source>
     </message>
     <message>
         <source>You are about to copy the file </source>
-        <translation>Fitxategia kopiatzear zaude</translation>
+        <translation type="obsolete">Fitxategia kopiatzear zaude</translation>
     </message>
     <message>
         <source>
@@ -198,7 +198,7 @@ Jarraitu nahi al duzu?</translation>
     </message>
     <message>
         <source>You are about to remove the file </source>
-        <translation>Fitxategia ezabatzera zoaz</translation>
+        <translation type="obsolete">Fitxategia ezabatzera zoaz</translation>
     </message>
     <message>
         <source>from internal memory.</source>
@@ -340,6 +340,48 @@ The books in the collection will not be deleted.</source>
     <message>
         <source> (%1)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are about to remove the </source>
+        <translation>Ezabatuko duzu: </translation>
+    </message>
+    <message>
+        <source>folder </source>
+        <translation>direktorioa </translation>
+    </message>
+    <message>
+        <source>file </source>
+        <translation>fitxategia</translation>
+    </message>
+    <message>
+        <source>Folder correctly removed.</source>
+        <translation>Direktorioa behar bezala ezabatu da.</translation>
+    </message>
+    <message>
+        <source>Remove failure, the folder can not be removed.</source>
+        <translation>Errorea ezabatzean. Ezin da direktorioa ezabatu.</translation>
+    </message>
+    <message>
+        <source>You are about to copy the </source>
+        <translation>Kopiatuko duzu: </translation>
+    </message>
+    <message>
+        <source>The file already exists.
+Please delete the file before copy it.</source>
+        <translation>Fitxategia helmugan dago dagoeneko. Ezabatu fitxategia kopiatu aurretik.</translation>
+    </message>
+    <message>
+        <source>Already exists a folder with this name.
+Please delete the file before copy it.</source>
+        <translation>Izen bereko direktorio bat dago dagoeneko. Ezabatu direktorioa kopiatu aurretik.</translation>
+    </message>
+    <message>
+        <source>Copying files...</source>
+        <translation>Fitxategiak kopiatzen…</translation>
+    </message>
+    <message>
+        <source>Folder correctly copied.</source>
+        <translation>Direktorioa behar bezala kopiatu da.</translation>
     </message>
 </context>
 <context>
@@ -533,6 +575,18 @@ p, li { white-space: pre-wrap; }
         <source>FB2</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Colecciones</source>
+        <translation>Bilduma</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>En %1 colecciones</source>
+        <translation>%1 bildumatan</translation>
+    </message>
 </context>
 <context>
     <name>LibraryBookToCollectionItem</name>
@@ -547,6 +601,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Autor 01</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Autor Desconocido</source>
+        <translation type="unfinished">Egile ezezaguna</translation>
     </message>
 </context>
 <context>
@@ -646,6 +704,24 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Leidos</source>
         <translation>Irakurriak</translation>
+    </message>
+</context>
+<context>
+    <name>LibraryCollectionItem</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Inprimakia</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LibraryCollectionLayer</name>
+    <message utf8="true">
+        <source>Añadir colección </source>
+        <translation>Bilduma sortu</translation>
     </message>
 </context>
 <context>

@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "Model.h"
 #include "EpubMetaDataExtractor.h"
 #include "Fb2MetaDataExtractor.h"
+#include "MobiMetaDataExtractor.h"
 #include "QDocView.h"
 #include "PowerManagerLock.h"
 #include "PowerManager.h"

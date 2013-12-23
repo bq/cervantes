@@ -428,6 +428,13 @@ border-color:#707070;
 background-color:#FFFFFF;
 text-align:left;
 }
+#actionsContainer #addToCollectionBtn{
+background:url(":/res/arrow_for_buttons.png") no-repeat center right;
+border-style:solid;
+border-color:#707070;
+background-color:#FFFFFF;
+text-align:left;
+}
 #actionsContainer #bookActionBtn{
 border-style:solid;
 border-color:#707070;
@@ -453,7 +460,53 @@ background-color:#FFFFFF;
 }
 #actionsContainer {
 }
-
+/*CollectionLayerCont
+-------------------------*/
+#CollectionLayerCont {
+border-style:solid;
+border-color:#707070;
+background-color:#FFF;
+border-top-left-radius:none;
+border-top-right-radius:none;
+}
+#CollectionLayerCont #collectionItem0,#CollectionLayerCont #collectionItem1, #CollectionLayerCont #collectionItem2, #CollectionLayerCont #collectionItem3,#CollectionLayerCont #collectionItem4{
+border-style:dotted;
+border-color:#B0B0B0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#CollectionLayerCont #collectionTitleLbl {
+text-align:left;
+border-style:dotted;
+border-color:#B0B0B0;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+#CollectionLayerCont #collectionTitleLbl:checked {
+background: url(":/res/check-collection.png") no-repeat center right;
+background-color:#C0C0C0;
+border-left-style:solid;
+border-left-color:#707070;
+border-right-style:solid;
+border-right-color:#707070;
+}
+#CollectionLayerCont #addNewCollection{
+border-bottom-style:solid;
+border-bottom-color:#707070;
+border-right:none;
+border-top:none;
+border-left:none;
+text-align:center;
+}
+#CollectionLayerCont #addNewCollection:checked{
+background:none;
+}
+#CollectionLayerCont #collectionTitleLbl:disabled {
+font-weight:normal;
+color:#666;
+}
 
 /*Search
 ----------------------------*/

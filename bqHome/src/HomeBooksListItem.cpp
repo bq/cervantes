@@ -75,7 +75,7 @@ void HomeBooksListItem::paintBook (const BookInfo* _book){
             titleLabel->show();
 
             // Author
-            if(book->author == "--")
+            if(book->author == "---")
                 authorLabel->setText(tr("Autor Desconocido"));
             else
                 authorLabel->setText(bqUtils::truncateStringToLength(book->author, ICONITEM_STRING_MAX_LENGTH));

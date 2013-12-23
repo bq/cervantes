@@ -26,7 +26,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <dp_core.h>
 #include <dp_doc.h>
 
-#define MAX_PDF_ZOOM            4 // n times the original PDF size
+#define MAX_PDF_ZOOM            6 // n times the original PDF size
+#define MAX_PDF_ZOOM_LEVEL      12
 
 class QAdobeClient;
 class QAdobeSurface;
@@ -61,18 +62,20 @@ public:
     virtual PageMode pageMode() const;
     virtual bool isPageModeSupported(PageMode mode);
     virtual bool setPageMode(PageMode mode);
+    virtual bool isHardModePDF() const;
 
+    virtual void   displayFit(AutoFitMode mode);
     virtual double autoFitFactor(AutoFitMode mode) const;
     virtual AutoFitMode autoFitMode() const;
-    virtual void setAutoFitMode(AutoFitMode mode);
+    virtual void   setAutoFitMode(AutoFitMode mode);
 
     virtual double scaleStep() const;
     virtual double scaleFactor() const;
     virtual double maxScaleFactor() const;
     virtual double minScaleFactor() const;
-    virtual bool setScaleFactor(double factor, double delta_x = 0, double delta_y = 0);
-    virtual int sizeLevel() const;
-    double pdfScaleStep() const;
+    virtual bool   setScaleFactor(double factor, double delta_x = 0, double delta_y = 0);
+    virtual int    sizeLevel() const;
+    virtual void   updateScaleByLevel();
 
     virtual double getDocViewXOffsetPercent() const;
     virtual double getDocViewYOffsetPercent() const;
@@ -193,6 +196,7 @@ private:
     void updatePageOffset();
     void updateOffsetXY();
     QRectF documentRect() const;
+    double pdfScaleStep() const;
 
     QString highlightToBookmark(dp::ref<dpdoc::Location> start, dp::ref<dpdoc::Location> end) const;
     bool bookmarkToHighlight(const QString& ref, dp::ref<dpdoc::Location>* start, dp::ref<dpdoc::Location>* end) const;
@@ -203,7 +207,7 @@ private:
     void handleHiliUnion();
     bool setHighlightListRect(dpdoc::RangeInfo *rInfo);
 
-    void                                checkErrors                         ();
+    void checkErrors ();
 
 protected:
 
@@ -238,6 +242,8 @@ protected:
     bool setScaleFactorOnPreviousZoomedPage (double factor, double delta_x = 0, double delta_y = 0);
     bool setScaleFactorGoToZoomedPage       (double factor);
     bool updateScaleAndView                 (double factor);
+    void updateScale                        (const double factor);
+    void checkIncorrectFieldCSS             (QString &content);
 
 private:
     QAdobeClient* m_host;
@@ -255,6 +261,7 @@ private:
     bool m_isFormActivated;
     bool m_isPdf;
     double m_scale;
+    int m_pdfZoomLevel;
     double m_offsetX;
     double m_offsetY;
     dp::ref<dpdoc::Location> m_hiliBegin;

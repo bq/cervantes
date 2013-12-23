@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 // Predeclarations
 class LibraryBookListActions;
+class LibraryCollectionLayer;
 
 class LibraryBookSummary : public GestureWidget, protected Ui::LibraryBookSummary
 {
@@ -37,8 +38,9 @@ public:
     virtual                             ~LibraryBookSummary                 ();
 
     void                                setBook                             ( const BookInfo* book );
-    void                                hideListActionsMenu                 ( );
+    bool                                hideElements                        ( );
     void                                setActionsBtnText                   ( BookInfo::readStateEnum );
+    void                                setCollectionLayerBtnText           (QStringList collectionList);
 
 signals:
     void                                hideMe                              ();
@@ -49,6 +51,7 @@ signals:
     void                                copyBook                            ( const QString& );
     void                                exportNotes                         ( const QString );
     void                                changeReadState                     ( const BookInfo*, BookInfo::readStateEnum );
+    void                                addNewCollection                    ( const BookInfo* );
 
 public slots:
     void                                close                               ();
@@ -56,6 +59,7 @@ public slots:
 protected slots:
     void                                buyBookClicked                      ();
     void                                moreActionsClicked                  ();
+    void                                addToCollectionClicked              ();
     void                                archiveBook                         ();
 
     void                                removeBook                          ();
@@ -66,6 +70,9 @@ protected slots:
     void                                synopsisUp                          ();
     void                                setupPagination                     (int);
     void                                changeReadState                     (int);
+    void                                addBookToCollection                 (QString collectionName);
+    void                                removeBookToCollection              (QString collectionName);
+    void                                createNewCollection                 ();
 
 protected:
 
@@ -77,6 +84,7 @@ protected:
 
     const BookInfo*                     m_bookInfo;
     LibraryBookListActions*             m_bookListActions;
+    LibraryCollectionLayer*             m_collectionLayer;
     QScrollBar*                         vbar;
 
     enum ELibraryBookSummaryAction

@@ -21,6 +21,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "ViewerPageHandlerLandscape.h"
 #include "Viewer.h"
 #include "Screen.h"
+#include "bqUtils.h"
 
 #include <QWidget>
 #include <QDebug>
@@ -50,10 +51,8 @@ ViewerPageHandlerLandscape::ViewerPageHandlerLandscape(QWidget *parent) :
     readingProgress->setMaximum(100);
 
     titleLandscapeLbl->setAlignment(Qt::AlignVCenter |  Qt::AlignLeft);
-    readingPercentLbl->setAlignment(Qt::AlignVCenter |  Qt::AlignRight);
-    readedLbl->setAlignment(Qt::AlignVCenter |  Qt::AlignLeft);
+    readingPercentLbl->setAlignment(Qt::AlignVCenter |  Qt::AlignLeft);
     pagToFinishLbl->setAlignment(Qt::AlignVCenter |  Qt::AlignRight);
-    toFinishChapLbl->setAlignment(Qt::AlignVCenter |  Qt::AlignLeft);
 }
 
 ViewerPageHandlerLandscape::~ViewerPageHandlerLandscape()
@@ -68,16 +67,12 @@ void ViewerPageHandlerLandscape::updatePageHandler()
     if ( (m_visibleMask & EVPHM_PROGRESS) && m_currentPageIni != 0)
     {
         readingPercentLbl->show();
-        readedLbl->show();
         noReadingPercentLbl->hide();
-        noReadedLbl->hide();
     }
     else
     {
         readingPercentLbl->hide();
-        readedLbl->hide();
         noReadingPercentLbl->show();
-        noReadedLbl->show();
     }
 
     if ( (m_visibleMask & EVPHM_PAGE) && m_currentPageIni != 0)
@@ -103,26 +98,24 @@ void ViewerPageHandlerLandscape::updatePageHandler()
     if((m_visibleMask & EVPHM_CHAPTER) && m_currentPageIni != 0)
     {
         pagToFinishLbl->show();
-        toFinishChapLbl->show();
         noPagToFinishLbl->hide();
-        noToFinishChapLbl->hide();
     }
     else
     {
         pagToFinishLbl->hide();
-        toFinishChapLbl->hide();
         noPagToFinishLbl->show();
-        noToFinishChapLbl->show();
     }
 
     if((m_visibleMask & EVPHM_BOOK_TITLE) && m_currentPageIni != 0)
     {
         titleLandscapeLbl->show();
+        titleLeftMargin->show();
         noTitleLandscapeLbl->hide();
     }
     else
     {
         titleLandscapeLbl->hide();
+        titleLeftMargin->hide();
         noTitleLandscapeLbl->show();
     }
 
@@ -166,19 +159,20 @@ void ViewerPageHandlerLandscape::handlePageChange(int start, int end, int total)
     qDebug() << Q_FUNC_INFO << "finished";
 }
 
-void ViewerPageHandlerLandscape::setCurrentPage(int value)
+void ViewerPageHandlerLandscape::setCurrentReadingPercent(int value)
 {
-    readingPercentLbl->setText(QString("%1%").arg(value));
+    readingPercentLbl->setText(tr("%1% reading").arg(value));
 }
 
 void ViewerPageHandlerLandscape::setChapterPage(int page)
 {
-    pagToFinishLbl->setText(QString("%1").arg(page));
+    pagToFinishLbl->setText(tr("%1 pag. to chap. end").arg(page));
 }
 
 void ViewerPageHandlerLandscape::updateBookTitle(const QString& title)
 {
-    titleLandscapeLbl->setText(title);
+
+    titleLandscapeLbl->setText(bqUtils::truncateStringToWidth(title, titleLandscapeLbl->height(), titleLandscapeLbl->font()));
 }
 
 void ViewerPageHandlerLandscape::updateDateTime(const QString& dateTime)
@@ -202,7 +196,7 @@ void ViewerPageHandlerLandscape::updateDisplay()
 
         int percent = 0;
         if(m_totalPages != 0) percent = int((m_currentPageEnd)*100/m_totalPages);
-        readingPercentLbl->setText(QString("%1%").arg(percent));// FIXME: ¿por qué hay un método setCurrentPage?
+        setCurrentReadingPercent(percent);
         readingProgress->setValue(percent);
     }
 
@@ -278,6 +272,7 @@ void ViewerPageHandlerLandscape::hideTitle()
     m_visibleMask &= (~EVPHM_BOOK_TITLE);
     if(!shouldBeShown()) hide();
     titleLandscapeLbl->hide();
+    titleLeftMargin->hide();
     noTitleLandscapeLbl->show();
 }
 
@@ -285,6 +280,7 @@ void ViewerPageHandlerLandscape::showTitle()
 {
     m_visibleMask |= EVPHM_BOOK_TITLE;
     titleLandscapeLbl->show();
+    titleLeftMargin->show();
     noTitleLandscapeLbl->hide();
 }
 
@@ -312,17 +308,14 @@ void ViewerPageHandlerLandscape::resetPager()
     m_currentPageIni = 0;
     m_currentPageEnd = 0;
     titleLandscapeLbl->hide();
+    titleLeftMargin->hide();
     noTitleLandscapeLbl->hide();
     readingPercentLbl->hide();
     noReadingPercentLbl->hide();
-    readedLbl->hide();
-    noReadedLbl->hide();
     pageText->hide();
     noPageText->hide();
     pagToFinishLbl->hide();
     noPagToFinishLbl->hide();
-    toFinishChapLbl->hide();
-    noToFinishChapLbl->hide();
     dateTimeLandscapeLbl->hide();
     readingProgress->hide();
     if (!(m_visibleMask & EVPHM_PDF)) pdfMenuBtn->hide();
@@ -334,6 +327,4 @@ void ViewerPageHandlerLandscape::hideChapterInfo()
     if(!shouldBeShown()) hide();
     pagToFinishLbl->hide();
     noPagToFinishLbl->show();
-    toFinishChapLbl->hide();
-    noToFinishChapLbl->show();
 }

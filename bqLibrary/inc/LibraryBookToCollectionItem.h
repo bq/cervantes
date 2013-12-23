@@ -38,6 +38,7 @@ public:
     void                            setChecked                              (bool checked);
     bool                            isChecked                               ( ) { return m_checked; }
     void                            hideItem                                ();
+    const BookInfo*                 getBook                                 () { return m_book; }
 
 
 protected slots:
@@ -50,6 +51,7 @@ private:
 
     QString                         m_collectionName;
     bool                            m_checked;
+    const BookInfo*                 m_book;
 
 signals:
     void                            changeStatus                            ();

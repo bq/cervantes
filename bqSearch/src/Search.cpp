@@ -62,6 +62,7 @@ Search::Search (QWidget* parent) : QBookForm(parent)
         setStyleSheet(styles);
 
         page = 0;
+        i_searchSize = 0;
 
         connect(clearSearchBtn, SIGNAL(clicked()),this,SLOT(clearSearchLine()));
         connect(searchLineEdit, SIGNAL(clicked()),this, SLOT(handleClicked()));
@@ -150,6 +151,8 @@ void Search::activateForm()
 
         if(b_searchDirty) // Previous search. Updates it just in case the model has changed
             show();
+        else if(i_searchSize == 0)
+            handleKeyboard();
 }
 
 void Search::deactivateForm()
@@ -219,6 +222,8 @@ void Search::clearSearchLine ()
 void Search::deleteData()
 {
         qDebug() << Q_FUNC_INFO;
+
+        i_searchSize = 0;
 
         m_books.clear();
 
@@ -434,20 +439,20 @@ void Search::show ()
             deviceBooksBtn->hide();
         }
 
-        int searchSize = m_files.size() + m_books.size() + m_dirs.size();
-        if(lastPos > searchSize)
-            lastPos = searchSize;
-        if(searchSize == 0) {
+        i_searchSize = m_files.size() + m_books.size() + m_dirs.size();
+        if(lastPos > i_searchSize)
+            lastPos = i_searchSize;
+        if(i_searchSize == 0) {
             showResultLbl->setText(tr("Mostrando (0) resultados"));
             showResultLbl->show();
             resultNumberCont->show();
         }
-        else if(firstPos > searchSize && searchSize > 0) {
+        else if(firstPos > i_searchSize && i_searchSize > 0) {
             showResultLbl->hide();
             resultNumberCont->hide();
         }
         else {
-            showResultLbl->setText(tr("Mostrando %1 - %2 de %3 resultados").arg(firstPos).arg(lastPos).arg(searchSize));
+            showResultLbl->setText(tr("Mostrando %1 - %2 de %3 resultados").arg(firstPos).arg(lastPos).arg(i_searchSize));
             showResultLbl->show();
             resultNumberCont->show();
         }
@@ -457,7 +462,7 @@ void Search::show ()
 
         for(int i=0; i<size; ++i){
             pos = pageItems + i;
-            if(pos < searchSize)
+            if(pos < i_searchSize)
             {
                 SearchItem* item = books.at(i);
                 if(pos < dir_size)
@@ -491,23 +496,23 @@ void Search::show ()
             shopOnlineBtn->setVisible(false);
 
 
-        int relativePage = page - (searchSize / books.size());
+        int relativePage = page - (i_searchSize / books.size());
 
         //We use BTN_ITEM to add the buttons shopOnlineBtn, deviceBooksBtn like items.
-        qDebug() << Q_FUNC_INFO << (searchSize + BTN_ITEM) % books.size();
-        for(int i=0; i < (relativePage == 0 ? shopBooks.size() - ((searchSize + BTN_ITEM) % books.size()) : shopBooks.size()); ++i)
+        qDebug() << Q_FUNC_INFO << (i_searchSize + BTN_ITEM) % books.size();
+        for(int i=0; i < (relativePage == 0 ? shopBooks.size() - ((i_searchSize + BTN_ITEM) % books.size()) : shopBooks.size()); ++i)
         {
             int relativePos;
             if(relativePage == 0) {
                 relativePos = i;
-                if(((searchSize + BTN_ITEM) % books.size()) == 0)
+                if(((i_searchSize + BTN_ITEM) % books.size()) == 0)
                     shopResults = false;
             }
             else {
-                if(((searchSize + BTN_ITEM) % books.size()) == 0)
+                if(((i_searchSize + BTN_ITEM) % books.size()) == 0)
                     relativePos = i;
                 else
-                    relativePos = (relativePage*shopBooks.size()) + i - ((searchSize + BTN_ITEM) % books.size());
+                    relativePos = (relativePage*shopBooks.size()) + i - ((i_searchSize + BTN_ITEM) % books.size());
             }
 
 #ifndef HACKERS_EDITION
@@ -592,30 +597,30 @@ void Search::last()
 int  Search::getTotalPages ()
 {
         qDebug() << Q_FUNC_INFO;
-        int searchSize = m_files.size() + m_books.size() + m_dirs.size();
+        i_searchSize = m_files.size() + m_books.size() + m_dirs.size();
 
-        if(!searchSize && ! remoteSearchResult) {
+        if(!i_searchSize && ! remoteSearchResult) {
             shopOnlineBtn->hide();
             return 1;
         }
 
 #ifndef HACKERS_EDITION
-        if(searchSize == 0 && remoteSearchResult->booksList.size() == 0) {
+        if(i_searchSize == 0 && remoteSearchResult->booksList.size() == 0) {
             shopOnlineBtn->hide();
             return 1;
         }
 #endif
 
         if (!remoteSearchResult) {
-            if ((searchSize + 1 ) % books.size() == 0)
-                return (searchSize + 1) / books.size();
+            if ((i_searchSize + 1 ) % books.size() == 0)
+                return (i_searchSize + 1) / books.size();
             else
-                return (searchSize + 1) / books.size() + 1;
+                return (i_searchSize + 1) / books.size() + 1;
         }
 #ifndef HACKERS_EDITION
-        return ((searchSize + remoteSearchResult->booksList.size() + 1) / books.size()) + 1;
+        return ((i_searchSize + remoteSearchResult->booksList.size() + 1) / books.size()) + 1;
 #else
-        return ((searchSize +1) / books.size()) + 1;
+        return ((i_searchSize +1) / books.size()) + 1;
 #endif
 }
 

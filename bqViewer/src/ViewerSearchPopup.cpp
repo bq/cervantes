@@ -28,6 +28,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "PowerManager.h"
 #include "ViewerSearchResultItem.h"
 #include "ViewerSearchContextMenu.h"
+#include "ViewerSearchContextMenuLandscape.h"
 #include "bqUtils.h"
 
 #include <QPainter>
@@ -42,6 +43,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 ViewerSearchPopup::ViewerSearchPopup( Viewer* viewer ) :
     ViewerMenuPopUp(viewer)
   , m_navigationMenu(NULL)
+  , m_navigationMenuLandscape(NULL)
   , i_currentShownResultIndex(1)
   , m_keyboard(NULL)
   , m_userTyped(false)
@@ -90,11 +92,17 @@ ViewerSearchPopup::ViewerSearchPopup( Viewer* viewer ) :
 
     m_navigationMenu = new ViewerSearchContextMenu(m_parentViewer);
     m_navigationMenu->hide();
+    m_navigationMenuLandscape = new ViewerSearchContextMenuLandscape(m_parentViewer);
+    m_navigationMenuLandscape->hide();
 
-    connect(m_navigationMenu,SIGNAL(close()),this,SLOT(clearSearch()));
-    connect(m_navigationMenu,SIGNAL(previousResult()),this,SLOT(navigateToPrevious()));
-    connect(m_navigationMenu,SIGNAL(nextResult()),this,SLOT(navigateToNext()));
-    connect(m_navigationMenu,SIGNAL(backToList()),this,SLOT(handleBackToList()));
+    connect(m_navigationMenu,           SIGNAL(close()),            this, SLOT(clearSearch()));
+    connect(m_navigationMenu,           SIGNAL(previousResult()),   this, SLOT(navigateToPrevious()));
+    connect(m_navigationMenu,           SIGNAL(nextResult()),       this, SLOT(navigateToNext()));
+    connect(m_navigationMenu,           SIGNAL(backToList()),       this, SLOT(handleBackToList()));
+    connect(m_navigationMenuLandscape,  SIGNAL(close()),            this, SLOT(clearSearch()));
+    connect(m_navigationMenuLandscape,  SIGNAL(previousResult()),   this, SLOT(navigateToPrevious()));
+    connect(m_navigationMenuLandscape,  SIGNAL(nextResult()),       this, SLOT(navigateToNext()));
+    connect(m_navigationMenuLandscape,  SIGNAL(backToList()),       this, SLOT(handleBackToList()));
 
     updateCounters();
     paintUISearchItems();
@@ -123,9 +131,6 @@ void ViewerSearchPopup::setup()
 {
     qDebug() << Q_FUNC_INFO;
 
-    clearSearch();
-    clearSearchResults();
-
     handleClearEditLineClicked();
 }
 
@@ -134,10 +139,12 @@ void ViewerSearchPopup::start()
     qDebug() << Q_FUNC_INFO;
 
     if( m_parentViewer->isMenuShown() )
+    {
         arrowCont->show();
+        showKeyboardSearch();
+    }
     else
         arrowCont->hide();
-
 }
 
 void ViewerSearchPopup::stop()
@@ -367,7 +374,9 @@ void ViewerSearchPopup::clearSearch()
 
     stopSearch();
 
-    if(m_navigationMenu && m_navigationMenu->isVisible()) {
+    if((m_navigationMenu && m_navigationMenu->isVisible()) ||
+       (m_navigationMenuLandscape && m_navigationMenuLandscape->isVisible()))
+    {
         Screen::getInstance()->queueUpdates();
         m_parentViewer->hideAllElements();
         m_parentViewer->markHandler()->reloadMarks();
@@ -419,8 +428,8 @@ void ViewerSearchPopup::updateCounters()
         paintUISearchItems();
     }
 
-    if(m_navigationMenu->isVisible())
-        m_navigationMenu->setTotalResults(numResults);
+    if (m_navigationMenu->isVisible()) m_navigationMenu->setTotalResults(numResults);
+    else if (m_navigationMenuLandscape->isVisible()) m_navigationMenuLandscape->setTotalResults(numResults);
 
     if(isVisible())
     {
@@ -515,6 +524,7 @@ void ViewerSearchPopup::handleResultPressed( const QString& url )
     m_parentViewer->hideAllElements();
 
     m_navigationMenu->setTotalResults(m_searchResults.size());
+    m_navigationMenuLandscape->setTotalResults(m_searchResults.size());
 
     // Get pressed result index
     const int searchSize = m_searchResults.size();
@@ -530,9 +540,14 @@ void ViewerSearchPopup::handleResultPressed( const QString& url )
     }
 
     m_navigationMenu->setCurrentResultIndex(i_currentShownResultIndex + 1);
+    m_navigationMenuLandscape->setCurrentResultIndex(i_currentShownResultIndex + 1);
 
     m_parentViewer->gotoSearchWordPage(url);
-    m_parentViewer->showElement(m_navigationMenu);
+
+    if (m_parentViewer->docView()->isHorizontal())
+        m_parentViewer->showElement(m_navigationMenuLandscape);
+    else
+        m_parentViewer->showElement(m_navigationMenu);
 
     Screen::getInstance()->releaseScreen();
 }
@@ -590,10 +605,12 @@ void ViewerSearchPopup::navigateToNext()
 void  ViewerSearchPopup::navigateToCurrent()
 {
     qDebug() << "--->" << Q_FUNC_INFO;
-    if(!m_navigationMenu->isVisible()) // Prevent jumps after canceling search
-        return;
+
+    // Prevent jumps after canceling search
+    if(!m_navigationMenu->isVisible() && !m_navigationMenuLandscape->isVisible()) return;
 
     m_navigationMenu->setCurrentResultIndex(i_currentShownResultIndex + 1);
+    m_navigationMenuLandscape->setCurrentResultIndex(i_currentShownResultIndex + 1);
 
     if(!m_timer_gotoSearch->isActive()) {
         b_pendingGoto = true;

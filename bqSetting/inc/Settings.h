@@ -44,6 +44,7 @@ public:
     SettingsDeviceInfo*             showInformation              ();
     SettingsDeviceOptionsMenu*      getDeviceOptions             ();
     void                            goToViewerMenu               ();
+    void                            hidePreviousChild            ();
 
 public slots:
 

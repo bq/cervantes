@@ -41,7 +41,7 @@ public:
     void                                showTitle                           ();
     void                                hideDateTime                        ();
     void                                showDateTime                        ();
-    void                                setCurrentPage                      (int value);
+    void                                setCurrentReadingPercent            (int value);
     void                                hideChapterInfo                     ();
 
     void                                setPdfToolbarState                  (bool shouldBeShown){m_pdfToolbarShowed = shouldBeShown;}

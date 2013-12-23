@@ -396,7 +396,7 @@ void Home::setMostRecentBook(const BookInfo* book){
 
         newTagLbl->hide();
 
-        if(book->author == "--")
+        if(book->author == "---")
             authorLbl->setText(tr("Autor Desconocido"));
         else
             authorLbl->setText(book->author);

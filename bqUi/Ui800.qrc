@@ -73,5 +73,6 @@
         <file alias="res/battery_3.png">res/800/battery_3.png</file>
         <file alias="res/battery_2.png">res/800/battery_2.png</file>
         <file alias="res/battery_1.png">res/800/battery_1.png</file>
+        <file alias="res/check-collection.png">res/800/check-collection.png</file>
     </qresource>
 </RCC>

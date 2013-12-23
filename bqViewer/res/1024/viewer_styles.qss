@@ -118,8 +118,8 @@ min-height:1024px;
 max-height:1024px;
 }
 #bookMarkContLandscape{
-min-width:80px;
-max-width:80px;
+min-width:77px;
+max-width:77px;
 min-height:1024px;
 max-height:1024px;
 }
@@ -132,8 +132,8 @@ line-height:64px;
 font-size:22px;
 }
 #bookMarkContLandscape #bookmarkLandscape, #bookmarkImg,#leftSpacerViewerLandscape{
-min-width:80px;
-max-width:80px;
+min-width:77px;
+max-width:77px;
 min-height:80px;
 max-height:80px;
 }
@@ -143,8 +143,8 @@ min-height:60px;
 max-height:60px;
 }
 #viewerHeaderLandscape{
-min-width:64px;
-max-width:64px;
+min-width:77px;
+max-width:77px;
 min-height:1024px;
 max-height:1024px;
 }
@@ -235,12 +235,12 @@ max-width:64px;
 #pageBackBtn{
 min-width:64px;
 max-width:64px;
-min-height:65px;
-max-height:65px;
+min-height:70px;
+max-height:70px;
 }
 #pagerViewerSpacerLeft{
-min-width:25px;
-max-width:25px;
+min-width:7px;
+max-width:7px;
 }
 #pagerViewerSpacerRight{
 min-width:15px;
@@ -915,8 +915,8 @@ background-position:center;
 }
 #ViewerBookSummaryCont #popupCont{
 padding:0px 0px 0px 0px;
-min-width:681px;
-max-width:681px;
+min-width:691px;
+max-width:691px;
 min-height:765px;
 max-height:765px;
 }
@@ -937,6 +937,11 @@ font-size:24px;
 }
 #ViewerBookSummary #actionsContainer #moreActionsBtn{
 margin:3px 1px 0px 0px;
+min-height:53px;
+max-height:53px;
+}
+#ViewerBookSummary #actionsContainer #addToCollectionBtn{
+margin:3px 0px 0px 0px;
 min-height:53px;
 max-height:53px;
 }
@@ -1013,6 +1018,24 @@ text-align:center;
 #ViewerBookSummaryCont #coverCont #centerLeftLbl{
 min-width:25px;
 max-width:25px;
+}
+/*ViewerCollectionLayer
+-------------------------*/
+#ViewerCollectionLayer {
+min-width:238px;
+max-width:238px;
+min-height:500px;
+max-height:500px;
+}
+#CollectionLayerCont #VerticalPagerPopup, #CollectionLayerCont ViewerVerticalPagerPopup{
+min-width:230px;
+max-width:230px;
+min-height:64px;
+max-height:64px;
+}
+#CollectionLayerCont #ViewerVerticalPagerPopup QPushButton, #CollectionLayerCont ViewerVerticalPagerPopup QPushButton{
+min-width:64px;
+max-width:64px;
 }
 /*ViewerContentsPopup
 --------------------------------*/
@@ -1272,10 +1295,10 @@ font-size:25px;
 #ViewerTextActionsMenu #popupCont QPushButton#searchActionBtn{
 }
 #ViewerBookListActions{
-min-height:256px;
-max-height:256px;
-min-width:260px;
-max-width:260px;
+min-width:224px;
+max-width:224px;
+min-height:252px;
+max-height:252px;
 }
 #ViewerBookListActionsCont{
 border-width:2px;
@@ -1285,7 +1308,7 @@ border-bottom-right-radius:5px;
 max-width:244px;*/
 }
 #ViewerBookListActions QPushButton{
-padding:0px 0px 0px 25px;
+padding:0px 0px 0px 10px;
 min-height:64px;
 max-height:64px;
 border-bottom-width:1px;
@@ -1354,7 +1377,6 @@ max-width:64px;
 #SearchContextMenuCont #resultIndexLbl{
 padding:0px 0px 0px 6px;
 font-size:22px;
-font-weight:bold;
 }
 #SearchContextMenuCont #ofLbl{
 padding:0px 0px 0px 0px;
@@ -1385,6 +1407,80 @@ border-width:2px;
 border-top-right-radius:10px;
 border-bottom-right-radius:10px;
 }
+/*ViewerSearchContextMenuLandscape
+----------------------------------*/
+#ViewerSearchContextMenuLandscape{
+min-width:758px;
+max-width:758px;
+min-height:1020px;
+max-height:1020px;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont{
+margin-top:5px;
+min-height:1004px;
+max-height:1004px;
+min-width:70px;
+max-width:70px;
+border-width:2px;
+border-radius:10px;
+}
+#ViewerSearchContextMenuLandscape #ViewerSearchCenterCont{
+min-width:80px;
+max-width:80px;
+}
+#ViewerSearchContextMenuLandscape #listBtn{
+margin:12px 4px 12px;
+padding:20px 0px;
+min-width:58px;
+max-width:58px;
+border-width:2px;
+border-radius:10px;
+font-size:23px;
+min-height:100px;
+max-height:100px;
+}
+#ViewerSearchContextMenuLandscape #headerSearch{
+min-width:58px;
+max-width:58px;
+}
+#ViewerSearchContextMenuLandscape #closeBtn{
+margin:0px 0px 8px 8px;
+min-width:58px;
+max-width:58px;
+min-height:64px;
+max-height:64px;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont #resultCountLbl{
+font-size:22px;
+min-height:317px;
+max-height:317px;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont #previousBtn{
+margin-top:12px;
+margin-left:4px;
+min-height:69px;
+max-height:69px;
+min-width:58px;
+max-width:58px;
+border-width:2px;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom-left-radius:0px;
+border-bottom-right-radius:0px;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont #nextBtn{
+margin-left:4px;
+min-height:69px;
+max-height:69px;
+min-width:58px;
+max-width:58px;
+border-width:2px;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+border-top-left-radius:0px;
+border-top-right-radius:0px;
+}
+
 /*ViewerAppearancePopup
 -------------------------*/
 #ViewerAppearancePopup{
@@ -1835,20 +1931,20 @@ min-height:64px;
 max-height:64px;
 }
 #ViewerPageHandlerLandscapeCont #pdfMenuBtn, #ViewerContLandscape #pdfMenuBtn{
-min-height:64px;
-max-height:64px;
-min-width:65px;
-max-width:65px;
+min-height:67px;
+max-height:67px;
+min-width:70px;
+max-width:70px;
 }
 #ViewerPageHandlerLandscapeCont #pageBackBtn, #ViewerContLandscape #pageBackBtn{
 min-height:64px;
 max-height:64px;
-min-width:65px;
-max-width:65px;
+min-width:70px;
+max-width:70px;
 }
 #ViewerPageHandlerLandscapeCont #pagerViewerSpacerLeft{
-min-height:25px;
-max-height:25px;
+min-height:15px;
+max-height:15px;
 }
 #ViewerPageHandlerLandscapeCont #pagerViewerSpacerRight{
 min-height:15px;
@@ -1880,8 +1976,8 @@ border-color: #404040;
 font-size:21px;
 }
 #ViewerPageHandlerLandscapeCont #titleLandscapeLbl{
-min-height:294px;
-max-height:294px;
+min-height:286px;
+max-height:286px;
 }
 #ViewerPageHandlerLandscapeCont #noTitleLandscapeLbl{
 min-height:294px;
@@ -1889,22 +1985,13 @@ max-height:294px;
 }
 #ViewerPageHandlerLandscapeCont #readingPercentLbl{
 margin:0px 0px 0px 0px;
-min-height:60px;
-max-height:60px;
+min-height:141px;
+max-height:141px;
 }
 #ViewerPageHandlerLandscapeCont #noReadingPercentLbl{
 margin:0px 0px 0px 0px;
-min-height:49px;
-max-height:49px;
-}
-#ViewerPageHandlerLandscapeCont #readedLbl{
-padding:8px 0px 0px 0px;
-min-height:81px;
-max-height:81px;
-}
-#ViewerPageHandlerLandscapeCont #noReadedLbl{
-min-height:81px;
-max-height:81px;
+min-height:141px;
+max-height:141px;
 }
 #ViewerPageHandlerLandscapeCont #pageText{
 min-height:128px;
@@ -1916,21 +2003,12 @@ min-height:128px;
 max-height:128px;
 }
 #ViewerPageHandlerLandscapeCont #pagToFinishLbl{
-min-height:69px;
-max-height:69px;
+min-height:232px;
+max-height:232px;
 }
 #ViewerPageHandlerLandscapeCont #noPagToFinishLbl{
-min-height:69px;
-max-height:69px;
-}
-#ViewerPageHandlerLandscapeCont #toFinishChapLbl{
-padding:8px 0px 0px 0px;
-min-height:155px;
-max-height:155px;
-}
-#ViewerPageHandlerLandscapeCont #noToFinishChapLbl{
-min-height:155px;
-max-height:155px;
+min-height:232px;
+max-height:232px;
 }
 #ViewerPageHandlerLandscapeCont QLabel{
 border:2px solid #000;
@@ -1941,7 +2019,7 @@ max-width:125px;
 min-height:8px;
 max-height:8px;
 }
-#ViewerPageHandlerLandscapeCont #marginText2{
+#ViewerPageHandlerLandscapeCont #titleLeftMargin{
 min-height:8px;
 max-height:8px;
 }

@@ -189,8 +189,8 @@ protected:
     void                                                    loadDocument                                ();
     void                                                    pushHistory                                 ();
     void                                                    showTimeTitleLabels                         ();
-    void                                                    setUpperMargin                              ();
-    void                                                    updateLandscapeMargins                      ();
+    void                                                    setTextBodyMargins                          (BookInfo *bookInfo);
+    void                                                    setTextBodyMargins                          (bool isPdfModeLandscape);
     bool                                                    isPdfBtnAllowed                             ();
     bool                                                    isTopScrollArea                             (QPoint& tapPoint);
     bool                                                    isBottomScrollArea                          (QPoint& tapPoint);
@@ -200,6 +200,7 @@ protected:
     bool                                                    headerShouldBeShown                         ();
     void                                                    handlePdfToolbarDuringDictioSearch          ();
     bool                                                    checkChapterInfoAvailability                ();
+    void                                                    setHorizontal                               (bool on = true);
 
     int                                                     i_loadState;
     int                                                     i_hiliId;
@@ -266,6 +267,7 @@ signals:
     void                                                    zoomOut                                     ();
     void                                                    zoomIn                                      ();
     void                                                    viewerConf                                  ();
+    void                                                    createNewCollection                         (const BookInfo*);
 
 public slots:
     void                                                    modelChanged                                ( QString, int );
@@ -319,13 +321,17 @@ protected slots:
     void                                                    updateTime                                  ();
 
 #ifndef HACKERS_EDITION
-    void                                                    buyBook();
+    void                                                    buyBook                                     ();
 #endif
-    void                                                    resumeWifi();
-    void                                                    handleBookmark();
-    void                                                    disconnectWifi();
-    void                                                    registerStepRead();
-    void                                                    clearStepsProcess();
+    void                                                    resumeWifi                                  ();
+    void                                                    handleBookmark                              ();
+    void                                                    disconnectWifi                              ();
+    void                                                    registerStepRead                            ();
+    void                                                    clearStepsProcess                           ();
+
+private:
+    void                                                    backBtnHandling                             ();
+    void                                                    updateZoom                                  ();
 
 private:
     QWidget*                                                m_currentWidget;

@@ -127,22 +127,34 @@ void LibraryIconGridViewerItem::setBook( const BookInfo* book, Library::ELibrary
     else
         subscriptionTagLbl->hide();*/
 
-    if(book->m_archived || filter == Library::ELFM_ALL_NEW || filter == Library::ELFM_ALL_ACTIVE || filter == Library::ELFM_STORE_ACTIVE)
+    if(book->m_archived)
     {
         newTagLbl->hide();
         readingTagLbl->hide();
     }
     else
     {
-        if(book->getLocations().size() <= 0 && book->lastReadLink.isEmpty())
+        int state = book->readingStatus;
+        switch(state)
         {
-            newTagLbl->show();
+        case BookInfo::NO_READ_BOOK:
             readingTagLbl->hide();
-        }
-        else
-        {
+            if(book->lastReadLink.isEmpty())
+                newTagLbl->show();
+            else
+                newTagLbl->hide();
+            break;
+        case BookInfo::READING_BOOK:
             newTagLbl->hide();
             readingTagLbl->show();
+            break;
+        case BookInfo::READ_BOOK:
+            newTagLbl->hide();
+            if(book->lastReadLink.isEmpty())
+                readingTagLbl->hide();
+            else
+                readingTagLbl->show();
+            break;
         }
     }
 }

@@ -54,7 +54,7 @@ protected:
 
     /* http://qt-project.org/forums/viewthread/7340 */
     virtual void                    paintEvent                              (QPaintEvent *);
-
+    virtual void                    mouseReleaseEvent                       (QMouseEvent* event);
 
 private slots:
 

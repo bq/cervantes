@@ -40,7 +40,6 @@ private:
     static                                          AfterUpdateWorker* m_instance;
 
     void                                            copyNewImages                   ( );
-    bool                                            removeDir                       ( const QString );
     void                                            setActivated                    ();
     void                                            migrationFromBqToNubico         ( );
     void                                            removeExpiredDictionaries       ( );

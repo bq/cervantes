@@ -36,6 +36,9 @@ public:
 protected:
     void paintEvent(QPaintEvent *);
     void drawRotatedText(QPainter *painter, float degrees, int x, int y, const QString &text);
+
+private:
+    uint    alignment;
 };
 
 #endif // DEGREESPUSHBUTTON_H

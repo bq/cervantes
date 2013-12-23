@@ -52,7 +52,7 @@ void ProgressDialog::setText(QString textStr)
 
 void ProgressDialog::setProgressBar(int value)
 {
-    qDebug() << Q_FUNC_INFO;
+    qDebug() << Q_FUNC_INFO << " value: " << value;
     progressBar->setValue(value);
 }
 

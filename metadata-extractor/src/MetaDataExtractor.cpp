@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <PdfMetaDataExtractor.h>
 #include <EpubMetaDataExtractor.h>
 #include <Fb2MetaDataExtractor.h>
+#include <MobiMetaDataExtractor.h>
 
 
 bool MetaDataExtractor::extractCover(const QString& filename, QString& coverPath)
@@ -41,6 +42,7 @@ bool MetaDataExtractor::extractCover(const QString& filename, QString& coverPath
 
          if (info.suffix().toLower() == "epub") return EpubMetaDataExtractor::extractCover(filename, coverPath);
     else if (info.suffix().toLower() == "fb2")  return Fb2MetaDataExtractor::extractCover(filename, coverPath);
+    else if (info.suffix().toLower() == "mobi")  return MobiMetaDataExtractor::extractCover(filename, coverPath);
     else return false;
 }
 
@@ -67,9 +69,10 @@ bool MetaDataExtractor::getMetaData( const QString& filename, QString& title, QS
     {
         return Fb2MetaDataExtractor::getMetaData(filename, title, author, publisher, date, description, isDRMBook);
     }
+    else if (  info.suffix().toLower() == "mobi")
+        return MobiMetaDataExtractor::getMetaData(filename, title, author, publisher, date, description, isDRMBook);
     else if (  info.suffix().toLower() == "doc"
             || info.suffix().toLower() == "chm"
-            || info.suffix().toLower() == "mobi"
             || info.suffix().toLower() == "txt"
             || info.suffix().toLower() == "rtf"
             || info.suffix().toLower() == "html")

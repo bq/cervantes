@@ -33,7 +33,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QButtonGroup>
 #include <QPainter>
 
-#define DEFAULT_FONT_TYPE_ID 4
+#define DEFAULT_FONT_TYPE_ID        4
+#define MAX_SIZE_LEVEL              7
 
 #ifdef Q_WS_QWS
 const QString NO_SPACING_FILE       ("file:///app/res/noSpacing.css");
@@ -45,6 +46,8 @@ const QString MEDIUM_SPACING_FILE   ("QHome/res/mediumSpacing.css");
 const QString HIGH_SPACING_FILE     ("QHome/res/highSpacing.css");
 #endif
 
+#define MAX_ZOOM_BUTTON_PLUS_STYLE      "background-repeat: no-repeat; background-image: url(:res/plus-ico.png); background-position: top right;"
+#define MAX_ZOOM_BUTTON_NORMAL_STYLE    "background-image: none;"
 
 // Fonts definitions
 const int s_fontsSize = 7;
@@ -62,9 +65,9 @@ const QString s_fontsDefs[s_fontsSize][3] ={ {"Istok Web",    "file:///app/res/i
 
 ViewerAppearancePopup::ViewerAppearancePopup(Viewer* viewer) :
     ViewerMenuPopUp(viewer)
-  , m_powerLock(PowerManager::getNewLock(this))
   , m_defaultSettings(true)
   , m_currentFontSizeId(0)
+  , m_currentPdfZoomLevelId(0)
   , m_currentFontNameId(0)
   , m_currentPageMode(0)
   , m_currentMarginValue(MARGIN_MAX)
@@ -75,6 +78,7 @@ ViewerAppearancePopup::ViewerAppearancePopup(Viewer* viewer) :
   , g_MarginButtons(new QButtonGroup(this))
   , g_SpacingButtons(new QButtonGroup(this))
   , g_JustifyButtons(new QButtonGroup(this))
+  , m_fontSizeOutOfRange(false)
 {
     setupUi(this);
 
@@ -158,11 +162,6 @@ ViewerAppearancePopup::~ViewerAppearancePopup()
 {
     qDebug() << Q_FUNC_INFO;
 
-    PowerManager::releaseLock(m_powerLock);
-
-    delete m_powerLock;
-    m_powerLock = NULL;
-
     delete g_SizeButtons;
     g_SizeButtons = NULL;
 
@@ -208,9 +207,9 @@ void ViewerAppearancePopup::setupBook( const BookInfo* info )
             m_defaultSettings = false;
             // Font Size
             if(info->pageMode == QDocView::MODE_REFLOW_PAGES)
-                m_currentFontSizeId = info->fontSize;
+                m_currentPdfZoomLevelId = m_currentFontSizeId = QBook::settings().value("setting/reader/font_size_id", 2).toInt();
             else // PDF regular mode
-                m_currentFontSizeId = 0; // PDF always opened as full page
+                m_currentPdfZoomLevelId = m_currentFontSizeId = 0; // PDF always opened as full page
 
             // Page Mode
             m_currentPageMode = info->pageMode;
@@ -223,7 +222,7 @@ void ViewerAppearancePopup::setupBook( const BookInfo* info )
             // Editor fonts
             m_defaultSettings = QBook::settings().value("setting/reader/editorFonts", true).toBool();
             // Font Size
-            m_currentFontSizeId = qBound(0, (int)info->fontSize, NUM_AVAILABLE_SIZES-1);
+            m_currentFontSizeId = qBound(0, QBook::settings().value("setting/reader/font_size_id", 2).toInt(), NUM_AVAILABLE_SIZES-1);
             // Font Name
             QString fontFileName(QBook::settings().value("setting/reader/font/epub", s_fontsDefs[DEFAULT_FONT_TYPE_ID][FONT_FILE]).toString());
             int fontNameId = getFontTypeIdByFile(fontFileName);
@@ -253,7 +252,7 @@ void ViewerAppearancePopup::setupBook( const BookInfo* info )
                 // Editor fonts
                 m_defaultSettings = false;
                 // Font Size
-                m_currentFontSizeId = QBook::settings().value("setting/reader/font_size_id/cr3", 2).toInt();
+                m_currentFontSizeId = QBook::settings().value("setting/reader/font_size_id", 2).toInt();
                 // Font Name
                 QString fontFamilyName(QBook::settings().value("setting/reader/font/cr3", s_fontsDefs[DEFAULT_FONT_TYPE_ID][FONT_FAMILY]).toString());
                 int fontNameId = getFontTypeIdByFamily(fontFamilyName);
@@ -309,7 +308,8 @@ void ViewerAppearancePopup::applySizeChange()
 {
     qDebug()  << Q_FUNC_INFO;
 
-    m_powerLock->activate();
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
 
     switch(m_parentViewer->getCurrentDocExt())
     {
@@ -338,13 +338,20 @@ void ViewerAppearancePopup::applySizeChange()
     }
     }
 
-    m_powerLock->release();
+    delete powerLock;
+}
+
+int ViewerAppearancePopup::getFontSizeId() const
+{
+    if (isPdfHardMode()) return m_currentPdfZoomLevelId;
+
+    return m_currentFontSizeId;
 }
 
 double ViewerAppearancePopup::getScaleFactor() const
 {
     double baseLine = m_parentViewer->docView()->minScaleFactor();
-    double step     = m_parentViewer->docView()->scaleStep();
+    double step = m_parentViewer->docView()->scaleStep();
     double factor   = baseLine + getFontSizeId() * step;
 
     qDebug()  << Q_FUNC_INFO << "RETURNS" << factor;
@@ -389,6 +396,10 @@ int ViewerAppearancePopup::getFontTypeIdByFamily(const QString& fontFamilyName) 
 void ViewerAppearancePopup::selectMargin(int newMargin)
 {
     qDebug() << Q_FUNC_INFO << newMargin;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
+
     Screen::getInstance()->queueUpdates();
     QBookApp::instance()->getStatusBar()->setSpinner(true);
     Screen::getInstance()->flushUpdates();
@@ -408,11 +419,16 @@ void ViewerAppearancePopup::selectMargin(int newMargin)
     }
 
     QBookApp::instance()->getStatusBar()->setSpinner(false);
+    delete powerLock;
 }
 
 void ViewerAppearancePopup::selectSpacing(int newSpacing)
 {
     qDebug() << Q_FUNC_INFO << newSpacing;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
+
     Screen::getInstance()->queueUpdates();
     QBookApp::instance()->getStatusBar()->setSpinner(true);
     Screen::getInstance()->flushUpdates();
@@ -445,11 +461,16 @@ void ViewerAppearancePopup::selectSpacing(int newSpacing)
         m_parentViewer->reloadCurrentBook();
     }
     QBookApp::instance()->getStatusBar()->setSpinner(false);
+    delete powerLock;
 }
 
 void ViewerAppearancePopup::selectJustify(int justifyValue)
 {
     qDebug() << Q_FUNC_INFO << "justifyValue: " << justifyValue;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
+
     Screen::getInstance()->queueUpdates();
     QBookApp::instance()->getStatusBar()->setSpinner(true);
     Screen::getInstance()->flushUpdates();
@@ -479,11 +500,16 @@ void ViewerAppearancePopup::selectJustify(int justifyValue)
     }
 
     QBookApp::instance()->getStatusBar()->setSpinner(false);
+    delete powerLock;
 }
 
 void ViewerAppearancePopup::selectEditorDefaults()
 {
     qDebug() << Q_FUNC_INFO << !m_defaultSettings;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
+
     Screen::getInstance()->queueUpdates();
     QBookApp::instance()->getStatusBar()->setSpinner(true);
     Screen::getInstance()->flushUpdates();
@@ -511,11 +537,16 @@ void ViewerAppearancePopup::selectEditorDefaults()
     m_parentViewer->reloadCurrentBook();
 
     QBookApp::instance()->getStatusBar()->setSpinner(false);
+    delete powerLock;
 }
 
 void ViewerAppearancePopup::selectImagesMode()
 {
     qDebug() << Q_FUNC_INFO;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
+
     Screen::getInstance()->queueUpdates();
     QBookApp::instance()->getStatusBar()->setSpinner(true);
     Screen::getInstance()->flushUpdates();
@@ -539,57 +570,53 @@ void ViewerAppearancePopup::selectImagesMode()
     qDebug() << Q_FUNC_INFO << "FontsizeID = " << m_currentFontSizeId << ", FontnameID = " << m_currentFontNameId << ", PageMode = " << m_currentPageMode;
     int newFontSize = 0;// set to full page (for MODE_HARD_PAGES)
     if(m_currentPageMode == QDocView::MODE_REFLOW_PAGES)
-        newFontSize = m_parentViewer->getCurrentBookInfo()->fontSize;// Reflow, use stored font
+        newFontSize = QBook::settings().value("setting/reader/font_size_id", 2).toInt(); // Reflow, use stored font
 
-    if (m_currentFontSizeId != newFontSize)
-    {
-        g_SizeButtons->button((int)m_currentFontSizeId)->setChecked(false);
-        g_SizeButtons->button(newFontSize)->setChecked(true);
-
-        m_currentFontSizeId = newFontSize;
-    }
-
+    setSizeButtonsAspect(newFontSize);
     applySizeChange();
 
     QBookApp::instance()->getStatusBar()->setSpinner(false);
+    delete powerLock;
 }
 
 void ViewerAppearancePopup::selectFontSize(int newFontSize)
 {
     qDebug() << Q_FUNC_INFO << newFontSize;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
+
     Screen::getInstance()->queueUpdates();
     QBookApp::instance()->getStatusBar()->setSpinner(true);
     Screen::getInstance()->flushUpdates();
     if (m_currentFontSizeId != newFontSize)
     {
-        Screen::getInstance()->queueUpdates();
-        g_SizeButtons->button((int)m_currentFontSizeId)->setChecked(false);
-        g_SizeButtons->button(newFontSize)->setChecked(true);
-        Screen::getInstance()->flushUpdates();
-
-        m_currentFontSizeId = newFontSize;
+        setSizeButtonsAspect(newFontSize);
 
         // Save font size
         qDebug() << Q_FUNC_INFO << "NEW SIZE" << m_currentFontSizeId;
 
         // Don't store font size when on pdfs with hard pages mode
-        if( m_parentViewer->getCurrentDocExt() != Viewer::EXT_PDF || m_currentPageMode != QDocView::MODE_HARD_PAGES )
+        if (!isPdfHardMode())
         {
             m_parentViewer->getCurrentBookInfo()->fontSize = m_currentFontSizeId;
-            QBook::settings().setValue("setting/reader/font_size_id/cr3", m_currentFontSizeId);
-            QBook::settings().setValue("setting/reader/font_size/cr3", getScaleFactor());
+            QBook::settings().setValue("setting/reader/font_size_id", m_currentFontSizeId);
         }
+
         // Apply the size
-        m_powerLock->activate();
         m_parentViewer->docView()->setScaleFactor(getScaleFactor());
-        m_powerLock->release();
     }
     QBookApp::instance()->getStatusBar()->setSpinner(false);
+    delete powerLock;
 }
 
 void ViewerAppearancePopup::selectFontType(int newFontNameId)
 {
     qDebug() << Q_FUNC_INFO << newFontNameId;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
+
     Screen::getInstance()->queueUpdates();
     QBookApp::instance()->getStatusBar()->setSpinner(true);
     Screen::getInstance()->flushUpdates();
@@ -613,17 +640,13 @@ void ViewerAppearancePopup::selectFontType(int newFontNameId)
 
         m_currentFontNameId = newFontNameId;
 
-        // Font change
-        if (m_parentViewer->getCurrentDocExt() == Viewer::EXT_EPUB)
-            QBook::settings().setValue("setting/reader/font/epub", s_fontsDefs[m_currentFontNameId][FONT_FILE]);
-        else
-            QBook::settings().setValue("setting/reader/font/cr3", s_fontsDefs[m_currentFontNameId][FONT_FAMILY]);
-
-        m_powerLock->activate();
+        // Font change, allowing same font in all formats.
+        QBook::settings().setValue("setting/reader/font/epub", s_fontsDefs[m_currentFontNameId][FONT_FILE]);
+        QBook::settings().setValue("setting/reader/font/cr3", s_fontsDefs[m_currentFontNameId][FONT_FAMILY]);
         m_parentViewer->reloadCurrentBook();
-        m_powerLock->release();
     }
     QBookApp::instance()->getStatusBar()->setSpinner(false);
+    delete powerLock;
 }
 
 void ViewerAppearancePopup::setPageModeSelected()
@@ -692,10 +715,11 @@ void ViewerAppearancePopup::setDefaultEditorSettings()
 void ViewerAppearancePopup::setFontSizeSelected()
 {
     qDebug() << Q_FUNC_INFO << "id button" << m_currentFontSizeId;
-    if (sizeCont->isEnabled())
-        g_SizeButtons->button(m_currentFontSizeId)->setChecked(true);
-    else
-        g_SizeButtons->button(m_currentFontSizeId)->setChecked(false);
+
+    g_SizeButtons->button(m_currentFontSizeId)->setChecked(sizeCont->isEnabled());
+
+    if (m_currentFontSizeId == MAX_SIZE_LEVEL)
+        g_SizeButtons->button(MAX_SIZE_LEVEL)->setStyleSheet(MAX_ZOOM_BUTTON_NORMAL_STYLE);
 }
 
 void ViewerAppearancePopup::setJustifySelected()
@@ -812,13 +836,64 @@ void ViewerAppearancePopup::pdfZoomLevelChange(int newZoomLevel)
 {
     qDebug() << Q_FUNC_INFO << newZoomLevel;
 
-    if (m_currentFontSizeId != newZoomLevel)
-    {
-        Screen::getInstance()->queueUpdates();
-        g_SizeButtons->button((int)m_currentFontSizeId)->setChecked(false);
-        g_SizeButtons->button(newZoomLevel)->setChecked(true);
-        Screen::getInstance()->flushUpdates();
-        m_currentFontSizeId = newZoomLevel;
+    setSizeButtonsAspect(newZoomLevel);
+}
 
+void ViewerAppearancePopup::setSizeButtonsAspect(const uint newFontSize)
+{
+    if (m_currentFontSizeId == newFontSize) return;
+
+    Screen::getInstance()->queueUpdates();
+
+    if (newFontSize > MAX_SIZE_LEVEL && withinSizeButtonsRange()) // Leave range.
+    {
+        g_SizeButtons->button(MAX_SIZE_LEVEL)->setStyleSheet(MAX_ZOOM_BUTTON_PLUS_STYLE);
+
+        if (m_currentFontSizeId != MAX_SIZE_LEVEL)
+        {
+            g_SizeButtons->button(m_currentFontSizeId)->setChecked(false);
+            g_SizeButtons->button(MAX_SIZE_LEVEL)->setChecked(true);
+        }
+
+        m_currentPdfZoomLevelId = newFontSize;
+        m_currentFontSizeId = MAX_SIZE_LEVEL;
+        m_fontSizeOutOfRange = true;
     }
+    else if (newFontSize <= MAX_SIZE_LEVEL)
+    {
+        if (!withinSizeButtonsRange())// Enter in range.
+        {
+            g_SizeButtons->button(MAX_SIZE_LEVEL)->setStyleSheet(MAX_ZOOM_BUTTON_NORMAL_STYLE);
+
+            if (newFontSize < MAX_SIZE_LEVEL)
+            {
+                g_SizeButtons->button(m_currentFontSizeId)->setChecked(false);
+                g_SizeButtons->button(newFontSize)->setChecked(true);
+            }
+
+            m_currentPdfZoomLevelId = m_currentFontSizeId = newFontSize;
+            m_fontSizeOutOfRange = false;
+        }
+        else // Stay in range.
+        {
+            g_SizeButtons->button(m_currentFontSizeId)->setChecked(false);
+            g_SizeButtons->button(newFontSize)->setChecked(true);
+
+            m_currentPdfZoomLevelId = m_currentFontSizeId = newFontSize;
+            m_fontSizeOutOfRange = false;
+        }
+    }
+
+    Screen::getInstance()->flushUpdates();
+}
+
+
+bool ViewerAppearancePopup::withinSizeButtonsRange()
+{
+    return (m_currentPdfZoomLevelId <= MAX_SIZE_LEVEL && !m_fontSizeOutOfRange);
+}
+
+bool ViewerAppearancePopup::isPdfHardMode() const
+{
+    return m_parentViewer->getCurrentDocExt() == Viewer::EXT_PDF && m_currentPageMode == QDocView::MODE_HARD_PAGES;
 }

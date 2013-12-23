@@ -30,8 +30,9 @@ HEADERS += ./inc/Library.h \
          ./inc/LibraryReadingLineGridViewer.h \
          ./inc/LibraryActionsMenu.h \
          ./inc/LibraryImageFullScreen.h \
-         ./inc/LibraryVerticalPager.h
-
+         ./inc/LibraryVerticalPager.h \
+         ./inc/LibraryCollectionLayer.h \
+         ./inc/LibraryCollectionItem.h
 
 SOURCES += ./src/Library.cpp \
          ./src/LibraryBookListActions.cpp \
@@ -58,7 +59,9 @@ SOURCES += ./src/Library.cpp \
          ./src/LibraryReadingLineGridViewer.cpp \
          ./src/LibraryImageFullScreen.cpp \
          ./src//LibraryActionsMenu.cpp \
-         ./src/LibraryVerticalPager.cpp
+         ./src/LibraryVerticalPager.cpp \
+         ./src/LibraryCollectionLayer.cpp \
+         ./src/LibraryCollectionItem.cpp
 
 FORMS += ./ui/Library.ui \
          ./ui/LibraryBookListActions.ui \
@@ -82,7 +85,9 @@ FORMS += ./ui/Library.ui \
          ./ui/LibraryReadingLineGridViewer.ui \
          ./ui//LibraryActionsMenu.ui \
          ./ui/LibraryImageFullScreen.ui \
-         ./ui/LibraryVerticalPager.ui
+         ./ui/LibraryVerticalPager.ui \
+         ./ui/LibraryCollectionLayer.ui \
+         ./ui/LibraryCollectionItem.ui
 
 QRC_FILES += Library800.qrc Library1024.qrc
 

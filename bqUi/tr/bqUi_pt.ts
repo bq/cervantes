@@ -5,7 +5,7 @@
     <name>ConfirmDialog</name>
     <message>
         <location filename="../ui/ConfirmDialog.ui" line="134"/>
-        <location filename="../inc/ConfirmDialog.h" line="18"/>
+        <location filename="../inc/ConfirmDialog.h" line="38"/>
         <source>Aceptar</source>
         <translation>Aceitar</translation>
     </message>
@@ -172,13 +172,13 @@ Que deseja fazer?</translation>
     </message>
     <message>
         <location filename="../ui/SelectionDialog.ui" line="137"/>
-        <location filename="../inc/SelectionDialog.h" line="15"/>
+        <location filename="../inc/SelectionDialog.h" line="35"/>
         <source>Aceptar</source>
         <translation>Aceitar</translation>
     </message>
     <message>
         <location filename="../ui/SelectionDialog.ui" line="180"/>
-        <location filename="../inc/SelectionDialog.h" line="16"/>
+        <location filename="../inc/SelectionDialog.h" line="36"/>
         <source>Cancelar</source>
         <translation>Cancelar</translation>
     </message>
@@ -196,22 +196,22 @@ Que deseja fazer?</translation>
         <translation>Início</translation>
     </message>
     <message>
-        <location filename="../ui/StatusBar.ui" line="187"/>
+        <location filename="../ui/StatusBar.ui" line="184"/>
         <source>24/09, 18:30</source>
         <translation>24/09, 18:30</translation>
     </message>
     <message>
-        <location filename="../src/StatusBar.cpp" line="58"/>
+        <location filename="../src/StatusBar.cpp" line="80"/>
         <source>Home</source>
         <translation>Início</translation>
     </message>
     <message>
-        <location filename="../src/StatusBar.cpp" line="188"/>
+        <location filename="../src/StatusBar.cpp" line="210"/>
         <source>Work in progress</source>
         <translation>Em processo</translation>
     </message>
     <message>
-        <location filename="../src/StatusBar.cpp" line="443"/>
+        <location filename="../src/StatusBar.cpp" line="461"/>
         <source>Battery level = %1</source>
         <translation>Nível de bateria = %1 %</translation>
     </message>

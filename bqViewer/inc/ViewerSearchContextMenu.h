@@ -25,8 +25,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "PopUp.h"
 
 
-class ViewerSearchContextMenu : public PopUp
-                    ,protected Ui::ViewerSearchContextMenu
+class ViewerSearchContextMenu :  public PopUp
+                                ,protected Ui::ViewerSearchContextMenu
 {
     Q_OBJECT
 

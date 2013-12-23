@@ -498,11 +498,23 @@ border-radius:5px;
 }
 #actionsContainer #moreActionsBtn{
 margin:0px 1px 0px 0px;
-padding:0px 0px 0px 15px;
-min-width:176px;
-max-width:176px;
+padding:0px 0px 0px 10px;
+min-width:140px;
+max-width:140px;
 min-height:45px;
 max-height:45px;
+font-size:17px;
+border-width:2px;
+border-radius:5px;
+}
+#actionsContainer #addToCollectionBtn{
+margin:0px;
+padding:0px 0px 0px 10px;
+min-width:174px;
+max-width:174px;
+min-height:45px;
+max-height:45px;
+font-size:17px;
 border-width:2px;
 border-radius:5px;
 }
@@ -547,17 +559,54 @@ max-height:35px;
 }
 #actionsContainer {
 margin-left:30px;
-min-width:350px;
-max-width:350px;
+min-width:370px;
+max-width:370px;
 }
-
+/*LibraryCollectionLayer ViewerCollectionLayer
+-------------------------*/
+#CollectionLayerCont {
+border-width:2px;
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px;
+border-top-left-radius:0px;
+border-top-right-radius:0px;
+}
+#CollectionLayerCont #collectionItem0,#CollectionLayerCont #collectionItem1, #CollectionLayerCont #collectionItem2, #CollectionLayerCont #collectionItem3,#CollectionLayerCont #collectionItem4{
+min-height:50px;
+max-height:50px;
+border-width:1px;
+font-size:18px;
+}
+#CollectionLayerCont #collectionTitleLbl {
+padding:0px 30px 0px 15px;
+min-height:50px;
+max-height:50px;
+font-size:18px;
+border-width:1px;
+}
+#CollectionLayerCont #collectionTitleLbl:checked{
+border-left-width:2px;
+border-right-width:2px;
+}
+#CollectionLayerCont QPushButton#addNewCollection{
+padding-left: 0px;
+padding-right:0px;
+border-bottom-width:2px;
+margin:0px 2px 0 2px;
+font-size:18px;
+}
+#CollectionLayerCont QPushButton:disabled {
+}
+#CollectionLayerCont #VerticalPagerPopup, #CollectionLayerCont ViewerVerticalPagerPopup{
+font-size:18px;
+}
 /*SettingsQuickSettingsPopup
 ------------------------*/
 #SettingsQuickSettingsPopup{
 min-width:600px;
 max-width:600px;
-min-height:750px;
-max-height:750px;
+min-height:800px;
+max-height:800px;
 }
 #QuickSettingsCont{
 position:absolute;

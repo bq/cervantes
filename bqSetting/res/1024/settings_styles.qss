@@ -1310,8 +1310,8 @@ border-radius:10px;
 #SettingsQuickSettingsPopup{
 min-width:758px;
 max-width:758px;
-min-height:960px;
-max-height:960px;
+min-height:1024px;
+max-height:1024px;
 }
 #QuickSettingsCont{
 min-width:725px;

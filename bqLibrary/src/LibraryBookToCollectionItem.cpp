@@ -34,7 +34,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define TITLE_MAX_LENGTH 55
 #define AUTHOR_MAX_LENGTH 50
 
-LibraryBookToCollectionItem::LibraryBookToCollectionItem(QWidget* parent) : GestureWidget(parent)
+LibraryBookToCollectionItem::LibraryBookToCollectionItem(QWidget* parent) : GestureWidget(parent) , m_book(NULL)
 {
     setupUi(this);
     m_checked = false;
@@ -43,7 +43,10 @@ LibraryBookToCollectionItem::LibraryBookToCollectionItem(QWidget* parent) : Gest
 }
 
 LibraryBookToCollectionItem::~LibraryBookToCollectionItem()
-{}
+{
+    delete m_book;
+    m_book = NULL;
+}
 
 void LibraryBookToCollectionItem::paintEvent(QPaintEvent* )
 {
@@ -55,8 +58,12 @@ void LibraryBookToCollectionItem::paintEvent(QPaintEvent* )
 
 void LibraryBookToCollectionItem::setBook(const BookInfo *book)
 {
+    m_book = book;
     bookTitleLabel->setText(book->title);
-    booksNumberLlb->setText(book->author);
+    if(book->author == "---")
+        booksNumberLlb->setText(tr("Autor Desconocido"));
+    else
+        booksNumberLlb->setText(book->author);
     bookTitleLabel->show();
     booksNumberLlb->show();
     addBookToCollectionBtn->show();

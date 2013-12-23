@@ -163,18 +163,38 @@ void QBookScreenSaver::showDefaultSleepImage(QPainter* painter){
 
 }
 
-void QBookScreenSaver::showGeneralImage(QPainter* painter, const QString& image){
+void QBookScreenSaver::showGeneralImage(QPainter* painter, const QString& imagePath){
     qDebug() << Q_FUNC_INFO;
 
-    if (image == "" || image == ":/res/unknow_book.png")
+    if (imagePath == "" || imagePath == ":/res/unknow_book.png")
         showDefaultSleepImage(painter);
-    else{
-        QRect t = QRect(0, Screen::getInstance()->screenHeight() - Screen::getInstance()->screenHeight() / 15, Screen::getInstance()->screenWidth(), Screen::getInstance()->screenHeight() / 10);
+    else
+    {
+        int x = 0;
+        int y = 0;
 
-        painter->drawImage(0, 0, QImage(image).scaledToWidth(Screen::getInstance()->screenWidth()));
+        QPixmap pixmap(imagePath);
+        if(pixmap.width() > pixmap.height())
+        {
+            QMatrix rm;
+            rm.rotate(90);
+            pixmap = pixmap.transformed(rm);
+        }
+
+        QSize size(Screen::getInstance()->screenWidth(), Screen::getInstance()->screenHeight());
+        pixmap = pixmap.scaled(size,Qt::KeepAspectRatioByExpanding);
+
+        if(Screen::getInstance()->screenWidth() > pixmap.width())
+            x = (Screen::getInstance()->screenWidth() - pixmap.width()) / 2;
+
+        if(Screen::getInstance()->screenHeight() > pixmap.height())
+            y = (Screen::getInstance()->screenHeight() - pixmap.height()) / 2;
+
+        painter->drawPixmap(x, y, pixmap);
+
+        QRect t = QRect(0, Screen::getInstance()->screenHeight() - Screen::getInstance()->screenHeight() / 15, Screen::getInstance()->screenWidth(), Screen::getInstance()->screenHeight() / 10);
         painter->drawText(t, Qt::AlignCenter, QString(QApplication::translate("QBookPowerSaver", "Press the Power button to resume", 0, QApplication::UnicodeUTF8)));
     }
-
 }
 
 QString QBookScreenSaver::getScreenSaverImgName()
@@ -184,17 +204,27 @@ QString QBookScreenSaver::getScreenSaverImgName()
     QString scDirPath = qgetenv("ADOBE_SI_FILE_FOLDER");
     QDir checkDir;
 
-    if(!checkDir.exists(scDirPath)){
+    if(!checkDir.exists(scDirPath))
         checkDir.mkpath(scDirPath);
+
+    if(formatsList.isEmpty())
+    {
+        supportedImageslist = QBookApp::instance()->getSupportedImageslist();
+        QList<QByteArray>::iterator it = supportedImageslist.begin();
+        QList<QByteArray>::iterator itEnd = supportedImageslist.end();
+        while (it != itEnd)
+        {
+            formatsList += QString("*." + (*it) + " ");
+            it++;
+        }
     }
 
-    QDir scdir(scDirPath, "*.jpg *.JPG *.jpeg *.JPEG *.png *.PNG");
+    QDir scdir(scDirPath,formatsList);
     QStringList scList = scdir.entryList();
     int scTotalImages = scList.count();
 
-    if(scTotalImages==0){
+    if(scTotalImages==0)
         return QString("");
-    }
 
     qDebug() << Q_FUNC_INFO << "Found " << scTotalImages << " images.";
     QTime time = QTime::currentTime();

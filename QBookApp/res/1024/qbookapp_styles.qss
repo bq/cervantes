@@ -68,5 +68,5 @@ max-width:190px;
 }
 #DeviceInfoDialog #settingsMenuListCont QWidget #internalVersionValLbl{
 margin-left:0px;
-font-size:13px;
+font-size:18px;
 }

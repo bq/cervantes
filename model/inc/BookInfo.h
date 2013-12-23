@@ -70,6 +70,11 @@ public:
         READ_BOOK
     };
 
+    enum orientationEnum {
+        ORI_PORTRAIT,
+        ORI_LANDSCAPE
+    };
+
     BookInfo(const QString& path = "");
     BookInfo(const BookInfo&);
 
@@ -95,6 +100,7 @@ public:
     double          readingPercentage;
     double          fontSize;
     int             pageMode;
+    orientationEnum orientation;
     qint64          timestamp;
 
     QString         publisher;

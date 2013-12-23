@@ -26,7 +26,7 @@
     <message>
         <location filename="../src/Dictionary.cpp" line="201"/>
         <source>%1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1</translation>
     </message>
     <message>
         <location filename="../src/Dictionary.cpp" line="236"/>
@@ -191,17 +191,17 @@
         <translation type="obsolete">Comprar</translation>
     </message>
     <message>
-        <location filename="../src/Viewer.cpp" line="554"/>
+        <location filename="../src/Viewer.cpp" line="556"/>
         <source>Your subscription has expired so the book has been closed because .</source>
         <translation>O livro fechou-se porque a sua subscrição caducou.</translation>
     </message>
     <message>
-        <location filename="../src/Viewer.cpp" line="483"/>
+        <location filename="../src/Viewer.cpp" line="485"/>
         <source>The readingPoing has changed. Do you want to go to the new position?</source>
         <translation>O ponto de leitura mudou. Quer ir para a nova posição?</translation>
     </message>
     <message>
-        <location filename="../src/Viewer.cpp" line="442"/>
+        <location filename="../src/Viewer.cpp" line="444"/>
         <source>Your subscription has expired so the book has been closed.</source>
         <translation>O livro fechou-se porque a sua subscrição caducou.</translation>
     </message>
@@ -211,24 +211,24 @@
         <translation>Erro detetado ao tentar abrir o livro.</translation>
     </message>
     <message>
-        <location filename="../src/Viewer.cpp" line="2082"/>
+        <location filename="../src/Viewer.cpp" line="2086"/>
         <source>Book correctly removed.</source>
         <translation>Livro eliminado com sucesso.</translation>
     </message>
     <message>
-        <location filename="../src/Viewer.cpp" line="2091"/>
-        <location filename="../src/Viewer.cpp" line="2125"/>
+        <location filename="../src/Viewer.cpp" line="2095"/>
+        <location filename="../src/Viewer.cpp" line="2129"/>
         <source>A fatal error occurred.</source>
         <translation>Erro detetado ao tentar abrir o livro.</translation>
     </message>
     <message>
-        <location filename="../src/Viewer.cpp" line="2141"/>
+        <location filename="../src/Viewer.cpp" line="2145"/>
         <source>The following error occurred: </source>
         <translation>Ocorreu o seguinte erro:</translation>
     </message>
     <message>
         <location filename="../src/Viewer.cpp" line="885"/>
-        <location filename="../src/Viewer.cpp" line="2156"/>
+        <location filename="../src/Viewer.cpp" line="2160"/>
         <source>The following warnings occurred: </source>
         <translation>Ocorreu o seguinte aviso:</translation>
     </message>
@@ -383,7 +383,7 @@
         <translation>Espaçamento</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/ViewerAppearancePopup.ui" line="1036"/>
+        <location filename="../ui/ViewerAppearancePopup.ui" line="1045"/>
         <source>Mostrar imágenes</source>
         <translation>Modo PDF</translation>
     </message>
@@ -484,38 +484,44 @@
         <translation type="unfinished">40% {100?}</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerBookSummary.ui" line="740"/>
+        <location filename="../ui/ViewerBookSummary.ui" line="693"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="605"/>
+        <source>Colecciones</source>
+        <translation>Coleções</translation>
+    </message>
+    <message>
+        <location filename="../ui/ViewerBookSummary.ui" line="772"/>
         <source>Comprar</source>
         <translation>Comprar</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/ViewerBookSummary.ui" line="661"/>
+        <location filename="../ui/ViewerBookSummary.ui" line="670"/>
         <source>Más acciones</source>
         <translation>Mais acções</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerBookSummary.ui" line="756"/>
+        <location filename="../ui/ViewerBookSummary.ui" line="788"/>
         <source>Copiar a SD</source>
         <translation>Copiar</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerBookSummary.ui" line="772"/>
+        <location filename="../ui/ViewerBookSummary.ui" line="804"/>
         <source>Exportar notas</source>
         <translation>Exportar notas</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerBookSummary.ui" line="785"/>
+        <location filename="../ui/ViewerBookSummary.ui" line="817"/>
         <source>Archivar</source>
         <translation>Arquivar</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerBookSummary.ui" line="824"/>
-        <location filename="../src/ViewerBookSummary.cpp" line="160"/>
+        <location filename="../ui/ViewerBookSummary.ui" line="856"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="179"/>
         <source>Sinopsis</source>
         <translation>Sinopse</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerBookSummary.ui" line="843"/>
+        <location filename="../ui/ViewerBookSummary.ui" line="875"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -524,50 +530,50 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="331"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="374"/>
         <source>You are about to remove the book </source>
         <translation>Está prestes a eliminar o livro </translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="332"/>
-        <location filename="../src/ViewerBookSummary.cpp" line="515"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="375"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="558"/>
         <source>from </source>
         <translation>de </translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="340"/>
-        <location filename="../src/ViewerBookSummary.cpp" line="523"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="383"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="566"/>
         <source>internal memory. 
 </source>
         <translation>Memória interna. </translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="342"/>
-        <location filename="../src/ViewerBookSummary.cpp" line="525"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="385"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="568"/>
         <source>SD card. 
 </source>
         <translation>Cartão SD. </translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="305"/>
-        <location filename="../src/ViewerBookSummary.cpp" line="344"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="348"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="387"/>
         <source>This action will remove the book from device. </source>
         <translation>Esta ação irá eliminar o livro do seu dispositivo</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="348"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="391"/>
         <source>The sample book will not be available for download.</source>
         <translation>A amostra não estará disponível para descarregar novamente.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="306"/>
-        <location filename="../src/ViewerBookSummary.cpp" line="350"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="349"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="393"/>
         <source>The book will be always available for download.</source>
         <translation>Este livro estará sempre disponível para ser descarregado.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="125"/>
-        <location filename="../src/ViewerBookSummary.cpp" line="150"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="143"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="169"/>
         <source>Autor Desconocido</source>
         <translation>Autor desconhecido</translation>
     </message>
@@ -588,169 +594,200 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Livro fechado corretamente.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="301"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="344"/>
         <source>You are about to archive the book</source>
         <translation>Está prestes a arquivar o livro </translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="302"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="345"/>
         <source>from</source>
         <translation>de </translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="222"/>
-        <location filename="../src/ViewerBookSummary.cpp" line="308"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="244"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="351"/>
         <source>Archive</source>
         <translation>Arquivar</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="192"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="214"/>
         <source>Copy file</source>
         <translation>Copiar</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="220"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="242"/>
         <source>Unarchive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="318"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="361"/>
         <source>Book correctly stored.</source>
         <translation>Livro arquivado corretamente.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="376"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="419"/>
         <source>You are about to copy the book </source>
         <translation>Está a prestes a copiar o livro </translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="379"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="422"/>
         <source>from internal memory to SD.</source>
         <translation>da memória interna para o cartão SD.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="383"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="426"/>
         <source>from SD card to internal memory.</source>
         <translation>do cartão SD para a memória interna.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="388"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="431"/>
         <source>SD card is not mounted.</source>
         <translation>O cartão SD não foi reconhecido.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="395"/>
-        <location filename="../src/ViewerBookSummary.cpp" line="455"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="438"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="498"/>
         <source>
 Do you want to continue?</source>
         <translation>
 Deseja continuar?</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="396"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="439"/>
         <source>Copy</source>
         <translation>Copiar</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="410"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="453"/>
         <source>File correctly copied.</source>
         <translation>Arquivo copiado com sucesso.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="421"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="464"/>
         <source>Copy has failed. Please check your SD card.</source>
         <translation>A cópia falhou. Por favor, comprove se o cartão SD foi introduzido corretamente.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="423"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="466"/>
         <source>Copy failure, the file already exists.</source>
         <translation>Não é possível copiar. O ficheiro já existe no destino.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="438"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="481"/>
         <source>You are about to export notes of this book </source>
         <translation>Estás prestes a exportar as tuas notas e destaques deste livro </translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="443"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="486"/>
         <source>from your library to internal memory.</source>
         <translation>a memória interna.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="447"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="490"/>
         <source>from internal memory to internal memory.</source>
         <translation>a memória interna.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="451"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="494"/>
         <source>from SD card to SD card.</source>
         <translation>a cartão SD.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="457"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="500"/>
         <source>Export</source>
         <translation>Exportar</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="470"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="513"/>
         <source>Notes exported correctly.</source>
         <translation>Anotações exportadas correctamente.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="498"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="541"/>
         <source>Leyendo</source>
         <translation>A ler</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="501"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="544"/>
         <source>Leido</source>
         <translation>Lido</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="504"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="547"/>
         <source>No leido</source>
         <translation>Não lido</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="514"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="557"/>
         <source>You are about to change the book state </source>
         <translation>Está prestes a alterar o estado do livro </translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="530"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="573"/>
         <source>This book will be marked as no read. </source>
         <translation>O libro será marcado como não lido.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="533"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="576"/>
         <source>This book will be marked as now reading. </source>
         <translation>O libro será marcado com leitura em curso.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="536"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="579"/>
         <source>This book will be marked as read. </source>
         <translation>O libro será marcado como lido.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="540"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="583"/>
         <source>Change</source>
         <translation>Alterar</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="551"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="594"/>
         <source>Book correctly changed.</source>
         <translation>Livro alterado com sucesso.</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerBookSummary.ui" line="801"/>
-        <location filename="../src/ViewerBookSummary.cpp" line="353"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="622"/>
+        <source>%1</source>
+        <translation>%1</translation>
+    </message>
+    <message>
+        <location filename="../src/ViewerBookSummary.cpp" line="634"/>
+        <source>En %1 colecciones</source>
+        <translation>Em %1 coleções</translation>
+    </message>
+    <message>
+        <location filename="../ui/ViewerBookSummary.ui" line="833"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="396"/>
         <source>Remove</source>
         <translation>Eliminar</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="360"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="403"/>
         <source>Book correctly removed.</source>
         <translation>Livro eliminado com sucesso.</translation>
+    </message>
+</context>
+<context>
+    <name>ViewerCollectionItem</name>
+    <message>
+        <location filename="../ui/ViewerCollectionItem.ui" line="20"/>
+        <source>Form</source>
+        <translation type="unfinished">Formulário</translation>
+    </message>
+    <message>
+        <location filename="../ui/ViewerCollectionItem.ui" line="35"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ViewerCollectionLayer</name>
+    <message utf8="true">
+        <location filename="../ui/ViewerCollectionLayer.ui" line="83"/>
+        <source>Añadir colección </source>
+        <translation>Criar coleção</translation>
     </message>
 </context>
 <context>
@@ -1072,22 +1109,22 @@ p, li { white-space: pre-wrap; }
         <translation>Formulário</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/ViewerPageHandler.ui" line="93"/>
+        <location filename="../ui/ViewerPageHandler.ui" line="96"/>
         <source>leído</source>
         <translation>lido</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerPageHandler.ui" line="126"/>
+        <location filename="../ui/ViewerPageHandler.ui" line="129"/>
         <source> 1 / 1</source>
         <translation> 1 / 1</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerPageHandler.ui" line="155"/>
+        <location filename="../ui/ViewerPageHandler.ui" line="158"/>
         <source>XX</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/ViewerPageHandler.ui" line="162"/>
+        <location filename="../ui/ViewerPageHandler.ui" line="165"/>
         <source>págs. fin cap.</source>
         <translation>pág. fim cap.</translation>
     </message>
@@ -1096,14 +1133,13 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">pág. para o fim do capítulo</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerPageHandler.ui" line="86"/>
+        <location filename="../ui/ViewerPageHandler.ui" line="89"/>
         <source>40%</source>
         <translation>40%</translation>
     </message>
     <message>
-        <location filename="../src/ViewerPageHandler.cpp" line="183"/>
         <source>%1%</source>
-        <translation>%1%</translation>
+        <translation type="obsolete">%1%</translation>
     </message>
 </context>
 <context>
@@ -1114,43 +1150,51 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">Formulário</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="131"/>
+        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="140"/>
         <source>Titulo del libro</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="141"/>
+        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="157"/>
         <source>100%</source>
         <translation type="unfinished">40% {100%?}</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="237"/>
         <source>págs. fin de capítulo</source>
-        <translation>pág. fim cap.</translation>
+        <translation type="obsolete">pág. fim cap.</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="286"/>
+        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="266"/>
         <source>18:40</source>
         <translation type="unfinished">40% {18:40?}</translation>
     </message>
     <message>
-        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="216"/>
+        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="224"/>
         <source>XX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="183"/>
+        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="191"/>
         <source> 1 / 1</source>
         <translation> 1 / 1</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/ViewerPageHandlerLandscape.ui" line="162"/>
         <source>leído</source>
-        <translation>lido</translation>
+        <translation type="obsolete">lido</translation>
     </message>
     <message>
         <source>40%</source>
         <translation type="obsolete">40%</translation>
+    </message>
+    <message>
+        <location filename="../src/ViewerPageHandlerLandscape.cpp" line="164"/>
+        <source>%1% reading</source>
+        <translation>%1% lido</translation>
+    </message>
+    <message>
+        <location filename="../src/ViewerPageHandlerLandscape.cpp" line="169"/>
+        <source>%1 pag. to chap. end</source>
+        <translation>%1 pág. fim cap.</translation>
     </message>
 </context>
 <context>
@@ -1188,6 +1232,25 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>ViewerSearchContextMenuLandscape</name>
+    <message>
+        <location filename="../ui/ViewerSearchContextMenuLandscape.ui" line="113"/>
+        <source>Listado</source>
+        <translation type="unfinished">Lista</translation>
+    </message>
+    <message>
+        <location filename="../ui/ViewerSearchContextMenuLandscape.ui" line="136"/>
+        <source>Resultado</source>
+        <translation type="unfinished">Resultado</translation>
+    </message>
+    <message>
+        <location filename="../src/ViewerSearchContextMenuLandscape.cpp" line="53"/>
+        <location filename="../src/ViewerSearchContextMenuLandscape.cpp" line="60"/>
+        <source>Result %1 of %2</source>
+        <translation>Resultado %1 de %2</translation>
+    </message>
+</context>
+<context>
     <name>ViewerSearchPopup</name>
     <message>
         <location filename="../ui/ViewerSearchPopup.ui" line="26"/>
@@ -1210,13 +1273,13 @@ p, li { white-space: pre-wrap; }
         <translation>A processar os dados</translation>
     </message>
     <message>
-        <location filename="../src/ViewerSearchPopup.cpp" line="236"/>
+        <location filename="../src/ViewerSearchPopup.cpp" line="243"/>
         <source>Buscar</source>
         <translation>Procurar</translation>
     </message>
     <message>
-        <location filename="../src/ViewerSearchPopup.cpp" line="321"/>
-        <location filename="../src/ViewerSearchPopup.cpp" line="413"/>
+        <location filename="../src/ViewerSearchPopup.cpp" line="328"/>
+        <location filename="../src/ViewerSearchPopup.cpp" line="422"/>
         <source>%1 resultados</source>
         <translation>%1 resultados</translation>
     </message>

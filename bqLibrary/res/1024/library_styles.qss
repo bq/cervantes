@@ -1168,8 +1168,8 @@ max-height:300px;
 ---------------------------*/
 #LibraryBookListActions{
 /*margin-right:1px;*/
-min-width:260px;
-max-width:260px;
+min-width:224px;
+max-width:224px;
 min-height:256px;
 max-height:256px;
 }
@@ -1183,6 +1183,22 @@ border-bottom-width:1px;
 max-height:64px;
 min-height:64px;
 padding:0px 0px 0px 25px;
+}
+/*LibraryCollectionLayer
+---------------------------*/
+#LibraryCollectionLayer{
+min-width:238px;
+max-width:238px;
+min-height:500px;
+max-height:500px;
+}
+#CollectionLayerCont #VerticalPagerPopup, #CollectionLayerCont ViewerVerticalPagerPopup{
+min-width:228px;
+max-width:228px;
+min-height:64px;
+max-height:64px;
+}
+#CollectionLayerCont #VerticalPagerPopup QPushButton, #CollectionLayerCont ViewerVerticalPagerPopup QPushButton{
 }
 /*LibraryPageHandler
 ----------------------------*/
@@ -1298,6 +1314,7 @@ border-width:0px;
 /*LibraryBookSummary
 -----------------------*/
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #moreActionsBtn,
+#LibraryBookSummary #bookSummaryDataContainer #actionsContainer #addToCollectionBtn,
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #readSampleBtn{
 margin-top:4px;
 }

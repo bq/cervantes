@@ -14,6 +14,7 @@ HEADERS += ./inc/Viewer.h \
            ./inc/ViewerTextActionsMenu.h \
            ./inc/ViewerMarkHandler.h \
            ./inc/ViewerSearchContextMenu.h\
+           ./inc/ViewerSearchContextMenuLandscape.h\
            ./inc/ViewerSearchPopup.h \
            ./inc/ViewerSearchResultItem.h \
            ./inc/ViewerEditNotePopup.h \
@@ -32,8 +33,9 @@ HEADERS += ./inc/Viewer.h \
            ./inc/ViewerStepsManager.h \
            ./inc/ViewerDelimiter.h \
            ./inc/MiniatureView.h \
-           ./inc/MiniatureViewLandscape.h
-
+           ./inc/MiniatureViewLandscape.h \
+           ./inc/ViewerCollectionLayer.h \
+           ./inc/ViewerCollectionItem.h
 
 isEmpty(HACKERS_EDITION) {
 HEADERS += ./inc/ViewerDictionary.h \
@@ -56,6 +58,7 @@ SOURCES += ./src/Viewer.cpp \
            ./src/ViewerTextActionsMenu.cpp \
            ./src/ViewerMarkHandler.cpp \
            ./src/ViewerSearchContextMenu.cpp\
+           ./src/ViewerSearchContextMenuLandscape.cpp\
            ./src/ViewerSearchPopup.cpp \
            ./src/ViewerSearchResultItem.cpp \
            ./src/ViewerEditNotePopup.cpp \
@@ -74,7 +77,9 @@ SOURCES += ./src/Viewer.cpp \
            ./src/ViewerStepsManager.cpp \
            ./src/ViewerDelimiter.cpp\
            ./src/MiniatureView.cpp \
-           ./src/MiniatureViewLandscape.cpp
+           ./src/MiniatureViewLandscape.cpp \
+           ./src/ViewerCollectionLayer.cpp \
+           ./src/ViewerCollectionItem.cpp
 
 isEmpty(HACKERS_EDITION) {
 SOURCES += ./src/ViewerDictionary.cpp \
@@ -95,6 +100,7 @@ FORMS +=   ./ui/Viewer.ui \
            ./ui/ViewerTextActionsPopup.ui \
            ./ui/ViewerTextActionsMenu.ui \
            ./ui/ViewerSearchContextMenu.ui\
+           ./ui/ViewerSearchContextMenuLandscape.ui\
            ./ui/ViewerSearchPopup.ui \
            ./ui/ViewerSearchResultItem.ui \
            ./ui/ViewerEditNotePopup.ui \
@@ -115,7 +121,9 @@ FORMS +=   ./ui/Viewer.ui \
            ./ui/ViewerNoteActionsPopup.ui \
            ./ui/MiniatureView.ui \
            ./ui/MiniatureViewLandscape.ui \
-           ./ui/ViewerDelimiter.ui
+           ./ui/ViewerDelimiter.ui \
+           ./ui/ViewerCollectionLayer.ui \
+           ./ui/ViewerCollectionItem.ui
 
 QRC_FILES += Viewer800.qrc Viewer1024.qrc
 

@@ -1285,8 +1285,8 @@ border-radius:8px;
 #SettingsQuickSettingsPopup{
 min-width:600px;
 max-width:600px;
-min-height:750px;
-max-height:750px;
+min-height:800px;
+max-height:800px;
 }
 #QuickSettingsCont{
 position:absolute;

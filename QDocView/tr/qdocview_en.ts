@@ -4,48 +4,48 @@
 <context>
     <name>QAdobeDocView</name>
     <message>
-        <location filename="../src/QAdobeDocView.cpp" line="2406"/>
+        <location filename="../src/QAdobeDocView.cpp" line="2468"/>
         <source> ...</source>
         <translation>&apos;...</translation>
     </message>
     <message>
-        <location filename="../src/QAdobeDocView.cpp" line="3273"/>
+        <location filename="../src/QAdobeDocView.cpp" line="3335"/>
         <source>Wrong username or password.</source>
         <translation>Incorrect username or password.</translation>
     </message>
     <message>
-        <location filename="../src/QAdobeDocView.cpp" line="3090"/>
+        <location filename="../src/QAdobeDocView.cpp" line="3152"/>
         <source>Wrong password.</source>
         <translation>Incorrect password.</translation>
     </message>
     <message>
-        <location filename="../src/QAdobeDocView.cpp" line="3098"/>
+        <location filename="../src/QAdobeDocView.cpp" line="3160"/>
         <source>Access Denied. Check your adobe DRM license.</source>
         <translation>Access denied. Check your Adobe DRM license.</translation>
     </message>
     <message>
-        <location filename="../src/QAdobeDocView.cpp" line="3104"/>
+        <location filename="../src/QAdobeDocView.cpp" line="3166"/>
         <source>Error detected when trying to open the book.</source>
         <translation>An error occurred while trying to open the book.</translation>
     </message>
     <message>
-        <location filename="../src/QAdobeDocView.cpp" line="3237"/>
-        <location filename="../src/QAdobeDocView.cpp" line="3262"/>
+        <location filename="../src/QAdobeDocView.cpp" line="3299"/>
+        <location filename="../src/QAdobeDocView.cpp" line="3324"/>
         <source>Password:</source>
         <translation>Password:</translation>
     </message>
     <message>
-        <location filename="../src/QAdobeDocView.cpp" line="3250"/>
+        <location filename="../src/QAdobeDocView.cpp" line="3312"/>
         <source>Password protected documents are not supported.</source>
         <translation>Password-protected documents are not compatible.</translation>
     </message>
     <message>
-        <location filename="../src/QAdobeDocView.cpp" line="3258"/>
+        <location filename="../src/QAdobeDocView.cpp" line="3320"/>
         <source>Cancelled by user.</source>
         <translation>Cancelled by user.</translation>
     </message>
     <message>
-        <location filename="../src/QAdobeDocView.cpp" line="3259"/>
+        <location filename="../src/QAdobeDocView.cpp" line="3321"/>
         <source>Username:</source>
         <translation>Username:</translation>
     </message>

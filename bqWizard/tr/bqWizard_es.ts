@@ -28,12 +28,12 @@
         <translation type="obsolete">El acceso a la tienda ha fallado. Por favor, inténtalo de nuevo en unos minutos.</translation>
     </message>
     <message>
-        <location filename="../src/WebWizard.cpp" line="195"/>
+        <location filename="../src/WebWizard.cpp" line="215"/>
         <source>Not connected. Please try it again in a few minutes</source>
         <translation>Sin conexión. Por favor, inténtalo de nuevo en unos minutos.</translation>
     </message>
     <message>
-        <location filename="../src/WebWizard.cpp" line="270"/>
+        <location filename="../src/WebWizard.cpp" line="290"/>
         <source>Send</source>
         <translation>Enviar</translation>
     </message>
@@ -89,77 +89,77 @@
         <translation>La fecha y la hora se actualizarán automáticamente cuando el dispositivo se conecte a la red.</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="20"/>
+        <location filename="../src/WizardDateTime.cpp" line="40"/>
         <source>Spain/Madrid</source>
         <translation>España / Madrid</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="21"/>
+        <location filename="../src/WizardDateTime.cpp" line="41"/>
         <source>Spain/Canary Islands</source>
         <translation>España / Islas Canarias</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="22"/>
+        <location filename="../src/WizardDateTime.cpp" line="42"/>
         <source>Portugal/Lisbon</source>
         <translation>Portugal / Lisboa</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="23"/>
+        <location filename="../src/WizardDateTime.cpp" line="43"/>
         <source>Chile/Santiago</source>
         <translation>Chile / Santiago</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="24"/>
+        <location filename="../src/WizardDateTime.cpp" line="44"/>
         <source>Chile/Easter Island</source>
         <translation>Chile / Isla de Pascua</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="25"/>
+        <location filename="../src/WizardDateTime.cpp" line="45"/>
         <source>Mexico/Mexico DF</source>
         <translation>México / México DF</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="26"/>
+        <location filename="../src/WizardDateTime.cpp" line="46"/>
         <source>Mexico/Chihuahua</source>
         <translation>México / Chihuahua</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="27"/>
+        <location filename="../src/WizardDateTime.cpp" line="47"/>
         <source>Mexico/Tijuana</source>
         <translation>México / Tijuana</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="29"/>
+        <location filename="../src/WizardDateTime.cpp" line="49"/>
         <source>France/Paris</source>
         <translation>Francia / París</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="30"/>
+        <location filename="../src/WizardDateTime.cpp" line="50"/>
         <source>Germany/Berlin</source>
         <translation>Alemania / Berlín</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="31"/>
+        <location filename="../src/WizardDateTime.cpp" line="51"/>
         <source>UK/London</source>
         <translation>Reino Unido / Londres</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="32"/>
+        <location filename="../src/WizardDateTime.cpp" line="52"/>
         <source>Argentina/Buenos Aires</source>
         <translation>Argentina / Buenos Aires</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="33"/>
+        <location filename="../src/WizardDateTime.cpp" line="53"/>
         <source>Brazil/Noronha</source>
         <translation>Brasil / Noronha</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="34"/>
+        <location filename="../src/WizardDateTime.cpp" line="54"/>
         <source>Brazil/Sao Paulo</source>
         <translation>Brasil / Sao Paulo</translation>
     </message>
     <message>
-        <location filename="../src/WizardDateTime.cpp" line="35"/>
+        <location filename="../src/WizardDateTime.cpp" line="55"/>
         <source>Brazil/Porto Velho</source>
         <translation>Brasil / Porto Velho</translation>
     </message>
@@ -353,32 +353,32 @@ los servicios de tu eReader.</translation>
         <translation type="obsolete">Bienvenido </translation>
     </message>
     <message>
-        <location filename="../src/WizardWelcome.cpp" line="49"/>
+        <location filename="../src/WizardWelcome.cpp" line="69"/>
         <source>Enlazar dispositivo</source>
         <translation>Enlazar dispositivo</translation>
     </message>
     <message>
-        <location filename="../src/WizardWelcome.cpp" line="176"/>
+        <location filename="../src/WizardWelcome.cpp" line="196"/>
         <source>Credit Card Register failed.</source>
         <translation>Fallo al registrar la tarjeta de crédito.</translation>
     </message>
     <message>
-        <location filename="../src/WizardWelcome.cpp" line="195"/>
+        <location filename="../src/WizardWelcome.cpp" line="215"/>
         <source>Connection problem. Please, select another WiFi.</source>
         <translation>Problema de conexión. Por favor, selecciona otra red.</translation>
     </message>
     <message>
-        <location filename="../src/WizardWelcome.cpp" line="208"/>
+        <location filename="../src/WizardWelcome.cpp" line="228"/>
         <source>There is an error with the Serial Number </source>
         <translation>Hay un error con el número de serie</translation>
     </message>
     <message>
-        <location filename="../src/WizardWelcome.cpp" line="208"/>
+        <location filename="../src/WizardWelcome.cpp" line="228"/>
         <source>. Please contact with support.</source>
         <translation>. Por favor contacte con soporte.</translation>
     </message>
     <message>
-        <location filename="../src/WizardWelcome.cpp" line="220"/>
+        <location filename="../src/WizardWelcome.cpp" line="240"/>
         <source>There is a problem in wizard. Please contact with support.</source>
         <translation>Hay un problema de enlace. Por favor contacte con soporte.</translation>
     </message>

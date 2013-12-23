@@ -74,6 +74,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "QBookScreenSaver.h"
 #include "EpubMetaDataExtractor.h"
 #include "Fb2MetaDataExtractor.h"
+#include "MobiMetaDataExtractor.h"
 
 #ifdef Q_WS_QWS
 #include <ntx.h>
@@ -245,6 +246,10 @@ QBookApp::QBookApp(QWidget* parent, Qt::WFlags flags)
     , b_wizardFromStore(false)
     , offlineHelper(NULL)
 {
+#ifndef HACKERS_EDITION
+    checkOTAFile();
+#endif
+
     m_lastOTACheck.setTime_t(0);
 
     QString lastLinkCheck = QBook::settings().value("setting/lastLinkCheck", "").toString();
@@ -273,10 +278,6 @@ QBookApp::QBookApp(QWidget* parent, Qt::WFlags flags)
     setCursor(QCursor(Qt::ArrowCursor));
 #endif
 
-
-#ifndef HACKERS_EDITION
-    checkOTAFile();
-#endif
     PowerManager::initialize();
 
     Storage* storage = Storage::getInstance();
@@ -864,6 +865,7 @@ void QBookApp::initViewer()
 
     connect(m_viewer, SIGNAL(loadDocError()),   this,     SLOT(loadDocError()));
     connect(m_viewer, SIGNAL(viewerConf()),     this,     SLOT(handleViewerConf()));
+    connect(m_viewer, SIGNAL(createNewCollection(const BookInfo*)), this, SLOT(createNewCollection(const BookInfo*)));
 }
 
 void QBookApp::initLibrary()
@@ -876,6 +878,7 @@ void QBookApp::initLibrary()
     m_library->hide();
 
     connect(m_library, SIGNAL(hideMe()), this, SLOT(goToHome()));
+    connect(m_library, SIGNAL(returnToViewer()), this, SLOT(handleGoToViewer()));
     connect(this, SIGNAL(reportStoreLink()), m_library, SLOT(reportedStoreLink()));
 }
 
@@ -1353,6 +1356,7 @@ void QBookApp::handleUsbStateChanged (bool state)
         link = new QSettingLinkPc(getCurrentForm());
         connect(link, SIGNAL(connectedToPc(bool)), getStatusBar(), SLOT(updateLinkPcState(bool)));
         connect(link, SIGNAL(connectedToPc(bool)), m_library, SLOT(connectedToPc(bool)));
+        connect(link, SIGNAL(connectedToPc(bool)), this, SIGNAL(userEvent()));
 #ifndef DISABLE_ADOBE_SDK
         connect(link, SIGNAL(connectedToPc(bool)), AdobeDRM::getInstance(), SLOT(connectedToPc(bool)));
 #endif
@@ -1715,6 +1719,7 @@ void QBookApp::confirmFwUpgrade(){
     // This is leaking SettingsDeviceInfo as the main settings dialog is doing.
     Screen::getInstance()->queueUpdates();
     goToSettings();
+    m_settingsMenu->hidePreviousChild();
     QBookForm *current_form = getCurrentForm();
     SettingsDeviceInfo *elfDeviceMenu = ((Settings*)current_form)->showInformation();
     elfDeviceMenu->showUpgradeMenu();
@@ -1779,6 +1784,9 @@ void QBookApp::shuttingDown()
 
     PowerManagerLock *shuttingDownLock = PowerManager::getNewLock();
     shuttingDownLock->activate();
+
+    disconnect(Storage::getInstance(), SIGNAL(partitionMounted(StoragePartition*)),  this, SLOT(handlePartitionMounted(StoragePartition*)));
+    disconnect(Storage::getInstance(), SIGNAL(partitionUmounted(StoragePartition*)), this, SLOT(handlePartitionUmounted(StoragePartition*)));
 
     Screen::getInstance()->queueUpdates();
     Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_WAITFORCOMPLETION, Q_FUNC_INFO);
@@ -2368,7 +2376,9 @@ bool QBookApp::isImage(const QString& path)
 {
     if(path.isEmpty()) return false;
 
-    QList<QByteArray> supportedImageslist = QImageReader::supportedImageFormats();
+    if(supportedImageslist.isEmpty())
+        supportedImageslist = QImageReader::supportedImageFormats();
+
     qDebug() << Q_FUNC_INFO << "supportedImageslist: " << supportedImageslist;
     QString fileName = path.split("/").last();
     QString fileExtension = fileName.split(".").last();
@@ -2801,6 +2811,7 @@ void QBookApp::showSleep()
     PowerManagerLock *lock = PowerManager::getNewLock(this);
     lock->activate();
 
+    Screen::getInstance()->resetQueue();
     Screen::getInstance()->queueUpdates();
     sleepScreen = new QBookScreenSaver();
     sleepScreen->setFixedSize(Screen::getInstance()->screenWidth(), Screen::getInstance()->screenHeight());
@@ -2889,8 +2900,8 @@ void QBookApp::goToSleep()
     Screen::getInstance()->flushUpdates();
 
     showSleep();
-
-    PowerManager::getInstance()->goToSleep();
+    if(!b_cancelSleep && b_isSleeping)
+        PowerManager::getInstance()->goToSleep();
 }
 
 void QBookApp::cancelOnGoingSleep()
@@ -2903,6 +2914,7 @@ void QBookApp::cancelOnGoingSleep()
     }
 
     b_cancelSleep = true;
+    b_isSleeping = false;
 
     closeSleep();
 
@@ -3117,6 +3129,10 @@ void QBookApp::resumeAfterSleep()
     qDebug() << Q_FUNC_INFO;
 
     b_cancelSleep = false;
+    b_isSleeping = false;
+
+    if(isLedDebuggingOff())
+        Power::getInstance()->setLed(false);
 
     QTimer::singleShot(500, this, SLOT(enableUserEvents()));
     QTimer::singleShot(2000, this, SLOT(enablePowerKey()));
@@ -4246,7 +4262,7 @@ void QBookApp::askForActivationDevice()
 bool QBookApp::isLedDebuggingOff()
 {
 #ifndef HACKERS_EDITION
-    return m_debugDialog && !m_debugDialog->isledIndicatorEnabled();
+    return !(m_debugDialog && m_debugDialog->isledIndicatorEnabled());
 #else
     return true;
 #endif
@@ -4342,6 +4358,60 @@ void QBookApp::handleViewerConf()
 
 void QBookApp::handleGoToViewer()
 {
-    disconnect(m_settingsMenu, SIGNAL(goToViewer()), this, SLOT(handleGoToViewer()));
+    if(m_settingsMenu)
+        disconnect(m_settingsMenu, SIGNAL(goToViewer()), this, SLOT(handleGoToViewer()));
     openLastContent();
+}
+
+void QBookApp::generateBookCover( BookInfo* bookInfo)
+{
+    qDebug() << Q_FUNC_INFO;
+
+    // Get expected thumbnail image path
+    QFileInfo fi(bookInfo->path);
+
+    // Check dir
+    QDir dir(fi.absolutePath());
+    if(!dir.exists( ".thumbnail/"))
+        dir.mkdir( ".thumbnail/");
+
+    QString thumbnailPath(fi.absolutePath() + QDir::separator() + ".thumbnail" + QDir::separator() + fi.fileName() + THUMBNAIL_SUFIX);
+
+    bool gotCover = MetaDataExtractor::extractCover(bookInfo->path, thumbnailPath);
+    if (!gotCover)
+        thumbnailPath = QDocView::coverPage(bookInfo->path, thumbnailPath); // Render 1st page if not have cover.
+
+    QImageReader image(thumbnailPath);
+    QFile imageFile(thumbnailPath);
+    if(!image.canRead())
+    {
+        qWarning() << Q_FUNC_INFO << "Error extracting cover";
+        return;
+    }
+    else
+    {
+        Library::fromCover2Thumbnail(thumbnailPath);
+        QImageReader modifiedImage(thumbnailPath);
+        thumbnailPath += "." + modifiedImage.format();
+        imageFile.rename(thumbnailPath);
+
+        bookInfo->thumbnail = thumbnailPath;
+        getModel()->updateBook(bookInfo);
+    }
+}
+
+QList<QByteArray> QBookApp::getSupportedImageslist()
+{
+    qDebug() << Q_FUNC_INFO;
+    if(supportedImageslist.isEmpty())
+        supportedImageslist = QImageReader::supportedImageFormats();
+
+    return supportedImageslist;
+}
+
+void QBookApp::createNewCollection(const BookInfo* bookToAdd)
+{
+    goToLibrary();
+    m_library->setFromViewer(true);
+    m_library->createNewCollection(bookToAdd);
 }

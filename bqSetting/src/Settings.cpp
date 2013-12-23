@@ -388,10 +388,7 @@ void Settings::handleAboutUsBtn()
 
 void Settings::goToViewerMenu()
 {
-    while ( isChildSetting > 0 )
-    {
-        hideElement();
-    }
+    hidePreviousChild();
     handleDevicesBtn();
     m_deviceOptions->showReaderMenu();
     connect(m_deviceOptions, SIGNAL(goToViewer()), this, SLOT(handleGoToViewer()));
@@ -402,4 +399,12 @@ void Settings::handleGoToViewer()
     qDebug() << Q_FUNC_INFO;
     disconnect(m_deviceOptions, SIGNAL(goToViewer()), this, SLOT(handleGoToViewer()));
     emit goToViewer();
+}
+
+void Settings::hidePreviousChild()
+{
+    while ( isChildSetting > 0 )
+    {
+        hideElement();
+    }
 }
