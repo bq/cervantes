@@ -33,7 +33,7 @@ HOW TO BUILD AND EMULATE IN x86 PC
 It is possible to emulate the application in a 32 bits linux machine, to do so
 just execute the following script:
 
-./emulate.sh -hackers -disable_adobe -prefix /home/alex/program/cervantes/bqeReaderSDK
+./emulate.sh -hackers -disable_adobe -prefix /path/to/bqereaderSDK
 
 
 LICENSING
