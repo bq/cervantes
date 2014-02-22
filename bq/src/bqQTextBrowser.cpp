@@ -40,7 +40,38 @@ bqQTextBrowser::bqQTextBrowser(QWidget* parent) : QTextBrowser(parent)
     m_mouseFilter = new MouseFilter(this);
     this->installEventFilter(m_mouseFilter);
     setTappable(false);
+    setLinksAccepted(false);
 
+    QString css;
+    QFont font("Lato");
+
+    if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+    {
+        css  =  "* {"
+                "font-size: 24pt ;"
+                "font-family: 'Lato';"
+                "padding-bottom:5pt;"
+                "color:#000 !important;"
+                "}";
+
+        font.setPointSize(24);
+    }
+    else
+    {
+        css  = "* {"
+               "font-size: 19pt ;"
+               "font-family: 'Lato';"
+               "padding-bottom:3pt;"
+               "color:#000 !important;"
+                "}";
+
+        font.setPointSize(19);
+    }
+
+   // Create a QTextDocument with the defined HTML and CSS
+   m_document = new QTextDocument;
+   m_document->setDefaultStyleSheet(css);
+   m_document->setDefaultFont(font);
 }
 
 bqQTextBrowser::~bqQTextBrowser()
@@ -55,9 +86,16 @@ void bqQTextBrowser::setTappable(bool tappable)
     m_tappable = tappable;
 }
 
+void bqQTextBrowser::setLinksAccepted(bool accepted)
+{
+    qDebug() << Q_FUNC_INFO << accepted;
+    m_linkAccepted = accepted;
+}
+
 void bqQTextBrowser::handleTap(TouchEvent *event)
 {
     qDebug() << Q_FUNC_INFO <<"posiciones: " << event->pos().x() << " y: " << event->pos().y();
+
     if(!m_tappable)
         emit pressed();
 
@@ -144,19 +182,29 @@ void bqQTextBrowser::handleTap(TouchEvent *event)
 void bqQTextBrowser::customEvent(QEvent* received)
 {
     qDebug() << Q_FUNC_INFO;
+
+
     if (received->type() != MouseFilter::TOUCH_EVENT){
         qDebug() << Q_FUNC_INFO << "UNEXPECTED TYPE";
         QWidget::customEvent(received);
         return;
     }
 
-    TouchEvent *event = static_cast<TouchEvent*>(received);
 
+    TouchEvent *event = static_cast<TouchEvent*>(received);
     switch(event->touchType()){
 
     case MouseFilter::TAP:
         qDebug() << Q_FUNC_INFO << "TAP";
-        handleTap(event);
+
+        if(m_linkAccepted)
+        {
+            if(!anchorAt(event->pos()).isEmpty())
+                handleLinkPressed(anchorAt(event->pos()));
+            return;
+        }else
+            handleTap(event);
+
         break;
 
     case MouseFilter::LONGPRESS_START:{
@@ -191,27 +239,28 @@ void bqQTextBrowser::applyDocument( const QString& html )
     finalHtml.replace("font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 0.7em; margin: 6px 0pt; padding: 0pt; text-align: left;","");
     finalHtml.replace("font-family: Verdana,Arial,Helvetica,sans-serif; font-size: 0.7em; margin: 6px 0pt; padding: 0pt; text-align: left;","");
 
-    QString css;
-    if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
-    {
-        css  = "* {"
-           "font-size: 24pt ;"
-           "font-family: 'Lato';"
-           "padding-bottom:5pt;"
-           "color:#000 !important;"
-           "}";
-    }else{
-        css  = "* {"
-           "font-size: 19pt ;"
-           "font-family: 'Lato';"
-           "padding-bottom:3pt;"
-           "color:#000 !important;"
-           "}";
-    }
+    m_document->setHtml(finalHtml); // binds the HTML to the QTextDocument
+    setDocument(m_document);
+}
 
-   // Create a QTextDocument with the defined HTML and CSS
-   QTextDocument *doc = new QTextDocument;
-   doc->setDefaultStyleSheet(css);
-   doc->setHtml(finalHtml); // binds the HTML to the QTextDocument
-   setDocument(doc);
+void bqQTextBrowser::applyWikipediaInfoStyle( QString& content )
+{
+    qDebug() << Q_FUNC_INFO;
+    m_document->setHtml(content); // binds the HTML to the QTextDocument
+    setDocument(m_document);
+
+}
+
+void bqQTextBrowser::handleLinkPressed(const QUrl & url)
+{
+    QString tokenToSearch = QUrl::fromPercentEncoding(url.toString().toUtf8());
+    qDebug() << Q_FUNC_INFO << tokenToSearch;
+
+    emit linkPressed(tokenToSearch);
+}
+
+void bqQTextBrowser::disableInteractionFlags()
+{
+    qDebug() << Q_FUNC_INFO;
+    setTextInteractionFlags(Qt::NoTextInteraction);
 }

@@ -99,7 +99,7 @@
     <message>
         <location filename="../ui/Settings.ui" line="87"/>
         <source>Datos de usuario</source>
-        <translation>Dados de utilizador</translation>
+        <translation>Dados do utilizador</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/Settings.ui" line="115"/>
@@ -139,7 +139,7 @@
     <message>
         <location filename="../src/Settings.cpp" line="99"/>
         <source>Settings</source>
-        <translation>Ajustes</translation>
+        <translation>Definições</translation>
     </message>
 </context>
 <context>
@@ -517,7 +517,7 @@
     <message>
         <location filename="../ui/SettingsDateTimeMenu.ui" line="149"/>
         <source>Selecciona tu zona horaria</source>
-        <translation>Selecione a sua zona horária</translation>
+        <translation>Selecione o seu fuso horário</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="42"/>
@@ -649,62 +649,62 @@
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="155"/>
         <source>January</source>
-        <translation>Janeiro</translation>
+        <translation>janeiro</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="157"/>
         <source>February</source>
-        <translation>Fevereiro</translation>
+        <translation>fevereiro</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="159"/>
         <source>March</source>
-        <translation>Março</translation>
+        <translation>março</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="161"/>
         <source>April</source>
-        <translation>Abril</translation>
+        <translation>abril</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="163"/>
         <source>May</source>
-        <translation>Maio</translation>
+        <translation>maio</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="165"/>
         <source>June</source>
-        <translation>Junho</translation>
+        <translation>junho</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="167"/>
         <source>July</source>
-        <translation>Julho</translation>
+        <translation>julho</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="169"/>
         <source>August</source>
-        <translation>Agosto</translation>
+        <translation>agosto</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="171"/>
         <source>September</source>
-        <translation>Setembro</translation>
+        <translation>setembro</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="173"/>
         <source>October</source>
-        <translation>Outubro</translation>
+        <translation>outubro</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="175"/>
         <source>November</source>
-        <translation>Novembro</translation>
+        <translation>novembro</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="177"/>
         <source>December</source>
-        <translation>Dezembro</translation>
+        <translation>dezembro</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="299"/>
@@ -798,7 +798,7 @@
     <message>
         <location filename="../ui/SettingsDeviceInfo.ui" line="223"/>
         <source>Libres de </source>
-        <translation>livres sobre</translation>
+        <translation>livres de</translation>
     </message>
     <message>
         <location filename="../ui/SettingsDeviceInfo.ui" line="230"/>
@@ -820,7 +820,7 @@
     <message>
         <location filename="../ui/SettingsDeviceInfo.ui" line="329"/>
         <source>libres de</source>
-        <translation>livres sobre</translation>
+        <translation>livres de</translation>
     </message>
     <message>
         <location filename="../ui/SettingsDeviceInfo.ui" line="283"/>
@@ -1306,7 +1306,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/SettingsPageScreenSaver.ui" line="114"/>
         <source>Selecciona que mostrar en su salvapantallas</source>
-        <translation>Selecione a imagen a mostrar como protetor de ecrã</translation>
+        <translation>Selecione a imagem a mostrar como protetor de ecrã</translation>
     </message>
     <message>
         <location filename="../ui/SettingsPageScreenSaver.ui" line="166"/>
@@ -1316,7 +1316,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/SettingsPageScreenSaver.ui" line="197"/>
         <source>Imagenes almacenadas en &quot;screensaver-images&quot;</source>
-        <translation>Imagens armazenadas em &quot;screensaver-images&quot;</translation>
+        <translation>Imagem guardada em &quot;screensaver-images&quot;</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsPageScreenSaver.ui" line="228"/>
@@ -1362,7 +1362,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../ui/SettingsQuickSettingsPopup.ui" line="83"/>
         <source>Ajustes rápidos</source>
-        <translation>Ajustes rápidos</translation>
+        <translation>Definições rápidas</translation>
     </message>
     <message>
         <location filename="../ui/SettingsQuickSettingsPopup.ui" line="160"/>
@@ -1485,7 +1485,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../ui/SettingsReaderPageTurning.ui" line="897"/>
         <source>Número de pasos de página para hacer refresco</source>
-        <translation>Seleccionar a frequência de actualização ao passar página</translation>
+        <translation>Selecionar a frequência de atualização ao passar página</translation>
     </message>
     <message>
         <location filename="../ui/SettingsReaderPageTurning.ui" line="935"/>
@@ -1567,56 +1567,63 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/SettingsReaderProgressBar.ui" line="366"/>
-        <source>est. Nam sit amet neque metus. Sed pretium sem et mauris convallis sit amet elementum lectus facilisis. Cum sociis natoque penatibus et magnis dis partu rient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum eleifend ullamcorper. Ut sed nisi vel est ul lamcorper facilisis non ac augue. Suspendisse eu arcu quam. Donec porta
-eleifend massa, sed hendrerit arcu rhoncus vitae.
-Curabitur rhoncus arcu id enim pharetra luctus. Duis a tincidunt risus. Morbi risus est, luctus consequat ultricies vulputate, laoreet quis nunc. Nunc malesuada consequat urna lacinia lobortis. Nullam porta feugiat tellus. Quis que volutpat, dui sed dictum posuere, dui neque varius enim, non vehicula mauris justo ac lectus. In hendrerit nunc sit amet dui ultricies blandit.</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;est. Nam sit amet neque metus. Sed pretium sem et mauris convallis sit amet elementum lectus facilisis. Cum sociis natoque penatibus et magnis dis partu rient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum eleifend ullamcorper. Ut sed nisi vel est ul lamcorper facilisis non ac augue.  &lt;/p&gt;&lt;p&gt;Curabitur rhoncus arcu id enim pharetra luctus. Duis a tincidunt risus. Morbi risus est, luctus consequat ultricies vulputate, laoreet quis nunc. Nunc malesuada consequat urna lacinia lobortis. Nullam porta feugiat tellus. Quis que volutpat, dui sed dictum posuere.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="444"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="565"/>
+        <source>Mostrar barra de progreso de lectura</source>
+        <translation>Mostrar barra de progresso de leitura</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="593"/>
+        <source>Mostrar marcas de capítulo</source>
+        <translation>Mostrar marcas de capítulo</translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="442"/>
         <source>Porcentaje 
 de lectura</source>
         <translation>Percentagem
 de leitura</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="479"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="477"/>
         <source>Páginas leídas /
 Páginas totales</source>
         <translation>Páginas lidas /
 Páginas totais</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="511"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="509"/>
         <source>Págs. para  
 fin de capítulo</source>
-        <translation>Pág. para o
+        <translation>Págs. para o
 fim do capítulo</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="555"/>
         <source>Barra de progreso de lectura</source>
-        <translation>Barra de progresso de leitura</translation>
+        <translation type="obsolete">Barra de progresso da leitura</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="626"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="692"/>
         <source>14%</source>
         <translation>14% </translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="639"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="705"/>
         <source>leído</source>
         <translation>lido</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="665"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="731"/>
         <source>2/268</source>
         <translation>2/268 </translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="678"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="744"/>
         <source>12 págs. fin de capítulo</source>
-        <translation>12 pág. fim cap.</translation>
+        <translation>12 págs. fim cap.</translation>
     </message>
     <message>
         <source>Progreso de lectura</source>
@@ -1698,7 +1705,7 @@ fim do capítulo</translation>
     <message utf8="true">
         <location filename="../ui/SettingsSleepTimeMenu.ui" line="111"/>
         <source>Selecciona el tiempo  que transcurrirá hasta que tu dispositivo entre automáticamente en reposo</source>
-        <translation>Selecione o tempo  que o seu dispositivo demorará em entrar automaticamente em repouso</translation>
+        <translation>Selecione o tempo  que o seu dispositivo demorará até entrar automaticamente em repouso</translation>
     </message>
     <message>
         <location filename="../ui/SettingsSleepTimeMenu.ui" line="166"/>
@@ -2184,7 +2191,7 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
     <message>
         <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="49"/>
         <source>Wait while searching available updates</source>
-        <translation>Aguarde enquanto se procuram actualizações disponíveis</translation>
+        <translation>Aguarde enquanto se procuram atualizações disponíveis</translation>
     </message>
     <message>
         <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="40"/>
@@ -2203,12 +2210,12 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
         <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="129"/>
         <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="136"/>
         <source>There aren&apos;t new updates available</source>
-        <translation>Não há novas actualizações disponíveis</translation>
+        <translation>Não há novas atualizações disponíveis</translation>
     </message>
     <message>
         <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="143"/>
         <source>There are a new version available:</source>
-        <translation>Há uma nova actualização disponível</translation>
+        <translation>Há uma nova atualização disponível:</translation>
     </message>
     <message>
         <location filename="../src/SettingsUpdateDeviceAuto.cpp" line="182"/>
@@ -2366,12 +2373,12 @@ Reiniciar para aplicar as alterações</translation>
         <location filename="../ui/SettingsWiFiDetail.ui" line="587"/>
         <location filename="../src/SettingsWiFiDetail.cpp" line="95"/>
         <source>Disconnect</source>
-        <translation>Desconetar</translation>
+        <translation>Desligar</translation>
     </message>
     <message>
         <location filename="../src/SettingsWiFiDetail.cpp" line="97"/>
         <source>Connect</source>
-        <translation>Conetar</translation>
+        <translation>Conectar</translation>
     </message>
     <message>
         <location filename="../src/SettingsWiFiDetail.cpp" line="161"/>
@@ -2404,7 +2411,7 @@ Reiniciar para aplicar as alterações</translation>
     <message utf8="true">
         <location filename="../ui/SettingsWiFiList.ui" line="78"/>
         <source>Conexión WiFi</source>
-        <translation>Conexão Wi-Fi</translation>
+        <translation>Ligação Wi-Fi</translation>
     </message>
     <message>
         <location filename="../ui/SettingsWiFiList.ui" line="147"/>
@@ -2414,7 +2421,7 @@ Reiniciar para aplicar as alterações</translation>
     <message>
         <location filename="../ui/SettingsWiFiList.ui" line="228"/>
         <source>No estas conectado a ninguna red</source>
-        <translation>Não está conetado a nenhuma rede</translation>
+        <translation>Não está ligado a nenhuma rede</translation>
     </message>
     <message>
         <location filename="../ui/SettingsWiFiList.ui" line="241"/>
@@ -2435,12 +2442,12 @@ Reiniciar para aplicar as alterações</translation>
         <location filename="../src/SettingsWiFiList.cpp" line="202"/>
         <location filename="../src/SettingsWiFiList.cpp" line="203"/>
         <source>Conectando...</source>
-        <translation>Conexão em curso...</translation>
+        <translation>Ligação em curso...</translation>
     </message>
     <message>
         <location filename="../src/SettingsWiFiList.cpp" line="210"/>
         <source>Desconectando...</source>
-        <translation>Desconexão em curso...</translation>
+        <translation>Desligação em curso...</translation>
     </message>
     <message>
         <location filename="../src/SettingsWiFiList.cpp" line="214"/>
@@ -2477,7 +2484,7 @@ Reiniciar para aplicar as alterações</translation>
         <location filename="../src/SettingsWiFiList.cpp" line="321"/>
         <location filename="../src/SettingsWiFiList.cpp" line="701"/>
         <source>Connected</source>
-        <translation>Conetado</translation>
+        <translation>Ligado</translation>
     </message>
     <message>
         <location filename="../src/SettingsWiFiList.cpp" line="327"/>
@@ -2489,13 +2496,13 @@ Reiniciar para aplicar as alterações</translation>
         <location filename="../src/SettingsWiFiList.cpp" line="331"/>
         <location filename="../src/SettingsWiFiList.cpp" line="703"/>
         <source>Disconnected</source>
-        <translation>Desconetado</translation>
+        <translation>Desligado</translation>
     </message>
     <message>
         <location filename="../src/SettingsWiFiList.cpp" line="337"/>
         <location filename="../src/SettingsWiFiList.cpp" line="795"/>
         <source>Connecting...</source>
-        <translation>Conexão em curso...</translation>
+        <translation>Ligação em curso...</translation>
     </message>
     <message>
         <location filename="../src/SettingsWiFiList.cpp" line="422"/>
@@ -2509,7 +2516,7 @@ Reiniciar para aplicar as alterações</translation>
         <location filename="../src/SettingsWiFiList.cpp" line="438"/>
         <location filename="../src/SettingsWiFiList.cpp" line="462"/>
         <source>Connecting to...</source>
-        <translation>A conetar com...</translation>
+        <translation>A conectar com...</translation>
     </message>
     <message>
         <location filename="../src/SettingsWiFiList.cpp" line="535"/>
@@ -2548,7 +2555,7 @@ Reiniciar para aplicar as alterações</translation>
     <message>
         <location filename="../src/SettingsWiFiListItem.cpp" line="64"/>
         <source>Connecting... </source>
-        <translation>Conexão em curso...</translation>
+        <translation>Ligação em curso...</translation>
     </message>
 </context>
 <context>
@@ -2561,7 +2568,7 @@ Reiniciar para aplicar as alterações</translation>
     <message>
         <location filename="../ui/SettingsWiFiPasswordMenu.ui" line="56"/>
         <source>Conectando a...</source>
-        <translation>A conetar com...</translation>
+        <translation>Ligação com...</translation>
     </message>
     <message>
         <location filename="../ui/SettingsWiFiPasswordMenu.ui" line="66"/>
@@ -2591,7 +2598,7 @@ Reiniciar para aplicar as alterações</translation>
     <message>
         <location filename="../src/SettingsWiFiPasswordMenu.cpp" line="84"/>
         <source>Connect</source>
-        <translation>Conetar</translation>
+        <translation>Ligar</translation>
     </message>
 </context>
 </TS>

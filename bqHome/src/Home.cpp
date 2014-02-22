@@ -116,7 +116,7 @@ void Home::activateForm(){
         QBookApp::instance()->getStatusBar()->setMenuTitle(tr("Inicio"));
         setupHome();
         homeBooksListOptions->setVisible(false);
-        QTimer::singleShot(100, QBookApp::instance(),SLOT(checkSubscriptionExpired()));
+        QTimer::singleShot(100, QBookApp::instance(),SLOT(syncSubcriptionInfo()));
 }
 
 void Home::paintEvent (QPaintEvent *)

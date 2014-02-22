@@ -99,6 +99,10 @@
         <file alias="res/back-def.png">res/1024/back-def.png</file>
         <file alias="res/pre_landscape_btn.png">res/1024/pre_landscape_btn.png</file>
         <file alias="res/nex_landscape_btn.png">res/1024/nex_landscape_btn.png</file>
+        <file alias="res/wikipedia.png">res/1024/wikipedia.png</file>
         <file alias="res/plus-ico.png">res/1024/plus-ico.png</file>
+        <file alias="res/wikipedia-btn.png">res/1024/wikipedia-btn.png</file>
+        <file alias="res/chapter-progressbar.png">res/1024/chapter-progressbar.png</file>
+        <file alias="res/wikipedia-adaptative.png">res/1024/wikipedia-adaptative.png</file>
     </qresource>
 </RCC>

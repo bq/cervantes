@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Enter text to search here...</source>
-        <translation>Sartu bilatzeko testua...</translation>
+        <translation>Sartu bilatzeko testua</translation>
     </message>
     <message>
         <source>Close</source>

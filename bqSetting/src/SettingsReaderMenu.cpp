@@ -67,6 +67,7 @@ void SettingsReaderMenu::showReaderPageTurning()
 void SettingsReaderMenu::showReaderProgressBar()
 {
     qDebug() << Q_FUNC_INFO;
+    settingsReaderProgressBar->setWithChapterLinesBtn();
     emit showNewChild(settingsReaderProgressBar);
 }
 

@@ -140,44 +140,48 @@ void LibraryIconGridViewer::runGetThumbnail()
 {
     qDebug() << Q_FUNC_INFO << "Begin... " << this;
 
-    if(!m_isThumbnailGenerationStopped)
+    if(m_isThumbnailGenerationStopped || !m_futureThumbnail.isFinished())
     {
-        int itemsPerPage = getItemsPerPage();
-        LibraryGridViewerItem* books[itemsPerPage];
-        getBookItems(books);
+        qDebug() << Q_FUNC_INFO << "X STOPPED X " << this;
+        return;
+    }
 
-        for(int i = 0; i < itemsPerPage; ++i)
-        {
-            const QString& path = books[i]->getPath();
-            Model* model = QBookApp::instance()->getModel();
-            const BookInfo* book = model->getBookInfo(path);
-            if(!book)
-                continue;
+    int itemsPerPage = getItemsPerPage();
+    LibraryGridViewerItem* books[itemsPerPage];
+    getBookItems(books);
+
+    for(int i = 0; i < itemsPerPage; ++i)
+    {
+        const QString& path = books[i]->getPath();
+        Model* model = QBookApp::instance()->getModel();
+        const BookInfo* book = model->getBookInfo(path);
+        if(!book)
+            continue;
 #ifndef DISABLE_ADOBE_SDK
-            if(!AdobeDRM::getInstance()->isLinked() && book->isDRMFile)
-                continue;
+        if(!AdobeDRM::getInstance()->isLinked() && book->isDRMFile)
+            continue;
 #endif
 
-            QFileInfo thumbnailFile(book->thumbnail);
+        QFileInfo thumbnailFile(book->thumbnail);
 
-            bool coverToDownscale = !thumbnailFile.completeBaseName().endsWith(THUMBNAIL_SUFIX)
-                                    && !book->thumbnail.endsWith(NO_COVER_RESOURCE)
-                                    && !book->path.contains(Storage::getInstance()->getPrivatePartition()->getMountPoint())
-                                    && !book->corrupted;
+        bool coverToDownscale = !thumbnailFile.completeBaseName().endsWith(THUMBNAIL_SUFIX)
+                                && !book->thumbnail.endsWith(NO_COVER_RESOURCE)
+                                && !book->path.contains(Storage::getInstance()->getPrivatePartition()->getMountPoint())
+                                && !book->corrupted;
 
-            if(book->thumbnail.isEmpty() || coverToDownscale)
+        if(book->thumbnail.isEmpty() || coverToDownscale)
+        {
+            qDebug()<< Q_FUNC_INFO << "Launching runCoverPage" << this;
+
+            if(!m_isThumbnailGenerationStopped && m_futureThumbnail.isFinished())
             {
-                qDebug()<< Q_FUNC_INFO << "Launching runCoverPage" << this;
-
-                if(!m_isThumbnailGenerationStopped)
-                {
-                    m_powerLock->activate(); //Block sleep
-                    m_futureThumbnail = QtConcurrent::run(this, &LibraryIconGridViewer::runCoverPage, this, book->path, (LibraryIconGridViewerItem*)books[i], m_library->m_page);
-                }
-                break;
+                m_powerLock->activate(); //Block sleep
+                m_futureThumbnail = QtConcurrent::run(this, &LibraryIconGridViewer::runCoverPage, this, book->path, (LibraryIconGridViewerItem*)books[i], m_library->m_page);
             }
+            break;
         }
     }
+
     qDebug()<< Q_FUNC_INFO << "End... " << this;
 }
 
@@ -201,6 +205,7 @@ void LibraryIconGridViewer::runCoverPage( QObject* receiver, const QString& book
     bool gotCover = MetaDataExtractor::extractCover(bookInfoPath, coverPath);
     if (!gotCover)
     {
+
         if(!m_isThumbnailGenerationStopped)
         {
             coverPath = QDocView::coverPage(bookInfoPath, coverPath);
@@ -318,5 +323,7 @@ void LibraryIconGridViewer::resumeThumbnailGeneration()
 
 void LibraryIconGridViewer::waitForThumbnailRunner()
 {
+    qDebug() << Q_FUNC_INFO << "WAITING FOR THUMBNAIL";
     m_futureThumbnail.waitForFinished();
+    qDebug() << Q_FUNC_INFO << "THUMBNAIL CREATED";
 }

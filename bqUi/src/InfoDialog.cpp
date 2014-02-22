@@ -150,3 +150,9 @@ void InfoDialog::hideDialog()
         hide();
         QBookApp::instance()->shuttingDown();
 }
+
+void InfoDialog::rejectDialog()
+{
+        qDebug() << Q_FUNC_INFO;
+        reject();
+}

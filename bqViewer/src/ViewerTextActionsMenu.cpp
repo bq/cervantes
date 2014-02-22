@@ -38,6 +38,7 @@ ViewerTextActionsMenu::ViewerTextActionsMenu(QWidget *parent) : QWidget(parent)
     connect(searchActionBtn,        SIGNAL(pressed()), SIGNAL(searchActionClicked()));
     connect(deleteActionBtn,        SIGNAL(pressed()), SIGNAL(deleteActionClicked()));
     connect(defineActionBtn,        SIGNAL(pressed()), SIGNAL(dictioActionClicked()));
+    connect(wikipediaMenuBtn,       SIGNAL(clicked()), this, SIGNAL(wikipediaClicked()));
 }
 
 void ViewerTextActionsMenu::setup( bool newMark, bool oneWord, const QPoint& hiliPos, const QRect& bbox, const int delimiterHeight )

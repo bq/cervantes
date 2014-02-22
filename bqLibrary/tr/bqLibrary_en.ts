@@ -20,7 +20,7 @@
     <message>
         <location filename="../ui/Library.ui" line="93"/>
         <source>Enter text to search here...</source>
-        <translation>Enter search text here...</translation>
+        <translation>Enter search text here</translation>
     </message>
     <message>
         <location filename="../ui/Library.ui" line="156"/>

@@ -70,6 +70,8 @@ BookInfo::BookInfo(const QString& _path)
     , totalReadingTime(0)
     , percentageList("")
     , readingStatus(NONE)
+    , size(0)
+    , language("")
 {
     m_cssFileList.clear();
     m_collections.clear();
@@ -114,6 +116,8 @@ BookInfo::BookInfo(const BookInfo& other)
     , totalReadingTime(other.totalReadingTime)
     , percentageList(other.percentageList)
     , readingStatus(other.readingStatus)
+    , size(other.size)
+    , language(other.language)
 {
     QHash<QString, BookLocation*>::const_iterator it = other.m_locations.constBegin();
     QHash<QString, BookLocation*>::const_iterator itEnd = other.m_locations.constEnd();
@@ -357,6 +361,11 @@ int BookInfo::update(const BookInfo *other) {
         updateType |= UPDATE_METADATA;
     }
 
+    if (size != other->size) {
+        size = other->size;
+        updateType |= UPDATE_METADATA;
+    }
+
     downloadTime = other->downloadTime;
 
     if (markCount != other->markCount) {
@@ -431,6 +440,7 @@ int BookInfo::update(const BookInfo *other) {
     syncDate = other->syncDate;
     storePrice = other->storePrice;
     format = other->format;
+    language = other->language;
 
     if (m_type != other->m_type) {
         m_type = other->m_type;
@@ -467,6 +477,90 @@ int BookInfo::update(const BookInfo *other) {
         setLocations(other->m_locations);
     }
 
+    return updateType;
+}
+
+int BookInfo::updateNewData( const BookInfo *other) {
+
+    qDebug() << Q_FUNC_INFO;
+    int updateType = UPDATE_NONE;
+
+    if(this == other) return updateType;
+
+    dirty = true;
+
+    if (title != other->title) {
+        title = other->title;
+        updateType |= UPDATE_METADATA;
+    }
+
+    if (isbn != other->isbn) {
+        isbn = other->isbn;
+        updateType |= UPDATE_METADATA;
+    }
+
+    if (author != other->author) {
+        author = other->author;
+        updateType |= UPDATE_METADATA;
+    }
+
+    if (thumbnail != other->thumbnail) {
+        thumbnail = other->thumbnail;
+        updateType |= UPDATE_METADATA;
+    }
+
+    if (coverUrl != other->coverUrl) {
+        coverUrl = other->coverUrl;
+        updateType |= UPDATE_METADATA;
+    }
+
+    if (publishTime != other->publishTime) {
+        publishTime = other->publishTime;
+        updateType |= UPDATE_METADATA;
+    }
+
+    if (pageCount != other->pageCount) {
+        pageCount = other->pageCount;
+        updateType |= UPDATE_READING_METADATA;
+    }
+
+    publisher = other->publisher;
+    synopsis = other->synopsis;
+    fileSize = other->fileSize;
+    syncDate = other->syncDate;
+    storePrice = other->storePrice;
+    format = other->format;
+    language = other->language;
+
+    if (m_type != other->m_type) {
+        m_type = other->m_type;
+        updateType |= UPDATE_TYPE;
+    }
+
+    if (size != other->size) {
+        size = other->size;
+        updateType |= UPDATE_METADATA;
+    }
+
+    if(isDRMFile != other->isDRMFile)
+        isDRMFile = other->isDRMFile;
+
+    qDebug() << Q_FUNC_INFO << "Colección antigua:" << m_collections << "Nuevas colecciones:" << other->m_collections;
+    m_collections = other->m_collections;
+    m_cssFileList = other->m_cssFileList;
+
+    if(other->getLocationListCount() > 0)
+    {
+        QList<const BookLocation*>::iterator it = other->getLocationList()->begin();
+        QList<const BookLocation*>::iterator itEnd = other->getLocationList()->end();
+        for(; it != itEnd; ++it)
+        {
+            BookLocation* location = new BookLocation(*(*it));
+            addLocation(location->bookmark, location);
+            location = NULL;
+            delete location;
+        }
+    }
     return updateType;
 }
 

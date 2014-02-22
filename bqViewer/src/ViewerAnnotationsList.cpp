@@ -216,6 +216,8 @@ void ViewerAnnotationsList::paint( int currentPage)
 
     hideActionsPopup();
 
+    Screen::getInstance()->queueUpdates();
+
     int size = m_locationsPaintList.size();
     int offset = currentPage * itemsPerPage;
     int itemIdx = 0;
@@ -242,6 +244,8 @@ void ViewerAnnotationsList::paint( int currentPage)
             ++itemIdx;
         }
     }
+
+    Screen::getInstance()->flushUpdates();
 }
 
 void ViewerAnnotationsList::paintEvent (QPaintEvent *)

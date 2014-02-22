@@ -48,11 +48,13 @@ public:
     void setScreenType(int type);
 
 protected:
+    void showChargingImage(QPainter*);
     void paintEvent(QPaintEvent* event);
     void closeEvent(QCloseEvent *event);
     QString getScreenSaverImgName();
     void showGeneralImage(QPainter*, const QString&);
     void showDefaultSleepImage(QPainter*);
+    bool checkAndShowBatteryWarnings(QPainter*);
 
 signals:
     void closed();
@@ -61,6 +63,8 @@ private:
     int screenType;
     QString formatsList;
     QList<QByteArray> supportedImageslist;
+    void addFooterMessage(QPainter*, QString);
+    void addBatteryLevel(QPainter*, int);
 };
 
 #endif

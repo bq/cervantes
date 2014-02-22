@@ -181,6 +181,7 @@ void LibraryPageHandler::setPage( int page )
 {
     qDebug() << Q_FUNC_INFO;
     m_strPagesText = QString(tr("%1 of %2")).arg(page).arg(m_totalPages);
+    m_currentPage = page -1;
     pagerSlider->updateSliderPosition(page-1);
     pageLabel->setText(m_strPagesText);
 }
@@ -220,7 +221,7 @@ void LibraryPageHandler::setup( int totalPages, int currentPage, bool loopable, 
     m_loopable = loopable;
     b_scrollBar = scrollBar;
     setPage(currentPage);
-    m_currentPage = 0;
+    m_currentPage = currentPage - 1;
 
     if(totalPages > 1)
     {

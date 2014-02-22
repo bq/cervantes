@@ -37,12 +37,13 @@ ViewerTextActionsPopup::ViewerTextActionsPopup(QWidget *parent) : QWidget(parent
 
     setupUi(this);
 
-    connect(createNoteBtn,      SIGNAL(clicked()), SIGNAL(createNoteClicked()));
-    connect(highlightedBtn,     SIGNAL(clicked()), SIGNAL(highlightedClicked()));
-    connect(searchBtn,          SIGNAL(clicked()), SIGNAL(searchClicked()));
+    connect(createNoteBtn,          SIGNAL(clicked()), SIGNAL(createNoteClicked()));
+    connect(highlightedBtn,         SIGNAL(clicked()), SIGNAL(highlightedClicked()));
+    connect(searchBtn,              SIGNAL(clicked()), SIGNAL(searchClicked()));
     connect(QBookApp::instance(),   SIGNAL(swipe(int)), this, SLOT(handleSwipe(int)));
     connect(definitionTextBrowser,  SIGNAL(wordClicked(const QString&, const QString&)), SIGNAL(wordToSearch(const QString&, const QString&)));
     connect(seeCompleteDefinition,  SIGNAL(clicked()), SIGNAL(completeDefinitionClicked()));
+    connect(wikipediaPopupBtn,      SIGNAL(clicked()), this, SIGNAL(wikipediaClicked()));
 
     definitionTextBrowser->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     vbar = definitionTextBrowser->verticalScrollBar();

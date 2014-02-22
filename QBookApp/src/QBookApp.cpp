@@ -62,6 +62,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "WizardWelcome.h"
 #endif
 
+#include "bqPublicServices.h"
 #include "ProgressDialog.h"
 #include "SettingsQuickSettingsPopup.h"
 #include "RTCManager.h"
@@ -109,6 +110,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define LIGHT_LONGPRESS_TIMER           1200
 #define USB_CHANGE_SUSPEND_WAIT_TIME    10 // 10 Seconds
 #define POWER_KEY_WATCHER_PERIOD        100
+#define BOOKS_LOADED_TO_SHOW_DIALOG 10
 
 #ifdef MX508
 #define STORE_CERTS_PATH	"/etc/ssl/certs/mundoreader/*.pem"
@@ -157,6 +159,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define TIME_SHOW_CRITICALBATTERY_DIALOG  30000 // Miliseconds
 #define TIME_SHOW_SUBSCRIPTION_DIALOG     60000 // Miliseconds
 #define TIME_SHOW_ACTIVATION_DIALOG       7200  // 2 hours
+#define HACKERS_UPDATE_CHECK_FILE_Q22     "/hackers_e60q22_ok"
+#define HACKERS_UPDATE_CHECK_FILE_672     "/hackers_ok"
 
 // Singleton instance
 QBookApp* QBookApp::m_spInstance = NULL;
@@ -205,6 +209,7 @@ QBookApp::QBookApp(QWidget* parent, Qt::WFlags flags)
 #ifndef HACKERS_EDITION
     , m_welcomeWizard(NULL)
     , m_pServices(NULL)
+    , m_pPublicServices(NULL)
     , m_bqDeviceKey(NULL)
     , m_webStore(NULL)
     , m_webWizard(NULL)
@@ -230,7 +235,7 @@ QBookApp::QBookApp(QWidget* parent, Qt::WFlags flags)
     , m_syncLock(NULL)
     , m_connectingNetwork(NULL)
     , m_sync(NULL)
-    , sleepScreen(NULL)
+    , m_sleepScreen(NULL)
     , bLoadWizard(false)
     , m_openDocError(false)
     , networkStartTimerFlag(false)
@@ -745,6 +750,8 @@ void QBookApp::init()
     QString deviceModel = QBook::settings().value("deviceModelName", "").toString();
     QString lang = QBook::settings().value("setting/language", QVariant("es")).toString();
 
+    m_pPublicServices = new bqPublicServices();
+
 #ifndef HACKERS_EDITION
     m_pServices = new bqDeviceServices(serialNumber, privatePartition, dataPartition, servicesUrl, shopName, deviceModel, QBOOKAPP_VERSION, lang);
     m_pServices->setServerTimestamp(m_pModel->getServerTimestamp());
@@ -863,8 +870,8 @@ void QBookApp::initViewer()
     m_viewer->setFormFlags(QBookForm::FLAG_SHARED);
     m_viewer->hide();
 
-    connect(m_viewer, SIGNAL(loadDocError()),   this,     SLOT(loadDocError()));
-    connect(m_viewer, SIGNAL(viewerConf()),     this,     SLOT(handleViewerConf()));
+    connect(m_viewer, SIGNAL(loadDocError()),                this, SLOT(loadDocError()));
+    connect(m_viewer, SIGNAL(viewerConf()),                  this, SLOT(handleViewerConf()));
     connect(m_viewer, SIGNAL(createNewCollection(const BookInfo*)), this, SLOT(createNewCollection(const BookInfo*)));
 }
 
@@ -1036,6 +1043,8 @@ void QBookApp::release()
 
     delete m_home;
     m_home = 0;
+    delete m_pPublicServices;
+    m_pPublicServices = 0;
 #ifndef HACKERS_EDITION
     delete m_pServices;
     delete m_bqDeviceKey;
@@ -1059,12 +1068,6 @@ void QBookApp::firseInit()
         bLoadWizard = true;
     }
 #endif
-}
-
-void QBookApp::requestSilentConnection()
-{
-    qDebug() << Q_FUNC_INFO;
-    requestConnection(false);
 }
 
 void QBookApp::pushTopForm(QBookForm* form)
@@ -1234,6 +1237,8 @@ void QBookApp::handleCriticalBattery()
     //batteryDialog->setText(message);
     batteryDialog->showForSpecifiedTime(TIME_SHOW_CRITICALBATTERY_DIALOG);
     delete batteryDialog;
+    if(ADConverter::getInstance()->getStatus() != ADConverter::ADC_STATUS_NO_WIRE)
+        return; // Charging. We don't need to power off.
 
     disconnect(Battery::getInstance(), SIGNAL(batteryLevelCritical()), this, SLOT(handleCriticalBattery()));
 
@@ -1431,6 +1436,8 @@ void QBookApp::handlePartitionMounted(StoragePartition *partition) {
         qDebug() << Q_FUNC_INFO << "received partitionMounted signal for device " << partition->getDevice();
 	handleRemoveableChanged(true, partition->getMountPoint());
     checkScreensaverCover();
+    if(partition->getMountPoint() == Storage::getInstance()->getPublicPartition()->getMountPoint())
+        checkBooksChanged();
 }
 
 void QBookApp::handlePartitionUmounted(StoragePartition *partition) {
@@ -1513,7 +1520,13 @@ void QBookApp::handleRemoveableChanged(bool state, const QString& path)
 
         if(Storage::getInstance()->getRemovablePartition() != NULL && path == Storage::getInstance()->getRemovablePartition()->getMountPoint()) {
             // Entry point for hackers SD check
-            QFile authFile(Storage::getInstance()->getPrivatePartition()->getMountPoint() + "/hackers_ok");
+            QString updateCheckFile;
+            if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60Q22) //Q22
+                updateCheckFile = HACKERS_UPDATE_CHECK_FILE_Q22;
+            else // 672 and A22
+                updateCheckFile = HACKERS_UPDATE_CHECK_FILE_672;
+
+            QFile authFile(Storage::getInstance()->getPrivatePartition()->getMountPoint() + updateCheckFile);
             if(authFile.exists()){ // Alredy authorised
                 InfoDialog *authorisedDialog = new InfoDialog(this);
                 authorisedDialog->setText(tr("Device already authorised for hackers firmware installation"));
@@ -1886,6 +1899,9 @@ void QBookApp::goToManual()
 void QBookApp::goToHome()
 {
     qDebug() << Q_FUNC_INFO;
+
+    emit goingHome();
+
     disconnect(this, SIGNAL(wifiConnectionCanceled()), this, SLOT(goToHome()));
     Screen::getInstance()->queueUpdates();
     hideKeyboard();
@@ -2086,7 +2102,8 @@ void QBookApp::openContent(const BookInfo* content)
 
             QTimer::singleShot(500, this, SLOT(enableUserEvents()));
 
-            setScreensaverCover(content);
+            if(!m_openDocError)
+                setScreensaverCover(content);
             openingBookLock->release();
             delete openingBookLock;
 
@@ -2604,6 +2621,8 @@ void QBookApp::handleUnknownStorage(StorageDevice *device)
 void QBookApp::synchronization(bool lazyDelete)
 {
     qDebug() << Q_FUNC_INFO << "Executing synchronization";
+
+
     disconnect(this, SIGNAL(syncHelperCreated()), this, SLOT(synchronization()));
     b_lazyDelete = lazyDelete;
 
@@ -2760,6 +2779,7 @@ void QBookApp::firstChecksAfterStartup()
 {
     checkLanguageChanged();
     checkLink();
+    checkBooksChanged();
 
     if(m_connectManager && m_connectManager->isConnected())
     {
@@ -2813,14 +2833,15 @@ void QBookApp::showSleep()
 
     Screen::getInstance()->resetQueue();
     Screen::getInstance()->queueUpdates();
-    sleepScreen = new QBookScreenSaver();
-    sleepScreen->setFixedSize(Screen::getInstance()->screenWidth(), Screen::getInstance()->screenHeight());
-    sleepScreen->setScreenType(QBookScreenSaver::SLEEP);
+    m_sleepScreen = new QBookScreenSaver();
+    m_sleepScreen->setFixedSize(Screen::getInstance()->screenWidth(), Screen::getInstance()->screenHeight());
+    m_sleepScreen->setScreenType(QBookScreenSaver::SLEEP);
 #ifdef Q_WS_QWS
-    sleepScreen->showFullScreen();
+    m_sleepScreen->showFullScreen();
 #else
-    sleepScreen->show();
+    m_sleepScreen->show();
 #endif
+    connect(PowerManager::getInstance(), SIGNAL(checkWhileSleeping()), m_sleepScreen, SLOT(repaint()));
     qApp->processEvents();
     Screen::getInstance()->refreshScreen(Screen::MODE_SAFE,FLAG_WAITFORCOMPLETION|FLAG_FULLSCREEN_UPDATE);
     Screen::getInstance()->flushUpdates();
@@ -2842,10 +2863,10 @@ void QBookApp::closeSleep()
     Screen::getInstance()->flushUpdates();
 
     Screen::getInstance()->queueUpdates();
-    if(sleepScreen){
-        sleepScreen->close();
-        delete sleepScreen;
-        sleepScreen = NULL;
+    if(m_sleepScreen){
+        m_sleepScreen->close();
+        delete m_sleepScreen;
+        m_sleepScreen = NULL;
     }
 
     Screen::getInstance()->refreshScreen(Screen::MODE_SAFE,FLAG_WAITFORCOMPLETION|FLAG_FULLSCREEN_UPDATE);
@@ -3441,7 +3462,14 @@ void QBookApp::cancelSync()
 bool QBookApp::checkSDForHackers()
 {
     qDebug() << Q_FUNC_INFO;
-    QFile authFile(Storage::getInstance()->getPrivatePartition()->getMountPoint() + "/hackers_ok");
+
+    QString updateCheckFile;
+    if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60Q22) //Q22
+        updateCheckFile = HACKERS_UPDATE_CHECK_FILE_Q22;
+    else // 672 and A22
+        updateCheckFile = HACKERS_UPDATE_CHECK_FILE_672;
+
+    QFile authFile(Storage::getInstance()->getPrivatePartition()->getMountPoint() + updateCheckFile);
     if(authFile.exists())
         return false;
     StoragePartition *sd = Storage::getInstance()->getRemovablePartition();
@@ -3543,6 +3571,12 @@ void QBookApp::requestHackersInstallation()
     qDebug() << Q_FUNC_INFO;
     disconnect(m_connectManager, SIGNAL(connected()), this, SLOT(requestHackersInstallation()));
 
+    QString updateCheckFile;
+    if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60Q22) //Q22
+        updateCheckFile = HACKERS_UPDATE_CHECK_FILE_Q22;
+    else // 672 and A22
+        updateCheckFile = HACKERS_UPDATE_CHECK_FILE_672;
+
     QString auth = m_pServices->hackersInstallation();
     if (auth.isEmpty()) {
         qDebug() << Q_FUNC_INFO << "Error with hackers installation auth: " << auth;
@@ -3562,7 +3596,7 @@ void QBookApp::requestHackersInstallation()
         delete erroDialog;
         return;
     }
-    QFile authFile(Storage::getInstance()->getPrivatePartition()->getMountPoint() + "/hackers_ok");
+    QFile authFile(Storage::getInstance()->getPrivatePartition()->getMountPoint() + updateCheckFile);
     authFile.open(QIODevice::WriteOnly | QIODevice::Text);
     authFile.write("ok");
     authFile.close();
@@ -4140,6 +4174,26 @@ void QBookApp::checkTrialTimePeriod()
     }
 }
 
+void QBookApp::syncSubcriptionInfo()
+{
+
+        qDebug() << Q_FUNC_INFO;
+
+        if(ConnectionManager::getInstance()->isConnected())
+        {
+            checkUserSubscription();
+        }
+        else if(!ConnectionManager::getInstance()->isOffline()){
+    #ifndef FAKE_WIFI
+            resumeWifi();
+            bool connected = waitForConnection();
+            if(connected)
+                checkUserSubscription();
+    #endif
+        }
+        checkSubscriptionExpired();
+}
+
 void QBookApp::checkSubscriptionExpired()
 {
     QDateTime expiredDate = QDateTime::fromString(QBook::settings().value("subscription/subscriptionEndDate").toString(), Qt::ISODate);
@@ -4415,3 +4469,54 @@ void QBookApp::createNewCollection(const BookInfo* bookToAdd)
     m_library->setFromViewer(true);
     m_library->createNewCollection(bookToAdd);
 }
+
+void QBookApp::connectConnectionManagerSignals()
+{
+    qDebug() << Q_FUNC_INFO;
+    connect(m_connectManager, SIGNAL(connected()), this, SLOT(releaseAutoconnectPowerLock()), Qt::DirectConnection);
+    connect(m_connectManager, SIGNAL(connected()), this, SLOT(activateConnectedPowerLock()));
+    connect(m_connectManager, SIGNAL(connected()), this, SLOT(finishedResumingWifi()));
+    connect(m_connectManager, SIGNAL(connected()), this, SLOT(setWifiStatusAsConnected()));
+    connect(m_connectManager, SIGNAL(connected()), this, SLOT(askForActivationDevice()), Qt::UniqueConnection);
+    connect(m_connectManager, SIGNAL(connected()), this, SLOT(synchronization()), Qt::UniqueConnection);
+    connect(m_connectManager, SIGNAL(connected()), this, SLOT(checkNewDictionaries()), Qt::UniqueConnection);
+    connect(m_connectManager, SIGNAL(connected()), this, SLOT(checkFwVersion()));
+}
+
+void QBookApp::disconnectConnectionManagerSignals()
+{
+    qDebug() << Q_FUNC_INFO;
+    disconnect(m_connectManager, SIGNAL(connected()), this, SLOT(releaseAutoconnectPowerLock()));
+    disconnect(m_connectManager, SIGNAL(connected()), this, SLOT(activateConnectedPowerLock()));
+    disconnect(m_connectManager, SIGNAL(connected()), this, SLOT(finishedResumingWifi()));
+    disconnect(m_connectManager, SIGNAL(connected()), this, SLOT(setWifiStatusAsConnected()));
+    disconnect(m_connectManager, SIGNAL(connected()), this, SLOT(askForActivationDevice()));
+    disconnect(m_connectManager, SIGNAL(connected()), this, SLOT(synchronization()));
+    disconnect(m_connectManager, SIGNAL(connected()), this, SLOT(checkNewDictionaries()));
+    disconnect(m_connectManager, SIGNAL(connected()), this, SLOT(checkFwVersion()));
+}
+
+void QBookApp::checkBooksChanged()
+{
+    qDebug() << Q_FUNC_INFO;
+    QList<const BookInfo*> m_books;
+    m_books.clear();
+    getModel()->getBooksInPath(m_books, Storage::getInstance()->getPublicPartition()->getMountPoint());
+    if(Storage::getInstance()->getRemovablePartition() && Storage::getInstance()->getRemovablePartition()->isMounted())
+        getModel()->getBooksInPath(m_books, Storage::getInstance()->getRemovablePartition()->getMountPoint());
+
+    QList<const BookInfo*>::const_iterator it = m_books.constBegin();
+    QList<const BookInfo*>::const_iterator itEnd = m_books.constEnd();
+    for(; it != itEnd; ++it)
+    {
+        BookInfo* book = new BookInfo (*(*it));
+        QFileInfo bookFile(book->path);
+        bookFile.refresh();
+        if(book->size != bookFile.size())
+        {
+            QFile::remove(book->thumbnail);
+            getModel()->loadDefaultInfo(book->path);
+        }
+    }
+}
+

@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define POWERMANAGER_TIME_AUTOSLEEPSECS     600     // seconds, default auto-sleep value
 #define POWERMANAGER_TIME_POWEROFFSECS      259200  // seconds, default auto-poweroff value
 #define POWERMANAGER_SLEEP_WAKEUP_PERIOD    7200    // seconds, periodic wake up in sleep
+#define POWERMANAGER_PLUGGED_WAKEUP_PERIOD  300     // seconds, periodic wake up in sleep
 #define POWERMANAGER_PWROFF_LONGPRESS       3000    // miliseconds, duration to poweroff with key
 #define POWERMANAGER_SLEEP_MAX_REATTEMPTS   5       // reattempts, number of reattempts when faulty sleep
 #define MAX_TIME_RTC_REATTS                 5000    // ms, maximum time reattempting to set time after sleep

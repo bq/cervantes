@@ -37,16 +37,27 @@ class bqQTextBrowser: public QTextBrowser
 
         void                        applyDocument                           (const QString& html);
         void                        setTappable                             (bool);
+        void                        setLinksAccepted                        (bool);
+        void                        applyWikipediaInfoStyle                 ( QString& );
 
     signals:
         void                        wordClicked                             ( const QString& word, const QString& context);
+        void                        linkPressed                             ( const QString& );
         void                        pressed                                 ();
 
     protected:
-        MouseFilter*                m_mouseFilter;
         virtual void                customEvent                             (QEvent*);
         void                        handleTap                               (TouchEvent*);
+
+
+        MouseFilter*                m_mouseFilter;
         bool                        m_tappable;
+        bool                        m_linkAccepted;
+        QTextDocument*              m_document;
+
+protected slots:
+        void                        handleLinkPressed                             (const QUrl & url);
+        void                        disableInteractionFlags                 ();
 };
 
 #endif // BQQTEXTBROWSER_H

@@ -29,6 +29,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <Fb2MetaDataExtractor.h>
 #include <MobiMetaDataExtractor.h>
 
+#define FILE_MAX_SIZE 31457280 // 30 MB
 
 bool MetaDataExtractor::extractCover(const QString& filename, QString& coverPath)
 {
@@ -46,9 +47,10 @@ bool MetaDataExtractor::extractCover(const QString& filename, QString& coverPath
     else return false;
 }
 
-bool MetaDataExtractor::getMetaData( const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, QString& format, bool& isDRMBook)
+bool MetaDataExtractor::getMetaData( const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, QString& format, bool& isDRMBook, QString& collection, QString& language)
 {
     QFileInfo info = QFileInfo(filename);
+    bool result = false;
 
 	if (!info.isReadable()) {
         qDebug() << Q_FUNC_INFO << "Cannot read " << filename;
@@ -59,18 +61,22 @@ bool MetaDataExtractor::getMetaData( const QString& filename, QString& title, QS
 
     if (format == "pdf")
     {
-        return PdfMetaDataExtractor::getMetaData(filename, title, author, publisher, date, description);
+        result = PdfMetaDataExtractor::getMetaData(filename, title, author, publisher, date, description, language);
     }
     else if (info.suffix().toLower() == "epub")
     {
-        return EpubMetaDataExtractor::getMetaData(filename, title, author, publisher, date, description, isDRMBook);
+        collection = EpubMetaDataExtractor::getCollection(filename);
+        result = EpubMetaDataExtractor::getMetaData(filename, title, author, publisher, date, description, isDRMBook, language);
     }
-    else if (info.suffix().toLower() == "fb2")
+    else if (info.suffix().toLower() == "fb2" && info.size() < FILE_MAX_SIZE)
     {
-        return Fb2MetaDataExtractor::getMetaData(filename, title, author, publisher, date, description, isDRMBook);
+        collection = Fb2MetaDataExtractor::getCollection(filename);
+        result = Fb2MetaDataExtractor::getMetaData(filename, title, author, publisher, date, description, isDRMBook, language);
     }
-    else if (  info.suffix().toLower() == "mobi")
-        return MobiMetaDataExtractor::getMetaData(filename, title, author, publisher, date, description, isDRMBook);
+    else if (  info.suffix().toLower() == "mobi" && info.size() < FILE_MAX_SIZE)
+    {
+        result = MobiMetaDataExtractor::getMetaData(filename, title, author, publisher, date, description, isDRMBook, language);
+    }
     else if (  info.suffix().toLower() == "doc"
             || info.suffix().toLower() == "chm"
             || info.suffix().toLower() == "txt"
@@ -78,10 +84,13 @@ bool MetaDataExtractor::getMetaData( const QString& filename, QString& title, QS
             || info.suffix().toLower() == "html")
     {
         title = QFileInfo(filename).baseName();
-        return true;
+        result = true;
     }
 
-	return false;
+    if(language.isEmpty())
+        language = UNDEFINED_LANGUAGE;
+
+    return result;
 }
 
 QStringList MetaDataExtractor::extractCSS(const QString& filename)
@@ -97,4 +106,36 @@ QStringList MetaDataExtractor::extractCSS(const QString& filename)
         return EpubMetaDataExtractor::extractCSS(filename);
     }
     return QStringList();
+}
+
+QString MetaDataExtractor::getLanguage(const QString &filename)
+{
+    qDebug() << Q_FUNC_INFO << filename;
+
+    QFileInfo info = QFileInfo(filename);
+    QString format = info.suffix().toLower();
+    QString language;
+
+    // eBook language only applicable to some formats
+    if (format == "epub" ||
+        format == "fb2"  ||
+        format == "mobi" )
+    {
+        QString dummy;
+        QDateTime dummyDate;
+        bool dummyBool;
+        getMetaData(filename,dummy,dummy,dummy,dummyDate,dummy,dummy,dummyBool,dummy,language);
+
+        if(language.isEmpty())
+            language = UNDEFINED_LANGUAGE;
+    }
+    // format not supporting language metadata
+    else
+    {
+        language = UNDEFINED_LANGUAGE;
+    }
+
+    qDebug() << Q_FUNC_INFO << language;
+
+    return language;
 }

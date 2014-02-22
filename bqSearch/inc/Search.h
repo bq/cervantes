@@ -105,7 +105,6 @@ private:
     QFutureWatcher<void>                m_futureWatcher;
     QString                             qs_lastSearch;
     bool                                m_abortSearch;
-    bool                                b_searchDirty;
     QList<const QFileInfo*>             m_files;
     QList<const QFileInfo*>             m_dirs;
     QList<const BookInfo*>              m_books;

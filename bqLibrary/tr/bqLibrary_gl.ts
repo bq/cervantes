@@ -16,7 +16,7 @@
     <message>
         <location filename="../ui/Library.ui" line="93"/>
         <source>Enter text to search here...</source>
-        <translation>Introduce aquí o texto a buscar...</translation>
+        <translation>Introduce aquí o texto a buscar</translation>
     </message>
     <message>
         <location filename="../ui/Library.ui" line="156"/>

@@ -27,7 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 class PdfMetaDataExtractor
 {
 public:
-    static bool getMetaData(const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description);
+    static bool getMetaData(const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, QString& language);
 };
 
 #endif //PDFMETADATAEXTRACTOR_H

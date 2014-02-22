@@ -140,6 +140,7 @@ public:
 
     QList<const BookInfo*>              m_books;
     QList<const BookInfo*>              m_searchBooks;
+    QList<const BookInfo*>              m_browserBooks;
     QList<const QFileInfo*>             m_files;
     QList<QString>                      m_images;
     QList<const QFileInfo*>             m_dirs;
@@ -245,6 +246,8 @@ protected slots:
     void                                hideImage                           ();
     void                                previousImageRequest                ( const QString& curretViewPath );
     void                                nextImageRequest                    ( const QString& curretViewPath );
+    void                                previousBookRequest                 (const BookInfo* currentBook);
+    void                                nextBookRequest                     (const BookInfo *currentBook);
 
     // End Filters
 
@@ -299,6 +302,7 @@ protected slots:
     void                                handleFulfillmentDone               ( QString fulfillmentId, bool bReturnable, QString fulfillmentDocPath );
     void                                handleFulfillmentError              ( QString errorMsg );
     void                                hideEditCollection                  ();
+    void                                resetBookSummary                    (const BookInfo* bookInfo );
 
 private:
     enum ELibraryItemClickedMode
@@ -427,6 +431,7 @@ private:
 
     void                                handleBooksSortModeUI               ();
     void                                setBooksSortModeCallback            ();
+    bool                                isReallySearchView                  () { return m_filterMode == ELFM_SEARCH && b_hasSearch; }
 };
 
 #endif // LIBRARY_H

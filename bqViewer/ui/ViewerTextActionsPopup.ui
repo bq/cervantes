@@ -132,14 +132,31 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="seeCompleteDefinition">
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>15</number>
         </property>
-        <property name="text">
-         <string>Ver definición completa</string>
+        <property name="topMargin">
+         <number>0</number>
         </property>
-       </widget>
+        <item>
+         <widget class="QPushButton" name="seeCompleteDefinition">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="text">
+           <string>Diccionarios</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="wikipediaPopupBtn">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>

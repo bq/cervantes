@@ -29,7 +29,6 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QPainter>
 #include <QDebug>
 
-#define TITLE_MAX_LENGTH 40
 
 LibraryLineGridCollectionsItem::LibraryLineGridCollectionsItem(QWidget* parent) : LibraryGridViewerItem(parent)
 {
@@ -48,6 +47,9 @@ void LibraryLineGridCollectionsItem::paintEvent(QPaintEvent* )
     opt.init(this);
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+    QFontMetrics fontMetrics = p.fontMetrics();
+    QString text = fontMetrics.elidedText(m_path, Qt::ElideRight, collectionTitleLabel->width() - 5);
+    p.drawText(10, collectionTitleLabel->y(), collectionTitleLabel->width() - 5, collectionTitleLabel->height(), Qt::AlignVCenter, text);
 }
 
 
@@ -55,9 +57,10 @@ void LibraryLineGridCollectionsItem::setCollection( const QString &collectionNam
 {
     qDebug() << Q_FUNC_INFO;
     m_path = collectionName;
+    hide();
     if(collectionName != "")
     {
-        collectionTitleLabel->setText(bqUtils::truncateStringToLength(m_path, TITLE_MAX_LENGTH));
+        collectionTitleLabel->setText("");
         collectionTitleLabel->show();
         booksNumberValueLbl->setText(tr("%1").arg(booksNumber));
         booksNumberValueLbl->show();
@@ -79,7 +82,7 @@ void LibraryLineGridCollectionsItem::setCollection( const QString &collectionNam
         deleteCollectionBtn->hide();
         editCollectionBtn->hide();
     }
-
+    show();
 }
 
 void LibraryLineGridCollectionsItem::deleteCollection()

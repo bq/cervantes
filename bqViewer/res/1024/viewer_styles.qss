@@ -215,9 +215,9 @@ min-height:70px;
 max-height:70px;
 }
 #ViewerPageHandler #pageText, ViewerPageHandler #pageText, #pageWindow #pageText{
-margin:0px 0px 0px 90px;
-min-width:220px;
-max-width:220px;
+margin:0px 160px 0px 105px;
+min-width:240px;
+max-width:240px;
 font-size:21px;
 }
 #pageSpacerLbl{
@@ -246,8 +246,10 @@ max-width:7px;
 min-width:15px;
 max-width:15px;
 }
+#ViewerPageHandler #pagerInfoCont,ViewerPageHandler #pagerInfoCont, #pageWindow #pagerInfoCont{
+}
 #readingProgress{
-margin-top:8px;
+margin-top:0px;
 min-height:5px;
 max-height:5px;
 border-radius:4px;
@@ -448,6 +450,13 @@ max-height:51px;
 border-width:1px;
 border-radius:6px;
 }
+#definitionOptionsCont #wikipediaBtn, #ViewerTextActionsPopup #wikipediaPopupBtn{
+margin-bottom:12px;
+min-height:51px;
+max-height:51px;
+border-width:1px;
+border-radius:6px;
+}
 /*ViewerTextActionsPopup
 -----------------*/
 #ViewerNoteActionsPopup{
@@ -548,8 +557,8 @@ max-height:1024px;
 #ViewerDictionaryDefinitionPopupCont{
 min-width:758px;
 max-width:758px;
-min-height:920px;
-max-height:920px;
+min-height:995px;
+max-height:995px;
 }
 #changeDictionaryBtn{
 min-width:370px;
@@ -563,15 +572,23 @@ border-width:2px;
 }
 #ViewerDictionaryDefinitionPopup #popupCont{
 margin:0px 25px;
-padding-bottom:0px;
+padding:0px 0px 0px 0px;
 }
 #dictionaryDefinitionTextBrowser{
-margin:0px;
+margin:0px 15px;
 padding:0px;
 }
+#ViewerDictionaryDefinitionPopupCont #arrowTabsCont #notesTabArrowLbl{
+min-width:460px;
+max-width:460px;
+}
 #ViewerDictionaryDefinitionPopup #ViewerVerticalPagerPopup, #ViewerDictionaryDefinitionPopup ViewerVerticalPagerPopup{
-min-width:653px;
-max-width:653px;
+min-width:493px;
+max-width:493px;
+min-height:64px;
+max-height:64px;
+}
+#VerticalPagerWikiCont{
 min-height:64px;
 max-height:64px;
 }
@@ -581,6 +598,100 @@ min-width:80px;
 max-width:80px;
 min-height:58px;
 max-height:58px;
+}
+#backSearchSpaceLbl{
+margin:0px 38px 20px 0px;
+min-width:80px;
+max-width:80px;
+}
+#ViewerDictionaryDefinitionPopup #dictionaryBtn{
+min-height:0px;
+max-height:155px;
+font-size:25px;
+border-right-width:2px;
+}
+#ViewerDictionaryDefinitionPopup #wikipediaBtn{
+min-height:0px;
+max-height:155px;
+font-size:25px;
+border-right-width:2px;
+}
+#ViewerDictionaryDefinitionPopup #headerPopup{
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+}
+#ViewerDictionaryDefinitionPopup #arrowTabsCont #contentsTabArrowLbl{
+min-width:250px;
+max-width:250px;
+}
+#ViewerDictionaryDefinitionPopup #arrowTabsCont {
+margin:0;
+}
+#wikipediaWebBtn{
+min-height:64px;
+max-height:64px;
+min-width:58px;
+max-width:58px;
+}
+#wikipediaWebSpacerLbl{
+min-width:58px;
+max-width:58px;
+}
+
+/*ViewerWikipediaDefinitionPopup
+--------------------------------*/
+#ViewerWikipediaDefinitionPopup{
+min-width:758px;
+max-width:758px;
+min-height:1024px;
+max-height:1024px;
+}
+#ViewerWikipediaDefinitionPopupCont{
+min-width:758px;
+max-width:758px;
+min-height:920px;
+max-height:920px;
+}
+#ViewerWikipediaDefinitionPopup #popupCont{
+margin:0px 25px;
+padding-bottom:0px;
+}
+#searchTermLbl{
+margin:10px 0px;
+font-size:30px;
+}
+#wikipediaDefinitionTextBrowser{
+margin:0px;
+padding:0px;
+}
+#ViewerWikipediaDefinitionPopup #ViewerVerticalPagerPopup, #ViewerWikipediaDefinitionPopup ViewerVerticalPagerPopup{
+min-width:653px;
+max-width:653px;
+min-height:64px;
+max-height:64px;
+}
+#ViewerDictionaryDefinitionPopup #dictionaryBtn{
+min-height:0px;
+max-height:155px;
+font-size:25px;
+border-right-width:2px;
+}
+#ViewerWikipediaDefinitionPopup #wikipediaBtn{
+min-height:0px;
+max-height:155px;
+font-size:25px;
+border-right-width:2px;
+}
+#ViewerWikipediaDefinitionPopup #headerPopup{
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+}
+#ViewerWikipediaDefinitionPopup #arrowTabsCont #contentsTabArrowLbl{
+min-width:500px;
+max-width:500px;
+}
+#ViewerWikipediaDefinitionPopup #arrowTabsCont {
+margin:0;
 }
 /*DictionaryLayer
 -------------------------*/
@@ -1273,8 +1384,8 @@ font-size:24px;
 /*ViewerTextActionsMenu
 -----------------------------*/
 #ViewerTextActionsMenu{
-min-width:717px;
-max-width:717px;
+min-width:738px;
+max-width:738px;
 min-height:165px;
 max-height:165px;
 }
@@ -1286,13 +1397,17 @@ border-width:15px;
 border-radius:15px;
 }
 #ViewerTextActionsMenu #popupCont QPushButton{
-padding:0px 15px;
+margin:0px 0px 0px 15px;
+padding:0px 10px;
 min-height:64px;
 max-height:64px;
 border-width:1px;
-font-size:25px;
+border-radius:6px;
+font-size:23px;
+background-size: 100% 100%;
 }
-#ViewerTextActionsMenu #popupCont QPushButton#searchActionBtn{
+#ViewerTextActionsMenu #popupCont QPushButton#wikipediaMenuBtn{
+margin:0px 15px 0px 15px;
 }
 #ViewerBookListActions{
 min-width:224px;
@@ -1950,11 +2065,12 @@ max-height:15px;
 min-height:15px;
 max-height:15px;
 }
+#ViewerPageHandlerLandscapeCont #pagerInfoCont{
+}
 #verticalSliderContent #readingProgress{
-margin-left:8px;
 min-width:5px;
 max-width:5px;
-min-height:0px;
+min-height:5px;
 max-height:1024px;
 border-width:1px;
 border-radius: 5px;

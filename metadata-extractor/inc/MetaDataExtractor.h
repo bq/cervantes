@@ -24,6 +24,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QString>
 #include <QDateTime>
 
+#define UNDEFINED_LANGUAGE "und"
+
 struct MetaData
 {
     QString   filename;
@@ -38,9 +40,10 @@ struct MetaData
 class MetaDataExtractor {
 
 public:
-    static bool getMetaData       (const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, QString& format, bool& isDRMBook);
+    static bool getMetaData       (const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, QString& format, bool& isDRMBook, QString& collection, QString& language);
     static bool extractCover      (const QString& filename, QString& coverPath);
     static QStringList extractCSS (const QString& epubFilename);
+    static QString getLanguage    (const QString& filename);
 };
 
 #endif  //METADATAEXTRACTOR_H

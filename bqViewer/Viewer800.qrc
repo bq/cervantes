@@ -99,6 +99,11 @@
         <file alias="res/back-def.png">res/800/back-def.png</file>
         <file alias="res/pre_landscape_btn.png">res/800/pre_landscape_btn.png</file>
         <file alias="res/nex_landscape_btn.png">res/800/nex_landscape_btn.png</file>
+        <file>Viewer800.qrc</file>
         <file alias="res/plus-ico.png">res/800/plus-ico.png</file>
+        <file alias="res/chapter-progressbar.png">res/800/chapter-progressbar.png</file>
+        <file alias="res/wikipedia.png">res/800/wikipedia.png</file>
+        <file alias="res/wikipedia-btn.png">res/800/wikipedia-btn.png</file>
+        <file alias="res/wikipedia-adaptative.png">res/800/wikipedia-adaptative.png</file>
     </qresource>
 </RCC>

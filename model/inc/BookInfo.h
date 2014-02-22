@@ -120,6 +120,8 @@ public:
     int             totalReadingTime;
     mutable QString percentageList;
     readStateEnum   readingStatus;
+    int             size;
+    QString         language;
 
     QHash<QString,double>                   locationsPosCache;
     QHash<QString,int>                      locationsPageCache;
@@ -145,6 +147,7 @@ public:
     bool                                    operator==                      ( const BookInfo& other ) const { return path == other.path; }
     QString                                 toString                        () const;
     int                                     update                          ( const BookInfo*);
+    int                                     updateNewData                   ( const BookInfo *);
     bool                                    locationsHasChanged             ( const QHash<QString, BookLocation*>& locations );
     void                                    editNote                        ( const QString&, const QString&, qint64 lastUpdated);
     void                                    deleteLocation                  ( const QString& );

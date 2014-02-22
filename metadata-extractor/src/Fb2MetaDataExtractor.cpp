@@ -240,7 +240,7 @@ bool Fb2MetaDataExtractor::getPublisherMetaData(const QByteArray& data, QString&
     return false;
 }
 
-bool Fb2MetaDataExtractor::getMetaData(const QString& fb2Filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& /*isDRMBook*/)
+bool Fb2MetaDataExtractor::getMetaData(const QString& fb2Filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& /*isDRMBook*/, QString& language)
 {
 
     QFile file(fb2Filename);
@@ -289,13 +289,16 @@ bool Fb2MetaDataExtractor::getMetaData(const QString& fb2Filename, QString& titl
     getDateMetaData(data, date);
     // Searching PUBLISHER
     getPublisherMetaData(data, publisher);
+    // Searching LANGUAGE
+    getLanguageMetaData(data, language);
 
     // Accept if some value is not null.
     return (!author.isEmpty()      ||
             !title.isEmpty()       ||
             !description.isEmpty() ||
             !date.isNull()         ||
-            !publisher.isEmpty());
+            !publisher.isEmpty()   ||
+            !language.isEmpty());
 }
 
 bool Fb2MetaDataExtractor::getCoverFileNameMetaData(const QByteArray& data, QString& coverFileName)
@@ -433,4 +436,65 @@ bool isImage(const QString& path)
     QString fileName = path.split("/").last();
     QString fileExtension = fileName.split(".").last();
     return supportedImageslist.contains(fileExtension.toLower().toAscii()) && fileExtension.toLower() != "mng";
+}
+
+QString Fb2MetaDataExtractor::getCollection(const QString& fb2Filename)
+{
+    QString nodeAttr1Name   = "name";
+
+    QFile file(fb2Filename);
+    if (!file.open(QIODevice::ReadOnly)) return false;
+    QByteArray data = file.readAll();
+    file.close();
+    if (data.isEmpty()) return false;
+    QXmlStreamReader streamData(data);
+    QString collection;
+
+    // Searching cover name.
+    while (!streamData.atEnd())
+    {
+                if (streamData.readNext() == QXmlStreamReader::StartElement && streamData.name() == "sequence") // Begin of a target node .
+                {
+                    QXmlStreamAttributes nodeAttributes = streamData.attributes();
+
+                    if (nodeAttributes.hasAttribute(nodeAttr1Name))
+                    {
+                        collection = QString::fromUtf8(nodeAttributes.value(nodeAttr1Name).toUtf8());
+                        break;
+                    }
+                }
+                else if (streamData.isEndElement() && streamData.name() == "sequence") break; // Ensures image node withim coverpage node.
+
+            if (!collection.isEmpty()) break;
+        else if (streamData.name() == "body") break; //  Ensures break before the end.
+    }// end While
+
+
+    if (streamData.hasError())
+    {
+        qDebug() << Q_FUNC_INFO << streamData.error();
+        // TODO: do error handling
+    }
+
+    if (collection.isEmpty()) return "";
+    return collection;
+}
+
+bool Fb2MetaDataExtractor::getLanguageMetaData(const QByteArray& data, QString& language)
+{
+    QXmlStreamReader streamData(data);
+    while (!streamData.atEnd())
+    {
+        if (streamData.readNextStartElement() && streamData.name() == "lang")
+        {
+            if (streamData.readNext() == QXmlStreamReader::Characters)
+            {
+                language = streamData.text().toString().simplified();
+                return true;
+            }
+            else return false;
+        }
+        else if (streamData.name() == "body") return false; //  Ensures break before the end.
+    }
+    return false;
 }

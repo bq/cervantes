@@ -64,6 +64,7 @@ ViewerMarkHandler::ViewerMarkHandler(Viewer* parent) : QObject(parent)
     connect(m_viewerTextActionsMenu, SIGNAL(deleteActionClicked()),     this, SLOT(handleDeleteAction()));
     connect(m_viewerTextActionsMenu, SIGNAL(dictioActionClicked()),     this, SLOT(handleDictioAction()));
 #endif
+    connect(m_viewerTextActionsMenu, SIGNAL(wikipediaClicked()),        this, SLOT(handleWikiAction()));
     m_viewerTextActionsMenu->hide();
 
     m_viewerTextActionPopup = new ViewerTextActionsPopup(m_parentViewer);
@@ -74,6 +75,7 @@ ViewerMarkHandler::ViewerMarkHandler(Viewer* parent) : QObject(parent)
 #ifndef HACKERS_EDITION
     connect(m_viewerTextActionPopup, SIGNAL(completeDefinitionClicked()),   this, SLOT(handleDictioAction()));
 #endif
+    connect(m_viewerTextActionPopup, SIGNAL(wikipediaClicked()),            this, SLOT(handleWikiAction()));
     connect(m_viewerTextActionPopup, SIGNAL(wordToSearch(const QString&, const QString&)),  this, SLOT(searchWordRequested(const QString&, const QString& )));
     m_viewerTextActionPopup->hide();
 
@@ -777,8 +779,7 @@ void ViewerMarkHandler::handleDictioAction()
     qDebug() << Q_FUNC_INFO;    
 
     QDocView::Location* loc = m_currentDoc->highlightLocation(m_currentHighlightIndex);
-    if(!loc)
-        return;
+    if(!loc) return;
 
     QStringList wordAndContext = m_currentDoc->wordAt(m_initialPoint.x(), m_initialPoint.y(), NUMDICCONTEXTWORDS);
 
@@ -802,6 +803,32 @@ void ViewerMarkHandler::handleDictioAction()
 
 }
 #endif
+
+void ViewerMarkHandler::handleWikiAction()
+{
+    qDebug() << Q_FUNC_INFO;
+
+    QDocView::Location* loc = m_currentDoc->highlightLocation(m_currentHighlightIndex);
+    if(!loc) return;
+
+    QString word = m_currentDoc->wordAt(m_initialPoint.x(), m_initialPoint.y());
+    word = loc->preview;
+
+    if (word.isEmpty()) return;
+
+    qDebug() << Q_FUNC_INFO << "selectedWord=" << word;
+
+    clearInitialPoint();
+
+    emit wikiSearchReq(word);
+
+    if(!m_currentMark)
+    {
+        qDebug() << Q_FUNC_INFO << "Remove highlight in dictionary calling to id " << m_currentHighlightIndex;
+        m_currentDoc->removeHighlight(m_currentHighlightIndex);
+    }
+
+}
 
 void ViewerMarkHandler::handleDelimiterPressEvent(QPoint const eventPoint)
 {

@@ -34,8 +34,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QStringList>
 
 #define ITEMS_PER_PAGE 14
-#define COLLECTION_MAX_LENGTH 20
-
+#define EDIT_STRING_MAX_LENGTH 36
 
 LibraryEditCollection::LibraryEditCollection(QWidget *parent) : GestureWidget(parent) , b_fromBookSummary(false), b_collectionSaved(false)
 {
@@ -108,14 +107,13 @@ void LibraryEditCollection::setup (const QString& collection, const BookInfo* bo
         saveCollectionBnt->setEnabled(true);
         m_initialCollectionName = collection;
         collectionNameLineEdit->setText(m_collection);
-        collectionActionTitle->setText(tr("Editar %1").arg(m_collection));
+        collectionActionTitle->setText(tr("Editar %1").arg(bqUtils::truncateStringToLength(m_collection,EDIT_STRING_MAX_LENGTH)));
     }
     else
     {
         m_newCollection = true;
         saveCollectionBnt->setEnabled(false);
         collectionActionTitle->setText(tr("Crear Collecion"));
-        collectionNameLineEdit->setMaxLength(m_initialText.length());
         collectionNameLineEdit->setText(m_initialText);
     }
     QBookApp::instance()->getModel()->getAllBooks(m_books);
@@ -190,7 +188,6 @@ void LibraryEditCollection::handleCollectionNameLine()
     if(collectionNameLineEdit->text() == m_initialText)
         collectionNameLineEdit->clear();
 
-    collectionNameLineEdit->setMaxLength(COLLECTION_MAX_LENGTH);
     // Show keyboard
     m_keyboard = QBookApp::instance()->showKeyboard(tr("Ocultar"));
     m_keyboard->handleMyQLineEdit(collectionNameLineEdit);
@@ -229,7 +226,7 @@ void LibraryEditCollection::saveCollection()
     }
     b_collectionSaved = true;
     if(!m_newCollection && m_collection != m_initialCollectionName)
-        removeOlderCollection();
+        changeOldCollection();
     saveItemsInfo();
 
     QHash<QString, bool>::const_iterator it = m_listBooks->constBegin();
@@ -253,7 +250,7 @@ void LibraryEditCollection::saveCollection()
     emit hideMe();
 }
 
-void LibraryEditCollection::removeOlderCollection()
+void LibraryEditCollection::changeOldCollection()
 {
     qDebug() << Q_FUNC_INFO;
     QList<const BookInfo *> books;
@@ -264,6 +261,7 @@ void LibraryEditCollection::removeOlderCollection()
     {
         BookInfo *bookInfo = new BookInfo(*(*it));
         bookInfo->removeCollection(m_initialCollectionName);
+        bookInfo->addCollection(m_collection);
         QBookApp::instance()->getModel()->updateBook(bookInfo);
     }
     QBookApp::instance()->getModel()->removeCollection(m_initialCollectionName);

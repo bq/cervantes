@@ -42,6 +42,8 @@ public:
     virtual void                        updateDisplay                       ();
     void                                hideChapterInfo                     ();
     void                                setPdfToolbarState                  (bool shouldBeShown){m_pdfToolbarShowed = shouldBeShown;}
+    void                                setChapterPos                       (const QList<int> chaptersPage);
+    void                                setNeedToPaint                      (bool value) { b_needToRepaint = value; }
 
 public slots:
     void                                handlePageChange                    (int, int, int);
@@ -56,14 +58,19 @@ signals:
 
 protected:
     void                                updatePageHandler                   ();
+    void                                hideChapterLines                    ();
     virtual void                        customEvent                         (QEvent*);
+    virtual void                        showEvent                           (QShowEvent*);
 
     int                                 m_currentPageIni;
     int                                 m_currentPageEnd;
     int                                 m_totalPages;
+    int                                 m_chapterLineWidth;
     bool                                m_pdfToolbarShowed;
+    bool                                b_needToRepaint;
     MouseFilter*                        m_pMouseFilter;
     int                                 m_visibleMask; // Indicates which info can be shown.
+    QList<int>                          linesPos;
 
     enum EViewerPageHandlerMask
     {
@@ -75,7 +82,8 @@ protected:
         EVPHM_PDF           =   (1u << 4),
         EVPHM_CLOSE_BTN     =   (1u << 5),
         EVPHM_PROGRESS      =   (1u << 6),
-        EVPHM_CHAPTER       =   (1u << 7)
+        EVPHM_CHAPTER       =   (1u << 7),
+        EVPHM_CHAPTERLINE   =   (1u << 8)
     };    
 };
 

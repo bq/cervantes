@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>960</height>
+    <width>600</width>
+    <height>750</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,14 +18,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>758</width>
-    <height>960</height>
+    <width>600</width>
+    <height>750</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>758</width>
-    <height>960</height>
+    <width>600</width>
+    <height>750</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -183,7 +183,7 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>45</height>
+          <height>40</height>
          </size>
         </property>
         <property name="text">
@@ -195,14 +195,14 @@
        <widget class="QWidget" name="viewerHeaderCont" native="true">
         <property name="minimumSize">
          <size>
-          <width>531</width>
-          <height>47</height>
+          <width>414</width>
+          <height>39</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>531</width>
-          <height>47</height>
+          <width>414</width>
+          <height>39</height>
          </size>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -265,7 +265,7 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>45</height>
+          <height>40</height>
          </size>
         </property>
         <property name="text">
@@ -304,14 +304,14 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>388</width>
-          <height>78</height>
+          <width>272</width>
+          <height>60</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>388</width>
-          <height>78</height>
+          <width>272</width>
+          <height>60</height>
          </size>
         </property>
         <property name="focusPolicy">
@@ -363,12 +363,10 @@
    <item>
     <widget class="QLabel" name="viewerTextLbl">
      <property name="text">
-      <string>est. Nam sit amet neque metus. Sed pretium sem et mauris convallis sit amet elementum lectus facilisis. Cum sociis natoque penatibus et magnis dis partu rient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum eleifend ullamcorper. Ut sed nisi vel est ul lamcorper facilisis non ac augue. Suspendisse eu arcu quam. Donec porta
-eleifend massa, sed hendrerit arcu rhoncus vitae.
-Curabitur rhoncus arcu id enim pharetra luctus. Duis a tincidunt risus. Morbi risus est, luctus consequat ultricies vulputate, laoreet quis nunc. Nunc malesuada consequat urna lacinia lobortis. Nullam porta feugiat tellus. Quis que volutpat, dui sed dictum posuere, dui neque varius enim, non vehicula mauris justo ac lectus. In hendrerit nunc sit amet dui ultricies blandit.</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;est. Nam sit amet neque metus. Sed pretium sem et mauris convallis sit amet elementum lectus facilisis. Cum sociis natoque penatibus et magnis dis partu rient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum eleifend ullamcorper. Ut sed nisi vel est ul lamcorper facilisis non ac augue.  &lt;/p&gt;&lt;p&gt;Curabitur rhoncus arcu id enim pharetra luctus. Duis a tincidunt risus. Morbi risus est, luctus consequat ultricies vulputate, laoreet quis nunc. Nunc malesuada consequat urna lacinia lobortis. Nullam porta feugiat tellus. Quis que volutpat, dui sed dictum posuere.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+      <set>Qt::AlignJustify|Qt::AlignTop</set>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
@@ -392,13 +390,13 @@ Curabitur rhoncus arcu id enim pharetra luctus. Duis a tincidunt risus. Morbi ri
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>83</height>
+          <height>60</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>83</height>
+          <height>60</height>
          </size>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -420,7 +418,7 @@ Curabitur rhoncus arcu id enim pharetra luctus. Duis a tincidunt risus. Morbi ri
          <item>
           <widget class="SilentQPushButton" name="withProgressBtn">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -434,7 +432,7 @@ Curabitur rhoncus arcu id enim pharetra luctus. Duis a tincidunt risus. Morbi ri
            <property name="maximumSize">
             <size>
              <width>1000</width>
-             <height>78</height>
+             <height>100</height>
             </size>
            </property>
            <property name="focusPolicy">
@@ -455,7 +453,7 @@ de lectura</string>
          <item>
           <widget class="SilentQPushButton" name="withPageBtn">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -501,7 +499,7 @@ Páginas totales</string>
            <property name="maximumSize">
             <size>
              <width>1000</width>
-             <height>78</height>
+             <height>100</height>
             </size>
            </property>
            <property name="focusPolicy">
@@ -524,9 +522,9 @@ fin de capítulo</string>
       </item>
       <item>
        <widget class="QWidget" name="progressBarCont" native="true">
-        <layout class="QHBoxLayout" name="progressBaxxrCont">
+        <layout class="QVBoxLayout" name="verticalLayout_4">
          <property name="spacing">
-          <number>3</number>
+          <number>0</number>
          </property>
          <property name="leftMargin">
           <number>3</number>
@@ -543,21 +541,74 @@ fin de capítulo</string>
          <item>
           <widget class="SilentQPushButton" name="withProgressBarBtn">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>45</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>45</height>
+            </size>
            </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string>Barra de progreso de lectura</string>
+            <string>Mostrar barra de progreso de lectura</string>
            </property>
            <property name="checkable">
             <bool>true</bool>
            </property>
           </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="chapterProgressBtn">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>45</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>45</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Mostrar marcas de capítulo</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -595,6 +646,12 @@ fin de capítulo</string>
       </item>
       <item>
        <widget class="QWidget" name="viewerBottomCont" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <property name="spacing">
           <number>0</number>
@@ -608,8 +665,17 @@ fin de capítulo</string>
             <property name="spacing">
              <number>0</number>
             </property>
-            <property name="margin">
+            <property name="leftMargin">
              <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>8</number>
             </property>
             <item>
              <widget class="QWidget" name="readingInfoCont" native="true">
@@ -689,13 +755,153 @@ fin de capítulo</string>
              </widget>
             </item>
             <item>
-             <widget class="QProgressBar" name="readingProgress">
-              <property name="value">
-               <number>24</number>
-              </property>
-              <property name="format">
-               <string/>
-              </property>
+             <widget class="QWidget" name="readingProgressFigureImage" native="true">
+              <widget class="QProgressBar" name="readingProgress">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>95</width>
+                 <height>25</height>
+                </rect>
+               </property>
+               <property name="value">
+                <number>24</number>
+               </property>
+               <property name="format">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="chapterMarkLbl01">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>30</y>
+                 <width>21</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="chapterMarkLbl02">
+               <property name="geometry">
+                <rect>
+                 <x>40</x>
+                 <y>30</y>
+                 <width>21</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="chapterMarkLbl03">
+               <property name="geometry">
+                <rect>
+                 <x>70</x>
+                 <y>30</y>
+                 <width>21</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="chapterMarkLbl04">
+               <property name="geometry">
+                <rect>
+                 <x>110</x>
+                 <y>30</y>
+                 <width>21</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="chapterMarkLbl05">
+               <property name="geometry">
+                <rect>
+                 <x>140</x>
+                 <y>30</y>
+                 <width>21</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="chapterMarkLbl06">
+               <property name="geometry">
+                <rect>
+                 <x>170</x>
+                 <y>30</y>
+                 <width>16</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="chapterMarkLbl07">
+               <property name="geometry">
+                <rect>
+                 <x>200</x>
+                 <y>30</y>
+                 <width>16</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="chapterMarkLbl08">
+               <property name="geometry">
+                <rect>
+                 <x>230</x>
+                 <y>20</y>
+                 <width>16</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="chapterMarkLbl09">
+               <property name="geometry">
+                <rect>
+                 <x>270</x>
+                 <y>20</y>
+                 <width>21</width>
+                 <height>20</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QLabel" name="chapterMarkLbl10">
+               <property name="geometry">
+                <rect>
+                 <x>220</x>
+                 <y>30</y>
+                 <width>21</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </widget>
             </item>
            </layout>

@@ -43,6 +43,7 @@ ProgressDialog::ProgressDialog(QWidget * parent, QString textStr) :
 
 ProgressDialog::~ProgressDialog()
 {
+    qDebug() << Q_FUNC_INFO;
 }
 
 void ProgressDialog::setText(QString textStr)

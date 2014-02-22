@@ -77,5 +77,7 @@
         <file alias="res/unchecked-small.png">res/800/unchecked-small.png</file>
         <file alias="res/bottom-left-corner.png">res/800/bottom-left-corner.png</file>
         <file alias="res/about_us_settings.png">res/800/about_us_settings.png</file>
+        <file alias="res/checked-small-disabled.png">res/800/checked-small-disabled.png</file>
+        <file alias="res/unchecked-small-disabled.png">res/800/unchecked-small-disabled.png</file>
     </qresource>
 </RCC>

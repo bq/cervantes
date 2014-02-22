@@ -30,6 +30,9 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "QBook.h"
 
+#define WIDTH_LINE_HD 2
+#define WIDTH_LINE_SD 1
+
 const QString SINGLE_PAGE_FORMAT("%1/%2");
 const QString DOUBLE_PAGE_FORMAT("%1-%2/%3");
 
@@ -38,6 +41,7 @@ ViewerPageHandler::ViewerPageHandler(QWidget *parent) :
   , m_currentPageIni(0)
   , m_currentPageEnd(0)
   , m_pdfToolbarShowed(false)
+  , b_needToRepaint(true)
   , m_visibleMask(EVPHM_NONE)  
 {
     qDebug() << Q_FUNC_INFO;
@@ -48,6 +52,12 @@ ViewerPageHandler::ViewerPageHandler(QWidget *parent) :
 
     readingProgress->setMinimum(0);
     readingProgress->setMaximum(100);
+    readingProgress->setStyleSheet("background:transparent;");
+
+    if(QBook::getResolution() == QBook::RES600x800)
+        m_chapterLineWidth = WIDTH_LINE_SD;
+    else
+        m_chapterLineWidth = WIDTH_LINE_HD;
 
     // Install Mouse filter
     m_pMouseFilter = new MouseFilter(this);
@@ -78,9 +88,8 @@ void ViewerPageHandler::customEvent(QEvent* received)
 void ViewerPageHandler::updatePageHandler()
 {
 
-    if (!shouldBeShown()) { hide(); return; }
-
-
+    hide();
+    if (!shouldBeShown()) return;
     if ( (m_visibleMask & EVPHM_PROGRESS) && m_currentPageIni != 0)
     {
         readingPercentLbl->show();
@@ -125,12 +134,16 @@ void ViewerPageHandler::updatePageHandler()
 
     if((m_visibleMask & EVPHM_PROGRESSBAR) && m_currentPageIni != 0)
     {
+        readingProgressCont->show();
         readingProgress->show();
     }
     else
     {
+        readingProgressCont->hide();
         readingProgress->hide();
     }
+    if(!(m_visibleMask & EVPHM_CHAPTERLINE) || m_currentPageIni == 0)
+        hideChapterLines();
 
     show();
 }
@@ -142,12 +155,12 @@ void ViewerPageHandler::handlePageChange(int start, int end, int total)
     if(start == 0) resetPager();
     // TODO: review tweak to avoid refresh on longpress
 
-    m_totalPages = total; // To include final page for opinion
 
-    if(m_currentPageIni != start || m_currentPageEnd != end)
+    if(m_currentPageIni != start || m_currentPageEnd != end || m_totalPages != total)
     {
         m_currentPageIni = start;
         m_currentPageEnd = end;
+        m_totalPages = total;
 
         updateDisplay();
     }
@@ -191,30 +204,36 @@ void ViewerPageHandler::updateDisplay()
 
 void ViewerPageHandler::setCurrentPageMode( bool isPdf )
 {
+    setNeedToPaint(true);
     if(isPdf)
         m_visibleMask |= EVPHM_PDF;
     else
         m_visibleMask &= (~EVPHM_PDF);
 
-    if(QBook::settings().value("setting/showProgressBar", false).toBool())
+    if(QBook::settings().value("setting/showProgressBar", QVariant(false)).toBool())
         m_visibleMask |= EVPHM_PROGRESSBAR;
     else
         m_visibleMask &= (~EVPHM_PROGRESSBAR);
 
-    if(QBook::settings().value("setting/showPage", true).toBool())
+    if(QBook::settings().value("setting/showPage", QVariant(true)).toBool())
         m_visibleMask |= EVPHM_PAGE;
     else
         m_visibleMask &= (~EVPHM_PAGE);
 
-    if(QBook::settings().value("setting/showProgress", true).toBool())
+    if(QBook::settings().value("setting/showProgress", QVariant(true)).toBool())
         m_visibleMask |= EVPHM_PROGRESS;
     else
         m_visibleMask &= (~EVPHM_PROGRESS);
 
-    if(QBook::settings().value("setting/showChapterInfo", true).toBool())
+    if(QBook::settings().value("setting/showChapterInfo", QVariant(true)).toBool())
         m_visibleMask |= EVPHM_CHAPTER;
     else
         m_visibleMask &= (~EVPHM_CHAPTER);
+
+    if(QBook::settings().value("setting/showChapterLines", QVariant(true)).toBool())
+        m_visibleMask |= EVPHM_CHAPTERLINE;
+    else
+        m_visibleMask &= (~EVPHM_CHAPTERLINE);
 
     updatePageHandler();
 }
@@ -230,16 +249,22 @@ bool ViewerPageHandler::shouldBeShown()
 void ViewerPageHandler::hideBackBtn()
 {
     m_visibleMask &= (~EVPHM_BACK_BTN);
-    if(!shouldBeShown()) hide();
+    hide();
     pageBackBtn->hide();
     spacerNoPercentLbl->show();
+    if(shouldBeShown())
+        show();
 }
 
 void ViewerPageHandler::showBackBtn()
 {
     m_visibleMask |= EVPHM_BACK_BTN;
-    if(shouldBeShown()) show();
     pageBackBtn->show();
+    if(shouldBeShown())
+    {
+        hide();
+        show();
+    }
     spacerNoPercentLbl->hide();
 }
 
@@ -253,7 +278,10 @@ void ViewerPageHandler::resetPager()
     readedLbl->hide();
     pagToFinishLbl->hide();
     toFinishChapLbl->hide();
+    readingProgressCont->hide();
     readingProgress->hide();
+    hideChapterLines();
+    setNeedToPaint(true);
     if (!(m_visibleMask & EVPHM_PDF)) pdfMenuBtn->hide();
 }
 
@@ -263,4 +291,54 @@ void ViewerPageHandler::hideChapterInfo()
     if(!shouldBeShown()) hide();
     pagToFinishLbl->hide();
     toFinishChapLbl->hide();
+}
+
+void ViewerPageHandler::showEvent( QShowEvent* )
+{
+    qDebug() << Q_FUNC_INFO;
+    if((m_visibleMask & EVPHM_PROGRESSBAR) && (m_visibleMask & EVPHM_CHAPTERLINE) && b_needToRepaint && m_currentPageIni != 0)
+    {
+        hideChapterLines();
+        double realWidth = readingProgress->rect().width();
+        //Create labels for each chapter and pos them into progressBar.
+        for(int i = 0; i < linesPos.size(); i++)
+        {
+            QLabel* chapterLineLbl = new QLabel(readingProgressCont);
+            chapterLineLbl->setFixedSize(m_chapterLineWidth,readingProgress->height());
+            QImage myImage;
+            myImage.load(":/res/chapter-progressbar.png");
+            QImage image = myImage.scaled(chapterLineLbl->width(), chapterLineLbl->height(), Qt::IgnoreAspectRatio );
+            chapterLineLbl->setPixmap(QPixmap::fromImage(image));
+            int x = int((linesPos[i])*100/m_totalPages);
+            double pos = double(x) * realWidth/100 - chapterLineLbl->width()/2;
+            qDebug() << "Posicion" << pos;
+            chapterLineLbl->move(pos,readingProgress->y());
+            chapterLineLbl->show();
+        }
+        setNeedToPaint(false);
+    }
+}
+
+void ViewerPageHandler::setChapterPos(const QList<int> chaptersPage)
+{
+    qDebug() << Q_FUNC_INFO;
+    linesPos.clear();
+    int chaptersCount = chaptersPage.size();
+    for (int i = 0; i < chaptersCount; i++)
+    {
+        int page = chaptersPage[i];
+        linesPos.append(page);
+    }
+}
+
+void ViewerPageHandler::hideChapterLines()
+{
+    //Hide all labels that are child of readingProgressCont.
+    QList<QLabel*> list = readingProgressCont->findChildren<QLabel *>();
+    for(int j = 0; j < list.size();j++)
+    {
+        QLabel* previousLine = list[j];
+        previousLine->hide();
+        delete previousLine;
+    }
 }

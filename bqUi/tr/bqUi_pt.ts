@@ -208,7 +208,7 @@ Que deseja fazer?</translation>
     <message>
         <location filename="../src/StatusBar.cpp" line="210"/>
         <source>Work in progress</source>
-        <translation>Em processo</translation>
+        <translation>Processando</translation>
     </message>
     <message>
         <location filename="../src/StatusBar.cpp" line="461"/>

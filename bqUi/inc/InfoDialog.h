@@ -62,7 +62,8 @@ protected:
     virtual void                        keyReleaseEvent                     (QKeyEvent* );
 
 protected slots:
-    void                                        hideDialog                          ();
+    void                                        hideDialog                  ();
+    void                                        rejectDialog                ();
 
 };
 

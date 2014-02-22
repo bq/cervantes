@@ -28,11 +28,13 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 class EpubMetaDataExtractor {
 
 public:
-    static bool getMetaData(const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook);
+    static bool getMetaData(const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook, QString& language);
     static QString *getMetaString(struct epub *book, epub_metadata field, const char *stringOffset);
     static bool extractCover(const QString& epubFilename, const QString& coverPath);
     static QStringList extractCSS(const QString& epubFilename);
     static bool isDRM(const QString& filename);
+    static QString getCollection(const QString& epubFilename);
+
 
 
 private:

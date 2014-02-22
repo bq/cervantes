@@ -51,6 +51,8 @@ public:
     bool                                dateTimeisVisible                   ();
 
     virtual void                        updateDisplay                       ();
+    void                                setChapterPos                       (const QList<int> chaptersPage);
+    void                                setNeedToPaint                      (bool value) { b_needToRepaint = value; }
 
 public slots:
     void                                handlePageChange                    (int, int, int);
@@ -64,12 +66,17 @@ signals:
 
 protected:
     void                                updatePageHandler                   ();
+    void                                hideChapterLines                    ();
+    virtual void                        showEvent                           (QShowEvent*);
 
     int                                 m_currentPageIni;
     int                                 m_currentPageEnd;
     int                                 m_totalPages;
+    int                                 m_chapterLineWidth;
     bool                                m_pdfToolbarShowed;
     int                                 m_visibleMask; // Indicates which info can be shown.
+    bool                                b_needToRepaint;
+    QList<int>                          linesPos;
 
     enum EViewerPageHandlerMask
     {
@@ -83,7 +90,8 @@ protected:
         EVPHM_PROGRESS      =   (1u << 6),
         EVPHM_CHAPTER       =   (1u << 7),
         EVPHM_BOOK_TITLE    =   (1u << 8),
-        EVPHM_DATE_TIME     =   (1u << 9)
+        EVPHM_DATE_TIME     =   (1u << 9),
+        EVPHM_CHAPTERLINE   =   (1u << 10)
     };
 };
 

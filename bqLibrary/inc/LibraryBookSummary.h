@@ -21,7 +21,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef LIBRARYBOOKSUMMARY_H
 #define LIBRARYBOOKSUMMARY_H
 
-#include "GestureWidget.h"
+#include <QWidget>
 #include "ui_LibraryBookSummary.h"
 #include "BookInfo.h"
 
@@ -29,7 +29,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 class LibraryBookListActions;
 class LibraryCollectionLayer;
 
-class LibraryBookSummary : public GestureWidget, protected Ui::LibraryBookSummary
+class LibraryBookSummary : public QWidget, protected Ui::LibraryBookSummary
 {
     Q_OBJECT
 
@@ -37,10 +37,11 @@ public:
                                         LibraryBookSummary                  ( QWidget* parent );
     virtual                             ~LibraryBookSummary                 ();
 
-    void                                setBook                             ( const BookInfo* book );
+    void                                setBook                             ( const BookInfo* book, int currentBook, int totalBooks );
     bool                                hideElements                        ( );
     void                                setActionsBtnText                   ( BookInfo::readStateEnum );
     void                                setCollectionLayerBtnText           (QStringList collectionList);
+    int                                 getCurrentBookOffset                ( ) { return  m_currentBook; }
 
 signals:
     void                                hideMe                              ();
@@ -52,6 +53,9 @@ signals:
     void                                exportNotes                         ( const QString );
     void                                changeReadState                     ( const BookInfo*, BookInfo::readStateEnum );
     void                                addNewCollection                    ( const BookInfo* );
+    void                                nextBookRequest                     ( const BookInfo* );
+    void                                previousBookRequest                 ( const BookInfo* );
+    void                                openBook                            ( const QString& );
 
 public slots:
     void                                close                               ();
@@ -73,6 +77,8 @@ protected slots:
     void                                addBookToCollection                 (QString collectionName);
     void                                removeBookToCollection              (QString collectionName);
     void                                createNewCollection                 ();
+    void                                previousBook                        ();
+    void                                nextBook                            ();
 
 protected:
 
@@ -86,6 +92,8 @@ protected:
     LibraryBookListActions*             m_bookListActions;
     LibraryCollectionLayer*             m_collectionLayer;
     QScrollBar*                         vbar;
+    int                                 m_currentBook;
+    int                                 m_totalBooks;
 
     enum ELibraryBookSummaryAction
     {

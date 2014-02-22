@@ -68,7 +68,7 @@ struct epub *EpubMetaDataExtractor::openEpub(const QString& filename) {
     return epub_open (ba.data(), 0);
 }
 
-/*static*/ bool EpubMetaDataExtractor::getMetaData( const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook ) {
+/*static*/ bool EpubMetaDataExtractor::getMetaData( const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook, QString& language ) {
 	static const char *ePubAuthorPrefix[] = { "aut: ", "Author: ", NULL };
 
     struct epub *book = openEpub(filename);
@@ -83,6 +83,7 @@ struct epub *EpubMetaDataExtractor::openEpub(const QString& filename) {
     QString* _date = NULL;
     QString* _description = NULL;
     isDRMBook = false;
+    QString* _language = NULL;
 
     qDebug () << Q_FUNC_INFO << "Reading metadata for " << filename;
     _title = getMetaString(book, EPUB_TITLE, NULL);
@@ -112,6 +113,8 @@ struct epub *EpubMetaDataExtractor::openEpub(const QString& filename) {
     if(epub_has_encryption(book) && epub_has_rights(book))
         isDRMBook = true;
 #endif
+    _language = getMetaString(book, EPUB_LANG, NULL);
+    qDebug () << Q_FUNC_INFO << "  language: " << (_language ? *_language : "NOT FOUND");
 
     epub_close (book);
 
@@ -125,13 +128,15 @@ struct epub *EpubMetaDataExtractor::openEpub(const QString& filename) {
         date = QDateTime::fromString(*_date, Qt::ISODate);
     if(_description)
         description = *_description;
-
+    if(_language)
+        language = *_language;
 
     delete _title;
     delete _author;
     delete _publisher;
     delete _date;
     delete _description;
+    delete _language;
 
 	return true;
 }
@@ -280,4 +285,40 @@ struct epub *EpubMetaDataExtractor::openEpub(const QString& filename) {
 	qDebug() << "CSS: " << epubContentEntries;
 
 	return epubContentEntries;
+}
+
+
+QString EpubMetaDataExtractor::getCollection(const QString& epubFilename)
+{
+    int size;
+    char *data = NULL;
+
+    struct epub *book = openEpub(epubFilename);
+    if (book == NULL) {
+        qDebug() << Q_FUNC_INFO << "Cannot open: " << epubFilename;
+        return "";
+    }
+
+    unsigned char **meta;
+    char* info;
+    meta = epub_get_metadata(book, EPUB_META, &size);
+    if (!meta) {
+        qDebug() << Q_FUNC_INFO << "Cannot get EPUB_META from " << epubFilename;
+        epub_close (book);
+        return "";
+    }
+
+    char *metadata = NULL;
+
+    int i;
+    for (i = 0; i < size; i++) {
+        if (strncmp("calibre:series", (char*)meta[i], 14) == 0 && strncmp("calibre:series_index", (char*)meta[i], 20) != 0) {
+            metadata = strdup((char*)meta[i] + 16);
+            break;
+        }
+    }
+    QString collection = QString::fromUtf8( metadata );
+    if(!collection.isEmpty())
+        qDebug() << Q_FUNC_INFO << collection;
+    return collection;
 }

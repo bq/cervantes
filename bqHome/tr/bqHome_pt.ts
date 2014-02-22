@@ -86,7 +86,7 @@
     <message>
         <location filename="../ui/Home.ui" line="757"/>
         <source>Buscador</source>
-        <translation>Pesquisador</translation>
+        <translation>Pesquisar</translation>
     </message>
     <message>
         <location filename="../ui/Home.ui" line="767"/>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../ui/Home.ui" line="787"/>
         <source>Ajustes</source>
-        <translation>Ajustes</translation>
+        <translation>Definições</translation>
     </message>
     <message>
         <location filename="../ui/Home.ui" line="797"/>

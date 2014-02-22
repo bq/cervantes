@@ -32,6 +32,8 @@ public:
 
                     SettingsReaderProgressBar                          (QWidget *);
     virtual         ~SettingsReaderProgressBar                         ();
+    void            setWithChapterLinesBtn                             ();
+
 
 protected:
 
@@ -41,10 +43,12 @@ protected:
     void            setWithProgressBarBtn                       ();
     void            setWithBookTitleBtn                         ();
     void            setWithDateTimeBtn                          ();
-
+    void            showChapterLines                            ();
+    void            hideChapterLines                            ();
+    int             m_chapterLineWidth;
 
     /* http://qt-project.org/forums/viewthread/7340 */
-    void            paintEvent                                  (QPaintEvent *);
+    virtual void    paintEvent                                  (QPaintEvent *);
 
 private slots:
 
@@ -54,6 +58,7 @@ private slots:
     void            withProgressBarHandler                      ();
     void            withBookTitleHandler                        ();
     void            withDateTimHandler                          ();
+    void            withChapterLinesHandler                     ();
 
 };
 

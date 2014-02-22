@@ -87,7 +87,7 @@ Browser::Browser(QWidget *parent)
 {
     qDebug() << Q_FUNC_INFO;
     mDefaultURL = QBook::etcDirPath() + QDir::separator() + QString("loading.html");
-    mHomeURL =  QString("http://www.google.es");
+    mHomeURL =  QString("http://www.google.com/?hl=" + QBook::settings().value("setting/language", QVariant("es")).toString());
 
     m_powerLock = PowerManager::getNewLock(this);
     setupUi(this);
@@ -1309,9 +1309,11 @@ void Browser::populateBookInfo(BookInfo* book)
      qDebug() << Q_FUNC_INFO;
      if(!book)
         return;
-
-     MetaDataExtractor::getMetaData(book->path, book->title, book->author, book->publisher, book->publishTime, book->synopsis, book->format, book->isDRMFile);
+     QString collection;
+     MetaDataExtractor::getMetaData(book->path, book->title, book->author, book->publisher, book->publishTime, book->synopsis, book->format, book->isDRMFile, collection, book->language);
      book->corrupted = false;
+     if(!collection.isEmpty())
+         book->addCollection(collection);
      if (book->format != "pdf")
           book->fontSize = 2;
 }

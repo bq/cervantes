@@ -19,7 +19,8 @@ Q_PROJECTS = \
     bqHome \
     bqSearch \
     bqBrowser \
-    metadata-extractor
+    metadata-extractor \
+    bqPublicServices
 
 isEmpty(HACKERS_EDITION) {
     Q_PROJECTS += bqWebStore bqWizard

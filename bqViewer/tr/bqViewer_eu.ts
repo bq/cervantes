@@ -714,6 +714,26 @@ Jarraitu nahi al duzu?</translation>
         <source>Automatico</source>
         <translation>Automatikoa</translation>
     </message>
+    <message>
+        <source>Without information</source>
+        <translation type="obsolete">Informaziorik gabe</translation>
+    </message>
+    <message>
+        <source>Conectando...</source>
+        <translation>Konektatzen...</translation>
+    </message>
+    <message>
+        <source>Obteniendo informacion...</source>
+        <translation>Informazioa eskuratzen…</translation>
+    </message>
+    <message>
+        <source>Pulsa sobre la palabra que deseas buscar en el diccionario:</source>
+        <translation>Sakatu hiztegian bilatu nahi duzun hitza:</translation>
+    </message>
+    <message>
+        <source>El enlace pulsado no pertenece a la wikipediaÂ¿Quieres abrirlo en el navegador?</source>
+        <translation>Sakatutako esteka ez da Wikipedia-koa. Nabigatzailean ireki nahi duzu?</translation>
+    </message>
 </context>
 <context>
     <name>ViewerDictionaryDefinitionPopup</name>
@@ -727,6 +747,10 @@ Jarraitu nahi al duzu?</translation>
     </message>
     <message>
         <source>Selecciona diccionario</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SEARCH TERM</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1124,7 +1148,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message utf8="true">
         <source>Ver definición completa</source>
-        <translation>Ikusi definizio osoa</translation>
+        <translation type="obsolete">Ikusi definizio osoa</translation>
     </message>
     <message>
         <source>Create note</source>
@@ -1133,6 +1157,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Highlight</source>
         <translation>Nabarmendu</translation>
+    </message>
+    <message>
+        <source>Diccionarios</source>
+        <translation>Hiztegia</translation>
     </message>
 </context>
 <context>

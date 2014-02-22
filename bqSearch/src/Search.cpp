@@ -49,7 +49,6 @@ Search::Search (QWidget* parent) : QBookForm(parent)
   , remoteSearchResult(NULL)
   , m_userTyped(false)
   , m_abortSearch(false)
-  , b_searchDirty(false)
 {
         setupUi(this);
 
@@ -125,9 +124,6 @@ Search::Search (QWidget* parent) : QBookForm(parent)
 
         model = QBookApp::instance()->getModel();
 
-        connect(model, SIGNAL(modelChanged(QString,int)), this, SLOT(removeResults()));
-        connect(Storage::getInstance(), SIGNAL(partitionUmounted(StoragePartition*)), this, SLOT(removeResults()));
-
         m_powerLock = PowerManager::getNewLock(this);
         init();
 }
@@ -149,10 +145,17 @@ void Search::activateForm()
 
         QBookApp::instance()->getStatusBar()->setMenuTitle(tr("Search"));
 
-        if(b_searchDirty) // Previous search. Updates it just in case the model has changed
-            show();
-        else if(i_searchSize == 0)
+        if(i_searchSize == 0)
             handleKeyboard();
+
+        else
+        {
+            removeResults();
+            show();
+        }
+
+        connect(model, SIGNAL(modelChanged(QString,int)), this, SLOT(removeResults()));
+        connect(Storage::getInstance(), SIGNAL(partitionUmounted(StoragePartition*)), this, SLOT(removeResults()));
 }
 
 void Search::deactivateForm()
@@ -163,6 +166,9 @@ void Search::deactivateForm()
         m_userTyped = false;
 
         future.waitForFinished();
+
+        disconnect(model, SIGNAL(modelChanged(QString,int)), this, SLOT(removeResults()));
+        disconnect(Storage::getInstance(), SIGNAL(partitionUmounted(StoragePartition*)), this, SLOT(removeResults()));
 }
 
 void Search::init()
@@ -729,8 +735,6 @@ void Search::removeResults()
         verticalPagerHandler->setup(getTotalPages());
         if(isVisible())
             show();
-        else
-            b_searchDirty = true;
 }
 
 void Search::paintEvent (QPaintEvent *)

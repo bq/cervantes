@@ -507,6 +507,17 @@ Mesedez, ez atera SD-a.</translation>
     <name>QBookPowerSaver</name>
     <message>
         <source>Press the Power button to resume</source>
+        <translation type="obsolete">Sakatu Piztu botoia berrekiteko</translation>
+    </message>
+</context>
+<context>
+    <name>QBookScreenSaver</name>
+    <message>
+        <source>Battery level</source>
+        <translation>Bateria-maila</translation>
+    </message>
+    <message>
+        <source>Press the Power button to resume</source>
         <translation>Sakatu Piztu botoia berrekiteko</translation>
     </message>
 </context>

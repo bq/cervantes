@@ -29,7 +29,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 class MobiMetaDataExtractor {
 
 public:
-    static bool     getMetaData  (const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook);
+    static bool     getMetaData  (const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook, QString& language);
     static bool     extractCover ( const QString& filename, const QString &coverPath);
     static int      getRecordOffset(LVStreamRef stream, int recordNumber);
     static QString  getRecordInfo(LVStreamRef stream, int offset);

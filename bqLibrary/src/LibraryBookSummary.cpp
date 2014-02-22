@@ -29,6 +29,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "QBookApp.h"
 #include "Storage.h"
 #include "Screen.h"
+#include "MouseFilter.h"
 
 #include <QFileInfo>
 #include <QFile>
@@ -50,7 +51,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 
 LibraryBookSummary::LibraryBookSummary( QWidget* parent ) :
-    GestureWidget(parent)
+    QWidget(parent)
   , m_bookInfo(NULL)
 {
     setupUi(this);
@@ -62,6 +63,9 @@ LibraryBookSummary::LibraryBookSummary( QWidget* parent ) :
     connect(removeBtn,      SIGNAL(clicked()),  this, SLOT(removeBook()));
     connect(moreActionsBtn, SIGNAL(clicked()),  this, SLOT(moreActionsClicked()));
     connect(addToCollectionBtn, SIGNAL(clicked()),  this, SLOT(addToCollectionClicked()));
+
+    connect(btnImageBack,           SIGNAL(clicked()),      this, SLOT(previousBook()));
+    connect(btnImageNext,           SIGNAL(clicked()),      this, SLOT(nextBook()));
 
     m_bookListActions = new LibraryBookListActions(this);
     m_bookListActions->hide();
@@ -125,7 +129,7 @@ void LibraryBookSummary::setThumbnailElements(bool visible)
     }
 }
 
-void LibraryBookSummary::setBook( const BookInfo* book )
+void LibraryBookSummary::setBook( const BookInfo* book, int currentBook, int totalBooks )
 {
     qDebug() << Q_FUNC_INFO;
 
@@ -272,6 +276,9 @@ void LibraryBookSummary::setBook( const BookInfo* book )
 
     summaryTextBrowser->verticalScrollBar()->hide();
     setupPagination(1);
+    m_currentBook = currentBook;
+    m_totalBooks = totalBooks;
+    pageLabel->setText(tr("%1/%2").arg(currentBook).arg(totalBooks));
 }
 
 void LibraryBookSummary::close()
@@ -354,7 +361,7 @@ void LibraryBookSummary::archiveBook()
     else
         emit archiveBook(m_bookInfo);
 
-    setBook(m_bookInfo);
+    setBook(m_bookInfo,m_currentBook,m_totalBooks);
 }
 
 void LibraryBookSummary::removeBook()
@@ -374,6 +381,12 @@ void LibraryBookSummary::mouseReleaseEvent( QMouseEvent* event )
 
     if(hideElements())
         event->accept();
+    int x = event->x();
+    int y = event->y();
+
+    if(coverCont->x() < x && coverCont->x() + coverCont->width() > x
+            && coverCont->y() < y && coverCont->y() + coverCont->height() > y)
+        emit openBook(m_bookInfo->path);
 }
 
 void LibraryBookSummary::synopsisDown()
@@ -518,4 +531,18 @@ void LibraryBookSummary::createNewCollection()
     hideElements();
     emit addNewCollection(m_bookInfo);
     Screen::getInstance()->flushUpdates();
+}
+
+void LibraryBookSummary::previousBook()
+{
+    qDebug() << Q_FUNC_INFO;
+    hideElements();
+    emit previousBookRequest(m_bookInfo);
+}
+
+void LibraryBookSummary::nextBook()
+{
+    qDebug() << Q_FUNC_INFO;
+    hideElements();
+    emit nextBookRequest(m_bookInfo);
 }

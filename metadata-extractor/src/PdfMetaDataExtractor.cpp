@@ -51,7 +51,7 @@ void copyStringWithoutControlChars( QString& ori, QString& dst )
     dst = ori;
 }
 
-/*static*/ bool PdfMetaDataExtractor::getMetaData( const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString&  )
+/*static*/ bool PdfMetaDataExtractor::getMetaData( const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString&, QString& language )
 {
     QString* _title = NULL;
     QString* _author = NULL;

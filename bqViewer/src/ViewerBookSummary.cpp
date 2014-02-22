@@ -406,6 +406,7 @@ void ViewerBookSummary::deleteBook()
         dialog->showForSpecifiedTime();
         delete dialog;
         QBookApp::instance()->getModel()->removeBook(m_book);
+        QtConcurrent::run(QBookApp::instance(), &QBookApp::syncModel);
     }
 
     delete deleteDialog;

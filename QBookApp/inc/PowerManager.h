@@ -64,6 +64,7 @@ signals:
     void backFromSleep();
     void releaseConnectedPowerLock();
     void shuttingDown();
+    void checkWhileSleeping();
 
 private:    
     PowerManager();

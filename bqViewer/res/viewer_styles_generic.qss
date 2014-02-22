@@ -224,6 +224,17 @@ border-style:solid;
 border-color:#707070;
 background-color:#E0E0E0;
 }
+#definitionOptionsCont #wikipediaBtn{
+background:#E0E0E0 url(":/res/wikipedia.png") no-repeat center center;
+border-style:solid;
+border-color:#707070;
+}
+#ViewerTextActionsPopup #wikipediaPopupBtn{
+background-repeat:no-repeat;
+background:#E0E0E0 url(":/res/wikipedia.png") no-repeat center center;
+border-style:solid;
+border-color:#707070;
+}
 /*ViewerEditNotePopup
 ----------------*/
 #ViewerEditNotePopup{
@@ -249,8 +260,6 @@ background-color:#E0E0E0;
 }
 /*ViewerDictionaryDefinitionPopup
 --------------------------------*/
-#ViewerDictionaryDefinitionPopup{
-}
 #changeDictionaryBtn{
 text-align:left;
 border-style:solid;
@@ -262,6 +271,49 @@ background-image: url(:/res/back-def.png);
 background-color: transparent;
 background-repeat: no-repeat;
 background-position:center left;
+}
+#ViewerDictionaryDefinitionPopupCont{
+}
+#ViewerDictionaryDefinitionPopup #dictionaryBtn{
+border-right-style:solid;
+text-align:center;
+border-right-color:#707070;
+}
+#ViewerDictionaryDefinitionPopup #dictionaryBtn:pressed{
+background-color:#DADADA;
+}
+#ViewerDictionaryDefinitionPopup #wikipediaBtn{
+border-right-style:solid;
+text-align:center;
+border-right-color:#707070;
+background:#FFF url(":/res/wikipedia.png") no-repeat center center;
+}
+#ViewerDictionaryDefinitionPopup #wikipediaBtn:pressed{
+background-color:#DADADA;
+}
+#ViewerDictionaryDefinitionPopup #arrowTabsCont {
+}
+#wikipediaWebBtn{
+background:transparent url(":/res/wikipedia-btn.png") no-repeat center right;
+}
+/*ViewerWikipediaDefinitionPopup
+--------------------------------*/
+
+#ViewerWikipediaDefinitionPopupCont{
+}
+#ViewerWikipediaDefinitionPopup #dictionaryBtn{
+border-right-style:solid;
+text-align:center;
+border-right-color:#C7C7C7;
+background-color:#FFF;
+}
+#ViewerWikipediaDefinitionPopup #wikipediaBtn{
+border-right-style:solid;
+text-align:center;
+border-right-color:#C7C7C7;
+background:#DADADA url(":/res/wikipedia.png") no-repeat center center;
+}
+#ViewerWikipediaDefinitionPopup #arrowTabsCont {
 }
 /*DictionaryLayer
 -------------------------*/
@@ -855,15 +907,16 @@ background-color:#FFFFFF;
 #ViewerTextActionsMenu #popupCont QPushButton{
 border-style:solid;
 border-color:#707070;
-border-top:none;
-border-left:none;
-border-bottom:none;
+background-color:#E0E0E0;
+}
+
+#ViewerTextActionsMenu #popupCont #wikipediaMenuBtn{
+image:url(":/res/wikipedia-adaptative.png");
 }
 #ViewerTextActionsMenu #popupCont QPushButton#deleteActionBtn{
 /*border:none;*/
 }
 #ViewerTextActionsMenu #popupCont QPushButton#searchActionBtn{
-border:none;
 }
 #ViewerBookListActions{
 }

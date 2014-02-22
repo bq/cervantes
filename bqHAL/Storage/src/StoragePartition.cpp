@@ -172,6 +172,8 @@ bool StoragePartition::mount()
         return false;
     }
 
+    system("sync; echo 3 > /proc/sys/vm/drop_caches");
+
     m_mounted = true;
     qDebug() << Q_FUNC_INFO << ": mounted device " << dev << " at " << mnt;
 

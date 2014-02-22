@@ -65,8 +65,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define UNCHECKED "background-color:#FFFFFF;"
 #define COLLECTION_MAX_LENGTH 10
 
-#define PRESSED "background-color:#DADADA;"
-#define RELEASED "background-color:#FFFFFF;"
+#define PRESSED "background-color:#303030;color:#FFFFFF"
+#define RELEASED "background-color:#FFFFFF; color:#000000;"
 
 Library::Library( QWidget* parent ) :
     QBookForm(parent)
@@ -90,6 +90,7 @@ Library::Library( QWidget* parent ) :
   , m_bookInfoToUnarchive(NULL)
   , b_unarchivingBook(false)
   , b_hasSearch(false)
+  , b_isFromViewer(false)
 {
     setupUi(this);
 
@@ -231,6 +232,9 @@ Library::Library( QWidget* parent ) :
     connect(m_bookSummary,          SIGNAL(exportNotes(const QString)),         this, SLOT(exportNotes(QString)));
     connect(m_bookSummary,          SIGNAL(changeReadState(const BookInfo*, BookInfo::readStateEnum)),   this, SLOT(changeReadState(const BookInfo*,BookInfo::readStateEnum)));
     connect(m_bookSummary,          SIGNAL(addNewCollection(const BookInfo*)),  this, SLOT(createNewCollection(const BookInfo*)));
+    connect(m_bookSummary,          SIGNAL(nextBookRequest(const BookInfo*)),   this, SLOT(nextBookRequest(const BookInfo*)));
+    connect(m_bookSummary,          SIGNAL(previousBookRequest(const BookInfo*)),this, SLOT(previousBookRequest(const BookInfo*)));
+    connect(m_bookSummary,          SIGNAL(openBook(const QString&)),           this, SLOT(itemClicked(const QString&)));
 
     //
 
@@ -337,7 +341,7 @@ void Library::activateForm()
 //        allBooksSelected();
 //    }
     QTimer::singleShot(0, m_currentView,SLOT(resume()));
-    QTimer::singleShot(100, QBookApp::instance(),SLOT(checkSubscriptionExpired()));
+    QTimer::singleShot(100, QBookApp::instance(),SLOT(syncSubcriptionInfo()));
 }
 
 void Library::deactivateForm()
@@ -350,6 +354,8 @@ void Library::deactivateForm()
 
     // NOTE Do not call to clearKeyboard, to preserve the text inside the librarySearchLineEdit
     clearKeyboard();
+    if(b_isFromViewer)
+        setFromViewer(false);
 
 //    if(m_itemClickedMode == ELICM_SELECT)
 //        closeEditBooksClicked();
@@ -395,6 +401,7 @@ void Library::deleteSearchData()
     }
     m_dirs.clear();
     m_images.clear();
+    m_browserBooks.clear();
     b_hasSearch = false;
 }
 
@@ -804,8 +811,7 @@ void Library::changeReadState( const BookInfo* bookInfo, BookInfo::readStateEnum
     if(readDialog->result())
     {
         QBookApp::instance()->getModel()->changeReadState(QBookApp::instance()->getModel()->getBookInfo(bookInfo->path), state);
-        summaryHiding();
-        reloadModel();
+        resetBookSummary(bookInfo);
     }
 
     delete readDialog;
@@ -847,10 +853,12 @@ void Library::removeBook( const BookInfo* book )
 
         m_bookSummary->hideElements();
         Screen::getInstance()->setMode(Screen::MODE_SAFE,true,Q_FUNC_INFO);
-        summaryHiding();
         QBookApp::instance()->getSyncHelper()->removeBook(book->path);
         QBookApp::instance()->getModel()->removeBook(book);
+        QtConcurrent::run(QBookApp::instance(), &QBookApp::syncModel);
 
+        reloadModel();
+        resetBookSummary(book);
         Screen::getInstance()->flushUpdates();
 
         InfoDialog* dialog = new InfoDialog(this,tr("Book correctly removed."));
@@ -897,7 +905,6 @@ void Library::archiveBook( const BookInfo* bookInfo )
     if(archiveDialog->result()){
         qDebug () << Q_FUNC_INFO << "Start archiving";
         Screen::getInstance()->queueUpdates();
-        summaryHiding();
         QBookApp::instance()->getModel()->archiveBook(bookInfo);
         QBookApp::instance()->getSyncHelper()->archiveBook(bookInfo->path);
         reloadModel();
@@ -974,7 +981,6 @@ void Library::unArchivedBook(int status, bool /*dirtyLibrary*/)
     }
 
     b_unarchivingBook = false;
-    summaryHiding();
     reloadModel();
     m_powerLock->release();
     if(m_filterMode == ELFM_STORE_ARCHIVED && m_books.size() == 0)
@@ -1948,9 +1954,12 @@ void Library::summaryHiding()
     Screen::getInstance()->queueUpdates();
 
     m_bookSummary->close();
+    reloadModel();
     m_currentView->getPageHandler()->show();
 
-    int currentPage = m_page;
+    int pos = m_bookSummary->getCurrentBookOffset();
+
+    int currentPage = int(pos/m_currentView->getItemsPerPage());
 
     while( currentPage > 0 )
     {
@@ -2116,8 +2125,39 @@ void Library::itemLongPressed( const QString& path )
             QBookApp::instance()->generateBookCover(book);
         }
 
+        int size, pos = 1;
+        QList<const BookInfo*>::const_iterator it;
+        QList<const BookInfo*>::const_iterator itEnd;
+
+        if (isReallySearchView())
+        {
+            it = m_searchBooks.begin();
+            itEnd = m_searchBooks.end();
+            size = m_searchBooks.size();
+        }
+        else if(m_sourceMode == ELSM_BROWSER)
+        {
+            it = m_browserBooks.begin();
+            itEnd = m_browserBooks.end();
+            size = m_browserBooks.size();
+        }
+        else
+        {
+            it = m_books.begin();
+            itEnd = m_books.end();
+            size = m_books.size();
+        }
+        while(it != itEnd)
+        {
+            if((*it) == bookInfo)
+                break;
+
+            pos++;
+            it++;
+        }
+
         m_bookSummary->show();
-        m_bookSummary->setBook(bookInfo);
+        m_bookSummary->setBook(bookInfo, pos, size);
 
         Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
         Screen::getInstance()->flushUpdates();
@@ -2263,7 +2303,6 @@ void Library::copyFile(const QString& path)
 
     if(copyDialog->result())
     {
-        summaryHiding();
         m_powerLock->activate();
         QFile file(destination);
         InfoDialog* dialog;
@@ -2315,6 +2354,12 @@ void Library::copyFile(const QString& path)
             QBookApp::instance()->getModel()->addDir(destination);
             QBookApp::instance()->getModel()->loadDefaultInfo(destination);
             QtConcurrent::run(QBookApp::instance(), &QBookApp::syncModel);
+            const BookInfo* bookInfo = QBookApp::instance()->getModel()->getBookInfo(path);
+            if(bookInfo)
+            {
+                reloadModel();
+                resetBookSummary(bookInfo);
+            }
         }
         else
         {
@@ -2534,7 +2579,6 @@ void Library::modelChanged( const QString& path, int updateType )
     qDebug() << Q_FUNC_INFO;
     if(m_filterMode == ELFM_SEARCH)
         closeSearchClicked();
-
     gatherNumberOfItemsInFilters();
 
     const BookInfo* bookInfo = QBookApp::instance()->getModel()->getBookInfo(path);
@@ -2849,6 +2893,7 @@ void Library::loadDir ( const QString& path )
 
     m_files.clear();
     m_images.clear();
+    m_browserBooks.clear();
     QDir dir(path);
     dir.setFilter(QDir::AllDirs | QDir::NoDotAndDotDot | QDir::Files | QDir::Readable);
     dir.setSorting(QDir::DirsFirst | QDir::Name);
@@ -2867,8 +2912,18 @@ void Library::loadDir ( const QString& path )
         {
             m_images.append(file_path);
         }
-        qSort(m_images.begin(), m_images.end(), ImageNameLessThan);
+        else
+        {
+            const BookInfo* bookInfo = QBookApp::instance()->getModel()->getBookInfo(file_path);
+
+            if(bookInfo)
+            {
+                m_browserBooks.append(bookInfo);
+            }
+        }
     }
+    qSort(m_browserBooks.begin(), m_browserBooks.end(), titleLessThan);
+    qSort(m_images.begin(), m_images.end(), ImageNameLessThan);
 }
 
 //void Library::updateSelectedBooks()
@@ -3057,7 +3112,7 @@ void Library::searchLineEditClicked()
     {
         librarySearchLineEdit->clear();
     }
-    if(!m_keyboard->isVisible())
+    if(!m_keyboard || !m_keyboard->isVisible())
         showKeyboard();
 }
 
@@ -3683,6 +3738,7 @@ void Library::viewActiveBooks()
 {
     qDebug() << Q_FUNC_INFO;
 
+    closeSearchClicked();
     allBooksSelected();
     allActiveBooksSelected();
     m_allBooksSubFilterLayer->setAllActiveBooksChecked();
@@ -4115,4 +4171,180 @@ void Library::createNewCollection(const BookInfo* bookToAdd)
     m_editCollection->setup(collection, bookToAdd);
     m_editCollection->show();
     m_editCollection->checkBookToAdd(bookToAdd);
+}
+
+void Library::previousBookRequest(const BookInfo* currentBook)
+{
+    qDebug() << Q_FUNC_INFO;
+
+    Screen::getInstance()->queueUpdates();
+    QBookApp::instance()->getStatusBar()->setSpinner(true);
+    Screen::getInstance()->flushUpdates();
+
+    BookInfo* book;
+    int pos = 0;
+    QList<const BookInfo*>::const_iterator it;
+    QList<const BookInfo*>::const_iterator itEnd;
+
+    if (isReallySearchView())
+    {
+        it = m_searchBooks.begin();
+        itEnd = m_searchBooks.end();
+    }
+    else if(m_sourceMode == ELSM_BROWSER)
+    {
+        it = m_browserBooks.begin();
+        itEnd = m_browserBooks.end();
+    }
+    else
+    {
+        it = m_books.begin();
+        itEnd = m_books.end();
+    }
+    while(it != itEnd)
+    {
+        qDebug() << Q_FUNC_INFO << " (*it):" << (*it);
+        if((*it) == currentBook)
+        {
+            if(pos == 0)
+                book = new BookInfo(*(*--itEnd));
+            else
+                book = new BookInfo(*(*--it));
+            break;
+        }
+        ++pos;
+        ++it;
+    }
+    if(book != currentBook)
+        itemLongPressed(book->path);
+    delete book;
+    book = NULL;
+    Screen::getInstance()->queueUpdates();
+    QBookApp::instance()->getStatusBar()->setSpinner(false);
+    Screen::getInstance()->flushUpdates();
+}
+
+void Library::nextBookRequest(const BookInfo* currentBook)
+{
+    qDebug() << Q_FUNC_INFO;
+    Screen::getInstance()->queueUpdates();
+    QBookApp::instance()->getStatusBar()->setSpinner(true);
+    Screen::getInstance()->flushUpdates();
+
+    BookInfo* book = NULL;
+    int size, pos = 0;
+    QList<const BookInfo*>::const_iterator itInitial;
+    QList<const BookInfo*>::const_iterator it;
+    QList<const BookInfo*>::const_iterator itEnd;
+
+    if (isReallySearchView())
+    {
+        itInitial = m_searchBooks.begin();
+        it = m_searchBooks.begin();
+        itEnd = m_searchBooks.end();
+        size = m_searchBooks.size();
+    }
+    else if(m_sourceMode == ELSM_BROWSER)
+    {
+        itInitial = m_browserBooks.begin();
+        it = m_browserBooks.begin();
+        itEnd = m_browserBooks.end();
+        size = m_browserBooks.size();
+    }
+    else
+    {
+        itInitial = m_books.begin();
+        it = m_books.begin();
+        itEnd = m_books.end();
+        size = m_books.size();
+    }
+
+    if (size == 0)
+    {
+        summaryHiding();
+        QBookApp::instance()->getStatusBar()->setSpinner(false);
+        return;
+    }
+    while(it != itEnd)
+    {
+        qDebug() << Q_FUNC_INFO << " (*it):" << (*it);
+        if((*it) == currentBook)
+        {
+            if(pos == size - 1)
+                book = new BookInfo(*(*itInitial));
+            else
+                book = new BookInfo(*(*++it));
+            break;
+        }
+        pos++;
+        it++;
+    }
+    if(!book)
+    {
+        int offset = m_bookSummary->getCurrentBookOffset() - 1;
+        if(offset >= size)
+            offset = 0;
+        if (isReallySearchView())
+            book = new BookInfo(*m_searchBooks[offset]);
+        else if(m_sourceMode == ELSM_BROWSER)
+            book = new BookInfo(*m_browserBooks[offset]);
+        else
+            book = new BookInfo(*m_books[offset]);
+    }
+    if(book != currentBook)
+        itemLongPressed(book->path);
+    delete book;
+    book = NULL;
+    Screen::getInstance()->queueUpdates();
+    QBookApp::instance()->getStatusBar()->setSpinner(false);
+    Screen::getInstance()->flushUpdates();
+}
+
+void Library::resetBookSummary(const BookInfo* bookInfo )
+{
+    reloadModel();
+    Screen::getInstance()->queueUpdates();
+    m_bookSummary->hideElements();
+    QList<const BookInfo*>::const_iterator it;
+    QList<const BookInfo*>::const_iterator itEnd;
+
+    int size, pos = 1;
+    if (isReallySearchView())
+    {
+        it = m_searchBooks.begin();
+        itEnd = m_searchBooks.end();
+        size = m_searchBooks.size();
+    }
+    else if(m_sourceMode == ELSM_BROWSER)
+    {
+        it = m_browserBooks.begin();
+        itEnd = m_browserBooks.end();
+        size = m_browserBooks.size();
+    }
+    else
+    {
+        it = m_books.begin();
+        itEnd = m_books.end();
+        size = m_books.size();
+    }
+    if(size == 0)
+    {
+        summaryHiding();
+        Screen::getInstance()->flushUpdates();
+        return;
+    }
+    while(it != itEnd)
+    {
+        if((*it) == bookInfo)
+            break;
+
+        pos++;
+        it++;
+    }
+    if(pos > size)
+        nextBookRequest(bookInfo);
+    else
+        m_bookSummary->setBook(bookInfo, pos, size);
+    m_bookSummary->show();
+    Screen::getInstance()->flushUpdates();
 }

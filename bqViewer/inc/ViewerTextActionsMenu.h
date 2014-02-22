@@ -51,6 +51,7 @@ signals:
     void                                    searchActionClicked         ();
     void                                    deleteActionClicked         ();
     void                                    dictioActionClicked         ();
+    void                                    wikipediaClicked            ();
 };
 
 #endif // VIEWERTEXTACTIONSMENU_H

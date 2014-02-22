@@ -986,6 +986,21 @@ border-width:1px;
 border-radius:5px;
 font-size:16px;
 }
+#SettingsReaderProgressBar #viewerBottomActionsCont #progressBarCont{
+margin:10px 32px 10px 32px;
+border-width:1px;
+border-radius:5px;
+}
+#SettingsReaderProgressBar #viewerBottomActionsCont #progressBarCont QLabel{
+margin:18px 40px 0px 40px;
+min-height:20px;
+max-height:20px;
+font-size:16px;
+}
+#SettingsReaderProgressBar #viewerBottomActionsCont #progressBarCont QPushButton{
+border-width:1px;
+border-radius:0px;
+}
 #SettingsReaderProgressBar QPushButton:checked{
 }
 #viewerHeaderCont{
@@ -1029,8 +1044,8 @@ border-right-width:1px;
 border-left-width:1px;
 }
 #viewerBottomActionsCont{
-min-height:140px;
-max-height:140px;
+min-height:175px;
+max-height:175px;
 margin:0px 20px;
 border-width:2px;
 }
@@ -1038,12 +1053,12 @@ border-width:2px;
 margin-right:5px;
 }
 #viewerBottomActionsCont #progressBarCont QPushButton{
-min-height:55px;
-max-height:55px;
+min-height:45px;
+max-height:45px;
 }
 #readingActions{
-min-height:65px;
-max-height:65px;
+min-height:60px;
+max-height:60px;
 }
 #readingActions QPushButton{
 margin-top:10px;
@@ -1059,8 +1074,14 @@ margin:0px 10px 0px 30px;
 min-width:146px;
 max-width:146px;
 }
-#viewerBottomActionsCont #withProgressBarBtn{
+#viewerBottomActionsCont QLabel{
+margin:0px 30px 8px 30px;
+}
+#viewerBottomActionsCont #chapterProgressBtn{
 margin:0px 30px 0px 30px;
+}
+#viewerBottomActionsCont #withProgressBarBtn{
+margin:15px 30px 0px 30px;
 }
 #viewerBottom{
 min-width:412px;
@@ -1086,11 +1107,26 @@ max-width:35px;
 min-height:35px;
 max-height:35px;
 }
+#readingInfoCont{
+margin:5px 0px;
+}
 #viewerBottomCont #readingProgress{
-margin:5px 5px;
-min-height:5px;
-max-height:5px;
+margin:0px 5px;
+min-width:401px;
+max-width:401px;
+min-height:8px;
+max-height:8px;
 border-radius:3px;
+}
+#viewerBottomCont #readingProgressFigureImage{
+min-height:10px;
+max-height:10px;
+}
+#viewerBottomCont #readingProgressFigureImage QLabel{
+min-height:8px;
+max-height:8px;
+min-width:1px;
+max-width:1px;
 }
 #topLeftLbl{
 min-height:40px;

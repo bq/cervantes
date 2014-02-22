@@ -29,8 +29,9 @@ class Fb2MetaDataExtractor
 {
 public:
     static bool getMetaData  (MetaData &data);
-    static bool getMetaData  (const QString& fb2Filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook);
+    static bool getMetaData  (const QString& fb2Filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook, QString& language);
     static bool extractCover (const QString& fb2Filename, const QString& coverPath);
+    static QString getCollection (const QString& fb2Filename);
 
 protected:
     static bool getAuthorMetaData       (const QByteArray& data, QString& author);
@@ -39,6 +40,7 @@ protected:
     static bool getDateMetaData         (const QByteArray& data, QDateTime& date);
     static bool getPublisherMetaData    (const QByteArray& data, QString& publisher);
     static bool getCoverFileNameMetaData(const QByteArray& data, QString& coverFileName);
+    static bool getLanguageMetaData     (const QByteArray& data, QString& language);
 
     static QString formatAuthor(QString& firstName, QString& middleName, QString& lastName);
 };

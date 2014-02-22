@@ -50,7 +50,7 @@ protected:
 
     /* http://qt-project.org/forums/viewthread/7340 */
     virtual void                                paintEvent                          ( QPaintEvent* );
-    void                                        removeOlderCollection               ();
+    void                                        changeOldCollection                 ();
     void                                        saveItemsInfo                       ();
     bool                                        isSaveInHash                        ();
     void                                        paintFromHash                       ();

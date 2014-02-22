@@ -49,9 +49,10 @@ WifiMx508::~WifiMx508()
     qDebug() << Q_FUNC_INFO;
 }
 
-void WifiMx508::powerOff(){
+void WifiMx508::powerOff()
+{
     qDebug() << "--->" << Q_FUNC_INFO;
-    systemCall("wlarm_le -i eth0 radio off");
+    //systemCall("wlarm_le -i eth0 radio off");
 }
 
 /* virtual */ QString WifiMx508::getMacAddress()
@@ -65,7 +66,7 @@ void WifiMx508::powerOn()
     qDebug() << "--->" << Q_FUNC_INFO;
 
     //systemCall("killall connmand");
-    systemCall("wlarm_le -i eth0 radio on");
+    //systemCall("wlarm_le -i eth0 radio on");
 
 }
 

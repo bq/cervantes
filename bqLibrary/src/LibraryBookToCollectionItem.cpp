@@ -43,10 +43,7 @@ LibraryBookToCollectionItem::LibraryBookToCollectionItem(QWidget* parent) : Gest
 }
 
 LibraryBookToCollectionItem::~LibraryBookToCollectionItem()
-{
-    delete m_book;
-    m_book = NULL;
-}
+{}
 
 void LibraryBookToCollectionItem::paintEvent(QPaintEvent* )
 {

@@ -649,62 +649,62 @@
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="155"/>
         <source>January</source>
-        <translation>Urtarrila</translation>
+        <translation>urtarrila</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="157"/>
         <source>February</source>
-        <translation>Otsaila</translation>
+        <translation>otsaila</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="159"/>
         <source>March</source>
-        <translation>Martxoa</translation>
+        <translation>martxoa</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="161"/>
         <source>April</source>
-        <translation>Apirila</translation>
+        <translation>apirila</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="163"/>
         <source>May</source>
-        <translation>Maiatza</translation>
+        <translation>maiatza</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="165"/>
         <source>June</source>
-        <translation>Ekaina</translation>
+        <translation>ekaina</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="167"/>
         <source>July</source>
-        <translation>Uztaila</translation>
+        <translation>uztaila</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="169"/>
         <source>August</source>
-        <translation>Abuztua</translation>
+        <translation>abuztua</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="171"/>
         <source>September</source>
-        <translation>Iraila</translation>
+        <translation>iraila</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="173"/>
         <source>October</source>
-        <translation>Urria</translation>
+        <translation>urria</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="175"/>
         <source>November</source>
-        <translation>Azaroa</translation>
+        <translation>azaroa</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="177"/>
         <source>December</source>
-        <translation>Abendua</translation>
+        <translation>abendua</translation>
     </message>
     <message>
         <location filename="../src/SettingsDateTimeMenu.cpp" line="299"/>
@@ -1574,53 +1574,60 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/SettingsReaderProgressBar.ui" line="366"/>
-        <source>est. Nam sit amet neque metus. Sed pretium sem et mauris convallis sit amet elementum lectus facilisis. Cum sociis natoque penatibus et magnis dis partu rient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum eleifend ullamcorper. Ut sed nisi vel est ul lamcorper facilisis non ac augue. Suspendisse eu arcu quam. Donec porta
-eleifend massa, sed hendrerit arcu rhoncus vitae.
-Curabitur rhoncus arcu id enim pharetra luctus. Duis a tincidunt risus. Morbi risus est, luctus consequat ultricies vulputate, laoreet quis nunc. Nunc malesuada consequat urna lacinia lobortis. Nullam porta feugiat tellus. Quis que volutpat, dui sed dictum posuere, dui neque varius enim, non vehicula mauris justo ac lectus. In hendrerit nunc sit amet dui ultricies blandit.</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;est. Nam sit amet neque metus. Sed pretium sem et mauris convallis sit amet elementum lectus facilisis. Cum sociis natoque penatibus et magnis dis partu rient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum eleifend ullamcorper. Ut sed nisi vel est ul lamcorper facilisis non ac augue.  &lt;/p&gt;&lt;p&gt;Curabitur rhoncus arcu id enim pharetra luctus. Duis a tincidunt risus. Morbi risus est, luctus consequat ultricies vulputate, laoreet quis nunc. Nunc malesuada consequat urna lacinia lobortis. Nullam porta feugiat tellus. Quis que volutpat, dui sed dictum posuere.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="444"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="565"/>
+        <source>Mostrar barra de progreso de lectura</source>
+        <translation>Erakutsi irakurketaren aurrerapen barra</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="593"/>
+        <source>Mostrar marcas de capítulo</source>
+        <translation>Erakutsi kapitulu-markak</translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="442"/>
         <source>Porcentaje 
 de lectura</source>
         <translation>Irakurketa %</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="479"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="477"/>
         <source>Páginas leídas /
 Páginas totales</source>
         <translation>Irakurritako orr./
 orr. guztira</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="511"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="509"/>
         <source>Págs. para  
 fin de capítulo</source>
         <translation>Kapitulu
 amaierarako orr.</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="555"/>
         <source>Barra de progreso de lectura</source>
-        <translation>Irakurketaren aurrerapen barra</translation>
+        <translation type="obsolete">Irakurketaren aurrerapen barra</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="626"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="692"/>
         <source>14%</source>
         <translation>14% </translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="639"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="705"/>
         <source>leído</source>
         <translation>irakurria</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="665"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="731"/>
         <source>2/268</source>
         <translation>2/268 </translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsReaderProgressBar.ui" line="678"/>
+        <location filename="../ui/SettingsReaderProgressBar.ui" line="744"/>
         <source>12 págs. fin de capítulo</source>
         <translation>12 kap. am. orr.</translation>
     </message>

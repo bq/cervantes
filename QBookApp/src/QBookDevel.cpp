@@ -160,7 +160,7 @@ void QBookDevel::enableUsbNetwork(bool enable) {
 
     if (enable)
     {
-        if (m_powerLock == NULL)
+        if (!m_powerLock)
             QBookDevel::m_powerLock = PowerManager::getNewLock(qApp);
 
         m_powerLock->activate();
@@ -170,7 +170,8 @@ void QBookDevel::enableUsbNetwork(bool enable) {
     {
         system("rmmod g_ether");
         system("rmmod arcotg_udc");
-        m_powerLock->release();
+        if (m_powerLock)
+            m_powerLock->release();
     }
 }
 

@@ -20,7 +20,7 @@
     <message>
         <location filename="../ui/Library.ui" line="93"/>
         <source>Enter text to search here...</source>
-        <translation>Introduza aqui o texto a procurar...</translation>
+        <translation>Introduza aqui o texto a procurar</translation>
     </message>
     <message>
         <location filename="../ui/Library.ui" line="156"/>
@@ -333,7 +333,7 @@ The books in the collection will not be deleted.</source>
     <message>
         <location filename="../src/Library.cpp" line="2133"/>
         <source>You are about to remove the </source>
-        <translation>Estás prestes a eliminar o </translation>
+        <translation>Está prestes a eliminar o </translation>
     </message>
     <message>
         <location filename="../src/Library.cpp" line="2136"/>
@@ -360,7 +360,7 @@ The books in the collection will not be deleted.</source>
     <message>
         <location filename="../src/Library.cpp" line="2206"/>
         <source>You are about to copy the </source>
-        <translation>Está a prestes a copiar o </translation>
+        <translation>Está prestes a copiar o </translation>
     </message>
     <message>
         <location filename="../src/Library.cpp" line="2244"/>
@@ -398,7 +398,7 @@ Please delete the file before copy it.</source>
     <message>
         <location filename="../src/Library.cpp" line="2345"/>
         <source>You are about to export notes from this book </source>
-        <translation>Estás prestes a exportar as tuas notas e destaques deste livro </translation>
+        <translation>Está prestes a exportar as suas notas e destaques deste livro </translation>
     </message>
     <message>
         <location filename="../src/Library.cpp" line="2351"/>
@@ -897,7 +897,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../ui/LibraryEditCollection.ui" line="153"/>
         <source>Introduce el nombre de la colección</source>
-        <translation>Introduça o nome da coleção</translation>
+        <translation>Introduza o nome da coleção</translation>
     </message>
     <message>
         <location filename="../ui/LibraryEditCollection.ui" line="235"/>

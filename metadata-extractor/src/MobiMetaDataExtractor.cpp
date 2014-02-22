@@ -45,8 +45,9 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define DESCRIPTION_TYPE 103
 #define TITLE_TYPE 503
 #define COVER_TYPE 201
+#define LANG_TYPE  524
 
-/*static*/ bool MobiMetaDataExtractor::getMetaData(const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook)
+/*static*/ bool MobiMetaDataExtractor::getMetaData(const QString& filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook, QString& language)
 {
 
     LVStreamRef m_stream = LVOpenFileStream(filename.toUtf8().constData(), LVOM_READ);
@@ -83,6 +84,10 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
             case TITLE_TYPE:
                 if(title.isEmpty())
                     title = getRecordInfo(m_stream, recordOffset);
+                break;
+            case LANG_TYPE:
+                if(language.isEmpty())
+                    language = getRecordInfo(m_stream, recordOffset);
                 break;
             default:
                 break;

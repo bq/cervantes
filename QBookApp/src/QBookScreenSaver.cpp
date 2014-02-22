@@ -34,6 +34,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "Model.h"
 #include "BookInfo.h"
 #include "DeviceInfo.h"
+#include "ADConverter.h"
 
 QBookScreenSaver::QBookScreenSaver(QWidget *parent)
         : QWidget(parent)
@@ -70,6 +71,19 @@ void QBookScreenSaver::paintEvent(QPaintEvent *event)
     case SLEEP:
     {
         qDebug() << Q_FUNC_INFO << "Enter sleep";
+
+        // Check charging
+        if(ADConverter::getInstance()->getStatus() != ADConverter::ADC_STATUS_NO_WIRE)
+        {
+            showChargingImage(&painter);
+            event->accept();
+            return;
+        }
+
+        // Check battery
+        if(checkAndShowBatteryWarnings(&painter))
+            return;
+
         switch (QBook::settings().value("setting/screensaver", BOOK_COVER).toInt()){
         case STORED_IMAGES:
         {
@@ -104,9 +118,7 @@ void QBookScreenSaver::paintEvent(QPaintEvent *event)
     {
         qDebug() << Q_FUNC_INFO << "powerOff";
 
-        int level = Battery::getInstance()->getLevel();
-
-        if( level > BATTERY_LEVEL_LOW)
+        if(!checkAndShowBatteryWarnings(&painter))
         {
             QString downloadedImagePath = Storage::getInstance()->getDataPartition()->getMountPoint() + QDir::separator() + QString("powerOffDeviceImage.png");
             #ifndef HACKERS_EDITION
@@ -115,18 +127,6 @@ void QBookScreenSaver::paintEvent(QPaintEvent *event)
             else
             #endif
                 painter.drawPixmap(0, 0, QPixmap(":/powerOffDeviceImage.png"));
-        }
-        else if(level <= 0){ // Empty battery
-            painter.drawPixmap(0, 0, QPixmap(":/emptyBatteryImage.png"));
-        }
-        else { // Low battery
-           QString batteryDownloadPath = Storage::getInstance()->getDataPartition()->getMountPoint() + QDir::separator() + QString("lowBatteryImage.png");
-           #ifndef HACKERS_EDITION
-           if(QBookApp::instance()->isActivated() || QBookApp::instance()->isLinked())
-                painter.drawPixmap(0, 0, QPixmap(batteryDownloadPath));
-           else
-           #endif
-                painter.drawPixmap(0, 0, QPixmap(":/lowBatteryImage.png"));
         }
     }
     break;
@@ -143,6 +143,37 @@ void QBookScreenSaver::paintEvent(QPaintEvent *event)
     }
 }
 
+bool QBookScreenSaver::checkAndShowBatteryWarnings(QPainter* painter)
+{
+    qDebug() << Q_FUNC_INFO;
+
+    int level = Battery::getInstance()->getLevel();
+
+    if(level > BATTERY_LEVEL_LOW)
+        return false;
+
+    if(level <= 0){ // Empty battery
+        painter->drawPixmap(0, 0, QPixmap(":/emptyBatteryImage.png"));
+    }
+    else { // Low battery
+       QString batteryDownloadPath = Storage::getInstance()->getDataPartition()->getMountPoint() + QDir::separator() + QString("lowBatteryImage.png");
+       #ifndef HACKERS_EDITION
+       if(QBookApp::instance()->isActivated() || QBookApp::instance()->isLinked())
+            painter->drawPixmap(0, 0, QPixmap(batteryDownloadPath));
+       else
+       #endif
+            painter->drawPixmap(0, 0, QPixmap(":/lowBatteryImage.png"));
+    }
+
+    if(screenType == SLEEP){        
+        QString message = tr("Press the Power button to resume");
+        addBatteryLevel(painter, level);
+       addFooterMessage(painter, message);
+    }
+
+    return true;
+}
+
 void QBookScreenSaver::showDefaultSleepImage(QPainter* painter){
     qDebug() << Q_FUNC_INFO;
 
@@ -155,12 +186,8 @@ void QBookScreenSaver::showDefaultSleepImage(QPainter* painter){
     #endif
         painter->drawPixmap(0, 0, QPixmap(":/restDeviceImage.png"));
 
-    //Absolute position, specific of cliente sleep image
-    if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
-        painter->drawText(QPoint(140, 1000), QString(QApplication::translate("QBookPowerSaver", "Press the Power button to resume", 0, QApplication::UnicodeUTF8)));
-    else
-        painter->drawText(QPoint(111, 782), QString(QApplication::translate("QBookPowerSaver", "Press the Power button to resume", 0, QApplication::UnicodeUTF8)));
-
+    QString message = tr("Press the Power button to resume");
+    addFooterMessage(painter, message);
 }
 
 void QBookScreenSaver::showGeneralImage(QPainter* painter, const QString& imagePath){
@@ -192,9 +219,26 @@ void QBookScreenSaver::showGeneralImage(QPainter* painter, const QString& imageP
 
         painter->drawPixmap(x, y, pixmap);
 
+        // Show at the center
         QRect t = QRect(0, Screen::getInstance()->screenHeight() - Screen::getInstance()->screenHeight() / 15, Screen::getInstance()->screenWidth(), Screen::getInstance()->screenHeight() / 10);
-        painter->drawText(t, Qt::AlignCenter, QString(QApplication::translate("QBookPowerSaver", "Press the Power button to resume", 0, QApplication::UnicodeUTF8)));
+        painter->drawText(t, Qt::AlignCenter, tr("Press the Power button to resume"));
     }
+}
+
+void QBookScreenSaver::showChargingImage(QPainter* painter)
+{
+    qDebug() << Q_FUNC_INFO;
+
+    QString message = tr("Press the Power button to resume");
+    int batteryLevel = Battery::getInstance()->getLevel();
+
+    if(batteryLevel == 100)
+        painter->drawPixmap(0, 0, QPixmap(":/batteryCompleteImage.png"));
+    else
+        painter->drawPixmap(0, 0, QPixmap(":/batteryChargingImage.png"));
+
+    addBatteryLevel(painter, batteryLevel);
+    addFooterMessage(painter, message);
 }
 
 QString QBookScreenSaver::getScreenSaverImgName()
@@ -242,3 +286,34 @@ void QBookScreenSaver::closeEvent(QCloseEvent *event)
       emit closed();
       event->accept();
 }
+
+void QBookScreenSaver::addFooterMessage(QPainter* painter, QString message)
+{
+    qDebug() << Q_FUNC_INFO << message;
+
+    // Place the message aligned with standard sleep image
+    if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+        painter->drawText(QPoint(140, 1000), message);
+    else
+        painter->drawText(QPoint(111, 782), message);
+
+
+}
+
+void QBookScreenSaver::addBatteryLevel(QPainter* painter, int batteryLevel)
+{
+    qDebug() << Q_FUNC_INFO << batteryLevel;
+
+    QString message = QString::number(batteryLevel) + "%";
+
+    // Place the message right below the battery
+    QRect t;
+    if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+        t = QRect(51, 990, 50, 16);
+
+        else
+        t = QRect(37, 772, 40, 18);
+
+    painter->drawText(t, Qt::AlignCenter, message);
+}
+

@@ -35,6 +35,7 @@ const char* TRANSACTIONS_DATA_FILE = ".transactions.xml";
 #include <QStringList>
 #include <QDebug>
 #include <QCoreApplication>
+#include <QCryptographicHash>
 
 
 ModelBackendOneFile::ModelBackendOneFile( const QString& privatePartition ) : IModelBackend(), m_books(NULL)
@@ -412,7 +413,11 @@ BookInfo* ModelBackendOneFile::loadBook (QXmlStreamReader& xml)
                 info->percentageList = xml.readElementText();
             } else if (name == "readingStatus") {
                 info->readingStatus = (BookInfo::readStateEnum)xml.readElementText().toInt();
-            } else if (name == "marks") {
+            } else if (name == "size") {
+                info->size = xml.readElementText().toInt();
+            }else if (name == "language"){
+                info->language = xml.readElementText();
+            }else if (name == "marks") {
                 while (!xml.atEnd() && !xml.hasError())
                 {
                     xml.readNext();
@@ -462,20 +467,29 @@ BookInfo* ModelBackendOneFile::loadBook (QXmlStreamReader& xml)
         }
     }
 
+    if(info->size == 0)
+    {
+        QFileInfo bookFile(info->path);
+        bookFile.refresh();
+        info->size = bookFile.size();
+    }
+
     //For added mobi books try to extract the metadata if the author has the previous empty string.
     if(info->format == "mobi" && info->author =="--")
     {
         info->author = "";
         info->title = "";
         info->thumbnail = "";
-        if(MetaDataExtractor::getMetaData(info->path, info->title, info->author, info->publisher, info->publishTime, info->synopsis, info->format, info->isDRMFile) == true)
+        QString collection = "";
+        if(MetaDataExtractor::getMetaData(info->path, info->title, info->author, info->publisher, info->publishTime, info->synopsis, info->format, info->isDRMFile, collection, info->language) == true)
         {
             if(info->title.isEmpty())
                 info->title = QFileInfo(info->path).baseName();
 
             if(info->author.isEmpty())
                 info->author = QString("---");
-
+            if(!collection.isEmpty())
+                info->addCollection(collection);
             info->setCSSFileList(MetaDataExtractor::extractCSS(info->path));
         }
     }
@@ -548,8 +562,9 @@ BookInfo* ModelBackendOneFile::loadDefaultInfo( const QString& path )
     qDebug() << Q_FUNC_INFO << "Path: " << path;
 
     BookInfo* bookInfo = new BookInfo();
+    QString collection;
 
-    if (MetaDataExtractor::getMetaData(path, bookInfo->title, bookInfo->author, bookInfo->publisher, bookInfo->publishTime, bookInfo->synopsis, bookInfo->format, bookInfo->isDRMFile) == true) {
+    if (MetaDataExtractor::getMetaData(path, bookInfo->title, bookInfo->author, bookInfo->publisher, bookInfo->publishTime, bookInfo->synopsis, bookInfo->format, bookInfo->isDRMFile , collection, bookInfo->language)==true) {
         if(bookInfo->title.isEmpty())
             bookInfo->title = QFileInfo(path).baseName();
 
@@ -557,6 +572,11 @@ BookInfo* ModelBackendOneFile::loadDefaultInfo( const QString& path )
         if(bookInfo->author.isEmpty())
             bookInfo->author = QString("---");
 
+        if (!collection.isEmpty())
+        {
+            addCollection(collection);
+            bookInfo->addCollection(collection);
+        }
         bookInfo->setCSSFileList(MetaDataExtractor::extractCSS(path));
     } else {
         qWarning() << Q_FUNC_INFO << "Corrupted book: " << path;
@@ -569,6 +589,9 @@ BookInfo* ModelBackendOneFile::loadDefaultInfo( const QString& path )
 
     bookInfo->readingStatus = BookInfo::NO_READ_BOOK;
     bookInfo->path = path;
+    QFileInfo bookFile(path);
+    bookFile.refresh();
+    bookInfo->size = bookFile.size();
     if (!path.toLower().endsWith(".pdf"))
          bookInfo->fontSize = 2;
 
@@ -605,7 +628,7 @@ void ModelBackendOneFile::add( const BookInfo* book )
     } else {
         if (!book->m_archived && book->getCSSFileList().isEmpty())
             book->setCSSFileList(MetaDataExtractor::extractCSS(book->path));
-        i.value()->update(book);
+        i.value()->updateNewData(book);
     }
     messDir(book->path, UPDATE_FULL);
 }
@@ -784,7 +807,10 @@ void ModelBackendOneFile::saveBookInfo (const BookInfo* info, QXmlStreamWriter &
     xml.writeTextElement("cssFiles", info->getCSSFileList().join(";"));
     xml.writeTextElement("percentageList", info->percentageList);
     xml.writeTextElement("readingStatus", QString::number(info->readingStatus));
+    xml.writeTextElement("size", QString::number(info->size));
+    xml.writeTextElement("language", info->language);
     xml.writeStartElement("marks");
+
 
     const QHash<QString, BookLocation*>& locations = info->getLocations();
     QHash<QString, BookLocation*>::const_iterator it = locations.constBegin();

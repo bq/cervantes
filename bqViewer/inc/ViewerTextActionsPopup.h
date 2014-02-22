@@ -40,6 +40,7 @@ signals:
     void                                        highlightedClicked                          ();
     void                                        searchClicked                               ();
     void                                        completeDefinitionClicked                   ();
+    void                                        wikipediaClicked                            ();
     void                                        wordToSearch                                ( const QString&, const QString& );
 
 protected:

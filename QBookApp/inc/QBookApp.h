@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "Keyboard.h"
 #include "SettingsWiFiList.h"
 #include "Dictionary.h"
+
 // Predeclarations
 class QBookForm;
 class BookInfo;
@@ -52,6 +53,7 @@ class QDialog;
 class QBookDebugDialog;
 class PowerManagerLock;
 class bqDeviceServices;
+class bqPublicServices;
 class LibrarySyncHelper;
 class QBookScreenSaver;
 
@@ -145,6 +147,7 @@ public:
 #ifndef HACKERS_EDITION
     bqDeviceKey*            getBqDeviceKey          () const { return m_bqDeviceKey; }
     bqDeviceServices* getDeviceServices() const { return m_pServices; }
+    bqPublicServices* getPublicServices() const { return m_pPublicServices; }
     WebStore* browserStore();
     WebWizard* browserWizard();
 #endif
@@ -219,6 +222,7 @@ signals:
     void reportStoreLink();
     void closedWizard();
     void openImage(const QString&);
+    void goingHome();
 
 #ifdef Q_WS_QWS
     void grabScreen(QImage* image);
@@ -273,20 +277,22 @@ public slots:
 
     void enableUserEvents();
     void disableUserEvents();
-    void requestSilentConnection();
     void showRestoringImage();
     void setWifiStatusAsConnected();
     void releaseAutoconnectPowerLock();
 #ifndef HACKERS_EDITION
-    void                                                        synchronization                                 (bool lazyDelete = true);
-    void                                                        synchronizationEnd                              (int, bool);
+    void                            synchronization                         (bool lazyDelete = true);
+    void                            synchronizationEnd                      (int, bool);
+    void                            syncSubcriptionInfo                     ();
 #endif
-    SyncHelper*                                                 getSyncHelper                                   ();
-    void                                                        createSyncHelper                                ();
-    void                                                        initSyncHelper                                  ();
-    void                                                        setScreensaverCover                           (const BookInfo* inputBookInfo);
+    SyncHelper*                     getSyncHelper                           ();
+    void                            createSyncHelper                        ();
+    void                            initSyncHelper                          ();
+    void                            setScreensaverCover                     (const BookInfo* inputBookInfo);
     void                            finishedResumingWifi                    ();
     void                            startedResumingWifi                     ();
+    void                            connectConnectionManagerSignals         ();
+    void                            disconnectConnectionManagerSignals      ();
 
 protected slots:
     void handleChargerChanged(bool state);
@@ -371,6 +377,7 @@ private slots:
     void                            connectWifiObserverGoToShop             ();
     void                            disconnectWifiObserverGoToShop          ();
     void                            checkLongPressPowerOff                  ();
+    void                            checkBooksChanged                       ();
 
 private:
     void                            doActivateForm                          ( QBookForm* form );
@@ -391,10 +398,11 @@ private:
     bool b_lazyDelete;
     bool b_isResumingWifi;
 
-
     void updateBookInfoWithDataMap(BookInfo *bookinfo, const QVariantMap &map);
     void fillBookInfoWithLocationMap(BookInfo *bookinfo, const QVariantMap &locations);
+public:
     bool waitForConnection();
+private:
     void waitForSyncFinished();
     void removeExpiredBooks();
     void hackersInit();
@@ -408,6 +416,7 @@ private:
     Settings*               m_settingsMenu;
     Search*                 m_search;
     Browser*                m_webView;
+    bqPublicServices*       m_pPublicServices;
 #ifndef HACKERS_EDITION
     WizardWelcome*          m_welcomeWizard;
     bqDeviceServices*       m_pServices;
@@ -475,7 +484,7 @@ private:
     QDateTime m_lastLinkCheck;
     QDateTime m_lastActivatedCheck;
     SyncHelper *m_sync;
-    QBookScreenSaver *sleepScreen;
+    QBookScreenSaver *m_sleepScreen;
     bool bLoadWizard;
     bool m_openDocError;
     bool networkStartTimerFlag;

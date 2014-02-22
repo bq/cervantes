@@ -249,7 +249,7 @@ Si us plau, reinicia el dispositiu si necessites continuar fent-la servir.</tran
     </message>
     <message>
         <source>Your subscription will be expired today.</source>
-        <translation>La teva subscripció caduca durant el día d&apos;avui i no podràs continuar llegint offline els teus eBooks Premium a l&apos;eReader. Més informació a la secció &quot;Ajuda&quot; de la botiga.</translation>
+        <translation>La teva subscripció caduca durant el día d&apos;avui i no podràs continuar llegint offline els teus eBooks Premium a l&amp;apos;eReader. Més informació a la secció &quot;Ajuda&quot; de la botiga.</translation>
     </message>
     <message>
         <source>Your subscription will be expired tomorrow.</source>
@@ -498,6 +498,17 @@ Si us plau, no extreguis la SD.</translation>
 </context>
 <context>
     <name>QBookPowerSaver</name>
+    <message>
+        <source>Press the Power button to resume</source>
+        <translation type="obsolete">Premi el botó d’engegat per reprendre</translation>
+    </message>
+</context>
+<context>
+    <name>QBookScreenSaver</name>
+    <message>
+        <source>Battery level</source>
+        <translation>Nivell de bateria</translation>
+    </message>
     <message>
         <source>Press the Power button to resume</source>
         <translation>Premi el botó d’engegat per reprendre</translation>

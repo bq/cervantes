@@ -104,12 +104,12 @@
        </widget>
       </item>
       <item>
-       <widget class="ViewerCollectionItem" name="collectionItem3" native="true">
+       <widget class="ViewerCollectionItem" name="collectionItem2" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_6"/>
        </widget>
       </item>
       <item>
-       <widget class="ViewerCollectionItem" name="collectionItem2" native="true">
+       <widget class="ViewerCollectionItem" name="collectionItem3" native="true">
         <layout class="QHBoxLayout" name="collectionItem2s"/>
        </widget>
       </item>

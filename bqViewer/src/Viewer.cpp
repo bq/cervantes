@@ -103,6 +103,7 @@ Viewer::Viewer(QWidget* parent)
     , mSecsNeedToReadStep(0)
     , initialStepTimestamp(0)
     , finalStepTimestamp(0)
+    , b_searchigWikipedia(false)
 {
 
     qDebug() << Q_FUNC_INFO;
@@ -166,13 +167,11 @@ Viewer::Viewer(QWidget* parent)
 
 #ifndef HACKERS_EDITION
     connect(m_markHandler,  SIGNAL(dictioSearchReq(QStringList)),   m_viewerDictionary, SLOT(dictioSearch(QStringList)));
+    connect(m_viewerDictionary, SIGNAL(hideMe()),                    this,               SLOT(hideAllElements()));
+    connect(m_markHandler,  SIGNAL(wikiSearchReq(QString)),         m_viewerDictionary, SLOT(wikiSearch(QString)));
 #endif
     connect(m_markHandler,  SIGNAL(bookSearchReq(const QString&)),  this,               SLOT(performSearchRequest(const QString&)));
     connect(m_markHandler,  SIGNAL(setBookmark(bool)),              this,               SLOT(showBookmark(bool)));
-#ifndef HACKERS_EDITION
-    connect(m_viewerDictionary,SIGNAL(hideMe()),                    this,               SLOT(hideAllElements()));
-#endif
-
     // Book Index
     m_bookIndex = new ViewerContentsPopup(this);
     m_bookIndex->hide();
@@ -222,8 +221,8 @@ Viewer::Viewer(QWidget* parent)
 
     m_powerLock = PowerManager::getNewLock(this);
     i_maxQuickRefresh = QBook::settings().value("settings/viewer/maxRefresh",5).toInt();
-    m_showTitle = QBook::settings().value("setting/showBookTitle", false).toBool();
-    m_showDateTime = QBook::settings().value("setting/showDateTime", false).toBool();
+    m_showTitle = titleShouldBeShown();
+    m_showDateTime = dateTimeShouldBeShown();
 
     buySampleBtn->raise();
     ViewerContLandscape->hide();
@@ -303,6 +302,7 @@ void Viewer::activateForm()
 
     qDebug() << Q_FUNC_INFO << ": getting read mode";
 
+    setChapterPosInfo();
     if(m_docView && m_bookInfo)
     {
         m_bookInfo->pageCount = m_docView->pageCount() - 1;
@@ -313,20 +313,27 @@ void Viewer::activateForm()
     }
 
     i_maxQuickRefresh = QBook::settings().value("settings/viewer/maxRefresh",5).toInt();
-    m_showTitle = QBook::settings().value("setting/showBookTitle", false).toBool();
-    m_showDateTime = QBook::settings().value("setting/showDateTime", false).toBool();
+    m_showTitle = titleShouldBeShown();
+    m_showDateTime = dateTimeShouldBeShown();
     m_shownYet = false;
     i_refreshCounter = 1;
 
-    if(m_showDateTime)
-        m_updateTimeTimer.start();
+    if(m_showDateTime) m_updateTimeTimer.start();
 
     // Connect to model changed
     connect(QBookApp::instance()->getModel(), SIGNAL(modelChanged(QString,int)), this, SLOT(modelChanged(QString,int)), Qt::UniqueConnection);
 
     QTimer::singleShot(0,this,SLOT(checkAndExtractCover()));
 
-    if(!QBookApp::instance()->isSynchronizing() && !QBookApp::instance()->isBuying() && !QBookApp::instance()->isResumingWifi())
+    qDebug() << Q_FUNC_INFO << QBookApp::instance()->isSynchronizing();
+    qDebug() << Q_FUNC_INFO << QBookApp::instance()->isBuying();
+    qDebug() << Q_FUNC_INFO << QBookApp::instance()->isResumingWifi();
+    qDebug() << Q_FUNC_INFO << searchigWikipedia();
+
+    if(!QBookApp::instance()->isSynchronizing() &&
+       !QBookApp::instance()->isBuying() &&
+       !QBookApp::instance()->isResumingWifi() &&
+       !searchigWikipedia())
     {
         disconnectWifi();
     }
@@ -335,6 +342,9 @@ void Viewer::activateForm()
         connect(QBookApp::instance(), SIGNAL(periodicSyncFinished()), this, SLOT(disconnectWifi()), Qt::UniqueConnection);
         connect(QBookApp::instance(), SIGNAL(resumingWifiFailed()),   this, SLOT(disconnectWifi()), Qt::UniqueConnection);
     }
+
+    qDebug() << Q_FUNC_INFO << "BEFORE CHECK WIFI USE STATUS";
+
     showTimeTitleLabels();
     setCurrentChapterInfo();
     // Start time
@@ -362,7 +372,9 @@ void Viewer::deactivateForm()
         b_hiliMode=false;
     }
     history.clear();
+    pageWindow->setNeedToPaint(true);
     pageWindow->hideBackBtn();
+    pageWindowLandscape->setNeedToPaint(true);
     pageWindowLandscape->hideBackBtn();
 
     if(m_timeOnPage.isValid())
@@ -398,7 +410,7 @@ void Viewer::deactivateForm()
     m_shownYet = false;
     QBookApp::instance()->getStatusBar()->showButtons();
 
-    if (!QBook::settings().value("wifi/disabled",false).toBool())
+    if (!QBook::settings().value("wifi/disabled",false).toBool() && !searchigWikipedia())
     {
         // Reconnect to wifi if it was enabled
         // Singleshot with timeout to queue connection instead of execute
@@ -513,7 +525,8 @@ void Viewer::modelChanged( QString path, int updateType )
             {
                 qDebug() << Q_FUNC_INFO << "updating locations";
                 m_bookInfo->setLocations(modelBookInfo->getLocations());
-                m_markHandler->reloadMarks();
+                if(m_docView)
+                    m_markHandler->reloadMarks();
             }
 
             if (shouldReload)
@@ -701,12 +714,17 @@ void Viewer::openDoc(const BookInfo* content)
     qs_bookMark = m_bookInfo->lastReadLink;
 
     if (i_loadState == QDocView::LOAD_FAILED)
-        qs_docPath.clear();
+        resetDocView();
 
     m_warningMsgs.clear();
 
     if(isOtherBook(path) || b_reloading)
     {
+        if(m_bookInfo->language.isEmpty())
+        {
+            qDebug() << Q_FUNC_INFO << "language has to be read before opening";
+            m_bookInfo->language = MetaDataExtractor::getLanguage(path);
+        }
         b_reloading = false;
         qs_docPath = path;
         pageWindow->resetPager();
@@ -756,9 +774,7 @@ void Viewer::openDoc(const BookInfo* content)
 
         if(m_errorAfterLoading)
         {
-            delete m_docView;
-            m_docView = NULL;
-            qs_docPath.clear();
+            resetDocView();
         }
         else
         {
@@ -820,7 +836,9 @@ void Viewer::loadDocument()
 
     if(history.isEmpty())
     {
+        pageWindow->setNeedToPaint(true);
         pageWindow->hideBackBtn();
+        pageWindowLandscape->setNeedToPaint(true);
         pageWindowLandscape->hideBackBtn();
     }
     else
@@ -864,9 +882,8 @@ void Viewer::loadDocument()
     if(i_loadState == QDocView::LOAD_FAILED)
     {
         qDebug() << Q_FUNC_INFO << "Error settingUrl";
-        if (m_docView) delete m_docView;
-        m_docView = NULL;
-        qs_docPath.clear();
+        if (m_docView)
+            resetDocView();
 
         if(!m_errorMsg.size())
             m_errorMsg = tr("Error detected when trying to open the book.");
@@ -1035,6 +1052,9 @@ void Viewer::handleLongPressStart(TouchEvent *event)
         m_viewerDictionary->dictioSearch(wordList);
         Screen::getInstance()->flushUpdates();
 
+        b_hiliMode = false;
+        m_powerLock->release();
+        return;
     }
 #endif
 
@@ -1105,6 +1125,8 @@ void Viewer::processPressEvent(TouchEvent* event, bool eventFromViewerPageHandle
 
         if(m_docView->processEventInPoint(pressEventPos)) {
             m_screenSteps = 0;
+            pageWindow->setNeedToPaint(true);
+            pageWindowLandscape->setNeedToPaint(true);
             return;
         }
 
@@ -1173,7 +1195,7 @@ void Viewer::mouseMoveEvent(QMouseEvent* event)
     qDebug() << Q_FUNC_INFO;
     event->accept();
     m_docView->setBlockPaintEvents(false);
-    if(b_hiliMode && getCurrentDocExt() != EXT_PDF)
+    if(b_hiliMode && getCurrentDocExt() == EXT_EPUB)
     {
         QPoint movingPointInDoc = m_docView->mapFrom(this, event->pos());
         int returnedHiliId = m_markHandler->trackHighlight(movingPointInDoc);
@@ -1287,6 +1309,8 @@ void Viewer::customEvent(QEvent* received)
         qDebug() << "UNEXPECTED TYPE";
         return;
     }
+
+    if (m_viewerDictionary->isVisible()) return;
 
     processTouchEvent(static_cast<TouchEvent*>(received));
 }
@@ -1664,6 +1688,8 @@ Keyboard* Viewer::hideKeyboard()
 void Viewer::backBtnHandling()
 {
     m_screenSteps = 0;
+    pageWindow->setNeedToPaint(true);
+    pageWindowLandscape->setNeedToPaint(true);
     pushHistory();
 }
 
@@ -2006,7 +2032,9 @@ void Viewer::previousScreen()
     if(abs(m_screenSteps) == MAX_SCREEN_STEPS && !history.isEmpty())
     {
         history.clear();
+        pageWindow->setNeedToPaint(true);
         pageWindow->hideBackBtn();
+        pageWindowLandscape->setNeedToPaint(true);
         pageWindowLandscape->hideBackBtn();
     }
     else if(abs(m_screenSteps) < MAX_SCREEN_STEPS)
@@ -2030,7 +2058,9 @@ bool Viewer::nextScreen()
     if(abs(m_screenSteps) == MAX_SCREEN_STEPS && !history.isEmpty())
     {
         history.clear();
+        pageWindow->setNeedToPaint(true);
         pageWindow->hideBackBtn();
+        pageWindowLandscape->setNeedToPaint(true);
         pageWindowLandscape->hideBackBtn();
     }
     else if(abs(m_screenSteps) < MAX_SCREEN_STEPS)
@@ -2268,14 +2298,12 @@ void Viewer::setMark(BookLocation* location)
 
 bool Viewer::checkChapterInfoAvailability()
 {
-    if (!m_docView->tableOfContent())
-    {
-        pageWindow->hideChapterInfo();
-        pageWindowLandscape->hideChapterInfo();
-        m_viewerMenu->hideBar();
-        return false;
-    }
-    return true;
+    if (m_docView->tableOfContent()) return true;
+
+    pageWindow->hideChapterInfo();
+    pageWindowLandscape->hideChapterInfo();
+    m_viewerMenu->hideBar();
+    return false;
 }
 
 void Viewer::setCurrentChapterInfo()
@@ -2374,7 +2402,9 @@ void Viewer::goPageBack()
         goToMarkup(last);
         if(history.isEmpty())
         {
+            pageWindow->setNeedToPaint(true);
             pageWindow->hideBackBtn();
+            pageWindowLandscape->setNeedToPaint(true);
             pageWindowLandscape->hideBackBtn();
         }
         else
@@ -2411,7 +2441,10 @@ void Viewer::handlePageModeReflow()
     viewerHeader->show();
     ViewerCont->show();
     pageWindowLandscape->setPdfToolbarState(false);
+    pageWindowLandscape->setNeedToPaint(true);
+    pageWindowLandscape->updateDisplay();
     pageWindow->setPdfToolbarState(false);
+    pageWindow->setNeedToPaint(true);
     pageWindow->updateDisplay();
     setTextBodyMargins(m_bookInfo);
 }
@@ -2449,6 +2482,7 @@ void Viewer::handleLandscapeMode()
             pdfToolsWindow->hide();
             miniature->hide();
             miniatureLandscape->hide();
+            pageWindow->setNeedToPaint(true);
             pageWindow->show();
             pageWindow->setPdfToolbarState(false);
         }
@@ -2476,6 +2510,7 @@ void Viewer::handleLandscapeMode()
         {
             pageWindow->hide();
             pdfToolsWindowLandscape->hide();
+            pageWindowLandscape->setNeedToPaint(true);
             pageWindowLandscape->show();
             pageWindowLandscape->setPdfToolbarState(false);
         }
@@ -2509,12 +2544,14 @@ void Viewer::closePdfToolsWindow()
     {        
         pdfToolsWindowLandscape->hide();
         miniatureLandscape->hide();
+        pageWindowLandscape->setNeedToPaint(true);
         pageWindowLandscape->updateDisplay();
     }
     else
     {        
         pdfToolsWindow->hide();
         miniature->hide();
+        pageWindow->setNeedToPaint(true);
         pageWindow->updateDisplay();
     }
 }
@@ -2602,7 +2639,11 @@ void Viewer::handleBookmark()
 void Viewer::resetDocView()
 {
     qDebug() << Q_FUNC_INFO;
-    qs_docPath="";
+    if(m_docView){
+        delete m_docView;
+        m_docView = NULL;
+    }
+    qs_docPath.clear();
 }
 
 void Viewer::setMargin( int topPercentage, int rightPercentage, int bottomPercentage, int leftPercentage )
@@ -2634,8 +2675,9 @@ void Viewer::setMargin( int topPercentage, int rightPercentage, int bottomPercen
 void Viewer::disconnectWifi()
 {
     qDebug() << Q_FUNC_INFO;
-    if(QBookApp::instance()->getCurrentForm() != this)
-        return;
+
+    if(QBookApp::instance()->getCurrentForm() != this) return;
+
     disconnect(QBookApp::instance(), SIGNAL(periodicSyncFinished()), this, SLOT(disconnectWifi()));
     disconnect(QBookApp::instance(), SIGNAL(resumingWifiFailed()),   this, SLOT(disconnectWifi()));
 
@@ -2702,7 +2744,8 @@ void Viewer::menuPopUpHide()
         m_currentMenuPopup->stop();
         m_currentMenuPopup->hide();
 
-        m_docView->setBlockPaintEvents(false);
+        if(m_docView)
+            m_docView->setBlockPaintEvents(false);
 
         m_currentMenuPopup = NULL;
 
@@ -2962,18 +3005,29 @@ void Viewer::updateTime()
     }
 }
 
+bool Viewer::titleShouldBeShown()
+{
+    return QBook::settings().value("setting/showBookTitle", QVariant(false)).toBool();
+}
+
+bool Viewer::dateTimeShouldBeShown()
+{
+    return QBook::settings().value("setting/showDateTime", QVariant(false)).toBool();
+}
+
 bool Viewer::hasChangedOptions()
 {
     if(!m_showTitle && !m_showDateTime)
-        return (QBook::settings().value("setting/showBookTitle", false).toBool() || QBook::settings().value("setting/showDateTime", false).toBool());
-    else if(m_showTitle || m_showDateTime)
-        return (!QBook::settings().value("setting/showBookTitle", false).toBool() && !QBook::settings().value("setting/showDateTime", false).toBool());
+        return (titleShouldBeShown() || dateTimeShouldBeShown());
+    else
+        return (!titleShouldBeShown() && !dateTimeShouldBeShown());
+
 }
 
 bool Viewer::headerShouldBeShown()
 {
-    return (QBook::settings().value("setting/showBookTitle", false).toBool() ||
-            QBook::settings().value("setting/showDateTime", false).toBool() ||
+    return (QBook::settings().value("setting/showBookTitle", QVariant(false)).toBool() ||
+            QBook::settings().value("setting/showDateTime", QVariant(false)).toBool() ||
             m_bookInfo->m_type == BookInfo::BOOKINFO_TYPE_DEMO);
 }
 
@@ -3071,3 +3125,23 @@ void Viewer::updateZoom()
 {
     m_docView->updateScaleByLevel();
 }
+
+void Viewer::setChapterPosInfo()
+{
+    qDebug() << Q_FUNC_INFO;
+    const QList<QDocView::Location*>& contentList = m_bookIndex->getContentList();
+    int count = contentList.size();
+    QList<int> chaptersPos;
+    for(int i = 0; i < count; i++)
+    {
+        QDocView::Location *location = contentList.at(i);
+        if(location)
+        {
+            int pos = location->page;
+            chaptersPos << pos;
+        }
+    }
+    pageWindow->setChapterPos(chaptersPos);
+    pageWindowLandscape->setChapterPos(chaptersPos);
+}
+

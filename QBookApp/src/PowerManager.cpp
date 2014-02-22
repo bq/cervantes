@@ -37,6 +37,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "SelectionDialog.h"
 #include "Storage.h"
 #include "Viewer.h"
+#include "ADConverter.h"
 
 #include <QList>
 #include <QBasicTimer>
@@ -139,6 +140,7 @@ void PowerManager::goToSleep()
     bool ret = false;
     int reattemptsCount = 0;
     int powerKeySample = 0;
+    int wakeUpAlarmTimer = 0;
 
     PowerManager::m_internalLock->activate();
     getInstance()->b_sleepCanceled = false;
@@ -165,7 +167,12 @@ void PowerManager::goToSleep()
 
     //********************************************//
 
-    ret = Power::getInstance()->sleepCPU(POWERMANAGER_SLEEP_WAKEUP_PERIOD);
+    if(ADConverter::getInstance()->getStatus() != ADConverter::ADC_STATUS_NO_WIRE)
+        wakeUpAlarmTimer = POWERMANAGER_PLUGGED_WAKEUP_PERIOD;
+    else
+        wakeUpAlarmTimer = POWERMANAGER_SLEEP_WAKEUP_PERIOD;
+
+    ret = Power::getInstance()->sleepCPU(wakeUpAlarmTimer);
 
     // Reattempt sleep every 3 seconds
     while(!ret && reattemptsCount < POWERMANAGER_SLEEP_MAX_REATTEMPTS){ // Faulty attempt
@@ -182,7 +189,7 @@ void PowerManager::goToSleep()
             powerKeySample=0;
             qDebug() << Q_FUNC_INFO << "Reattempting sleep:" << reattemptsCount;
 
-            ret = Power::getInstance()->sleepCPU(POWERMANAGER_SLEEP_WAKEUP_PERIOD);
+            ret = Power::getInstance()->sleepCPU(wakeUpAlarmTimer);
         }
     }
 
@@ -200,8 +207,13 @@ void PowerManager::goToSleep()
             powerOffDevice(QBook::settings().value("setting/initial_lang_selection", true).toBool());
             return;
         }
+
+        // Do needed checks
+        emit getInstance()->checkWhileSleeping();
+        sleep(2); // In order to not to interrupt a panel refresh
+
         // Go to sleep again
-        Power::getInstance()->sleepCPU(POWERMANAGER_SLEEP_WAKEUP_PERIOD);
+        Power::getInstance()->sleepCPU(wakeUpAlarmTimer);
     }
 
     QBookApp::instance()->closeSleep();

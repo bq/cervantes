@@ -46,6 +46,7 @@ ViewerContentsPopup::ViewerContentsPopup(Viewer* viewer) :
   , m_book(NULL)
   , m_currentView(NULL)
   , m_page(0)
+  , m_bookPath("")
 {
     qDebug() << Q_FUNC_INFO;
     setupUi(this);
@@ -122,6 +123,7 @@ void ViewerContentsPopup::clearContentList()
     qDebug() << Q_FUNC_INFO;
 
     m_chaptersWidget->clearTableOfContent();
+    m_bookPath = "";
 }
 
 void ViewerContentsPopup::setCurrentView()

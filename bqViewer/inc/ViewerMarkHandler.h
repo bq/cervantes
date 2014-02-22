@@ -71,6 +71,7 @@ protected:
 signals:
     void                            numPageMarks                            (int, int);
     void                            dictioSearchReq                         (QStringList);
+    void                            wikiSearchReq                           (QString);
     void                            bookSearchReq                           (const QString&);
     void                            markShareReq                            (BookLocation*);
     void                            setBookmark                             (bool);
@@ -89,6 +90,7 @@ protected slots:
 #ifndef HACKERS_EDITION
     void                            handleDictioAction                      ();
 #endif
+    void                            handleWikiAction                        ();
 
     void                            saveNote                                ();
     void                            searchWordRequested                     (const QString& word, const QString &context);

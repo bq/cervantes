@@ -167,6 +167,10 @@ public:
     void                                                    updatePdfMiniatureLocation                  ( double xoPercent, double yoPercent, double xfPerdcent, double yfPercent );
     void                                                    enablePdfMode                               ( bool enable = true);
 
+    // WIKIPEDIA
+    void                                                    setSearchigWikipedia                        (bool value) {b_searchigWikipedia = value;}
+    bool                                                    searchigWikipedia                           () {return b_searchigWikipedia;}
+
 protected:
     QWidget*                                                textBodyInstance                            () { return textBody; }
 
@@ -258,6 +262,7 @@ protected:
     double                                                  mSecsNeedToReadStep;
     qint64                                                  initialStepTimestamp;
     qint64                                                  finalStepTimestamp;
+    bool                                                    b_searchigWikipedia;
 
 signals:
     void                                                    loadDocError                                ();
@@ -325,13 +330,18 @@ protected slots:
 #endif
     void                                                    resumeWifi                                  ();
     void                                                    handleBookmark                              ();
+public slots://+V+
     void                                                    disconnectWifi                              ();
+private:
     void                                                    registerStepRead                            ();
     void                                                    clearStepsProcess                           ();
 
 private:
     void                                                    backBtnHandling                             ();
     void                                                    updateZoom                                  ();
+    bool                                                    titleShouldBeShown                          ();
+    bool                                                    dateTimeShouldBeShown                       ();
+    void                                                    setChapterPosInfo                           ();
 
 private:
     QWidget*                                                m_currentWidget;

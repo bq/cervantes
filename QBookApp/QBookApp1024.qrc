@@ -19,5 +19,7 @@
         <file alias="recoverError_pt.png">res/1024/recoverError_pt.png</file>
         <file alias="recoverError_gl.png">res/1024/recoverError_gl.png</file>
         <file alias="factoryReset_E60Q22.png">res/1024/factoryReset_E60Q22.png</file>
+        <file alias="batteryChargingImage.png">res/1024/batteryChargingImage.png</file>
+        <file alias="batteryCompleteImage.png">res/1024/batteryCompleteImage.png</file>
     </qresource>
 </RCC>

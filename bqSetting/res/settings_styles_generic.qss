@@ -715,9 +715,27 @@ font-weight:bold;
 border-color:#808080;
 background: #FFFFFF url(":/res/unchecked-small.png") no-repeat center right;
 }
+#SettingsReaderProgressBar #viewerBottomActionsCont #progressBarCont QLabel{
+font-weight:bold;
+}
+#SettingsReaderProgressBar #viewerBottomActionsCont #progressBarCont QPushButton{
+border:none;
+}
+#SettingsReaderProgressBar #viewerBottomActionsCont #progressBarCont{
+border-style:solid;
+text-align:left;
+font-weight:bold;
+border-color:#808080;
+background-color:#FFF;
+}
+#SettingsReaderProgressBar #viewerBottomActionsCont QPushButton#progressBarCont{}
 #SettingsReaderProgressBar #viewerHeaderActionsCont QPushButton:checked,
 #SettingsReaderProgressBar #viewerBottomActionsCont QPushButton:checked{
 background:  #FFFFFF url(":/res/checked-small.png") no-repeat center right;
+}
+#SettingsReaderProgressBar #viewerBottomActionsCont QPushButton#chapterProgressBtn:disabled{
+background: #FFFFFF url(":/res/unchecked-small-disabled.png") no-repeat center right;
+color:#404040;
 }
 #viewerHeaderCont{
 border-style:solid;
@@ -778,6 +796,9 @@ border-top:none;
 }
 #viewerBottom QLabel{
 color:#000000;
+}
+#viewerBottomCont #readingProgressFigureImage QLabel{
+background-color:#303030;
 }
 #viewerBottom #previousActionLbl{
 image:url(:/res/page_back_btn.png) ;
