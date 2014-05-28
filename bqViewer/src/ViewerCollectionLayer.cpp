@@ -99,7 +99,7 @@ void ViewerCollectionLayer::paint()
     }
 }
 
-void ViewerCollectionLayer::setup(QStringList collectionList)
+void ViewerCollectionLayer::setup(QHash<QString, double> collectionList)
 {
     qDebug() << Q_FUNC_INFO << collectionList;
     m_bookCollections = collectionList;
@@ -150,18 +150,19 @@ void ViewerCollectionLayer::changeCollection(int idItem)
     Screen::getInstance()->queueUpdates();
     ViewerCollectionItem* item = items[idItem];
     QString collectionName = item->getText();
-
-    if(m_bookCollections.contains(collectionName))
+    QHash<QString, double>::iterator it = m_bookCollections.find(collectionName);
+    if(it != m_bookCollections.end() && it.key() == collectionName)
     {
         item->setChecked(false);
-        m_bookCollections.removeOne(collectionName);
+        it = m_bookCollections.erase(it);
         emit removeCollection(collectionName);
     }
     else
     {
         item->setChecked(true);
-        m_bookCollections.append(collectionName);
-        emit addCollection(collectionName);
+        double index = QBookApp::instance()->getModel()->getBooksInCollectionCount(collectionName) + 1;
+        m_bookCollections.insert(collectionName, index);
+        emit addCollection(collectionName, index);
     }
     paint();
     Screen::getInstance()->setMode(Screen::MODE_QUICK, true, FLAG_PARTIALSCREEN_UPDATE, Q_FUNC_INFO);

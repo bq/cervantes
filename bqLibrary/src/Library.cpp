@@ -200,6 +200,7 @@ Library::Library( QWidget* parent ) :
     connect(m_sortBooksByLayer,  SIGNAL(recentSelected()),                      this, SLOT(sortBooksByDateClicked()));
     connect(m_sortBooksByLayer,  SIGNAL(titleSelected()),                       this, SLOT(sortBooksByTitleClicked()));
     connect(m_sortBooksByLayer,  SIGNAL(authorSelected()),                      this, SLOT(sortBooksByAuthorClicked()));
+    connect(m_sortBooksByLayer,  SIGNAL(indexSelected()),                       this, SLOT(sortBooksByIndexClicked()));
     //
 
     // LibrarySortBrowserBooksByLayer
@@ -1715,9 +1716,9 @@ void Library::sortBooksByAuthorClicked()
     delete powerLock;
 }
 
-void Library::sortBooksByTitleClicked()
+void Library::sortBooksByIndexClicked()
 {
-    qDebug() << Q_FUNC_INFO;
+    qDebug() << Q_FUNC_INFO << "m_books: " << m_books.size();
 
     PowerManagerLock* powerLock = PowerManager::getNewLock(this);
     powerLock->activate();
@@ -1727,6 +1728,36 @@ void Library::sortBooksByTitleClicked()
 
     clearKeyboard();
    
+    m_sortBooksByLayer->hide();
+
+    sortByBtn->setText(m_sortBooksByLayer->getIndexSortName());
+
+    sortBooksDataCallback = &Library::sortBooksByIndex;
+    sortCurrentDataCallback = sortBooksDataCallback;
+
+    applySortMethod();
+
+    QBookApp::instance()->getStatusBar()->setSpinner(false);
+    Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
+    Screen::getInstance()->setUpdateScheme(Screen::SCHEME_MERGE, true);
+    Screen::getInstance()->flushUpdates();
+    delete powerLock;
+}
+
+void Library::sortBooksByTitleClicked()
+{
+    qDebug() << Q_FUNC_INFO;
+
+    PowerManagerLock* powerLock = PowerManager::getNewLock(this);
+    powerLock->activate();
+
+    QBookApp::instance()->getStatusBar()->setSpinner(true);
+
+    Screen::getInstance()->queueUpdates();
+
+
+    clearKeyboard();
+
     m_sortBooksByLayer->hide();
 
     sortByBtn->setText(m_sortBooksByLayer->getTitleSortName());
@@ -1758,7 +1789,6 @@ void Library::sortBooksByDateClicked()
     QBookApp::instance()->getStatusBar()->setSpinner(true);
 
     Screen::getInstance()->queueUpdates();
-
 
     clearKeyboard();
 
@@ -1843,6 +1873,29 @@ void Library::sortFilesByDateClicked()
     delete powerLock;
 }
 
+bool sortByCollectionIndex(const BookInfo* b1, const BookInfo* b2)
+{
+    qDebug() << Q_FUNC_INFO;
+
+    QString collectionName = QBookApp::instance()->getLibrary()->getCollectionSelected();
+    QHash<QString, double> collections1 = b1->getCollectionsList();
+    QHash<QString, double> collections2 = b2->getCollectionsList();
+    QHash<QString, double>::iterator it1 = collections1.find(collectionName);
+    QHash<QString, double>::iterator it2 = collections2.find(collectionName);
+
+    if(it1 != collections1.end() && it1.key() == collectionName && it2 == collections2.end() && it2.key() != collectionName)
+        return true;
+    else if(it1 == collections1.end() && it1.key() != collectionName && it2 != collections2.end() && it2.key() == collectionName)
+        return false;
+    else if(it1 != collections1.end() && it1.key() == collectionName && it2 != collections2.end() && it2.key() == collectionName)
+    {
+        if (it1.value() == it2.value())
+            return (titleLessThan(b1, b2));
+        else
+            return (it1.value() < it2.value());
+    }
+}
+
 void Library::sortBooksByAuthor()
 {
     qDebug() << Q_FUNC_INFO << "m_books:" << m_books.size();
@@ -1854,6 +1907,16 @@ void Library::sortBooksByAuthor()
     foreach(const BookInfo* book, m_books){
         qDebug() << Q_FUNC_INFO << book->author;
     }
+
+}
+
+void Library::sortBooksByIndex()
+{
+    qDebug() << Q_FUNC_INFO << "m_books:" << m_books.size();
+
+    // TODO: ask the model to sort it for us (but this way is faster, because we are omiting the books we don't care)
+
+    qSort(m_books.begin(), m_books.end(), sortByCollectionIndex);
 
 }
 
@@ -2719,6 +2782,8 @@ void Library::changeFilterMode( ELibraryFilterMode mode )
     (this->*sortCurrentDataCallback)();
     if(m_filterMode == ELFM_COLLECTION)
         showCollectionFilterUIStuff();
+    else
+        m_sortBooksByLayer->enableIndex(false);
     // Show the new current view (maybe it will start running tasks like generating thumbnails)
     m_currentView->start();
     delete powerLock;
@@ -3805,7 +3870,7 @@ void Library::setBooksSortModeCallback()
             break;
         }
     }
-    else
+    else if(m_filterMode != ELFM_COLLECTION)
     {
         switch(m_booksSortMode)
         {
@@ -3822,6 +3887,8 @@ void Library::setBooksSortModeCallback()
             break;
         }
     }
+    else
+        sortBooksDataCallback = &Library::sortBooksByIndex;
 
     sortCurrentDataCallback = sortBooksDataCallback;
 }
@@ -3961,14 +4028,19 @@ void Library::selectCollection(const QString& collection)
 
         Screen::getInstance()->queueUpdates();
 
-        setBooksSortModeCallback();
         handleBooksSortModeUI();
 
         m_currentIconView = m_iconGridViewer;
         m_currentLineView = m_lineGridViewer;
         m_collection = collection;
         fillNewDataCallback = &Library::fillCollectionData;
+        // Sort mode
+        sortByBtn->setText(m_sortBooksByLayer->getIndexSortName());
+        m_sortBooksByLayer->enableIndex(true);
+        m_sortBooksByLayer->setIndexChecked();
+        sortCurrentDataCallback = &Library::sortBooksByIndex;
         changeFilterMode(ELFM_COLLECTION);
+        qSort(m_books.begin(), m_books.end(),sortByCollectionIndex);
         showCollectionFilterUIStuff();
 
         QBookApp::instance()->getStatusBar()->setSpinner(false);

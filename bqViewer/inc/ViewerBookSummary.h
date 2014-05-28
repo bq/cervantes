@@ -73,8 +73,8 @@ private slots:
     void                                                        deleteBook                          ();
     void                                                        exportNotes                         ();
     void                                                        changeReadState                     ( int );
-    void                                                        setCollectionLayerBtnText           (QStringList collectionList);
-    void                                                        addBookToCollection                 (QString collectionName);
+    void                                                        setCollectionLayerBtnText           (QHash<QString, double> collectionList);
+    void                                                        addBookToCollection                 (QString collectionName, double index);
     void                                                        removeBookToCollection              (QString collectionName);
     void                                                        createNewCollection                 ();
 };

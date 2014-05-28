@@ -27,7 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QEvent>
 #include <QElapsedTimer>
 
-#define LONG_PRESS_INTERVAL     700
+#define LONG_PRESS_INTERVAL     300
 #define SWIPE_MIN_LENGTH        32      // Set by tuning
 #define SWIPE_MIN_LENGTH_HD     40      // Set by tuning
 #define SWIPE_MAX_TIME          600

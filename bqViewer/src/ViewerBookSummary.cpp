@@ -69,7 +69,7 @@ ViewerBookSummary::ViewerBookSummary(Viewer* viewer) :
 
     m_collectionLayer = new ViewerCollectionLayer(this);
     m_collectionLayer->hide();
-    connect(m_collectionLayer, SIGNAL(addCollection(QString)),   this, SLOT(addBookToCollection(QString)));
+    connect(m_collectionLayer, SIGNAL(addCollection(QString, double)),   this, SLOT(addBookToCollection(QString, double)));
     connect(m_collectionLayer, SIGNAL(removeCollection(QString)),   this, SLOT(removeBookToCollection(QString)));
     connect(m_collectionLayer, SIGNAL(createCollection()), this, SLOT(createNewCollection()));
 
@@ -188,7 +188,7 @@ void ViewerBookSummary::setBook(const BookInfo* book)
 
     m_viewerListActions->setButtonsState(m_book->readingStatus);
     setActionsBtnText(m_book->readingStatus);
-    QStringList bookCollectionList = m_book->getCollectionsList();
+    QHash<QString, double> bookCollectionList = m_book->getCollectionsList();
     m_collectionLayer->setup(bookCollectionList);
     setCollectionLayerBtnText(bookCollectionList);
 
@@ -599,28 +599,30 @@ void ViewerBookSummary::changeReadState(int state)
     dialog->showForSpecifiedTime();
 }
 
-void ViewerBookSummary::setCollectionLayerBtnText(QStringList collectionList)
+void ViewerBookSummary::setCollectionLayerBtnText(QHash<QString, double> collectionList)
 {
     qDebug() << Q_FUNC_INFO;
-    if(collectionList.empty())
+    if(collectionList.isEmpty())
         addToCollectionBtn->setText(tr("Colecciones"));
     else if (collectionList.size() == 1)
     {
+        QHash<QString, double>::iterator it = collectionList.begin();
+        QString collectionName = it.key();
         if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
         {
-            if(collectionList[0].size() >= 10)
+            if(collectionName.size() >= 10)
                 addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
             else
                 addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
         }
         else
         {
-            if(collectionList[0].size() >= 10)
+            if(collectionName.size() >= 10)
                 addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
             else
                 addToCollectionBtn->setStyleSheet(FONT_SIZE_SD);
         }
-        addToCollectionBtn->setText(bqUtils::truncateStringToLength(tr("%1").arg(collectionList[0]), COLLECTION_MAX_LENGTH));
+        addToCollectionBtn->setText(bqUtils::truncateStringToLength(tr("%1").arg(collectionName), COLLECTION_MAX_LENGTH));
 
     }
     else
@@ -636,12 +638,12 @@ void ViewerBookSummary::setCollectionLayerBtnText(QStringList collectionList)
     }
 }
 
-void ViewerBookSummary::addBookToCollection(QString collectionName)
+void ViewerBookSummary::addBookToCollection(QString collectionName, double index)
 {
     qDebug() << Q_FUNC_INFO;
     BookInfo* book = new BookInfo(*m_book);
-    book->addCollection(collectionName);
-    QStringList bookCollectionList = book->getCollectionsList();
+    book->addCollection(collectionName, index);
+    QHash<QString, double> bookCollectionList = book->getCollectionsList();
     setCollectionLayerBtnText(bookCollectionList);
     QBookApp::instance()->getModel()->updateBook(book);
     m_book = QBookApp::instance()->getModel()->getBookInfo(book->path);
@@ -653,7 +655,7 @@ void ViewerBookSummary::removeBookToCollection(QString collectionName)
     qDebug() << Q_FUNC_INFO;
     BookInfo* book = new BookInfo(*m_book);
     book->removeCollection(collectionName);
-    QStringList bookCollectionList = book->getCollectionsList();
+    QHash<QString, double> bookCollectionList = book->getCollectionsList();
     setCollectionLayerBtnText(bookCollectionList);
     QBookApp::instance()->getModel()->updateBook(book);
     m_book = QBookApp::instance()->getModel()->getBookInfo(book->path);

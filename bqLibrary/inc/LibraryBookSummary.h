@@ -40,7 +40,7 @@ public:
     void                                setBook                             ( const BookInfo* book, int currentBook, int totalBooks );
     bool                                hideElements                        ( );
     void                                setActionsBtnText                   ( BookInfo::readStateEnum );
-    void                                setCollectionLayerBtnText           (QStringList collectionList);
+    void                                setCollectionLayerBtnText           (QHash<QString, double> collectionList);
     int                                 getCurrentBookOffset                ( ) { return  m_currentBook; }
 
 signals:
@@ -74,7 +74,7 @@ protected slots:
     void                                synopsisUp                          ();
     void                                setupPagination                     (int);
     void                                changeReadState                     (int);
-    void                                addBookToCollection                 (QString collectionName);
+    void                                addBookToCollection                 (QString collectionName, double index);
     void                                removeBookToCollection              (QString collectionName);
     void                                createNewCollection                 ();
     void                                previousBook                        ();

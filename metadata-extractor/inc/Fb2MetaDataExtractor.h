@@ -32,6 +32,7 @@ public:
     static bool getMetaData  (const QString& fb2Filename, QString& title, QString& author, QString& publisher, QDateTime& date, QString& description, bool& isDRMBook, QString& language);
     static bool extractCover (const QString& fb2Filename, const QString& coverPath);
     static QString getCollection (const QString& fb2Filename);
+    static double getCollectionIndex (const QString& fb2Filename);
 
 protected:
     static bool getAuthorMetaData       (const QByteArray& data, QString& author);

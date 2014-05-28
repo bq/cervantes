@@ -498,3 +498,44 @@ bool Fb2MetaDataExtractor::getLanguageMetaData(const QByteArray& data, QString& 
     }
     return false;
 }
+
+double Fb2MetaDataExtractor::getCollectionIndex(const QString& fb2Filename)
+{
+    QString nodeAttr1Name   = "number";
+
+    QFile file(fb2Filename);
+    if (!file.open(QIODevice::ReadOnly)) return 0;
+    QByteArray data = file.readAll();
+    file.close();
+    if (data.isEmpty()) return 0;
+    QXmlStreamReader streamData(data);
+    QString collectionIndex;
+
+    // Searching cover name.
+    while (!streamData.atEnd())
+    {
+                if (streamData.readNext() == QXmlStreamReader::StartElement && streamData.name() == "sequence") // Begin of a target node .
+                {
+                    QXmlStreamAttributes nodeAttributes = streamData.attributes();
+
+                    if (nodeAttributes.hasAttribute(nodeAttr1Name))
+                    {
+                        collectionIndex = nodeAttributes.value(nodeAttr1Name).toString();
+                        break;
+                    }
+                }
+                else if (streamData.isEndElement() && streamData.name() == "sequence") break; // Ensures image node withim coverpage node.
+
+            if (!collectionIndex.isEmpty()) break;
+        else if (streamData.name() == "body") break; //  Ensures break before the end.
+    }// end While
+
+
+    if (streamData.hasError())
+    {
+        qDebug() << Q_FUNC_INFO << streamData.error();
+        // TODO: do error handling
+    }
+
+    return collectionIndex.toDouble();
+}

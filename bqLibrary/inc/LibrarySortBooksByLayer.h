@@ -36,32 +36,33 @@ public:
     virtual                             ~LibrarySortBooksByLayer            ();
 
     void                                enableRecent                        (bool enable);
+    void                                enableIndex                         (bool enable);
     void                                setRecentChecked                    ();
     void                                setTitleChecked                     ();
     void                                setAuthorChecked                    ();
+    void                                setIndexChecked                     ();
 
     QString                             getRecentSortName                   () const;
     QString                             getTitleSortName                    () const;
     QString                             getAuthorSortName                   () const;
+    QString                             getIndexSortName                    () const;
 
 signals:
     void                                recentSelected                      ();
     void                                titleSelected                       ();
     void                                authorSelected                      ();
+    void                                indexSelected                       ();
 
 private slots:
     void                                recentClicked                       ();
     void                                titleClicked                        ();
     void                                authorClicked                       ();
+    void                                indexClicked                        ();
 
 protected:
 
     /* http://qt-project.org/forums/viewthread/7340 */
     virtual void                        paintEvent                          ( QPaintEvent* );
-
-    QString                             m_recentName;
-    QString                             m_titleName;
-    QString                             m_authorName;
 
 };
 

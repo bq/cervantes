@@ -320,5 +320,40 @@ QString EpubMetaDataExtractor::getCollection(const QString& epubFilename)
     QString collection = QString::fromUtf8( metadata );
     if(!collection.isEmpty())
         qDebug() << Q_FUNC_INFO << collection;
+
+    epub_close(book);
     return collection;
+}
+
+double EpubMetaDataExtractor::getCollectionIndex(const QString& epubFilename)
+{
+    int size;
+    struct epub *book = openEpub(epubFilename);
+    if (book == NULL) {
+        qDebug() << Q_FUNC_INFO << "Cannot open: " << epubFilename;
+        return 0;
+    }
+
+    unsigned char **meta;
+    meta = epub_get_metadata(book, EPUB_META, &size);
+    if (!meta) {
+        qDebug() << Q_FUNC_INFO << "Cannot get EPUB_META from " << epubFilename;
+        epub_close (book);
+        return 0;
+    }
+
+    char *metadata = NULL;
+
+    int i;
+    for (i = 0; i < size; i++) {
+        if (strncmp("calibre:series_index", (char*)meta[i], 20) == 0) {
+            metadata = strdup((char*)meta[i] + 22);
+            break;
+        }
+    }
+    QString indexString(metadata);
+    double collectionIndex = indexString.toDouble();
+    qDebug() << Q_FUNC_INFO << collectionIndex;
+    epub_close (book);
+    return collectionIndex;
 }

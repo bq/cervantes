@@ -4517,6 +4517,8 @@ void QBookApp::checkBooksChanged()
             QFile::remove(book->thumbnail);
             getModel()->loadDefaultInfo(book->path);
         }
+        book = NULL;
+        delete book;
     }
 }
 

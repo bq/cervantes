@@ -163,6 +163,7 @@ public:
     void                                setupLibrary                        ();
 
     static QString                      modifyStyleSheet                    (QString styleSheet, QString styleToModify);
+    QString                             getCollectionSelected               () { return m_collection; }
 
 public slots:
     void                                itemClicked                         ( const QString& path );
@@ -272,6 +273,7 @@ protected slots:
     void                                sortListClicked                     ();
 
     void                                sortBooksByAuthorClicked            ();
+    void                                sortBooksByIndexClicked             ();
     void                                sortBooksByTitleClicked             ();
     void                                sortBooksByDateClicked              ();
 
@@ -383,6 +385,7 @@ private:
     sortDataCallback                    sortFilesDataCallback;
     void                                applySortMethod                     ();
     void                                sortBooksByAuthor                   ();
+    void                                sortBooksByIndex                    ();
     void                                sortBooksByTitle                    ();
     void                                sortBooksByDate                     ();
     void                                sortFilesByName                     ();

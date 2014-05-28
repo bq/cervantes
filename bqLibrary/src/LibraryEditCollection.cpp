@@ -159,16 +159,10 @@ void LibraryEditCollection::paint()
         {
             const BookInfo* book = m_books.at(pos);
             item->setBook(book);
-            QStringList bookCollections = book->getCollectionsList();
+            QHash<QString, double> bookCollections = book->getCollectionsList();
             bool inCollection = false;
-            for(int i = 0; i < bookCollections.size(); i++)
-            {
-                if(m_collection == bookCollections[i])
-                {
+            if(bookCollections.find(m_collection) != bookCollections.end())
                     inCollection = true;
-                    break;
-                }
-            }
             if(inCollection)
                 item->setChecked(true);
             else
@@ -239,7 +233,10 @@ void LibraryEditCollection::saveCollection()
             continue;
         BookInfo *bookInfo = new BookInfo(*book);
         if(it.value())
-            bookInfo->addCollection(m_collection);
+        {
+            double index = QBookApp::instance()->getModel()->getBooksInCollectionCount(m_collection) + 1;
+            bookInfo->addCollection(m_collection, index);
+        }
         else
             bookInfo->removeCollection(m_collection);
         QBookApp::instance()->getModel()->updateBook(bookInfo);
@@ -261,7 +258,8 @@ void LibraryEditCollection::changeOldCollection()
     {
         BookInfo *bookInfo = new BookInfo(*(*it));
         bookInfo->removeCollection(m_initialCollectionName);
-        bookInfo->addCollection(m_collection);
+        double index = QBookApp::instance()->getModel()->getBooksInCollectionCount(m_collection) + 1;
+        bookInfo->addCollection(m_collection, index);
         QBookApp::instance()->getModel()->updateBook(bookInfo);
     }
     QBookApp::instance()->getModel()->removeCollection(m_initialCollectionName);

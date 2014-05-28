@@ -33,7 +33,7 @@ class LibraryCollectionLayer : public GestureWidget, protected Ui::LibraryCollec
 public:
                                         LibraryCollectionLayer              ( QWidget* parent );
     virtual                             ~LibraryCollectionLayer             ();
-    void                                setup                               ( QStringList collectionList );
+    void                                setup                               ( QHash<QString, double> collectionList );
     void                                paint                               ();
 
 protected slots:
@@ -42,7 +42,7 @@ protected slots:
     void                                changeCollection                    (int idItem);
 
 signals:
-    void                                addCollection                       (QString collectionName);
+    void                                addCollection                       (QString collectionName, double index);
     void                                removeCollection                    (QString collectionName);
     void                                createCollection                    ();
 
@@ -50,7 +50,7 @@ protected:
 
     /* http://qt-project.org/forums/viewthread/7340 */
     virtual void                        paintEvent                          ( QPaintEvent* );
-    QStringList                         m_bookCollections;
+    QHash<QString, double>              m_bookCollections;
     QStringList                         m_modelCollections;
     QList<LibraryCollectionItem*>       items;
     int                                 m_page;

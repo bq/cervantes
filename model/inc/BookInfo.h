@@ -175,15 +175,15 @@ public:
     bool                                    existsFile                      () const;
     void                                    appendPercent                   ( const QString percent );
     void                                    clearPercentageList             ( ) const;
-    QStringList&                            getCollectionsList              ( ) const;
-    void                                    addCollection                   (QString);
+    const QHash<QString, double>&           getCollectionsList              ( ) const;
+    void                                    addCollection                   (QString, double );
     void                                    removeCollection                (QString);
     static readStateEnum                    getReadingStateFromString       ( QString );
     static QString                          getStringFromReadingState       ( readStateEnum );
 
 private:
     QHash<QString, BookLocation*>           m_locations;
-    mutable QStringList                     m_collections;
+    QHash<QString, double>                  m_collections;
     mutable long                            readingPeriod;
     mutable QStringList                     m_cssFileList;
 };

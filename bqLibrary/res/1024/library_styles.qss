@@ -247,6 +247,12 @@ border-width:2px;
 border-top-left-radius:6px;
 border-bottom-left-radius:6px;
 }
+#sortBooksCont #indexSortBtn{
+padding:0px 38px;
+min-height:51px;
+max-height:51px;
+border-width:2px;
+}
 #sortBooksCont #titleSortBtn{
 padding:0px 38px;
 min-height:51px;

@@ -44,6 +44,7 @@ public:
     static bool extractCover      (const QString& filename, QString& coverPath);
     static QStringList extractCSS (const QString& epubFilename);
     static QString getLanguage    (const QString& filename);
+    static double getCollectionIndex (const QString& filename);
 };
 
 #endif  //METADATAEXTRACTOR_H

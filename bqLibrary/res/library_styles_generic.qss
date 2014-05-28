@@ -169,6 +169,12 @@ border-right:none;
 background-color:#FFFFFF;
 }
 
+#sortBooksCont #indexSortBtn{
+border-color:#808080;
+border-style:solid;
+background-color:#FFFFFF;
+}
+
 #sortBooksCont #titleSortBtn{
 border-color:#808080;
 border-style:solid;
@@ -714,7 +720,7 @@ background-color:#EDEDED;
 background-repeat:no-repeat;
 background-position:center right;
 }*/
-#LibrarySortBooksByLayer QPushButton#recentSortBtn,  #LibrarySortBooksByLayer QPushButton#authorSortBtn,  #LibrarySortBooksByLayer QPushButton#titleSortBtn{
+#LibrarySortBooksByLayer QPushButton#recentSortBtn,  #LibrarySortBooksByLayer QPushButton#authorSortBtn,  #LibrarySortBooksByLayer QPushButton#indexSortBtn, #LibrarySortBooksByLayer QPushButton#titleSortBtn{
 background-repeat:no-repeat;
 background-position:center right;
 }

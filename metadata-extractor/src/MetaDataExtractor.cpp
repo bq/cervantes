@@ -139,3 +139,22 @@ QString MetaDataExtractor::getLanguage(const QString &filename)
 
     return language;
 }
+
+double MetaDataExtractor::getCollectionIndex(const QString& filename)
+{
+    qDebug() << Q_FUNC_INFO;
+
+    QFileInfo info = QFileInfo(filename);
+
+    if (!info.isReadable()) {
+        qDebug() << Q_FUNC_INFO << "Cannot read " << filename;
+        return false;
+    }
+
+    QString format = info.suffix().toLower();
+
+    if (format == "epub")
+        return EpubMetaDataExtractor::getCollectionIndex(filename);
+    else if (format == "fb2")
+        return Fb2MetaDataExtractor::getCollectionIndex(filename);
+}

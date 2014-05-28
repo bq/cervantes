@@ -433,20 +433,31 @@ BookInfo* ModelBackendOneFile::loadBook (QXmlStreamReader& xml)
                 }
             }
             else if (name == "collections") {
+                QString collection;
                 while (!xml.atEnd() && !xml.hasError())
                 {
                     xml.readNext();
+                    double index = 0;
                     if (xml.isEndElement()) {
                         if (xml.name() == "collections") break;
                     } else
                     {
                         QStringRef name = xml.name();
                         if (name == "collection") {
-                            QString collection = xml.readElementText();
-                            info->addCollection(collection);
+                            collection = xml.readElementText();
+                            info->addCollection(collection, index);
                             addCollection(collection);
                         }
 
+                        else if(name == "index")
+                        {
+                            if(!collection.isEmpty())
+                            {
+                                index = xml.readElementText().toDouble();
+                                info->addCollection(collection, index);
+                                addCollection(collection);
+                            }
+                        }
                     }
                 }
             }
@@ -489,7 +500,10 @@ BookInfo* ModelBackendOneFile::loadBook (QXmlStreamReader& xml)
             if(info->author.isEmpty())
                 info->author = QString("---");
             if(!collection.isEmpty())
-                info->addCollection(collection);
+            {
+                double collectionIndex = MetaDataExtractor::getCollectionIndex(info->path);
+                info->addCollection(collection, collectionIndex);
+            }
             info->setCSSFileList(MetaDataExtractor::extractCSS(info->path));
         }
     }
@@ -575,7 +589,8 @@ BookInfo* ModelBackendOneFile::loadDefaultInfo( const QString& path )
         if (!collection.isEmpty())
         {
             addCollection(collection);
-            bookInfo->addCollection(collection);
+            double index = MetaDataExtractor::getCollectionIndex(path);
+            bookInfo->addCollection(collection, index);
         }
         bookInfo->setCSSFileList(MetaDataExtractor::extractCSS(path));
     } else {
@@ -826,12 +841,13 @@ void ModelBackendOneFile::saveBookInfo (const BookInfo* info, QXmlStreamWriter &
     }
     xml.writeEndElement();
     xml.writeStartElement("collections");
-    const QStringList& collections = info->getCollectionsList();
-    QStringList::const_iterator it1 = collections.begin();
-    QStringList::const_iterator itEnd1 = collections.constEnd();
+    const QHash<QString, double>& collections = info->getCollectionsList();
+    QHash<QString, double>::const_iterator it1 = collections.begin();
+    QHash<QString, double>::const_iterator itEnd1 = collections.constEnd();
     while( it1!=itEnd1 )
     {
-        xml.writeTextElement("collection", (*it1));
+        xml.writeTextElement("collection", it1.key());
+        xml.writeTextElement("index", QString::number(it1.value()));
         ++it1;
     }
 

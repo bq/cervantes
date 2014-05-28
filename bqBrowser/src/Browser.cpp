@@ -1313,7 +1313,11 @@ void Browser::populateBookInfo(BookInfo* book)
      MetaDataExtractor::getMetaData(book->path, book->title, book->author, book->publisher, book->publishTime, book->synopsis, book->format, book->isDRMFile, collection, book->language);
      book->corrupted = false;
      if(!collection.isEmpty())
-         book->addCollection(collection);
+     {
+         double index = MetaDataExtractor::getCollectionIndex(book->path);
+         QBookApp::instance()->getModel()->addCollection(collection);
+         book->addCollection(collection, index);
+     }
      if (book->format != "pdf")
           book->fontSize = 2;
 }

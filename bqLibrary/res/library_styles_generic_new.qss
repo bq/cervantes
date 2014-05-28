@@ -138,6 +138,12 @@ border-right:none;
 background-color:#FFFFFF;
 }
 
+#sortBooksCont #indexSortBtn{
+border-color:#808080;
+border-style:solid;
+background-color:#FFFFFF;
+}
+
 #sortBooksCont #titleSortBtn{
 border-color:#808080;
 border-style:solid;

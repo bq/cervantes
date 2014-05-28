@@ -34,6 +34,7 @@ public:
     static QStringList extractCSS(const QString& epubFilename);
     static bool isDRM(const QString& filename);
     static QString getCollection(const QString& epubFilename);
+    static double getCollectionIndex(const QString& epubFilename);
 
 
 

@@ -587,6 +587,14 @@ p, li { white-space: pre-wrap; }
         <source>En %1 colecciones</source>
         <translation>%1 bildumatan</translation>
     </message>
+    <message>
+        <source>1/20</source>
+        <translation type="unfinished">1/20</translation>
+    </message>
+    <message>
+        <source>%1/%2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LibraryBookToCollectionItem</name>
@@ -1079,6 +1087,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Autor</source>
         <translation>Egilea</translation>
+    </message>
+    <message utf8="true">
+        <source>Índice colección</source>
+        <translation>Aurkibidea</translation>
     </message>
 </context>
 <context>

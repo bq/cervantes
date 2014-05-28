@@ -913,38 +913,28 @@ void BookInfo::clearAllMetadata()
     resetReadingPeriod();
 }
 
-void BookInfo::addCollection(QString collection)
+void BookInfo::addCollection(QString collection, double index)
 {
-    qDebug() << Q_FUNC_INFO;
-    bool isAddedYet = false;
-    for(int j = 0; j < m_collections.size(); j++)
-    {
-        if(m_collections.at(j) == collection)
-        {
-            isAddedYet = true;
-            break;
-        }
-    }
-    if(!isAddedYet)
-    {
-        m_collections.append(collection);
-    }
+    qDebug() << Q_FUNC_INFO << collection << index;
+
+    QHash<QString, double>::iterator it = m_collections.find(collection);
+    if(it == m_collections.end())
+        m_collections.insert(collection, index);
+    else
+        it.value() = index;
 }
 
 void BookInfo::removeCollection(QString collection)
 {
     qDebug() << Q_FUNC_INFO;
-    for(int j = 0; j < m_collections.size(); j++)
+    QHash<QString, double>::iterator it = m_collections.find(collection);
+    if(it != m_collections.end() && it.key() == collection)
     {
-        if(m_collections.at(j) == collection)
-        {
-            m_collections.removeAt(j);
-            break;
-        }
+        it = m_collections.erase(it);
     }
 }
 
-QStringList& BookInfo::getCollectionsList() const
+const QHash<QString, double>&  BookInfo::getCollectionsList() const
 {
     return m_collections;
 }

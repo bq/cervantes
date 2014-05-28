@@ -39,11 +39,13 @@ LibrarySortBooksByLayer::LibrarySortBooksByLayer(QWidget* parent) :
     connect(recentSortBtn,  SIGNAL(clicked()), this, SLOT(recentClicked()));
     connect(titleSortBtn,   SIGNAL(clicked()), this, SLOT(titleClicked()));
     connect(authorSortBtn,  SIGNAL(clicked()), this, SLOT(authorClicked()));
+    connect(indexSortBtn,  SIGNAL(clicked()), this, SLOT(indexClicked()));
 
     recentSortBtn->setStyleSheet(CHECKED);
     recentSortBtn->setStyleSheet(ENABLED);
     titleSortBtn->setStyleSheet(ENABLED);
     authorSortBtn->setStyleSheet(ENABLED);
+    indexSortBtn->setStyleSheet(ENABLED);
 }
 
 LibrarySortBooksByLayer::~LibrarySortBooksByLayer()
@@ -61,6 +63,7 @@ void LibrarySortBooksByLayer::recentClicked ()
 {
     Screen::getInstance()->queueUpdates();
     recentSortBtn->setStyleSheet(CHECKED);
+    indexSortBtn->setStyleSheet(UNCHECKED);
     titleSortBtn->setStyleSheet(UNCHECKED);
     authorSortBtn->setStyleSheet(UNCHECKED);
     Screen::getInstance()->setMode(Screen::MODE_FASTEST, true, Q_FUNC_INFO);
@@ -73,6 +76,7 @@ void LibrarySortBooksByLayer::titleClicked ()
     Screen::getInstance()->queueUpdates();
     recentSortBtn->setStyleSheet(UNCHECKED);
     titleSortBtn->setStyleSheet(CHECKED);
+    indexSortBtn->setStyleSheet(UNCHECKED);
     authorSortBtn->setStyleSheet(UNCHECKED);
     Screen::getInstance()->setMode(Screen::MODE_FASTEST, true, Q_FUNC_INFO);
     Screen::getInstance()->flushUpdates();
@@ -85,6 +89,7 @@ void LibrarySortBooksByLayer::authorClicked ()
     Screen::getInstance()->queueUpdates();
     recentSortBtn->setStyleSheet(UNCHECKED);
     titleSortBtn->setStyleSheet(UNCHECKED);
+    indexSortBtn->setStyleSheet(UNCHECKED);
     authorSortBtn->setStyleSheet(CHECKED);
     Screen::getInstance()->setMode(Screen::MODE_FASTEST, true, Q_FUNC_INFO);
     Screen::getInstance()->flushUpdates();
@@ -92,15 +97,40 @@ void LibrarySortBooksByLayer::authorClicked ()
     emit authorSelected();
 }
 
+void LibrarySortBooksByLayer::indexClicked ()
+{
+    Screen::getInstance()->queueUpdates();
+    indexSortBtn->setStyleSheet(CHECKED);
+    recentSortBtn->setStyleSheet(UNCHECKED);
+    titleSortBtn->setStyleSheet(UNCHECKED);
+    authorSortBtn->setStyleSheet(UNCHECKED);
+    Screen::getInstance()->setMode(Screen::MODE_FASTEST, true, Q_FUNC_INFO);
+    Screen::getInstance()->flushUpdates();
+
+    emit indexSelected();
+}
+
 void LibrarySortBooksByLayer::enableRecent(bool enable)
 {
     if(enable)
-        recentSortBtn->setStyleSheet(ENABLED);
+        recentSortBtn->show();
 
     else
-        recentSortBtn->setStyleSheet(DISABLED);
+        recentSortBtn->hide();
 
     recentSortBtn->setEnabled(enable);
+
+}
+
+void LibrarySortBooksByLayer::enableIndex(bool enable)
+{
+    if(enable)
+        indexSortBtn->show();
+
+    else
+        indexSortBtn->hide();
+
+    indexSortBtn->setEnabled(enable);
 
 }
 
@@ -108,6 +138,7 @@ void LibrarySortBooksByLayer::setRecentChecked()
 {
     recentSortBtn->setStyleSheet(CHECKED);
     titleSortBtn->setStyleSheet(UNCHECKED);
+    indexSortBtn->setStyleSheet(UNCHECKED);
     authorSortBtn->setStyleSheet(UNCHECKED);
 }
 
@@ -115,6 +146,7 @@ void LibrarySortBooksByLayer::setTitleChecked()
 {
     recentSortBtn->setStyleSheet(UNCHECKED);    
     titleSortBtn->setStyleSheet(CHECKED);
+    indexSortBtn->setStyleSheet(UNCHECKED);
     authorSortBtn->setStyleSheet(UNCHECKED);
 }
 
@@ -122,7 +154,16 @@ void LibrarySortBooksByLayer::setAuthorChecked()
 {
     recentSortBtn->setStyleSheet(UNCHECKED);
     titleSortBtn->setStyleSheet(UNCHECKED);
+    indexSortBtn->setStyleSheet(UNCHECKED);
     authorSortBtn->setStyleSheet(CHECKED);
+}
+
+void LibrarySortBooksByLayer::setIndexChecked()
+{
+    recentSortBtn->setStyleSheet(UNCHECKED);
+    titleSortBtn->setStyleSheet(UNCHECKED);
+    indexSortBtn->setStyleSheet(CHECKED);
+    authorSortBtn->setStyleSheet(UNCHECKED);
 }
 
 QString LibrarySortBooksByLayer::getRecentSortName() const
@@ -140,3 +181,7 @@ QString LibrarySortBooksByLayer::getAuthorSortName() const
     return authorSortBtn->text();
 }
 
+QString LibrarySortBooksByLayer::getIndexSortName() const
+{
+    return indexSortBtn->text();
+}
