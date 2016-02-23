@@ -156,7 +156,7 @@ public:
 
     QHash<QString, const BookInfo*>     m_selectedBooks;
     bool                                getUnarchivingBook                  () { return b_unarchivingBook; }
-    bool                                isSearchView                           () { return b_hasSearch && m_filterMode == ELFM_SEARCH; }
+    bool                                isSearchView                        () { return b_hasSearch && m_filterMode == ELFM_SEARCH; }
     static void                         fromCover2Thumbnail                 (const QString& coverPath);
 
     void                                viewActiveBooks                     ();
@@ -435,6 +435,8 @@ private:
     void                                handleBooksSortModeUI               ();
     void                                setBooksSortModeCallback            ();
     bool                                isReallySearchView                  () { return m_filterMode == ELFM_SEARCH && b_hasSearch; }
+
+    int                                 m_collectionsIdx;
 };
 
 #endif // LIBRARY_H

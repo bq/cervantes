@@ -76,6 +76,7 @@ public:
     virtual bool   setScaleFactor(double factor, double delta_x = 0, double delta_y = 0);
     virtual int    sizeLevel() const;
     virtual void   updateScaleByLevel();
+    virtual double getFontSizeListAt(int pos) const;
 
     virtual double getDocViewXOffsetPercent() const;
     virtual double getDocViewYOffsetPercent() const;
@@ -172,7 +173,6 @@ public slots:
     virtual bool nextScreen();
     virtual bool previousScreen();
     virtual bool gotoPage(int pos);
-    virtual void setFontSizeOrScalePercentage(int size);
 
     virtual void zoomIn();
     virtual void zoomOut();
@@ -197,6 +197,7 @@ private:
     void updateOffsetXY();
     QRectF documentRect() const;
     double pdfScaleStep() const;
+    double epubScaleStep() const;
 
     QString highlightToBookmark(dp::ref<dpdoc::Location> start, dp::ref<dpdoc::Location> end) const;
     bool bookmarkToHighlight(const QString& ref, dp::ref<dpdoc::Location>* start, dp::ref<dpdoc::Location>* end) const;
@@ -305,6 +306,7 @@ private:
     double m_curFitFactor;
 
     QList<int> m_indexList;
+    QList<double> m_fontSizeList;
 
     enum {NEXT, PREV, CURR};
 

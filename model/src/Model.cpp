@@ -327,9 +327,9 @@ void Model::getBooksInCollection( QList<const BookInfo *>& books, const QString&
         {
             const QHash<QString, double>& bookCollections = bookInfo->getCollectionsList();
             if(bookCollections.find(collection) != bookCollections.end())
-                {
-                    qDebug() << Q_FUNC_INFO << "Add book to list" << bookInfo->title;
-                    books.append(bookInfo);
+            {
+                qDebug() << Q_FUNC_INFO << "Add book to list" << bookInfo->title;
+                books.append(bookInfo);
             }
         }
     }
@@ -501,8 +501,8 @@ int Model::getBooksInCollectionCount( const QString& collection ) const
         const BookInfo* bookInfo = it.value();
         const QHash<QString, double>& collections = bookInfo->getCollectionsList();
         if(collections.find(collection) != collections.end() && !bookInfo->m_archived && !bookInfo->hasExpired())
-                ++count;
-        }
+            ++count;
+    }
     return count;
 }
 

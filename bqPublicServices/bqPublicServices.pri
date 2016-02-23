@@ -13,5 +13,8 @@ TRANSLATIONS = tr/bqPublicServices_es.ts \
                 tr/bqPublicServices_en.ts \
                 tr/bqPublicServices_pt.ts \
                 tr/bqPublicServices_gl.ts \
-                tr/bqPublicServices_eu.ts
+                tr/bqPublicServices_eu.ts \
+                tr/bqPublicServices_fr.ts \
+                tr/bqPublicServices_de.ts \
+                tr/bqPublicServices_it.ts
 

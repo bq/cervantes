@@ -139,7 +139,7 @@ public:
     void                popAllForms         ();
 
     Keyboard*           showKeyboard        ( const QString& text,bool showUp = false, Keyboard::MODE keyboardMode = Keyboard::NORMAL );
-    inline StatusBar*   getStatusBar        ();
+    StatusBar*          getStatusBar        ();
     Viewer*             getViewer           ();
 
     SettingsWiFiList *      m_wifiSelection;

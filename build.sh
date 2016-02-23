@@ -44,9 +44,9 @@ do
         shift
 done
 
-# generate hg version strings
-HG_REV=`hg id | cut -c1-6`
-HG_BRANCH=`hg branch`
+# generate git version strings
+GIT_REV=`git rev-parse HEAD | cut -c1-6`
+GIT_BRANCH=`git rev-parse --abbrev-ref HEAD`
 BUILD_DATE=`eval date +%Y%m%d_%H%M`
 export PRIVATE=$PRIVATE
 # set environment
@@ -82,10 +82,10 @@ fi
 # Check bootstrap version
 if [ -f $ROOTFS/.version ]; then
         BOOTSTRAP_VERSION=`head -1 $ROOTFS/.version`
-        BQBUILD_HGVERSION=`tail -1 $ROOTFS/.version`
+        BQBUILD_GITVERSION=`tail -1 $ROOTFS/.version`
 else
         BOOTSTRAP_VERSION=0
-        BQBUILD_HGVERSION="NA"
+        BQBUILD_GITVERSION="NA"
 fi
 
 if [ $BOOTSTRAP_VERSION -lt $REQUIRED_BOOTSTRAP_VERSION ]; then
@@ -93,7 +93,7 @@ if [ $BOOTSTRAP_VERSION -lt $REQUIRED_BOOTSTRAP_VERSION ]; then
         echo "Please, update your bqbuild scripts, re-generate the bootstrap and update whole ROOTFS in the DEVICE"
         exit 1
 fi
-ROOTFS_VERSION=$BOOTSTRAP_VERSION-$BQBUILD_HGVERSION
+ROOTFS_VERSION=$BOOTSTRAP_VERSION-$BQBUILD_GITVERSION
 
 
 if [ "$DEBUG_OPTS" == "no" ]; then
@@ -204,8 +204,8 @@ if [ "$OPT_HACKERS" == "no" ]; then
 	# Libreria bqClientServices
         cd $PRIVATE/bqClientServices
 
-        # generate hg version strings for services
-        HG_VER_SERVICES=`hg id | cut -c1-6`
+        # generate git version strings for services
+    GIT_VER_SERVICES=`git rev-parse HEAD | cut -c1-6`
 
 	qmake || exit $?
 	make $MAKEFLAGS || exit $?
@@ -221,31 +221,31 @@ if [ "$OPT_HACKERS" == "no" ]; then
         exit 1
     fi
 else
-    HG_VER_SERVICES="NA"
+    GIT_VER_SERVICES="NA"
 fi
 
 cd $SOURCE_DIR
-if [ -f hgversion.h ]; then
-    OLDHG_VER=`grep HG_VERSION hgversion.h | sed -e 's/#define HG_VERSION "\([^_]*\).*"$/\1/'`
-    OLDROOTFS_VERSION=`grep ROOTFS_VERSION hgversion.h  | sed -e 's/#define ROOTFS_VERSION "\(.*\)"$/\1/'`
-    OLDHG_VER_SERVICES=`grep HG_SERVICES_VERSION hgversion.h | sed -e 's/#define HG_SERVICES_VERSION "\([^_]*\).*"$/\1/'`
-    if [ X$OLDHG_VER != X$HG_REV ]; then
-        echo "hg version has been changed, needs to be regenerated"
-        rm -f hgversion.h
+if [ -f gitversion.h ]; then
+    OLDGIT_VER=`grep GIT_VERSION gitversion.h | sed -e 's/#define GIT_VERSION "\([^_]*\).*"$/\1/'`
+    OLDROOTFS_VERSION=`grep ROOTFS_VERSION gitversion.h  | sed -e 's/#define ROOTFS_VERSION "\(.*\)"$/\1/'`
+    OLDGIT_VER_SERVICES=`grep GIT_SERVICES_VERSION gitversion.h | sed -e 's/#define GIT_SERVICES_VERSION "\([^_]*\).*"$/\1/'`
+    if [ X$OLDGIT_VER != X$GIT_REV ]; then
+        echo "git version has been changed, needs to be regenerated"
+        rm -f gitversion.h
     elif [ X$OLDROOTFS_VERSION != X$ROOTFS_VERSION ]; then
         echo "bootstrap version has been changed, needs to be regenerated"
-        rm -f hgversion.h
-    elif [ X$OLDHG_VER_SERVICES != X$HG_VER_SERVICES ]; then
-        echo "hg version for services has been changed, needs to be regenerated"
-        rm -f hgversion.h
+        rm -f gitversion.h
+    elif [ X$OLDGIT_VER_SERVICES != X$GIT_VER_SERVICES ]; then
+        echo "git version for services has been changed, needs to be regenerated"
+        rm -f gitversion.h
     fi
 fi
 
-if [ ! -f hgversion.h ]; then
-        echo "Creating new hgversion.h"
-        echo "#define HG_VERSION \""$HG_REV"_"$HG_BRANCH"_"$BUILD_DATE"\"" >> hgversion.h
-        echo "#define ROOTFS_VERSION \"$ROOTFS_VERSION\"" >> hgversion.h
-        echo "#define HG_SERVICES_VERSION \"$HG_VER_SERVICES\"" >> hgversion.h
+if [ ! -f gitversion.h ]; then
+        echo "Creating new gitversion.h"
+        echo "#define GIT_VERSION \""$GIT_REV"_"$GIT_BRANCH"_"$BUILD_DATE"\"" >> gitversion.h
+        echo "#define ROOTFS_VERSION \"$ROOTFS_VERSION\"" >> gitversion.h
+        echo "#define GIT_SERVICES_VERSION \"$GIT_VER_SERVICES\"" >> gitversion.h
 fi
 
 qmake || exit $?

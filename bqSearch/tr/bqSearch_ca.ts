@@ -39,23 +39,23 @@
         <translation>Llibres de la botiga online</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="150"/>
-        <location filename="../src/Search.cpp" line="538"/>
+        <location filename="../src/Search.cpp" line="146"/>
+        <location filename="../src/Search.cpp" line="544"/>
         <source>Search</source>
         <translation>Cerca</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="446"/>
+        <location filename="../src/Search.cpp" line="452"/>
         <source>Mostrando (0) resultados</source>
         <translation>Mostrant 0 resultats.</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="455"/>
+        <location filename="../src/Search.cpp" line="461"/>
         <source>Mostrando %1 - %2 de %3 resultados</source>
         <translation>Mostrant %1-%2 resultats de %3.</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="649"/>
+        <location filename="../src/Search.cpp" line="655"/>
         <source>Document format not supported</source>
         <translation>Format de document no suportat</translation>
     </message>

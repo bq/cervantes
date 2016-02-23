@@ -500,7 +500,8 @@ font-size:29px;
 font-size:26px;
 }
 #bookSummaryDataContainer #bookPriceLbl {
-font-size:29px;
+font-size:20px;
+margin-left:20px;
 }
 #bookSummaryDataContainer #formatLbl{
 font-size:20px;
@@ -508,6 +509,7 @@ font-size:20px;
 #priceCont{
 min-height:38px;
 max-height:38px;
+padding:0px;
 }
 #SynopsisCont{
 min-height:64px;
@@ -525,13 +527,17 @@ max-height:58px;
 border-width:2px;
 border-radius:6px;
 }
-#actionsContainer #moreActionsBtn{
-margin:4px 1px 0px 0px;
+#moreActionsCont{
+margin:0px;
+min-width:485px;
+max-width:485px;
+}
+#moreActionsBtn{
 padding:0px 0px 0px 10px;
 min-width:210px;
 max-width:210px;
-min-height:58px;
-max-height:58px;
+min-height:50px;
+max-height:50px;
 font-size:24px;
 border-width:2px;
 border-radius:6px;
@@ -539,10 +545,10 @@ border-radius:6px;
 #actionsContainer #addToCollectionBtn{
 margin:4px 0px 0px 0px;
 padding:0px 0px 0px 10px;
-min-width:224px;
-max-width:224px;
-min-height:58px;
-max-height:58px;
+min-width:450px;
+max-width:450px;
+min-height:50px;
+max-height:50px;
 font-size:24px;
 border-width:2px;
 border-radius:6px;

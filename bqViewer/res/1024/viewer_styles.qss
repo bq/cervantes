@@ -1041,7 +1041,7 @@ max-height:896px;
 font-size:27px;
 }
 #ViewerBookSummary #bookSummaryDataContainer #bookPriceLbl {
-font-size:27px;
+font-size:20px;
 }
 #ViewerBookSummary #bookSummaryDataContainer #bookAuthorLbl{
 font-size:24px;
@@ -1091,10 +1091,10 @@ max-height:32px;
 max-height:32px;
 }
 #ViewerBookSummary #numberPagesCont{
-max-height:32px;
-max-height:32px;
+max-height:70px;
+min-height:70px;
 }
-#ViewerBookSummary #textTotalPagesLbl{
+#textTotalPagesLbl{
 font-size:22px;
 margin-left:-4px;
 margin-right:7px;
@@ -1133,14 +1133,14 @@ max-width:25px;
 /*ViewerCollectionLayer
 -------------------------*/
 #ViewerCollectionLayer {
-min-width:238px;
-max-width:238px;
+min-width:455px;
+max-width:455px;
 min-height:500px;
 max-height:500px;
 }
 #CollectionLayerCont #VerticalPagerPopup, #CollectionLayerCont ViewerVerticalPagerPopup{
-min-width:230px;
-max-width:230px;
+min-width:445px;
+max-width:445px;
 min-height:64px;
 max-height:64px;
 }
@@ -1316,6 +1316,11 @@ max-width:627px;
 min-height:602px;
 max-height:602px;
 }
+#ViewerAnnotationActions #popupCont #deleteActionBtn, #ViewerAnnotationActions #popupCont #editActionBtn,  #ViewerAnnotationActions #popupCont #goToActionBtn{
+min-width:130px;
+max-width:130px;
+}
+
 #annotationActions {
 margin:0px 23px 10px 25px;
 border-width:2px;

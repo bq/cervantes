@@ -3,7 +3,10 @@ TRANSLATIONS = tr/bqHome_es.ts \
                 tr/bqHome_en.ts \
                 tr/bqHome_pt.ts \
                 tr/bqHome_gl.ts \
-                tr/bqHome_eu.ts
+                tr/bqHome_eu.ts \
+                tr/bqHome_fr.ts \
+                tr/bqHome_de.ts \
+                tr/bqHome_it.ts
 
 HEADERS += ./inc/Home.h \
            ./inc/HomeBooksList.h \

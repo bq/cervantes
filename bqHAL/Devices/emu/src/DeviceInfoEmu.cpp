@@ -25,7 +25,6 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "DeviceInfoEmu.h"
 #include "Storage.h"
 #include "QBook.h" // TODO: Remove this dependency
-#include "hgversion.h"
 #include <QFile>
 #include <QApplication>
 #include <QString>

@@ -75,14 +75,14 @@ void LibraryGridViewer::setLibrary( Library* library )
     m_library = library;
 }
 
-void LibraryGridViewer::start()
+void LibraryGridViewer::start(int startPage)
 {
     qDebug() << Q_FUNC_INFO;
 
     // Setup the pager
     int search_size = m_library->m_searchBooks.size() + m_library->m_files.size() + m_library->m_dirs.size();
     if(m_library->getFilterMode() == Library::ELFM_COLLECTIONS)
-        setupPager(m_collectionsList.size());
+        setupPager(m_collectionsList.size(), startPage);
     else if(m_library->getFilterMode() < Library::ELFM_LIBRARY_MODE || m_library->getFilterMode() == Library::ELFM_COLLECTION)
     {
         setupPager(m_library->m_books.size());
@@ -420,11 +420,11 @@ void LibraryGridViewer::goLibraryPage(int page)
     resume();
 }
 
-void LibraryGridViewer::setupPager( int librarySize )
+void LibraryGridViewer::setupPager( int librarySize, int startPage )
 {
-    qDebug() << Q_FUNC_INFO;
+    qDebug() << Q_FUNC_INFO << "startPage: " << startPage;
     LibraryPageHandler* pageHandler = getPageHandler();
-    m_library->m_page = 0;
+    m_library->m_page = startPage;
     if(!librarySize)
     {
         pageHandler->setup(1, 1, true);
@@ -445,6 +445,13 @@ QString LibraryGridViewer::getDateStyled( const QDateTime& date, bool isIcon)
 {
     qDebug() << Q_FUNC_INFO;
 
+    const QString lang = QBook::settings().value("setting/language", QVariant("es")).toString();
+    QString hourSufix = " h";
+    if (lang == "en")
+    {
+        hourSufix = "";
+    }
+
     if(date.isNull()) return "";
 
     if(date.toString("MM/yy").operator ==(QDateTime::currentDateTime().toString("MM/yy"))){
@@ -454,33 +461,33 @@ QString LibraryGridViewer::getDateStyled( const QDateTime& date, bool isIcon)
         {
             if(isIcon)
             {
-                return tr("Ayer") + date.toString(", hh:mm") + " h";
+                return tr("Ayer") + date.toString(", hh:mm") + hourSufix;
             }
             else
             {
-                return tr("Ayer a las") + date.toString(" hh:mm") + " h";
+                return tr("Ayer a las") + date.toString(" hh:mm") + hourSufix;
             }
         }
         if(today == date_book)
         {
             if(isIcon)
             {
-                return tr("Hoy") + date.toString(", hh:mm") + " h";
+                return tr("Hoy") + date.toString(", hh:mm") + hourSufix;
             }
             else
             {
-                return tr("Hoy a las") + date.toString(" hh:mm") + " h";
+                return tr("Hoy a las") + date.toString(" hh:mm") + hourSufix;
             }
         }
     }
 
     if(isIcon)
     {
-        return date.toString(tr("dd/MM, hh:mm")) + " h";
+        return date.toString(tr("dd/MM, hh:mm")) + hourSufix;
     }
     else
     {
-        return date.toString(tr("dd/MM/yy, ")) + tr("a las") + date.toString(" hh:mm") + " h";
+        return date.toString(tr("dd/MM/yy, ")) + tr("a las") + date.toString(" hh:mm") + hourSufix;
     }
 }
 

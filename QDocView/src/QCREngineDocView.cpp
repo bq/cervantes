@@ -45,22 +45,16 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define DOCUMENT_CACHING_MIN_RAM_FREE 0xF00000 // 15Mb
 #endif
 
-#define CR_FONT_SIZE_BEST        22.0
-#define CR_FONT_SIZE_DOC_SD      12
-#define CR_FONT_SIZE_DOC_HD      14
-#define CR_FONT_SIZE_MIN_SD      16
-#define CR_FONT_SIZE_MIN_HD      21
-#define CR_FONT_SIZE_MAX         42
-#define CR_FONT_SIZE_STEP_DOC_SD 4.3
-#define CR_FONT_SIZE_STEP_SD     5
-#define CR_FONT_SIZE_STEP_DOC_HD 5
-#define CR_FONT_SIZE_STEP_HD     6.5
-#define CR_FONT_SIZE_XS          18
-#define CR_FONT_SIZE_S           22
-#define CR_FONT_SIZE_M           26
-#define CR_FONT_SIZE_L           30
-#define CR_FONT_SIZE_XL          36
-#define CR_FONT_SIZE_XXL         42
+#define CR_FONT_SIZE_DEFAULT 22.5
+#define CR_FONT_SIZE_MAX_LEVEL 7
+#define CR_FONT_SIZE_MIN_LEVEL 0
+#define CR_FONT_SIZE_BEST_LEVEL 3
+const double CR_FONT_SIZE_600_DOC[CR_FONT_SIZE_MAX_LEVEL+1]    = {12.0, 16.0, 19.0, 22.0, 26.0, 31.0, 36.0, 42.0};
+const double CR_FONT_SIZE_600_NO_DOC[CR_FONT_SIZE_MAX_LEVEL+1] = {16.0, 20.0, 24.0, 27.0, 31.0, 36.0, 42.0, 51.0};
+const double CR_FONT_SIZE_758_DOC[CR_FONT_SIZE_MAX_LEVEL+1]    = {14.0, 18.0, 22.0, 26.0, 30.0, 37.0, 43.0, 49.0};
+const double CR_FONT_SIZE_758_NO_DOC[CR_FONT_SIZE_MAX_LEVEL+1] = {21.0, 27.0, 32.0, 37.0, 42.0, 50.0, 58.0, 66.0};
+
+const double* CR_FONT_SIZE = 0;
 
 #define thumbnail_width 150
 #define thumbnail_height 180
@@ -131,7 +125,7 @@ QString lString16ToQString(lString16 str)
 LVDocView * QCREngineDocView::text_view = NULL;
 
 QCREngineDocView::QCREngineDocView(QWidget* parent) : QDocView(parent)
-    , m_scale(CR_FONT_SIZE_BEST)
+    , m_scale(CR_FONT_SIZE_DEFAULT)
     , m_jump(-1)
     , m_page(0)
     , m_hiliEdited(false)
@@ -146,31 +140,24 @@ QCREngineDocView::QCREngineDocView(QWidget* parent) : QDocView(parent)
     , rotViewPortSize(QSize(0,0))
     , docReady(false)
 {
+    bool isDoc = s_path.toLower().endsWith(".doc");
+
     if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
     {
-        if(s_path.toLower().endsWith(".doc"))
-        {
-            m_fontSizeStep = CR_FONT_SIZE_STEP_DOC_HD;
-            m_fontSizeMin = CR_FONT_SIZE_DOC_HD;
-        }
-        else
-        {
-            m_fontSizeStep = CR_FONT_SIZE_STEP_HD;
-            m_fontSizeMin = CR_FONT_SIZE_MIN_HD;
-        }
+        CR_FONT_SIZE = isDoc ? CR_FONT_SIZE_758_DOC : CR_FONT_SIZE_758_NO_DOC;
     }
-    else
+    else //QBook::RES600x800
     {
-        if(s_path.toLower().endsWith(".doc"))
-        {
-            m_fontSizeStep = CR_FONT_SIZE_STEP_DOC_SD;
-            m_fontSizeMin = CR_FONT_SIZE_DOC_SD;
-        }
-        else
-        {
-            m_fontSizeStep = CR_FONT_SIZE_STEP_SD;
-            m_fontSizeMin = CR_FONT_SIZE_MIN_SD;
-        }
+        CR_FONT_SIZE = isDoc ? CR_FONT_SIZE_600_DOC : CR_FONT_SIZE_600_NO_DOC;
+    }
+
+    m_fontSizeStep = 1.5;
+    m_fontSizeMin = CR_FONT_SIZE[CR_FONT_SIZE_MIN_LEVEL];
+    m_scale = CR_FONT_SIZE[CR_FONT_SIZE_BEST_LEVEL];
+
+    for(int i = CR_FONT_SIZE_MIN_LEVEL; i <= CR_FONT_SIZE_MAX_LEVEL; i++)
+    {
+        m_fontSizeList << CR_FONT_SIZE[i];
     }
 
     QMargins layoutMargins = parent->layout()->contentsMargins();
@@ -218,11 +205,10 @@ QCREngineDocView::QCREngineDocView(QWidget* parent) : QDocView(parent)
     LVArray <int>sizesArray;
 
     for(int i = 0; i<8 ; i++)
-        sizesArray.add(m_fontSizeMin + i*m_fontSizeStep);
+        sizesArray.add(int(m_fontSizeList[i]));
 
     text_view->setFontSizes(sizesArray,false);
     text_view->setPageHeaderInfo(0);
-    m_fontSizeList << CR_FONT_SIZE_XS << CR_FONT_SIZE_S << CR_FONT_SIZE_M << CR_FONT_SIZE_L << CR_FONT_SIZE_XL << CR_FONT_SIZE_XXL;
 }
 
 QCREngineDocView::~QCREngineDocView(){
@@ -419,7 +405,7 @@ void QCREngineDocView::displayFit(AutoFitMode mode)
 
 double QCREngineDocView::autoFitFactor(AutoFitMode mode) const
 {
-    return (mode == AUTO_FIT_BEST) ? CR_FONT_SIZE_BEST : m_fontSizeMin;
+    return (mode == AUTO_FIT_BEST) ? CR_FONT_SIZE[CR_FONT_SIZE_BEST_LEVEL] : m_fontSizeMin;
 }
 
 QDocView::AutoFitMode QCREngineDocView::autoFitMode() const
@@ -441,7 +427,7 @@ double QCREngineDocView::scaleStep() const
 
 double QCREngineDocView::maxScaleFactor() const
 {
-    return CR_FONT_SIZE_MAX;
+    return CR_FONT_SIZE[CR_FONT_SIZE_MAX_LEVEL];
 }
 
 double QCREngineDocView::minScaleFactor() const 
@@ -474,6 +460,11 @@ bool QCREngineDocView::setScaleFactor(double factor, double delta_x, double delt
     }
     
     return !delta_x && !delta_y;
+}
+
+double QCREngineDocView::getFontSizeListAt(int pos) const
+{
+    return (pos > m_fontSizeList.count()-1)? 0 : m_fontSizeList[pos];
 }
 
 /*-------------------------------------------------------------------------*/
@@ -1359,11 +1350,6 @@ int QCREngineDocView::getFontSize() const
  	lString8 font = lString8((char *)fontName.toUtf8().data());
     text_view->setDefaultFontFace(font);
  }
-
-void QCREngineDocView::setFontSizeOrScalePercentage(int size)
-{
-	setScaleFactor(m_fontSizeList.at(size));
-}
 
 int QCREngineDocView::sizeLevel() const
 {

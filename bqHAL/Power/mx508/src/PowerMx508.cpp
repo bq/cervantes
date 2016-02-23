@@ -45,21 +45,36 @@ static QString wSources[] = {
 	"/sys/class/mmc_host/mmc1", /* external sd card */
 };
 static int numSources = 3;
+static int kbdIndex = 0;
 
-static void updateWakeupSources(int sleepFlag)
+static void updateWakeupSources(int sleepFlag, bool wakeOnHome)
 {
 	FILE *output;
-	int i;
+	int i, curFlag;
 
 	for (i = 0; i < numSources; i++) {
 		QString str = wSources[i] + "/device/power/wakeup";
+
 		/* set wakeup property */
+		curFlag = sleepFlag;
 		output = fopen(str.toStdString().c_str(), "w");
 		if (!output) {
 			qDebug() << Q_FUNC_INFO << "wakeup file missing for " << wSources[i];
 			return;
 		}
-		fprintf(output, sleepFlag ? "disabled" : "enabled");
+
+		/*
+		 * adapt for wakeOnHome configuration.
+		 * Power-key always counts as wakeup indepent of this setting
+		 * In the wake on home case, the keyboard is a wakeup source in
+		 * both cases, otherwise the original sleep state value counts.
+		 */
+		if (i == kbdIndex) {
+			if (wakeOnHome)
+				curFlag = 0;
+		}
+
+		fprintf(output, curFlag ? "disabled" : "enabled");
 		fclose(output);
 	}
 }
@@ -70,7 +85,7 @@ PowerMx508::PowerMx508()
     /* enable the wakeup property of the wakeup sources by default.
      * It gets toggled for sleep in setSleepFlag
      */
-    updateWakeupSources(0);
+    updateWakeupSources(0, getWakeOnHome());
 
 #if defined(BATTERY_TEST) || defined(SHOWCASE)
     m_scheduledFLBlinkTime = QDateTime::currentDateTime().addSecs(FRONT_LIGHT_BLINK_PERIOD);
@@ -278,7 +293,7 @@ void PowerMx508::setSleepFlag(int sleepFlag)
     fprintf( output, "%d", sleepFlag);
     fclose(output);
 
-    updateWakeupSources(sleepFlag);
+    updateWakeupSources(sleepFlag, getWakeOnHome());
 }
 
 void PowerMx508::setDebug(bool status){

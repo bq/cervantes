@@ -259,7 +259,7 @@ p, li { white-space: pre-wrap; }
         <translation>Formulario</translation>
     </message>
     <message>
-        <location filename="../ui/WizardLanguage.ui" line="68"/>
+        <location filename="../ui/WizardLanguage.ui" line="102"/>
         <source>Idioma / Language</source>
         <translation></translation>
     </message>

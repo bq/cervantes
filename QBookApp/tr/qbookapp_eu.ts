@@ -514,7 +514,7 @@ Mesedez, ez atera SD-a.</translation>
     <name>QBookScreenSaver</name>
     <message>
         <source>Battery level</source>
-        <translation>Bateria-maila</translation>
+        <translation type="obsolete">Bateria-maila</translation>
     </message>
     <message>
         <source>Press the Power button to resume</source>

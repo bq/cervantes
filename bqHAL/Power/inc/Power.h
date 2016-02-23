@@ -68,6 +68,9 @@ public:
     virtual bool isPowerKeyPressed() = 0;
     virtual void setLed(bool) = 0;
 
+    virtual bool getWakeOnHome();
+    virtual void setWakeOnHome(bool);
+
 #if defined(BATTERY_TEST) || defined(SHOWCASE)
     bool doSpecialTestAction(bool slept);
     void checkAndResetLight();
@@ -77,6 +80,7 @@ public:
 
 protected:
     bool b_processCanceled;
+    bool b_wakeOnHome;
     virtual bool wakeupActive(QString *sources, int numSources);
 
 private:

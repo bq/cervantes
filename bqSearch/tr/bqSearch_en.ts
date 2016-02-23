@@ -39,23 +39,23 @@
         <translation>Books in the online store</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="150"/>
-        <location filename="../src/Search.cpp" line="538"/>
+        <location filename="../src/Search.cpp" line="146"/>
+        <location filename="../src/Search.cpp" line="544"/>
         <source>Search</source>
         <translation>Search</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="446"/>
+        <location filename="../src/Search.cpp" line="452"/>
         <source>Mostrando (0) resultados</source>
         <translation>Showing 0 results.</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="455"/>
+        <location filename="../src/Search.cpp" line="461"/>
         <source>Mostrando %1 - %2 de %3 resultados</source>
         <translation>Showing %1-%2 of %3 results.</translation>
     </message>
     <message>
-        <location filename="../src/Search.cpp" line="649"/>
+        <location filename="../src/Search.cpp" line="655"/>
         <source>Document format not supported</source>
         <translation>Document format not supported</translation>
     </message>

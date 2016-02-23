@@ -133,7 +133,10 @@ TRANSLATIONS = tr/bqViewer_es.ts \
 		tr/bqViewer_en.ts \
                 tr/bqViewer_pt.ts \
                 tr/bqViewer_gl.ts \
-                tr/bqViewer_eu.ts
+                tr/bqViewer_eu.ts \
+                tr/bqViewer_fr.ts \
+                tr/bqViewer_de.ts \
+                tr/bqViewer_it.ts
 
 
 linux-arm-g++ { # Cross compilation for arm

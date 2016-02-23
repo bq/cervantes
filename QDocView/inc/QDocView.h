@@ -174,6 +174,7 @@ public:
     virtual int    getPageEnd() const = 0;
     virtual int    getPageBegin() const = 0;
     virtual void   updateScaleByLevel() = 0;
+    virtual double getFontSizeListAt(int) const = 0;
 
     virtual double getDocViewXOffsetPercent() const = 0;
     virtual double getDocViewYOffsetPercent() const = 0;
@@ -272,8 +273,7 @@ public slots:
     virtual bool goForward();
     virtual bool nextScreen() = 0;
     virtual bool previousScreen() = 0;
-    virtual bool gotoPage(int pos) = 0;	
-    virtual void setFontSizeOrScalePercentage(int size) = 0;
+    virtual bool gotoPage(int pos) = 0;
     virtual void zoomIn() = 0;
     virtual void zoomOut() = 0;
     

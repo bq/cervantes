@@ -19,7 +19,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 *************************************************************************/
 
 #include "DeviceInfoMx508.h"
-#include "hgversion.h"
+#include "gitversion.h"
 #include "version.h"
 
 #include <QDebug>
@@ -66,9 +66,9 @@ QHash<QString, QString> DeviceInfoMx508::getSpecificDeviceInfo()
       * Private repo (services and debug)
       */
 
-    elements.insert("Internal Revision", HG_VERSION);
+    elements.insert("Internal Revision", GIT_VERSION);
     elements.insert("Static rootfs version", ROOTFS_VERSION);
-    elements.insert("Private repo version", HG_SERVICES_VERSION);
+    elements.insert("Private repo version", GIT_SERVICES_VERSION);
 
 #ifdef BATTERY_TEST // To mark as special build
     elements.insert("Software version", "BATTERY_TEST " + QString(QBOOKAPP_VERSION));
@@ -85,8 +85,8 @@ QHash<QString, QString> DeviceInfoMx508::getSpecificDeviceInfo()
     if (versionFile->open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QString verNumber(versionFile->readLine());
-        QString hgVersion(versionFile->readLine());
-        elements.insert("Actual rootfs version", verNumber.trimmed() + "-" + hgVersion.trimmed());
+        QString gitVersion(versionFile->readLine());
+        elements.insert("Actual rootfs version", verNumber.trimmed() + "-" + gitVersion.trimmed());
     }
 
     //Kernel revision (uname --kernel-release)

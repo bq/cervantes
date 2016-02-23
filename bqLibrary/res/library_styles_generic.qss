@@ -884,9 +884,7 @@ background:  url(":/res/arrow_top.png") no-repeat center bottom;
 }
 /*LibraryBookSummary
 -----------------------*/
-#LibraryBookSummary #bookSummaryDataContainer #actionsContainer #moreActionsBtn,
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #addToCollectionBtn,
-#LibraryBookSummary #bookSummaryDataContainer #actionsContainer #readSampleBtn,
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #bookStatusBtn{
 }
 #LibraryBookSummary #bookActionsCont{

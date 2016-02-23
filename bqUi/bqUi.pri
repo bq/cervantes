@@ -3,7 +3,10 @@ TRANSLATIONS =  ./tr/bqUi_es.ts \
                 ./tr/bqUi_en.ts \
                 ./tr/bqUi_pt.ts \
                 ./tr/bqUi_gl.ts \
-                ./tr/bqUi_eu.ts
+                ./tr/bqUi_eu.ts \
+                ./tr/bqUi_fr.ts \
+                ./tr/bqUi_de.ts \
+                ./tr/bqUi_it.ts
 
 
 HEADERS += ./inc/PopUp.h \

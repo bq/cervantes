@@ -1330,11 +1330,9 @@ border-width:0px;
 }
 /*LibraryBookSummary
 -----------------------*/
-#LibraryBookSummary #bookSummaryDataContainer #actionsContainer #moreActionsBtn,
-#LibraryBookSummary #bookSummaryDataContainer #actionsContainer #addToCollectionBtn,
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #readSampleBtn,
 #LibraryBookSummary #bookSummaryDataContainer #actionsContainer #bookStatusBtn{
-margin-top:12px;
+margin-top:5px;
 }
 #bookSummaryActions{
 max-height:204px;
@@ -1381,6 +1379,10 @@ max-height:18px;
 min-height:18px;
 margin:6px 0px 0px;
 }
+#LibraryBookSummary #moreActionsCont{
+max-height:55px;
+min-height:55px;
+}
 #LibraryBookSummary #numberTotalPagesLbl{
 font-size:17px;
 }
@@ -1408,14 +1410,14 @@ font-size:16px;
 /*LibraryCollectionLayer
 ---------------------------*/
 #LibraryCollectionLayer{
-min-width:188px;
-max-width:188px;
+min-width:343px;
+max-width:343px;
 min-height:400px;
 max-height:400px;
 }
 #CollectionLayerCont #VerticalPagerPopup, #CollectionLayerCont ViewerVerticalPagerPopup{
-min-width:188px;
-max-width:188px;
+min-width:343px;
+max-width:343px;
 min-height:50px;
 max-height:50px;
 }

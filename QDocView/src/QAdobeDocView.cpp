@@ -63,9 +63,16 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 double Q_FONT_SIZE_BEST = 20.0;
 double Q_FONT_SIZE_MIN = 16.0;
-double Q_FONT_SIZE_MAX = 26.0;
+double Q_FONT_SIZE_MAX = 51.0;
 double EPUB_INTERNAL_SIZE = 5.0;
 double PDF_INTERNAL_SIZE = 0.5;
+
+#define EPUB_FONT_SIZE_MAX_LEVEL 7
+#define EPUB_FONT_SIZE_MIN_LEVEL 0
+#define EPUB_FONT_SIZE_BEST_LEVEL 1
+const double EPUB_FONT_SIZE_600[EPUB_FONT_SIZE_MAX_LEVEL+1] = {16.0, 20.0, 24.0, 27.0, 31.0, 36.0, 42.0, 51.0};
+const double EPUB_FONT_SIZE_758[EPUB_FONT_SIZE_MAX_LEVEL+1] = {21.0, 27.0, 32.0, 37.0, 42.0, 50.0, 58.0, 66.5};
+const double* EPUB_FONT_SIZE = 0;
 
 #define Q_REFLOW_SCALE_BEST     2.0
 #define Q_REFLOW_SCALE_MIN      2.0
@@ -755,21 +762,26 @@ QAdobeDocView::QAdobeDocView(dpdoc::Document* doc, QAdobeClient* client, QWidget
 
     m_noteFont.setPixelSize(15);
 
-    if(Screen::getInstance()->screenWidth() == 600)
+    if(QBook::getInstance()->getResolution() == QBook::RES600x800)
     {
-        Q_FONT_SIZE_BEST = 20.0;
-        Q_FONT_SIZE_MIN = 16.0;
-        Q_FONT_SIZE_MAX = 26.0;
+        EPUB_FONT_SIZE = EPUB_FONT_SIZE_600;
         EPUB_INTERNAL_SIZE = 5.0;
         PDF_INTERNAL_SIZE = 0.5;
     }
     else
     {
-        Q_FONT_SIZE_BEST = 20.0;
-        Q_FONT_SIZE_MIN = 21.0;
-        Q_FONT_SIZE_MAX = 26.0;
+        EPUB_FONT_SIZE = EPUB_FONT_SIZE_758;
         EPUB_INTERNAL_SIZE = 6.5;//5.0*1.33;//6.2;//5.0*1.297619048;//6.25;
         PDF_INTERNAL_SIZE = 0.5;
+    }
+
+    Q_FONT_SIZE_BEST = EPUB_FONT_SIZE[EPUB_FONT_SIZE_BEST_LEVEL];
+    Q_FONT_SIZE_MIN = EPUB_FONT_SIZE[EPUB_FONT_SIZE_MIN_LEVEL];
+    Q_FONT_SIZE_MAX = EPUB_FONT_SIZE[EPUB_FONT_SIZE_MAX_LEVEL];
+
+    for(int i = 0; i < 8; i++)
+    {
+        m_fontSizeList << EPUB_FONT_SIZE[i];
     }
 }
 
@@ -1224,9 +1236,14 @@ double QAdobeDocView::pdfScaleStep() const
     return (MAX_PDF_ZOOM - 1)*minScaleFactor()/(MAX_PDF_ZOOM_LEVEL - 1);
 }
 
+double QAdobeDocView::epubScaleStep() const
+{
+    return EPUB_INTERNAL_SIZE;
+}
+
 double QAdobeDocView::scaleStep() const
 {
-    return m_isFontScalable ? EPUB_INTERNAL_SIZE : pdfScaleStep();
+    return m_isFontScalable ? epubScaleStep() : pdfScaleStep();
 }
 
 double QAdobeDocView::maxScaleFactor() const
@@ -1737,7 +1754,7 @@ int QAdobeDocView::highlightCount() const
 
 int QAdobeDocView::highlightAt(QPoint p) const
 {
-    highlightAt(p.x(), p.y());
+    return highlightAt(p.x(), p.y());
 }
 
 int QAdobeDocView::highlightAt(int x, int y) const
@@ -2302,7 +2319,6 @@ void QAdobeDocView::takeMiniatureScreenshot()
 
     if (m_autoFit == AUTO_FIT_NONE) // zoomed page
     {
-        double delta_y = 0.9;
         // Save current zoom.
         double auxScale = m_scale;
         // Set zoom at minimun.
@@ -3868,20 +3884,10 @@ int QAdobeDocView::getFontSize() const
     return m_scale;
 }
 
-void QAdobeDocView::setFontSizeOrScalePercentage(int size)
-{
-	if(m_isFontScalable)
-		setScaleFactor(Q_FONT_SIZE_MIN + size * EPUB_INTERNAL_SIZE);
-	else
-        setScaleFactor(autoFitFactor(AUTO_FIT_PAGE) + size * pdfScaleStep());
-
-    if (m_isPdf) scrolling();
-}
-
 int QAdobeDocView::sizeLevel() const
 {
-    if (m_isFontScalable) return (m_scale - Q_FONT_SIZE_MIN) / EPUB_INTERNAL_SIZE;
-    else                  return m_pdfZoomLevel;
+    /*if (m_isFontScalable) return (m_scale - Q_FONT_SIZE_MIN) / EPUB_INTERNAL_SIZE;
+    else*/                  return m_pdfZoomLevel;
 }
 
 void QAdobeDocView::updateScaleByLevel()
@@ -3889,14 +3895,19 @@ void QAdobeDocView::updateScaleByLevel()
     setScaleFactor(scaleStep()*m_pdfZoomLevel + minScaleFactor());
 }
 
+double QAdobeDocView::getFontSizeListAt(int pos) const
+{
+    return (pos > m_fontSizeList.count()-1)? 0 : m_fontSizeList[pos];
+}
+
 void QAdobeDocView::zoomIn()
 {
-	if(m_isFontScalable)
+	/*if(m_isFontScalable)
 	{
         if (m_scale < Q_FONT_SIZE_MAX)
             setScaleFactor(m_scale + EPUB_INTERNAL_SIZE);
 	}
-    else
+    else*/
     {
         if (m_pdfZoomLevel + 1 <= MAX_PDF_ZOOM_LEVEL - 1)
             setScaleFactor(pdfScaleStep()*(++m_pdfZoomLevel) + minScaleFactor());
@@ -3911,12 +3922,12 @@ void QAdobeDocView::zoomIn()
 
 void QAdobeDocView::zoomOut()
 {
-	if(m_isFontScalable)
+	/*if(m_isFontScalable)
 	{
         if (m_scale > Q_FONT_SIZE_MIN)
             setScaleFactor(m_scale - EPUB_INTERNAL_SIZE);
 	}
-    else
+    else*/
     {
         if (m_pdfZoomLevel - 1 >= 0)
             setScaleFactor(pdfScaleStep()*(--m_pdfZoomLevel) + minScaleFactor());

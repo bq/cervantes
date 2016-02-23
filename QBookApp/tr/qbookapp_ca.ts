@@ -507,7 +507,7 @@ Si us plau, no extreguis la SD.</translation>
     <name>QBookScreenSaver</name>
     <message>
         <source>Battery level</source>
-        <translation>Nivell de bateria</translation>
+        <translation type="obsolete">Nivell de bateria</translation>
     </message>
     <message>
         <source>Press the Power button to resume</source>

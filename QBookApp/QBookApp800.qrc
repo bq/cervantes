@@ -21,5 +21,11 @@
         <file alias="factoryReset_E60Q22.png">res/800/factoryReset_E60Q22.png</file>
         <file alias="batteryChargingImage.png">res/800/batteryChargingImage.png</file>
         <file alias="batteryCompleteImage.png">res/800/batteryCompleteImage.png</file>
+        <file alias="restoring_screen_fr.png">res/800/restoring_screen_fr.png</file>
+        <file alias="restoring_screen_it.png">res/800/restoring_screen_it.png</file>
+        <file alias="restoring_screen_de.png">res/800/restoring_screen_de.png</file>
+        <file alias="recoverError_de.png">res/800/recoverError_de.png</file>
+        <file alias="recoverError_fr.png">res/800/recoverError_fr.png</file>
+        <file alias="recoverError_it.png">res/800/recoverError_it.png</file>
     </qresource>
 </RCC>

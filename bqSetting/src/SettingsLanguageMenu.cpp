@@ -42,6 +42,10 @@ SettingsLanguageMenu::SettingsLanguageMenu(QWidget *parent) : FullScreenWidget(p
         m_buttonGroup->addButton(catalanBtn,LANG_CA);
         m_buttonGroup->addButton(euskeraBtn, LANG_EU);
         m_buttonGroup->addButton(galicianBtn, LANG_GL);
+        m_buttonGroup->addButton(frenchBtn, LANG_FR);
+        m_buttonGroup->addButton(germanBtn, LANG_DE);
+        m_buttonGroup->addButton(italianBtn, LANG_IT);
+
 
         connect(backBtn,SIGNAL(clicked()), this, SIGNAL(hideMe()));
         connect(m_buttonGroup, SIGNAL(buttonClicked(int)),this, SLOT(changeLanguage(int)));
@@ -96,7 +100,12 @@ void SettingsLanguageMenu::changeLanguage(int langInt)
             QLocale::setDefault(QLocale(QLocale::Basque, QLocale::Spain));
         else if (langInt == LANG_GL)
             QLocale::setDefault(QLocale(QLocale::Galician, QLocale::Spain));
-
+        else if (langInt == LANG_FR)
+            QLocale::setDefault(QLocale(QLocale::French, QLocale::France));
+        else if (langInt == LANG_DE)
+            QLocale::setDefault(QLocale(QLocale::German, QLocale::Germany));
+        else if (langInt == LANG_IT)
+            QLocale::setDefault(QLocale(QLocale::Italian, QLocale::Italy));
 
         QBook::settings().setValue("setting/changeLanguage", true);
         QBookApp::instance()->syncModel();
@@ -143,6 +152,12 @@ const char* SettingsLanguageMenu::getLangByInt(int langInt) const
             return "eu";
         case LANG_GL:
             return "gl";
+        case LANG_FR:
+            return "fr";
+        case LANG_DE:
+            return "de";
+        case LANG_IT:
+            return "it";
         default:
             return "es";
     }

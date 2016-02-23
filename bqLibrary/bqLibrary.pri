@@ -3,7 +3,11 @@ TRANSLATIONS = tr/bqLibrary_es.ts \
                 tr/bqLibrary_en.ts \
                 tr/bqLibrary_pt.ts \
                 tr/bqLibrary_gl.ts \
-                tr/bqLibrary_eu.ts
+                tr/bqLibrary_eu.ts \
+                tr/bqLibrary_de.ts \
+                tr/bqLibrary_fr.ts \
+                tr/bqLibrary_it.ts
+
 
 HEADERS += ./inc/Library.h \
          ./inc/LibraryBookListActions.h \

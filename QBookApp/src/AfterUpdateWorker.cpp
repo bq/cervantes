@@ -62,6 +62,7 @@ void AfterUpdateWorker::work()
     copyNewImages();
 
     migrationFromBqToNubico();
+    migrationFromLiberdracToLibelista();
 
     setActivated();
 
@@ -80,6 +81,27 @@ void AfterUpdateWorker::migrationFromBqToNubico()
     const QString shopName = QBook::settings().value("shopName", "").toString();
 
     if(!shopName.size() || shopName != "bq")
+        return;
+
+    qDebug() << Q_FUNC_INFO << "unlinking device";
+    QBook::settings().setValue("setting/linked",false);
+    QBook::settings().setValue("setting/activated",true);
+    QBook::settings().setValue("setting/initial",true);
+    QBook::settings().setValue("setting/initial_lang_selection",true);
+    QBook::settings().setValue("eMail", "");
+    QBook::settings().setValue("shopName", "Tienda");
+    QBook::settings().setValue("readerPartitionName", "reader");
+    QBook::settings().setValue("deviceModelName", "reader");
+
+}
+
+void AfterUpdateWorker::migrationFromLiberdracToLibelista()
+{
+    qDebug() << Q_FUNC_INFO;
+
+    const QString shopName = QBook::settings().value("shopName", "").toString();
+
+    if(!shopName.size() || shopName != "liberdrac")
         return;
 
     qDebug() << Q_FUNC_INFO << "unlinking device";

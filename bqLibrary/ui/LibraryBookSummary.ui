@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>750</height>
+    <width>758</width>
+    <height>960</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -172,8 +172,8 @@
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>8</width>
-                  <height>175</height>
+                  <width>22</width>
+                  <height>210</height>
                  </size>
                 </property>
                 <property name="text">
@@ -194,8 +194,8 @@
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>30</width>
-                  <height>13</height>
+                  <width>25</width>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -245,8 +245,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>115</width>
-                   <height>175</height>
+                   <width>140</width>
+                   <height>210</height>
                   </rect>
                  </property>
                  <property name="text">
@@ -261,8 +261,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>115</width>
-                   <height>135</height>
+                   <width>140</width>
+                   <height>174</height>
                   </rect>
                  </property>
                  <property name="text">
@@ -277,8 +277,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>115</width>
-                   <height>145</height>
+                   <width>140</width>
+                   <height>197</height>
                   </rect>
                  </property>
                  <property name="text">
@@ -300,8 +300,8 @@
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>8</width>
-                  <height>13</height>
+                  <width>22</width>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="text">
@@ -322,8 +322,8 @@
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>8</width>
-                  <height>9</height>
+                  <width>22</width>
+                  <height>15</height>
                  </size>
                 </property>
                 <property name="text">
@@ -360,8 +360,8 @@
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>30</width>
-                  <height>175</height>
+                  <width>25</width>
+                  <height>210</height>
                  </size>
                 </property>
                 <property name="text">
@@ -382,8 +382,8 @@
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>30</width>
-                  <height>9</height>
+                  <width>25</width>
+                  <height>15</height>
                  </size>
                 </property>
                 <property name="text">
@@ -479,6 +479,9 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="styleSheet">
+              <string notr="true">numberPagesCont</string>
+             </property>
              <layout class="QVBoxLayout" name="verticalLayout">
               <property name="spacing">
                <number>0</number>
@@ -507,53 +510,73 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="formatLbl">
-                <property name="text">
-                 <string>FB2</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="priceCont" native="true">
-                <layout class="QHBoxLayout" name="horizontalLayout_5">
-                 <property name="spacing">
-                  <number>0</number>
-                 </property>
-                 <property name="margin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="bookPriceLbl">
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
-                   <property name="text">
-                    <string>9,95€</string>
-                   </property>
-                   <property name="indent">
+               <layout class="QHBoxLayout" name="horizontalLayout_12">
+                <item>
+                 <widget class="QWidget" name="formatAndPriceCont" native="true">
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <property name="spacing">
                     <number>0</number>
                    </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_3">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                   <property name="margin">
+                    <number>0</number>
                    </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                </layout>
-               </widget>
+                   <item>
+                    <widget class="QLabel" name="formatLbl">
+                     <property name="text">
+                      <string>FB2</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="bookPriceLbl">
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                     <property name="text">
+                      <string>9,95€</string>
+                     </property>
+                     <property name="indent">
+                      <number>0</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_3">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
-               <widget class="QWidget" name="numberPagesCont" native="true">
-                <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <spacer name="verticalSpacer_9">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>5</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QWidget" name="moreActionsCont" native="true">
+                <property name="autoFillBackground">
+                 <bool>false</bool>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
                  <property name="spacing">
                   <number>0</number>
                  </property>
@@ -561,17 +584,29 @@
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QLabel" name="textTotalPagesLbl">
-                   <property name="text">
-                    <string>Total de páginas:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="numberTotalPagesLbl">
-                   <property name="text">
-                    <string>100</string>
-                   </property>
+                  <widget class="QWidget" name="numberPagesCont" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_8">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="margin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="textTotalPagesLbl">
+                      <property name="text">
+                       <string>Total de páginas:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="numberTotalPagesLbl">
+                      <property name="text">
+                       <string>100</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                  <item>
@@ -587,21 +622,31 @@
                    </property>
                   </spacer>
                  </item>
+                 <item>
+                  <widget class="SilentQPushButton" name="moreActionsBtn">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="text">
+                    <string>Más acciones</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_9">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
                 </layout>
                </widget>
-              </item>
-              <item>
-               <spacer name="verticalSpacer_9">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>5</height>
-                 </size>
-                </property>
-               </spacer>
               </item>
               <item>
                <widget class="QWidget" name="actionsContainer" native="true">
@@ -622,33 +667,10 @@
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="SilentQPushButton" name="moreActionsBtn">
-                   <property name="focusPolicy">
-                    <enum>Qt::NoFocus</enum>
-                   </property>
-                   <property name="text">
-                    <string>Más acciones</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_9">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeType">
-                    <enum>QSizePolicy::Fixed</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>10</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
                   <widget class="SilentQPushButton" name="addToCollectionBtn">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
                    <property name="text">
                     <string>Colecciones</string>
                    </property>
@@ -959,14 +981,14 @@ p, li { white-space: pre-wrap; }
  </widget>
  <customwidgets>
   <customwidget>
-   <class>bqQTextBrowser</class>
-   <extends>QTextBrowser</extends>
-   <header location="global">bqQTextBrowser.h</header>
-  </customwidget>
-  <customwidget>
    <class>SilentQPushButton</class>
    <extends>QPushButton</extends>
    <header>SilentQPushButton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>bqQTextBrowser</class>
+   <extends>QTextBrowser</extends>
+   <header location="global">bqQTextBrowser.h</header>
   </customwidget>
   <customwidget>
    <class>LibraryPageHandler</class>

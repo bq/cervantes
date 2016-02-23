@@ -65,6 +65,7 @@ public:
     virtual void   setDefaultSpacing() const;
     virtual void   setDefaultJustification() const;
     virtual void   updateScaleByLevel() {}
+    virtual double getFontSizeListAt(int pos) const;
 
     virtual int getFontSize() const;
     virtual void setDocFont() const;
@@ -130,7 +131,6 @@ public slots:
     virtual bool    nextScreen                      ();
     virtual bool    previousScreen                  ();
     virtual bool    gotoPage                        (int pos);
-    virtual void    setFontSizeOrScalePercentage    (int size);
     virtual int     trackHighlight                  (HighlightMode, int, int);
     virtual void    zoomIn                          ();
     virtual void    zoomOut                         ();
@@ -183,7 +183,7 @@ private:
     QSize rotViewPortSize;
 
     bool docReady;
-    QList<int> m_fontSizeList;
+    QList<double> m_fontSizeList;
    double m_fontSizeMin;
    double m_fontSizeStep;
 

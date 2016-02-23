@@ -33,5 +33,8 @@ TRANSLATIONS += ./tr/qdocview_es.ts \
     ./tr/qdocview_pt.ts \
     ./tr/qdocview_gl.ts \
     ./tr/qdocview_ca.ts \
-    ./tr/qdocview_eu.ts
+    ./tr/qdocview_eu.ts \
+    ./tr/qdocview_fr.ts \
+    ./tr/qdocview_de.ts \
+    ./tr/qdocview_it.ts
 

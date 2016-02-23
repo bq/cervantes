@@ -421,7 +421,7 @@ background-color:#D0D0D0;
 border-style:solid;
 border-color:#808080;
 }
-#actionsContainer #moreActionsBtn{
+#moreActionsCont #moreActionsBtn{
 background:url(":/res/arrow_for_buttons.png") no-repeat center right;
 border-style:solid;
 border-color:#707070;

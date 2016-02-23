@@ -255,6 +255,10 @@ max-height:960px;
 #settingsCont #adobeDrmInfoLbl{
 margin:51px 0px 0px 0px;
 padding:0px 77px;
+font-size:24px;
+}
+#settingsCont #accountEmailAdobeDrmLbl{
+font-size:24px;
 }
 #settingsCont #accountEmailLbl{
 }
@@ -286,6 +290,10 @@ max-height:960px;
 #settingsCont #adobeDrmInfoLbl{
 margin:51px 0px 0px 0px;
 padding:0px 77px;
+font-size:24px;
+}
+#settingsCont #accountEmailAdobeDrmLbl{
+font-size:24px;
 }
 #settingsCont #accountEmailLbl{
 padding:19px 0px 0px 0px;
@@ -715,15 +723,16 @@ max-height:960px;
 border-top-left-radius:10px;
 border-top-right-radius:10px;
 }
-#SettingsLanguageMenu #portuguesBtn{
-border-bottom-left-radius:10px;
-border-bottom-right-radius:10px;
-}
 #SettingsLanguageMenu #settingsMenuListCont QPushButton{
 padding:0px 0px 0px 32px;
 }
 #SettingsLanguageMenu #settingsMenuListCont QPushButton:checked {
 }
+#SettingsLanguageMenu #settingsMenuListCont QPushButton{
+min-height:70px;
+max-height:70px;
+}
+
 /*SettingsBrightness
 -------------------------*/
 #SettingsBrightness{
@@ -1572,7 +1581,7 @@ border-width:2px;
 }
 
 #SettingsWiFiList #wifiNetworksLbl{
-padding:0px 100px 0px 51px;
+padding:0px 10px 0px 51px;
 }
 #SettingsWiFiList #wifiLbl{
 padding:0px 0px 0px 51px;

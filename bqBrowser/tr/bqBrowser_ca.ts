@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../ui/Browser.ui" line="186"/>
-        <location filename="../src/Browser.cpp" line="1013"/>
+        <location filename="../src/Browser.cpp" line="1041"/>
         <source>Go</source>
         <translation>Anar</translation>
     </message>
@@ -39,33 +39,33 @@
         <translation type="obsolete">Favorit afegit amb èxit</translation>
     </message>
     <message>
-        <location filename="../src/Browser.cpp" line="356"/>
+        <location filename="../src/Browser.cpp" line="383"/>
         <source>Ir</source>
         <translation>Anar</translation>
     </message>
     <message>
-        <location filename="../src/Browser.cpp" line="418"/>
+        <location filename="../src/Browser.cpp" line="445"/>
         <source>Downloading file...</source>
         <translation>Descarregant arxiu...</translation>
     </message>
     <message>
-        <location filename="../src/Browser.cpp" line="479"/>
+        <location filename="../src/Browser.cpp" line="506"/>
         <source>Not enough space to download.</source>
         <translation>No hi ha prou espai per a la descàrrega.</translation>
     </message>
     <message>
-        <location filename="../src/Browser.cpp" line="495"/>
-        <location filename="../src/Browser.cpp" line="520"/>
+        <location filename="../src/Browser.cpp" line="522"/>
+        <location filename="../src/Browser.cpp" line="547"/>
         <source>Download file failed</source>
         <translation>La descàrrega de l&apos;arxiu ha fallat.</translation>
     </message>
     <message>
-        <location filename="../src/Browser.cpp" line="574"/>
+        <location filename="../src/Browser.cpp" line="602"/>
         <source>No hay credenciales de Adobe DRM asociados a este dispositivo.</source>
         <translation>No hi ha credencials d&apos;Adobe DRM associades a aquest dispositiu.</translation>
     </message>
     <message>
-        <location filename="../src/Browser.cpp" line="621"/>
+        <location filename="../src/Browser.cpp" line="649"/>
         <source>File downloaded correctly</source>
         <translation>Arxiu descarregat correctament.</translation>
     </message>
@@ -82,7 +82,7 @@
         <translation type="obsolete">El teu llibre s&apos;està descarregant, quan finalitzi estarà disponible al teu llistat de llibres.</translation>
     </message>
     <message>
-        <location filename="../src/Browser.cpp" line="584"/>
+        <location filename="../src/Browser.cpp" line="614"/>
         <source>Open downloaded book?</source>
         <translation>Obrir el llibre descarregat?</translation>
     </message>
@@ -95,7 +95,7 @@
         <translation type="obsolete">Error processant credencials</translation>
     </message>
     <message>
-        <location filename="../src/Browser.cpp" line="713"/>
+        <location filename="../src/Browser.cpp" line="741"/>
         <source>Not connected. Please try it again in a few minutes</source>
         <translation>No connectat. Si us plau, torni-ho a intentar d&apos;aquí uns minuts</translation>
     </message>
@@ -108,7 +108,7 @@
         <translation type="obsolete">Descarregant...</translation>
     </message>
     <message>
-        <location filename="../src/Browser.cpp" line="1137"/>
+        <location filename="../src/Browser.cpp" line="1163"/>
         <source>Unsupported download link</source>
         <translation>Enllaç de descàrrega no suportat</translation>
     </message>
@@ -124,17 +124,17 @@
 <context>
     <name>BrowserAdobeDrm</name>
     <message>
-        <location filename="../src/BrowserAdobeDrm.cpp" line="21"/>
+        <location filename="../src/BrowserAdobeDrm.cpp" line="41"/>
         <source>Your book is being downloaded, when finished it will be available on the book list!</source>
         <translation>El teu llibre s&apos;està descarregant, quan finalitzi estarà disponible al teu llistat de llibres.</translation>
     </message>
     <message>
-        <location filename="../src/BrowserAdobeDrm.cpp" line="53"/>
+        <location filename="../src/BrowserAdobeDrm.cpp" line="73"/>
         <source>The book is available on your library!</source>
         <translation>El llibre està disponible al teu directori Digital Editions.</translation>
     </message>
     <message>
-        <location filename="../src/BrowserAdobeDrm.cpp" line="83"/>
+        <location filename="../src/BrowserAdobeDrm.cpp" line="103"/>
         <source>Error processing credentials</source>
         <translation>Error processant credencials</translation>
     </message>
@@ -166,29 +166,29 @@
         <translation type="obsolete">|</translation>
     </message>
     <message>
-        <location filename="../src/BrowserFavo.cpp" line="79"/>
+        <location filename="../src/BrowserFavo.cpp" line="99"/>
         <source>Are you sure?</source>
         <translation>N&apos;està segur?</translation>
     </message>
     <message>
-        <location filename="../src/BrowserFavo.cpp" line="110"/>
-        <location filename="../src/BrowserFavo.cpp" line="125"/>
+        <location filename="../src/BrowserFavo.cpp" line="130"/>
+        <location filename="../src/BrowserFavo.cpp" line="145"/>
         <source>Deselect All</source>
         <translation>Desmarcar tot</translation>
     </message>
     <message>
-        <location filename="../src/BrowserFavo.cpp" line="237"/>
+        <location filename="../src/BrowserFavo.cpp" line="257"/>
         <source>The page was already present in your favorite list.</source>
         <translation>Aquesta pàgina ja està inclosa al teu llistat de favorits.</translation>
     </message>
     <message>
-        <location filename="../src/BrowserFavo.cpp" line="246"/>
+        <location filename="../src/BrowserFavo.cpp" line="266"/>
         <source>Add Favorite Successfully</source>
         <translation>Pàgina afegida al teu llistat de marcadors favorits correctament.</translation>
     </message>
     <message>
-        <location filename="../src/BrowserFavo.cpp" line="107"/>
-        <location filename="../src/BrowserFavo.cpp" line="135"/>
+        <location filename="../src/BrowserFavo.cpp" line="127"/>
+        <location filename="../src/BrowserFavo.cpp" line="155"/>
         <source>Select All</source>
         <translation>Seleccionar tot</translation>
     </message>
@@ -226,23 +226,20 @@
 <context>
     <name>BrowserPageSlider</name>
     <message>
-        <location filename="../src/BrowserPageSlider.cpp" line="69"/>
         <source>--- / %1</source>
-        <translation>--- / %1</translation>
+        <translation type="obsolete">--- / %1</translation>
     </message>
     <message>
-        <location filename="../src/BrowserPageSlider.cpp" line="71"/>
-        <location filename="../src/BrowserPageSlider.cpp" line="132"/>
+        <location filename="../src/BrowserPageSlider.cpp" line="112"/>
         <source>%1 / %2</source>
         <translation>%1 / %2</translation>
     </message>
     <message>
-        <location filename="../src/BrowserPageSlider.cpp" line="129"/>
         <source>(%1) %2 / %3</source>
-        <translation>(%1) %2 / %3</translation>
+        <translation type="obsolete">(%1) %2 / %3</translation>
     </message>
     <message>
-        <location filename="../src/BrowserPageSlider.cpp" line="134"/>
+        <location filename="../src/BrowserPageSlider.cpp" line="114"/>
         <source>%1-%2 / %3</source>
         <translation>%1-%2 / %3</translation>
     </message>

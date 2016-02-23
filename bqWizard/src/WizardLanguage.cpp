@@ -30,20 +30,26 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDebug>
 #include <QKeyEvent>
 #include <QPainter>
+#include "QButtonGroup"
 #include "unistd.h"
 
 WizardLanguage::WizardLanguage(QWidget* parent): FullScreenWidget(parent), settingsLanguage(0), choosenLanguage(0)
 {
     qDebug() << Q_FUNC_INFO;
     setupUi(this);
-    settingsLanguage = getLangugeFromSettings();
+    settingsLanguage = getLanguageFromSettings();
     choosenLanguage = settingsLanguage;
-    connect(engBtn, SIGNAL(clicked()), this,SLOT(eng_BtnClicked()));
-    connect(spaBtn, SIGNAL(clicked()), this,SLOT(spa_BtnClicked()));
-    connect(porBtn, SIGNAL(clicked()), this,SLOT(por_BtnClicked()));
-    connect(catBtn, SIGNAL(clicked()), this,SLOT(cat_BtnClicked()));
-    connect(eusBtn, SIGNAL(clicked()), this,SLOT(bas_BtnClicked()));
-    connect(galBtn, SIGNAL(clicked()), this,SLOT(gal_BtnClicked()));
+
+    m_languageButtons.addButton(engBtn, ENGLISH);
+    m_languageButtons.addButton(spaBtn, SPANISH);
+    m_languageButtons.addButton(porBtn, PORTUGUES);
+    m_languageButtons.addButton(catBtn, CATALAN);
+    m_languageButtons.addButton(eusBtn, BASQUE);
+    m_languageButtons.addButton(galBtn, GALICIAN);
+    m_languageButtons.addButton(freBtn, FRENCH);
+    m_languageButtons.addButton(gerBtn, GERMAN);
+    m_languageButtons.addButton(itaBtn, ITALIAN);
+    connect(&m_languageButtons, SIGNAL(buttonPressed(int)), this, SLOT(btnClicked(int)));
 
     connect(deviceInfo, SIGNAL(clicked()), this, SLOT(handleDeviceInfo()));
 }
@@ -53,53 +59,14 @@ WizardLanguage::~WizardLanguage()
     qDebug() << Q_FUNC_INFO;
 }
 
-void WizardLanguage::eng_BtnClicked()
+void WizardLanguage::btnClicked(int langIndex)
 {
-    qDebug() << Q_FUNC_INFO;
-    choosenLanguage = ENGLISH;
+    qDebug() << Q_FUNC_INFO << langIndex;
+    choosenLanguage = langIndex;
     languageAccepted();
 }
 
-void WizardLanguage::spa_BtnClicked()
-{
-    qDebug() << Q_FUNC_INFO;
-    choosenLanguage = SPANISH;
-    languageAccepted();
-}
-
-void WizardLanguage::por_BtnClicked()
-{
-    qDebug() << Q_FUNC_INFO;
-    choosenLanguage = PORTUGUES;
-
-    languageAccepted();
-}
-
-void WizardLanguage::cat_BtnClicked()
-{
-    qDebug() << Q_FUNC_INFO;
-    choosenLanguage = CATALAN;
-
-    languageAccepted();
-}
-
-void WizardLanguage::bas_BtnClicked()
-{
-    qDebug() << Q_FUNC_INFO;
-    choosenLanguage = BASQUE;
-
-    languageAccepted();
-}
-
-void WizardLanguage::gal_BtnClicked()
-{
-    qDebug() << Q_FUNC_INFO;
-    choosenLanguage = GALICIAN;
-
-    languageAccepted();
-}
-
-int WizardLanguage::getLangugeFromSettings()
+int WizardLanguage::getLanguageFromSettings()
 {
     qDebug() << Q_FUNC_INFO;
 
@@ -108,11 +75,23 @@ int WizardLanguage::getLangugeFromSettings()
     qDebug() << Q_FUNC_INFO << "language" << language;
 
     if(language == "es")
-        value = 1;
+        value = SPANISH;
     else if(language == "pt")
-        value = 2;
+        value = PORTUGUES;
     else if(language == "en")
-        value = 0;
+        value = ENGLISH;
+    else if(language == "eu")
+        value = BASQUE;
+    else if(language == "gl")
+        value = GALICIAN;
+    else if(language == "ca")
+        value = CATALAN;
+    else if(language == "fr")
+        value = FRENCH;
+    else if(language == "de")
+        value = GERMAN;
+    else if(language == "it")
+        value = ITALIAN;
 
     return value;
 }
@@ -132,7 +111,13 @@ void WizardLanguage::languageAccepted()
     else if (choosenLanguage == BASQUE)
         QBook::settings().setValue("setting/language", "eu");
     else if (choosenLanguage == GALICIAN)
-        QBook::settings().setValue("setting/language", "gl");
+        QBook::settings().setValue("setting/language", "gl");    
+    else if (choosenLanguage == FRENCH)
+        QBook::settings().setValue("setting/language", "fr");
+    else if (choosenLanguage == GERMAN)
+        QBook::settings().setValue("setting/language", "de");
+    else if (choosenLanguage == ITALIAN)
+        QBook::settings().setValue("setting/language", "it");
 
     QBook::settings().setValue("setting/initial_lang_selection", false);
 

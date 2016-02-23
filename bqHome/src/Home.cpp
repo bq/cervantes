@@ -551,6 +551,13 @@ void Home::doAddHomeBook(const QVariantMap &data, int type, int id, const QStrin
 QString Home::getDateStyled( const QDateTime& date, bool isIcon){
         qDebug() << Q_FUNC_INFO;
 
+        const QString lang = QBook::settings().value("setting/language", QVariant("es")).toString();
+        QString hourSufix = " h";
+        if (lang == "en")
+        {
+            hourSufix = "";
+        }
+
         if(date.isNull()) return "";
 
         if(date.toString("MM/yy").operator ==(QDateTime::currentDateTime().toString("MM/yy"))){
@@ -558,24 +565,24 @@ QString Home::getDateStyled( const QDateTime& date, bool isIcon){
             int date_book = date.toString("d").toInt();
             if((today - date_book) == 1){
                 if(isIcon){
-                    return tr("Ayer") + date.toString(", hh:mm") + " h";
+                    return tr("Ayer") + date.toString(", hh:mm") + hourSufix;
                 }else{
-                    return tr("Ayer a las") + date.toString(" hh:mm") + " h";
+                    return tr("Ayer a las") + date.toString(" hh:mm") + hourSufix;
                 }
             }
             if(today == date_book){
                 if(isIcon){
-                    return tr("Hoy") + date.toString(", hh:mm") + " h";
+                    return tr("Hoy") + date.toString(", hh:mm") + hourSufix;
                 }else{
-                    return tr("Hoy a las") + date.toString(" hh:mm") + " h";
+                    return tr("Hoy a las") + date.toString(" hh:mm") + hourSufix;
                 }
             }
         }
 
         if(isIcon){
-            return date.toString(tr("dd/MM, hh:mm")) + " h";
+            return date.toString(tr("dd/MM, hh:mm")) + hourSufix;
         }else{
-            return date.toString(tr("dd/MM/yy, ")) + tr("a las") + date.toString(" hh:mm") + " h";
+            return date.toString(tr("dd/MM/yy, ")) + tr("a las") + date.toString(" hh:mm") + hourSufix;
         }
 }
 

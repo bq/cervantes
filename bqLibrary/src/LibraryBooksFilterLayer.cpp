@@ -164,6 +164,7 @@ void LibraryBooksFilterLayer::setStoreBooksNumber( int size )
         if(!shopName.isEmpty())
         {
             QString txt = m_storeBooksName.arg(shopName);
+            txt.replace("liberdrac","libelista");
             storeBooksBtn->setText(txt + " ("+ QString::number(size) + ")");
             storeBooksBtn->show();
         }

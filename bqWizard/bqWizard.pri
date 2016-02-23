@@ -3,7 +3,10 @@ TRANSLATIONS = tr/bqWizard_es.ts \
 		tr/bqWizard_en.ts \
                 tr/bqWizard_pt.ts \
                 tr/bqWizard_gl.ts \
-                tr/bqWizard_eu.ts
+                tr/bqWizard_eu.ts \
+                tr/bqWizard_fr.ts \
+                tr/bqWizard_de.ts \
+                tr/bqWizard_it.ts
 
 
 

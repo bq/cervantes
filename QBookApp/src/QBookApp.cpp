@@ -2043,6 +2043,20 @@ void QBookApp::openContent(const BookInfo* content)
     if (content == NULL)
         return;
 
+    QFileInfo checkFile(content->path);
+    if(!checkFile.exists()||!checkFile.isFile())
+    {
+        InfoDialog* noFileDialog = new InfoDialog(this);
+        noFileDialog->setTimeLasts(3000);
+        noFileDialog->hideSpinner();
+        //FIXME: Get proper text for this and translated
+        noFileDialog->setText(tr("Cannot open book. File doesn't exist"));
+        noFileDialog->hideSpinner();
+        noFileDialog->showForSpecifiedTime();
+        delete noFileDialog;
+        return;
+    }
+
     disconnect(fwDwld, SIGNAL(checkOTAAvailableFinished(int)), this, SLOT(gotOTACheckResult(int)));
     disconnect(ConnectionManager::getInstance(), SIGNAL(connected()), this, SLOT(checkFwVersion()));
 

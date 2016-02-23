@@ -131,7 +131,7 @@
         <location filename="../src/Library.cpp" line="632"/>
         <location filename="../src/Library.cpp" line="3654"/>
         <source>Sincronizando... Por favor, espera unos minutos</source>
-        <translation>Synchronizing... Please wait a few minutes.</translation>
+        <translation>Syncing... Please wait a few minutes.</translation>
     </message>
     <message>
         <location filename="../src/Library.cpp" line="711"/>

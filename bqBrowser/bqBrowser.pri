@@ -39,7 +39,10 @@ TRANSLATIONS =  ./tr/bqBrowser_es.ts \
                 ./tr/bqBrowser_en.ts \
                 ./tr/bqBrowser_pt.ts \
                 ./tr/bqBrowser_gl.ts \
-                ./tr/bqBrowser_eu.ts
+                ./tr/bqBrowser_eu.ts \
+                ./tr/bqBrowser_fr.ts \
+                ./tr/bqBrowser_de.ts \
+                ./tr/bqBrowser_it.ts
 
 QRC_FILES += Browser800.qrc Browser1024.qrc
 

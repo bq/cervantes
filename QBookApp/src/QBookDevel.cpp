@@ -39,7 +39,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QBook.h>
 #include <PowerManager.h>
 #include <PowerManagerLock.h>
-#include <hgversion.h>
+#include <gitversion.h>
 
 
 #include "QBookDevel.h"
@@ -213,7 +213,7 @@ void QBookDevel::enableCores(void) {
        qDebug() << "Cannot prlimit for cores";
     }
 
-    QString command = QString("echo '/mnt/sd/core.%e.%p.%h.%t_rev") + HG_VERSION + QString("' > /proc/sys/kernel/core_pattern");
+    QString command = QString("echo '/mnt/sd/core.%e.%p.%h.%t_rev") + GIT_VERSION + QString("' > /proc/sys/kernel/core_pattern");
 
     qDebug() << Q_FUNC_INFO << "command" << command;
     char * cmd = command.toLatin1().data();

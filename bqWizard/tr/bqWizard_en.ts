@@ -272,7 +272,7 @@ p, li { white-space: pre-wrap; }
         <translation>Form</translation>
     </message>
     <message>
-        <location filename="../ui/WizardLanguage.ui" line="68"/>
+        <location filename="../ui/WizardLanguage.ui" line="102"/>
         <source>Idioma / Language</source>
         <translation>Language</translation>
     </message>

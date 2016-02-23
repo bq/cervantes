@@ -30,7 +30,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "ADConverter.h"
 #include "DeviceInfo.h"
 #include "FrontLight.h"
-#include "hgversion.h"
+#include "gitversion.h"
 #include "AfterUpdateWorker.h"
 #include "SleeperThread.h"
 
@@ -110,7 +110,7 @@ int main(int argc, char* argv[])
     app->setOverrideCursor(QCursor(Qt::BlankCursor));
 #endif
 
-    qDebug() << "Starting QBookApp version:" << HG_VERSION;
+    qDebug() << "Starting QBookApp version:" << GIT_VERSION;
 
     // Singletons
     loadRccs();

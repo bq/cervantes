@@ -63,6 +63,7 @@ void SettingsUnLinkStoreDevice::setup()
     QString surname = QBook::settings().value("surname").toString();
     userValueLbl->setText(name + " " + surname);
     QString shop = QBook::settings().value("shopName").toString().toUpper();
+    shop.replace("LIBERDRAC","LIBELISTA");
     QString shopUserAccountUrl = QBook::settings().value("shopUserAccountUrl").toString();
     QDateTime lastSyncDate = QDateTime::fromString(QBook::settings().value("setting/library/lastSync").toString(), Qt::ISODate);
     lastSyncValLbl->setText(lastSyncDate.toString("dd/MM/yy hh:mm"));

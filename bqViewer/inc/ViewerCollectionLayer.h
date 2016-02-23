@@ -53,7 +53,7 @@ protected:
     virtual void                        paintEvent                          ( QPaintEvent* );
     QHash<QString, double>              m_bookCollections;
     QStringList                         m_modelCollections;
-    QList<ViewerCollectionItem*>       items;
+    QList<ViewerCollectionItem*>        items;
     int                                 m_page;
 
 };

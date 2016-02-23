@@ -51,7 +51,10 @@ TRANSLATIONS += ./tr/qbookapp_es.ts \
     ./tr/qbookapp_pt.ts \
     ./tr/qbookapp_gl.ts \
     ./tr/qbookapp_ca.ts \
-    ./tr/qbookapp_eu.ts
+    ./tr/qbookapp_eu.ts \
+    ./tr/qbookapp_fr.ts \
+    ./tr/qbookapp_de.ts \
+    ./tr/qbookapp_it.ts
 
 INCLUDEPATH += ./ConnectionManager/lib ./bqUtils/inc ./model/inc
 

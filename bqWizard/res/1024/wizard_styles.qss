@@ -49,8 +49,8 @@ border-width:2px;
 border-radius:10px;
 }
 #LanguageMenuListCont QPushButton{
-min-height:92px;
-max-height:92px;
+min-height:75px;
+max-height:75px;
 margin:1px 25px;
 padding:0px 0px 0px 38px;
 margin:0px 30px;
@@ -67,8 +67,12 @@ max-height:68px;
 margin:0px 0px 0px 25px;
 font-size:25px;
 }
+#wizardLanguageMarginTop{
+min-height:51px;
+max-height:51px;
+}
 #WizardLanguage #stepInfoLabel{
-margin:57px 0px;
+margin:30px 0px;
 font-size:27px
 }
 /*WizardWelcome

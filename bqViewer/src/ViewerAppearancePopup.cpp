@@ -65,6 +65,7 @@ const QString s_fontsDefs[s_fontsSize][3] ={ {"Istok Web",    "file:///app/res/i
 
 ViewerAppearancePopup::ViewerAppearancePopup(Viewer* viewer) :
     ViewerMenuPopUp(viewer)
+  , m_fontSizeOutOfRange(false)
   , m_defaultSettings(true)
   , m_currentFontSizeId(0)
   , m_currentPdfZoomLevelId(0)
@@ -78,7 +79,6 @@ ViewerAppearancePopup::ViewerAppearancePopup(Viewer* viewer) :
   , g_MarginButtons(new QButtonGroup(this))
   , g_SpacingButtons(new QButtonGroup(this))
   , g_JustifyButtons(new QButtonGroup(this))
-  , m_fontSizeOutOfRange(false)
 {
     setupUi(this);
 
@@ -243,7 +243,6 @@ void ViewerAppearancePopup::setupBook( const BookInfo* info )
 
             break;
         }
-
         default:
         {
             // CRENGINE formats
@@ -268,6 +267,8 @@ void ViewerAppearancePopup::setupBook( const BookInfo* info )
                 m_currentSpacingValue = (eSpacing)m_spacingList.indexOf(QBook::settings().value("setting/reader/spacing/cr3", NO_SPACING_FILE).toString());
                 // Page Mode
                 m_currentPageMode = info->pageMode;
+
+                break;
             }
 
             break;
@@ -350,13 +351,28 @@ int ViewerAppearancePopup::getFontSizeId() const
 
 double ViewerAppearancePopup::getScaleFactor() const
 {
-    double baseLine = m_parentViewer->docView()->minScaleFactor();
-    double step = m_parentViewer->docView()->scaleStep();
-    double factor   = baseLine + getFontSizeId() * step;
+	switch(m_parentViewer->getCurrentDocExt())
+    {
+    case Viewer::EXT_PDF:
+    {
+		double baseLine = m_parentViewer->docView()->minScaleFactor();
+	    double step = m_parentViewer->docView()->scaleStep();
+	    double factor   = baseLine + getFontSizeId() * step;
 
-    qDebug()  << Q_FUNC_INFO << "RETURNS" << factor;
+	    qDebug()  << Q_FUNC_INFO << "RETURNS" << factor;
 
-    return factor;
+	    return factor;
+    }
+    default: //EPUB and CREngine
+    {
+        double factor = m_parentViewer->docView()->getFontSizeListAt(getFontSizeId());
+
+        qDebug()  << Q_FUNC_INFO << "RETURNS" << factor;
+
+        return factor;
+    }
+
+	}
 }
 
 int ViewerAppearancePopup::getFontTypeIdByFile(const QString& fontFileName) const
@@ -841,7 +857,7 @@ void ViewerAppearancePopup::pdfZoomLevelChange(int newZoomLevel)
 
 void ViewerAppearancePopup::setSizeButtonsAspect(const uint newFontSize)
 {
-    if (m_currentFontSizeId == newFontSize) return;
+    if (m_currentFontSizeId == (int)newFontSize) return;
 
     Screen::getInstance()->queueUpdates();
 

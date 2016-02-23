@@ -42,6 +42,7 @@ private:
     void                                            copyNewImages                   ( );
     void                                            setActivated                    ();
     void                                            migrationFromBqToNubico         ( );
+    void                                            migrationFromLiberdracToLibelista();
     void                                            removeExpiredDictionaries       ( );
 };
 

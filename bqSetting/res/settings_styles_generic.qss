@@ -494,7 +494,7 @@ background-color:#DADADA;
 }
 #SettingsLanguageMenu #espanolBtn{
 }
-#SettingsLanguageMenu #portuguesBtn{
+#SettingsLanguageMenu #italianBtn{
 border:none;
 }
 #SettingsLanguageMenu QPushButton{

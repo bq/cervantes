@@ -215,7 +215,7 @@ void bqPublicServicesClientRequester::proxyAuthenticationRequired( const QNetwor
 QNetworkReply* bqPublicServicesClientRequester::getWikipediaHeaders(QString lang, QString wordToSearch)
 {
     qDebug() << Q_FUNC_INFO;
-    QString host = "http://" + lang + ".wikipedia.org/w/api.php?";
+    QString host = "https://" + lang + ".wikipedia.org/w/api.php?";
 
     QString action = "action=mobileview&";
     QString images = "noimages&";
@@ -239,7 +239,7 @@ QNetworkReply* bqPublicServicesClientRequester::getWikipediaInfo(QString lang, Q
 {
     qDebug() << Q_FUNC_INFO;
 
-    QString host = "http://" + lang + ".wikipedia.org/w/api.php?";
+    QString host = "https://" + lang + ".wikipedia.org/w/api.php?";
 
     QString action = "action=mobileview&";
     QString images = "noimages&";
@@ -263,7 +263,7 @@ QNetworkReply* bqPublicServicesClientRequester::getWikipediaSearch(QString lang,
 {
     qDebug() << Q_FUNC_INFO;
 
-    QString host = "http://" + lang + ".wikipedia.org/w/api.php?";
+    QString host = "https://" + lang + ".wikipedia.org/w/api.php?";
 
     QString action = "action=opensearch&";
     QString format = "format=xml&";

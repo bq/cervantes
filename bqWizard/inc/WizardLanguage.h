@@ -23,6 +23,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "ui_WizardLanguage.h"
 #include "FullScreenWidget.h"
+#include "QButtonGroup"
 
 class QWidget;
 
@@ -39,7 +40,10 @@ public:
         PORTUGUES,
         CATALAN,
         BASQUE,
-        GALICIAN
+        GALICIAN,
+        GERMAN,
+        FRENCH,
+        ITALIAN
     };
 
     int settingsLanguage;
@@ -51,14 +55,9 @@ signals:
 
 private slots:
 
-    void                                    eng_BtnClicked                              ();
-    void                                    spa_BtnClicked                              ();
-    void                                    por_BtnClicked                              ();
-    void                                    cat_BtnClicked                              ();
-    void                                    bas_BtnClicked                              ();
-    void                                    gal_BtnClicked                              ();
+    void                                    btnClicked                                  (int);
     void                                    languageAccepted                            ();
-    int                                     getLangugeFromSettings                      ();
+    int                                     getLanguageFromSettings                     ();
     void                                    quitApp                                     ();
     void                                    handleDeviceInfo                            ();
 
@@ -66,6 +65,7 @@ protected:
 
     /* http://qt-project.org/forums/viewthread/7340 */
     void                                    paintEvent                                  (QPaintEvent *);
+    QButtonGroup                            m_languageButtons;
 };
 
 #endif // WizardLanguage_H

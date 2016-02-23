@@ -162,7 +162,7 @@ void LibraryEditCollection::paint()
             QHash<QString, double> bookCollections = book->getCollectionsList();
             bool inCollection = false;
             if(bookCollections.find(m_collection) != bookCollections.end())
-                    inCollection = true;
+                inCollection = true;
             if(inCollection)
                 item->setChecked(true);
             else

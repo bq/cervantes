@@ -45,7 +45,7 @@ public:
     virtual LibraryPageHandler*         getPageHandler                      () = 0;
     virtual int                         getItemsPerPage                     () = 0;
 
-    virtual void                        start                               ();
+    virtual void                        start                               ( int startPage = 0 );
     virtual void                        paint                               ();
     virtual void                        pause                               ();
     virtual void                        stop                                ();
@@ -74,7 +74,7 @@ protected:
     Library*                            m_library;
     LibraryActionsMenu*                 m_actionsMenu;
 
-    void                                setupPager                          ( int librarySize );
+    void                                setupPager                          ( int librarySize, int startPage = 0 );
     virtual int                         getItemsPerPageOffset               () { return 0; }
     virtual void                        getBookItems                        ( LibraryGridViewerItem* books[] ) = 0;
 

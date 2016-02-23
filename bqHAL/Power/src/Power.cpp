@@ -142,6 +142,14 @@ void Power::checkAndResetLight(){
 }
 #endif
 
+bool Power::getWakeOnHome() {
+	return b_wakeOnHome;
+}
+
+void Power::setWakeOnHome(bool on) {
+	b_wakeOnHome = on;
+}
+
 bool Power::wakeupActive(QString *sources, int numSources) {
 	QString wakeup_data;
 	QFile *wakeDataFile;

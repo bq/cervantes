@@ -748,12 +748,12 @@ Deseja continuar?</translation>
         <translation>Livro alterado com sucesso.</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="623"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="625"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
     <message>
-        <location filename="../src/ViewerBookSummary.cpp" line="635"/>
+        <location filename="../src/ViewerBookSummary.cpp" line="637"/>
         <source>En %1 colecciones</source>
         <translation>Em %1 coleções</translation>
     </message>
@@ -875,32 +875,32 @@ Deseja continuar?</translation>
         <translation type="obsolete">Sem informação</translation>
     </message>
     <message>
-        <location filename="../src/ViewerDictionary.cpp" line="139"/>
+        <location filename="../src/ViewerDictionary.cpp" line="148"/>
         <source>Pulsa sobre la palabra que deseas buscar en el diccionario:</source>
         <translation>Prima a palavra que pretende buscar no dicionário:</translation>
     </message>
     <message>
-        <location filename="../src/ViewerDictionary.cpp" line="188"/>
+        <location filename="../src/ViewerDictionary.cpp" line="197"/>
         <source>El enlace pulsado no pertenece a la wikipediaÂ¿Quieres abrirlo en el navegador?</source>
         <translation>A ligação premida não pertence à Wikipédia. Quer abri-la no navegador?</translation>
     </message>
     <message>
-        <location filename="../src/ViewerDictionary.cpp" line="481"/>
+        <location filename="../src/ViewerDictionary.cpp" line="507"/>
         <source>Conectando...</source>
         <translation>Conexão em curso...</translation>
     </message>
     <message>
-        <location filename="../src/ViewerDictionary.cpp" line="698"/>
+        <location filename="../src/ViewerDictionary.cpp" line="782"/>
         <source>Obteniendo informacion...</source>
         <translation>A obter informação...</translation>
     </message>
     <message>
-        <location filename="../src/ViewerDictionary.cpp" line="752"/>
+        <location filename="../src/ViewerDictionary.cpp" line="837"/>
         <source>Automatico</source>
         <translation>Automático</translation>
     </message>
     <message>
-        <location filename="../src/ViewerDictionary.cpp" line="754"/>
+        <location filename="../src/ViewerDictionary.cpp" line="839"/>
         <source>Change Dictionary</source>
         <translation>Mudar dicionário</translation>
     </message>

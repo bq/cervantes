@@ -131,7 +131,11 @@ TRANSLATIONS =  ./tr/bqSetting_es.ts \
                 ./tr/bqSetting_en.ts \
                 ./tr/bqSetting_pt.ts \
                 ./tr/bqSetting_gl.ts \
-                ./tr/bqSetting_eu.ts
+                ./tr/bqSetting_eu.ts \
+                ./tr/bqSetting_fr.ts \
+                ./tr/bqSetting_de.ts \
+                ./tr/bqSetting_it.ts
+
 
 DEPENDPATH+= ../bq/inc
 

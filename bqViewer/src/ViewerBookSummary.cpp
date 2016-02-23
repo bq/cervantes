@@ -48,7 +48,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define BOOKSUMMARY_AUTHOR_MAX_LENGTH 30
 #define ICON_VIEWER_STRING_MAX_LENGTH 10
 #define PERCENT_STEP_VALUE 0.75
-#define COLLECTION_MAX_LENGTH 12
+#define COLLECTION_MAX_LENGTH 23
 
 #define USERGUIDEPATH "/app/share/userGuides/"
 
@@ -228,7 +228,7 @@ void ViewerBookSummary::setBook(const BookInfo* book)
             {
                 bookPriceLbl->setText(storePrice);
                 buyBookBtn->show();
-                priceCont->show();
+                bookPriceLbl->show();
                 removeBtn->show();
                 archiveBtn->hide();
             }
@@ -345,6 +345,7 @@ void ViewerBookSummary::storeBook()
     archiveText += tr("from") + " ";
 
     QString shop = QBook::settings().value("shopName", "Tienda").toString();
+    shop.replace("liberdrac","libelista");
     archiveText += shop + " eBooks. \n"; archiveText += tr("This action will remove the book from device. ");
     archiveText += tr("The book will be always available for download.");
 
@@ -377,6 +378,7 @@ void ViewerBookSummary::deleteBook()
     if(m_book->path.contains(Storage::getInstance()->getPrivatePartition()->getMountPoint()))
     {
         QString shop = QBook::settings().value("shopName", "Tienda").toString();
+        shop.replace("liberdrac","libelista");
         deleteText += shop + " eBooks. \n";
     }
     else if(m_book->path.contains(Storage::getInstance()->getPublicPartition()->getMountPoint()))
@@ -610,14 +612,14 @@ void ViewerBookSummary::setCollectionLayerBtnText(QHash<QString, double> collect
         QString collectionName = it.key();
         if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
         {
-            if(collectionName.size() >= 10)
+            if(collectionName.size() >= 22)
                 addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
             else
                 addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
         }
         else
         {
-            if(collectionName.size() >= 10)
+            if(collectionName.size() >= 22)
                 addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
             else
                 addToCollectionBtn->setStyleSheet(FONT_SIZE_SD);
@@ -629,7 +631,7 @@ void ViewerBookSummary::setCollectionLayerBtnText(QHash<QString, double> collect
     {
         if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
         {
-            if(collectionList.size() >= 10)
+            if(collectionList.size() >= 22)
                 addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
             else
                 addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);

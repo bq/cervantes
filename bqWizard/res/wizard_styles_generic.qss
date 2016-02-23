@@ -44,7 +44,7 @@ font-weight:normal;
 border-bottom-style: solid;
 border-bottom-color: #C7C7C7;
 }
-#LanguageMenuListCont QPushButton#porBtn{
+#LanguageMenuListCont QPushButton#itaBtn{
 border-bottom:none;
 }
 #LanguageMenuListCont QPushButton:hover, #LanguageMenuListCont QPushButton:checked{

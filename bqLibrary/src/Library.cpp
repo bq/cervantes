@@ -91,6 +91,7 @@ Library::Library( QWidget* parent ) :
   , b_unarchivingBook(false)
   , b_hasSearch(false)
   , b_isFromViewer(false)
+  , m_collectionsIdx(0)
 {
     setupUi(this);
 
@@ -829,6 +830,7 @@ void Library::removeBook( const BookInfo* book )
 
     if(book->path.contains(Storage::getInstance()->getPrivatePartition()->getMountPoint())){
         QString shop = QBook::settings().value("shopName", "Tienda").toString();
+        shop.replace("liberdrac","libelista");
         deleteText += shop + " eBooks. \n";
     }else if(book->path.contains(Storage::getInstance()->getPublicPartition()->getMountPoint()))
         deleteText += tr("internal memory. \n");
@@ -889,6 +891,7 @@ void Library::archiveBook( const BookInfo* bookInfo )
 
     if(bookInfo->path.contains(Storage::getInstance()->getPrivatePartition()->getMountPoint())){
         QString shop = QBook::settings().value("shopName", "Tienda").toString();
+        shop.replace("liberdrac","libelista");
         archiveText += shop + " eBooks. \n";
     }else if(bookInfo->path.contains(Storage::getInstance()->getPublicPartition()->getMountPoint()))
         archiveText += tr("internal memory. \n");
@@ -1197,7 +1200,8 @@ void Library::myCollectionsSelected()
 {
     qDebug() << Q_FUNC_INFO;
 
-    if( m_sourceMode != ELSM_COLLECTION || m_filterMode != ELFM_COLLECTIONS)
+    bool bMaintainCollectionPage = (m_sourceMode == ELSM_COLLECTION);
+    if( m_sourceMode != ELSM_COLLECTION || m_filterMode != ELFM_COLLECTIONS )
     {
         m_sourceMode = ELSM_COLLECTION;
         m_filterMode = ELFM_COLLECTIONS;
@@ -1218,7 +1222,7 @@ void Library::myCollectionsSelected()
         m_totalPages = 0;
 
         // Show the new current view (maybe it will start running tasks like generating thumbnails)
-        m_currentView->start();
+        m_currentView->start(bMaintainCollectionPage ? m_collectionsIdx : m_page);
         Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
         Screen::getInstance()->setUpdateScheme(Screen::SCHEME_MERGE, true);
         Screen::getInstance()->flushUpdates();
@@ -1724,10 +1728,11 @@ void Library::sortBooksByIndexClicked()
     powerLock->activate();
 
     QBookApp::instance()->getStatusBar()->setSpinner(true);
+
     Screen::getInstance()->queueUpdates();
 
     clearKeyboard();
-   
+
     m_sortBooksByLayer->hide();
 
     sortByBtn->setText(m_sortBooksByLayer->getIndexSortName());
@@ -1752,12 +1757,10 @@ void Library::sortBooksByTitleClicked()
     powerLock->activate();
 
     QBookApp::instance()->getStatusBar()->setSpinner(true);
-
     Screen::getInstance()->queueUpdates();
 
-
     clearKeyboard();
-
+   
     m_sortBooksByLayer->hide();
 
     sortByBtn->setText(m_sortBooksByLayer->getTitleSortName());
@@ -1789,6 +1792,7 @@ void Library::sortBooksByDateClicked()
     QBookApp::instance()->getStatusBar()->setSpinner(true);
 
     Screen::getInstance()->queueUpdates();
+
 
     clearKeyboard();
 
@@ -4027,6 +4031,8 @@ void Library::selectCollection(const QString& collection)
         QBookApp::instance()->getStatusBar()->setSpinner(true);
 
         Screen::getInstance()->queueUpdates();
+
+        m_collectionsIdx = m_page;
 
         handleBooksSortModeUI();
 

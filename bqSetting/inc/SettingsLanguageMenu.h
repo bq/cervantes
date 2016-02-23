@@ -40,6 +40,9 @@ public:
         LANG_CA,
         LANG_EU,
         LANG_GL,
+        LANG_FR,
+        LANG_DE,
+        LANG_IT,
         LANG_NUMBER
     };
 
