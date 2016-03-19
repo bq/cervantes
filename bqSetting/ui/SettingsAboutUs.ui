@@ -139,7 +139,7 @@
       <item>
        <widget class="QLabel" name="firmwareIntroLbl">
         <property name="text">
-         <string>Esta versión de firmware ha sido desarrollada integramente en España por Mundo Reader S.L. con un quipo de jóvenes profesionales, ingenieros informáticos de telecomunicación, diseñadores gráficos ... y publicada bajo licencia GPL  (https://bitbucket.org/mundoreader/cervantes).</string>
+         <string>Esta versión de firmware ha sido desarrollada integramente en España por Mundo Reader S.L. con un quipo de jóvenes profesionales, ingenieros informáticos de telecomunicación, diseñadores gráficos ... y publicada bajo licencia GPL  (https://github.com/bq/cervantes).</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>

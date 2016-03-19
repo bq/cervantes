@@ -96,8 +96,8 @@
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="142"/>
-        <source>Esta versión de firmware ha sido desarrollada integramente en España por Mundo Reader S.L. con un quipo de jóvenes profesionales, ingenieros informáticos de telecomunicación, diseñadores gráficos ... y publicada bajo licencia GPL  (https://bitbucket.org/mundoreader/cervantes).</source>
-        <translation type="unfinished">Questa versione del firmware è stata sviluppata interamente in Spagna da Mundo Reader S.L. con un team di giovani professionisti, ingegneri informatici e delle telecomunicazioni, disegnatori grafici, etc. e pubblicata con licenza GPL (https://bitbucket.org/mundoreader/cervantes).</translation>
+        <source>Esta versión de firmware ha sido desarrollada integramente en España por Mundo Reader S.L. con un quipo de jóvenes profesionales, ingenieros informáticos de telecomunicación, diseñadores gráficos ... y publicada bajo licencia GPL  (https://github.com/bq/cervantes).</source>
+        <translation type="unfinished">Questa versione del firmware è stata sviluppata interamente in Spagna da Mundo Reader S.L. con un team di giovani professionisti, ingegneri informatici e delle telecomunicazioni, disegnatori grafici, etc. e pubblicata con licenza GPL (https://github.com/bq/cervantes).</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="155"/>
