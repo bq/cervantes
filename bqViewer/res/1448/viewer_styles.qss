@@ -1,0 +1,2192 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*Viewer
+-------------------*/
+#Viewer{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#ViewerCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#bookMarkCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 113px;
+max-height: 113px;
+}
+#bookMarkCont #bookmark, #bookmarkImg, #leftSpacerViewer{
+min-width: 113px;
+max-width: 113px;
+min-height: 113px;
+max-height: 113px;
+}
+#textBody{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#noteLbl{
+min-width: 33px;
+max-width: 33px;
+min-height: 33px;
+max-height: 33px;
+}
+#highlightedLbl{
+min-width: 57px;
+max-width: 57px;
+min-height: 44px;
+max-height: 44px;
+}
+#pageWindow{
+min-height: 99px;
+max-height: 99px;
+}
+#buySampleCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 91px;
+max-height: 91px;
+}
+#buySampleBtn{
+min-width: 246px;
+max-width: 246px;
+min-height: 91px;
+max-height: 91px;
+line-height: 91px;
+font-size: 31px;
+}
+#titleLbl{
+font-size: 30px;
+}
+#dateTimeLbl{
+font-size: 30px;
+}
+#buySampleCont #dateTimeLbl{
+padding-right: 35px;
+}
+#buySampleCont #titleLbl{
+padding-left: 35px;
+}
+#viewerHeader{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 91px;
+max-height: 91px;
+}
+#viewerHeader #dateTimeLbl{
+padding: 0px 64px 0px 0px;
+}
+#viewerHeader #titleLbl{
+padding: 0px 0px 0px 54px;
+}
+/*Landscape*/
+#ViewerContLandscape{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#pageWindowLandscape{
+min-height: 99px;
+max-height: 99px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#bookMarkContLandscape{
+min-width: 109px;
+max-width: 109px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#buySampleLandscapeBtn{
+min-width: 91px;
+max-width: 91px;
+min-height: 246px;
+max-height: 246px;
+line-height: 91px;
+font-size: 31px;
+}
+#bookMarkContLandscape #bookmarkLandscape, #bookmarkImg,#leftSpacerViewerLandscape{
+min-width: 109px;
+max-width: 109px;
+min-height: 113px;
+max-height: 113px;
+}
+#dateTimeLandscapeLbl{
+font-size: 30px;
+min-height: 85px;
+max-height: 85px;
+}
+#viewerHeaderLandscape{
+min-width: 109px;
+max-width: 109px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#viewerHeaderLandscape #dateTimeLandscapeLbl{
+padding: 64px 0px 0px 0px;
+border: 4px solid #333;
+min-height: 91px;
+max-height: 91px;
+}
+#miniatureCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#miniatureCont #miniature, #miniatureCont MiniatureView{
+min-width: 226px;
+max-width: 226px;
+min-height: 362px;
+max-height: 362px;
+border-width: 3px;
+}
+#miniatureLeftSpacer{
+min-width: 141px;
+max-width: 141px;
+}
+#miniatureTopSpacer{
+min-height: 141px;
+max-height: 141px;
+}
+#miniatureLandscapeCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#miniatureLandscapeCont #miniatureLandscape, #miniatureLandscapeCont MiniatureViewLandscape{
+min-width: 362px;
+max-width: 362px;
+min-height: 226px;
+max-height: 226px;
+border-width: 3px;
+}
+#miniatureLandscapeLeftSpacer{
+min-width: 141px;
+max-width: 141px;
+}
+#miniatureLandscapeBottomSpacer{
+min-height: 141px;
+max-height: 141px;
+}
+/*ViewerFloatingNote
+-------------------------------*/
+#ViewerFloatingNote{
+}
+#noteImg{
+min-width: 49px;
+max-width: 49px;
+min-height: 33px;
+max-height: 33px;
+}
+/*ViewerPageHandler
+-------------------------------*/
+#ViewerPageHandler,ViewerPageHandler, #pageWindow{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 99px;
+max-height: 99px;
+}
+#ViewerPageHandler #pageText, ViewerPageHandler #pageText, #pageWindow #pageText{
+margin: 0px 226px 0px 148px;
+min-width: 339px;
+max-width: 339px;
+font-size: 30px;
+}
+#pageSpacerLbl{
+min-width: 580px;
+}
+#readingPercentLbl{
+margin: 0px 0px 0px 0px;
+font-size: 30px;
+}
+#pageBackCont{
+margin: 0px 54px 0px 0px;
+min-width: 91px;
+max-width: 91px;
+}
+#pageBackBtn{
+min-width: 91px;
+max-width: 91px;
+min-height: 99px;
+max-height: 99px;
+}
+#pagerViewerSpacerLeft{
+min-width: 10px;
+max-width: 10px;
+}
+#pagerViewerSpacerRight{
+min-width: 21px;
+max-width: 21px;
+}
+#ViewerPageHandler #pagerInfoCont,ViewerPageHandler #pagerInfoCont, #pageWindow #pagerInfoCont{
+}
+#readingProgress{
+margin-top: 0px;
+min-height: 7px;
+max-height: 7px;
+border-radius: 6px;
+}
+#toFinishChapLbl{
+}
+#toFinishChapLbl, #readedLbl, #pagToFinishLbl{
+font-size: 30px;
+}
+#ViewerPageHandler #verticalWidget #horizontalWidget #readedLbl{
+min-width: 170px;
+max-width: 170px;
+}
+#spacerNoPercentLbl{
+min-width: 85px;
+max-width: 85px;
+}
+#spacerNoPercentNoBakcLbl{
+min-width: 106px;
+max-width: 106px;
+}
+/*ViewerMenu
+------------------------*/
+#ViewerMenu{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#viewerMenuCont {
+padding: 0px 21px;
+min-height: 206px;
+max-height: 206px;
+border-top-width: 3px;
+}
+#viewerMenuCont QPushButton{
+padding: 0px 0px 28px 0px;
+font-size: 34px;
+}
+#viewerMenuCont #contentsBtn{
+}
+#viewerMenuCont #summaryBtn{
+}
+#viewerMenuCont #gotoPageBtn{
+}
+#viewerMenuCont #appaeranceBtn{
+}
+#viewerMenuCont #searchBtn{
+}
+#expandingViewerPopup{
+/*min-height: 99px;
+max-height: 99px;*/
+}
+#ViewerMenu #SpacerTopMenuLbl{
+min-height: 89px;
+max-height: 89px;
+}
+#ViewerMenu #chapterCont{
+min-height: 91px;
+max-height: 91px;
+border-top-width: 3px;
+}
+#ViewerMenu #chapterCont QLabel{
+margin-left: 28px;
+}
+#ViewerMenu #chapterCont #chapterNameLbl{
+font-size: 35px;
+font-weight:bold;
+}
+#ViewerMenu #chapterCont #chapterPageLbl{
+font-size: 34px;
+}
+#ViewerMenu #chapterCont #chapterTitleLbl{
+font-size: 35px;
+font-weight:bold;
+}
+#ViewerMenu #chapterCont #chapterAuthorLbl{
+font-size: 34px;
+}
+#viewerConfBtn{
+min-width: 91px;
+max-width: 91px;
+border-left-width: 3px;
+}
+/* Viewer Popups
+------------------*/
+#headerPopup{
+margin: 7px 0px 18px 0px;
+padding: 0px 0px 18px 0px;
+border-width: 3px;
+min-height: 89px;
+max-height: 89px;
+}
+#headerPopup #closeBtn{
+min-height: 105px;
+max-height: 105px;
+min-width: 105px;
+max-width: 105px;
+}
+#headerPopup #label{
+margin: 7px 0px 0px 0px;
+}
+#popupCont{
+padding: 0px 28px 0px 28px;
+border-width: 18px;
+border-radius: 18px;
+}
+#arrowCont, #arrowCont2{
+min-height: 34px;
+max-height: 34px;
+}
+#topArrowLbl, #bottomArrowLbl{
+min-width: 57px;
+max-width: 57px;
+min-height: 38px;
+max-height: 38px;
+}
+/*ViewerVerticalPagerPopup
+-----------------------------*/
+#ViewerVerticalPagerPopup, ViewerVerticalPagerPopup, #VerticalPagerPopup{
+min-width: 977px;
+max-width: 977px;
+min-height: 109px;
+max-height: 109px;
+}
+#ViewerBookSummaryCont ViewerVerticalPagerPopup, #ViewerBookSummaryCont #VerticalPagerPopup{
+min-width: 942px;
+max-width: 942px;
+min-height: 109px;
+max-height: 109px;
+}
+#ViewerVerticalPagerPopup #currentPageLbl,#ViewerVerticalPagerPopup #totalPagesLbl,#ViewerVerticalPagerPopup #ofTextLbl,#ViewerVerticalPagerPopup #pagTextLbl{
+padding: 0px 3px 0px 0px;
+font-size: 31px;
+}
+ViewerVerticalPagerPopup #currentPageLbl,ViewerVerticalPagerPopup #totalPagesLbl,ViewerVerticalPagerPopup #ofTextLbl,ViewerVerticalPagerPopup #pagTextLbl{
+padding: 0px 3px 0px 0px;
+font-size: 31px;
+}
+#ViewerVerticalPagerPopup QPushButton, ViewerVerticalPagerPopup QPushButton{
+min-width: 177px;
+max-width: 177px;
+min-height: 85px;
+max-height: 85px;
+}
+#ViewerVerticalPagerPopup #downPageBtn{
+min-width: 106px;
+max-width: 106px;
+min-height: 85px;
+max-height: 85px;
+margin: 0px 0px 0px 54px;
+}
+#ViewerVerticalPagerPopup #upPageBtn{
+min-width: 106px;
+max-width: 106px;
+min-height: 85px;
+max-height: 85px;
+margin: 0px 54px 0px 0px;
+}
+/*ViewerTextActionsPopup
+-----------------*/
+#ViewerTextActionsPopup{
+min-width: 851px;
+max-width: 851px;
+min-height: 703px;
+max-height: 703px;
+}
+#ViewerTextActionsPopup #popupCont{
+}
+#ViewerTextActionsPopup #headerPopup{
+padding: 0px 0px 0px 0px;
+margin-bottom: 0px;
+min-height: 82px;
+max-height: 82px;
+}
+#ViewerTextActionsPopup #headerPopup #closeBtn{
+min-width: 82px;
+max-width: 82px;
+min-height: 72px;
+max-height: 72px;
+}
+#ViewerTextActionsPopup #definitionTextBrowser {
+margin: 0px 0px 17px 0px;
+border-width: 1px;
+border-radius: 14px;
+}
+#actionsCont QPushButton{
+margin: 17px 0px;
+min-height: 72px;
+max-height: 72px;
+border-width: 1px;
+border-radius: 8px;
+}
+#seeCompleteDefinition{
+margin-bottom: 17px;
+min-height: 72px;
+max-height: 72px;
+border-width: 1px;
+border-radius: 8px;
+}
+#definitionOptionsCont #wikipediaBtn, #ViewerTextActionsPopup #wikipediaPopupBtn{
+margin-bottom: 17px;
+min-height: 72px;
+max-height: 72px;
+border-width: 1px;
+border-radius: 8px;
+}
+/*ViewerTextActionsPopup
+-----------------*/
+#ViewerNoteActionsPopup{
+min-width: 983px;
+max-width: 983px;
+min-height: 687px;
+max-height: 687px;
+}
+#ViewerNoteActionsPopup #headerPopup{
+}
+#ViewerTextActionsPopup #popupCont{
+}
+#ViewerNoteActionsPopup #actionsCont{
+margin-top: 28px;
+min-height: 82px;
+max-height: 82px;
+border-width: 3px;
+border-radius: 8px;
+}
+#ViewerNoteActionsPopup #popupCont #actionsCont QPushButton{
+margin-top: 28px;
+min-height: 82px;
+max-height: 82px;
+border-width: 3px;
+border-radius: 0px;
+font-size: 34px;
+}
+#ViewerNoteActionsPopup #popupCont #actionsCont QPushButton#definitionBtn{
+margin-left: 3px;
+border-top-left-radius: 8px;
+border-bottom-left-radius: 8px;
+}
+#ViewerNoteActionsPopup #popupCont #actionsCont QPushButton#deleteNoteBtn{
+margin-right: 3px;
+border-top-right-radius: 8px;
+border-bottom-right-radius: 8px;
+}
+#ViewerNoteActionsPopup #headerPopup{
+padding: 0px 0px 0px 0px;
+margin-bottom: 0px;
+min-height: 82px;
+max-height: 82px;
+}
+#ViewerNoteActionsPopup #headerPopup #closeBtn{
+min-width: 82px;
+max-width: 82px;
+min-height: 72px;
+max-height: 72px;
+}
+#ViewerNoteActionsPopup #noteTextBrowser {
+margin: 21px 0px;
+border-width: 3px;
+border-radius: 14px;
+font-size: 35px;
+}
+/*ViewerEditNotePopup
+----------------*/
+#ViewerEditNotePopup {
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1072px;
+max-height: 1072px;
+}
+#ViewerEditNotePopup #popupCont{
+margin: 0px 21px;
+min-height: 672px;
+max-height: 672px;
+}
+#noteTextBrowser{
+margin: 8px 0px;
+border-width: 1px;
+border-radius: 14px;
+}
+#noteTextEdit{
+border-width: 1px;
+border-radius: 8px;
+}
+#ViewerEditNotePopup #actionsCont{
+min-height: 64px;
+max-height: 64px;
+}
+#ViewerEditNotePopup #editNoteBtn{
+margin: 0px 21px;
+padding: 0px 35px;
+min-height: 64px;
+max-height: 64px;
+border-width: 3px;
+border-radius: 11px;
+}
+/*ViewerDictionaryDefinitionPopup
+--------------------------------*/
+#ViewerDictionaryDefinitionPopup{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#ViewerDictionaryDefinitionPopupCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1407px;
+max-height: 1407px;
+}
+#changeDictionaryBtn{
+min-width: 523px;
+max-width: 523px;
+padding: 0px 35px 0px 28px;
+margin-bottom: 28px;
+min-height: 82px;
+max-height: 82px;
+border-radius: 7px;
+border-width: 3px;
+}
+#ViewerDictionaryDefinitionPopup #popupCont{
+margin: 0px 35px;
+padding: 0px 0px 0px 0px;
+}
+#dictionaryDefinitionTextBrowser{
+margin: 0px 21px;
+padding: 0px;
+}
+#ViewerDictionaryDefinitionPopupCont #arrowTabsCont #notesTabArrowLbl{
+min-width: 651px;
+max-width: 651px;
+}
+#ViewerDictionaryDefinitionPopup #ViewerVerticalPagerPopup, #ViewerDictionaryDefinitionPopup ViewerVerticalPagerPopup{
+min-width: 697px;
+max-width: 697px;
+min-height: 91px;
+max-height: 91px;
+}
+#VerticalPagerWikiCont{
+min-height: 91px;
+max-height: 91px;
+}
+#backSearchBtn{
+margin: 0px 54px 28px 0px;
+min-width: 113px;
+max-width: 113px;
+min-height: 82px;
+max-height: 82px;
+}
+#backSearchSpaceLbl{
+margin: 0px 54px 28px 0px;
+min-width: 113px;
+max-width: 113px;
+}
+#ViewerDictionaryDefinitionPopup #dictionaryBtn{
+min-height: 0px;
+max-height: 219px;
+font-size: 35px;
+border-right-width: 3px;
+}
+#ViewerDictionaryDefinitionPopup #wikipediaBtn{
+min-height: 0px;
+max-height: 219px;
+font-size: 35px;
+border-right-width: 3px;
+}
+#ViewerDictionaryDefinitionPopup #headerPopup{
+margin: 0px 0px 0px 0px;
+padding: 0px 0px 0px 0px;
+}
+#ViewerDictionaryDefinitionPopup #arrowTabsCont #contentsTabArrowLbl{
+min-width: 354px;
+max-width: 354px;
+}
+#ViewerDictionaryDefinitionPopup #arrowTabsCont {
+margin:0;
+}
+#wikipediaWebBtn{
+min-height: 91px;
+max-height: 91px;
+min-width: 82px;
+max-width: 82px;
+}
+#wikipediaWebSpacerLbl{
+min-width: 82px;
+max-width: 82px;
+}
+
+/*ViewerWikipediaDefinitionPopup
+--------------------------------*/
+#ViewerWikipediaDefinitionPopup{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#ViewerWikipediaDefinitionPopupCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1301px;
+max-height: 1301px;
+}
+#ViewerWikipediaDefinitionPopup #popupCont{
+margin: 0px 35px;
+padding-bottom: 0px;
+}
+#searchTermLbl{
+margin: 14px 0px;
+font-size: 42px;
+}
+#wikipediaDefinitionTextBrowser{
+margin: 0px;
+padding: 0px;
+}
+#ViewerWikipediaDefinitionPopup #ViewerVerticalPagerPopup, #ViewerWikipediaDefinitionPopup ViewerVerticalPagerPopup{
+min-width: 923px;
+max-width: 923px;
+min-height: 91px;
+max-height: 91px;
+}
+#ViewerDictionaryDefinitionPopup #dictionaryBtn{
+min-height: 0px;
+max-height: 219px;
+font-size: 35px;
+border-right-width: 3px;
+}
+#ViewerWikipediaDefinitionPopup #wikipediaBtn{
+min-height: 0px;
+max-height: 219px;
+font-size: 35px;
+border-right-width: 3px;
+}
+#ViewerWikipediaDefinitionPopup #headerPopup{
+margin: 0px 0px 0px 0px;
+padding: 0px 0px 0px 0px;
+}
+#ViewerWikipediaDefinitionPopup #arrowTabsCont #contentsTabArrowLbl{
+min-width: 707px;
+max-width: 707px;
+}
+#ViewerWikipediaDefinitionPopup #arrowTabsCont {
+margin:0;
+}
+/*DictionaryLayer
+-------------------------*/
+#DictionaryLayer{
+min-width: 590px;
+max-width: 590px;
+min-height: 571px;
+max-height: 571px;
+}
+#DictionaryLayerCont {
+border-width: 4px;
+border-radius: 8px;
+}
+#DictionaryLayer QPushButton {
+padding-left: 28px;
+min-height: 91px;
+max-height: 91px;
+border-bottom-width: 3px;
+}
+#DictionaryLayer QPushButton:checked{
+border-left-width: 4px;
+border-right-width: 4px;
+}
+#DictionaryLayer QPushButton#dictBtn0:checked{
+margin-top: 4px;
+}
+#DictionaryLayer QPushButton:disabled {
+}
+
+#DictionaryLayer #VerticalPagerPopup, #DictionaryLayer ViewerVerticalPagerPopup{
+min-width: 590px;
+max-width: 590px;
+min-height: 91px;
+max-height: 91px;
+}
+/*
+#DictionaryLayer #VerticalPagerPopup #currentPageLbl,#DictionaryLayer #VerticalPagerPopup #totalPagesLbl,#DictionaryLayer #VerticalPagerPopup #ofTextLbl,#DictionaryLayer #VerticalPagerPopup #pagTextLbl{
+padding: 0px 3px 0px 0px;
+font-size: 31px;
+}
+#DictionaryLayer ViewerVerticalPagerPopup #currentPageLbl, #DictionaryLayer ViewerVerticalPagerPopup #totalPagesLbl,#DictionaryLayer ViewerVerticalPagerPopup #ofTextLbl,#DictionaryLayer ViewerVerticalPagerPopup #pagTextLbl{
+padding: 0px 3px 0px 0px;
+font-size: 31px;
+}
+#DictionaryLayer #VerticalPagerPopup QPushButton, #DictionaryLayer ViewerVerticalPagerPopup QPushButton{
+min-width: 144px;
+max-width: 144px;
+}*/
+/*ViewerSearchWordPopup ViewerSearchPopup
+--------------------------*/
+#ViewerSearchWordPopup{
+min-width: 665px;
+max-width: 665px;
+min-height: 1103px;
+max-height: 1103px;
+padding: 8px 28px 21px 28px;
+border-width: 14px;
+border-radius: 14px;
+}
+#ViewerSearchPopup{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1267px;
+max-height: 1267px;
+}
+#ViewerSearchPopup #bottomArrowLbl{
+min-width: 969px;
+max-width: 969px;
+}
+#ViewerSearchPopup #popupCont{
+min-width: 868px;
+max-width: 868px;
+min-height: 1011px;
+max-height: 1011px;
+}
+#ViewerSearchWordPopup #headerPopup{
+margin: 28px 35px 21px 35px;
+min-height: 218px;
+max-height: 218px;
+}
+#ViewerSearchPopup #headerPopup #closeBtn{
+margin:- 7px - 21px 0px 0px;
+min-width: 113px;
+max-width: 113px;
+min-height: 85px;
+max-height: 85px;
+background-position:center;
+}
+#ViewerSearchPopup #headerPopup{
+margin: 28px 35px 8px 35px;
+min-height: 208px;
+max-height: 208px;
+}
+#ViewerSearchPopup #resultsNumLbl{
+padding: 21px 0px 0px 0px ;
+font-size: 33px;
+}
+#ViewerSearchPopup #searchLineEdit{
+margin: 0px 0px 0px 64px;
+padding-left: 82px;
+min-width: 561px;
+max-width: 561px;
+min-height: 99px;
+max-height: 99px;
+}
+#clearSearchBtn{
+margin: 0px;
+min-width: 99px;
+max-width: 99px;
+min-height: 99px;
+max-height: 99px;
+border-width: 0px;
+}
+#SearchResultItem1, #SearchResultItem2, #SearchResultItem3, #SearchResultItem4, #SearchResultItem5, #SearchResultItem6{
+margin: 0px 35px;
+min-height: 132px;
+max-height: 132px;
+border-width: 3px;
+}
+#processSearchCont{
+}
+#processSearchCont #processLbl{
+font-size: 42px;
+min-height: 89px;
+max-height: 89px;
+}
+#processSearchCont #spinnerLbl{
+padding: 0px 17px 0px 0px;
+min-height: 89px;
+max-height: 89px;
+}
+
+/*ViewerSearchResultItem
+-------------------*/
+#ViewerSearchResultItem {
+min-width: 977px;
+max-width: 977px;
+min-height: 132px;
+max-height: 132px;
+}
+#ViewerSearchResultItem QLabel{
+padding: 0px 28px;
+}
+#ViewerSearchResultItem QLabel#searchResultPageLbl, #ViewerSearchPopup QLabel#searchResultPageLbl{
+padding: 0px 35px;
+}
+#ViewerSearchResultItem QLabel#searchResultTextLbl, #ViewerSearchPopup QLabel#searchResultTextLbl{
+padding: 0px 35px;
+}
+/*ViewerAppearancePopupOld
+-------------------------*/
+#ViewerAppearancePopupOld{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1267px;
+max-height: 1267px;
+}
+#ViewerAppearancePopupOld #bottomArrowLbl{
+min-width: 774px;
+max-width: 774px;
+}
+#ViewerAppearancePopupOld #popupCont{
+padding: 0px 28px 21px 28px;
+min-width: 868px;
+max-width: 868px;
+min-height: 141px;
+max-height: 933px;
+}
+#marginSpacingCont QLabel{
+margin: 0px 0px 0px 21px;
+}
+#fontsCont{
+border-width: 3px;
+border-radius: 8px;
+}
+#fontsCont QPushButton{
+min-width: 434px;
+max-width: 434px;
+min-height: 105px;
+max-height: 105px;
+font-size: 38px;
+border-width: 3px;
+}
+#fontsCont QPushButton#cuprumBtn{
+border:none;
+}
+#appearanceCont{
+margin: 28px 0px 0px 0px;
+}
+#appearanceCont #marginsLbl,#appearanceCont #modeLbl{
+margin: 21px 0px 8px 0px;
+}
+#modeCont #onlyTextModeBtn{
+margin: 0px 21px 0px 0px;
+min-width: 95px;
+max-width: 95px;
+min-height: 106px;
+max-height: 106px;
+}
+#modeCont #withImageModeBtn{
+margin: 0px 21px 0px 0px;
+min-width: 95px;
+max-width: 95px;
+min-height: 106px;
+max-height: 106px;
+}
+#appearanceCont #spacingLbl{
+margin: 0px 0px 8px 0px;
+}
+#publisherConfBtn{
+margin: 0px 1px 21px 0px;
+padding: 0px 0px 0px 28px;
+min-height: 86px;
+max-height: 86px;
+border-width: 1px;
+border-radius: 8px;
+}
+#ViewerAppearancePopupOld #justifyLbl{
+margin: 17px 0px 7px;
+}
+#ViewerAppearancePopupOld #justifyBtn{
+margin: 21px 0px 0px 0px;
+min-height: 57px;
+max-height: 57px;
+min-width: 188px;
+max-width: 188px;
+}
+#ViewerAppearancePopupOld #justifyBtn:checked{
+}
+#ViewerAppearancePopupOld #justifySpacer {
+}
+/*ViewerGotoPopup
+-------------------------*/
+#ViewerGotoPopup{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1267px;
+max-height: 1267px;
+}
+#ViewerGotoPopup #bottomArrowLbl{
+min-width: 564px;
+max-width: 564px;
+}
+#ViewerGotoPopup #popupCont{
+min-width: 798px;
+max-width: 798px;
+min-height: 833px;
+max-height: 833px;
+}
+#numericKeyboardCont QPushButton{
+min-width: 218px;
+max-width: 218px;
+min-height: 109px;
+max-height: 109px;
+font-size: 45px;
+}
+#ViewerGotoPopup #numberPageEdit{
+margin: 0px 10px;
+padding: 0px 45px;
+min-width: 543px;
+max-width: 543px;
+border-left:none;
+border-right:none;
+}
+#numericKeyboardCont QPushButton#deleteCharBtn{
+}
+#numericKeyboardCont QPushButton#goToBtn{
+}
+#bookLimitsCont QPushButton#beginningBtn{
+margin: 0px 64px 21px 0px;
+min-width: 321px;
+max-width: 321px;
+min-height: 109px;
+max-height: 109px;
+font-size: 41px;
+}
+#bookLimitsCont QPushButton#endBtn{
+margin-bottom: 21px;
+min-width: 257px;
+max-width: 257px;
+min-height: 109px;
+max-height: 109px;
+font-size: 41px;
+}
+#ViewerGotoPopup #searchLineEdit{
+margin: 21px 0px;
+min-width: 597px;
+max-width: 597px;
+}
+/*ViewerBookSummary
+---------------------------*/
+#ViewerBookSummary{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1267px;
+max-height: 1267px;
+}
+#ViewerBookSummary #bookActionsCont{
+margin: 0px 0px 0px 0px;
+min-height: 110px;
+max-height: 110px;
+border-top-width: 3px;
+border-bottom-width: 3px;
+}
+#ViewerBookSummary #bookActionsCont QPushButton{
+margin: 3px 7px;
+padding: 57px 42px 7px 28px;
+border-right-width: 1px;
+border-left-width: 1px;
+}
+#ViewerBookSummary #bookActionsCont #bookActionBtn{
+}
+#ViewerBookSummary #bookActionsCont #exportNotesBtn{
+}
+#ViewerBookSummary #bookActionsCont #buyBookBtn{
+}
+#ViewerBookSummary #bookActionsCont #copyToSDBtn{
+}
+#ViewerBookSummary #bookActionsCont #archiveBtn{
+}
+#ViewerBookSummary #bottomArrowLbl{
+min-width: 311px;
+max-width: 311px;
+}
+#ViewerBookSummary #headerPopup #closeBtn{
+min-width: 113px;
+max-width: 113px;
+margin-right:- 21px;
+background-position:center;
+}
+#ViewerBookSummaryCont{
+}
+#ViewerBookSummaryCont #popupCont{
+padding: 0px 0px 0px 0px;
+min-width: 977px;
+max-width: 977px;
+min-height: 1082px;
+max-height: 1082px;
+}
+#ViewerBookSummary #headerPopup{
+margin: 0px 0px 0px 0px;
+padding: 0px;
+min-height: 82px;
+max-height: 1267px;
+}
+#ViewerBookSummary #bookTitleLbl{
+font-size: 38px;
+}
+#ViewerBookSummary #bookSummaryDataContainer #bookPriceLbl {
+font-size: 28px;
+}
+#ViewerBookSummary #bookSummaryDataContainer #bookAuthorLbl{
+font-size: 34px;
+}
+#ViewerBookSummary #actionsContainer #moreActionsBtn{
+margin: 4px 1px 0px 0px;
+min-height: 75px;
+max-height: 75px;
+}
+#ViewerBookSummary #actionsContainer #addToCollectionBtn{
+margin: 4px 0px 0px 0px;
+min-height: 75px;
+max-height: 75px;
+}
+#ViewerBookSummary #synopsisLbl{
+margin: 7px 0px 0px 0px;
+padding-left: 28px;
+}
+#ViewerBookSummary #summaryTextBrowser{
+min-height: 330px;
+max-height: 330px;
+margin-left: 28px;
+margin-right: 28px;
+padding-left: 0px;
+padding-right: 0px;
+}
+#ViewerBookSummary #bookSummaryActions #topLeftLbl{
+min-width: 7px;
+max-width: 7px;
+min-height: 21px;
+max-height: 21px;
+}
+#ViewerBookSummary #bookSummaryActions #centerLeftLbl{
+min-width: 7px;
+max-width: 7px;
+min-height: 297px;
+max-height: 297px;
+}
+#ViewerBookSummary #bookSummaryActions #bottomLeftLbl{
+min-width: 7px;
+max-width: 7px;
+min-height: 35px;
+max-height: 35px;
+}
+#ViewerBookSummary #bookAuthorLbl{
+max-height: 45px;
+max-height: 45px;
+}
+#ViewerBookSummary #numberPagesCont{
+max-height: 99px;
+min-height: 99px;
+}
+#textTotalPagesLbl{
+font-size: 31px;
+margin-left:- 6px;
+margin-right: 10px;
+}
+#ViewerBookSummary #numberTotalPagesLbl{
+font-size: 31px;
+}
+#bookSummaryActions #coverLbl{
+min-width: 198px;
+max-width: 198px;
+min-height: 297px;
+max-height: 297px;
+}
+#ViewerBookSummaryCont #coverCont #authorLbl{
+min-width: 198px;
+max-width: 198px;
+font-size: 25px;
+min-height: 35px;
+max-height: 35px;
+padding-top: 212px;
+text-align:center;
+}
+#ViewerBookSummaryCont #coverCont #titleLbl{
+min-width: 198px;
+max-width: 198px;
+min-height: 72px;
+max-height: 72px;
+padding-top: 160px;
+font-size: 28px;
+text-align:center;
+}
+#ViewerBookSummaryCont #coverCont #centerLeftLbl{
+min-width: 35px;
+max-width: 35px;
+}
+/*ViewerCollectionLayer
+-------------------------*/
+#ViewerCollectionLayer {
+min-width:654px;
+max-width:654px;
+min-height: 707px;
+max-height: 707px;
+}
+#CollectionLayerCont #VerticalPagerPopup, #CollectionLayerCont ViewerVerticalPagerPopup{
+min-width: 325px;
+max-width: 325px;
+min-height: 91px;
+max-height: 91px;
+}
+#CollectionLayerCont #ViewerVerticalPagerPopup QPushButton, #CollectionLayerCont ViewerVerticalPagerPopup QPushButton{
+min-width: 91px;
+max-width: 91px;
+}
+/*ViewerContentsPopup
+--------------------------------*/
+#ViewerContentsPopup {
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1267px;
+max-height: 1267px;
+}
+#ViewerContentsPopup #bottomArrowLbl{
+min-width: 158px;
+max-width: 158px;
+}
+#ViewerContentsPopup #popupCont{
+min-width: 868px;
+max-width: 868px;
+min-height: 977px;
+max-height: 977px;
+}
+#ViewerContentsPopup #headerPopup{
+margin: 21px 21px 0px 21px;
+padding: 0px;
+min-height: 82px;
+max-height: 82px;
+border:none;
+}
+#ViewerContentsPopup #headerPopup #closeBtn{
+min-height: 82px;
+max-height: 82px;
+}
+#ViewerContentsPopup #contentsTabBtn{
+margin-left: 21px;
+padding-left: 117px;
+min-width: 339px;
+max-width: 339px;
+min-height: 82px;
+max-height: 82px;
+font-size: 35px;
+}
+#ViewerContentsPopup #notesTabBtn{
+margin-left: 21px;
+min-width: 229px;
+max-width: 229px;
+min-height: 82px;
+max-height: 82px;
+padding-left: 99px;
+font-size: 35px;
+border-right-width: 3px;
+}
+#arrowTabsCont{
+margin: 0px 21px;
+border-top-width: 3px;
+}
+#arrowTabsCont #contentsTabArrowLbl{
+margin-left: 21px;
+min-width: 494px;
+max-width: 494px;
+min-height: 28px;
+max-height: 28px;
+}
+#arrowTabsCont #notesTabArrowLbl{
+min-width: 686px;
+max-width: 686px;
+min-height: 35px;
+max-height: 35px;
+}
+#ViewerContentsPopup #Content{
+min-height: 795px;
+max-height: 795px;
+}
+/*ViewerContentsList
+--------------*/
+#ViewerContentsList{
+margin: 0px 35px;
+min-width: 887px;
+max-width: 887px;
+min-height: 786px;
+max-height: 786px;
+border-width: 3px;
+border-radius: 8px;
+}
+#ViewerContentsList ViewerContentsItem{
+min-width: 888px;
+max-width: 888px;
+min-height: 85px;
+max-height: 85px;
+border-width: 3px;
+}
+#ViewerContentsList ViewerContentsItem QLabel#chapterLbl{
+margin: 0px 0px 0px 72px;
+max-width: 724px;
+}
+#ViewerContentsList ViewerContentsItem QLabel#spacerContentLbl{
+min-width: 72px;
+max-width: 72px;
+}
+#ViewerContentsList #BookIndexItem1{
+margin-top: 3px;
+}
+/*ViewerContentsItem
+--------------*/
+#ViewerContentsItemCont{
+margin-left: 37px;
+min-width: 885px;
+max-width: 885px;
+min-height: 83px;
+max-height: 83px;
+border-width: 3px;
+}
+ViewerContentsItem{
+min-width: 820px;
+max-width: 820px;
+margin: 0px 35px;
+min-height: 85px;
+max-height: 85px;
+border-width: 3px;
+}
+ViewerContentsItem #contentLbl{
+padding: 0px 28px;
+}
+ViewerContentsItem #notesNumberLbl{
+margin-right: 7px;
+min-width: 45px;
+max-width: 45px;
+padding-right: 35px;
+font-size: 33px;
+}
+ViewerContentsItem #hightlightedNumberLbl{
+margin-right: 7px;
+min-width: 45px;
+max-width: 45px;
+padding-right: 49px;
+font-size: 33px;
+}
+ViewerContentsItem #bookmarksNumberLbl{
+margin-right: 21px;
+min-width: 28px;
+max-width: 28px;
+padding-right: 35px;
+font-size: 33px;
+}
+#ViewerContentsList ViewerContentsItem{
+}
+#ViewerContentsList ViewerContentsItem:checked{
+border-width: 3px;
+}
+#ViewerContentsList ViewerContentsItem#BookIndexItem1:checked{
+border-radius-top-left: 10px;
+border-radius-top-right: 10px;
+}
+#ViewerContentsList ViewerContentsItem#BookIndexItem9:checked{
+border-radius-bottom-left: 10px;
+border-radius-bottom-right: 10px;
+}
+#ViewerContentsList ViewerContentsItem:unchecked{
+}
+#ViewerContentsList ViewerContentsItem#BookIndexItem1:unchecked{
+}
+#ViewerContentsList ViewerContentsItem#BookIndexItem9:unchecked{
+}
+/*ViewerAnnotationsList
+----------------------*/
+#ViewerAnnotationsList{
+margin: 0px 35px;
+min-width: 887px;
+max-width: 887px;
+min-height: 851px;
+max-height: 851px;
+}
+#annotationActions {
+margin: 0px 33px 14px 35px;
+border-width: 3px;
+border-radius: 8px;
+min-height: 102px;
+max-height: 102px;
+}
+#annotationActions QPushButton {
+margin: 0px 0px 35px 0px;
+padding: 0px 8px;
+min-height: 102px;
+max-height: 102px;
+border-width: 3px;
+}
+#annotationActions QPushButton#allAnnotationsBtn {
+margin: 0px 0px 35px 38px;
+border-top-left-radius: 8px;
+border-bottom-left-radius: 8px;
+}
+#annotationActions QPushButton#bookmarksAnnotationsBtn {
+margin: 0px 34px 35px 0px;
+border-top-right-radius: 8px;
+border-bottom-right-radius: 8px;
+}
+#annotationsCont{
+margin: 0px 35px;
+border-width: 3px;
+border-radius: 8px;
+}
+#annotationsCont #Annotation1, #annotationsCont #Annotation2,#annotationsCont #Annotation3,#annotationsCont #Annotation4{
+min-height: 163px;
+max-height: 163px;
+}
+/*ViewerAnnotationItem
+-----------------------*/
+#ViewerAnnotationItemCont,ViewerAnnotationItem{
+min-width: 887px;
+max-width: 887px;
+margin: 0px 35px;
+min-height: 163px;
+max-height: 163px;
+border-width: 3px;
+}
+#ViewerAnnotationItemCont #typeAnnotationLbl, ViewerAnnotationItem #typeAnnotationLbl{
+margin: 21px 0px 0px 54px;
+min-width: 72px;
+max-width: 72px;
+}
+ViewerAnnotationItem #annotationPageLbl{
+margin: 14px 8px 7px 8px;
+font-size: 34px;
+}
+ViewerAnnotationItem #annotationDateLbl{
+margin: 14px 54px 7px 54px;
+font-size: 34px;
+}
+ViewerAnnotationItem #annotationTextLbl{
+margin: 0px 45px 0px 21px;
+font-size: 38px;
+}
+
+ViewerAnnotationItem #noteTextLbl{
+margin: 0px 45px 7px 21px;
+font-size: 34px;
+}
+/*ViewerTextActionsMenu
+-----------------------------*/
+#ViewerTextActionsMenu{
+min-width: 1044px;
+max-width: 1044px;
+min-height: 233px;
+max-height: 233px;
+}
+#ViewerTextActionsMenu #popupCont{
+min-height: 127px;
+max-height: 127px;
+padding: 0px;
+border-width: 21px;
+border-radius: 21px;
+}
+#ViewerTextActionsMenu #popupCont QPushButton{
+margin: 0px 0px 0px 21px;
+padding: 0px 14px;
+min-height: 91px;
+max-height: 91px;
+border-width: 1px;
+border-radius: 8px;
+font-size: 33px;
+background-size: 100% 100%;
+}
+#ViewerTextActionsMenu #popupCont QPushButton#wikipediaMenuBtn{
+margin: 0px 21px 0px 21px;
+}
+#ViewerBookListActions{
+min-width: 317px;
+max-width: 317px;
+min-height: 356px;
+max-height: 356px;
+}
+#ViewerBookListActionsCont{
+border-width: 3px;
+border-bottom-left-radius: 7px;
+border-bottom-right-radius: 7px;
+/*min-width: 345px;
+max-width: 345px;*/
+}
+#ViewerBookListActions QPushButton{
+padding: 0px 0px 0px 14px;
+min-height: 91px;
+max-height: 91px;
+border-bottom-width: 1px;
+}
+#ViewerBookListActions QPushButton#deleteBookBtn{
+}
+/*LibraryActionsMenu
+-----------------------------*/
+#LibraryActionsMenu{
+min-width: 1014px;
+max-width: 1014px;
+min-height: 233px;
+max-height: 233px;
+}
+#LibraryActionsMenu #popupCont{
+min-height: 127px;
+max-height: 127px;
+padding: 0px;
+border-width: 21px;
+border-radius: 21px;
+}
+#LibraryActionsMenu #popupCont QPushButton{
+padding: 0px 21px;
+min-height: 91px;
+max-height: 91px;
+border-width: 1px;
+font-size: 35px;
+}
+#LibraryActionsMenu #popupCont QPushButton#deleteActionBtn{
+}
+/*ViewerSearchContextMenu
+----------------------------------*/
+#ViewerSearchContextMenu{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#SearchContextMenuCont{
+min-width: 1032px;
+max-width: 1032px;
+min-height: 99px;
+max-height: 99px;
+border-width: 3px;
+border-radius: 14px;
+}
+#listBtn{
+padding: 0px 28px;
+min-height: 82px;
+max-height: 82px;
+border-width: 3px;
+border-radius: 14px;
+font-size: 33px;
+}
+#ViewerSearchContextMenu #headerSearch{
+min-height: 82px;
+max-height: 82px;
+}
+#ViewerSearchContextMenu #closeBtn{
+margin: 0px 11px 0px 11px;
+min-height: 82px;
+max-height: 82px;
+min-width: 91px;
+max-width: 91px;
+}
+#SearchContextMenuCont #resultIndexLbl{
+padding: 0px 0px 0px 8px;
+font-size: 31px;
+}
+#SearchContextMenuCont #ofLbl{
+padding: 0px 0px 0px 0px;
+font-size: 31px;
+}
+#SearchContextMenuCont #resultLbl{
+font-size: 31px;
+}
+#SearchContextMenuCont #numResultsLbl{
+padding: 0px 21px 0px 0px;
+font-size: 31px;
+}
+#SearchContextMenuCont #previousBtn{
+min-width: 98px;
+max-width: 98px;
+min-height: 82px;
+max-height: 82px;
+border-width: 3px;
+border-top-left-radius: 14px;
+border-bottom-left-radius: 14px;
+}
+#SearchContextMenuCont #nextBtn{
+min-width: 98px;
+max-width: 98px;
+min-height: 82px;
+max-height: 82px;
+border-width: 3px;
+border-top-right-radius: 14px;
+border-bottom-right-radius: 14px;
+}
+/*ViewerSearchContextMenuLandscape
+----------------------------------*/
+#ViewerSearchContextMenuLandscape{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1442px;
+max-height: 1442px;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont{
+margin-top: 7px;
+min-height: 1420px;
+max-height: 1420px;
+min-width: 99px;
+max-width: 99px;
+border-width: 3px;
+border-radius: 14px;
+}
+#ViewerSearchContextMenuLandscape #ViewerSearchCenterCont{
+min-width: 113px;
+max-width: 113px;
+}
+#ViewerSearchContextMenuLandscape #listBtn{
+margin: 17px 6px 17px;
+padding: 28px 0px;
+min-width: 82px;
+max-width: 82px;
+border-width: 3px;
+border-radius: 14px;
+font-size: 33px;
+min-height: 141px;
+max-height: 141px;
+}
+#ViewerSearchContextMenuLandscape #headerSearch{
+min-width: 82px;
+max-width: 82px;
+}
+#ViewerSearchContextMenuLandscape #closeBtn{
+margin: 0px 0px 11px 11px;
+min-width: 82px;
+max-width: 82px;
+min-height: 91px;
+max-height: 91px;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont #resultCountLbl{
+font-size: 31px;
+min-height: 448px;
+max-height: 448px;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont #previousBtn{
+margin-top: 17px;
+margin-left: 6px;
+min-height: 98px;
+max-height: 98px;
+min-width: 82px;
+max-width: 82px;
+border-width: 3px;
+border-top-left-radius: 14px;
+border-top-right-radius: 14px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+}
+#ViewerSearchContextMenuLandscape #SearchContextMenuCont #nextBtn{
+margin-left: 6px;
+min-height: 98px;
+max-height: 98px;
+min-width: 82px;
+max-width: 82px;
+border-width: 3px;
+border-bottom-left-radius: 14px;
+border-bottom-right-radius: 14px;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+}
+
+/*ViewerAppearancePopup
+-------------------------*/
+#ViewerAppearancePopup{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1267px;
+max-height: 1267px;
+}
+#ViewerAppearancePopup #bottomArrowLbl{
+min-width: 774px;
+max-width: 774px;
+}
+#ViewerAppearancePopup #popupCont{
+padding: 0px 27px 17px 27px;
+min-width: 868px;
+max-width: 868px;
+min-height: 942px;
+max-height: 942px;
+}
+#ViewerAppearancePopup #headerCont{
+border-width: 3px;
+margin: 0px 54px 14px;
+max-height: 86px;
+min-height: 86px;
+padding-bottom: 8px;
+}
+#ViewerAppearancePopup #headerCont #closeBtn{
+margin-right: 72px;
+min-height: 82px;
+max-height: 82px;
+min-width: 82px;
+max-width: 82px;
+}
+#ViewerAppearancePopup #headerCont #textAjustLbl{
+font-size: 37px;
+margin-left: 54px;
+}
+#ViewerAppearancePopup #editorialCont{
+border-radius: 8px;
+border-width: 3px;
+max-height: 93px;
+min-height: 93px;
+margin: 0px 54px 0px;
+}
+#ViewerAppearancePopup #editorialCont #editorialBtn{
+min-width: 188px;
+max-width: 188px;
+min-height: 57px;
+max-height: 57px;
+padding: 0px 72px 0px 0px;
+}
+#ViewerAppearancePopup #editorialCont #editorialLbl{
+font-size: 33px;
+padding-left: 72px;
+}
+#ViewerAppearancePopup #sizeCont{
+margin:0 91px 34px;
+}
+#SpaceLeft{
+max-width: 21px;
+min-width: 21px;
+}
+#SpaceRight{
+max-width: 18px;
+min-width: 18px;
+}
+#spaceBetLbl{
+max-height: 14px;
+min-height: 14px;
+}
+#spaceBetLbl1{
+max-height: 14px;
+min-height: 14px;
+}
+#ViewerAppearancePopup #sizeCont QPushButton{
+border-radius: 8px;
+border-width: 3px;
+margin: 0px 0px 0px 4px;
+max-height: 93px;
+min-height: 93px;
+max-width: 85px;
+min-width: 85px;
+}
+#ViewerAppearancePopup #sizeCont #size1{
+font-size: 28px;
+}
+#ViewerAppearancePopup #sizeCont #size2{
+font-size: 35px;
+}
+#ViewerAppearancePopup #sizeCont #size3{
+font-size: 42px;
+}
+#ViewerAppearancePopup #sizeCont #size4{
+font-size: 49px;
+}
+#ViewerAppearancePopup #sizeCont #size5{
+font-size: 57px;
+}
+#ViewerAppearancePopup #sizeCont #size6{
+font-size: 64px;
+}
+#ViewerAppearancePopup #sizeCont #size7{
+font-size: 71px;
+}
+#ViewerAppearancePopup #sizeCont #size8{
+font-size: 78px;
+}
+#ViewerAppearancePopup #bodyCont{
+padding: 18px 54px 0px 0px;
+}
+#ViewerAppearancePopup #fontTypeCont{
+border-radius: 8px;
+border-width: 3px;
+max-width: 362px;
+min-width: 362px;
+}
+#ViewerAppearancePopup #fontTypeCont #fontTypeLbl{
+border-bottom-width: 3px;
+font-size: 28px;
+padding-bottom: 4px;
+padding-top: 8px;
+margin: 0px 18px 8px;
+}
+#ViewerAppearancePopup #fontTypeCont QPushButton{
+font-size: 33px;
+max-height: 65px;
+min-height: 65px;
+margin: 0px 18px 8px;
+padding-left: 18px;
+padding-top: 7px;
+}
+#ViewerAppearancePopup #spacerLeftBodyCont{
+max-width: 54px;
+min-width: 54px;
+}
+#ViewerAppearancePopup #horizontalSpacerLbl{
+max-width: 18px;
+min-width: 18px;
+}
+#ViewerAppearancePopup #stylesTextCont{
+}
+#ViewerAppearancePopup #stylesTextCont #justifyCont{
+border-radius: 8px;
+border-width: 3px;
+max-width: 461px;
+min-width: 461px;
+}
+#ViewerAppearancePopup #stylesTextCont #justifyCont #justifyLbl{
+border-bottom-width: 3px;
+font-size: 28px;
+margin: 0px 18px;
+padding-bottom: 4px;
+padding-top: 4px;
+}
+#ViewerAppearancePopup #stylesTextCont #justifyCont QPushButton{
+margin: 6px 18px 7px 18px;
+max-width: 93px;
+min-width: 93px;
+max-height: 105px;
+min-height: 105px;
+}
+#ViewerAppearancePopup #stylesTextCont #marginCont{
+border-radius: 8px;
+border-width: 3px;
+max-width: 461px;
+min-width: 461px;
+}
+#ViewerAppearancePopup #stylesTextCont #marginCont #marginsLbl{
+border-bottom-width: 3px;
+font-size: 28px;
+margin: 0px 18px;
+padding-bottom: 4px;
+padding-top: 4px;
+}
+#ViewerAppearancePopup #stylesTextCont #marginCont QPushButton{
+margin: 6px 18px 7px 18px;
+max-width: 93px;
+min-width: 93px;
+max-height: 105px;
+min-height: 105px;
+}
+#ViewerAppearancePopup #stylesTextCont #spacingCont{
+border-radius: 8px;
+border-width: 3px;
+max-width: 461px;
+min-width: 461px;
+}
+#ViewerAppearancePopup #stylesTextCont #spacingCont #spacingLbl{
+border-bottom-width: 3px;
+font-size: 28px;
+margin: 0px 18px;
+padding-bottom: 4px;
+padding-top: 4px;
+}
+#ViewerAppearancePopup #stylesTextCont #spacingCont QPushButton{
+margin: 6px 18px 7px 18px;
+max-width: 93px;
+min-width: 93px;
+max-height: 105px;
+min-height: 105px;
+}
+#ViewerAppearancePopup #stylesTextCont #seeImagesCont{
+border-radius: 8px;
+border-width: 3px;
+max-width: 461px;
+min-width: 461px;
+}
+#ViewerAppearancePopup #stylesTextCont #seeImagesCont #seeImagesLbl {
+font-size: 28px;
+padding-left: 8px;
+}
+#ViewerAppearancePopup #stylesTextCont #seeImagesCont #seeImagesBtn{
+padding: 0px 18px 0px 0px;
+min-width: 188px;
+max-width: 188px;
+min-height: 57px;
+max-height: 57px;
+}
+#separator1Lbl,
+#separator2Lbl,
+#separator3Lbl{
+max-height: 16px;
+min-height: 16px;
+}
+/*ViewerAnnotationActions
+-----------------------*/
+#ViewerAnnotationActions{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 233px;
+max-height: 233px;
+}
+#ViewerAnnotationActions #horizontalWidget{}
+#ViewerAnnotationActions #popupCont{
+min-width: 0px;
+max-width: 1072px;
+min-height: 95px;
+max-height: 95px;
+padding: 0px;
+border-width: 21px;
+border-radius: 21px;
+}
+#ViewerAnnotationActions #popupCont QPushButton{
+margin: 0 1px;
+padding: 0px 31px;
+min-width: 156px;
+max-width: 156px;
+min-height: 88px;
+max-height: 88px;
+border-width: 1px;
+font-size: 35px;
+}
+#ViewerAnnotationActions #popupCont #copyActionBtn{}
+#ViewerAnnotationActions #popupCont #gotoActionBtn{
+border-width: 0px;
+}
+/* ViewerDelimiter
+------------------------*/
+#ViewerDelimiter{
+min-width: 85px;
+max-width: 85px;
+}
+#ViewerDelimiter #delimiter{
+min-width: 4px;
+max-width: 4px;
+}
+#ViewerDelimiter #teardrop{
+min-height: 85px;
+max-height: 85px;
+}
+#ViewerDelimiter #teardropTop{
+min-height: 85px;
+max-height: 85px;
+}
+/* ViewerPdfPageHandler
+-----------------------*/
+#pdfToolsWindow{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 91px;
+max-height: 91px;
+}
+#ViewerPdfPageHandlerCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 91px;
+max-height: 91px;
+border-top-width: 3px;
+}
+#ViewerPdfPageHandlerCont QPushButton{
+min-width: 127px;
+max-width: 127px;
+}
+#ViewerPdfPageHandlerCont #zoomMinusBtn{
+min-width: 0px;
+max-width: 283px;
+border-right-width: 3px;
+}
+#ViewerPdfPageHandlerCont #zoomPlusBtn{
+min-width: 0px;
+max-width: 283px;
+border-right-width: 3px;
+}
+#ViewerPdfPageHandlerCont #closeBtn{
+border-left-width: 3px;
+}
+#ViewerPdfPageHandlerCont #heightAdjustBtn{
+}
+#ViewerPdfPageHandlerCont #landscapeModeBtn{
+}
+#ViewerPdfPageHandlerCont #rotateBtn{
+}
+#ViewerPdfPageHandlerCont #widthAdjustBtn{
+}
+/* ViewerPdfPageHandlerLandscape
+-----------------------*/
+#ViewerPdfPageHandlerLandscape{
+min-width: 91px;
+max-width: 91px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#pdfToolsWindowLandscape,pdfToolsWindow{
+min-width: 91px;
+max-width: 91px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#ViewerPdfPageHandlerLandscapeCont{
+min-width: 88px;
+max-width: 88px;
+min-height: 1448px;
+max-height: 1448px;
+border-right-width: 3px;
+}
+#ViewerPdfPageHandlerLandscapeCont QPushButton{
+min-height: 127px;
+max-height: 127px;
+}
+#ViewerPdfPageHandlerLandscapeCont #zoomMinusBtn{
+min-height: 0px;
+max-height: 424px;
+border-bottom-width: 3px;
+}
+#ViewerPdfPageHandlerLandscapeCont #zoomPlusBtn{
+min-height: 0px;
+max-height: 424px;
+border-bottom-width: 3px;
+}
+#ViewerPdfPageHandlerLandscapeCont #closeBtn{
+border-top-width: 3px;
+}
+#ViewerPdfPageHandlerLandscapeCont #heightAdjustBtn{
+}
+#ViewerPdfPageHandlerLandscapeCont #landscapeModeBtn{
+}
+#ViewerPdfPageHandlerLandscapeCont #rotateBtn{
+}
+#ViewerPdfPageHandlerLandscapeCont #widthAdjustBtn{
+}
+
+/*MiniatureView
+--------------------------*/
+#miniature{
+min-width: 226px;
+max-width: 226px;
+min-height: 362px;
+max-height: 362px;
+border-width: 3px;
+}
+#MiniatureView{
+min-width: 226px;
+max-width: 226px;
+min-height: 362px;
+max-height: 362px;
+border-width: 3px;
+}
+#MiniatureView #frame, #miniature #frame, #miniatureCont #miniature #frame, #miniatureCont MiniatureView #frame{
+border-width: 3px;
+}
+#screenshotCont{
+min-width: 226px;
+max-width: 226px;
+min-height: 365px;
+max-height: 365px;
+}
+#screenshotLbl{
+/*min-width: 198px;
+max-width: 198px;
+min-height: 267px;
+max-height: 267px;*/
+border-width: 3px;
+}
+#pageCont #pageLbl, #zoomCont #zoomLbl{
+padding: 0px 4px 0px 14px;
+}
+#zoomLbl, #zoomValueLbl{
+font-size: 27px;
+}
+#pageValueLbl{
+font-size: 27px;
+}
+/*#screenshotLblCont{
+min-width: 226px;
+max-width: 226px;
+min-height: 267px;
+max-height: 267px;
+}*/
+#miniatureTopSpacer{
+min-width: 226px;
+max-width: 226px;
+min-height: 267px;
+max-height: 267px;
+}
+#miniatureRightSpacer{
+min-width: 267px;
+max-width: 267px;
+min-height: 226px;
+max-height: 226px;
+}
+
+/*ViewerPageHandlerLandscapee
+-------------------------------*/
+#ViewerPageHandleLandscape,ViewerPageHandleLandscape, #pageWindowLandscape, #ViewerPageHandlerLandscapeCont{
+min-width: 99px;
+max-width: 99px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#pageTextLandscape{
+margin: 0px 99px 0px 0px;
+min-width: 283px;
+max-width: 283px;
+font-size: 30px;
+}
+#pageSpacerLbllandscapeCont{
+min-width: 580px;
+}
+#verticalSliderContent #horizontalWidget{
+min-width: 42px;
+max-width: 42px;
+}
+#verticalSliderContent #horizontalWidget QLabel{
+}
+#ViewerPageHandlerLandscapeCont #pageBackCont{
+margin: 54px 0px 0px 0px;
+min-height: 91px;
+max-height: 91px;
+}
+#ViewerPageHandlerLandscapeCont #pdfMenuBtn, #ViewerContLandscape #pdfMenuBtn{
+min-height: 95px;
+max-height: 95px;
+min-width: 99px;
+max-width: 99px;
+}
+#ViewerPageHandlerLandscapeCont #pageBackBtn, #ViewerContLandscape #pageBackBtn{
+min-height: 91px;
+max-height: 91px;
+min-width: 99px;
+max-width: 99px;
+}
+#ViewerPageHandlerLandscapeCont #pagerViewerSpacerLeft{
+min-height: 21px;
+max-height: 21px;
+}
+#ViewerPageHandlerLandscapeCont #pagerViewerSpacerRight{
+min-height: 21px;
+max-height: 21px;
+}
+#ViewerPageHandlerLandscapeCont #pagerInfoCont{
+}
+#verticalSliderContent #readingProgress{
+min-width: 7px;
+max-width: 7px;
+min-height: 7px;
+max-height: 1448px;
+border-width: 1px;
+border-radius: 7px;
+}
+#verticalSliderContent QSlider{
+border-width: 1px;
+border-style: solid;
+border-color: #404040;
+}
+#ViewerPageHandlerLandscapeCont #readingProgress:chunk{
+}
+#ViewerPageHandlerLandscapeCont #toFinishChapLbl{
+}
+#ViewerPageHandlerLandscapeCont #toFinishChapLbl,
+#ViewerPageHandlerLandscapeCont #readedLbl,
+#ViewerPageHandlerLandscapeCont #pagToFinishLbl,
+#ViewerPageHandlerLandscapeCont #titleLandscapeLbl,
+#ViewerPageHandlerLandscapeCont #readingPercentLbl{
+font-size: 30px;
+}
+#ViewerPageHandlerLandscapeCont #titleLandscapeLbl{
+min-height: 404px;
+max-height: 404px;
+}
+#ViewerPageHandlerLandscapeCont #noTitleLandscapeLbl{
+min-height: 416px;
+max-height: 416px;
+}
+#ViewerPageHandlerLandscapeCont #readingPercentLbl{
+margin: 0px 0px 0px 0px;
+min-height: 199px;
+max-height: 199px;
+}
+#ViewerPageHandlerLandscapeCont #noReadingPercentLbl{
+margin: 0px 0px 0px 0px;
+min-height: 199px;
+max-height: 199px;
+}
+#ViewerPageHandlerLandscapeCont #pageText{
+min-height: 181px;
+max-height: 181px;
+font-size: 30px;
+}
+#ViewerPageHandlerLandscapeCont #noPageText{
+min-height: 181px;
+max-height: 181px;
+}
+#ViewerPageHandlerLandscapeCont #pagToFinishLbl{
+min-height: 328px;
+max-height: 328px;
+}
+#ViewerPageHandlerLandscapeCont #noPagToFinishLbl{
+min-height: 328px;
+max-height: 328px;
+}
+#ViewerPageHandlerLandscapeCont QLabel{
+border: 3px solid #000;
+min-width: 0px;
+max-width: 177px;
+}
+#ViewerPageHandlerLandscapeCont #marginText{
+min-height: 11px;
+max-height: 11px;
+}
+#ViewerPageHandlerLandscapeCont #titleLeftMargin{
+min-height: 11px;
+max-height: 11px;
+}
+
+/*MiniatureViewLandscape
+--------------------------*/
+#MiniatureViewLandscape,MiniatureViewLandscape{
+min-height: 226px;
+max-height: 226px;
+min-width: 362px;
+max-width: 362px;
+border-width: 3px;
+}
+#MiniatureViewLandscape #frame,MiniatureViewLandscape #frame{
+border-width: 3px;
+}
+#screenshotLandscapeCont{
+min-height: 226px;
+max-height: 226px;
+min-width: 362px;
+max-width: 362px;
+}
+#screenshotLbl{
+border-width: 3px;
+}
+#screenshotLandscapeCont #pageCont #pageLbl, #screenshotLandscapeCont #zoomCont #zoomLbl{
+padding: 4px 0px 14px 0px;
+min-width:0;
+max-width: 57px;
+}
+#screenshotLandscapeCont #pageLbl{
+min-height: 49px;
+max-height: 49px;
+font-size: 27px;
+}
+#screenshotLandscapeCont #pageValueLbl{
+}
+#screenshotLandscapeCont #zoomLbl, #screenshotLandscapeCont #zoomValueLbl, #screenshotLandscapeCont #pageValueLbl{
+min-width:0;
+max-width: 57px;
+font-size: 27px;
+}
+#screenshotLandscapeCont #zoomLbl{
+min-height: 71px;
+max-height: 71px;
+}
+#pageLandscapeSpacer{
+min-height: 14px;
+max-height: 14px;
+}
+#zoomLandscapeSpacer{
+min-height: 14px;
+max-height: 14px;
+}

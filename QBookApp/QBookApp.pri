@@ -58,4 +58,4 @@ TRANSLATIONS += ./tr/qbookapp_es.ts \
 
 INCLUDEPATH += ./ConnectionManager/lib ./bqUtils/inc ./model/inc
 
-QRC_FILES += QBookApp800.qrc QBookApp1024.qrc
+QRC_FILES += QBookApp800.qrc QBookApp1024.qrc QBookApp1448.qrc

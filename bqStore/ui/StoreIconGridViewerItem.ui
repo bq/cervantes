@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>190</width>
-    <height>240</height>
+    <width>269</width>
+    <height>339</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -17,15 +17,15 @@
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QLabel" name="newTagLbl">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>180</width>
-     <height>219</height>
+     <width>255</width>
+     <height>310</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -36,8 +36,8 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>16777215</width>
-     <height>16777215</height>
+     <width>23726565</width>
+     <height>23726565</height>
     </size>
    </property>
    <property name="text">
@@ -58,8 +58,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>190</width>
-     <height>228</height>
+     <width>269</width>
+     <height>322</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -78,7 +78,7 @@
        <property name="spacing">
         <number>0</number>
        </property>
-       <item row="1" column="2">
+       <item column="2" row="1">
         <widget class="QLabel" name="topRightLbl">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -93,11 +93,11 @@
           </size>
          </property>
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
+       <item column="0" row="3">
         <widget class="QLabel" name="bottomLeftLbl">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -112,11 +112,11 @@
           </size>
          </property>
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </item>
-       <item row="3" column="2">
+       <item column="2" row="3">
         <widget class="QLabel" name="bottomRightLbl">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -131,14 +131,14 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true" />
          </property>
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item column="0" row="1">
         <widget class="QLabel" name="topLeftLbl">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -153,11 +153,11 @@
           </size>
          </property>
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
+       <item column="1" row="3">
         <widget class="QLabel" name="bottomCenterLbl">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -166,36 +166,36 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </item>
-       <item row="2" column="3">
+       <item column="3" row="2">
         <spacer name="horizontalSpacer">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>40</width>
-           <height>20</height>
+           <width>57</width>
+           <height>28</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="2" column="1">
+       <item column="1" row="2">
         <widget class="QWidget" name="cover" native="true">
          <widget class="QLabel" name="coverLabel">
           <property name="geometry">
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>140</width>
-            <height>210</height>
+            <width>198</width>
+            <height>297</height>
            </rect>
           </property>
           <property name="text">
-           <string/>
+           <string />
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -206,12 +206,12 @@
            <rect>
             <x>0</x>
             <y>145</y>
-            <width>140</width>
-            <height>21</height>
+            <width>198</width>
+            <height>30</height>
            </rect>
           </property>
           <property name="text">
-           <string/>
+           <string />
           </property>
           <property name="alignment">
            <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -228,12 +228,12 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>140</width>
-            <height>35</height>
+            <width>198</width>
+            <height>49</height>
            </rect>
           </property>
           <property name="text">
-           <string/>
+           <string />
           </property>
           <property name="alignment">
            <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -250,12 +250,12 @@
            <rect>
             <x>0</x>
             <y>130</y>
-            <width>140</width>
-            <height>17</height>
+            <width>198</width>
+            <height>24</height>
            </rect>
           </property>
           <property name="text">
-           <string/>
+           <string />
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -263,7 +263,7 @@
          </widget>
         </widget>
        </item>
-       <item row="2" column="2">
+       <item column="2" row="2">
         <widget class="QLabel" name="centerRightLbl">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -278,11 +278,11 @@
           </size>
          </property>
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item column="0" row="2">
         <widget class="QLabel" name="centerLeftLbl">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -297,11 +297,11 @@
           </size>
          </property>
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
+       <item column="1" row="1">
         <widget class="QLabel" name="topCenterLbl">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -310,45 +310,45 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
+       <item column="0" row="0">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
-           <height>40</height>
+           <width>28</width>
+           <height>57</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="0" column="1">
+       <item column="1" row="0">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
-           <height>40</height>
+           <width>28</width>
+           <height>57</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="0" column="2">
+       <item column="2" row="0">
         <spacer name="verticalSpacer_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
-           <height>40</height>
+           <width>28</width>
+           <height>57</height>
           </size>
          </property>
         </spacer>
@@ -369,7 +369,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Store800.qrc"/>
+  <include location="../Store800.qrc" />
  </resources>
- <connections/>
+ <connections />
 </ui>

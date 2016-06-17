@@ -1076,7 +1076,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../ui/LibraryReadingIconGridViewer.ui" line="498"/>
         <source>Último acceso:</source>
-        <translation>Ultimo accesso:</translation>
+        <translation>Ultimo accesso: </translation>
     </message>
     <message>
         <location filename="../ui/LibraryReadingIconGridViewer.ui" line="505"/>

@@ -93,13 +93,13 @@ FORMS += ./ui/Library.ui \
          ./ui/LibraryCollectionLayer.ui \
          ./ui/LibraryCollectionItem.ui
 
-QRC_FILES += Library800.qrc Library1024.qrc
+QRC_FILES += Library800.qrc Library1024.qrc Library1448.qrc
 
 OTHER_FILES += \
     bqLibrary/res/library_styles_generic_new.qss \
     bqLibrary/res/library_styles_generic.qss \
     bqLibrary/res/1024/library_styles.qss \
-    bqLibrary/res/800/library_styles_new.qss \
+    bqLibrary/res/1448/library_styles.qss \
     bqLibrary/res/800/library_styles.qss
 
 

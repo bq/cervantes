@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -45,11 +45,20 @@ SettingsGeneralTermsInfoAdobe::~SettingsGeneralTermsInfoAdobe(){
 }
 
 void SettingsGeneralTermsInfoAdobe::fillInfo(){
-
-    if(QBook::getResolution() == QBook::RES758x1024){
-        QString text = generalTermsResult->toHtml();
-        text = text.replace(QRegExp("font-size\\s*:[\\w'-,\\s\"]*;"), QString("font-size:13pt;"));
-        generalTermsResult->setHtml(text);
+    QString text = generalTermsResult->toHtml();
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            text = text.replace(QRegExp("font-size\\s*:[\\w'-,\\s\"]*;"), QString("font-size:18pt;"));
+            generalTermsResult->setHtml(text);
+            break;
+        case QBook::RES758x1024:
+            text = text.replace(QRegExp("font-size\\s*:[\\w'-,\\s\"]*;"), QString("font-size:13pt;"));
+            generalTermsResult->setHtml(text);
+            break;
+        case QBook::RES600x800: default:
+            //Do nothing
+            break;
     }
     //Define a single step as the 75% of the normal height in the widget.
     vbar->setSingleStep(generalTermsResult->height()*PERCENT_STEP_VALUE);

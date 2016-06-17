@@ -1,0 +1,262 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/* Wizard
+--------------------------------------------------*/
+#WizardFooterButtons {
+min-height: 195px;
+max-height: 195px;
+}
+#actionButtonsWizardCont QPushButton, #WizardFooterButtons QPushButton{
+min-width: 0px;
+max-width: 494px;
+min-height: 109px;
+max-height: 109px;
+font-size: 33px;
+border-radius: 7px;
+border-width: 3px;
+margin: 0px 17px;
+}
+
+/*SelectLanguage
+-------------------*/
+#WizardLanguage{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#LanguageMenuListCont {
+margin: 0px 35px;
+border-width: 3px;
+border-radius: 14px;
+}
+#LanguageMenuListCont QPushButton{
+min-height: 106px;
+max-height: 106px;
+margin: 1px 35px;
+padding: 0px 0px 0px 54px;
+margin: 0px 42px;
+font-size: 42px;
+border-bottom-width: 1px;
+}
+#languageHeaderCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 96px;
+max-height: 96px;
+}
+#languageHeaderCont #langTitleLbl{
+margin: 0px 0px 0px 35px;
+font-size: 35px;
+}
+#wizardLanguageMarginTop{
+min-height: 72px;
+max-height: 72px;
+}
+#WizardLanguage #stepInfoLabel{
+margin: 42px 0px;
+font-size: 38px
+}
+/*WizardWelcome
+----------------------*/
+#WizardWelcome{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#wizardWelcomeCont {
+margin: 11px 42px 21px 42px;
+border-width: 3px;
+border-radius: 14px;
+}
+#welcomeHeaderCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 96px;
+max-height: 96px;
+}
+#activateIconLbl{
+margin: 57px 0px 28px 0px;
+}
+#welcomeHeaderCont #welcomeTitleLbl{
+margin: 0px 0px 0px 35px;
+font-size: 35px;
+}
+#activateIconLbl{
+min-height: 255px;
+max-height: 255px;
+}
+#WizardFooterButtons QPushButton{
+}
+#WizardWelcome #logo{
+min-width: 144px;
+max-width: 144px;
+min-height: 144px;
+max-height: 144px;
+}
+#WizardFooterButtons #nextStepBtn{
+}
+#WizardWelcome #skipBtn{
+border-radius: 7px;
+border-width: 3px;
+}
+#WizardWelcome #welcomeLbl{
+margin: 325px 0px 35px 0px;
+font-size: 72px;
+}
+#WizardWelcome #enyoyLbl, #WizardWelcome #isTouchLbl{
+padding: 40px 91px;
+font-size: 40px;
+}
+#WizardWelcome #intro1Lbl{
+padding: 14px 91px;
+font-size: 40px;
+}
+#WizardWelcome #intro2Lbl{
+padding: 14px 91px 0px 91px;
+font-size: 40px;
+}
+#WizardWelcome #intro3Lbl{
+padding: 0px 91px 14px 91px;
+font-size: 40px;
+}
+#WizardWelcome #introLbl{
+padding: 45px 91px;
+font-size: 34px;
+}
+/*WizardFinish
+-------------------------------*/
+#WizardFinish{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#WizardFinish #proccessOkLbl{
+min-height: 272px;
+max-height: 272px;
+}
+#WizardFinish #finishOkLbl{
+margin: 181px 0px 35px 0px;
+font-size: 45px;
+font-weight:bold;
+}
+#WizardFinish #linkLbl{
+font-size: 35px;
+}
+/*WizardDateTime
+-------------------*/
+#WizardDateTime{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1448px;
+max-height: 1448px;
+}
+#DateTimeMenuListCont {
+margin: 0px 35px;
+border-width: 3px;
+border-radius: 14px;
+}
+#DateTimeMenuListCont QWidget{
+min-height: 144px;
+max-height: 144px;
+margin: 1px 35px;
+padding: 0px 0px 0px 54px;
+margin: 0px 42px;
+border-bottom-width: 1px;
+}
+#dateTimeHeaderCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 96px;
+max-height: 96px;
+}
+#dateTimeHeaderCont #dateTimeTitleLbl{
+margin: 0px 0px 0px 35px;
+font-size: 35px;
+}
+#WizardDateTime #stepInfoLabel{
+margin: 81px 0px 42px 0px;
+font-size: 38px;
+}
+#WizardDateTime #autoTimeLabel{
+margin: 10px 14px 81px;
+font-size: 28px;
+}
+/*TimeZomeItem
+------------------------*/
+#WizardDateTimeMenuItem{
+min-width: 1117px;
+max-width: 1117px;
+min-height: 141px;
+max-height: 141px;
+}
+#DateTimeMenuItemCont{
+min-height: 141px;
+max-height: 141px;
+}
+#DateTimeMenuItemCont #timeZoneCountriesLbl{
+padding: 17px 0px 14px 82px;
+margin: 0px;
+font-size: 42px;
+}
+#DateTimeMenuItemCont #gtmLbl{
+padding: 0px 0px 0px 82px;
+margin: 0px;
+font-size: 42px;
+}
+#checkTimezoneLbl{
+min-width: 127px;
+max-width: 127px;
+}
+/*WizardPagerCont
+------------------------*/
+#WizardPagerCont,#wizardPagerCont{
+margin: 0px 40px 4px 40px;
+min-height: 109px;
+max-height: 109px;
+/*border-top-width: 1px;*/
+border-bottom-left-radius: 14px;
+border-bottom-right-radius: 14px;
+}
+#DateTimeMenuListCont #WizardPagerCont QLabel,#DateTimeMenuListCont #wizardPagerCont QLabel{
+margin: 0px;
+padding: 0px 4px 0px 4px;
+}
+#WizardPagerCont #downPageBtn,#wizardPagerCont #downPageBtn{
+min-width: 82px;
+max-width: 82px;
+min-height: 82px;
+max-height: 82px;
+margin: 0px 0px 0px 54px;
+}
+#WizardPagerCont #upPageBtn,#wizardPagerCont #upPageBtn{
+min-width: 82px;
+max-width: 82px;
+min-height: 82px;
+max-height: 82px;
+margin: 0px 45px 0px 0px;
+}
+#pageLbl, #currentPageLbl, #ofLbl, #totalPagesLbl{
+padding: 0px 0px 0px 8px;
+font-size: 31px;
+}

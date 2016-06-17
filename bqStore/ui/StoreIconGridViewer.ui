@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>649</height>
+    <width>849</width>
+    <height>918</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>595</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>635</width>
-    <height>649</height>
+    <width>898</width>
+    <height>918</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -29,7 +29,7 @@
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -54,8 +54,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>10000</width>
-       <height>10000</height>
+       <width>14142</width>
+       <height>14142</height>
       </size>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
@@ -65,7 +65,7 @@
       <property name="spacing">
        <number>0</number>
       </property>
-      <item row="3" column="1">
+      <item column="1" row="3">
        <widget class="QWidget" name="book5Cont" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
@@ -90,8 +90,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>10</width>
-             <height>20</height>
+             <width>14</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -116,7 +116,7 @@
               <item>
                <widget class="QPushButton" name="bookPrice1_5">
                 <property name="text">
-                 <string>4,99 €</string>
+                 <string>4,99 &#8364;</string>
                 </property>
                </widget>
               </item>
@@ -132,8 +132,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>190</width>
-                <height>10000</height>
+                <width>269</width>
+                <height>14142</height>
                </size>
               </property>
               <property name="sizeIncrement">
@@ -150,7 +150,7 @@
         </layout>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item column="0" row="3">
        <widget class="QWidget" name="book4Cont" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <property name="spacing">
@@ -175,8 +175,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>10</width>
-             <height>20</height>
+             <width>14</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -201,7 +201,7 @@
               <item>
                <widget class="QPushButton" name="bookPrice1_4">
                 <property name="text">
-                 <string>4,99 €</string>
+                 <string>4,99 &#8364;</string>
                 </property>
                </widget>
               </item>
@@ -217,8 +217,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>190</width>
-                <height>10000</height>
+                <width>269</width>
+                <height>14142</height>
                </size>
               </property>
               <property name="sizeIncrement">
@@ -235,7 +235,7 @@
         </layout>
        </widget>
       </item>
-      <item row="1" column="1">
+      <item column="1" row="1">
        <widget class="QWidget" name="book2Cont" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <property name="spacing">
@@ -260,8 +260,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>10</width>
-             <height>20</height>
+             <width>14</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -286,7 +286,7 @@
               <item>
                <widget class="QPushButton" name="bookPrice1_2">
                 <property name="text">
-                 <string>4,99 €</string>
+                 <string>4,99 &#8364;</string>
                 </property>
                </widget>
               </item>
@@ -302,8 +302,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>190</width>
-                <height>10000</height>
+                <width>269</width>
+                <height>14142</height>
                </size>
               </property>
              </widget>
@@ -314,20 +314,20 @@
         </layout>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item column="1" row="2">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>20</width>
-          <height>40</height>
+          <width>28</width>
+          <height>57</height>
          </size>
         </property>
        </spacer>
       </item>
-      <item row="1" column="0">
+      <item column="0" row="1">
        <widget class="QFrame" name="book1Cont">
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <property name="spacing">
@@ -365,7 +365,7 @@
               <item>
                <widget class="QPushButton" name="bookPrice1">
                 <property name="text">
-                 <string>4,99 €</string>
+                 <string>4,99 &#8364;</string>
                 </property>
                </widget>
               </item>
@@ -381,8 +381,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>190</width>
-                <height>100000</height>
+                <width>269</width>
+                <height>141421</height>
                </size>
               </property>
              </widget>
@@ -400,8 +400,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>10</width>
-             <height>20</height>
+             <width>14</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -409,7 +409,7 @@
         </layout>
        </widget>
       </item>
-      <item row="3" column="2">
+      <item column="2" row="3">
        <widget class="QWidget" name="book6Cont" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_7">
          <property name="spacing">
@@ -434,8 +434,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>10</width>
-             <height>20</height>
+             <width>14</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -460,7 +460,7 @@
               <item>
                <widget class="QPushButton" name="bookPrice1_6">
                 <property name="text">
-                 <string>4,99 €</string>
+                 <string>4,99 &#8364;</string>
                 </property>
                </widget>
               </item>
@@ -476,8 +476,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>190</width>
-                <height>10000</height>
+                <width>269</width>
+                <height>14142</height>
                </size>
               </property>
               <property name="sizeIncrement">
@@ -494,7 +494,7 @@
         </layout>
        </widget>
       </item>
-      <item row="1" column="2">
+      <item column="2" row="1">
        <widget class="QWidget" name="book3Cont" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <property name="spacing">
@@ -519,8 +519,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>10</width>
-             <height>20</height>
+             <width>14</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -545,7 +545,7 @@
               <item>
                <widget class="QPushButton" name="bookPrice1_3">
                 <property name="text">
-                 <string>4,99 €</string>
+                 <string>4,99 &#8364;</string>
                 </property>
                </widget>
               </item>
@@ -561,8 +561,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>190</width>
-                <height>10000</height>
+                <width>269</width>
+                <height>14142</height>
                </size>
               </property>
              </widget>
@@ -573,7 +573,7 @@
         </layout>
        </widget>
       </item>
-      <item row="0" column="1">
+      <item column="1" row="0">
        <spacer name="verticalSpacer_2">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -583,7 +583,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>20</width>
+          <width>28</width>
           <height>1</height>
          </size>
         </property>
@@ -603,11 +603,11 @@
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>50</height>
+       <height>71</height>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
     </widget>
    </item>
@@ -627,6 +627,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

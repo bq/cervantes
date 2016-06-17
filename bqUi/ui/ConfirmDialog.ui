@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>474</width>
-    <height>224</height>
+    <width>670</width>
+    <height>317</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -26,7 +26,7 @@
    <item>
     <widget class="QFrame" name="bg">
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
@@ -55,7 +55,7 @@
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true" />
           </property>
           <property name="text">
            <string>Restore factory default settings?  Restore factory default settings? Restore factory default settings?  </string>
@@ -98,8 +98,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -120,23 +120,23 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>164</width>
-             <height>49</height>
+             <width>232</width>
+             <height>69</height>
             </size>
            </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="text">
             <string>Aceptar</string>
            </property>
            <property name="iconSize">
             <size>
-             <width>112</width>
-             <height>60</height>
+             <width>158</width>
+             <height>85</height>
             </size>
            </property>
            <property name="autoDefault">
@@ -154,8 +154,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -175,6 +175,6 @@
    <header>SilentQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

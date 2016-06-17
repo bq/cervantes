@@ -99,7 +99,7 @@
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="142"/>
         <source>Esta versión de firmware ha sido desarrollada integramente en España por Mundo Reader S.L. con un quipo de jóvenes profesionales, ingenieros informáticos de telecomunicación, diseñadores gráficos ... y publicada bajo licencia GPL  (https://bitbucket.org/mundoreader/cervantes).</source>
-        <translation>Diese Firmware-Version wurde vollständig in Spanien von einem jungen professionellen Team aus IT-Experten, Telekommunikationsingenieuren und Grafikdesignern der Firma Mundo Reader S.L. entwickelt und unter GPL-Lizenz veröffentlicht (https://bitbucket.org/mundoreader/cervantes).</translation>
+        <translation>Diese Firmware-Version wurde vollständig in Spanien von einem jungen professionellen Team aus IT-Experten, Telekommunikationsingenieuren und Grafikdesignern der Firma Mundo Reader S.L. entwickelt und unter GPL-Lizenz veröffentlicht (https://github.com/bq/cervantes).</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="155"/>
@@ -113,8 +113,8 @@
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="175"/>
-        <source>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger. </source>
-        <translation>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger.</translation>
+        <source>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger, Santiago Mayoral, Guillem Barnolas, Hristo Gyulev. </source>
+        <translation>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger, Santiago Mayoral, Guillem Barnolas, Hristo Gyulev.</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="188"/>
@@ -123,8 +123,8 @@
     </message>
     <message>
         <location filename="../ui/SettingsAboutUs.ui" line="198"/>
-        <source>Nieves Herreros, Sandra Salvador.</source>
-        <translation>Nieves Herreros, Sandra Salvador.</translation>
+        <source>Nieves Herreros, Sandra Salvador, Ana Sánchez, Jaime Mena.</source>
+        <translation>Nieves Herreros, Sandra Salvador, Ana Sánchez, Jaime Mena.</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="208"/>

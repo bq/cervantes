@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -187,12 +187,15 @@ public:
     void                                                        resumeThumbnailGeneration                       ( );
     QSize                                                       getHomeThumbnailSize                            ( );
     bool                                                        isResumingWifi                                  ( );
+    bool                                                        isSleptShown                                    ( );
     void                                                        closeSleep                                      ( );
     void                                                        enablePowerKeyWatcher                           (bool);
     void                                                        shuttingDown                                    ( );
     QString                                                     getImageResource                                (const QString& path, bool isLine = false);
     void                                                        generateBookCover                               ( BookInfo* );
     QList<QByteArray>                                           getSupportedImageslist                          ( );
+    bool                                                        accidentalHomePress                             ( );
+    void                                                        resetCancelWakeUp                               ( );
 
 signals:
     void popupForm();
@@ -307,6 +310,7 @@ protected slots:
     void confirmFwUpgrade();
     void askPowerOffDevice();
     void powerLight();
+    void handleSpecialKeyPress();
     void checkStartupDebugOpts();
     void firstChecksAfterStartup();
     void connectDialogSlots();
@@ -452,6 +456,7 @@ private:
     QTimer m_timer_powerButton;
     QTimer m_sleepSyncTimer;
     QTimer m_timer_light;
+    QTimer m_timer_doubleHomeClick;
     QTimer m_connectAfterSleepTimer;
     QTimer m_afterWifiOnTimer;
     QTimer m_powerKeyWatcher;
@@ -498,6 +503,7 @@ private:
     bool b_isSleeping;
     bool b_isBuying;
     bool b_wizardFromStore;
+    bool b_cancelWakeUp;
     QProcess *offlineHelper;
     QList<QByteArray> supportedImageslist;
 };

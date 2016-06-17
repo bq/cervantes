@@ -6,23 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>570</width>
-    <height>50</height>
+    <width>806</width>
+    <height>71</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QFrame" name="verticalPageCont">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>570</width>
-     <height>50</height>
+     <width>806</width>
+     <height>71</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -48,8 +48,8 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>300</width>
-        <height>20</height>
+        <width>424</width>
+        <height>28</height>
        </size>
       </property>
      </spacer>
@@ -63,7 +63,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -77,8 +77,8 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>40</width>
-        <height>20</height>
+        <width>57</width>
+        <height>28</height>
        </size>
       </property>
      </spacer>
@@ -121,8 +121,8 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>40</width>
-        <height>20</height>
+        <width>57</width>
+        <height>28</height>
        </size>
       </property>
      </spacer>
@@ -136,7 +136,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -147,8 +147,8 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>300</width>
-        <height>20</height>
+        <width>424</width>
+        <height>28</height>
        </size>
       </property>
      </spacer>
@@ -163,6 +163,6 @@
    <header>SilentQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

@@ -261,7 +261,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/WizardLanguage.ui" line="102"/>
         <source>Idioma / Language</source>
-        <translation>Língua</translation>
+        <translation>Idioma</translation>
     </message>
 </context>
 <context>

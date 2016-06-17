@@ -125,7 +125,7 @@ FORMS +=   ./ui/Viewer.ui \
            ./ui/ViewerCollectionLayer.ui \
            ./ui/ViewerCollectionItem.ui
 
-QRC_FILES += Viewer800.qrc Viewer1024.qrc
+QRC_FILES += Viewer800.qrc Viewer1024.qrc Viewer1448.qrc
 
 
 TRANSLATIONS = tr/bqViewer_es.ts \
@@ -149,4 +149,5 @@ LIBS += -lbz2 -ldl -lz -lssl -lpng -lrtmp -lzip -lpng12 -llzma -lp11-kit -lfreet
 OTHER_FILES += \
     bqViewer/res/800/viewer_styles.qss \
     bqViewer/res/1024/viewer_styles.qss \
+    bqViewer/res/1448/viewer_styles.qss \
     bqViewer/res/viewer_styles_generic.qss

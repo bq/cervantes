@@ -6,27 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -38,7 +38,7 @@
    <item>
     <widget class="QLabel" name="spacerTop">
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -53,7 +53,7 @@
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>600</height>
+       <height>849</height>
       </size>
      </property>
      <layout class="QHBoxLayout" name="HorizontalContss">
@@ -72,7 +72,7 @@
       <item>
        <widget class="QLabel" name="spacerLeft">
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
@@ -85,7 +85,7 @@
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <property name="spacing">
@@ -99,7 +99,7 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>19</height>
+             <height>27</height>
             </size>
            </property>
            <widget class="QLabel" name="topArrowLbl">
@@ -107,12 +107,12 @@
              <rect>
               <x>30</x>
               <y>2</y>
-              <width>24</width>
-              <height>17</height>
+              <width>34</width>
+              <height>24</height>
              </rect>
             </property>
             <property name="text">
-             <string/>
+             <string />
             </property>
             <property name="indent">
              <number>0</number>
@@ -137,7 +137,7 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>620</height>
+             <height>877</height>
             </size>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -224,8 +224,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>20</width>
-             <height>40</height>
+             <width>28</width>
+             <height>57</height>
             </size>
            </property>
           </spacer>
@@ -240,8 +240,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -256,14 +256,14 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

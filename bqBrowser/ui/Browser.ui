@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>960</height>
+    <width>1072</width>
+    <height>1358</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>758</width>
-    <height>960</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>758</width>
-    <height>960</height>
+    <width>1072</width>
+    <height>1358</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -29,7 +29,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -48,8 +48,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>758</width>
-       <height>70</height>
+       <width>1072</width>
+       <height>99</height>
       </size>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -76,7 +76,7 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>1000</height>
+          <height>1414</height>
          </size>
         </property>
         <property name="sizeIncrement">
@@ -102,18 +102,18 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>82</width>
-             <height>68</height>
+             <width>116</width>
+             <height>96</height>
             </size>
            </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
            <property name="autoDefault">
             <bool>false</bool>
@@ -151,7 +151,7 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -165,8 +165,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>5</width>
-             <height>20</height>
+             <width>7</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -197,8 +197,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>5</width>
-             <height>20</height>
+             <width>7</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -213,8 +213,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>68</width>
-             <height>68</height>
+             <width>96</width>
+             <height>96</height>
             </size>
            </property>
            <property name="font">
@@ -227,7 +227,7 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -241,8 +241,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>74</width>
-             <height>68</height>
+             <width>105</width>
+             <height>96</height>
             </size>
            </property>
            <property name="font">
@@ -255,7 +255,7 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -286,8 +286,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>42</width>
-         <height>9999</height>
+         <width>59</width>
+         <height>14141</height>
         </size>
        </property>
        <property name="frameShape">
@@ -301,8 +301,8 @@
          <rect>
           <x>0</x>
           <y>19</y>
-          <width>42</width>
-          <height>491</height>
+          <width>59</width>
+          <height>694</height>
          </rect>
         </property>
         <property name="minimumSize">
@@ -313,7 +313,7 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>42</width>
+          <width>59</width>
           <height>16777215</height>
          </size>
         </property>
@@ -329,8 +329,8 @@
          <rect>
           <x>0</x>
           <y>440</y>
-          <width>40</width>
-          <height>40</height>
+          <width>57</width>
+          <height>57</height>
          </rect>
         </property>
         <property name="minimumSize">
@@ -341,8 +341,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>40</width>
-          <height>40</height>
+          <width>57</width>
+          <height>57</height>
          </size>
         </property>
         <property name="font">
@@ -368,8 +368,8 @@
          <rect>
           <x>0</x>
           <y>60</y>
-          <width>40</width>
-          <height>40</height>
+          <width>57</width>
+          <height>57</height>
          </rect>
         </property>
         <property name="minimumSize">
@@ -380,8 +380,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>40</width>
-          <height>40</height>
+          <width>57</width>
+          <height>57</height>
          </size>
         </property>
         <property name="font">
@@ -456,7 +456,7 @@
        <property name="maximumSize">
         <size>
          <width>16777215</width>
-         <height>42</height>
+         <height>59</height>
         </size>
        </property>
        <property name="frameShape">
@@ -470,8 +470,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>40</width>
-          <height>40</height>
+          <width>57</width>
+          <height>57</height>
          </rect>
         </property>
         <property name="minimumSize">
@@ -482,8 +482,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>40</width>
-          <height>40</height>
+          <width>57</width>
+          <height>57</height>
          </size>
         </property>
         <property name="font">
@@ -509,8 +509,8 @@
          <rect>
           <x>440</x>
           <y>0</y>
-          <width>40</width>
-          <height>40</height>
+          <width>57</width>
+          <height>57</height>
          </rect>
         </property>
         <property name="minimumSize">
@@ -521,8 +521,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>40</width>
-          <height>40</height>
+          <width>57</width>
+          <height>57</height>
          </size>
         </property>
         <property name="font">
@@ -548,8 +548,8 @@
          <rect>
           <x>50</x>
           <y>0</y>
-          <width>381</width>
-          <height>42</height>
+          <width>539</width>
+          <height>59</height>
          </rect>
         </property>
         <property name="minimumSize">
@@ -561,7 +561,7 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>42</height>
+          <height>59</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -583,15 +583,15 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>42</width>
-         <height>42</height>
+         <width>59</width>
+         <height>59</height>
         </size>
        </property>
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
        <property name="text">
-        <string/>
+        <string />
        </property>
       </widget>
      </item>
@@ -618,7 +618,7 @@
       <item>
        <widget class="QWidget" name="pagerBrowserCont" native="true">
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <property name="spacing">
@@ -637,8 +637,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>93</width>
-             <height>42</height>
+             <width>132</width>
+             <height>59</height>
             </size>
            </property>
            <property name="font">
@@ -651,10 +651,10 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -668,8 +668,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>68</width>
-             <height>42</height>
+             <width>96</width>
+             <height>59</height>
             </size>
            </property>
            <property name="font">
@@ -682,7 +682,7 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -699,8 +699,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>119</width>
-          <height>64</height>
+          <width>168</width>
+          <height>91</height>
          </size>
         </property>
         <property name="font">
@@ -713,10 +713,10 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
@@ -730,8 +730,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>119</width>
-          <height>64</height>
+          <width>168</width>
+          <height>91</height>
          </size>
         </property>
         <property name="font">
@@ -744,10 +744,10 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
@@ -761,8 +761,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>145</width>
-          <height>64</height>
+          <width>205</width>
+          <height>91</height>
          </size>
         </property>
         <property name="font">
@@ -774,10 +774,10 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
@@ -788,8 +788,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -804,18 +804,18 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>132</width>
-          <height>64</height>
+          <width>187</width>
+          <height>91</height>
          </size>
         </property>
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <property name="text">
-         <string/>
+         <string />
         </property>
         <property name="default">
          <bool>true</bool>
@@ -848,10 +848,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../../bqLibrary/Library1024.qrc"/>
-  <include location="../Browser1024.qrc"/>
-  <include location="../../bqUi/Ui1024.qrc"/>
- </resources>
- <connections/>
+ <resources />
+ <connections />
 </ui>

@@ -334,7 +334,7 @@ Por favor, reinicia el dispositivo si necesitas seguir usándola.</translation>
     <message>
         <location filename="../src/QBookApp.cpp" line="4100"/>
         <source>Your subscription will be expired in %1 days.</source>
-        <translation>Te quedan %1días para que puedas seguir leyendo offline tus eBooks Premium en el eReader. Más información en la sección &quot;Ayuda&quot; de la tienda.</translation>
+        <translation>Te quedan %1 días para que puedas seguir leyendo offline tus eBooks Premium en el eReader. Más información en la sección &quot;Ayuda&quot; de la tienda.</translation>
     </message>
     <message>
         <location filename="../src/QBookApp.cpp" line="4139"/>
@@ -645,7 +645,7 @@ Por favor, reinicia el dispositivo si necesitas seguir usándola.</translation>
         <location filename="../src/QBookScreenSaver.cpp" line="224"/>
         <location filename="../src/QBookScreenSaver.cpp" line="232"/>
         <source>Press the Power button to resume</source>
-        <translation>Pulsa el botón de encendido para reanudar</translation>
+        <translation>Pulsa el botón de encendido o dos veces el de inicio para reanudar</translation>
     </message>
 </context>
 <context>

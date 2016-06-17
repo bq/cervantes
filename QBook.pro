@@ -184,11 +184,13 @@ FAKE_WIFI = $$(FAKE_WIFI)
 
 
 
-QRC_FILES += res/common800.qrc res/common1024.qrc
+QRC_FILES += res/common800.qrc res/common1024.qrc res/common1448.qrc
 
 OTHER_FILES += \
     res/common_styles_generic.qss \
     res/800/common_styles.qss \
     res/1024/common_styles.qss \
-    QBookApp.files
+    res/1448/common_styles.qss \
+    QBookApp.files \
+    build.sh
 

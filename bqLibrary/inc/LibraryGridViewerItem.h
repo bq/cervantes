@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -31,14 +31,21 @@ class LibraryGridViewerItem : public GestureWidget
 {
     Q_OBJECT
 
+private:
+    enum ELibraryGridViewerItemType {
+        ELGVIT_BOOK,
+        ELGVIT_FILE,
+        ELGVIT_ARROW,
+        ELGVIT_COLLECTION
+    };
 public:
                                         LibraryGridViewerItem               ( QWidget* parent );
     virtual                             ~LibraryGridViewerItem              ();
 
-    virtual void                        setBook                             ( const BookInfo* book, Library::ELibraryFilterMode filter) = 0;
-    virtual void                        setFile                             ( const QFileInfo* file ) = 0;
-    virtual void                        setArrow                            ( const QString& path ) = 0;
-    virtual void                        setCollection                       ( const QString&, int) = 0;
+    virtual void                        setBook                             ( const BookInfo* book, Library::ELibraryFilterMode filter) { m_iType = ELGVIT_BOOK; }
+    virtual void                        setFile                             ( const QFileInfo* file ) { m_iType = ELGVIT_FILE; }
+    virtual void                        setArrow                            ( const QString& path ) { m_iType = ELGVIT_ARROW; }
+    virtual void                        setCollection                       ( const QString&, int) { m_iType = ELGVIT_COLLECTION; }
 
     virtual void                        select                              () = 0;
     virtual void                        unselect                            () = 0;
@@ -56,6 +63,7 @@ signals:
 
 protected:
     QString                             m_path;
+    ELibraryGridViewerItemType          m_iType;
 };
 
 #endif // LIBRARYGRIDVIEWERITEM_H

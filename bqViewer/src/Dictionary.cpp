@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -186,9 +186,23 @@ QString Dictionary::translate(const QString& original, const QString& context)
 
     qDebug() << Q_FUNC_INFO << "Translated word:" << QString::fromUtf8(translatedWord.c_str()) << " size:" <<translatedWord.size();
 
+    QString fontSize = "24pt";
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            fontSize = "8pt";
+            break;
+        case QBook::RES758x1024:
+            fontSize = "24pt";
+            break;
+        case QBook::RES600x800: default:
+            fontSize = "24pt";
+            break;
+    }
+
     if(!QBookApp::instance()->isActivated() && !QBookApp::instance()->isLinked()){
         return "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"><html><head></head><body><div>"
-                "<p style=\"text-align: left; font-family: 'Lato'; font-size: 24pt; padding-bottom:5pt;\">"
+                "<p style=\"text-align: left; font-family: 'Lato'; font-size: " + fontSize + "; padding-bottom:5pt;\">"
                 + tr("Please, remember to activate the device to use")
                 + "</p></div></body></html>";
     }
@@ -200,7 +214,7 @@ QString Dictionary::translate(const QString& original, const QString& context)
                 "<p style=\"color:#233D94;font-size:1.25em;text-align:left;font-weight:bold;margin-top:10px;margin-bottom:10px;\">"
                 + tr("%1").arg(original)
                 + "</p></div>"
-                + "<p style=\"text-align: left; font-family: 'Lato'; font-size: 24pt; padding-bottom:5pt;\">"
+                + "<p style=\"text-align: left; font-family: 'Lato'; font-size: " + fontSize + "; padding-bottom:5pt;\">"
                 + tr("Couldn't find any result for the given word")
                 + "</p></body></html>";
     else

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,14 +18,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>800</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -35,7 +35,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -60,8 +60,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>500</width>
-          <height>35</height>
+          <width>707</width>
+          <height>49</height>
          </size>
         </property>
         <property name="text">
@@ -201,8 +201,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>10000</width>
-          <height>81</height>
+          <width>14142</width>
+          <height>115</height>
          </size>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -217,7 +217,7 @@
       </item>
       <item>
        <widget class="WizardPagerCont" name="wizardPagerCont" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+        <layout class="QHBoxLayout" name="horizontalLayout_2" />
        </widget>
       </item>
      </layout>
@@ -230,8 +230,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>287</height>
+       <width>28</width>
+       <height>406</height>
       </size>
      </property>
     </spacer>
@@ -252,6 +252,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

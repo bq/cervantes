@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
-    <height>51</height>
+    <width>764</width>
+    <height>72</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="margin">
@@ -49,8 +49,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -88,7 +88,7 @@
       <item>
        <widget class="QLabel" name="spacerContentLbl">
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
@@ -102,14 +102,14 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

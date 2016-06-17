@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>783</width>
-    <height>110</height>
+    <width>1107</width>
+    <height>156</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -17,7 +17,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -47,7 +47,7 @@
          <item>
           <widget class="QLabel" name="iconTypeFileLbl">
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -71,8 +71,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>20</width>
-             <height>40</height>
+             <width>28</width>
+             <height>57</height>
             </size>
            </property>
           </spacer>
@@ -95,8 +95,8 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>20</width>
-            <height>10</height>
+            <width>28</width>
+            <height>14</height>
            </size>
           </property>
          </spacer>
@@ -117,8 +117,8 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>410</width>
-            <height>51</height>
+            <width>580</width>
+            <height>72</height>
            </size>
           </property>
           <property name="text">
@@ -167,8 +167,8 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>20</width>
-            <height>40</height>
+            <width>28</width>
+            <height>57</height>
            </size>
           </property>
          </spacer>
@@ -178,14 +178,14 @@
       <item>
        <widget class="QPushButton" name="downloadBtn">
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
       <item>
        <widget class="DegreesLabel90" name="subscriptionTagLbl">
         <property name="text">
-         <string>Suscripción</string>
+         <string>Suscripci&#243;n</string>
         </property>
         <property name="indent">
          <number>0</number>
@@ -219,8 +219,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>56</width>
-          <height>110</height>
+          <width>79</width>
+          <height>156</height>
          </size>
         </property>
         <property name="text">
@@ -237,7 +237,7 @@
       <item>
        <widget class="QLabel" name="selectBookLbl">
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
@@ -251,8 +251,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>20</width>
-          <height>20</height>
+          <width>28</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -274,6 +274,6 @@
    <header>DegreesLabel90.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

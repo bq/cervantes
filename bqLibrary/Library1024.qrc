@@ -66,7 +66,6 @@
         <file alias="res/book_summary_front_top_center.png">res/1024/book_summary_front_top_center.png</file>
         <file alias="res/book_summary_front_top_left.png">res/1024/book_summary_front_top_left.png</file>
         <file alias="res/book_summary_front_top_right.png">res/1024/book_summary_front_top_right.png</file>
-        <file alias="res/bg_library_01.png">res/1024/bg_library_01.png</file>
         <file alias="res/arrow_bottom_pager.png">res/1024/arrow_bottom_pager.png</file>
         <file alias="res/arrow_top_pager.png">res/1024/arrow_top_pager.png</file>
         <file alias="res/open_book_small_bottom_center.png">res/1024/open_book_small_bottom_center.png</file>
@@ -103,7 +102,6 @@
         <file alias="res/search_library_btn.png">res/1024/search_library_btn.png</file>
         <file alias="res/store_btn.png">res/1024/store_btn.png</file>
         <file alias="res/bg_sd.png">res/1024/bg_sd.png</file>
-        <file alias="res/bg_library_new.png">res/1024/bg_library_new.png</file>
         <file alias="res/check-group.png">res/1024/ckeck-group.png</file>
         <file alias="res/edit-icon.png">res/1024/edit-icon.png</file>
         <file alias="res/export-icon.png">res/1024/export-icon.png</file>

@@ -39,15 +39,15 @@ height:41px;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true" />
    </property>
    <property name="text">
-    <string/>
+    <string />
    </property>
   </widget>
  </widget>
  <resources>
-  <include location="style.qrc"/>
+  <include location="style.qrc" />
  </resources>
- <connections/>
+ <connections />
 </ui>

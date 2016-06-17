@@ -630,7 +630,7 @@ Por favor, reinicie o dispositivo se precisa continuar a usá-lo.</translation>
     <name>QBookPowerSaver</name>
     <message>
         <source>Press the Power button to resume</source>
-        <translation type="obsolete">Carregue no botão de ligação para reiniciar</translation>
+        <translation type="obsolete">Prima o botão ligar/desligar para reiniciar</translation>
     </message>
 </context>
 <context>
@@ -645,7 +645,7 @@ Por favor, reinicie o dispositivo se precisa continuar a usá-lo.</translation>
         <location filename="../src/QBookScreenSaver.cpp" line="224"/>
         <location filename="../src/QBookScreenSaver.cpp" line="232"/>
         <source>Press the Power button to resume</source>
-        <translation>Carregue no botão de ligação para reiniciar</translation>
+        <translation>Prima o botão ligar/desligar para reiniciar</translation>
     </message>
 </context>
 <context>

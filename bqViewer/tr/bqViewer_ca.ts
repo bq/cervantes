@@ -98,7 +98,7 @@
     <name>LibraryBookSummary</name>
     <message>
         <source>Delete</source>
-        <translation type="obsolete">Eliminar</translation>
+        <translation type="obsolete">Elimina</translation>
     </message>
     <message>
         <source>More Actions</source>
@@ -254,7 +254,7 @@
     <message>
         <location filename="../ui/ViewerAnnotationActions.ui" line="154"/>
         <source>Ir</source>
-        <translation>Anar</translation>
+        <translation>Vés</translation>
     </message>
 </context>
 <context>
@@ -346,7 +346,7 @@
     <message>
         <location filename="../ui/ViewerAppearancePopup.ui" line="103"/>
         <source>Ajustes de Texto</source>
-        <translation>Ajusts de text</translation>
+        <translation>Configuració de text</translation>
     </message>
     <message>
         <location filename="../ui/ViewerAppearancePopup.ui" line="511"/>
@@ -396,12 +396,12 @@
     <message>
         <location filename="../ui/ViewerAppearancePopup.ui" line="944"/>
         <source>Justificar texto</source>
-        <translation>Justificar text</translation>
+        <translation>Alineació del text</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/ViewerAppearancePopup.ui" line="175"/>
         <source>Usar configuración de la editorial</source>
-        <translation>Utilitzar configuració de l&apos;editorial</translation>
+        <translation>Utilitza la configuració de l&apos;editorial</translation>
     </message>
 </context>
 <context>
@@ -432,7 +432,7 @@
     </message>
     <message>
         <source>Copiar a la SD</source>
-        <translation type="obsolete">Copiar</translation>
+        <translation type="obsolete">Copia</translation>
     </message>
     <message>
         <source>Archivar</source>
@@ -440,7 +440,7 @@
     </message>
     <message>
         <source>Eliminar</source>
-        <translation type="obsolete">Eliminar</translation>
+        <translation type="obsolete">Elimina</translation>
     </message>
     <message>
         <source>Exportar notas</source>
@@ -503,7 +503,7 @@
     <message>
         <location filename="../ui/ViewerBookSummary.ui" line="788"/>
         <source>Copiar a SD</source>
-        <translation>Copiar</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <location filename="../ui/ViewerBookSummary.ui" line="804"/>
@@ -613,7 +613,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ViewerBookSummary.cpp" line="214"/>
         <source>Copy file</source>
-        <translation>Copiar</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <location filename="../src/ViewerBookSummary.cpp" line="242"/>
@@ -656,7 +656,7 @@ Vols continuar?</translation>
     <message>
         <location filename="../src/ViewerBookSummary.cpp" line="440"/>
         <source>Copy</source>
-        <translation>Copiar</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <location filename="../src/ViewerBookSummary.cpp" line="454"/>
@@ -762,7 +762,7 @@ Vols continuar?</translation>
         <location filename="../ui/ViewerBookSummary.ui" line="833"/>
         <location filename="../src/ViewerBookSummary.cpp" line="396"/>
         <source>Remove</source>
-        <translation>Eliminar</translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../src/ViewerBookSummary.cpp" line="403"/>
@@ -788,7 +788,7 @@ Vols continuar?</translation>
     <message utf8="true">
         <location filename="../ui/ViewerCollectionLayer.ui" line="89"/>
         <source>Añadir colección </source>
-        <translation>Crear col·lecció</translation>
+        <translation>Crea col·lecció</translation>
     </message>
 </context>
 <context>
@@ -953,7 +953,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ViewerEditNotePopup.cpp" line="45"/>
         <source>Create note</source>
-        <translation>Afegir nota</translation>
+        <translation>Afegeix nota</translation>
     </message>
     <message>
         <location filename="../src/ViewerEditNotePopup.cpp" line="60"/>
@@ -977,7 +977,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../ui/ViewerGotoPopup.ui" line="104"/>
         <source>Ir a página</source>
-        <translation>Anar a pàgina</translation>
+        <translation>Vés a la pàgina</translation>
     </message>
     <message>
         <location filename="../ui/ViewerGotoPopup.ui" line="168"/>
@@ -1012,7 +1012,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/ViewerGotoPopup.ui" line="243"/>
         <source>Ir</source>
-        <translation>Anar</translation>
+        <translation>Vés</translation>
     </message>
     <message>
         <location filename="../ui/ViewerGotoPopup.ui" line="250"/>
@@ -1075,7 +1075,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../ui/ViewerMenu.ui" line="175"/>
         <source>Ir a página</source>
-        <translation>Anar a pàgina</translation>
+        <translation>Vés a la pàgina</translation>
     </message>
     <message>
         <location filename="../ui/ViewerMenu.ui" line="191"/>
@@ -1085,7 +1085,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/ViewerMenu.ui" line="207"/>
         <source>Buscar</source>
-        <translation>Cercar</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <location filename="../src/ViewerMenu.cpp" line="62"/>
@@ -1118,7 +1118,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/ViewerNoteActionsPopup.ui" line="188"/>
         <source>Buscar</source>
-        <translation>Cercar</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <location filename="../ui/ViewerNoteActionsPopup.ui" line="216"/>
@@ -1305,7 +1305,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ViewerSearchPopup.cpp" line="243"/>
         <source>Buscar</source>
-        <translation>Cercar</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <location filename="../src/ViewerSearchPopup.cpp" line="328"/>
@@ -1348,7 +1348,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/ViewerTextActionsMenu.ui" line="100"/>
         <location filename="../src/ViewerTextActionsMenu.cpp" line="52"/>
         <source>Crear nota</source>
-        <translation>Afegir nota</translation>
+        <translation>Afegeix nota</translation>
     </message>
     <message>
         <location filename="../ui/ViewerTextActionsMenu.ui" line="116"/>
@@ -1358,7 +1358,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/ViewerTextActionsMenu.ui" line="132"/>
         <source>Subrayar</source>
-        <translation>Subratllar</translation>
+        <translation>Subratlla</translation>
     </message>
     <message>
         <location filename="../ui/ViewerTextActionsMenu.ui" line="148"/>
@@ -1368,12 +1368,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/ViewerTextActionsMenu.ui" line="164"/>
         <source>Buscar</source>
-        <translation>Cercar</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <location filename="../src/ViewerTextActionsMenu.cpp" line="58"/>
         <source>AÃ±adir nota</source>
-        <translation>Afegir nota</translation>
+        <translation>Afegeix nota</translation>
     </message>
 </context>
 <context>
@@ -1386,17 +1386,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/ViewerTextActionsPopup.ui" line="100"/>
         <source>Crear Nota</source>
-        <translation>Afegir nota</translation>
+        <translation>Afegeix nota</translation>
     </message>
     <message>
         <location filename="../ui/ViewerTextActionsPopup.ui" line="110"/>
         <source>Resaltar</source>
-        <translation>Subratllar</translation>
+        <translation>Subratlla</translation>
     </message>
     <message>
         <location filename="../ui/ViewerTextActionsPopup.ui" line="120"/>
         <source>Buscar</source>
-        <translation>Cercar</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <location filename="../ui/ViewerTextActionsPopup.ui" line="148"/>
@@ -1410,12 +1410,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/ViewerTextActionsPopup.cpp" line="69"/>
         <source>Create note</source>
-        <translation>Afegir nota</translation>
+        <translation>Afegeix nota</translation>
     </message>
     <message>
         <location filename="../src/ViewerTextActionsPopup.cpp" line="70"/>
         <source>Highlight</source>
-        <translation>Subratllar</translation>
+        <translation>Subratlla</translation>
     </message>
 </context>
 <context>

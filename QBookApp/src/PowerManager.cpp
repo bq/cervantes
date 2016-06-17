@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -172,6 +172,8 @@ void PowerManager::goToSleep()
     else
         wakeUpAlarmTimer = POWERMANAGER_SLEEP_WAKEUP_PERIOD;
 
+    QBookApp::instance()->resetCancelWakeUp();
+
     ret = Power::getInstance()->sleepCPU(wakeUpAlarmTimer);
 
     // Reattempt sleep every 3 seconds
@@ -195,26 +197,43 @@ void PowerManager::goToSleep()
 
     /*-----------------SLEPT---------------------------------*/
 
-    // Loop to handle auto-shutdown after configurable time of sleep
-    while(Power::getInstance()->isRTCwakeUp()){
+    // Loop to handle "hidden" wakeups
+    while(true){
 #ifdef BATTERY_TEST
         Power::getInstance()->sleepCPU(SAMPLE_PERIOD);
         continue;
 #endif
-        if(QDateTime::currentDateTime() >= m_scheduledPowerOffTime // Auto-poweroff feature
-            || Battery::getInstance()->getLevel() <= 0) // Empty battery
-        {
-            powerOffDevice(QBook::settings().value("setting/initial_lang_selection", true).toBool());
-            return;
+        // Check auto-shutdown after configurable time of sleep
+        if(Power::getInstance()->isRTCwakeUp()){
+            if (QDateTime::currentDateTime() >= m_scheduledPowerOffTime // Auto-poweroff feature
+                || Battery::getInstance()->getLevel() <= 0) // Empty battery
+            {
+                powerOffDevice(QBook::settings().value("setting/initial_lang_selection", true).toBool());
+                return;
+            }
         }
+        // Check Home Hey events
+        else if(!QBookApp::instance()->accidentalHomePress())
+            break;
 
-        // Do needed checks
+        // Do needed checks to show proper battery level screen
         emit getInstance()->checkWhileSleeping();
         sleep(2); // In order to not to interrupt a panel refresh
+
+        QBookApp::instance()->resetCancelWakeUp();
 
         // Go to sleep again
         Power::getInstance()->sleepCPU(wakeUpAlarmTimer);
     }
+
+    if(QBookApp::instance()->isSleptShown())
+        getInstance()->wakeUpFromSleep();
+
+}
+
+void PowerManager::wakeUpFromSleep()
+{
+    qDebug() << Q_FUNC_INFO;
 
     QBookApp::instance()->closeSleep();
     getInstance()->returnFromSleep();

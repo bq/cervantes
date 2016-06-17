@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,21 +18,21 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -56,7 +56,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Atrás</string>
+         <string>Atr&#225;s</string>
         </property>
        </widget>
       </item>
@@ -71,11 +71,11 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>10000</height>
+          <height>14142</height>
          </size>
         </property>
         <property name="text">
-         <string>Añadir red</string>
+         <string>A&#241;adir red</string>
         </property>
        </widget>
       </item>
@@ -86,8 +86,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -114,7 +114,7 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <property name="spacing">
@@ -131,17 +131,17 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="networkNameLineEdit"/>
+       <widget class="QLineEdit" name="networkNameLineEdit" />
       </item>
       <item>
        <widget class="QLabel" name="ipAddressLbl">
         <property name="text">
-         <string>Dirección IP</string>
+         <string>Direcci&#243;n IP</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="ipAddressLineEdit"/>
+       <widget class="QLineEdit" name="ipAddressLineEdit" />
       </item>
       <item>
        <widget class="QLabel" name="securityLbl">
@@ -163,17 +163,17 @@
       <item>
        <widget class="QLabel" name="passwordLbl">
         <property name="text">
-         <string>Contraseña</string>
+         <string>Contrase&#241;a</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="passwordLineEdit"/>
+       <widget class="QLineEdit" name="passwordLineEdit" />
       </item>
       <item>
        <widget class="QCheckBox" name="checkBox">
         <property name="text">
-         <string>Ocultar contraseña</string>
+         <string>Ocultar contrase&#241;a</string>
         </property>
        </widget>
       </item>
@@ -201,8 +201,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>20</width>
-         <height>20</height>
+         <width>28</width>
+         <height>28</height>
         </size>
        </property>
       </spacer>
@@ -210,7 +210,7 @@
      <item>
       <widget class="QPushButton" name="addvancedSettingsBtn">
        <property name="text">
-        <string>Configuración avanzada</string>
+        <string>Configuraci&#243;n avanzada</string>
        </property>
       </widget>
      </item>
@@ -221,8 +221,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>57</width>
+         <height>28</height>
         </size>
        </property>
       </spacer>
@@ -244,8 +244,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>20</width>
-         <height>20</height>
+         <width>28</width>
+         <height>28</height>
         </size>
        </property>
       </spacer>
@@ -259,8 +259,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -275,8 +275,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -290,6 +290,6 @@
    <header>SilentQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

@@ -25,9 +25,11 @@ FORMS += ./ui/Home.ui \
 
 
 
-QRC_FILES += Home800.qrc Home1024.qrc
+QRC_FILES += Home800.qrc Home1024.qrc Home1448.qrc
 
 OTHER_FILES += \
     bqHome/res/1024/home_styles.qss \
     bqHome/res/home_styles_generic.qss \
-    bqHome/res/800/home_styles.qss
+    bqHome/res/800/home_styles.qss \
+    bqHome/res/1448/home_styles.qss
+

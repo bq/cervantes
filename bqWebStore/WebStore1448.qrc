@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="res/bqwebstore_styles.qss">res/1448/bqwebstore_styles.qss</file>
+        <file alias="res/bqwebstore_styles_generic.qss">res/bqwebstore_styles_generic.qss</file>
+    </qresource>
+</RCC>

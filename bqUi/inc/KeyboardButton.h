@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -54,6 +54,9 @@ public:
 
     bool isDehighlightDisabled()                    { return b_disableDehighlight; }
     void setDehighlightDisabled(bool disable)       { b_disableDehighlight = disable; }
+
+private:
+    void resetButtonStyle(bool inverted = false);
 
 public slots:
     void pressBtn();

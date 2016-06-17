@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -64,6 +64,7 @@ class QDateTime;
 
 #define SCROLL_AREA_WIDTH       120
 #define SCROLL_AREA_WIDTH_HD    153
+#define SCROLL_AREA_WIDTH_FHD    216
 
 enum HighlightPopupType {
     INIT_SINGLE_WORD_POPUP,

@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -106,11 +106,13 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "version.h"
 
 #define POWEROFF_BATTERY_LOW_TIMER      30000
-#define POWERBUTTON_LONGPRESS_TIMER     1500
-#define LIGHT_LONGPRESS_TIMER           1200
+#define POWERKEY_LONGPRESS_TIMER        1500
+#define HOMEKEY_LONGPRESS_TIMER         1200
+#define HOMEKEY_DOUBLECLICK_TIMER       300
 #define USB_CHANGE_SUSPEND_WAIT_TIME    10 // 10 Seconds
-#define POWER_KEY_WATCHER_PERIOD        100
-#define BOOKS_LOADED_TO_SHOW_DIALOG 10
+#define POWERKEY_WATCHER_PERIOD         100
+#define HOMEKEY_WATCHER_PERIOD          10
+#define BOOKS_LOADED_TO_SHOW_DIALOG     10
 
 #ifdef MX508
 #define STORE_CERTS_PATH	"/etc/ssl/certs/mundoreader/*.pem"
@@ -206,10 +208,10 @@ QBookApp::QBookApp(QWidget* parent, Qt::WFlags flags)
     , m_settingsMenu(NULL)
     , m_search(NULL)
     , m_webView(NULL)
+    , m_pPublicServices(NULL)
 #ifndef HACKERS_EDITION
     , m_welcomeWizard(NULL)
     , m_pServices(NULL)
-    , m_pPublicServices(NULL)
     , m_bqDeviceKey(NULL)
     , m_webStore(NULL)
     , m_webWizard(NULL)
@@ -249,6 +251,7 @@ QBookApp::QBookApp(QWidget* parent, Qt::WFlags flags)
     , b_isSleeping(false)
     , b_isBuying(false)
     , b_wizardFromStore(false)
+    ,b_cancelWakeUp(false)
     , offlineHelper(NULL)
 {
 #ifndef HACKERS_EDITION
@@ -385,15 +388,19 @@ QBookApp::QBookApp(QWidget* parent, Qt::WFlags flags)
     connect(&m_timer_powerButton, SIGNAL(timeout()), this, SLOT(askPowerOffDevice()));
     connect(&m_timer_light, SIGNAL(timeout()), this, SLOT(powerLight()));
     connect(&m_timer_light, SIGNAL(timeout()), &m_timer_light, SLOT(stop()));
+    connect(&m_timer_doubleHomeClick, SIGNAL(timeout()),this, SLOT(handleSpecialKeyPress()));
+    connect(&m_timer_doubleHomeClick, SIGNAL(timeout()), &m_timer_doubleHomeClick, SLOT(stop()));
     connect(&m_powerKeyWatcher, SIGNAL(timeout()),this, SLOT(checkLongPressPowerOff()));
 
     // Init timers
     m_powerKeyWatcher.setSingleShot(false); // Periodic
-    m_powerKeyWatcher.setInterval(POWER_KEY_WATCHER_PERIOD);
+    m_powerKeyWatcher.setInterval(POWERKEY_WATCHER_PERIOD);
     m_timer_powerButton.setSingleShot(true);
-    m_timer_powerButton.setInterval(POWERBUTTON_LONGPRESS_TIMER);
+    m_timer_powerButton.setInterval(POWERKEY_LONGPRESS_TIMER);
     m_timer_light.setSingleShot(true);
-    m_timer_light.setInterval(LIGHT_LONGPRESS_TIMER);
+    m_timer_light.setInterval(HOMEKEY_LONGPRESS_TIMER);
+    m_timer_doubleHomeClick.setSingleShot(true);
+    m_timer_doubleHomeClick.setInterval(HOMEKEY_DOUBLECLICK_TIMER);
 
     if(DeviceInfo::getInstance()->hasFrontLight() && FrontLight::getInstance()->isFrontLightActive())
     {
@@ -1139,7 +1146,7 @@ void QBookApp::popAllForms()
 
     while(!m_activeForms.isEmpty())
     {
-//        qDebug() << Q_FUNC_INFO << "Idx: " << m_activeForms;
+        qDebug() << Q_FUNC_INFO << "Idx: " << m_activeForms;
         QBookForm* form = m_activeForms.takeLast();
         if(form)
         {
@@ -1291,6 +1298,10 @@ void QBookApp::handleChargerChanged(bool state)
     if(b_batteryLevel)
         b_batteryLevel->close();
     b_charger_state = state;
+    if(b_isSleeping)
+        cancelOnGoingSleep();
+    else if(isSleptShown())
+        PowerManager::getInstance()->wakeUpFromSleep();
     QTimer::singleShot(100, this, SLOT(showChargerDialog()));
     emit userEvent();
 }
@@ -1326,6 +1337,11 @@ void QBookApp::handleUsbStateChanged (bool state)
     }
 
     m_usbChangeLock->activate();
+
+    if(b_isSleeping)
+        cancelOnGoingSleep();
+    else if(isSleptShown())
+        PowerManager::getInstance()->wakeUpFromSleep();
 
     emit userEvent();
 
@@ -1521,7 +1537,8 @@ void QBookApp::handleRemoveableChanged(bool state, const QString& path)
         if(Storage::getInstance()->getRemovablePartition() != NULL && path == Storage::getInstance()->getRemovablePartition()->getMountPoint()) {
             // Entry point for hackers SD check
             QString updateCheckFile;
-            if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60Q22) //Q22
+            int hwid = DeviceInfo::getInstance()->getHwId();
+            if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2) //Q22
                 updateCheckFile = HACKERS_UPDATE_CHECK_FILE_Q22;
             else // 672 and A22
                 updateCheckFile = HACKERS_UPDATE_CHECK_FILE_672;
@@ -1607,7 +1624,7 @@ bool QBookApp::checkDebugMagicFile(const QString& magicFileName, const QString& 
             }
     }else if(event->key() == QBook::QKEY_HOME){
             event->accept();
-            if(m_timer_powerButton.isActive())
+            if(m_timer_powerButton.isActive())  // Power key pressed -> Screenshot
             {
                 m_powerKeyLock->release();
                 m_timer_powerButton.stop();
@@ -1617,6 +1634,15 @@ bool QBookApp::checkDebugMagicFile(const QString& magicFileName, const QString& 
             {
                 m_homeKeyLock->activate();
                 m_timer_light.start();
+                if(!m_timer_doubleHomeClick.isActive()){ // First Home click
+                    m_timer_doubleHomeClick.start();
+                }
+                else{  // Second Home click
+                    m_homeKeyLock->release();
+                    m_timer_doubleHomeClick.stop();
+                    m_timer_light.stop();
+                    goToSleep();
+                }
             }
     }else
         QWidget::keyPressEvent(event);
@@ -1640,14 +1666,13 @@ bool QBookApp::checkDebugMagicFile(const QString& magicFileName, const QString& 
 
         m_timer_light.stop();
 
+        // Wizard Settings
         if(QBook::settings().value("setting/initial",true).toBool()){
             QBook::settings().setValue("setting/initial",false);
             QBook::settings().setValue("setting/initial_lang_selection",false);
         }
-
         wifiConnectionCanceled();
         b_wizardFromStore = false;
-        goToHome();
 
     }
     else if( event->key() == QBook::QKEY_MENU)
@@ -1761,6 +1786,15 @@ void QBookApp::powerLight()
         m_homeKeyLock->release();
 }
 
+void QBookApp::handleSpecialKeyPress()
+{
+    qDebug() << Q_FUNC_INFO << b_userEventsBlocked;
+
+    if(!b_userEventsBlocked && !m_timer_light.isActive()) {
+        goToHome();
+    }
+}
+
 void QBookApp::askPowerOffDevice()
 {
     m_timer_powerButton.stop();
@@ -1824,11 +1858,24 @@ Keyboard* QBookApp::showKeyboard(const QString& actionText, bool showUp, Keyboar
     if(!m_pKeyboard->isVisible())
     {
         qDebug() << Q_FUNC_INFO << "keyboard not visible";
-        if(!showUp){//WorkAround We dont have more time to fix it better
-            m_pKeyboard->move(0,Screen::getInstance()->screenHeight() - (Screen::getInstance()->screenHeight() == 1024 ? 384 : 300));
-        }else
-            m_pKeyboard->move(0,0);
+        int offset = 0; //Screen height - keyboard height
+        if(!showUp)
+        {
+            switch(QBook::getInstance()->getResolution())
+            {
+                case QBook::RES1072x1448:
+                    offset = 900; //1448 - 548;
+                    break;
+                case QBook::RES758x1024:
+                    offset = 640; //1024 - 640;
+                    break;
+                case QBook::RES600x800: default:
+                    offset = 500; //800 - 300;
+                    break;
+            }
+        }
 
+        m_pKeyboard->move(0,offset);
         m_pKeyboard->show(keyboardMode);
     }
     return m_pKeyboard;
@@ -1972,8 +2019,10 @@ void QBookApp::disconnectWifiObserverActivateStore()
 void QBookApp::goToWizard()
 {
     qDebug() << Q_FUNC_INFO;
-    if(m_welcomeWizard)
-        delete m_welcomeWizard;
+    WizardWelcome* oldinstance = NULL;
+    if(m_welcomeWizard) {
+        oldinstance = m_welcomeWizard;
+    }
 
     Screen::getInstance()->queueUpdates();
     hideKeyboard();
@@ -1982,6 +2031,7 @@ void QBookApp::goToWizard()
     connect(m_welcomeWizard, SIGNAL(closeWizard()), this,SLOT(closeWizard()));
     connect(m_welcomeWizard, SIGNAL(closeWizard()), this,SLOT(checkNewDictionaries()), Qt::UniqueConnection);
     pushTopForm(m_welcomeWizard);
+    // Apparently, the oldinstance WelcomeWizard is deleted inside pushTopForm. It shouldn't be a leak.
 
     Screen::getInstance()->setMode(Screen::MODE_SAFE,true, FLAG_WAITFORCOMPLETION,Q_FUNC_INFO);
     Screen::getInstance()->flushUpdates();
@@ -2379,25 +2429,53 @@ bool QBookApp::eventFilter(QObject* watched, QEvent* event)
     // User input events
     case QEvent::MouseButtonPress:
     case QEvent::MouseButtonRelease:
+        emit userEvent();
+        if (b_userEventsBlocked) {
+            qDebug() << Q_FUNC_INFO << "Touch event filtered";
+            return true;
+        }
+        else
+            return QWidget::eventFilter(watched, event);
+
     case QEvent::KeyPress:
     case QEvent::KeyRelease:
         emit userEvent();
         if(b_userEventsBlocked) {
+            qDebug() << Q_FUNC_INFO << "Key event filtered";
+            // POWER KEY RELEASE:
             // We want to process power key while sleeping so it can be cancelled
-            if (event->type() == QEvent::KeyRelease && ((QKeyEvent*)event)->key() == QBook::QKEY_POWER) {
-                if (b_isSleeping) {
-                    qDebug() << Q_FUNC_INFO << "power key released with events disabled while going to sleep. Canceling sleep";
+            if (b_isSleeping && event->type() == QEvent::KeyRelease && ((QKeyEvent*)event)->key() == QBook::QKEY_POWER) {
+                    qDebug() << Q_FUNC_INFO << "POWER KEY: Canceling sleep process";
                     cancelOnGoingSleep();
                     if(isLedDebuggingOff())
                         Power::getInstance()->setLed(false);
-                    return true;
-                } else {
-                    qDebug() << Q_FUNC_INFO << "power key released with event disabled but we are not going to sleep. Could be the poweron one. Ignoring";
+            }
+
+            // HOME, BACK OR MENU KEY PRESS:
+            // We want to process home key while sleeping or waking up to ckeck double click
+            else if (((QKeyEvent*)event)->key() != QBook::QKEY_POWER){
+                if(!m_timer_doubleHomeClick.isActive()){ // Waking up because of some key press (NO POWER)
+                    qDebug() << Q_FUNC_INFO << "FIRST CLICK OF KEY DIFFERENT THAN POWER";
+                    b_cancelWakeUp = true;
+                    m_timer_doubleHomeClick.start();
+                }
+                else if(event->type() == QEvent::KeyPress
+                        && ((QKeyEvent*)event)->key() == QBook::QKEY_HOME){
+                    qDebug() << Q_FUNC_INFO << "SECOND Home Key Click";
+                    b_cancelWakeUp = false;
+                    if(b_isSleeping){
+                        qDebug() << Q_FUNC_INFO << "DOUBLE HOME KEY: Canceling sleep process";
+                        cancelOnGoingSleep();
+                        if(isLedDebuggingOff())
+                            Power::getInstance()->setLed(false);
+                    }
                 }
             }
-            qDebug() << Q_FUNC_INFO << "Touch and key events temporarily blocked";
             return true;
         }
+        else
+            return QWidget::eventFilter(watched, event);
+
     default:
         return QWidget::eventFilter(watched, event);
     }
@@ -2838,6 +2916,13 @@ void QBookApp::syncModel()
     qDebug() <<Q_FUNC_INFO << "finished";
 }
 
+bool QBookApp::isSleptShown()
+{
+    qDebug() << Q_FUNC_INFO;
+
+    return (m_sleepScreen&&m_sleepScreen->isVisible());
+}
+
 void QBookApp::showSleep()
 {
     qDebug() << Q_FUNC_INFO;
@@ -2926,6 +3011,7 @@ void QBookApp::goToSleep()
 
     b_isSleeping = true;
     b_cancelSleep = false;
+    b_cancelWakeUp = false;
 
     disconnect(fwDwld, SIGNAL(checkOTAAvailableFinished(int)), this, SLOT(gotOTACheckResult(int)));
     disconnect(ConnectionManager::getInstance(), SIGNAL(connected()), this, SLOT(checkFwVersion()));
@@ -3449,7 +3535,7 @@ bool QBookApp::isViewerCurrentForm()
 bool QBookApp::isSynchronizing()
 {
        SyncHelper *syncHelper = getSyncHelper();
-       return syncHelper && syncHelper->isValid() && syncHelper->IsSynchronizing() || b_synchronizing;
+       return (syncHelper && syncHelper->isValid() && syncHelper->IsSynchronizing()) || b_synchronizing;
 }
 
 void QBookApp::viewRecentBooks()
@@ -3478,7 +3564,8 @@ bool QBookApp::checkSDForHackers()
     qDebug() << Q_FUNC_INFO;
 
     QString updateCheckFile;
-    if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60Q22) //Q22
+    int hwid = DeviceInfo::getInstance()->getHwId();
+    if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2) //Q22
         updateCheckFile = HACKERS_UPDATE_CHECK_FILE_Q22;
     else // 672 and A22
         updateCheckFile = HACKERS_UPDATE_CHECK_FILE_672;
@@ -3559,7 +3646,7 @@ QString QBookApp::getHackersAuth()
     // Do some stupid obfuscation. Resulting string should be "Esteesyaunjacker"
     char *tmp = strdup(salt);
     char *tmp2 = tmp;
-    int i;
+    unsigned int i;
     for (i=0; i< strlen(salt); i++) {
         tmp2[i] = (char) ((int)tmp2[i] + i);
     }
@@ -3578,6 +3665,7 @@ bool QBookApp::deviceHackAuthorized(QString auth)
             return true;
         else if(auth.compare("DeviceHackNotAuthorized") == 0)
             return false;
+        return false;
 }
 
 void QBookApp::requestHackersInstallation()
@@ -3586,7 +3674,8 @@ void QBookApp::requestHackersInstallation()
     disconnect(m_connectManager, SIGNAL(connected()), this, SLOT(requestHackersInstallation()));
 
     QString updateCheckFile;
-    if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60Q22) //Q22
+    int hwid = DeviceInfo::getInstance()->getHwId();
+    if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2) //Q22
         updateCheckFile = HACKERS_UPDATE_CHECK_FILE_Q22;
     else // 672 and A22
         updateCheckFile = HACKERS_UPDATE_CHECK_FILE_672;
@@ -3823,7 +3912,7 @@ void QBookApp::checkLongPressPowerOff(){
 
         i_powerKeySamplesCounter++;
         qDebug() << Q_FUNC_INFO << "PowerKey pressed," << i_powerKeySamplesCounter << "samples";
-        if(i_powerKeySamplesCounter > POWERMANAGER_PWROFF_LONGPRESS/POWER_KEY_WATCHER_PERIOD){
+        if(i_powerKeySamplesCounter > POWERMANAGER_PWROFF_LONGPRESS/POWERKEY_WATCHER_PERIOD){
             qDebug() << Q_FUNC_INFO << "POWERKEY LONG PRESSED";
             emit powerKeyLongPressed();
         }
@@ -4536,3 +4625,25 @@ void QBookApp::checkBooksChanged()
     }
 }
 
+void QBookApp::resetCancelWakeUp(){
+    qDebug() << Q_FUNC_INFO;
+
+    for (int i = 0; i < 3; i++) {
+         qApp->processEvents(); // Allow QBookApp to check key event
+         usleep(10000); /* 10ms */
+    }
+
+    b_cancelWakeUp = false;
+    m_timer_doubleHomeClick.stop();
+}
+
+bool QBookApp::accidentalHomePress(){
+    qDebug() << Q_FUNC_INFO << "START:" << b_cancelWakeUp;
+
+    for (int i = 0; i*HOMEKEY_WATCHER_PERIOD <= HOMEKEY_DOUBLECLICK_TIMER + HOMEKEY_WATCHER_PERIOD; i++) {
+        qApp->processEvents(); // Allow QBookApp to check key event
+        usleep(HOMEKEY_WATCHER_PERIOD*1000);
+    }
+    qDebug() << Q_FUNC_INFO << "END:" << b_cancelWakeUp;
+    return b_cancelWakeUp;
+}

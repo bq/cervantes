@@ -109,7 +109,7 @@
     </message>
     <message utf8="true">
         <source>Último acceso:</source>
-        <translation>Azken irakurketa:</translation>
+        <translation>Azken irakurketa: </translation>
     </message>
     <message>
         <source>Fecha de acceso</source>

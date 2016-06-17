@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>64</height>
+    <width>849</width>
+    <height>91</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,15 +20,15 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QWidget" name="LineGridCollectionsItemCont" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
-     <height>64</height>
+     <width>849</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -39,12 +39,12 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>600</width>
-     <height>64</height>
+     <width>849</width>
+     <height>91</height>
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true" />
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_3">
     <property name="spacing">
@@ -81,8 +81,8 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>600</width>
-           <height>1000</height>
+           <width>849</width>
+           <height>1414</height>
           </size>
          </property>
          <property name="text">
@@ -140,7 +140,7 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>10000</width>
+              <width>14142</width>
               <height>16777215</height>
              </size>
             </property>
@@ -162,8 +162,8 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
-              <height>20</height>
+              <width>57</width>
+              <height>28</height>
              </size>
             </property>
            </spacer>
@@ -178,8 +178,8 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
-           <height>40</height>
+           <width>28</width>
+           <height>57</height>
           </size>
          </property>
         </spacer>
@@ -203,7 +203,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>83</width>
+        <width>117</width>
         <height>16777215</height>
        </size>
       </property>
@@ -211,7 +211,7 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -231,7 +231,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>84</width>
+        <width>119</width>
         <height>16777215</height>
        </size>
       </property>
@@ -239,13 +239,13 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

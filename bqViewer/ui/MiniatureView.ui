@@ -6,23 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>127</width>
-    <height>202</height>
+    <width>180</width>
+    <height>286</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QWidget" name="screenshotCont" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>125</width>
-     <height>200</height>
+     <width>177</width>
+     <height>283</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -44,7 +44,7 @@
     <item>
      <widget class="QLabel" name="miniatureTopSpacer">
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -96,8 +96,8 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>40</width>
-           <height>20</height>
+           <width>57</width>
+           <height>28</height>
           </size>
          </property>
         </spacer>
@@ -153,8 +153,8 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>40</width>
-           <height>20</height>
+           <width>57</width>
+           <height>28</height>
           </size>
          </property>
         </spacer>
@@ -169,8 +169,8 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>80</width>
-     <height>80</height>
+     <width>113</width>
+     <height>113</height>
     </rect>
    </property>
   </widget>
@@ -179,18 +179,18 @@
     <rect>
      <x>120</x>
      <y>10</y>
-     <width>66</width>
-     <height>17</height>
+     <width>93</width>
+     <height>24</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string />
    </property>
   </widget>
   <zorder>screenshotCont</zorder>
   <zorder>screenshotLbl</zorder>
   <zorder>frame</zorder>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

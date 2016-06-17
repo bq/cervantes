@@ -2,19 +2,12 @@
     <qresource prefix="/">
         <file alias="res/access_Btn.png">res/800/access_Btn.png</file>
         <file alias="res/account_settings_btn.png">res/800/account_settings_btn.png</file>
-        <file alias="res/account_settings_Ico.png">res/800/account_settings_Ico.png</file>
         <file alias="res/back_Btn.png">res/800/back_Btn.png</file>
         <file alias="res/brightness_settings.png">res/800/brightness_settings.png</file>
-        <file alias="res/brightness_settings_Ico.png">res/800/brightness_settings_Ico.png</file>
         <file alias="res/browser_settings.png">res/800/browser-settings.png</file>
-        <file alias="res/browser_settings_Ico.png">res/800/browser-settings_Ico.png</file>
         <file alias="res/device_info.png">res/800/device_info.png</file>
-        <file alias="res/device_info_Ico.png">res/800/device_info_Ico.png</file>
         <file alias="res/device_settings.png">res/800/device_settings.png</file>
-        <file alias="res/device_settings_Ico.png">res/800/device_settings_Ico.png</file>
-        <file alias="res/settings_styles.qss">res/800/settings_styles.qss</file>
         <file alias="res/wifi_settings.png">res/800/wifi_settings.png</file>
-        <file alias="res/wifi_settings_ico.png">res/800/wifi_settings_ico.png</file>
         <file alias="res/bg_select_arrow.png">res/800/bg_select_arrow.png</file>
         <file alias="res/checked.png">res/800/checked.png</file>
         <file alias="res/spinner_ico.png">res/800/spinner_ico.png</file>
@@ -57,7 +50,6 @@
         <file alias="res/wifi_3_Ico.png">res/800/wifi_3_Ico.png</file>
         <file alias="res/wifi_4_Ico.png">res/800/wifi_4_Ico.png</file>
         <file alias="res/wifi_no_Ico.png">res/800/wifi_no_Ico.png</file>
-        <file alias="res/save.png">res/800/save.png</file>
         <file alias="res/save-grey.png">res/800/save-grey.png</file>
         <file alias="res/wifi_refresh.png">res/800/wifi_refresh.png</file>
         <file alias="res/reload_wifi.png">res/800/reload_wifi.png</file>
@@ -79,5 +71,6 @@
         <file alias="res/about_us_settings.png">res/800/about_us_settings.png</file>
         <file alias="res/checked-small-disabled.png">res/800/checked-small-disabled.png</file>
         <file alias="res/unchecked-small-disabled.png">res/800/unchecked-small-disabled.png</file>
+        <file alias="res/settings_styles.qss">res/800/settings_styles.qss</file>
     </qresource>
 </RCC>

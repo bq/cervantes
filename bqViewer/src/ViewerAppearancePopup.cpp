@@ -780,7 +780,7 @@ void ViewerAppearancePopup::setupUiButtons()
         sizeCont->setEnabled(true);
         fontTypeCont->setEnabled(true);
         marginCont->setEnabled(true);
-        spacingCont->setEnabled(true);
+        spacingCont->setEnabled(ext != Viewer::EXT_HTML);
         justifyCont->setEnabled(false);
 
         g_MarginButtons->setExclusive(true);

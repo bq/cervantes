@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -72,6 +72,8 @@ double PDF_INTERNAL_SIZE = 0.5;
 #define EPUB_FONT_SIZE_BEST_LEVEL 1
 const double EPUB_FONT_SIZE_600[EPUB_FONT_SIZE_MAX_LEVEL+1] = {16.0, 20.0, 24.0, 27.0, 31.0, 36.0, 42.0, 51.0};
 const double EPUB_FONT_SIZE_758[EPUB_FONT_SIZE_MAX_LEVEL+1] = {21.0, 27.0, 32.0, 37.0, 42.0, 50.0, 58.0, 66.5};
+//const double EPUB_FONT_SIZE_1072[EPUB_FONT_SIZE_MAX_LEVEL+1] = {30.0, 38.0, 45.0, 52.0, 59.0, 71.0, 82.0, 94.0};
+const double EPUB_FONT_SIZE_1072[EPUB_FONT_SIZE_MAX_LEVEL+1] = {7.0, 9.0, 11.0, 13.0, 14.0, 17.0, 19.0, 23.0};
 const double* EPUB_FONT_SIZE = 0;
 
 #define Q_REFLOW_SCALE_BEST     2.0
@@ -762,17 +764,23 @@ QAdobeDocView::QAdobeDocView(dpdoc::Document* doc, QAdobeClient* client, QWidget
 
     m_noteFont.setPixelSize(15);
 
-    if(QBook::getInstance()->getResolution() == QBook::RES600x800)
+    switch(QBook::getInstance()->getResolution())
     {
-        EPUB_FONT_SIZE = EPUB_FONT_SIZE_600;
-        EPUB_INTERNAL_SIZE = 5.0;
-        PDF_INTERNAL_SIZE = 0.5;
-    }
-    else
-    {
-        EPUB_FONT_SIZE = EPUB_FONT_SIZE_758;
-        EPUB_INTERNAL_SIZE = 6.5;//5.0*1.33;//6.2;//5.0*1.297619048;//6.25;
-        PDF_INTERNAL_SIZE = 0.5;
+        case QBook::RES1072x1448:
+            EPUB_FONT_SIZE = EPUB_FONT_SIZE_1072;
+            EPUB_INTERNAL_SIZE = 9.0;//5.0*1.33;//6.2;//5.0*1.297619048;//6.25;
+            PDF_INTERNAL_SIZE = 0.5;
+            break;
+        case QBook::RES758x1024:
+            EPUB_FONT_SIZE = EPUB_FONT_SIZE_758;
+            EPUB_INTERNAL_SIZE = 6.5;//5.0*1.33;//6.2;//5.0*1.297619048;//6.25;
+            PDF_INTERNAL_SIZE = 0.5;
+            break;
+        case QBook::RES600x800: default:
+            EPUB_FONT_SIZE = EPUB_FONT_SIZE_600;
+            EPUB_INTERNAL_SIZE = 5.0;
+            PDF_INTERNAL_SIZE = 0.5;
+            break;
     }
 
     Q_FONT_SIZE_BEST = EPUB_FONT_SIZE[EPUB_FONT_SIZE_BEST_LEVEL];

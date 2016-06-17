@@ -645,7 +645,7 @@ Please, restart the device if you need to continue using it.</translation>
         <location filename="../src/QBookScreenSaver.cpp" line="224"/>
         <location filename="../src/QBookScreenSaver.cpp" line="232"/>
         <source>Press the Power button to resume</source>
-        <translation>Press the Power button to resume</translation>
+        <translation>To wake, press the power button, or press the home button twice</translation>
     </message>
 </context>
 <context>

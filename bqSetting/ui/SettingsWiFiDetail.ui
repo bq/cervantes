@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -33,8 +33,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>100000</width>
-       <height>100000</height>
+       <width>141421</width>
+       <height>141421</height>
       </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -59,7 +59,7 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string>Atrás</string>
+            <string>Atr&#225;s</string>
            </property>
           </widget>
          </item>
@@ -74,11 +74,11 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>10000</height>
+             <height>14142</height>
             </size>
            </property>
            <property name="text">
-            <string>Información de red</string>
+            <string>Informaci&#243;n de red</string>
            </property>
           </widget>
          </item>
@@ -89,8 +89,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -120,7 +120,7 @@
       <property name="spacing">
        <number>0</number>
       </property>
-      <item row="4" column="0">
+      <item column="0" row="4">
        <widget class="QLabel" name="ipAddress">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -142,7 +142,7 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="0">
+      <item column="0" row="7">
        <widget class="QLabel" name="dns">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -164,7 +164,7 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
+      <item column="1" row="4">
        <widget class="QLabel" name="ipAddressEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -186,7 +186,7 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item column="0" row="3">
        <widget class="QLabel" name="signal">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -201,14 +201,14 @@
          </font>
         </property>
         <property name="text">
-         <string>Calidad de señal:</string>
+         <string>Calidad de se&#241;al:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
-      <item row="8" column="0">
+      <item column="0" row="8">
        <widget class="QLabel" name="Proxy">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -230,7 +230,7 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item column="1" row="2">
        <widget class="QLabel" name="security_data">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -252,7 +252,7 @@
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
+      <item column="0" row="6">
        <widget class="QLabel" name="router">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -274,7 +274,7 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="1">
+      <item column="1" row="5">
        <widget class="QLabel" name="subnetEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -296,7 +296,7 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item column="0" row="2">
        <widget class="QLabel" name="security">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -318,7 +318,7 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="1">
+      <item column="1" row="7">
        <widget class="QLabel" name="dnsEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -340,7 +340,7 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="1">
+      <item column="1" row="8">
        <widget class="QLabel" name="Proxy_data">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -362,7 +362,7 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
+      <item column="0" row="5">
        <widget class="QLabel" name="subnetMask">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -384,7 +384,7 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
+      <item column="1" row="3">
        <widget class="QLabel" name="signal_data">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -406,7 +406,7 @@
         </property>
        </widget>
       </item>
-      <item row="6" column="1">
+      <item column="1" row="6">
        <widget class="QLabel" name="routerEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -428,7 +428,7 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
+      <item column="0" row="1">
        <widget class="QLabel" name="wifiStatusTit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -444,7 +444,7 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
+      <item column="1" row="1">
        <widget class="QLabel" name="wifiNameLabel">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -477,7 +477,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>0</width>
-       <height>20</height>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -498,8 +498,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -525,7 +525,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <property name="text">
          <string>Edit</string>
@@ -553,7 +553,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <property name="text">
          <string>Forget</string>
@@ -581,7 +581,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <property name="text">
          <string>Disconnect</string>
@@ -598,8 +598,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -618,6 +618,6 @@
    <header>FastQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

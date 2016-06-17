@@ -518,7 +518,7 @@ Mesedez, ez atera SD-a.</translation>
     </message>
     <message>
         <source>Press the Power button to resume</source>
-        <translation>Sakatu Piztu botoia berrekiteko</translation>
+        <translation>Berrabiarazteko, sakatu behin pizteko botoia edo bi aldiz hasierakoa</translation>
     </message>
 </context>
 <context>

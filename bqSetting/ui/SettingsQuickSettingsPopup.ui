@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>960</height>
+    <width>1072</width>
+    <height>1358</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,14 +18,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>758</width>
-    <height>960</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>758</width>
-    <height>960</height>
+    <width>1072</width>
+    <height>1358</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -35,7 +35,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <property name="margin">
@@ -50,7 +50,7 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
@@ -80,7 +80,7 @@
          <item>
           <widget class="QLabel" name="titlePopupLbl">
            <property name="text">
-            <string>Ajustes rápidos</string>
+            <string>Ajustes r&#225;pidos</string>
            </property>
           </widget>
          </item>
@@ -91,8 +91,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -103,7 +103,7 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -115,7 +115,7 @@
         <item>
          <widget class="QWidget" name="contentPopup" native="true">
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true" />
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <property name="spacing">
@@ -136,7 +136,7 @@
            <item>
             <widget class="QWidget" name="wifiCont" native="true">
              <property name="styleSheet">
-              <string notr="true"/>
+              <string notr="true" />
              </property>
              <layout class="QHBoxLayout" name="wifiCont1">
               <property name="spacing">
@@ -168,8 +168,8 @@
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>40</width>
-                  <height>20</height>
+                  <width>57</width>
+                  <height>28</height>
                  </size>
                 </property>
                </spacer>
@@ -180,7 +180,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string/>
+                 <string />
                 </property>
                </widget>
               </item>
@@ -194,8 +194,8 @@
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>2</width>
-                  <height>20</height>
+                  <width>3</width>
+                  <height>28</height>
                  </size>
                 </property>
                </spacer>
@@ -226,8 +226,8 @@
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>40</width>
-                  <height>20</height>
+                  <width>57</width>
+                  <height>28</height>
                  </size>
                 </property>
                </spacer>
@@ -238,7 +238,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string/>
+                 <string />
                 </property>
                </widget>
               </item>
@@ -252,8 +252,8 @@
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>2</width>
-                  <height>20</height>
+                  <width>3</width>
+                  <height>28</height>
                  </size>
                 </property>
                </spacer>
@@ -293,8 +293,8 @@
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>5</width>
-                  <height>20</height>
+                  <width>7</width>
+                  <height>28</height>
                  </size>
                 </property>
                </spacer>
@@ -321,7 +321,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string/>
+                 <string />
                 </property>
                </widget>
               </item>
@@ -362,8 +362,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -393,8 +393,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -424,8 +424,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -455,8 +455,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -486,8 +486,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -517,8 +517,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -548,8 +548,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -579,8 +579,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -610,8 +610,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -641,8 +641,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -672,8 +672,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -703,8 +703,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -734,8 +734,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -765,8 +765,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -796,8 +796,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -827,8 +827,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -858,8 +858,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -889,8 +889,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -920,8 +920,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -951,8 +951,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -982,8 +982,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -1013,8 +1013,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -1044,8 +1044,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -1075,8 +1075,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -1106,8 +1106,8 @@
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>20</width>
-                        <height>45</height>
+                        <width>28</width>
+                        <height>64</height>
                        </size>
                       </property>
                      </spacer>
@@ -1130,7 +1130,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string/>
+                 <string />
                 </property>
                </widget>
               </item>
@@ -1154,8 +1154,8 @@
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>5</width>
-                  <height>20</height>
+                  <width>7</width>
+                  <height>28</height>
                  </size>
                 </property>
                </spacer>
@@ -1175,8 +1175,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>20</width>
-          <height>40</height>
+          <width>28</width>
+          <height>57</height>
          </size>
         </property>
        </spacer>
@@ -1215,6 +1215,6 @@
    <header>LongPressedQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

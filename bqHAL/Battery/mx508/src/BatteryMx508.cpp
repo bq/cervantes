@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -19,17 +19,37 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 *************************************************************************/
 
 #include "BatteryMx508.h"
+#include "DeviceInfo.h"
 
 #include <QDebug>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include <iostream>
+#include <fstream>
 #include "cmath"
 
 
 int BatteryMx508::getLevel(){
-    qDebug() << "--->" << Q_FUNC_INFO;
+ 
+    if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60QH2) {
+        int percentage;
+        std::ifstream infile("/sys/bus/platform/devices/ricoh619-battery/power_supply/mc13892_bat/capacity");
+        if (!infile) {
+            qDebug() << Q_FUNC_INFO << "could not open e60qh2 battery sysfs file";
+            return 50;
+        }
+
+        infile >> percentage;
+
+        if (percentage < 1) // Check battery critical level
+            emit batteryLevelCritical();
+        else
+            emit batteryLevelChanged(percentage);
+
+        return percentage;
+    }
 
     /*  Range of values from the driver: 885 - 1023
         Critical level bit: 0x8000

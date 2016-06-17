@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -40,7 +40,9 @@ MiniatureViewLandscape::MiniatureViewLandscape(QWidget *parent) :
     setupUi(this);
 
     /// Values from viewer_styles.qss -> #miniatureRightSpacer
-    if (QBook::getResolution() == QBook::RES600x800) WIDGET_ASPECT_RATIO = 148.0 / 125.0;
+    if (QBook::getInstance()->getResolution() == QBook::RES1072x1448)
+        WIDGET_ASPECT_RATIO = 226.0 / 267.0;
+    else if (QBook::getInstance()->getResolution() == QBook::RES600x800) WIDGET_ASPECT_RATIO = 148.0 / 125.0;
     else                                             WIDGET_ASPECT_RATIO = 189.0 / 160.0;
 }
 

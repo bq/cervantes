@@ -6,27 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>700</height>
+    <width>849</width>
+    <height>990</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>700</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>700</height>
+    <width>849</width>
+    <height>990</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <property name="spacing">
@@ -53,8 +53,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>20</width>
-         <height>40</height>
+         <width>28</width>
+         <height>57</height>
         </size>
        </property>
       </spacer>
@@ -111,8 +111,8 @@
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>40</width>
-                 <height>20</height>
+                 <width>57</width>
+                 <height>28</height>
                 </size>
                </property>
               </spacer>
@@ -129,7 +129,7 @@
                 <enum>Qt::NoFocus</enum>
                </property>
                <property name="text">
-                <string/>
+                <string />
                </property>
               </widget>
              </item>
@@ -153,7 +153,7 @@
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>53</height>
+              <height>75</height>
              </size>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -172,7 +172,7 @@
                 </sizepolicy>
                </property>
                <property name="text">
-                <string>Usar configuración de la editorial</string>
+                <string>Usar configuraci&#243;n de la editorial</string>
                </property>
               </widget>
              </item>
@@ -183,8 +183,8 @@
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>40</width>
-                 <height>20</height>
+                 <width>57</width>
+                 <height>28</height>
                 </size>
                </property>
               </spacer>
@@ -195,7 +195,7 @@
                 <enum>Qt::NoFocus</enum>
                </property>
                <property name="text">
-                <string/>
+                <string />
                </property>
               </widget>
              </item>
@@ -213,7 +213,7 @@
             <item>
              <widget class="QLabel" name="spaceBetLbl1">
               <property name="text">
-               <string/>
+               <string />
               </property>
              </widget>
             </item>
@@ -237,7 +237,7 @@
              <item>
               <widget class="QLabel" name="SpaceLeft">
                <property name="text">
-                <string/>
+                <string />
                </property>
               </widget>
              </item>
@@ -444,7 +444,7 @@
              <item>
               <widget class="QLabel" name="SpaceRight">
                <property name="text">
-                <string/>
+                <string />
                </property>
               </widget>
              </item>
@@ -462,7 +462,7 @@
             <item>
              <widget class="QLabel" name="spaceBetLbl">
               <property name="text">
-               <string/>
+               <string />
               </property>
              </widget>
             </item>
@@ -486,7 +486,7 @@
              <item>
               <widget class="QLabel" name="spacerLeftBodyCont">
                <property name="text">
-                <string/>
+                <string />
                </property>
               </widget>
              </item>
@@ -532,7 +532,7 @@
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>46</height>
+                    <height>65</height>
                    </size>
                   </property>
                   <property name="focusPolicy">
@@ -563,7 +563,7 @@
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>46</height>
+                    <height>65</height>
                    </size>
                   </property>
                   <property name="focusPolicy">
@@ -594,7 +594,7 @@
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>46</height>
+                    <height>65</height>
                    </size>
                   </property>
                   <property name="focusPolicy">
@@ -625,7 +625,7 @@
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>46</height>
+                    <height>65</height>
                    </size>
                   </property>
                   <property name="focusPolicy">
@@ -656,7 +656,7 @@
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>46</height>
+                    <height>65</height>
                    </size>
                   </property>
                   <property name="focusPolicy">
@@ -687,7 +687,7 @@
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>46</height>
+                    <height>65</height>
                    </size>
                   </property>
                   <property name="focusPolicy">
@@ -718,7 +718,7 @@
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>46</height>
+                    <height>65</height>
                    </size>
                   </property>
                   <property name="focusPolicy">
@@ -738,7 +738,7 @@
              <item>
               <widget class="QLabel" name="horizontalSpacerLbl">
                <property name="text">
-                <string/>
+                <string />
                </property>
               </widget>
              </item>
@@ -775,7 +775,7 @@
                       </sizepolicy>
                      </property>
                      <property name="text">
-                      <string>Márgenes</string>
+                      <string>M&#225;rgenes</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -803,7 +803,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string />
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -816,7 +816,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string />
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -829,7 +829,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string />
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -845,7 +845,7 @@
                 <item>
                  <widget class="QLabel" name="separator1Lbl">
                   <property name="text">
-                   <string/>
+                   <string />
                   </property>
                  </widget>
                 </item>
@@ -883,7 +883,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string />
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -896,7 +896,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string />
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -909,7 +909,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string />
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -925,7 +925,7 @@
                 <item>
                  <widget class="QLabel" name="separator2Lbl">
                   <property name="text">
-                   <string/>
+                   <string />
                   </property>
                  </widget>
                 </item>
@@ -969,7 +969,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string />
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -982,7 +982,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string />
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -995,7 +995,7 @@
                          <enum>Qt::NoFocus</enum>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string />
                         </property>
                         <property name="checkable">
                          <bool>true</bool>
@@ -1011,7 +1011,7 @@
                 <item>
                  <widget class="QLabel" name="separator3Lbl">
                   <property name="text">
-                   <string/>
+                   <string />
                   </property>
                  </widget>
                 </item>
@@ -1042,7 +1042,7 @@
                    <item>
                     <widget class="QLabel" name="seeImagesLbl">
                      <property name="text">
-                      <string>Mostrar imágenes</string>
+                      <string>Mostrar im&#225;genes</string>
                      </property>
                     </widget>
                    </item>
@@ -1053,8 +1053,8 @@
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
-                       <width>40</width>
-                       <height>20</height>
+                       <width>57</width>
+                       <height>28</height>
                       </size>
                      </property>
                     </spacer>
@@ -1065,7 +1065,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string/>
+                      <string />
                      </property>
                     </widget>
                    </item>
@@ -1078,7 +1078,7 @@
              <item>
               <widget class="QLabel" name="spacerRightBodyCont">
                <property name="text">
-                <string/>
+                <string />
                </property>
               </widget>
              </item>
@@ -1092,8 +1092,8 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>20</width>
-              <height>40</height>
+              <width>28</width>
+              <height>57</height>
              </size>
             </property>
            </spacer>
@@ -1108,7 +1108,7 @@
        <property name="maximumSize">
         <size>
          <width>16777215</width>
-         <height>19</height>
+         <height>27</height>
         </size>
        </property>
        <widget class="QLabel" name="bottomArrowLbl">
@@ -1116,12 +1116,12 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>427</width>
-          <height>17</height>
+          <width>604</width>
+          <height>24</height>
          </rect>
         </property>
         <property name="text">
-         <string/>
+         <string />
         </property>
         <property name="indent">
          <number>0</number>
@@ -1150,6 +1150,6 @@
    <header>SwipeableQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

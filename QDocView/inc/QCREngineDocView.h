@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -84,6 +84,7 @@ public:
 	int highlightId(int, int);
 	void removeHighlight(int);
     ldomXRange * wordAtRange(int, int);
+    virtual bool processEventInPoint ( const QPoint& );
     virtual QDocView::Location* highlightLocation(int) const;
 	ldomXRange* bookmarkToHighlight(const QString&) const;
     virtual int pageCount() const;

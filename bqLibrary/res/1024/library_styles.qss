@@ -112,10 +112,9 @@ max-height:58px;
 border-width:2px;
 }
 #topActions{
-/*margin:0px 20px;*/
 margin:0px 25px;
-min-height:43px;
-max-height:43px;
+min-height:42px;
+max-height:42px;
 }
 #searchCont #bookActionsSelectBtn{
 padding:0px 20px 0px 0px;
@@ -201,7 +200,7 @@ min-height:57px;
 max-height:57px;
 }
 #sortByBtn{
-padding:0px 35px 0px 20px;
+padding:0px 30px 0px 15px;
 margin:0px 25px 0px 0px;
 min-height:51px;
 max-height:51px;
@@ -289,20 +288,32 @@ border-bottom-right-radius:6px;
 #LibraryIconGridViewer{
 min-width:758px;
 max-width:758px;
-min-height:772px;
-max-height:772px;
+min-height:770px;
+max-height:770px;
+}
+#iconGridViewerCont{
+min-width:758px;
+max-width:758px;
+min-height:704px;
+max-height:704px;
+}
+
+#iconGridViewerCont #book1Cont, #iconGridViewerCont #book2Cont, #iconGridViewerCont #book3Cont, #iconGridViewerCont #book4Cont, #iconGridViewerCont #book5Cont, #iconGridViewerCont #book6Cont{
+min-width:243px;
+max-width:243px;
+min-height:307px;
+max-height:307px;
+margin-top:18px;
+margin-bottom:32px;
+}
+#iconGridViewerCont #book4Cont, #iconGridViewerCont #book5Cont, #iconGridViewerCont #book6Cont{
+margin-bottom:0px;
 }
 #iconGridViewerCont #book1, #iconGridViewerCont #book2, #iconGridViewerCont #book3, #iconGridViewerCont #book4, #iconGridViewerCont #book5, #iconGridViewerCont #book6{
 min-width:243px;
 max-width:243px;
 min-height:307px;
-min-height:307px;
-}
-#iconGridViewerCont #book1Cont, #iconGridViewerCont #book2Cont, #iconGridViewerCont #book3Cont, #iconGridViewerCont #book4Cont, #iconGridViewerCont #book5Cont, #iconGridViewerCont #book6Cont{
-min-width:243px;
-max-width:243px;
-min-height:307px;
-min-height:307px;
+max-height:307px;
 }
 
 /*LibraryIconGridViewerItem
@@ -539,8 +550,12 @@ max-height:294px;
 #LibraryLineGridViewer{
 min-width:758px;
 max-width:758px;
-min-height:774px;
-max-height:774px;
+min-height:770px;
+max-height:770px;
+}
+#LibraryLineGridViewerCont{
+min-height:708px;
+max-height:708px;
 }
 #LibraryLineGridViewer #book1, #LibraryLineGridViewer #book2, #LibraryLineGridViewer #book3, #LibraryLineGridViewer #book4, #LibraryLineGridViewer #book5, #LibraryLineGridViewer #book6, #book7{
 margin:0px;
@@ -743,11 +758,18 @@ max-height:20px;
 }
 /*LibraryReadingIconGridViewer
 -----------------------------*/
-#LibraryReadingIconGridViewer,#LibraryReadingIconGridViewerCont{
+#LibraryReadingIconGridViewer{
 min-width:758px;
 max-width:758px;
-min-height:772px;
-max-height:772px;
+min-height:770px;
+max-height:770px;
+}
+
+#LibraryReadingIconGridViewerCont{
+min-width:758px;
+max-width:758px;
+min-height:706px;
+max-height:706px;
 }
 #LibraryReadingIconGridViewerCont #currentBookData{
 min-width:435px;
@@ -856,23 +878,29 @@ max-height:17px;
 margin:12px 6px 0px -4px;
 font-size:22px;
 }
+#LibraryReadingIconGridViewerCont #iconGridViewerCont{
+min-height:344px;
+max-height:344px;
+}
+
 #mainBookInfoCont{
 min-width:758px;
 max-width:758px;
-min-height:339px;
-max-height:339px;
+min-height:360px;
+max-height:360px;
 }
 #currentBookCont{
 min-width:758px;
 max-width:758px;
-min-height:339px;
-max-height:339px;
+min-height:342px;
+max-height:342px;
+padding-top:18px;
 }
 #readBookBtn{
 min-width:758px;
 max-width:758px;
-min-height:339px;
-max-height:339px;
+min-height:330px;
+max-height:330px;
 }
 #currentBookData{
 min-width:390px;
@@ -897,8 +925,6 @@ font-size:22px;
 margin:3px 5px 0px 0px;
 font-size:22px;
 font-weight:normal;
-
-
 }
 /*Viewer popups
 -----------------------------------*/
@@ -1211,50 +1237,49 @@ max-height:64px;
 #pageLibraryViewerCont{
 min-width:758px;
 max-width:758px;
-min-height:65px;
-max-height:65px;
+min-height:61px;
+max-height:61px;
 }
 #VerticalPagerHandler{
 min-width:758px;
 max-width:758px;
-margin:9px 0px 0px 0px;
-min-height:65px;
-max-height:65px;
+min-height:61px;
+max-height:61px;
+margin: 0px 0px 0px 0px;
 border-top:1px solid #808080;
 }
 #VerticalPagerHandler #pageLibraryViewerCont{
-min-height:70px;
-max-height:70px;
+min-height:61px;
+max-height:61px;
 }
 #VerticalPagerHandler #pageLibraryViewerCont #forwardButton{
 min-width:115px;
 max-width:115px;
-min-height:70px;
-max-height:70px;
+min-height:61px;
+max-height:61px;
 border-left-width:1px;
 }
 #VerticalPagerHandler #pageLibraryViewerCont #backButton{
 min-width:115px;
 max-width:115px;
-min-height:70px;
-max-height:70px;
+min-height:61px;
+max-height:61px;
 border-right-width:1px;
 }
 #pageLibraryViewerCont #pageLabel{
-margin:2px 0px 0px 23px;
-min-height:70px;
-max-height:70px;
+margin:0px 0px 0px 23px;
+min-height:61px;
+max-height:61px;
 min-width:120px;
 }
 #VerticalPagerHandler #pageLabel{
-margin-top:2px;
-min-height:70px;
-max-height:70px;
+min-height:61px;
+max-height:61px;
 font-size:24px;
 }
 QSlider#pagerSlider{
-min-height:70px;
-max-height:70px;
+min-height:61px;
+max-height:61px;
 min-width:370px;
 max-width:370px;
 }
@@ -1538,7 +1563,7 @@ max-height:70px;
 border-bottom-width:2px;
 }
 #collectionContainer #actionsCont QPushButton{
-padding:0px 6px 0px 51px;
+padding:0px 15px;
 margin:0px 13px 0px 0px;
 min-height:55px;
 max-height:55px;
@@ -1546,8 +1571,12 @@ border-width:2px;
 border-radius:6px;
 }
 #collectionContainer #actionsCont QPushButton#unSelectAllBtn{
-margin-right:38px;
+border-width:1px;
 }
+#collectionContainer #actionsCont QPushButton#selectAllBtn{
+border-width:1px;
+}
+
 #LibraryEditCollection #closeSearchBtn{
 margin:0px 25px 0px 0px;
 padding:0px 51px 0px 13px;
@@ -1666,7 +1695,8 @@ min-width:115px;
 max-width:115px;
 min-height:64px;
 max-height:64px;
-border-right-width:1px;}
+border-right-width:1px;
+}
 
 #btnImageNext{
 margin-top:1px;
@@ -1674,19 +1704,22 @@ min-width:115px;
 max-width:115px;
 min-height:64px;
 max-height:64px;
-border-left-width:1px;}
+border-left-width:1px;
+}
 
 #pageHandlerImage #imageTitle{
 margin-top:1px;
 min-height:32px;
 max-height:32px;
 text-align:center;
-font-size:20px;}
+font-size:20px;
+}
 
 #pageHandlerImage #pageLabel{
 margin-top:1px;
 min-height:32px;
 max-height:32px;
 text-align:center;
-font-size:18px;}
+font-size:18px;
+}
 

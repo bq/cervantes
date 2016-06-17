@@ -6,35 +6,35 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>800</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QFrame" name="GeneralTermsWizardCont">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
-     <height>800</height>
+     <width>849</width>
+     <height>1131</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -45,8 +45,8 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>600</width>
-     <height>800</height>
+     <width>849</width>
+     <height>1131</height>
     </size>
    </property>
    <property name="frameShape">
@@ -87,8 +87,8 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
-           <height>35</height>
+           <width>707</width>
+           <height>49</height>
           </size>
          </property>
          <property name="text">
@@ -132,19 +132,19 @@
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>510</height>
+           <height>721</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true" />
          </property>
          <widget class="QTextBrowser" name="elfGeneralTermsResult">
           <property name="geometry">
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>580</width>
-            <height>510</height>
+            <width>820</width>
+            <height>721</height>
            </rect>
           </property>
           <property name="minimumSize">
@@ -155,21 +155,21 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>580</width>
-            <height>510</height>
+            <width>820</width>
+            <height>721</height>
            </size>
           </property>
           <property name="html">
-           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+           <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:18pt; font-weight:600;&quot;&gt;1 Política de privacidad Fnac.es&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:10pt;&quot;&gt;En cumplimiento de lo establecido en el Reglamento de desarrollo de la Ley Orgánica de Protección de Datos 15/1999 de 13 de diciembre, aprobado por Real Decreto 1720/2007 de 21 de diciembre, en la Ley 34/2002, de 11 de julio, de Servicios de la sociedad de la información y comercio electrónico y demás disposiciones dictadas en su desarrollo, de 13 de Diciembre, de Protección de Datos de Carácter Personal, Fnac.es te informa de la existencia de un fichero de datos de carácter personal creado por y bajo la responsabilidad de Fnac.es con los datos obtenidos en el website www.fnac.es. La finalidad de dicho fichero es gestionar tu relación contractual con nosotros, así como la realización de actividades promocionales y publicitarias propias o de terceros mediante cualquier medio, incluyendo el envío de mensajes comerciales a través de SMS, email, y correo postal etc., que puedan ser de tu interés, a partir del estudio y segmentación los datos recabados durante la navegación por el website, de los datos proporcionados mediante la cumplimentación de cualquier formulario, así como los derivados de la relación comercial o entrega de los productos comprados. Si no deseas recibir publicidad, sólo tienes que entrar en tu cuenta y desactivar el envío de Newsletter e informaciones.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:10pt;&quot;&gt;En cumplimiento de lo dispuesto en la Ley Orgánica 15/1999 de 13 de Diciembre, los clientes y usuarios de www.fnac.es pueden, en todo momento, ejercitar los derechos de acceso, rectificación, cancelación y oposición sobre sus datos personales comunicándolo por escrito a: Fnac.es ESPAÑA. Departamento de Atención al Cliente, C/ Mariano Benlliure s/n – 28529 Rivas de Vaciamadrid (Madrid) o bien mediante el envío de un correo electrónico a la dirección clientes@fnac.es, donde se indicará el nombre y apellidos, usuario e email con el que se dio de alta, y adjuntando en ambos casos fotocopia del DNI del usuario. En el caso que los datos suministrados estén asociados a una compra, la legislación española nos obliga a mantenerlos al menos durante cinco años por lo que no se podrán borrar ni rectificar aunque el cliente así lo solicite.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:10pt;&quot;&gt;Fnac.es se compromete en la utilización de los datos incluidos en el fichero, a respetar su confidencialidad y a utilizarlos de acuerdo con la finalidad del fichero, así como a dar cumplimiento a su obligación de guardarlos y adaptar todas las medidas para evitar la alteración, pérdida, tratamiento o acceso no autorizado, de acuerdo con lo establecimiento en el Reglamento de Medidas de Seguridad de los ficheros automatizados que contengan datos de carácter personal, aprobando por el Real Decreto 994/1999, de 11 de julio. Nuestro servidor seguro garantiza la privacidad de los datos que nos transmites. Dicha privacidad se consigue mediante el protocolo SSL, encriptando los datos enviados mediante el sistema de cifrado RSA, de forma que nadie pueda apropiarse de ellos ya que no dispone de la clave necesaria. Puedes comprobar que tu navegador es seguro si aparece el símbolo del candado y también se puede apreciar que la URL varía ligeramente: ya no empieza con http sino con https.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans'; font-size:10pt;&quot;&gt;Fnac.es forma parte de la Asociación Española de Comercio Electrónico (AECEM) (www.aecem.org) y ha aceptado su Código Ético, en lo que se refiere al tratamiento de los datos de carácter personal. Asimismo, Fnac.es se encuentra adherida a Confianza Online, sistema de resolución de las posibles controversias que se puedan dar entre consumidores y empresas en el ámbito del Comercio Electrónico y la Publicidad Interactiva.&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
+&lt;p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Sans'; font-size:18pt; font-weight:600;"&gt;1 Pol&#237;tica de privacidad Fnac.es&lt;/span&gt;&lt;/p&gt;
+&lt;p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Sans'; font-size:10pt;"&gt;En cumplimiento de lo establecido en el Reglamento de desarrollo de la Ley Org&#225;nica de Protecci&#243;n de Datos 15/1999 de 13 de diciembre, aprobado por Real Decreto 1720/2007 de 21 de diciembre, en la Ley 34/2002, de 11 de julio, de Servicios de la sociedad de la informaci&#243;n y comercio electr&#243;nico y dem&#225;s disposiciones dictadas en su desarrollo, de 13 de Diciembre, de Protecci&#243;n de Datos de Car&#225;cter Personal, Fnac.es te informa de la existencia de un fichero de datos de car&#225;cter personal creado por y bajo la responsabilidad de Fnac.es con los datos obtenidos en el website www.fnac.es. La finalidad de dicho fichero es gestionar tu relaci&#243;n contractual con nosotros, as&#237; como la realizaci&#243;n de actividades promocionales y publicitarias propias o de terceros mediante cualquier medio, incluyendo el env&#237;o de mensajes comerciales a trav&#233;s de SMS, email, y correo postal etc., que puedan ser de tu inter&#233;s, a partir del estudio y segmentaci&#243;n los datos recabados durante la navegaci&#243;n por el website, de los datos proporcionados mediante la cumplimentaci&#243;n de cualquier formulario, as&#237; como los derivados de la relaci&#243;n comercial o entrega de los productos comprados. Si no deseas recibir publicidad, s&#243;lo tienes que entrar en tu cuenta y desactivar el env&#237;o de Newsletter e informaciones.&lt;/span&gt;&lt;/p&gt;
+&lt;p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Sans'; font-size:10pt;"&gt;En cumplimiento de lo dispuesto en la Ley Org&#225;nica 15/1999 de 13 de Diciembre, los clientes y usuarios de www.fnac.es pueden, en todo momento, ejercitar los derechos de acceso, rectificaci&#243;n, cancelaci&#243;n y oposici&#243;n sobre sus datos personales comunic&#225;ndolo por escrito a: Fnac.es ESPA&#209;A. Departamento de Atenci&#243;n al Cliente, C/ Mariano Benlliure s/n &#8211; 28529 Rivas de Vaciamadrid (Madrid) o bien mediante el env&#237;o de un correo electr&#243;nico a la direcci&#243;n clientes@fnac.es, donde se indicar&#225; el nombre y apellidos, usuario e email con el que se dio de alta, y adjuntando en ambos casos fotocopia del DNI del usuario. En el caso que los datos suministrados est&#233;n asociados a una compra, la legislaci&#243;n espa&#241;ola nos obliga a mantenerlos al menos durante cinco a&#241;os por lo que no se podr&#225;n borrar ni rectificar aunque el cliente as&#237; lo solicite.&lt;/span&gt;&lt;/p&gt;
+&lt;p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Sans'; font-size:10pt;"&gt;Fnac.es se compromete en la utilizaci&#243;n de los datos incluidos en el fichero, a respetar su confidencialidad y a utilizarlos de acuerdo con la finalidad del fichero, as&#237; como a dar cumplimiento a su obligaci&#243;n de guardarlos y adaptar todas las medidas para evitar la alteraci&#243;n, p&#233;rdida, tratamiento o acceso no autorizado, de acuerdo con lo establecimiento en el Reglamento de Medidas de Seguridad de los ficheros automatizados que contengan datos de car&#225;cter personal, aprobando por el Real Decreto 994/1999, de 11 de julio. Nuestro servidor seguro garantiza la privacidad de los datos que nos transmites. Dicha privacidad se consigue mediante el protocolo SSL, encriptando los datos enviados mediante el sistema de cifrado RSA, de forma que nadie pueda apropiarse de ellos ya que no dispone de la clave necesaria. Puedes comprobar que tu navegador es seguro si aparece el s&#237;mbolo del candado y tambi&#233;n se puede apreciar que la URL var&#237;a ligeramente: ya no empieza con http sino con https.&lt;/span&gt;&lt;/p&gt;
+&lt;p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;&lt;span style=" font-family:'Sans'; font-size:10pt;"&gt;Fnac.es forma parte de la Asociaci&#243;n Espa&#241;ola de Comercio Electr&#243;nico (AECEM) (www.aecem.org) y ha aceptado su C&#243;digo &#201;tico, en lo que se refiere al tratamiento de los datos de car&#225;cter personal. Asimismo, Fnac.es se encuentra adherida a Confianza Online, sistema de resoluci&#243;n de las posibles controversias que se puedan dar entre consumidores y empresas en el &#225;mbito del Comercio Electr&#243;nico y la Publicidad Interactiva.&lt;/span&gt;&lt;/p&gt;
+&lt;p align="justify" style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans'; font-size:10pt;"&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </widget>
@@ -184,8 +184,8 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>20</width>
-        <height>40</height>
+        <width>28</width>
+        <height>57</height>
        </size>
       </property>
      </spacer>
@@ -215,8 +215,8 @@ p, li { white-space: pre-wrap; }
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>40</width>
-           <height>20</height>
+           <width>57</width>
+           <height>28</height>
           </size>
          </property>
         </spacer>
@@ -234,8 +234,6 @@ p, li { white-space: pre-wrap; }
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="../Wizard800.qrc"/>
- </resources>
- <connections/>
+ <resources />
+ <connections />
 </ui>

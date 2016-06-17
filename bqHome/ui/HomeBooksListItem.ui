@@ -6,23 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>175</width>
-    <height>261</height>
+    <width>247</width>
+    <height>369</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QLabel" name="coverLbl">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>175</width>
-     <height>261</height>
+     <width>247</width>
+     <height>369</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -32,7 +32,7 @@
     </sizepolicy>
    </property>
    <property name="text">
-    <string/>
+    <string />
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -43,8 +43,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>175</width>
-     <height>262</height>
+     <width>247</width>
+     <height>371</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -55,8 +55,8 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>175</width>
-     <height>262</height>
+     <width>247</width>
+     <height>371</height>
     </size>
    </property>
    <property name="text">
@@ -77,8 +77,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>86</width>
-     <height>86</height>
+     <width>122</width>
+     <height>122</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -89,8 +89,8 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>86</width>
-     <height>86</height>
+     <width>122</width>
+     <height>122</height>
     </size>
    </property>
    <property name="text">
@@ -108,8 +108,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>179</width>
-     <height>222</height>
+     <width>253</width>
+     <height>314</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -119,7 +119,7 @@
     </sizepolicy>
    </property>
    <property name="text">
-    <string/>
+    <string />
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -133,8 +133,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>179</width>
-     <height>199</height>
+     <width>253</width>
+     <height>281</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -144,7 +144,7 @@
     </sizepolicy>
    </property>
    <property name="text">
-    <string/>
+    <string />
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -155,8 +155,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>86</width>
-     <height>86</height>
+     <width>122</width>
+     <height>122</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -167,12 +167,12 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>86</width>
-     <height>86</height>
+     <width>122</width>
+     <height>122</height>
     </size>
    </property>
    <property name="text">
-    <string>Subscripción</string>
+    <string>Subscripci&#243;n</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -189,6 +189,6 @@
    <header>DegreesLabel45.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

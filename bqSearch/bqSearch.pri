@@ -27,4 +27,4 @@ TRANSLATIONS =  ./tr/bqSearch_es.ts \
                 ./tr/bqSearch_de.ts \
                 ./tr/bqSearch_it.ts
 
-QRC_FILES += Search800.qrc Search1024.qrc
+QRC_FILES += Search800.qrc Search1024.qrc Search1448.qrc

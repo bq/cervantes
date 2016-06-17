@@ -6,27 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>800</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -51,8 +51,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>500</width>
-          <height>35</height>
+          <width>707</width>
+          <height>49</height>
          </size>
         </property>
         <property name="text">
@@ -69,7 +69,7 @@
    <item>
     <widget class="QLabel" name="topSpacer">
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -100,7 +100,7 @@
       <item>
        <widget class="QLabel" name="activateIconLbl">
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
@@ -113,7 +113,7 @@
          <number>0</number>
         </property>
         <property name="text">
-         <string>El proceso de activación de tu dispositivo es necesario para poder habilitar algunos de los servicios de tu eReader (diccionarios, actualización automática “on the air”, tienda de libros...). Este proceso requiere de conexión a Internet mediante Wi-Fi. </string>
+         <string>El proceso de activaci&#243;n de tu dispositivo es necesario para poder habilitar algunos de los servicios de tu eReader (diccionarios, actualizaci&#243;n autom&#225;tica &#8220;on the air&#8221;, tienda de libros...). Este proceso requiere de conexi&#243;n a Internet mediante Wi-Fi. </string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
@@ -133,7 +133,7 @@
         </property>
         <property name="text">
          <string>
-Si dispones de acceso a una red Wi-Fi haz clic en el botón “SIGUIENTE”, en caso contrario pulsa “MÁS TARDE”.</string>
+Si dispones de acceso a una red Wi-Fi haz clic en el bot&#243;n &#8220;SIGUIENTE&#8221;, en caso contrario pulsa &#8220;M&#193;S TARDE&#8221;.</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
@@ -146,7 +146,7 @@ Si dispones de acceso a una red Wi-Fi haz clic en el botón “SIGUIENTE”, en 
       <item>
        <widget class="QLabel" name="intro3Lbl">
         <property name="text">
-         <string>Podrás realizar el proceso de activación en cualquier otro momento desde el menú Ajustes, seleccionando la opción “Activar dispositivo”. </string>
+         <string>Podr&#225;s realizar el proceso de activaci&#243;n en cualquier otro momento desde el men&#250; Ajustes, seleccionando la opci&#243;n &#8220;Activar dispositivo&#8221;. </string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
@@ -163,8 +163,8 @@ Si dispones de acceso a una red Wi-Fi haz clic en el botón “SIGUIENTE”, en 
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>20</width>
-          <height>40</height>
+          <width>28</width>
+          <height>57</height>
          </size>
         </property>
        </spacer>
@@ -199,7 +199,7 @@ Si dispones de acceso a una red Wi-Fi haz clic en el botón “SIGUIENTE”, en 
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Más tarde</string>
+         <string>M&#225;s tarde</string>
         </property>
        </widget>
       </item>
@@ -213,8 +213,8 @@ Si dispones de acceso a una red Wi-Fi haz clic en el botón “SIGUIENTE”, en 
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -235,8 +235,8 @@ Si dispones de acceso a una red Wi-Fi haz clic en el botón “SIGUIENTE”, en 
         </property>
         <property name="maximumSize">
          <size>
-          <width>291</width>
-          <height>60</height>
+          <width>412</width>
+          <height>85</height>
          </size>
         </property>
         <property name="focusPolicy">
@@ -246,7 +246,7 @@ Si dispones de acceso a una red Wi-Fi haz clic en el botón “SIGUIENTE”, en 
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <property name="text">
          <string>Siguiente</string>
@@ -258,8 +258,6 @@ Si dispones de acceso a una red Wi-Fi haz clic en el botón “SIGUIENTE”, en 
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../Wizard800.qrc"/>
- </resources>
- <connections/>
+ <resources />
+ <connections />
 </ui>

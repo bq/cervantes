@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -26,7 +26,7 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <property name="spacing">
@@ -72,8 +72,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>230</width>
-             <height>60</height>
+             <width>325</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -94,8 +94,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -137,8 +137,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>230</width>
-             <height>60</height>
+             <width>325</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -159,8 +159,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -202,12 +202,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>230</width>
-             <height>60</height>
+             <width>325</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
-            <string>Direción MAC:</string>
+            <string>Direci&#243;n MAC:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -224,8 +224,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -267,8 +267,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>230</width>
-             <height>60</height>
+             <width>325</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -289,8 +289,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -332,8 +332,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>230</width>
-             <height>60</height>
+             <width>325</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -354,8 +354,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -397,8 +397,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>200</width>
-             <height>60</height>
+             <width>283</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -419,8 +419,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -462,8 +462,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>230</width>
-             <height>60</height>
+             <width>325</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -484,8 +484,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -527,8 +527,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>230</width>
-             <height>60</height>
+             <width>325</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -549,8 +549,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -592,12 +592,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>230</width>
-             <height>60</height>
+             <width>325</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
-            <string>Nivel de batería:</string>
+            <string>Nivel de bater&#237;a:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -614,8 +614,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -659,6 +659,6 @@ border-radius: 4px;</string>
    <header>SilentQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

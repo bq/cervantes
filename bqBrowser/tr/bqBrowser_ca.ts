@@ -12,7 +12,7 @@
         <location filename="../ui/Browser.ui" line="186"/>
         <location filename="../src/Browser.cpp" line="1041"/>
         <source>Go</source>
-        <translation>Anar</translation>
+        <translation>Vés</translation>
     </message>
     <message>
         <location filename="../ui/Browser.ui" line="363"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../src/Browser.cpp" line="383"/>
         <source>Ir</source>
-        <translation>Anar</translation>
+        <translation>Vés</translation>
     </message>
     <message>
         <location filename="../src/Browser.cpp" line="445"/>
@@ -154,7 +154,7 @@
     <message>
         <location filename="../ui/BrowserFavo.ui" line="164"/>
         <source>Remove</source>
-        <translation>Eliminar</translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../ui/BrowserFavo.ui" line="171"/>

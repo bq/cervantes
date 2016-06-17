@@ -23,7 +23,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QPushButton" name="clearSearchLine">
    <property name="geometry">
@@ -38,10 +38,10 @@
     <enum>Qt::NoFocus</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true" />
    </property>
    <property name="text">
-    <string/>
+    <string />
    </property>
   </widget>
   <widget class="QFrame" name="verticalFrame">
@@ -78,8 +78,8 @@
        <widget class="QLabel" name="searchLabel">
         <property name="minimumSize">
          <size>
-          <width>150</width>
-          <height>50</height>
+          <width>106</width>
+          <height>35</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -110,8 +110,8 @@
        <widget class="MyQLineEdit" name="searchLineEdit">
         <property name="minimumSize">
          <size>
-          <width>419</width>
-          <height>34</height>
+          <width>296</width>
+          <height>24</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -121,7 +121,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <property name="text">
          <string>Enter text to search here...</string>
@@ -203,8 +203,8 @@
         <widget class="QPushButton" name="searchButton">
          <property name="minimumSize">
           <size>
-           <width>84</width>
-           <height>35</height>
+           <width>59</width>
+           <height>25</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -217,7 +217,7 @@
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true" />
          </property>
          <property name="text">
           <string>Search</string>
@@ -239,6 +239,6 @@
    <header>MyQLineEdit.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

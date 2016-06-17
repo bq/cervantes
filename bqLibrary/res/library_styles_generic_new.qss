@@ -22,7 +22,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 --------------------------*/
 #Library{
 /*background-color:#FFF;*/
-background:#FFF url(":/res/bg_library_new.png") repeat-x left top;
+background:#FFF url(":/res/bg_library.png") repeat-x left top;
 }
 #Library #searchCont{
 border-color:#808080;
@@ -474,46 +474,48 @@ background-repeat:no-repeat;
 background-image:url(:/res/sample_tag_notext_sup.png);
 text-align:left;
 }
+
 #LibraryReadingIconGridViewerCont #currentBookTopLeft{
-background-image: url(:/res/open_book_small_top_left.png) ;
+background-image: url(:/res/book_front_top_left.png) ;
 background-position:bottom right;
 background-repeat:no-repeat;
 }
 #LibraryReadingIconGridViewerCont #currentBookTopCenter{
-background-image: url(:/res/open_book_small_top_center.png) ;
+background-image: url(:/res/book_front_top_center.png) ;
 background-position:bottom left;
 background-repeat:no-repeat;
 }
 #LibraryReadingIconGridViewerCont #currentBookTopRight{
-background-image: url(:/res/open_book_small_top_right.png) ;
+background-image: url(:/res/book_front_top_right.png) ;
 background-position:bottom left;
 background-repeat:no-repeat;
 }
 #LibraryReadingIconGridViewerCont #currentBookCenterLeft{
-background-image: url(:/res/open_book_small_center_left.png) ;
+background-image: url(:/res/book_front_center_left.png) ;
 background-position:top right;
 background-repeat:no-repeat;
 }
 #LibraryReadingIconGridViewerCont #currentBookCenterRight{
-background-image: url(:/res/open_book_small_center_right.png) ;
+background-image: url(:/res/book_front_center_right.png) ;
 background-position:top left;
 background-repeat:no-repeat;
 }
 #LibraryReadingIconGridViewerCont #currentBookBottomLeft{
-background-image: url(:/res/open_book_small_bottom_left.png) ;
+background-image: url(:/res/book_front_bottom_left.png) ;
 background-position:top right;
 background-repeat:no-repeat;
 }
 #LibraryReadingIconGridViewerCont #currentBookBottomCenter{
-background-image: url(:/res/open_book_small_bottom_center.png) ;
+background-image: url(:/res/book_front_bottom_center.png) ;
 background-position:top right;
 background-repeat:no-repeat;
 }
 #LibraryReadingIconGridViewerCont #currentBookBottoRight{
-background-image: url(:/res/open_book_small_bottom_right.png) ;
+background-image: url(:/res/book_front_bottom_right.png) ;
 background-position:top left;
 background-repeat:no-repeat;
 }
+
 #currentBookData{
 }
 #currentBookCont #bookTitleLbl{

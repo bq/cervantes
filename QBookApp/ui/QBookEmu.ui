@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>1049</height>
+    <width>1072</width>
+    <height>1484</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,8 +28,8 @@
    </property>
    <property name="baseSize">
     <size>
-     <width>600</width>
-     <height>800</height>
+     <width>849</width>
+     <height>1131</height>
     </size>
    </property>
   </widget>
@@ -38,23 +38,23 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>758</width>
-     <height>25</height>
+     <width>1072</width>
+     <height>35</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionQuit"/>
+    <addaction name="actionQuit" />
    </widget>
    <widget class="QMenu" name="menuKey">
     <property name="title">
      <string>Key</string>
     </property>
-    <addaction name="actionHome"/>
-    <addaction name="actionMenu"/>
-    <addaction name="actionPower"/>
+    <addaction name="actionHome" />
+    <addaction name="actionMenu" />
+    <addaction name="actionPower" />
    </widget>
    <widget class="QMenu" name="menuDevice">
     <property name="title">
@@ -64,40 +64,40 @@
      <property name="title">
       <string>Battery</string>
      </property>
-     <addaction name="actionBattery0"/>
-     <addaction name="actionBattery1"/>
-     <addaction name="actionBattery2"/>
-     <addaction name="actionBattery3"/>
-     <addaction name="separator"/>
-     <addaction name="actionBatteryWarning"/>
-     <addaction name="actionBatteryFull"/>
+     <addaction name="actionBattery0" />
+     <addaction name="actionBattery1" />
+     <addaction name="actionBattery2" />
+     <addaction name="actionBattery3" />
+     <addaction name="separator" />
+     <addaction name="actionBatteryWarning" />
+     <addaction name="actionBatteryFull" />
     </widget>
     <widget class="QMenu" name="menuAntenna">
      <property name="title">
       <string>Antenna</string>
      </property>
-     <addaction name="actionAntenna0"/>
-     <addaction name="actionAntenna1"/>
-     <addaction name="actionAntenna2"/>
-     <addaction name="actionAntenna3"/>
-     <addaction name="actionAntenna4"/>
-     <addaction name="separator"/>
-     <addaction name="actionAntennaDisable"/>
+     <addaction name="actionAntenna0" />
+     <addaction name="actionAntenna1" />
+     <addaction name="actionAntenna2" />
+     <addaction name="actionAntenna3" />
+     <addaction name="actionAntenna4" />
+     <addaction name="separator" />
+     <addaction name="actionAntennaDisable" />
     </widget>
-    <addaction name="menuAntenna"/>
-    <addaction name="menuBattery"/>
-    <addaction name="separator"/>
-    <addaction name="actionUsb"/>
-    <addaction name="actionCharger"/>
-    <addaction name="actionMmc"/>
-    <addaction name="separator"/>
-    <addaction name="actionSleep"/>
-    <addaction name="actionWakeup"/>
-    <addaction name="actionShutdown"/>
+    <addaction name="menuAntenna" />
+    <addaction name="menuBattery" />
+    <addaction name="separator" />
+    <addaction name="actionUsb" />
+    <addaction name="actionCharger" />
+    <addaction name="actionMmc" />
+    <addaction name="separator" />
+    <addaction name="actionSleep" />
+    <addaction name="actionWakeup" />
+    <addaction name="actionShutdown" />
    </widget>
-   <addaction name="menuFile"/>
-   <addaction name="menuKey"/>
-   <addaction name="menuDevice"/>
+   <addaction name="menuFile" />
+   <addaction name="menuKey" />
+   <addaction name="menuDevice" />
   </widget>
   <action name="actionQuit">
    <property name="text">
@@ -276,6 +276,6 @@
    </property>
   </action>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

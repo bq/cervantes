@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -54,7 +54,7 @@ QBookEmu::QBookEmu(QWidget* parent)
     m_app = QBookApp::instance();
 
 #ifndef Q_WS_QWS
-    switch(QBook::getResolution()){
+    switch(QBook::getInstance()->getResolution()){
     case QBook::RES600x800:
         qDebug() << "********** Setting screen size to 825 (800 + menubar)";
         setFixedSize(600,825);
@@ -64,6 +64,11 @@ QBookEmu::QBookEmu(QWidget* parent)
         qDebug() << "********* Setting screen size to 1049 (1024 + menubar)";
         setFixedSize(758,1049);
         m_ui->centralwidget->setFixedSize(758,1024);
+        break;
+    case QBook::RES1072x1448:
+        qDebug() << "********* Setting screen size to 1473 (1448 + menubar)";
+        setFixedSize(1072,1473);
+        m_ui->centralwidget->setFixedSize(1072,1448);
         break;
     default:
         qWarning() << Q_FUNC_INFO << "UNKNOWN SCREEN SIZE";

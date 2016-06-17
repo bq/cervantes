@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -61,7 +61,19 @@ void QBookScreenSaver::paintEvent(QPaintEvent *event)
 
     QFont font;
     font.setFamily(QString::fromUtf8("DejaVu Sans"));
-    font.setPointSize(16);
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            font.setPointSize(6);
+            break;
+        case QBook::RES758x1024:
+            font.setPointSize(16);
+            break;
+        case QBook::RES600x800: default:
+            font.setPointSize(14);
+            break;
+    }
+
     painter.setFont(font);
     QColor color(255, 255, 255);
     QBrush brush(color);
@@ -292,12 +304,18 @@ void QBookScreenSaver::addFooterMessage(QPainter* painter, QString message)
     qDebug() << Q_FUNC_INFO << message;
 
     // Place the message aligned with standard sleep image
-    if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
-        painter->drawText(QPoint(140, 1000), message);
-    else
-        painter->drawText(QPoint(111, 782), message);
-
-
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            painter->drawText(QPoint(198, 1414), message);
+            break;
+        case QBook::RES758x1024:
+            painter->drawText(QPoint(140, 1000), message);
+            break;
+        case QBook::RES600x800: default:
+            painter->drawText(QPoint(111, 782), message);
+            break;
+    }
 }
 
 void QBookScreenSaver::addBatteryLevel(QPainter* painter, int batteryLevel)
@@ -308,11 +326,18 @@ void QBookScreenSaver::addBatteryLevel(QPainter* painter, int batteryLevel)
 
     // Place the message right below the battery
     QRect t;
-    if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
-        t = QRect(51, 990, 50, 16);
-
-        else
-        t = QRect(37, 772, 40, 18);
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            t = QRect(78, 1400, 57, 25);
+            break;
+        case QBook::RES758x1024:
+            t = QRect(51, 990, 50, 16);
+            break;
+        case QBook::RES600x800: default:
+            t = QRect(37, 772, 40, 18);
+            break;
+    }
 
     painter->drawText(t, Qt::AlignCenter, message);
 }

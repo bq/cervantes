@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -56,15 +56,18 @@ void loadRccs()
 #endif
 
     QStringList rccs;
-    switch(QBook::getResolution()){
+    switch(QBook::getInstance()->getResolution()){
     case QBook::RES600x800:
-        qDebug() << Q_FUNC_INFO << "********** Setting screen size to 600x800";
+        qDebug() << Q_FUNC_INFO << "********* Setting screen size to 600x800";
         rccs << "QBookApp800.rcc" <<"Browser800.rcc" << "common800.rcc" << "Viewer800.rcc" << "Ui800.rcc" << "Settings800.rcc" << "Library800.rcc" << "Search800.rcc" << "Home800.rcc" << "Wizard800.rcc" << "WebStore800.rcc";
         break;
     case QBook::RES758x1024:
-        qDebug() << Q_FUNC_INFO << "********* Setting screen size to 1024";
+        qDebug() << Q_FUNC_INFO << "********* Setting screen size to 758x1024";
         rccs << "QBookApp1024.rcc" << "Browser1024.rcc" << "common1024.rcc" << "Viewer1024.rcc" << "Ui1024.rcc" << "Settings1024.rcc" << "Library1024.rcc" << "Search1024.rcc" << "Home1024.rcc" << "Wizard1024.rcc" << "WebStore1024.rcc";
         break;
+    case QBook::RES1072x1448:
+        qDebug() << Q_FUNC_INFO << "********* Setting screen size to 1072x1448";
+        rccs << "QBookApp1448.rcc" <<"Browser1448.rcc" << "common1448.rcc" << "Viewer1448.rcc" << "Ui1448.rcc" << "Settings1448.rcc" << "Library1448.rcc" << "Search1448.rcc" << "Home1448.rcc" << "Wizard1448.rcc" << "WebStore1448.rcc";
     default:
         qWarning() << Q_FUNC_INFO << "UNKNOWN SCREEN SIZE";
 

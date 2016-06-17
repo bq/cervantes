@@ -4,7 +4,6 @@
         <file alias="res/bg_next_previous_browser.png">res/1024/bg_next_previous_browser.png</file>
         <file alias="res/bg_url_input.png">res/1024/bg_url_input.png</file>
         <file alias="res/browser_styles.qss">res/1024/browser_styles.qss</file>
-        <file alias="res/clear_input.png">res/1024/clear_input.png</file>
         <file alias="res/favourite_ico.png">res/1024/favourite_ico.png</file>
         <file alias="res/go.png">res/1024/go.png</file>
         <file alias="res/home_browser.png">res/1024/home_browser.png</file>

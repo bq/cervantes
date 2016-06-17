@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -29,6 +29,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MIN_MOVE_SD 25
 #define MIN_MOVE_HD 33
+#define MIN_MOVE_FHD 46
 
 SwipeableQPushButton::SwipeableQPushButton (QWidget* parent) : QPushButton(parent){
         qDebug() << Q_FUNC_INFO;
@@ -49,10 +50,19 @@ void SwipeableQPushButton::mousePressEvent(QMouseEvent * event){
 void SwipeableQPushButton::mouseMoveEvent(QMouseEvent * event){
         qDebug() << Q_FUNC_INFO << isChecked();
         int minMove;
-        if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
-            minMove = MIN_MOVE_HD;
-        else
-            minMove = MIN_MOVE_SD;
+        switch(QBook::getInstance()->getResolution())
+        {
+            case QBook::RES1072x1448:
+                minMove = MIN_MOVE_FHD;
+                break;
+            case QBook::RES758x1024:
+                minMove = MIN_MOVE_HD;
+                break;
+            case QBook::RES600x800: default:
+                minMove = MIN_MOVE_SD;
+                break;
+        }
+
         if(event->pos().x() > last_pos + minMove && !isChecked()) {
             event->accept();
             emit clicked();
@@ -66,10 +76,19 @@ void SwipeableQPushButton::mouseMoveEvent(QMouseEvent * event){
 void SwipeableQPushButton::mouseReleaseEvent(QMouseEvent * event){
         qDebug() << Q_FUNC_INFO;
         int minMove;
-        if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
-            minMove = MIN_MOVE_HD;
-        else
-            minMove = MIN_MOVE_SD;
+        switch(QBook::getInstance()->getResolution())
+        {
+            case QBook::RES1072x1448:
+                minMove = MIN_MOVE_FHD;
+                break;
+            case QBook::RES758x1024:
+                minMove = MIN_MOVE_HD;
+                break;
+            case QBook::RES600x800: default:
+                minMove = MIN_MOVE_SD;
+                break;
+        }
+
         if(event->pos().x() < last_pos + minMove && event->pos().x() > last_pos - minMove ) {
             event->accept();
             emit clicked();

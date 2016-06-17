@@ -6,27 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>960</height>
+    <width>1072</width>
+    <height>1358</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>758</width>
-    <height>960</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>758</width>
-    <height>960</height>
+    <width>1072</width>
+    <height>1358</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -38,7 +38,7 @@
    <item>
     <widget class="QLabel" name="spacerTop">
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -54,14 +54,14 @@
       <item>
        <widget class="QLabel" name="spacerLeft">
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
       <item>
        <widget class="QWidget" name="StoreBooksFilterLayerCont" native="true">
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <property name="spacing">
@@ -75,7 +75,7 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>19</height>
+             <height>27</height>
             </size>
            </property>
            <widget class="QLabel" name="topArrowLbl">
@@ -83,12 +83,12 @@
              <rect>
               <x>30</x>
               <y>2</y>
-              <width>24</width>
-              <height>17</height>
+              <width>34</width>
+              <height>24</height>
              </rect>
             </property>
             <property name="text">
-             <string/>
+             <string />
             </property>
             <property name="indent">
              <number>0</number>
@@ -106,8 +106,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>10000</height>
+             <width>14142</width>
+             <height>14142</height>
             </size>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -120,7 +120,7 @@
             <item>
              <widget class="QLabel" name="featuredLbl">
               <property name="text">
-               <string>Los más destacado</string>
+               <string>Los m&#225;s destacado</string>
               </property>
              </widget>
             </item>
@@ -174,7 +174,7 @@
                <item>
                 <widget class="QPushButton" name="feature03Btn">
                  <property name="text">
-                  <string>eBooks más vendidos (15)</string>
+                  <string>eBooks m&#225;s vendidos (15)</string>
                  </property>
                 </widget>
                </item>
@@ -197,7 +197,7 @@
                   <enum>Qt::NoFocus</enum>
                  </property>
                  <property name="text">
-                  <string>Colección Breve (89)</string>
+                  <string>Colecci&#243;n Breve (89)</string>
                  </property>
                  <property name="checkable">
                   <bool>true</bool>
@@ -210,7 +210,7 @@
             <item>
              <widget class="QLabel" name="categoriesLbl">
               <property name="text">
-               <string>Temáticas</string>
+               <string>Tem&#225;ticas</string>
               </property>
              </widget>
             </item>
@@ -226,7 +226,7 @@
                <enum>Qt::NoFocus</enum>
               </property>
               <property name="text">
-               <string>Vert todas las temáticas</string>
+               <string>Vert todas las tem&#225;ticas</string>
               </property>
               <property name="checkable">
                <bool>true</bool>
@@ -246,8 +246,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -262,14 +262,14 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

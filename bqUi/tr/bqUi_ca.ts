@@ -60,7 +60,7 @@ Què vols fer?</translation>
     <message>
         <location filename="../ui/ElfHorizontalPagination.ui" line="47"/>
         <source>Buscar</source>
-        <translation>Cercar</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <location filename="../ui/ElfHorizontalPagination.ui" line="83"/>
@@ -132,7 +132,7 @@ Què vols fer?</translation>
     <message>
         <location filename="../ui/Keyboard.ui" line="1272"/>
         <source>Buscar</source>
-        <translation>Cercar</translation>
+        <translation>Cerca</translation>
     </message>
 </context>
 <context>
@@ -155,7 +155,7 @@ Què vols fer?</translation>
     <message>
         <location filename="../ui/ProgressDialog.ui" line="241"/>
         <source>Cancel</source>
-        <translation>Cancel·lar</translation>
+        <translation>Cancel·la</translation>
     </message>
 </context>
 <context>
@@ -180,7 +180,7 @@ Què vols fer?</translation>
         <location filename="../ui/SelectionDialog.ui" line="180"/>
         <location filename="../inc/SelectionDialog.h" line="36"/>
         <source>Cancelar</source>
-        <translation>Cancel·lar</translation>
+        <translation>Cancel·la</translation>
     </message>
 </context>
 <context>

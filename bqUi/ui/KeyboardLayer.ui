@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>434</width>
-    <height>137</height>
+    <width>614</width>
+    <height>194</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -26,7 +26,7 @@
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -47,7 +47,7 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QHBoxLayout" name="KeyboardLayerCont">
       <property name="spacing">
@@ -114,8 +114,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -136,8 +136,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -158,8 +158,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -180,8 +180,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -202,8 +202,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -224,8 +224,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -246,8 +246,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -278,7 +278,7 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>100</height>
+             <height>141</height>
             </size>
            </property>
            <layout class="QHBoxLayout" name="line1Cont_8">
@@ -301,8 +301,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -323,8 +323,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -345,8 +345,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -367,8 +367,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -389,8 +389,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -411,8 +411,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -433,8 +433,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>50</height>
+                <width>71</width>
+                <height>71</height>
                </size>
               </property>
               <property name="text">
@@ -461,7 +461,7 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>45</width>
+          <width>64</width>
           <height>16777215</height>
          </size>
         </property>
@@ -473,21 +473,21 @@
           <rect>
            <x>5</x>
            <y>0</y>
-           <width>40</width>
-           <height>65</height>
+           <width>57</width>
+           <height>92</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>40</width>
-           <height>65</height>
+           <width>57</width>
+           <height>92</height>
           </size>
          </property>
          <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </widget>
@@ -505,12 +505,12 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>20</width>
-       <height>14</height>
+       <width>28</width>
+       <height>20</height>
       </size>
      </property>
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -524,8 +524,8 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Ui800.qrc"/>
-  <include location="../Ui800.qrc"/>
+  <include location="../Ui800.qrc" />
+  <include location="../Ui800.qrc" />
  </resources>
- <connections/>
+ <connections />
 </ui>

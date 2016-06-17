@@ -210,6 +210,8 @@ font-size:22px;
 #HomeBooksList,#homeBooksList,HomeBooksList{
 min-height:352px;
 max-height:352px;
+min-width:760px;
+max-width:760px;
 }
 #previousCont{
 min-width:50px;

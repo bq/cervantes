@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -92,8 +92,18 @@ ViewerDictionary::ViewerDictionary(Viewer *parentViewer) :
 
     VerticalPagerPopup->hideLabel();
 
-    if(QBook::getResolution() == QBook::RES758x1024) m_searchTitleMaxWidth = 416;
-    else                                             m_searchTitleMaxWidth = 360;
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            m_searchTitleMaxWidth = 588;
+            break;
+        case QBook::RES758x1024:
+            m_searchTitleMaxWidth = 416;
+            break;
+        case QBook::RES600x800: default:
+            m_searchTitleMaxWidth = 360;
+            break;
+    }
 
     hide();
 }

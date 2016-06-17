@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,21 +18,21 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -56,7 +56,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Atrás</string>
+         <string>Atr&#225;s</string>
         </property>
        </widget>
       </item>
@@ -71,11 +71,11 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>10000</height>
+          <height>14142</height>
          </size>
         </property>
         <property name="text">
-         <string>Información básica</string>
+         <string>Informaci&#243;n b&#225;sica</string>
         </property>
        </widget>
       </item>
@@ -86,8 +86,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -114,7 +114,7 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <property name="spacing">
@@ -151,8 +151,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>228</width>
-             <height>60</height>
+             <width>322</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -173,8 +173,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -207,8 +207,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>228</width>
-             <height>60</height>
+             <width>322</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -229,8 +229,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -263,12 +263,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>228</width>
-             <height>60</height>
+             <width>322</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
-            <string>Direción MAC:</string>
+            <string>Direci&#243;n MAC:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -285,8 +285,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -319,8 +319,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>228</width>
-             <height>60</height>
+             <width>322</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -341,8 +341,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -375,8 +375,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>228</width>
-             <height>60</height>
+             <width>322</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -397,8 +397,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -423,16 +423,22 @@
          </property>
          <item>
           <widget class="QLabel" name="internalVersionLbl">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="minimumSize">
             <size>
-             <width>228</width>
+             <width>184</width>
              <height>60</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>198</width>
-             <height>60</height>
+             <width>260</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -447,14 +453,14 @@
           <widget class="QLabel" name="internalVersionValLbl">
            <property name="minimumSize">
             <size>
-             <width>300</width>
+             <width>250</width>
              <height>60</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -487,8 +493,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>228</width>
-             <height>60</height>
+             <width>322</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -509,8 +515,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -543,8 +549,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>228</width>
-             <height>60</height>
+             <width>322</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -571,8 +577,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -605,12 +611,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>228</width>
-             <height>60</height>
+             <width>322</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
-            <string>Nivel de batería:</string>
+            <string>Nivel de bater&#237;a:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -627,8 +633,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>10000</width>
-             <height>60</height>
+             <width>14142</width>
+             <height>85</height>
             </size>
            </property>
            <property name="text">
@@ -655,8 +661,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -670,6 +676,6 @@
    <header>SilentQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

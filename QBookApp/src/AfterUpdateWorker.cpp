@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -122,15 +122,22 @@ void AfterUpdateWorker::copyNewImages()
     QString shopName = QBook::settings().value("shopName", "").toString();
 
     QString resolution;
+    QString scriptName;
 
-    int res = QBook::getInstance()->getResolution();
-    switch (res){
-    case 0:
-        resolution = "800";
-    break;
-    case 1:
-        resolution = "1024";
-    break;
+    switch (QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            resolution = "1448";
+            scriptName = "./changeStartingImage1448.sh";
+            break;
+        case QBook::RES758x1024:
+            resolution = "1024";
+            scriptName = "./changeStartingImage1024.sh";
+            break;
+        case QBook::RES600x800: default:
+            resolution = "800";
+            scriptName = "./changeStartingImage800.sh";
+            break;
     }
 
     /** In order to replace customization images in initial versions (before 4.1.1)
@@ -170,12 +177,9 @@ void AfterUpdateWorker::copyNewImages()
         }
     }
 
-    ////// WARNING This Scipt execute dd ///////////////
+    ////// WARNING This Script execute dd ///////////////
 
-    if(resolution == "800")
-        system("./changeStartingImage800.sh");
-    else if(resolution == "1024")
-        system("./changeStartingImage1024.sh");
+    system(scriptName.toUtf8().constData());
 
     /////////////////////////////////////////////////////
 

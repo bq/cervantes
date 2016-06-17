@@ -662,16 +662,7 @@ font-size:19px;
 min-width:160px;
 max-width:160px;
 }
-#internalVersionLbl{
-padding:0px 0px 0px 10px;
-margin:0px 10px 0px 0px;
-max-width:130px;
-}
-#SettingsTechnicalInfo #settingsMenuListCont QWidget #internalVersionValLbl{
-margin:0px 24px 0px 0px;
-padding:0px 10px 0px 0px;
-font-size:16px;
-}
+
 /*SettingsDictionariesInfo
 ------------------------------------------*/
 #SettingsDictionariesInfo{
@@ -1945,16 +1936,16 @@ margin:0px 40px;
 font-size:17px;
 }
 #SettingsAboutUs #settingsMenuListCont #versionTitleLbl{
-margin-top:15px;
-margin-bottom:15px;
+margin-top:12px;
+margin-bottom:12px;
 font-size:20px;
 }
 #SettingsAboutUs #settingsMenuListCont #creditsLbl{
-margin-top:15px;
+margin-top:12px;
 font-size:18px;
 }
 #SettingsAboutUs #settingsMenuListCont #developersLbl, #SettingsAboutUs #settingsMenuListCont #graphicDesignLbl, #SettingsAboutUs #settingsMenuListCont #frontDeveloperLbl, #SettingsAboutUs #settingsMenuListCont #uxLbl, #SettingsAboutUs #settingsMenuListCont #qaLbl, #SettingsAboutUs #settingsMenuListCont #productManagerLbl{
-margin-top:15px;
+margin-top:12px;
 margin-bottom:0px;
 font-size:18px;
 }

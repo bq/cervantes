@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="res/qbookapp_styles.qss">res/1448/qbookapp_styles.qss</file>
+        <file alias="restDeviceImage.png">res/1448/restDeviceImage.png</file>
+        <file alias="factoryReset.png">res/1448/factoryReset.png</file>
+        <file alias="lowBatteryImage.png">res/1448/lowBatteryImage.png</file>
+        <file alias="powerOffDeviceImage.png">res/1448/powerOffDeviceImage.png</file>
+        <file alias="restoring_screen_ca.png">res/1448/restoring_screen_ca.png</file>
+        <file alias="restoring_screen_en.png">res/1448/restoring_screen_en.png</file>
+        <file alias="restoring_screen_es.png">res/1448/restoring_screen_es.png</file>
+        <file alias="restoring_screen_eu.png">res/1448/restoring_screen_eu.png</file>
+        <file alias="restoring_screen_pt.png">res/1448/restoring_screen_pt.png</file>
+        <file alias="emptyBatteryImage.png">res/1448/emptyBatteryImage.png</file>
+        <file alias="restoring_screen_gl.png">res/1448/restoring_screen_gl.png</file>
+        <file alias="recoverError_ca.png">res/1448/recoverError_ca.png</file>
+        <file alias="recoverError_en.png">res/1448/recoverError_en.png</file>
+        <file alias="recoverError_es.png">res/1448/recoverError_es.png</file>
+        <file alias="recoverError_eu.png">res/1448/recoverError_eu.png</file>
+        <file alias="recoverError_pt.png">res/1448/recoverError_pt.png</file>
+        <file alias="recoverError_gl.png">res/1448/recoverError_gl.png</file>
+        <file alias="factoryReset_E60Q22.png">res/1448/factoryReset_E60Q22.png</file>
+        <file alias="batteryChargingImage.png">res/1448/batteryChargingImage.png</file>
+        <file alias="batteryCompleteImage.png">res/1448/batteryCompleteImage.png</file>
+        <file alias="recoverError_de.png">res/1448/recoverError_de.png</file>
+        <file alias="recoverError_fr.png">res/1448/recoverError_fr.png</file>
+        <file alias="recoverError_it.png">res/1448/recoverError_it.png</file>
+        <file alias="restoring_screen_de.png">res/1448/restoring_screen_de.png</file>
+        <file alias="restoring_screen_fr.png">res/1448/restoring_screen_fr.png</file>
+        <file alias="restoring_screen_it.png">res/1448/restoring_screen_it.png</file>
+    </qresource>
+</RCC>

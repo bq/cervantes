@@ -22,7 +22,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 --------------------------*/
 #Library{
 /*background-color:#FFF;*/
-background:#FFF url(":/res/bg_library_new.png") repeat-x left top;
+background:#FFF url(":/res/bg_library.png") repeat-x left top;
 }
 #Library #searchCont{
 border-color:#808080;
@@ -1021,11 +1021,7 @@ border-bottom-color:#909090;
 #collectionContainer #actionsCont QPushButton{
 border-style:solid;
 border-color:#808080;
-background: #E0E0E0 url(:res/check-group.png) no-repeat center left;
-}
-#collectionContainer #actionsCont QPushButton#unSelectAllBtn{
-margin-right:30px;
-background-image:url(:/res/uncheck-group.png) ;
+/*background: #E0E0E0 url(:res/check-group.png) no-repeat center left;*/
 }
 #LibraryEditCollection #editCollectionNameCont{
 }
@@ -1033,20 +1029,14 @@ background-image:url(:/res/uncheck-group.png) ;
 border-style:solid;
 border-color:#808080;
 border-right:none;
-border-top-right-radius:none;
-border-bottom-right-radius:none;
+border-top-right-radius:0px;
+border-bottom-right-radius:0px;
 }
 #editCollectionNameCont #clearInputBtn{
 border-style:solid;
 border-color:#808080;
 border-left:none;
 background:  url(:res/clear_input.png) no-repeat center center;
-}
-#LibraryEditCollection #closeSearchBtn{
-text-align:left;
-border-color:#606060;
-border-style:solid;
-background: transparent url(:res/close_popup_ico.png) no-repeat center right;
 }
 #LibraryEditCollection #bottomActionCont{
 border-top-style:solid;
@@ -1064,9 +1054,6 @@ background: transparent url(:/res/save-icons-disabled.png) no-repeat center left
 /* LibraryBookToCollectionItem
 --------------------------*/
 #LibraryBookToCollectionItem, #BookToCollectionItemCont{
-}
-#addBookToCollectionBtn{
-background: url(:/res/uncheck-group.png) no-repeat center right;
 }
 #addBookToCollectionBtn:checked{
 background: url(:res/check-group.png) no-repeat center right;
@@ -1150,26 +1137,13 @@ border-bottom-color:#909090;
 #collectionContainer #actionsCont QPushButton{
 border-style:solid;
 border-color:#808080;
-background: #E0E0E0 url(:res/check-group.png) no-repeat center left;
+/*background: #E0E0E0 url(:res/check-group.png) no-repeat center left;*/
 }
 #collectionContainer #actionsCont QPushButton#unSelectAllBtn{
 margin-right:30px;
-background-image:url(:/res/uncheck-group.png) ;
+/*background-image:url(:/res/uncheck-group.png) ;*/
 }
 #LibraryEditCollection #editCollectionNameCont{
-}
-#editCollectionNameCont #collectionNameLineEdit{
-border-style:solid;
-border-color:#808080;
-border-right:none;
-border-top-right-radius:none;
-border-bottom-right-radius:none;
-}
-#editCollectionNameCont #clearInputBtn{
-border-style:solid;
-border-color:#808080;
-border-left:none;
-background:  url(:res/clear_input.png) no-repeat center center;
 }
 #LibraryEditCollection #closeSearchBtn{
 text-align:left;

@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -26,24 +26,11 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 class QDateTime;
 
-static struct tm * mygmtime(const time_t *timer);
-time_t mymktime(struct tm *t);
-int rtc_month_days(unsigned int month, unsigned int year);
-
 class RTCManager : public QObject
 {
     Q_OBJECT
 
     public:
-        static void setRTCAlarm(int secs);
-        static void turnOffRTCTimer();
-        static bool checkRTCTime();
-        static QDateTime rtcDateTime();
-        static void setRtcDateTime(const QDateTime&);
-        static bool setHardwareDateFromSystem();
-        static bool setSystemDateFromHw();
-        static void syncClock();
-
         struct rtc_time {
             int tm_sec;
             int tm_min;
@@ -55,6 +42,16 @@ class RTCManager : public QObject
             int tm_yday;
             int tm_isdst;
         };
+
+        static void addSecsToRTCTime(struct rtc_time& rtc_tm, int secs);
+        static void setRTCAlarm(int secs);
+        static void turnOffRTCTimer();
+        static bool checkRTCTime();
+        static QDateTime rtcDateTime();
+        static void setRtcDateTime(const QDateTime&);
+        static bool setHardwareDateFromSystem();
+        static bool setSystemDateFromHw();
+        static void syncClock();
 
         struct rtc_time_generic {
             int tm_sec;

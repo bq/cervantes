@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -45,28 +45,39 @@ bqQTextBrowser::bqQTextBrowser(QWidget* parent) : QTextBrowser(parent)
     QString css;
     QFont font("Lato");
 
-    if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+    switch(QBook::getInstance()->getResolution())
     {
-        css  =  "* {"
-                "font-size: 24pt ;"
-                "font-family: 'Lato';"
-                "padding-bottom:5pt;"
-                "color:#000 !important;"
-                "}";
+        case QBook::RES1072x1448:
+            css  = "* {"
+                   "font-size: 8pt ;"
+                   "font-family: 'Lato';"
+                   "padding-bottom:3pt;"
+                   "color:#000 !important;"
+                    "}";
 
-        font.setPointSize(24);
-    }
-    else
-    {
-        css  = "* {"
-               "font-size: 19pt ;"
-               "font-family: 'Lato';"
-               "padding-bottom:3pt;"
-               "color:#000 !important;"
-                "}";
+            font.setPointSize(8);
+            break;
+        case QBook::RES758x1024:
+            css  =  "* {"
+                    "font-size: 24pt ;"
+                    "font-family: 'Lato';"
+                    "padding-bottom:5pt;"
+                    "color:#000 !important;"
+                    "}";
 
-        font.setPointSize(19);
-    }
+            font.setPointSize(24);
+            break;
+        case QBook::RES600x800: default:
+            css  = "* {"
+                   "font-size: 19pt ;"
+                   "font-family: 'Lato';"
+                   "padding-bottom:3pt;"
+                   "color:#000 !important;"
+                    "}";
+
+            font.setPointSize(19);
+            break;
+   }
 
    // Create a QTextDocument with the defined HTML and CSS
    m_document = new QTextDocument;

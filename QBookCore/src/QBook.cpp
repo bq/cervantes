@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -570,22 +570,36 @@ int QBook::getResolution()
     if (res == 0) {
 #ifndef Q_WS_QWS
         foreach (QString arg, QCoreApplication::arguments()) {
-            if (arg == "-1024") {
-                res = RES758x1024;
-                break;
-            }
-            if (arg == "-800"){
-                res = RES600x800;
-                break;
+            switch(arg)
+            {
+                case "-1448":
+                    res = RES1072x1448;
+                    break;
+                case "-1024":
+                    res = RES758x1024;
+                    break;
+                case "-800": default:
+                    res = RES600x800;
+                    break;
             }
         }
         return res;
 #else
         struct ntxhwconfig hwconfig;
         if (ntx_read_hwconfig("/dev/mmcblk0", &hwconfig) == 0) {
-            res = (hwconfig.values.display_resolution == 1) ? RES758x1024 : RES600x800;
+            switch (hwconfig.values.display_resolution) {
+                case 1:
+                    res = RES758x1024;
+                    break;
+                case 5:
+                    res = RES1072x1448;
+                    break;
+                default:
+                    res = RES600x800;
+                    break;
+            }
         } else {
-            qDebug() << "Cannot get resolution from hwconfig, setting to 800";
+            qWarning() << "Cannot get resolution from hwconfig, setting to 800";
             res = RES600x800;
         }
 #endif

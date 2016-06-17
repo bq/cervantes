@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -340,10 +340,6 @@ void StatusBar::updateTime()
 
 void StatusBar::updateTimeUI (const QString& timeStr)
 {
-#ifdef Q_WS_QWS
-        qDebug() << Q_FUNC_INFO;
-#endif
-
         timeLbl->setText(timeStr);
 }
 

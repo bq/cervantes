@@ -12,8 +12,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>570</width>
-    <height>55</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -29,7 +29,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QFrame" name="contentsItemCont">
    <property name="geometry">
@@ -42,8 +42,8 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>572</width>
-     <height>54</height>
+     <width>404</width>
+     <height>38</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -100,7 +100,7 @@
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>45</height>
+         <height>32</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -138,7 +138,7 @@
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true" />
           </property>
           <property name="text">
            <string notr="true">Chapter 2. Page 10</string>
@@ -158,6 +158,6 @@
    </layout>
   </widget>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

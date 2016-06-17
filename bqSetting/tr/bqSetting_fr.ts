@@ -97,7 +97,7 @@
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="142"/>
         <source>Esta versión de firmware ha sido desarrollada integramente en España por Mundo Reader S.L. con un quipo de jóvenes profesionales, ingenieros informáticos de telecomunicación, diseñadores gráficos ... y publicada bajo licencia GPL  (https://bitbucket.org/mundoreader/cervantes).</source>
-        <translation>Cette version de micrologiciel a été développée intégralement en Espagne par Mundo Reader S.L. grâce à une équipe de jeunes professionnels, d&apos;ingénieurs informatiques des télécommunications, d&apos;infographistes... et publiée sous une licence GNU (https://bitbucket.org/mundoreader/cervantes).</translation>
+        <translation>Cette version de micrologiciel a été développée intégralement en Espagne par Mundo Reader S.L. grâce à une équipe de jeunes professionnels, d&apos;ingénieurs informatiques des télécommunications, d&apos;infographistes... et publiée sous une licence GNU (https://github.com/bq/cervantes).</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="155"/>
@@ -111,8 +111,8 @@
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="175"/>
-        <source>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger. </source>
-        <translation>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger. </translation>
+        <source>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger, Santiago Mayoral, Guillem Barnolas, Hristo Gyulev. </source>
+        <translation>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger, Santiago Mayoral, Guillem Barnolas, Hristo Gyulev. </translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="188"/>
@@ -121,8 +121,8 @@
     </message>
     <message>
         <location filename="../ui/SettingsAboutUs.ui" line="198"/>
-        <source>Nieves Herreros, Sandra Salvador.</source>
-        <translation>Nieves Herreros, Sandra Salvador.</translation>
+        <source>Nieves Herreros, Sandra Salvador, Ana Sánchez, Jaime Mena.</source>
+        <translation>Nieves Herreros, Sandra Salvador, Ana Sánchez, Jaime Mena.</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="208"/>
@@ -269,7 +269,7 @@
     <message utf8="true">
         <location filename="../ui/SettingsAdobeDrmUnLinkDevice.ui" line="153"/>
         <source>Este dispositivo está enlazado con las cuenta de Adobe DRM:</source>
-        <translation>Cet appareil est associé aux comptes d&apos;Adobe DRM : </translation>
+        <translation>Cet appareil est associé aux comptes d&apos;Adobe DRM&#160;: </translation>
     </message>
     <message>
         <location filename="../ui/SettingsAdobeDrmUnLinkDevice.ui" line="181"/>

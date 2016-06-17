@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -30,6 +30,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define LONG_PRESS_INTERVAL     300
 #define SWIPE_MIN_LENGTH        32      // Set by tuning
 #define SWIPE_MIN_LENGTH_HD     40      // Set by tuning
+#define SWIPE_MIN_LENGTH_FHD    75      // TODO CERVANTES3
 #define SWIPE_MAX_TIME          600
 
 class QObject;

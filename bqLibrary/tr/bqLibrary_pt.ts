@@ -763,7 +763,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/LibraryBooksFilterLayer.ui" line="162"/>
         <source>Mis libros</source>
-        <translation>Meus livros</translation>
+        <translation>Os meus livros</translation>
     </message>
     <message>
         <location filename="../ui/LibraryBooksFilterLayer.ui" line="181"/>
@@ -773,7 +773,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/LibraryBooksFilterLayer.ui" line="194"/>
         <source>Mis colecciones</source>
-        <translation>Minhas coleções</translation>
+        <translation>As minhas coleções</translation>
     </message>
     <message>
         <location filename="../ui/LibraryBooksFilterLayer.ui" line="210"/>
@@ -1209,7 +1209,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../ui/LibraryReadingIconGridViewer.ui" line="498"/>
         <source>Último acceso:</source>
-        <translation>Último acesso:</translation>
+        <translation>Último acesso: </translation>
     </message>
     <message>
         <location filename="../ui/LibraryReadingIconGridViewer.ui" line="505"/>

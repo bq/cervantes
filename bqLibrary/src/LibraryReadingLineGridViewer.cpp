@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -143,7 +143,7 @@ void LibraryReadingLineGridViewer::paintBooks()
     bookTitleLbl->setText(bqUtils::truncateStringToLength(bookInfo->title, STRING_MAX_LENGTH));
 
     // Author
-    if(bookInfo->author == "--")
+    if(bookInfo->author == "---")
         authorLbl->setText(tr("Autor Desconocido"));
     else
         authorLbl->setText(bqUtils::truncateStringToLength(bookInfo->author, STRING_MAX_LENGTH));

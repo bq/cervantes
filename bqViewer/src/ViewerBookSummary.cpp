@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -52,6 +52,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #define USERGUIDEPATH "/app/share/userGuides/"
 
+#define FONT_SIZE_FHD "font-size:34px;"
+#define LITTLE_FONT_SIZE_FHD "font-size:31px;"
 #define FONT_SIZE_HD "font-size:24px;"
 #define LITTLE_FONT_SIZE_HD "font-size:22px;"
 #define FONT_SIZE_SD "font-size:18px;"
@@ -165,7 +167,7 @@ void ViewerBookSummary::setBook(const BookInfo* book)
         bookTitleLbl->setText(bqUtils::truncateStringToLength(m_book->title, BOOKSUMMARY_TITLE_MAX_LENGTH_SAMPLE));
 
     // Author
-    if(m_book->author == "--")
+    if(m_book->author == "---")
         bookAuthorLbl->setText(tr("Autor Desconocido"));
     else
         bookAuthorLbl->setText(bqUtils::truncateStringToLength(m_book->author, BOOKSUMMARY_AUTHOR_MAX_LENGTH));
@@ -610,31 +612,52 @@ void ViewerBookSummary::setCollectionLayerBtnText(QHash<QString, double> collect
     {
         QHash<QString, double>::iterator it = collectionList.begin();
         QString collectionName = it.key();
-        if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+        switch(QBook::getInstance()->getResolution())
         {
-            if(collectionName.size() >= 22)
-                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
-            else
-                addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
-        }
-        else
-        {
-            if(collectionName.size() >= 22)
-                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
-            else
-                addToCollectionBtn->setStyleSheet(FONT_SIZE_SD);
+            case QBook::RES1072x1448:
+                if(collectionName.size() >= 10)
+                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_FHD);
+                else
+                    addToCollectionBtn->setStyleSheet(FONT_SIZE_FHD);
+                break;
+            case QBook::RES758x1024:
+                if(collectionName.size() >= 22)
+                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
+                else
+                    addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
+                break;
+            case QBook::RES600x800: default:
+                if(collectionName.size() >= 22)
+                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
+                else
+                    addToCollectionBtn->setStyleSheet(FONT_SIZE_SD);
+                break;
         }
         addToCollectionBtn->setText(bqUtils::truncateStringToLength(tr("%1").arg(collectionName), COLLECTION_MAX_LENGTH));
 
     }
     else
     {
-        if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+        switch(QBook::getInstance()->getResolution())
         {
-            if(collectionList.size() >= 22)
-                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
-            else
-                addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
+            case QBook::RES1072x1448:
+                if(collectionList.size() >= 10)
+                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_FHD);
+                else
+                    addToCollectionBtn->setStyleSheet(FONT_SIZE_FHD);
+                break;
+            case QBook::RES758x1024:
+                if(collectionList.size() >= 22)
+                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
+                else
+                    addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
+                break;
+            case QBook::RES600x800: default:
+                if(collectionList.size() >= 22)
+                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
+                else
+                    addToCollectionBtn->setStyleSheet(FONT_SIZE_SD);
+                break;
         }
         addToCollectionBtn->setText(tr("En %1 colecciones").arg(collectionList.size()));
     }

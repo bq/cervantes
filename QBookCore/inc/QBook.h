@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -67,7 +67,8 @@ public:
 
     enum ScreenResolution {
         RES600x800,
-        RES758x1024
+        RES758x1024,
+        RES1072x1448
     };
 
     static void init(QApplication* app);

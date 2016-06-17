@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,21 +18,21 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -51,8 +51,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>600</width>
-       <height>60</height>
+       <width>849</width>
+       <height>85</height>
       </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -68,7 +68,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Atrás</string>
+         <string>Atr&#225;s</string>
         </property>
        </widget>
       </item>
@@ -83,11 +83,11 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>10000</height>
+          <height>14142</height>
          </size>
         </property>
         <property name="text">
-         <string>Información de red</string>
+         <string>Informaci&#243;n de red</string>
         </property>
        </widget>
       </item>
@@ -98,8 +98,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -126,7 +126,7 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <property name="spacing">
@@ -188,8 +188,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -252,7 +252,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Calidad de señal:</string>
+            <string>Calidad de se&#241;al:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -269,8 +269,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -333,7 +333,7 @@
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="text">
             <string>IP Address:</string>
@@ -353,8 +353,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -434,8 +434,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -515,8 +515,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -596,8 +596,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -683,8 +683,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -721,8 +721,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -742,8 +742,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>57</width>
+         <height>28</height>
         </size>
        </property>
       </spacer>
@@ -779,8 +779,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>57</width>
+         <height>28</height>
         </size>
        </property>
       </spacer>
@@ -797,8 +797,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -812,6 +812,6 @@
    <header>SilentQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

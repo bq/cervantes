@@ -66,7 +66,4 @@ max-width:190px;
 }
 #versionLutLbl, #modelLbl, #mdeviceIDLbl, #edpTypeLbl,#edpTemperatureLbl, #internalMemLbl, #auxLbl, #diccioLbl, #bateryLbl, #tconLbl, #softwareLbl, #MACadressLbl, #externalMemLbl, #panelTypeLbl{
 }
-#DeviceInfoDialog #settingsMenuListCont QWidget #internalVersionValLbl{
-margin-left:0px;
-font-size:18px;
-}
+

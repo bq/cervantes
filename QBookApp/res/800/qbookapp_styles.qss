@@ -64,16 +64,7 @@ font-size:18px;
 min-width:160px;
 max-width:160px;
 }
-#internalVersionLbl{
-padding:0px 0px 0px 10px;
-margin:0px 10px 0px 0px;
-max-width:130px;
-}
-#DeviceInfoDialog #settingsMenuListCont QWidget #internalVersionValLbl{
-margin:0px 24px 0px 0px;
-padding:0px 10px 0px 0px;
-font-size:10px;
-}
+
 #DeviceInfoDialog #settingsMenuListCont QWidget #kernelVersionVaLbl{
 font-size:12px;
 }

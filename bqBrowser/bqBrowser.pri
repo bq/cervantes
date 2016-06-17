@@ -44,9 +44,10 @@ TRANSLATIONS =  ./tr/bqBrowser_es.ts \
                 ./tr/bqBrowser_de.ts \
                 ./tr/bqBrowser_it.ts
 
-QRC_FILES += Browser800.qrc Browser1024.qrc
+QRC_FILES += Browser800.qrc Browser1024.qrc Browser1448.qrc
 
 OTHER_FILES += \
     bqBrowser/res/browser_styles_generic.qss \
     bqBrowser/res/800/browser_styles.qss \
-    bqBrowser/res/1024/browser_styles.qss
+    bqBrowser/res/1024/browser_styles.qss \
+    bqBrowser/res/1448/browser_styles.qss

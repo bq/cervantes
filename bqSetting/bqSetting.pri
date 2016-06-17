@@ -140,10 +140,11 @@ TRANSLATIONS =  ./tr/bqSetting_es.ts \
 DEPENDPATH+= ../bq/inc
 
 
-QRC_FILES += Settings800.qrc Settings1024.qrc
+QRC_FILES += Settings800.qrc Settings1024.qrc Settings1448.qrc
 
 OTHER_FILES += \
     bqSetting/res/800/settings_styles.qss \
     bqSetting/res/1024/settings_styles.qss \
+    bqSetting/res/1448/settings_styles.qss \
     bqSetting/res/settings_styles_generic.qss
 

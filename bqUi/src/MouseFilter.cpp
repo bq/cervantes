@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -48,12 +48,15 @@ MouseFilter::MouseFilter(QObject *parent):
 
     m_LongpressTimer.setInterval(LONG_PRESS_INTERVAL);
 
-    switch(QBook::getResolution()){
+    switch(QBook::getInstance()->getResolution()){
     case QBook::RES600x800:
         i_swipe_min_length = SWIPE_MIN_LENGTH;
         break;
     case QBook::RES758x1024:
         i_swipe_min_length = SWIPE_MIN_LENGTH_HD;
+        break;
+    case QBook::RES1072x1448:
+        i_swipe_min_length = SWIPE_MIN_LENGTH_FHD;
         break;
     default:
         i_swipe_min_length = SWIPE_MIN_LENGTH;
@@ -174,6 +177,13 @@ bool MouseFilter::eventFilter(QObject *watchedObj, QEvent *event)
 void MouseFilter::processLongpress()
 {
     qDebug() << "--->" << Q_FUNC_INFO << "LONGPRESS START" << m_currentPoint;
+
+    //Don't allow long press on footer
+    if(m_pCurrentObj->objectName()=="pageWindow")
+    {
+        qDebug() << "--->" << Q_FUNC_INFO << "Don't allow long press on footer";
+        return;
+    }
 
     m_LongpressTimer.stop();
     b_isLongPressing = true;

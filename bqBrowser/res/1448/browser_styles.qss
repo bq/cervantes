@@ -1,0 +1,309 @@
+/*************************************************************************
+
+bq Cervantes e-book reader application
+Copyright (C) 2011-2013  Mundoreader, S.L
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with the source code.  If not, see <http://www.gnu.org/licenses/>.
+
+*************************************************************************/
+
+/*SettingsBrowser
+----------------------------*/
+#Browser{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1358px;
+max-height: 1358px;
+}
+#navBarBrowser{
+min-height: 109px;
+max-height: 109px;
+border-width: 1px;
+}
+#url{
+margin-left: 14px;
+padding: 0px 0px 0px 17px;
+min-width: 533px;
+max-width: 533px;
+min-height: 99px;
+max-height: 99px;
+border-radius:0;
+}
+#homeBtn{
+margin: 0px 0px 0px 28px;
+min-width: 82px;
+max-width: 82px;
+min-height: 91px;
+max-height: 91px;
+}
+#reloadbtn{
+margin: 0px 11px 0px 0px;
+min-width: 88px;
+max-width: 88px;
+min-height: 91px;
+max-height: 91px;
+}
+#stopbtn{
+margin: 0px 0px 0px 0px;
+min-width: 91px;
+max-width: 91px;
+min-height: 91px;
+max-height: 91px;
+}
+#QbookWebView{
+}
+#bottomBrowser{
+min-height: 91px;
+max-height: 91px;
+border-width: 1px;
+}
+#pagerBrowserCont{
+margin: 0px 0px 0px 35px;
+min-width: 181px;
+max-width: 181px;
+min-height: 82px;
+max-height: 82px;
+border-width: 3px;
+border-radius:6;
+}
+#backbtn{
+margin: 0px 0px 0px 35px;
+}
+#forwardbtn{
+}
+#backbtn,#forwardbtn{
+min-width: 91px;
+max-width: 91px;
+}
+#browserBar{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 99px;
+max-height: 99px;
+}
+#browserBarCont{
+border-width: 3px;
+}
+#webViewFooterCont{
+border-width: 3px;
+min-height: 99px;
+max-height: 99px;
+}
+#webViewFooter{
+min-height: 85px;
+max-height: 85px;
+
+}
+#spacerBrowserBottomLeft{
+min-width: 35px;
+max-width: 35px;
+}
+#zoomInBtn{
+margin: 0px 0px 0px 72px;
+min-width: 91px;
+max-width: 91px;
+min-height: 85px;
+max-height: 85px;
+}
+#zoomOutBtn{
+margin: 0px 0px 0px 72px;
+min-width: 91px;
+max-width: 91px;
+min-height: 85px;
+max-height: 85px;
+}
+#favobtn{
+margin: 0px 0px 0px 109px;
+min-width: 91px;
+max-width: 91px;
+min-height: 85px;
+max-height: 85px;
+}
+#addfavobtn{
+margin: 0px 91px 0px 0px;
+min-width: 91px;
+max-width: 91px;
+min-height: 85px;
+max-height: 85px;
+}
+#Browser #Go{
+margin: 0px 8px 0px 0px;
+min-width: 95px;
+max-width: 95px;
+min-height: 91px;
+max-height: 91px;
+border-width: 1px;
+border-radius:6;
+}
+#Browser #clearSearchBtn{
+margin: 0px 8px 0px 0px;
+min-width: 78px;
+max-width: 78px;
+min-height: 99px;
+max-height: 99px;
+}
+/*BrowserFavo
+------------------------------*/
+#verticalFrame{
+margin: 35px;
+padding: 0px 0px 21px 0px;
+border-width: 21px;
+border-radius: 21px;
+min-width: 977px;
+max-width: 977px;
+min-height: 1230px;
+max-height: 1230px;
+}
+#commandbar2 {
+}
+#commandbar2 #year{
+}
+#commandbar2 #closeBtn{
+}
+#frame_2 #deleteBtn, #frame_2 #selectBtn{
+}
+#stackedWidget{
+}
+#frame_2{
+}
+
+/*BrowserFavo
+------------------------------*/
+#BrowserFavo{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 1358px;
+max-height: 1358px;
+}
+#BrowserFavoCont{
+margin: 35px;
+padding: 0px 0px 21px 0px;
+border-width: 21px;
+border-radius: 21px;
+min-width: 955px;
+max-width: 955px;
+min-height: 1230px;
+max-height: 1230px;
+}
+#browserSectionHeader {
+margin: 35px 54px 0px 54px;
+padding: 0px 0px 21px 27px;
+min-height: 91px;
+max-height: 91px;
+border-width: 3px;
+}
+#browserSectionHeader #sectionTitleLbl{
+margin: 45px 0px 0px 82px;
+}
+#browserSectionHeader #year{
+margin: 21px 0px 0px 0px;
+}
+#browserSectionHeader #closeBtn{
+margin: 54px 82px 0px 0px;
+min-width: 91px;
+max-width: 91px;
+min-height: 91px;
+max-height: 91px;
+}
+#actionCont #deleteBtn{
+margin: 0px 0px 0px 82px;
+padding: 0px 27px 0px 78px;
+min-height: 72px;
+max-height: 72px;
+border-width: 1px;
+border-radius: 8px;
+}
+#actionCont #selectBtn{
+margin: 0px 0px 0px 27px;
+padding: 0px 27px 0px 78px;
+min-width: 325px;
+max-width: 325px;
+min-height: 72px;
+max-height: 72px;
+border-width: 1px;
+border-radius: 8px;
+}
+#stackedWidget{
+margin: 0px 35px 35px 35px;
+}
+#actionCont{
+margin: 0px 57px;
+min-height: 99px;
+max-height: 99px;
+}
+#BrowserFavoListCont #Item1,
+#BrowserFavoListCont #Item2,
+#BrowserFavoListCont #Item3,
+#BrowserFavoListCont #Item4,
+#BrowserFavoListCont #Item5,
+#BrowserFavoListCont #Item6,
+#BrowserFavoListCont #Item7,
+#BrowserFavoListCont #Item8{
+margin: 0px 54px;
+min-width: 964px;
+max-width: 964px;
+min-height: 117px;
+max-height: 117px;
+border-width: 3px;
+}
+#checkBtn{
+margin: 0px 18px 18px 72px;
+min-height: 99px;
+max-height: 99px;
+min-width: 91px;
+max-width: 91px;
+}
+#EventLabel{
+padding-top: 18px;
+}
+/*BrowserFavoItem
+---------------------*/
+#BrowserFavoItem{
+min-width: 976px;
+max-width: 976px;
+min-height: 148px;
+max-height: 148px;
+}
+#BrowserFavoItemCont{
+min-width: 1072px;
+max-width: 1072px;
+min-height: 148px;
+max-height: 148px;
+}
+#page_slider{
+}
+
+#BrowserFavoItemCont{
+background-color:#FFFFFF;
+}
+#downPageBtn{
+min-width: 82px;
+max-width: 82px;
+min-height: 82px;
+max-height: 82px;
+margin: 0px 0px 0px 54px;
+}
+#upPageBtn{
+min-width: 82px;
+max-width: 82px;
+min-height: 82px;
+max-height: 82px;
+margin: 0px 54px 0px 0px;
+}
+#EventUrl{
+margin-right: 91px;
+}
+#EventLabel{
+margin-right: 91px;
+}

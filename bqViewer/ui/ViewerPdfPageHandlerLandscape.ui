@@ -6,23 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>94</width>
-    <height>600</height>
+    <width>133</width>
+    <height>849</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QWidget" name="ViewerPdfPageHandlerLandscapeCont" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>66</width>
-     <height>600</height>
+     <width>93</width>
+     <height>849</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -44,7 +44,7 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -60,7 +60,7 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -76,7 +76,7 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -92,7 +92,7 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -108,7 +108,7 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -124,7 +124,7 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -140,7 +140,7 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -148,7 +148,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../Viewer800.qrc"/>
+  <include location="../Viewer800.qrc" />
  </resources>
- <connections/>
+ <connections />
 </ui>

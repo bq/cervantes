@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>41</height>
+    <width>849</width>
+    <height>58</height>
    </rect>
   </property>
   <property name="font">
@@ -19,7 +19,7 @@
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -47,15 +47,15 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>36</width>
-       <height>30</height>
+       <width>51</width>
+       <height>42</height>
       </size>
      </property>
      <property name="styleSheet">
       <string notr="true">background-image: url(:/allmark/allmark-hwrnote);</string>
      </property>
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -69,8 +69,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>20</height>
+       <width>28</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -78,7 +78,7 @@
    <item>
     <widget class="SilentQPushButton" name="upPageBtn">
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -106,7 +106,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <property name="text">
       <string notr="true">1/1</string>
@@ -119,7 +119,7 @@
    <item>
     <widget class="SilentQPushButton" name="downPageBtn">
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -133,8 +133,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>20</height>
+       <width>28</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -157,7 +157,7 @@
       <string notr="true">background:none;</string>
      </property>
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -170,8 +170,8 @@
    <header>SilentQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
  <slots>
   <slot>previousPage()</slot>
   <slot>nextPage()</slot>

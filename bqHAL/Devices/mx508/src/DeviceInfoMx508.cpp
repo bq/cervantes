@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -33,6 +33,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define E606A2_PCBID 22
 #define E60672_PCBID 23
 #define E60Q22_PCBID 33
+#define E60QH2_PCBID 51
 
 
 DeviceInfoMx508::DeviceInfoMx508()
@@ -137,6 +138,9 @@ int DeviceInfoMx508::getHwId()
     case E60Q22_PCBID:
         qDebug() << Q_FUNC_INFO << "E60Q22";
         return E60Q22;
+    case E60QH2_PCBID:
+        qDebug() << Q_FUNC_INFO << "E60QH2";
+        return E60QH2;
     default:
         qWarning() << Q_FUNC_INFO << "UNKNOWN_HW_MODEL" << hwc.values.pcb;
     }

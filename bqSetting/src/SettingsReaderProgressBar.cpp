@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -25,6 +25,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "SettingsReaderProgressBar.h"
 #include "QBook.h"
 
+#define WIDTH_LINE_FHD 3
 #define WIDTH_LINE_HD 2
 #define WIDTH_LINE_SD 1
 
@@ -33,10 +34,18 @@ SettingsReaderProgressBar::SettingsReaderProgressBar(QWidget *parent)  : FullScr
         setupUi(this);
         readingProgress->setStyleSheet("background:transparent;");
 
-        if(QBook::getResolution() == QBook::RES600x800)
-            m_chapterLineWidth = WIDTH_LINE_SD;
-        else
-            m_chapterLineWidth = WIDTH_LINE_HD;
+        switch(QBook::getInstance()->getResolution())
+        {
+            case QBook::RES1072x1448:
+                m_chapterLineWidth = WIDTH_LINE_FHD;
+                break;
+            case QBook::RES758x1024:
+                m_chapterLineWidth = WIDTH_LINE_HD;
+                break;
+            case QBook::RES600x800: default:
+                m_chapterLineWidth = WIDTH_LINE_SD;
+                break;
+        }
 
         /* Please, keep the same order than interface */
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>50</height>
+    <width>849</width>
+    <height>71</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -17,19 +17,19 @@
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QFrame" name="pageLibraryViewerCont">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
-     <height>55</height>
+     <width>849</width>
+     <height>78</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true" />
    </property>
    <layout class="QHBoxLayout" name="pageLibraryViewer">
     <property name="spacing">
@@ -54,8 +54,8 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>40</width>
-        <height>20</height>
+        <width>57</width>
+        <height>28</height>
        </size>
       </property>
      </spacer>
@@ -66,7 +66,7 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -89,7 +89,7 @@
        <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </item>
@@ -100,8 +100,8 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>40</width>
-        <height>20</height>
+        <width>57</width>
+        <height>28</height>
        </size>
       </property>
      </spacer>
@@ -117,7 +117,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Library800.qrc"/>
+  <include location="../Library800.qrc" />
  </resources>
- <connections/>
+ <connections />
 </ui>

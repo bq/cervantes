@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
-    <height>60</height>
+    <width>735</width>
+    <height>85</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -30,8 +30,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -39,14 +39,14 @@
    <item>
     <widget class="SilentQPushButton" name="upPageBtn">
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
    <item>
     <widget class="QLabel" name="pagTextLbl">
      <property name="text">
-      <string>Pág. 2 of 3</string>
+      <string>P&#225;g. 2 of 3</string>
      </property>
      <property name="indent">
       <number>0</number>
@@ -56,7 +56,7 @@
    <item>
     <widget class="SilentQPushButton" name="downPageBtn">
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -67,8 +67,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -82,6 +82,6 @@
    <header>SilentQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

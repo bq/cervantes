@@ -118,10 +118,9 @@ min-height:45px;
 max-height:45px;
 }
 #topActions{
-/*margin:0px 20px;*/
 margin:0px 20px;
-min-height:30px;
-max-height:30px;
+min-height:28px;
+max-height:28px;
 }
 #searchCont #bookActionsSelectBtn{
 padding:0px 20px 0px 0px;
@@ -144,9 +143,9 @@ padding:0px 2px 0px 0px;
 font-size:19px;
 }
 #sortBooksCont #allCollectionsLbl{
-margin:0px 0px 0px 15px;
+margin:0px 0px 0px 10px;
 padding:0px 2px 0px 0px;
-font-size:19px;
+font-size:18px;
 }
 #sortBooksCont #backToCollectionsBtn{
 margin:0px 0px 0px 20px;
@@ -203,7 +202,7 @@ min-height:45px;
 max-height:45px;
 }
 #sortByBtn{
-padding:0px 30px 0px 15px;
+padding:0px 25px 0px 15px;
 margin:0px 22px 0px 0px;
 min-height:39px;
 max-height:39px;
@@ -291,20 +290,30 @@ border-bottom-right-radius:5px;
 #LibraryIconGridViewer{
 min-width:600px;
 max-width:600px;
-min-height:619px;
-max-height:619px;
+min-height:614px;
+max-height:614px;
+}
+#iconGridViewerCont{
+min-height:565px;
+max-height:565px;
 }
 #iconGridViewerCont #book1, #iconGridViewerCont #book2, #iconGridViewerCont #book3, #iconGridViewerCont #book4, #iconGridViewerCont #book5, #iconGridViewerCont #book6{
 min-width:190px;
 max-width:190px;
 min-height:240px;
-min-height:240px;
+max-height:240px;
 }
+
 #iconGridViewerCont #book1Cont, #iconGridViewerCont #book2Cont, #iconGridViewerCont #book3Cont, #iconGridViewerCont #book4Cont, #iconGridViewerCont #book5Cont, #iconGridViewerCont #book6Cont{
 min-width:190px;
 max-width:190px;
 min-height:240px;
-min-height:240px;
+max-height:240px;
+margin-top: 18px;
+margin-bottom:38px;
+}
+#iconGridViewerCont #book4Cont, #iconGridViewerCont #book5Cont, #iconGridViewerCont #book6Cont{
+margin-bottom:0px;
 }
 /*LibraryIconGridViewerItem
 ------------------------------------*/
@@ -541,14 +550,14 @@ max-height:230px;
 #LibraryLineGridViewer{
 min-width:600px;
 max-width:600px;
-min-height:619px;
-max-height:619px;
+min-height:614px;
+max-height:614px;
 }
 #LibraryLineGridViewerCont{
 min-width:600px;
 max-width:600px;
-min-height:570px;
-max-height:750px;
+min-height:564px;
+max-height:564px;
 }
 #LibraryLineGridViewerCont #book1, #LibraryLineGridViewerCont #book2, #LibraryLineGridViewerCont #book3, #LibraryLineGridViewerCont #book4, #LibraryLineGridViewerCont #book5, #LibraryLineGridViewerCont #book6, #LibraryLineGridViewerCont #book7{
 margin:0px;
@@ -760,12 +769,23 @@ font-size:20px;
 }
 /*LibraryReadingIconGridViewer
 -----------------------------*/
-#LibraryReadingIconGridViewer,#LibraryReadingIconGridViewerCont{
+#LibraryReadingIconGridViewer{
 min-width:600px;
 max-width:600px;
-min-height:619px;
-max-height:619px;
+min-height:617px;
+max-height:617px;
 }
+#LibraryReadingIconGridViewerCont{
+min-width:600px;
+max-width:600px;
+min-height:565px;
+max-height:565px;
+}
+#LibraryReadingIconGridViewerCont #iconGridViewerCont{
+min-height:278px;
+max-height:278px;
+}
+
 #LibraryReadingIconGridViewerCont #VerticalPagerHandler{
 min-height:55px;
 min-height:55px;
@@ -882,14 +902,14 @@ font-size:17px;
 #mainBookInfoCont{
 min-width:600px;
 max-width:600px;
-min-height:265px;
-max-height:265px;
+min-height:288px;
+max-height:288px;
 }
 #currentBookCont{
 min-width:600px;
 max-width:600px;
-min-height:265px;
-max-height:265px;
+min-height:288px;
+max-height:288px;
 }
 #readBookBtn{
 min-width:600px;
@@ -898,8 +918,8 @@ min-height:265px;
 max-height:265px;
 }
 #currentBookData{
-min-width:305px;
-max-width:305px;
+min-width:274px;
+max-width:274px;
 }
 #currentBookCont #readingLbl{
 margin:25px 0px 10px 0px;
@@ -1218,53 +1238,52 @@ font-size:18px;
 #pageLibraryViewerCont{
 min-width:600px;
 max-width:600px;
-min-height:55px;
-max-height:55px;
+min-height:48px;
+max-height:48px;
 }
 #VerticalPagerHandler{
 min-width:600px;
 max-width:600px;
-margin:7px 0px 0px 0px;
-min-height:55px;
-max-height:55px;
+margin:0px 0px 0px 0px;
+min-height:48px;
+max-height:48px;
 border-top:1px solid #808080;
 }
 #VerticalPagerHandler #pageLibraryViewerCont{
-min-height:56px;
-max-height:56px;
+min-height:48px;
+max-height:48px;
 }
 #VerticalPagerHandler #pageLibraryViewerCont #forwardButton{
 margin-left:10px;
 min-width:90px;
 max-width:90px;
-min-height:56px;
-max-height:56px;
+min-height:48px;
+max-height:48px;
 border-left-width:1px;
 }
 #VerticalPagerHandler #pageLibraryViewerCont #backButton{
 min-width:90px;
 max-width:90px;
-min-height:56px;
-max-height:56px;
+min-height:48px;
+max-height:48px;
 border-right-width:1px;
 }
 #pageLibraryViewerCont #pageLabel{
-margin:1px 0px 0px 14px;
-min-height:56px;
-max-height:56px;
+margin:0px 0px 0px 14px;
+min-height:48px;
+max-height:48px;
 min-width:120px;
 max-width:120px;
 }
 #pageLibraryViewerCont #pageLabel{
-margin-top:1px;
-min-height:56px;
-max-height:56px;
+min-height:48px;
+max-height:48px;
 font-size:20px;
 }
 QSlider#pagerSlider{
 margin-right:0px;
-min-height:56px;
-max-height:56px;
+min-height:48px;
+max-height:48px;
 min-width:275px;
 max-width:275px;
 }
@@ -1700,7 +1719,8 @@ min-width:90px;
 max-width:90px;
 min-height:50px;
 max-height:50px;
-border-right-width:1px;}
+border-right-width:1px;
+}
 
 #btnImageNext{
 margin-top:1px;
@@ -1708,19 +1728,22 @@ min-width:90px;
 max-width:90px;
 min-height:50px;
 max-height:50px;
-border-left-width:1px;}
+border-left-width:1px;
+}
 
 #pageHandlerImage #imageTitle{
 margin-top:1px;
 min-height:25px;
 max-height:25px;
 text-align:center;
-font-size:16px;}
+font-size:16px;
+}
 
 #pageHandlerImage #pageLabel{
 margin-top:1px;
 min-height:25px;
 max-height:25px;
 text-align:center;
-font-size:14px;}
+font-size:14px;
+}
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>50</height>
+    <width>849</width>
+    <height>71</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -24,15 +24,15 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>50</height>
+    <width>849</width>
+    <height>71</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_3">
    <property name="spacing">
@@ -68,7 +68,7 @@
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -98,8 +98,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>11</width>
-             <height>20</height>
+             <width>16</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -107,7 +107,7 @@
          <item>
           <widget class="QLabel" name="syncSpinnerLbl">
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -117,7 +117,7 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
            <property name="checkable">
             <bool>false</bool>
@@ -130,7 +130,7 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -144,12 +144,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>25</width>
-             <height>50</height>
+             <width>35</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -162,7 +162,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -177,7 +177,7 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>53</height>
+             <height>75</height>
             </size>
            </property>
            <property name="text">
@@ -201,18 +201,18 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>54</width>
-             <height>52</height>
+             <width>76</width>
+             <height>74</height>
             </size>
            </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -224,7 +224,7 @@
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="5" margin="0"/>
+ <layoutdefault margin="0" spacing="5" />
  <customwidgets>
   <customwidget>
    <class>ElidedLabel</class>
@@ -232,6 +232,6 @@
    <header>ElidedLabel.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

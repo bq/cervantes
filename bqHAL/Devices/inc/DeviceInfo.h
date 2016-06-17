@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -38,7 +38,8 @@ public:
         UNKNOWN_HW_MODEL,
         E606A2,     // Cervantes Touch, iMX5
         E60672,     // Cervantes Touch Light, iMX5
-        E60Q22      // Cervantes 2013
+        E60Q22,     // Cervantes 2013
+        E60QH2      // Cervantes 3
     };
 
     static DeviceInfo* getInstance();

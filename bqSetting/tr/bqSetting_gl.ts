@@ -97,7 +97,7 @@
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="142"/>
         <source>Esta versión de firmware ha sido desarrollada integramente en España por Mundo Reader S.L. con un quipo de jóvenes profesionales, ingenieros informáticos de telecomunicación, diseñadores gráficos ... y publicada bajo licencia GPL  (https://bitbucket.org/mundoreader/cervantes).</source>
-        <translation>Esta versión de firmware foi desenvolta íntegramente en España por Mundo Reader S.L. cun equipo de xoves profesionais, enxeñeiros informáticos, de telecomunicación, deseñadores gráficos... e publicada baixo licencia GPL (https://bitbucket.org/mundoreader/cervantes).</translation>
+        <translation>Esta versión de firmware foi desenvolta íntegramente en España por Mundo Reader S.L. cun equipo de xoves profesionais, enxeñeiros informáticos, de telecomunicación, deseñadores gráficos... e publicada baixo licencia GPL (https://github.com/bq/cervantes).</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="155"/>
@@ -111,7 +111,7 @@
     </message>
     <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="175"/>
-        <source>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger. </source>
+        <source>Adán Muñoz, Miguel Rodríguez, Pablo Núñez, Mikel Fernández, Iván Álvarez, Fernando Herrera, Eduardo Paz, Heiko Stübner, Nuria Fernández, Vicente Monge, Matthias Brugger, Santiago Mayoral, Guillem Barnolas, Hristo Gyulev. </source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
@@ -121,7 +121,7 @@
     </message>
     <message>
         <location filename="../ui/SettingsAboutUs.ui" line="198"/>
-        <source>Nieves Herreros, Sandra Salvador.</source>
+        <source>Nieves Herreros, Sandra Salvador, Ana Sánchez, Jaime Mena.</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">

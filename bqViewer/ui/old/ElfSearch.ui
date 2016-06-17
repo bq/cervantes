@@ -12,8 +12,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -26,7 +26,7 @@
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QFrame" name="content">
    <property name="geometry">
@@ -45,8 +45,8 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>600</width>
-     <height>745</height>
+     <width>424</width>
+     <height>527</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -56,7 +56,7 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true" />
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -88,7 +88,7 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>55</height>
+        <height>39</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -98,7 +98,7 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true" />
       </property>
      </widget>
     </item>
@@ -107,7 +107,7 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>640</height>
+        <height>453</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -128,7 +128,7 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>45</height>
+           <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -183,7 +183,7 @@
           <item>
            <widget class="QLabel" name="totalResultsWord">
             <property name="text">
-             <string notr="true">&quot;touch&quot;</string>
+             <string notr="true">"touch"</string>
             </property>
            </widget>
           </item>
@@ -252,7 +252,7 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>53</height>
+        <height>37</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -280,6 +280,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

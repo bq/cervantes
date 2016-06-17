@@ -32,8 +32,8 @@ max-height:88px;
 border-width:3px;
 }
 #Search #searchLineEdit{
-min-width:599px;
-max-width:599px;
+min-width:550px;
+max-width:550px;
 min-height:70px;
 max-height:70px;
 padding:0px 0px 0px 51px;

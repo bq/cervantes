@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -63,6 +63,7 @@ void LibraryLineGridViewerItem::paintEvent(QPaintEvent* )
 
 void LibraryLineGridViewerItem::setBook( const BookInfo* book, Library::ELibraryFilterMode filter )
 {
+    LibraryGridViewerItem::setBook(book, filter);
     m_path = book->path;
 
     // Hide elements
@@ -116,6 +117,7 @@ void LibraryLineGridViewerItem::setBook( const BookInfo* book, Library::ELibrary
 
 void LibraryLineGridViewerItem::setFile( const QFileInfo* file )
 {
+    LibraryGridViewerItem::setFile(file);
     m_path = file->filePath();
 
     // Hide elements
@@ -156,6 +158,7 @@ void LibraryLineGridViewerItem::setFile( const QFileInfo* file )
 
 void LibraryLineGridViewerItem::setArrow( const QString& path )
 {
+    LibraryGridViewerItem::setArrow(path);
     m_path = path;
 
     authorLbl->hide();

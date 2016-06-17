@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>700</height>
+    <width>849</width>
+    <height>990</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -26,7 +26,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_3">
    <property name="spacing">
@@ -42,8 +42,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -64,8 +64,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>20</width>
-          <height>40</height>
+          <width>28</width>
+          <height>57</height>
          </size>
         </property>
        </spacer>
@@ -106,7 +106,7 @@
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
             <property name="spacing">
@@ -122,8 +122,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -149,7 +149,7 @@
                </size>
               </property>
               <property name="text">
-               <string/>
+               <string />
               </property>
              </widget>
             </item>
@@ -180,7 +180,7 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <item row="3" column="1">
+               <item column="1" row="3">
                 <widget class="QLabel" name="bottomCenterLbl">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -189,40 +189,40 @@
                   </sizepolicy>
                  </property>
                  <property name="text">
-                  <string/>
+                  <string />
                  </property>
                  <property name="indent">
                   <number>0</number>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0">
+               <item column="0" row="5">
                 <spacer name="verticalSpacer_4">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
-                   <width>5</width>
-                   <height>40</height>
+                   <width>7</width>
+                   <height>57</height>
                   </size>
                  </property>
                 </spacer>
                </item>
-               <item row="5" column="2">
+               <item column="2" row="5">
                 <spacer name="verticalSpacer_8">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
-                   <width>20</width>
-                   <height>40</height>
+                   <width>28</width>
+                   <height>57</height>
                   </size>
                  </property>
                 </spacer>
                </item>
-               <item row="2" column="2">
+               <item column="2" row="2">
                 <widget class="QLabel" name="centerRightLbl">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -237,14 +237,14 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string/>
+                  <string />
                  </property>
                  <property name="indent">
                   <number>0</number>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="0">
+               <item column="0" row="4">
                 <spacer name="verticalSpacer_2">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -254,13 +254,13 @@
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
-                   <width>5</width>
-                   <height>5</height>
+                   <width>7</width>
+                   <height>7</height>
                   </size>
                  </property>
                 </spacer>
                </item>
-               <item row="1" column="2">
+               <item column="2" row="1">
                 <widget class="QLabel" name="topRightLbl">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -275,27 +275,27 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string/>
+                  <string />
                  </property>
                  <property name="indent">
                   <number>0</number>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="1">
+               <item column="1" row="5">
                 <spacer name="verticalSpacer_5">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
-                   <width>20</width>
-                   <height>40</height>
+                   <width>28</width>
+                   <height>57</height>
                   </size>
                  </property>
                 </spacer>
                </item>
-               <item row="3" column="2">
+               <item column="2" row="3">
                 <widget class="QLabel" name="bottomRightLbl">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -310,17 +310,17 @@
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true" />
                  </property>
                  <property name="text">
-                  <string/>
+                  <string />
                  </property>
                  <property name="indent">
                   <number>0</number>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="0">
+               <item column="0" row="2">
                 <widget class="QLabel" name="centerLeftLbl">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -335,14 +335,14 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string/>
+                  <string />
                  </property>
                  <property name="indent">
                   <number>0</number>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="1">
+               <item column="1" row="1">
                 <widget class="QLabel" name="topCenterLbl">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -351,14 +351,14 @@
                   </sizepolicy>
                  </property>
                  <property name="text">
-                  <string/>
+                  <string />
                  </property>
                  <property name="indent">
                   <number>0</number>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="1">
+               <item column="1" row="4">
                 <spacer name="verticalSpacer_6">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -368,25 +368,25 @@
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
-                   <width>20</width>
-                   <height>5</height>
+                   <width>28</width>
+                   <height>7</height>
                   </size>
                  </property>
                 </spacer>
                </item>
-               <item row="2" column="1">
+               <item column="1" row="2">
                 <widget class="QWidget" name="cover" native="true">
                  <widget class="QLabel" name="coverLbl">
                   <property name="geometry">
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>140</width>
-                    <height>210</height>
+                    <width>198</width>
+                    <height>297</height>
                    </rect>
                   </property>
                   <property name="text">
-                   <string/>
+                   <string />
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -397,12 +397,12 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>140</width>
-                    <height>175</height>
+                    <width>198</width>
+                    <height>247</height>
                    </rect>
                   </property>
                   <property name="text">
-                   <string/>
+                   <string />
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -413,12 +413,12 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>140</width>
-                    <height>164</height>
+                    <width>198</width>
+                    <height>232</height>
                    </rect>
                   </property>
                   <property name="text">
-                   <string/>
+                   <string />
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -426,7 +426,7 @@
                  </widget>
                 </widget>
                </item>
-               <item row="3" column="0">
+               <item column="0" row="3">
                 <widget class="QLabel" name="bottomLeftLbl">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -441,14 +441,14 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string/>
+                  <string />
                  </property>
                  <property name="indent">
                   <number>0</number>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
+               <item column="0" row="1">
                 <widget class="QLabel" name="topLeftLbl">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -463,14 +463,14 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string/>
+                  <string />
                  </property>
                  <property name="indent">
                   <number>0</number>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="2">
+               <item column="2" row="4">
                 <spacer name="verticalSpacer_7">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -480,8 +480,8 @@
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
-                   <width>20</width>
-                   <height>5</height>
+                   <width>28</width>
+                   <height>7</height>
                   </size>
                  </property>
                 </spacer>
@@ -496,8 +496,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -536,7 +536,7 @@
                <item>
                 <widget class="QLabel" name="bookAuthorLbl">
                  <property name="text">
-                  <string>Camilla Läckberg</string>
+                  <string>Camilla L&#228;ckberg</string>
                  </property>
                 </widget>
                </item>
@@ -559,10 +559,10 @@
                   <item>
                    <widget class="QLabel" name="bookPriceLbl">
                     <property name="styleSheet">
-                     <string notr="true"/>
+                     <string notr="true" />
                     </property>
                     <property name="text">
-                     <string>9,95€</string>
+                     <string>9,95&#8364;</string>
                     </property>
                     <property name="indent">
                      <number>0</number>
@@ -576,8 +576,8 @@
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>40</width>
-                      <height>20</height>
+                      <width>57</width>
+                      <height>28</height>
                      </size>
                     </property>
                    </spacer>
@@ -606,7 +606,7 @@
                      <item>
                       <widget class="QLabel" name="textTotalPagesLbl">
                        <property name="text">
-                        <string>Total de páginas:</string>
+                        <string>Total de p&#225;ginas:</string>
                        </property>
                       </widget>
                      </item>
@@ -627,8 +627,8 @@
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>40</width>
-                      <height>20</height>
+                      <width>57</width>
+                      <height>28</height>
                      </size>
                     </property>
                    </spacer>
@@ -639,7 +639,7 @@
                      <enum>Qt::NoFocus</enum>
                     </property>
                     <property name="text">
-                     <string>Más acciones</string>
+                     <string>M&#225;s acciones</string>
                     </property>
                    </widget>
                   </item>
@@ -650,8 +650,8 @@
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>40</width>
-                      <height>20</height>
+                      <width>57</width>
+                      <height>28</height>
                      </size>
                     </property>
                    </spacer>
@@ -691,8 +691,8 @@
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>40</width>
-                      <height>20</height>
+                      <width>57</width>
+                      <height>28</height>
                      </size>
                     </property>
                    </spacer>
@@ -711,11 +711,11 @@
                  <property name="maximumSize">
                   <size>
                    <width>16777215</width>
-                   <height>4</height>
+                   <height>6</height>
                   </size>
                  </property>
                  <property name="text">
-                  <string/>
+                  <string />
                  </property>
                 </widget>
                </item>
@@ -726,8 +726,8 @@
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
-                   <width>20</width>
-                   <height>40</height>
+                   <width>28</width>
+                   <height>57</height>
                   </size>
                  </property>
                 </spacer>
@@ -831,8 +831,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -856,17 +856,17 @@
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="lineWidth">
             <number>1</number>
            </property>
            <property name="html">
-            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+            <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:22px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;"&gt;
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:22px;"&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="cursorWidth">
             <number>1</number>
@@ -902,12 +902,12 @@ p, li { white-space: pre-wrap; }
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>220</width>
-           <height>27</height>
+           <width>311</width>
+           <height>38</height>
           </rect>
          </property>
          <property name="text">
-          <string/>
+          <string />
          </property>
          <property name="indent">
           <number>0</number>
@@ -935,8 +935,8 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -961,6 +961,6 @@ p, li { white-space: pre-wrap; }
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

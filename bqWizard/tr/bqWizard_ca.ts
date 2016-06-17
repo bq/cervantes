@@ -306,7 +306,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/WizardWelcome.ui" line="59"/>
         <source>Activar dispositivo</source>
-        <translation>Activar dispositiu</translation>
+        <translation>Activa el dispositiu</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/WizardWelcome.ui" line="116"/>
@@ -318,12 +318,12 @@ p, li { white-space: pre-wrap; }
         <source>
 Si dispones de acceso a una red Wi-Fi haz clic en el botón “SIGUIENTE”, en caso contrario pulsa “MÁS TARDE”.</source>
         <translation>
-Si disposes d&apos;accés a una xarxa Wi-Fi fes clic al botó “SEGÜENT”, en cas contrari prem “MÉS TARD”.</translation>
+Si pots accedir a una xarxa Wi-Fi, fes clic al botó "SEGÜENT". En cas contrari, prem "MÉS TARD".</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/WizardWelcome.ui" line="149"/>
         <source>Podrás realizar el proceso de activación en cualquier otro momento desde el menú Ajustes, seleccionando la opción “Activar dispositivo”. </source>
-        <translation>Podràs realitzar el procés d&apos;activació en qualsevol altre moment des del menú Ajusts, seleccionant l&apos;opció “Activar dispositiu”.</translation>
+        <translation>Podrà realitzar el procés d'activació en qualsevol altre moment des del menú "Configuració", "Activa el dispositiu"</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/WizardWelcome.ui" line="202"/>

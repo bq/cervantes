@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>560</width>
-    <height>61</height>
+    <width>792</width>
+    <height>86</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -30,8 +30,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -42,7 +42,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -92,7 +92,7 @@
       <enum>Qt::NoFocus</enum>
      </property>
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -103,8 +103,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -112,8 +112,8 @@
   </layout>
  </widget>
  <resources>
-  <include location="../Search800.qrc"/>
-  <include location="../../bqUi/Ui800.qrc"/>
+  <include location="../Search800.qrc" />
+  <include location="../../bqUi/Ui800.qrc" />
  </resources>
- <connections/>
+ <connections />
 </ui>

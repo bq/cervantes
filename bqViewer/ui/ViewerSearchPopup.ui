@@ -6,27 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>800</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -42,8 +42,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -66,8 +66,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>530</width>
-         <height>607</height>
+         <width>750</width>
+         <height>858</height>
         </size>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -88,7 +88,7 @@
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>147</height>
+            <height>208</height>
            </size>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
@@ -110,8 +110,8 @@
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>40</width>
-                 <height>20</height>
+                 <width>57</width>
+                 <height>28</height>
                 </size>
                </property>
               </spacer>
@@ -119,7 +119,7 @@
              <item>
               <widget class="QPushButton" name="closeBtn">
                <property name="text">
-                <string/>
+                <string />
                </property>
               </widget>
              </item>
@@ -137,8 +137,8 @@
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>40</width>
-                 <height>20</height>
+                 <width>57</width>
+                 <height>28</height>
                 </size>
                </property>
               </spacer>
@@ -153,7 +153,7 @@
              <item>
               <widget class="QPushButton" name="clearSearchBtn">
                <property name="text">
-                <string/>
+                <string />
                </property>
               </widget>
              </item>
@@ -164,8 +164,8 @@
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>80</width>
-                 <height>20</height>
+                 <width>113</width>
+                 <height>28</height>
                 </size>
                </property>
               </spacer>
@@ -189,19 +189,19 @@
          </widget>
         </item>
         <item>
-         <widget class="ViewerSearchResultItem" name="SearchResultItem1" native="true"/>
+         <widget class="ViewerSearchResultItem" name="SearchResultItem1" native="true" />
         </item>
         <item>
-         <widget class="ViewerSearchResultItem" name="SearchResultItem2" native="true"/>
+         <widget class="ViewerSearchResultItem" name="SearchResultItem2" native="true" />
         </item>
         <item>
-         <widget class="ViewerSearchResultItem" name="SearchResultItem3" native="true"/>
+         <widget class="ViewerSearchResultItem" name="SearchResultItem3" native="true" />
         </item>
         <item>
-         <widget class="ViewerSearchResultItem" name="SearchResultItem4" native="true"/>
+         <widget class="ViewerSearchResultItem" name="SearchResultItem4" native="true" />
         </item>
         <item>
-         <widget class="ViewerSearchResultItem" name="SearchResultItem5" native="true"/>
+         <widget class="ViewerSearchResultItem" name="SearchResultItem5" native="true" />
         </item>
         <item>
          <widget class="QWidget" name="processSearchCont" native="true">
@@ -219,8 +219,8 @@
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>20</width>
-               <height>40</height>
+               <width>28</width>
+               <height>57</height>
               </size>
              </property>
             </spacer>
@@ -245,8 +245,8 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>20</width>
-            <height>40</height>
+            <width>28</width>
+            <height>57</height>
            </size>
           </property>
          </spacer>
@@ -279,7 +279,7 @@
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>19</height>
+       <height>27</height>
       </size>
      </property>
      <widget class="QLabel" name="bottomArrowLbl">
@@ -287,12 +287,12 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>545</width>
-        <height>17</height>
+        <width>771</width>
+        <height>24</height>
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
       <property name="indent">
        <number>0</number>
@@ -331,6 +331,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

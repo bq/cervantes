@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -131,7 +131,7 @@ Browser::Browser(QWidget *parent)
     connect(reloadbtn,  SIGNAL(pressed()),  webview, SLOT(reload()));
     connect(stopbtn,    SIGNAL(pressed()),  webview, SLOT(stop()));
 
-    updateZoomBtnStates();
+
     mScale = webview->zoomFactor();
     initialWebViewBars();
     resetScrolls();
@@ -152,6 +152,7 @@ Browser::Browser(QWidget *parent)
 
     QString styles = QLatin1String(fileSpecific.readAll() + fileCommons.readAll());
     setStyleSheet(styles);
+    updateZoomBtnStates();
 }
 
 Browser::~Browser()
@@ -340,15 +341,20 @@ void Browser::handleZoomOut()
 void Browser::updateZoomBtnStates()
 {
     qDebug() << Q_FUNC_INFO;
-    if( (mScale/ZOOM_STEP) < ZOOM_MIN)
+    if( (mScale/ZOOM_STEP) < ZOOM_MIN){
+        zoomOutBtn->setStyleSheet("background-image:url(:/res/zoom_out_disabled_ico.png)");
         zoomOutBtn->setEnabled(false);
-    else
+    }else{
+        zoomOutBtn->setStyleSheet("background-image:url(:/res/zoom_out_ico.png)");
         zoomOutBtn->setEnabled(true);
-
-    if( (mScale*ZOOM_STEP) > ZOOM_MAX)
+    }
+    if( (mScale*ZOOM_STEP) > ZOOM_MAX){
+        zoomInBtn->setStyleSheet("background-image:url(:/res/zoom_in_disabled_ico.png)");
         zoomInBtn->setEnabled(false);
-    else
+    }else{
+        zoomInBtn->setStyleSheet("background-image:url(:/res/zoom_in_ico.png)");
         zoomInBtn->setEnabled(true);
+    }
 }
 
 void Browser::handleVScrollBarValueChanged(int nNewScrollValue)

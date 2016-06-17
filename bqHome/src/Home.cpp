@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -71,12 +71,13 @@ Home::Home(QWidget *parent) :  QBookForm(parent),
         QString styles = QLatin1String(fileSpecific.readAll() + fileCommons.readAll());
         setStyleSheet(styles);
 
-        if(QBook::getResolution() == QBook::RES600x800){
+        if(QBook::getInstance()->getResolution() == QBook::RES600x800){
             defaultHelpBook = new BookInfo(QString(USERGUIDEPATH) + "/userGuideTouch_" + QBook::settings().value("setting/language", QVariant("es")).toString()+ ".epub");
         }else{ //We do it to preserve back compatibility
             defaultHelpBook = new BookInfo(QString(USERGUIDEPATH) + "/userGuide_" + QBook::settings().value("setting/language", QVariant("es")).toString()+ ".epub");
 
         }
+        //TODO CERVANTES3??
 
         defaultHelpBook->title = tr("Guia de Ayuda");
         defaultHelpBook->thumbnail = ":/res/unknow_book.png";
@@ -416,7 +417,7 @@ void Home::setMostRecentBook(const BookInfo* book){
             coverTitleLbl->show();
 
             // Author
-            if(book->author == "--")
+            if(book->author == "---")
                 coverAuthorLbl->setText(tr("Autor Desconocido"));
             else
                 coverAuthorLbl->setText(bqUtils::truncateStringToLength(book->author, ICON_HOME_STRING_MAX_LENGTH));

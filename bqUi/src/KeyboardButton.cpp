@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -71,6 +71,28 @@ KeyboardButton::~KeyboardButton()
     m_ui_kbdLayer = NULL;
 }
 
+void KeyboardButton::resetButtonStyle(bool inverted)
+{
+    /* Reset the style for the button,as the layer overwrites our hardcoded blit */
+
+    QString color = "color:#000000;background-color:#FFFFFF;";
+    if(inverted || !hasPressStyle())
+        color = "color:#FFFFFF;background-color:#000000;";
+
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            setStyleSheet("font-size:41px;border:3px solid #000000;border-radius: 11px;" + color);
+            break;
+        case QBook::RES758x1024:
+            setStyleSheet("font-size:29px;border:2px solid #000000;border-radius: 8px;" + color);
+            break;
+        case QBook::RES600x800: default:
+            setStyleSheet("font-size:25px;border:2px solid #000000;border-radius: 5px;" + color);
+            break;
+    }
+}
+
 void KeyboardButton::pressBtn()
 {
     qDebug() << "--->" << Q_FUNC_INFO << text();
@@ -99,6 +121,8 @@ void KeyboardButton::releaseBtn()
 void KeyboardButton::dehighlightButton()
 {
     qDebug() << "--->" << Q_FUNC_INFO << text();
+
+    resetButtonStyle();
 
     if (!isVisible())
         return;
@@ -211,8 +235,7 @@ void KeyboardButton::showLayer()
     QPoint posInLayer = m_kbdLayer->mapFrom(parentWidget(),QPoint(xPositionInParent,y()));
     m_ui_kbdLayer->arrow_bottom->move(posInLayer.x(),posInLayer.y());
 
-    /* set the style for the button,as the layer overwrites our hardcoded blit */
-    setStyleSheet("font-size:25px;color:#FFFFFF;background-color:#000000;border:2px solid #000000;border-radius: 5px;");
+    resetButtonStyle(true);
 
     /* Unlock the queue and flush the updates to the screen */
     Screen::getInstance()->flushUpdates();
@@ -293,14 +316,8 @@ void KeyboardButton::hideLayer()
         Screen::getInstance()->setMode(Screen::MODE_SAFE, true, FLAG_FULLSCREEN_UPDATE, Q_FUNC_INFO);
         m_kbdLayer->hide();
 
-        /* reset the button style */
-        QString fontSize;
-        if(QBook::getResolution() == QBook::RES758x1024)
-            fontSize = "30px";
-        else
-            fontSize = "25px";
+        resetButtonStyle();
 
-        setStyleSheet("font-size:" + fontSize + ";color:#000000;background-color:#FFFFFF;border:2px solid #000000;border-radius: 5px;");
         Screen::getInstance()->flushUpdates();
     }
 }

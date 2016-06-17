@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,21 +18,21 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -56,7 +56,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Atrás</string>
+         <string>Atr&#225;s</string>
         </property>
        </widget>
       </item>
@@ -71,11 +71,11 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>10000</height>
+          <height>14142</height>
          </size>
         </property>
         <property name="text">
-         <string>Conexión WiFi</string>
+         <string>Conexi&#243;n WiFi</string>
         </property>
        </widget>
       </item>
@@ -86,8 +86,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -114,7 +114,7 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <property name="spacing">
@@ -157,7 +157,7 @@
          <item>
           <widget class="QLabel" name="wifiSignalLbl">
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -168,8 +168,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -177,7 +177,7 @@
          <item>
           <widget class="SwipeableQPushButton" name="wifiStatusBtn">
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -203,8 +203,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -218,7 +218,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -238,7 +238,7 @@
          <item>
           <widget class="QLabel" name="wifiNameLbl">
            <property name="text">
-            <string>&quot;nombre de la red&quot;</string>
+            <string>"nombre de la red"</string>
            </property>
            <property name="indent">
             <number>0</number>
@@ -252,8 +252,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -264,7 +264,7 @@
       <item>
        <widget class="QWidget" name="wifiActionsCont" native="true">
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <property name="spacing">
@@ -311,7 +311,7 @@
          <item>
           <widget class="QPushButton" name="addNetworksBtn">
            <property name="text">
-            <string>Añadir red</string>
+            <string>A&#241;adir red</string>
            </property>
           </widget>
          </item>
@@ -322,8 +322,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -331,7 +331,7 @@
          <item>
           <widget class="SilentQPushButton" name="updateWifiListBtn">
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -339,22 +339,22 @@
        </widget>
       </item>
       <item>
-       <widget class="SettingsWiFiListItem" name="Item1" native="true"/>
+       <widget class="SettingsWiFiListItem" name="Item1" native="true" />
       </item>
       <item>
-       <widget class="SettingsWiFiListItem" name="Item2" native="true"/>
+       <widget class="SettingsWiFiListItem" name="Item2" native="true" />
       </item>
       <item>
-       <widget class="SettingsWiFiListItem" name="Item3" native="true"/>
+       <widget class="SettingsWiFiListItem" name="Item3" native="true" />
       </item>
       <item>
-       <widget class="SettingsWiFiListItem" name="Item4" native="true"/>
+       <widget class="SettingsWiFiListItem" name="Item4" native="true" />
       </item>
       <item>
-       <widget class="SettingsWiFiListItem" name="Item6" native="true"/>
+       <widget class="SettingsWiFiListItem" name="Item6" native="true" />
       </item>
       <item>
-       <widget class="SettingsWiFiListItem" name="Item5" native="true"/>
+       <widget class="SettingsWiFiListItem" name="Item5" native="true" />
       </item>
       <item>
        <spacer name="verticalSpacer">
@@ -363,8 +363,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>20</width>
-          <height>40</height>
+          <width>28</width>
+          <height>57</height>
          </size>
         </property>
        </spacer>
@@ -372,7 +372,7 @@
       <item>
        <widget class="SettingsPagerCont" name="settingsPagerCont" native="true">
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
@@ -397,8 +397,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -412,15 +412,15 @@
    <header>SilentQPushButton.h</header>
   </customwidget>
   <customwidget>
-   <class>SwipeableQPushButton</class>
-   <extends>QPushButton</extends>
-   <header>SwipeableQPushButton.h</header>
-  </customwidget>
-  <customwidget>
    <class>SettingsPagerCont</class>
    <extends>QWidget</extends>
    <header>SettingsPagerCont.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SwipeableQPushButton</class>
+   <extends>QPushButton</extends>
+   <header>SwipeableQPushButton.h</header>
   </customwidget>
   <customwidget>
    <class>SettingsWiFiListItem</class>
@@ -429,6 +429,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

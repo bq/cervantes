@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -509,7 +509,7 @@ BookInfo* ModelBackendOneFile::loadBook (QXmlStreamReader& xml)
     }
 
     //Change the empty string for author to prevent extract the metadata again.
-    else if(info->author == "--")
+    else if(info->author == "---")
         info->author = QString("---");
 
     return info;
@@ -1024,6 +1024,10 @@ void ModelBackendOneFile::writeXmlFile( const BookInfo* bookInfo, const QString&
     xml.writeEndElement();
     xml.writeEndDocument();
     file.close();
+    ::sync();
+    BookInfo* notes = loadDefaultInfo(path);
+    add(notes);
+    delete notes;
 }
 
 void ModelBackendOneFile::writeHTMLFile( const BookInfo* bookInfo, const QString& destination)
@@ -1041,10 +1045,7 @@ void ModelBackendOneFile::writeHTMLFile( const BookInfo* bookInfo, const QString
     QList<const BookLocation*>::const_iterator it = locations->constBegin();
     QList<const BookLocation*>::const_iterator itEnd = locations->constEnd();
 
-    html.append("<html>");
-    html.append("<head>");
-    html.append("</head>");
-    html.append("<body>");
+    html.append("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=iso-8859-1\"/></head><body>");
 
     while( it != itEnd )
     {
@@ -1055,10 +1056,13 @@ void ModelBackendOneFile::writeHTMLFile( const BookInfo* bookInfo, const QString
 
         ++it;
     }
-    html.append("</body>");
-    html.append("</html>");
+    html.append("</body></html>");
     file.write(html.toAscii().data());
     file.close();
+    ::sync();
+    BookInfo* notes = loadDefaultInfo(path);
+    add(notes);
+    delete notes;
 }
 
 

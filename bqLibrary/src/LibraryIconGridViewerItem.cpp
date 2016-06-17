@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -63,6 +63,7 @@ void LibraryIconGridViewerItem::paintEvent(QPaintEvent*)
 
 void LibraryIconGridViewerItem::setBook( const BookInfo* book, Library::ELibraryFilterMode filter )
 {
+    LibraryGridViewerItem::setBook(book, filter);
     m_path = book->path;
 
     if(book->isCorrupted())
@@ -94,7 +95,7 @@ void LibraryIconGridViewerItem::setBook( const BookInfo* book, Library::ELibrary
         titleLbl->show();
 
         // Author
-        if(book->author == "--")
+        if(book->author == "---")
             authorLbl->setText(tr("Autor Desconocido"));
         else
             authorLbl->setText(bqUtils::truncateStringToLength(book->author, ICONITEM_STRING_MAX_LENGTH));
@@ -202,6 +203,7 @@ void LibraryIconGridViewerItem::setThumbnailElements(bool visible)
 
 void LibraryIconGridViewerItem::setFile( const QFileInfo* file )
 {
+    LibraryGridViewerItem::setFile(file);
     qDebug() << Q_FUNC_INFO << file->baseName() << file->fileName();
 
     m_path = file->filePath();
@@ -242,6 +244,7 @@ void LibraryIconGridViewerItem::setFile( const QFileInfo* file )
 
 void LibraryIconGridViewerItem::setArrow( const QString& path )
 {
+    LibraryGridViewerItem::setArrow(path);
     m_path = path;
 
     // Hide elements

@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="res/next_book.png">res/1448/next_book.png</file>
+        <file alias="res/next_book_disable.png">res/1448/next_book_disable.png</file>
+        <file alias="res/previous_book.png">res/1448/previous_book.png</file>
+        <file alias="res/previous_book_disable.png">res/1448/previous_book_disable.png</file>
+        <file alias="res/arrow.png">res/1448/arrow.png</file>
+        <file alias="res/arrow_popup.png">res/1448/arrow_popup.png</file>
+        <file alias="res/help_app.png">res/1448/help_app.png</file>
+        <file alias="res/library_app.png">res/1448/library_app.png</file>
+        <file alias="res/search_app.png">res/1448/search_app.png</file>
+        <file alias="res/settings_app.png">res/1448/settings_app.png</file>
+        <file alias="res/store_app.png">res/1448/store_app.png</file>
+        <file alias="res/book_front_bottom_center.png">res/1448/book_front_bottom_center.png</file>
+        <file alias="res/book_front_bottom_left.png">res/1448/book_front_bottom_left.png</file>
+        <file alias="res/book_front_bottom_right.png">res/1448/book_front_bottom_right.png</file>
+        <file alias="res/book_front_center_left.png">res/1448/book_front_center_left.png</file>
+        <file alias="res/book_front_center_right.png">res/1448/book_front_center_right.png</file>
+        <file alias="res/book_front_top_center.png">res/1448/book_front_top_center.png</file>
+        <file alias="res/book_front_top_left.png">res/1448/book_front_top_left.png</file>
+        <file alias="res/book_front_top_right.png">res/1448/book_front_top_right.png</file>
+        <file alias="res/bg_home.png">res/1448/bg_home.png</file>
+        <file alias="res/unknow_book.png">res/1448/unknow_book.png</file>
+        <file alias="res/home_styles.qss">res/1448/home_styles.qss</file>
+        <file alias="res/home_styles_generic.qss">res/home_styles_generic.qss</file>
+        <file alias="res/check_ico.png">res/1448/check_ico.png</file>
+        <file alias="res/sample_tag_notext_sup.png">res/1448/sample_tag_notext_sup.png</file>
+    </qresource>
+</RCC>

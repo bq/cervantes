@@ -60,7 +60,7 @@
     <message utf8="true">
         <location filename="../ui/Library.ui" line="349"/>
         <source>Añadir colección</source>
-        <translation>Crear col·lecció</translation>
+        <translation>Crea col·lecció</translation>
     </message>
     <message>
         <source>Libros descargados (18)</source>
@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>Eliminar</source>
-        <translation type="obsolete">Eliminar</translation>
+        <translation type="obsolete">Elimina</translation>
     </message>
     <message>
         <location filename="../ui/Library.ui" line="359"/>
@@ -456,7 +456,7 @@ Vols continuar?</translation>
     <message>
         <location filename="../src/Library.cpp" line="2361"/>
         <source>Copy</source>
-        <translation>Copiar</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <location filename="../src/Library.cpp" line="2413"/>
@@ -471,7 +471,7 @@ Vols continuar?</translation>
     <message>
         <location filename="../src/Library.cpp" line="3575"/>
         <source>Buscar</source>
-        <translation>Cercar</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <location filename="../src/Library.cpp" line="3263"/>
@@ -491,7 +491,7 @@ Vols continuar?</translation>
     <message>
         <location filename="../ui/LibraryActionsMenu.ui" line="122"/>
         <source>Copiar</source>
-        <translation>Copiar</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <location filename="../ui/LibraryActionsMenu.ui" line="138"/>
@@ -567,11 +567,11 @@ Vols continuar?</translation>
     </message>
     <message>
         <source>Copiar</source>
-        <translation type="obsolete">Copiar</translation>
+        <translation type="obsolete">Copia</translation>
     </message>
     <message>
         <source>Eliminar</source>
-        <translation type="obsolete">Eliminar</translation>
+        <translation type="obsolete">Elimina</translation>
     </message>
 </context>
 <context>
@@ -635,7 +635,7 @@ Vols continuar?</translation>
     <message>
         <location filename="../ui/LibraryBookSummary.ui" line="723"/>
         <source>Copiar a SD</source>
-        <translation>Copiar</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <location filename="../ui/LibraryBookSummary.ui" line="739"/>
@@ -673,7 +673,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/LibraryBookSummary.cpp" line="241"/>
         <source>Copy</source>
-        <translation>Copiar</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <location filename="../src/LibraryBookSummary.cpp" line="271"/>
@@ -723,7 +723,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Delete</source>
-        <translation type="obsolete">Eliminar</translation>
+        <translation type="obsolete">Elimina</translation>
     </message>
     <message>
         <source>More Actions</source>
@@ -884,7 +884,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../ui/LibraryCollectionLayer.ui" line="89"/>
         <source>Añadir colección </source>
-        <translation>Crear col·lecció</translation>
+        <translation>Crea col·lecció</translation>
     </message>
 </context>
 <context>
@@ -932,7 +932,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/LibraryEditCollection.cpp" line="116"/>
         <source>Crear Collecion</source>
-        <translation>Crear col·lecció</translation>
+        <translation>Crea col·lecció</translation>
     </message>
     <message>
         <location filename="../src/LibraryEditCollection.cpp" line="186"/>
@@ -1209,7 +1209,7 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="../ui/LibraryReadingIconGridViewer.ui" line="498"/>
         <source>Último acceso:</source>
-        <translation>Últim accés:</translation>
+        <translation>Últim accés: </translation>
     </message>
     <message>
         <location filename="../ui/LibraryReadingIconGridViewer.ui" line="505"/>

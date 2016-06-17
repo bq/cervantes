@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -49,6 +49,7 @@ static int kbdIndex = 0;
 
 static void updateWakeupSources(int sleepFlag, bool wakeOnHome)
 {
+    qDebug() << Q_FUNC_INFO << " sleepFlag: " << sleepFlag << ", wakeOnHome: " << wakeOnHome;
 	FILE *output;
 	int i, curFlag;
 
@@ -57,6 +58,7 @@ static void updateWakeupSources(int sleepFlag, bool wakeOnHome)
 
 		/* set wakeup property */
 		curFlag = sleepFlag;
+        qDebug() << Q_FUNC_INFO << "Opening " << wSources[i] + "/device/power/wakeup";
 		output = fopen(str.toStdString().c_str(), "w");
 		if (!output) {
 			qDebug() << Q_FUNC_INFO << "wakeup file missing for " << wSources[i];
@@ -74,6 +76,7 @@ static void updateWakeupSources(int sleepFlag, bool wakeOnHome)
 				curFlag = 0;
 		}
 
+        qDebug() << Q_FUNC_INFO << "Printing: " << (curFlag ? "disabled" : "enabled");
 		fprintf(output, curFlag ? "disabled" : "enabled");
 		fclose(output);
 	}
@@ -82,6 +85,9 @@ static void updateWakeupSources(int sleepFlag, bool wakeOnHome)
 PowerMx508::PowerMx508()
     : b_debugOn(false)
 {
+    /* init wakeonhome feature to default-on */
+    setWakeOnHome(true);
+
     /* enable the wakeup property of the wakeup sources by default.
      * It gets toggled for sleep in setSleepFlag
      */
@@ -286,7 +292,7 @@ bool PowerMx508::isRTCwakeUp()
 
 void PowerMx508::setSleepFlag(int sleepFlag)
 {
-    qDebug() << Q_FUNC_INFO;
+    qDebug() << Q_FUNC_INFO << sleepFlag;
 
     FILE *output;
     output=fopen("/sys/power/state-extended","w");

@@ -1079,7 +1079,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/ViewerMenu.ui" line="191"/>
         <source>Apariencia</source>
-        <translation>Aparência</translation>
+        <translation>Aspeto</translation>
     </message>
     <message>
         <location filename="../ui/ViewerMenu.ui" line="207"/>

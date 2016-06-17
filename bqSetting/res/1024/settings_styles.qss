@@ -662,10 +662,7 @@ max-width:190px;
 }
 #versionLutLbl, #modelLbl, #mdeviceIDLbl, #edpTypeLbl,#edpTemperatureLbl, #internalMemLbl, #auxLbl, #diccioLbl, #bateryLbl, #tconLbl, #softwareLbl, #MACadressLbl, #externalMemLbl, #panelTypeLbl{
 }
-#SettingsTechnicalInfo #settingsMenuListCont QWidget #internalVersionValLbl{
-margin-left:0px;
-font-size:20px;
-}
+
 /*Settingspx;DictionarieslInfo
 ------------------------------------------*/
 #SettingsDictionariesInfo{

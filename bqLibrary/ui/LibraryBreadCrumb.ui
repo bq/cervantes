@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>330</width>
-    <height>44</height>
+    <width>467</width>
+    <height>62</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
-    <width>330</width>
-    <height>44</height>
+    <width>467</width>
+    <height>62</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -43,14 +43,14 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>285</width>
-    <height>225</height>
+    <width>403</width>
+    <height>318</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>285</width>
-    <height>225</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>285</width>
-    <height>225</height>
+    <width>403</width>
+    <height>318</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -29,7 +29,7 @@
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -58,14 +58,14 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>53</height>
+          <height>75</height>
          </size>
         </property>
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Definiciones español</string>
+         <string>Definiciones espa&#241;ol</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
@@ -83,14 +83,14 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>53</height>
+          <height>75</height>
          </size>
         </property>
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Definiciones inglés</string>
+         <string>Definiciones ingl&#233;s</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
@@ -108,14 +108,14 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>53</height>
+          <height>75</height>
          </size>
         </property>
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Español / Inglés</string>
+         <string>Espa&#241;ol / Ingl&#233;s</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
@@ -138,15 +138,15 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>480</width>
-          <height>53</height>
+          <width>679</width>
+          <height>75</height>
          </size>
         </property>
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Ingles / Español</string>
+         <string>Ingles / Espa&#241;ol</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
@@ -169,15 +169,15 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>480</width>
-          <height>53</height>
+          <width>679</width>
+          <height>75</height>
          </size>
         </property>
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Ingles / Español</string>
+         <string>Ingles / Espa&#241;ol</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
@@ -191,8 +191,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>20</width>
-          <height>40</height>
+          <width>28</width>
+          <height>57</height>
          </size>
         </property>
        </spacer>
@@ -228,6 +228,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

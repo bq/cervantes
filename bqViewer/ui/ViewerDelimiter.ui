@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>60</width>
-    <height>231</height>
+    <width>85</width>
+    <height>327</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,7 +20,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -39,7 +39,7 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>60</width>
+       <width>85</width>
        <height>16777215</height>
       </size>
      </property>
@@ -75,15 +75,15 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>3</width>
+          <width>4</width>
           <height>16777215</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
@@ -100,19 +100,19 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>60</width>
-       <height>60</height>
+       <width>85</width>
+       <height>85</height>
       </size>
      </property>
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
   </layout>
  </widget>
  <resources>
-  <include location="../Viewer1024.qrc"/>
+  <include location="../Viewer1024.qrc" />
  </resources>
- <connections/>
+ <connections />
 </ui>

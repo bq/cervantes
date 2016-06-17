@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -29,6 +29,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDebug>
 
 #define CHECKED "background-color: #DADADA"
+#define CHECKED9_FHD "background-color: #DADADA; border-radius-bottom: 8px;"
 #define CHECKED9_HD "background-color: #DADADA; border-radius-bottom: 6px;"
 #define CHECKED9_SD "background-color: #DADADA; border-radius-bottom: 5px;"
 
@@ -157,7 +158,9 @@ void ViewerContentsList::paint( int currentPage)
 
                 if(location->preview == m_currentChapter && location->page == m_pageStart){
                     if(i == 8){
-                        if(QBook::getResolution()==QBook::RES600x800)
+                        if(QBook::getInstance()->getResolution()==QBook::RES1072x1448)
+                            m_bookIndexList.at(i)->setStyleSheet(CHECKED9_FHD);
+                        else if(QBook::getInstance()->getResolution()==QBook::RES600x800)
                             m_bookIndexList.at(i)->setStyleSheet(CHECKED9_SD);
                         else
                             m_bookIndexList.at(i)->setStyleSheet(CHECKED9_HD);

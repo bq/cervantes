@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>80</height>
+    <width>849</width>
+    <height>113</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -26,19 +26,19 @@
    <item>
     <widget class="QLabel" name="dictionaryNameLbl">
      <property name="text">
-      <string>Definición Español</string>
+      <string>Definici&#243;n Espa&#241;ol</string>
      </property>
     </widget>
    </item>
    <item>
     <widget class="QLabel" name="checkDictionaryLbl">
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -67,6 +67,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #define PRESSED "background-color:#303030;color:#FFFFFF"
 #define RELEASED "background-color:#FFFFFF; color:#000000;"
+#define STRING_MAX_LENGTH 22
 
 Library::Library( QWidget* parent ) :
     QBookForm(parent)
@@ -3965,7 +3966,10 @@ void Library::handleDeleteCollection(const QString & collection)
     m_collection = collection;
     fillNewDataCallback = &Library::fillCollectionData;
 
-    QString deleteCollectionText = tr("Are you sure you want to delete %1 collection?\nThe books in the collection will not be deleted.").arg(collection);
+    QString collectionNameAux = collection;
+    collectionNameAux = bqUtils::truncateStringToLength(collectionNameAux, STRING_MAX_LENGTH);
+    QString deleteCollectionText = tr("Are you sure you want to delete %1 collection?\nThe books in the collection will not be deleted.").arg(collectionNameAux);
+
     SelectionDialog* deleteCollection = new SelectionDialog (this, deleteCollectionText, tr("Remove"));
     deleteCollection->exec();
     if(deleteCollection->result())

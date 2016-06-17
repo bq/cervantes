@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>1224</height>
+    <width>1072</width>
+    <height>1731</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>758</width>
-    <height>1224</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>758</width>
-    <height>1224</height>
+    <width>1072</width>
+    <height>1731</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -29,10 +29,10 @@
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <property name="windowFilePath">
-   <string/>
+   <string />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -48,8 +48,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -100,15 +100,15 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>300</width>
-             <height>58</height>
+             <width>424</width>
+             <height>82</height>
             </size>
            </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="text">
             <string>Listado</string>
@@ -122,8 +122,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -138,7 +138,7 @@
          <item>
           <widget class="QLabel" name="resultIndexLbl">
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="text">
             <string notr="true">7</string>
@@ -148,7 +148,7 @@
          <item>
           <widget class="QLabel" name="ofLbl">
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="text">
             <string>of</string>
@@ -158,7 +158,7 @@
          <item>
           <widget class="QLabel" name="numResultsLbl">
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="text">
             <string notr="true">100</string>
@@ -172,8 +172,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -182,15 +182,15 @@
           <widget class="QPushButton" name="previousBtn">
            <property name="maximumSize">
             <size>
-             <width>69</width>
-             <height>58</height>
+             <width>98</width>
+             <height>82</height>
             </size>
            </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -198,22 +198,22 @@
           <widget class="QPushButton" name="nextBtn">
            <property name="maximumSize">
             <size>
-             <width>69</width>
-             <height>58</height>
+             <width>98</width>
+             <height>82</height>
             </size>
            </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="closeBtn">
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -225,6 +225,6 @@
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

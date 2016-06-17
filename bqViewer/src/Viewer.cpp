@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -231,18 +231,20 @@ Viewer::Viewer(QWidget* parent)
 
     m_viewerStepsManager = new ViewerStepsManager();
 
-    switch(QBook::getResolution()){
-    case QBook::RES600x800:
-        i_minPxSwipeLenght = SWIPE_MIN_LENGTH;
-        i_scrollAreaWidth = SCROLL_AREA_WIDTH;
-        break;
-    case QBook::RES758x1024:
-        i_minPxSwipeLenght = SWIPE_MIN_LENGTH_HD;
-        i_scrollAreaWidth = SCROLL_AREA_WIDTH_HD;
-        break;
-    default:
-        i_minPxSwipeLenght = SWIPE_MIN_LENGTH;
-        i_scrollAreaWidth = SCROLL_AREA_WIDTH;
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            i_minPxSwipeLenght = SWIPE_MIN_LENGTH_FHD;
+            i_scrollAreaWidth = SCROLL_AREA_WIDTH_FHD;
+            break;
+        case QBook::RES758x1024:
+            i_minPxSwipeLenght = SWIPE_MIN_LENGTH_HD;
+            i_scrollAreaWidth = SCROLL_AREA_WIDTH_HD;
+            break;
+        case QBook::RES600x800: default:
+            i_minPxSwipeLenght = SWIPE_MIN_LENGTH;
+            i_scrollAreaWidth = SCROLL_AREA_WIDTH;
+            break;
     }
 
     bookmark->updateDisplay(false);
@@ -878,6 +880,10 @@ void Viewer::loadDocument()
 
     qDebug() << Q_FUNC_INFO << "setUrl finished. time=" << time.elapsed();
     time.restart();
+
+    // Error checking from handleErrors
+    if(m_loadDocumentError != QDocView::EDVLE_NONE)
+        i_loadState = QDocView::LOAD_FAILED;
 
     if(i_loadState == QDocView::LOAD_FAILED)
     {
@@ -1938,7 +1944,9 @@ int Viewer::getFileExtension(const QString& path)
     else if (path.endsWith(".txt",  Qt::CaseInsensitive)) return EXT_TXT;
     else if (path.endsWith(".rtf",  Qt::CaseInsensitive)) return EXT_RTF;
     //else if (path.endsWith(".chm",  Qt::CaseInsensitive)) return EXT_CHM;
-    //else if (path.endsWith(".html", Qt::CaseInsensitive)) return EXT_HTML;
+    else if (path.endsWith(".html", Qt::CaseInsensitive)) return EXT_HTML;
+    else if (path.endsWith(".htm", Qt::CaseInsensitive))  return EXT_HTML;
+
     //else if (path.endsWith(".tcr",  Qt::CaseInsensitive)) return EXT_TCR;
     //else if (path.endsWith(".pdb",  Qt::CaseInsensitive)) return EXT_PDB;
     //else if (path.endsWith(".zip",  Qt::CaseInsensitive)) return EXT_ZIP;
@@ -1983,7 +1991,7 @@ Viewer::SupportedExt Viewer::isCR3SupportedFile(const QString& path)
         case EXT_TXT:
         case EXT_RTF:
         //case EXT_CHM:
-        //case EXT_HTML:
+        case EXT_HTML:
         //case EXT_TCR:
         //case EXT_PDB:
         //case EXT_ZIP:
@@ -2011,7 +2019,7 @@ bool Viewer::isUsingCR3(SupportedExt extension)
         case EXT_TXT:
         case EXT_RTF:
         //case EXT_CHM:
-        //case EXT_HTML:
+        case EXT_HTML:
         //case EXT_TCR:
         //case EXT_PDB:
         //case EXT_ZIP:
@@ -2658,10 +2666,20 @@ void Viewer::setMargin( int topPercentage, int rightPercentage, int bottomPercen
 
     double bm ;
 
-    if(QBook::getResolution() == QBook::RES758x1024)/* WorkAround to fix problem scaling images heighter than 1000px*/
-        bm = (h * bottomPercentage) / 100.0; // -15;
-    else
-        bm = (h * bottomPercentage) / 100.0;
+    //TODO: check this piece of code
+    /* WorkAround to fix problem scaling images higher than 1000px*/
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            bm = (h * bottomPercentage) / 100.0; // -15;
+            break;
+        case QBook::RES758x1024:
+            bm = (h * bottomPercentage) / 100.0; // -15;
+            break;
+        case QBook::RES600x800: default:
+            bm = (h * bottomPercentage) / 100.0;
+            break;
+    }
 
     double lm = (w * leftPercentage) / 100.0;
 

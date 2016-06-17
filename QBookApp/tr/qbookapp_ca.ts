@@ -295,7 +295,7 @@ Si us plau, no extreguis la SD.</translation>
     </message>
     <message>
         <source>Mas tarde</source>
-        <translation>Més Tard</translation>
+        <translation>Més tard</translation>
     </message>
     <message>
         <source>Haz uso de los diccionarios y de las actualizaciones activando tu dispositivo en un solo paso.</source>
@@ -303,7 +303,7 @@ Si us plau, no extreguis la SD.</translation>
     </message>
     <message>
         <source>Activar</source>
-        <translation>Activar</translation>
+        <translation>Activa</translation>
     </message>
     <message>
         <source>Critical battery level (%1%). Please plug the device to a charger source.</source>
@@ -338,7 +338,7 @@ Si us plau, no extreguis la SD.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="obsolete">Cancel·lar</translation>
+        <translation type="obsolete">Cancel·la</translation>
     </message>
     <message>
         <source>Ok</source>

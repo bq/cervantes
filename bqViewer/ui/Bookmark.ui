@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>94</width>
-    <height>56</height>
+    <width>133</width>
+    <height>79</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
-    <width>94</width>
-    <height>100</height>
+    <width>133</width>
+    <height>141</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -34,20 +34,20 @@ height:41px;</string>
     <rect>
      <x>10</x>
      <y>0</y>
-     <width>31</width>
-     <height>41</height>
+     <width>44</width>
+     <height>58</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true" />
    </property>
    <property name="text">
-    <string/>
+    <string />
    </property>
   </widget>
  </widget>
  <resources>
-  <include location="../ElfViewer.qrc"/>
+  <include location="../ElfViewer.qrc" />
  </resources>
- <connections/>
+ <connections />
 </ui>

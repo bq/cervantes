@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,21 +18,21 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>750</height>
+    <width>849</width>
+    <height>1061</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -44,7 +44,7 @@
    <item>
     <widget class="QWidget" name="settingsSectionHeader" native="true">
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_8">
       <property name="spacing">
@@ -59,7 +59,7 @@
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Atrás</string>
+         <string>Atr&#225;s</string>
         </property>
        </widget>
       </item>
@@ -74,11 +74,11 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>10000</height>
+          <height>14142</height>
          </size>
         </property>
         <property name="text">
-         <string>Paso de página</string>
+         <string>Paso de p&#225;gina</string>
         </property>
        </widget>
       </item>
@@ -89,8 +89,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -111,7 +111,7 @@
    <item>
     <widget class="QLabel" name="sleepTimeLbl">
      <property name="text">
-      <string>Selecciona el área de paso de página de la pantalla de tu dispositivo en modo lectura</string>
+      <string>Selecciona el &#225;rea de paso de p&#225;gina de la pantalla de tu dispositivo en modo lectura</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -133,7 +133,7 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <property name="spacing">
@@ -156,7 +156,7 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>1000</height>
+          <height>1414</height>
          </size>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -191,8 +191,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -213,12 +213,12 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>1020</height>
+                <width>71</width>
+                <height>1442</height>
                </size>
               </property>
               <property name="text">
-               <string/>
+               <string />
               </property>
              </widget>
             </item>
@@ -229,8 +229,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -260,8 +260,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -279,7 +279,7 @@
             <item>
              <widget class="QLabel" name="nextPageLbl">
               <property name="text">
-               <string>Página siguiente</string>
+               <string>P&#225;gina siguiente</string>
               </property>
               <property name="indent">
                <number>0</number>
@@ -293,8 +293,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -313,13 +313,13 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>1000</height>
+             <height>1414</height>
             </size>
            </property>
            <property name="sizeIncrement">
             <size>
              <width>0</width>
-             <height>39</height>
+             <height>55</height>
             </size>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -336,8 +336,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -353,7 +353,7 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>1005</height>
+                <height>1421</height>
                </size>
               </property>
               <property name="text">
@@ -375,11 +375,11 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>1005</height>
+                <height>1421</height>
                </size>
               </property>
               <property name="text">
-               <string>Página atrás</string>
+               <string>P&#225;gina atr&#225;s</string>
               </property>
               <property name="indent">
                <number>0</number>
@@ -393,8 +393,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -413,11 +413,11 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>175</height>
+             <height>247</height>
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -458,8 +458,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -480,8 +480,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>50</width>
-                <height>1020</height>
+                <width>71</width>
+                <height>1442</height>
                </size>
               </property>
               <property name="contextMenuPolicy">
@@ -491,7 +491,7 @@
                <enum>Qt::LeftToRight</enum>
               </property>
               <property name="text">
-               <string/>
+               <string />
               </property>
              </widget>
             </item>
@@ -502,8 +502,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -533,8 +533,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -550,7 +550,7 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>1005</height>
+                <height>1421</height>
                </size>
               </property>
               <property name="text">
@@ -572,11 +572,11 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>1005</height>
+                <height>1421</height>
                </size>
               </property>
               <property name="text">
-               <string>Página atrás</string>
+               <string>P&#225;gina atr&#225;s</string>
               </property>
               <property name="indent">
                <number>0</number>
@@ -590,8 +590,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -610,13 +610,13 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>1000</height>
+             <height>1414</height>
             </size>
            </property>
            <property name="sizeIncrement">
             <size>
              <width>0</width>
-             <height>100</height>
+             <height>141</height>
             </size>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -633,8 +633,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -650,7 +650,7 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>1005</height>
+                <height>1421</height>
                </size>
               </property>
               <property name="text">
@@ -672,11 +672,11 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>1005</height>
+                <height>1421</height>
                </size>
               </property>
               <property name="text">
-               <string>Página siguiente</string>
+               <string>P&#225;gina siguiente</string>
               </property>
               <property name="indent">
                <number>0</number>
@@ -690,8 +690,8 @@
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>40</width>
-                <height>20</height>
+                <width>57</width>
+                <height>28</height>
                </size>
               </property>
              </spacer>
@@ -710,11 +710,11 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>175</height>
+             <height>247</height>
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -794,7 +794,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true" />
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <property name="spacing">
@@ -808,7 +808,7 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>10000</height>
+          <height>14142</height>
          </size>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -843,8 +843,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>100000</width>
-             <height>64</height>
+             <width>141421</width>
+             <height>91</height>
             </size>
            </property>
            <property name="focusPolicy">
@@ -866,7 +866,7 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>1000</height>
+          <height>1414</height>
          </size>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -894,7 +894,7 @@
    <item>
     <widget class="QLabel" name="refreshStepLbl">
      <property name="text">
-      <string>Número de pasos de página para hacer refresco</string>
+      <string>N&#250;mero de pasos de p&#225;gina para hacer refresco</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -923,8 +923,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -1009,8 +1009,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -1025,8 +1025,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -1040,6 +1040,6 @@
    <header>SilentQPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

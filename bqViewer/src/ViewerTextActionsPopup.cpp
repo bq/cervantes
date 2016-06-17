@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -48,10 +48,19 @@ ViewerTextActionsPopup::ViewerTextActionsPopup(QWidget *parent) : QWidget(parent
     definitionTextBrowser->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     vbar = definitionTextBrowser->verticalScrollBar();
     definitionTextBrowser->setTappable(true);
-    if(QBook::getResolution() == QBook::RES758x1024)
-        vbar->setSingleStep(190);
-    else
-        vbar->setSingleStep(160);
+
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            vbar->setSingleStep(268);
+            break;
+        case QBook::RES758x1024:
+            vbar->setSingleStep(190);
+            break;
+        case QBook::RES600x800: default:
+            vbar->setSingleStep(160);
+            break;
+    }
 }
 
 ViewerTextActionsPopup::~ViewerTextActionsPopup()

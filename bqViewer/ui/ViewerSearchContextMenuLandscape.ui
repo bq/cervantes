@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>800</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -29,10 +29,10 @@
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <property name="windowFilePath">
-   <string/>
+   <string />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_3">
    <property name="spacing">
@@ -69,8 +69,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>1000000</width>
-          <height>100000</height>
+          <width>1414214</width>
+          <height>141421</height>
          </size>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -99,15 +99,15 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>54</width>
-             <height>144</height>
+             <width>76</width>
+             <height>204</height>
             </size>
            </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="styleSheet">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="text">
             <string>Listado</string>
@@ -124,8 +124,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>20</width>
-             <height>40</height>
+             <width>28</width>
+             <height>57</height>
             </size>
            </property>
           </spacer>
@@ -147,8 +147,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>20</width>
-             <height>40</height>
+             <width>28</width>
+             <height>57</height>
             </size>
            </property>
           </spacer>
@@ -157,15 +157,15 @@
           <widget class="QPushButton" name="previousBtn">
            <property name="maximumSize">
             <size>
-             <width>54</width>
-             <height>68</height>
+             <width>76</width>
+             <height>96</height>
             </size>
            </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -173,22 +173,22 @@
           <widget class="QPushButton" name="nextBtn">
            <property name="maximumSize">
             <size>
-             <width>54</width>
-             <height>56</height>
+             <width>76</width>
+             <height>79</height>
             </size>
            </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="closeBtn">
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -205,8 +205,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -225,6 +225,6 @@
    <header location="global">DegreesPushButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

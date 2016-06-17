@@ -3,7 +3,6 @@
         <file alias="res/browser_styles_generic.qss">res/browser_styles_generic.qss</file>
         <file alias="res/add_favourite_ico.png">res/800/add_favourite_ico.png</file>
         <file alias="res/browser_styles.qss">res/800/browser_styles.qss</file>
-        <file alias="res/clear_input.png">res/800/clear_input.png</file>
         <file alias="res/favourite_ico.png">res/800/favourite_ico.png</file>
         <file alias="res/home_browser.png">res/800/home_browser.png</file>
         <file alias="res/zoom_in_disabled_ico.png">res/800/zoom_in_disabled_ico.png</file>

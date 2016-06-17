@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -85,7 +85,8 @@ void StorageMx508::init (){
 
     QString publicBlock;
     QString privateBlock;
-    if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60Q22)
+    int hwid = DeviceInfo::getInstance()->getHwId();
+    if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2)
     {
         publicBlock = "mmcblk0p4";
         privateBlock = "mmcblk0p7";
@@ -203,7 +204,24 @@ bool StorageMx508::startSharingOverUSB() {
         system("rmmod g_file_storage");
 
 	sharedDevices.clear();
-        QString command = QString("modprobe g_file_storage stall=0 file=" + publicPartition->getDevice());
+
+	QString pid = "0xAD77";
+        switch (DeviceInfo::getInstance()->getHwId()) {
+            case DeviceInfo::E606A2:
+                pid = "0xAD77";
+                break;
+            case DeviceInfo::E60672:
+                pid = "0xAD76";
+                break;
+            case DeviceInfo::E60Q22:
+                pid = "0xAD75";
+                break;
+            case DeviceInfo::E60QH2:
+                pid = "0xAD78";
+                break;
+        }
+
+        QString command = QString("modprobe g_file_storage stall=0 vendor=0x2A47 product=" + pid + " file=" + publicPartition->getDevice());
 	sharedDevices << publicPartition->getDevice();
 
         for (QMap<QString, StorageDevice*>::iterator it = _devices.begin(); it != _devices.end(); ++it)
@@ -294,6 +312,8 @@ bool StorageMx508::restartSharingOverUSB() {
         QEventLoop waitingLoop;
         QTimer::singleShot(500, &waitingLoop, SLOT(quit()));
         waitingLoop.exec();
+
+        return true;
 }
 
 void StorageMx508::deviceUnshared(QString path)

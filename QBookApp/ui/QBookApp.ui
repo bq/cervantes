@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>800</height>
+    <width>849</width>
+    <height>1131</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -101,15 +101,15 @@
    <string>QBookApp</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="StatusBar" name="titleBar" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
-     <height>50</height>
+     <width>849</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -126,23 +126,23 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>1024</width>
+     <width>1448</width>
      <height>16777215</height>
     </size>
    </property>
    <property name="toolTip">
-    <string notr="true"/>
+    <string notr="true" />
    </property>
    <property name="statusTip">
-    <string notr="true"/>
+    <string notr="true" />
    </property>
    <property name="whatsThis">
-    <string notr="true"/>
+    <string notr="true" />
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout"/>
+   <layout class="QHBoxLayout" name="horizontalLayout" />
   </widget>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
+ <layoutdefault margin="11" spacing="6" />
  <customwidgets>
   <customwidget>
    <class>StatusBar</class>
@@ -151,6 +151,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

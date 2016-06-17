@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>498</width>
-    <height>168</height>
+    <width>704</width>
+    <height>238</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -50,7 +50,7 @@
          <property name="spacing">
           <number>0</number>
          </property>
-         <item row="0" column="3">
+         <item column="3" row="0">
           <widget class="KeyboardButton" name="upKey4">
            <property name="minimumSize">
             <size>
@@ -60,8 +60,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -72,7 +72,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="2">
+         <item column="2" row="0">
           <widget class="KeyboardButton" name="upKey3">
            <property name="minimumSize">
             <size>
@@ -82,8 +82,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -94,7 +94,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="8">
+         <item column="8" row="0">
           <widget class="KeyboardButton" name="upKey7">
            <property name="minimumSize">
             <size>
@@ -104,8 +104,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -116,7 +116,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
+         <item column="0" row="0">
           <widget class="KeyboardButton" name="upKey1">
            <property name="minimumSize">
             <size>
@@ -126,8 +126,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -138,7 +138,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="5">
+         <item column="5" row="0">
           <widget class="KeyboardButton" name="upKey5">
            <property name="minimumSize">
             <size>
@@ -148,8 +148,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -160,7 +160,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="7">
+         <item column="7" row="0">
           <widget class="KeyboardButton" name="upKey6">
            <property name="minimumSize">
             <size>
@@ -170,8 +170,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -182,7 +182,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
+         <item column="1" row="0">
           <widget class="KeyboardButton" name="upKey2">
            <property name="minimumSize">
             <size>
@@ -192,8 +192,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -204,7 +204,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="5">
+         <item column="5" row="1">
           <widget class="KeyboardButton" name="downKey5">
            <property name="minimumSize">
             <size>
@@ -214,8 +214,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -226,7 +226,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="7">
+         <item column="7" row="1">
           <widget class="KeyboardButton" name="downKey6">
            <property name="minimumSize">
             <size>
@@ -236,8 +236,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -248,7 +248,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="3">
+         <item column="3" row="1">
           <widget class="KeyboardButton" name="downKey4">
            <property name="minimumSize">
             <size>
@@ -258,8 +258,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -270,7 +270,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="2">
+         <item column="2" row="1">
           <widget class="KeyboardButton" name="downKey3">
            <property name="minimumSize">
             <size>
@@ -280,8 +280,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -292,7 +292,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
+         <item column="0" row="1">
           <widget class="KeyboardButton" name="downKey1">
            <property name="minimumSize">
             <size>
@@ -302,8 +302,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -314,7 +314,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
+         <item column="1" row="1">
           <widget class="KeyboardButton" name="downKey2">
            <property name="minimumSize">
             <size>
@@ -324,8 +324,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -336,7 +336,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="8">
+         <item column="8" row="1">
           <widget class="KeyboardButton" name="downKey7">
            <property name="minimumSize">
             <size>
@@ -346,8 +346,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -371,8 +371,8 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>45</width>
-          <height>16777215</height>
+          <width>64</width>
+          <height>23726565</height>
          </size>
         </property>
         <property name="lineWidth">
@@ -383,14 +383,14 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>40</width>
-           <height>60</height>
+           <width>57</width>
+           <height>85</height>
           </rect>
          </property>
          <property name="maximumSize">
           <size>
-           <width>40</width>
-           <height>60</height>
+           <width>57</width>
+           <height>85</height>
           </size>
          </property>
          <property name="focusPolicy">
@@ -415,12 +415,12 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>20</width>
-       <height>14</height>
+       <width>28</width>
+       <height>20</height>
       </size>
      </property>
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -433,6 +433,6 @@
    <header>KeyboardButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

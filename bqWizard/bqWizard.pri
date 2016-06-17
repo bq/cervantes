@@ -37,11 +37,12 @@ FORMS += ./ui/WizardWelcome.ui \
          ./ui/WizardPagerCont.ui
 
 
-QRC_FILES += Wizard800.qrc Wizard1024.qrc
+QRC_FILES += Wizard800.qrc Wizard1024.qrc Wizard1448.qrc
 
 OTHER_FILES += \
     bqWizard/res/wizard_styles_generic.qss \
     bqWizard/res/800/wizard_styles.qss \
-    bqWizard/res/1024/wizard_styles.qss
+    bqWizard/res/1024/wizard_styles.qss \
+    bqWizard/res/1448/wizard_styles.qss
 
 

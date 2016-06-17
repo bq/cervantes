@@ -6,27 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>470</width>
-    <height>400</height>
+    <width>665</width>
+    <height>566</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>470</width>
-    <height>400</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>470</width>
-    <height>400</height>
+    <width>665</width>
+    <height>566</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -40,7 +40,7 @@
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>19</height>
+       <height>27</height>
       </size>
      </property>
      <widget class="QLabel" name="topArrowLbl">
@@ -48,12 +48,12 @@
        <rect>
         <x>50</x>
         <y>2</y>
-        <width>24</width>
-        <height>17</height>
+        <width>34</width>
+        <height>24</height>
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
       <property name="indent">
        <number>0</number>
@@ -71,8 +71,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>10000</width>
-       <height>10000</height>
+       <width>14142</width>
+       <height>14142</height>
       </size>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -152,7 +152,7 @@
         <item>
          <widget class="QPushButton" name="wikipediaPopupBtn">
           <property name="text">
-           <string/>
+           <string />
           </property>
          </widget>
         </item>
@@ -174,12 +174,12 @@
        <rect>
         <x>160</x>
         <y>0</y>
-        <width>24</width>
-        <height>17</height>
+        <width>34</width>
+        <height>24</height>
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string />
       </property>
      </widget>
     </widget>
@@ -193,6 +193,6 @@
    <header location="global">bqQTextBrowser.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -75,8 +75,6 @@ void Battery::staticDone()
 
 void Battery::checkBatteryLevel()
 {
-    qDebug() << Q_FUNC_INFO;
-
     /*
       Due to mutex mechanism for I2C access, battery reading
       level must be skipped when power key pressed
@@ -90,8 +88,8 @@ void Battery::checkBatteryLevel()
     int newLevel = getLevel();
     if(newLevel != _currentLevel) {
 
-        if(newLevel <= BATTERY_LEVEL_LOW && BATTERY_LEVEL_LOW < _currentLevel
-          || newLevel <= BATTERY_LEVEL_LOW_2 && BATTERY_LEVEL_LOW_2 < _currentLevel)
+        if((newLevel <= BATTERY_LEVEL_LOW && BATTERY_LEVEL_LOW < _currentLevel)
+          || (newLevel <= BATTERY_LEVEL_LOW_2 && BATTERY_LEVEL_LOW_2 < _currentLevel))
         {
             qDebug() << Q_FUNC_INFO << "Battery low" << newLevel;
             emit batteryLevelLow(newLevel);

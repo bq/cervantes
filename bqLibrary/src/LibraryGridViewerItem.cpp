@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -44,9 +44,20 @@ void LibraryGridViewerItem::processTap()
 void LibraryGridViewerItem::processLongpress ()
 {
     qDebug() << Q_FUNC_INFO;
-    const BookInfo* bookInfo = QBookApp::instance()->getModel()->getBookInfo(m_path);
-    if(bookInfo)
-        emit itemLongPress(m_path);
-    else
-        emit fileLongPressed(m_path);
+    switch(m_iType) {
+        case ELGVIT_BOOK:
+        {
+            emit itemLongPress(m_path);
+            break;
+        }
+        case ELGVIT_FILE:
+        {
+            emit fileLongPressed(m_path);
+            break;
+        }
+        case ELGVIT_ARROW:
+        case ELGVIT_COLLECTION:
+        default:
+            break;
+    }
 }

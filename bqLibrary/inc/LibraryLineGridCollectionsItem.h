@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -32,10 +32,7 @@ public:
                                     LibraryLineGridCollectionsItem         (QWidget * parent = 0);
     virtual                          ~LibraryLineGridCollectionsItem();
 
-    void                            setCollection                           ( const QString& collectionName, const int booksNumber );
-    virtual void                    setBook                                 ( const BookInfo* book, Library::ELibraryFilterMode filter ) {}
-    virtual void                    setFile                                 ( const QFileInfo* file ) {}
-    virtual void                    setArrow                                ( const QString& path ) {}
+    virtual void                    setCollection                           ( const QString& collectionName, const int booksNumber );
     virtual void                    select                                  () {}
     virtual void                    unselect                                () {}
 

@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -67,9 +67,9 @@ int LibraryReadingIconGridViewer::getItemsPerPage()
 
 void LibraryReadingIconGridViewer::getBookItems( LibraryGridViewerItem* books[] )
 {
-    books[1] = book1;
-    books[2] = book2;
-    books[3] = book3;
+    books[1] = book4;
+    books[2] = book5;
+    books[3] = book6;
 }
 
 void LibraryReadingIconGridViewer::openMostRecent(){
@@ -142,7 +142,7 @@ void LibraryReadingIconGridViewer::paintBooks()
         bookTitleLbl->setText(bqUtils::truncateStringToLength(bookInfo->title, STRING_MAX_LENGTH));
 
         // Author
-        if(bookInfo->author == "--")
+        if(bookInfo->author == "---")
             authorLbl->setText(tr("Autor Desconocido"));
         else
             authorLbl->setText(bqUtils::truncateStringToLength(bookInfo->author, STRING_MAX_LENGTH));

@@ -46,7 +46,7 @@ done
 
 # generate git version strings
 GIT_REV=`git rev-parse HEAD | cut -c1-6`
-GIT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+GIT_BRANCH=`git branch | sed -n -e 's/^\* \(.*\)/\1/p'`
 BUILD_DATE=`eval date +%Y%m%d_%H%M`
 export PRIVATE=$PRIVATE
 # set environment
@@ -202,9 +202,9 @@ cd ..
 if [ "$OPT_HACKERS" == "no" ]; then
     if [ -f $PRIVATE/bqClientServices/bqClientServices.pro ]; then
 	# Libreria bqClientServices
-        cd $PRIVATE/bqClientServices
+    cd $PRIVATE/bqClientServices
 
-        # generate git version strings for services
+    # generate git version strings for services
     GIT_VER_SERVICES=`git rev-parse HEAD | cut -c1-6`
 
 	qmake || exit $?
@@ -243,7 +243,7 @@ fi
 
 if [ ! -f gitversion.h ]; then
         echo "Creating new gitversion.h"
-        echo "#define GIT_VERSION \""$GIT_REV"_"$GIT_BRANCH"_"$BUILD_DATE"\"" >> gitversion.h
+        echo "#define GIT_VERSION \""$GIT_REV"_"$BUILD_DATE"\"" >> gitversion.h
         echo "#define ROOTFS_VERSION \"$ROOTFS_VERSION\"" >> gitversion.h
         echo "#define GIT_SERVICES_VERSION \"$GIT_VER_SERVICES\"" >> gitversion.h
 fi

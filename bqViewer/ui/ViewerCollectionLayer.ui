@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>285</width>
-    <height>309</height>
+    <width>403</width>
+    <height>437</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>285</width>
+    <width>0</width>
     <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>285</width>
-    <height>500</height>
+    <width>403</width>
+    <height>707</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -29,7 +29,7 @@
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -78,15 +78,15 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>480</width>
-          <height>53</height>
+          <width>679</width>
+          <height>75</height>
          </size>
         </property>
         <property name="focusPolicy">
          <enum>Qt::NoFocus</enum>
         </property>
         <property name="text">
-         <string>Añadir colección </string>
+         <string>A&#241;adir colecci&#243;n </string>
         </property>
         <property name="checkable">
          <bool>true</bool>
@@ -95,22 +95,22 @@
       </item>
       <item>
        <widget class="ViewerCollectionItem" name="collectionItem0" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout"/>
+        <layout class="QHBoxLayout" name="horizontalLayout" />
        </widget>
       </item>
       <item>
        <widget class="ViewerCollectionItem" name="collectionItem1" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_8"/>
+        <layout class="QHBoxLayout" name="horizontalLayout_8" />
        </widget>
       </item>
       <item>
        <widget class="ViewerCollectionItem" name="collectionItem2" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_6"/>
+        <layout class="QHBoxLayout" name="horizontalLayout_6" />
        </widget>
       </item>
       <item>
        <widget class="ViewerCollectionItem" name="collectionItem3" native="true">
-        <layout class="QHBoxLayout" name="collectionItem2s"/>
+        <layout class="QHBoxLayout" name="collectionItem2s" />
        </widget>
       </item>
       <item>
@@ -141,8 +141,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
@@ -163,6 +163,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

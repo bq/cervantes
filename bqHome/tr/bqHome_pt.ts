@@ -56,7 +56,7 @@
     <message utf8="true">
         <location filename="../ui/Home.ui" line="492"/>
         <source>Último acceso:</source>
-        <translation>Último acesso:</translation>
+        <translation>Último acesso: </translation>
     </message>
     <message>
         <location filename="../ui/Home.ui" line="499"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../ui/Home.ui" line="757"/>
         <source>Buscador</source>
-        <translation>Pesquisar</translation>
+        <translation>Procurar</translation>
     </message>
     <message>
         <location filename="../ui/Home.ui" line="767"/>

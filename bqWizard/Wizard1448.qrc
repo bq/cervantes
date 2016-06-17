@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="res/bg_wizard.png">res/1448/bg_wizard.png</file>
+        <file alias="res/check_ico.png">res/1448/check_ico.png</file>
+        <file alias="res/ok_wizard.png">res/1448/ok_wizard.png</file>
+        <file alias="res/wizard_styles_generic.qss">res/wizard_styles_generic.qss</file>
+        <file alias="res/wizard_styles.qss">res/1448/wizard_styles.qss</file>
+        <file alias="res/activate-device.png">res/1448/activate-device.png</file>
+    </qresource>
+</RCC>

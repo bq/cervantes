@@ -142,9 +142,10 @@ background-image:  url(:/res/close_popup_ico.png);
 -------------------------*/
 #StatusBar {
 background-color:#FFFFFF;
+border-bottom: 2px solid #9F9F9F;
 }
 #StatusBarCenterCont {
-background:#F2F2F2 url(:res/bg_header.png) repeat-x bottom left;
+/*background:#F2F2F2 url(:res/bg_header.png) repeat-x bottom left;*/
 }
 #StatusBarCont #currentSectionLbl{
 font-weight:bold;

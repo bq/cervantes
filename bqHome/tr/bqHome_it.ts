@@ -56,7 +56,7 @@
     <message utf8="true">
         <location filename="../ui/Home.ui" line="492"/>
         <source>Último acceso:</source>
-        <translation>Ultimo accesso:</translation>
+        <translation>Ultimo accesso: </translation>
     </message>
     <message>
         <location filename="../ui/Home.ui" line="499"/>

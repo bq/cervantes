@@ -6,27 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>300</height>
+    <width>1072</width>
+    <height>424</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>300</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>758</width>
-    <height>384</height>
+    <width>1072</width>
+    <height>543</height>
    </size>
   </property>
   <property name="windowTitle">
    <string notr="true">Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -45,8 +45,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>758</width>
-       <height>384</height>
+       <width>1072</width>
+       <height>543</height>
       </size>
      </property>
      <property name="frameShape">
@@ -60,8 +60,8 @@
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>581</width>
-        <height>300</height>
+        <width>822</width>
+        <height>424</height>
        </rect>
       </property>
       <property name="minimumSize">
@@ -72,8 +72,8 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>581</width>
-        <height>300</height>
+        <width>822</width>
+        <height>424</height>
        </size>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -104,8 +104,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -120,8 +120,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -142,8 +142,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -164,8 +164,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -186,8 +186,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -208,8 +208,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -230,8 +230,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -252,8 +252,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -274,8 +274,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -296,8 +296,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -318,8 +318,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -337,8 +337,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -357,8 +357,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -373,8 +373,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -395,8 +395,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -417,8 +417,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -439,8 +439,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -461,8 +461,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -483,8 +483,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -505,8 +505,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -527,8 +527,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -549,8 +549,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -571,8 +571,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -590,8 +590,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -610,8 +610,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -626,8 +626,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -648,8 +648,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -670,8 +670,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -692,8 +692,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -714,8 +714,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -736,8 +736,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -758,8 +758,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -780,8 +780,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -802,8 +802,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -824,12 +824,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -846,8 +846,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -866,8 +866,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -882,12 +882,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -904,8 +904,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -926,8 +926,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -948,8 +948,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -970,8 +970,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -992,8 +992,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -1014,8 +1014,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -1036,8 +1036,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -1058,8 +1058,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -1080,12 +1080,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
-            <string notr="true"/>
+            <string notr="true" />
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1099,8 +1099,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -1122,8 +1122,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -1138,8 +1138,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -1160,12 +1160,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>200</width>
-             <height>50</height>
+             <width>283</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1182,8 +1182,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -1198,12 +1198,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1220,12 +1220,12 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
-            <string/>
+            <string />
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1242,8 +1242,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -1264,8 +1264,8 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>50</width>
-             <height>50</height>
+             <width>71</width>
+             <height>71</height>
             </size>
            </property>
            <property name="text">
@@ -1289,8 +1289,8 @@
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>57</width>
+             <height>28</height>
             </size>
            </property>
           </spacer>
@@ -1310,6 +1310,6 @@
    <header>KeyboardButton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

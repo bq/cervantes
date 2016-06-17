@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -53,6 +53,8 @@ const double CR_FONT_SIZE_600_DOC[CR_FONT_SIZE_MAX_LEVEL+1]    = {12.0, 16.0, 19
 const double CR_FONT_SIZE_600_NO_DOC[CR_FONT_SIZE_MAX_LEVEL+1] = {16.0, 20.0, 24.0, 27.0, 31.0, 36.0, 42.0, 51.0};
 const double CR_FONT_SIZE_758_DOC[CR_FONT_SIZE_MAX_LEVEL+1]    = {14.0, 18.0, 22.0, 26.0, 30.0, 37.0, 43.0, 49.0};
 const double CR_FONT_SIZE_758_NO_DOC[CR_FONT_SIZE_MAX_LEVEL+1] = {21.0, 27.0, 32.0, 37.0, 42.0, 50.0, 58.0, 66.0};
+const double CR_FONT_SIZE_1072_DOC[CR_FONT_SIZE_MAX_LEVEL+1]    = {20.0, 25.0, 31.0, 37.0, 42.0, 52.0, 61.0, 69.0};
+const double CR_FONT_SIZE_1072_NO_DOC[CR_FONT_SIZE_MAX_LEVEL+1] = {29.0, 38.0, 45.0, 52.0, 57.0, 70.0, 85.0, 130.0};
 
 const double* CR_FONT_SIZE = 0;
 
@@ -140,15 +142,20 @@ QCREngineDocView::QCREngineDocView(QWidget* parent) : QDocView(parent)
     , rotViewPortSize(QSize(0,0))
     , docReady(false)
 {
+
     bool isDoc = s_path.toLower().endsWith(".doc");
 
-    if(QBook::getInstance()->getResolution() == QBook::RES758x1024)
+    switch(QBook::getInstance()->getResolution())
     {
-        CR_FONT_SIZE = isDoc ? CR_FONT_SIZE_758_DOC : CR_FONT_SIZE_758_NO_DOC;
-    }
-    else //QBook::RES600x800
-    {
-        CR_FONT_SIZE = isDoc ? CR_FONT_SIZE_600_DOC : CR_FONT_SIZE_600_NO_DOC;
+        case QBook::RES1072x1448:
+            CR_FONT_SIZE = isDoc ? CR_FONT_SIZE_1072_DOC : CR_FONT_SIZE_1072_NO_DOC;
+            break;
+        case QBook::RES758x1024:
+            CR_FONT_SIZE = isDoc ? CR_FONT_SIZE_758_DOC : CR_FONT_SIZE_758_NO_DOC;
+            break;
+        case QBook::RES600x800: default:
+            CR_FONT_SIZE = isDoc ? CR_FONT_SIZE_600_DOC : CR_FONT_SIZE_600_NO_DOC;
+            break;
     }
 
     m_fontSizeStep = 1.5;
@@ -188,10 +195,12 @@ QCREngineDocView::QCREngineDocView(QWidget* parent) : QDocView(parent)
 
     // stylesheet can be placed to file fb2.css
     // if not found, default stylesheet will be used
-    /*lString8 css = readFileToString(CR_CSS_FILE_PATH);
+    lString8 css = readFileToString(CR_CSS_FILE_PATH);
 
-    if (css.length() > 0)
-        text_view->setStyleSheet( css );*/
+    if ((s_path.toLower().endsWith(".htm") || s_path.toLower().endsWith(".html"))
+            && css.length() > 0){
+        text_view->setStyleSheet( css );
+    }
 
     text_view->setBackgroundColor(0xFFFFFF);
     text_view->setTextColor(0);
@@ -1675,4 +1684,25 @@ double QCREngineDocView::getInitialPosFromRenderer()
 double QCREngineDocView::getFinalPosFromRenderer()
 {
     return 0;
+}
+
+bool QCREngineDocView::processEventInPoint(const QPoint &p)
+{
+    lString16 href;
+
+    ldomXPointer ptr = text_view->getNodeByPoint( lvPoint( p.x(), p.y() ) );
+    if (ptr.isNull())
+        return false;
+
+    href = ptr.getHRef();
+    QString qsLink = QString::fromWCharArray( href.c_str(), href.length());
+    if (qsLink.isEmpty())
+        return false;
+
+    qDebug() << Q_FUNC_INFO << "Going to:" << qsLink;
+    text_view->goLink(href);
+    update();
+    updatePageNumber();
+
+    return true;
 }

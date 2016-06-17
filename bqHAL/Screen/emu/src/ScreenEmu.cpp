@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -102,20 +102,35 @@ void ScreenEmu::flushColorScreen(Qt::GlobalColor color)
 int ScreenEmu::screenWidth() const
 {
     qDebug() << "--->" << Q_FUNC_INFO;
-    if (QBook::getResolution() == QBook::RES600x800)
-    	return 600;
-    else
-	return 758;
-
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            return 1072;
+            break;
+        case QBook::RES758x1024:
+            return 758;
+            break;
+        case QBook::RES600x800: default:
+            return 600;
+            break;
+    }
 }
 
 int ScreenEmu::screenHeight() const
 {
     qDebug() << "--->" << Q_FUNC_INFO;
-    if (QBook::getResolution() == QBook::RES600x800)
-    	return 800;
-    else
-	return 1024;
+    switch(QBook::getInstance()->getResolution())
+    {
+        case QBook::RES1072x1448:
+            return 1448;
+            break;
+        case QBook::RES758x1024:
+            return 1024;
+            break;
+        case QBook::RES600x800: default:
+            return 800;
+            break;
+    }
 }
 
 void ScreenEmu::setScreenOrentation(ScreenOrientation /*orientation*/)

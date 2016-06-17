@@ -1,7 +1,7 @@
 /*************************************************************************
 
 bq Cervantes e-book reader application
-Copyright (C) 2011-2013  Mundoreader, S.L
+Copyright (C) 2011-2016  Mundoreader, S.L
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License
@@ -81,6 +81,7 @@ bool MetaDataExtractor::getMetaData( const QString& filename, QString& title, QS
             || info.suffix().toLower() == "chm"
             || info.suffix().toLower() == "txt"
             || info.suffix().toLower() == "rtf"
+            || info.suffix().toLower() == "htm"
             || info.suffix().toLower() == "html")
     {
         title = QFileInfo(filename).baseName();

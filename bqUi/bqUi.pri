@@ -90,9 +90,10 @@ FORMS +=   ./ui/HorizontalPagination.ui \
 
 
 
-QRC_FILES += Ui800.qrc Ui1024.qrc
+QRC_FILES += Ui800.qrc Ui1024.qrc Ui1448.qrc
 
 OTHER_FILES += \
     bqUi/res/ui_styles_generic.qss \
     bqUi/res/1024/ui_styles.qss \
-    bqUi/res/800/ui_styles.qss
+    bqUi/res/800/ui_styles.qss \
+    bqUi/res/1448/ui_styles.qss

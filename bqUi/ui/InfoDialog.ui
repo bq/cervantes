@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>960</height>
+    <width>1072</width>
+    <height>1358</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <property name="spacing">
@@ -34,7 +34,7 @@
    </property>
    <item>
     <widget class="QWidget" name="SeparateVertical" native="true">
-     <layout class="QVBoxLayout" name="V"/>
+     <layout class="QVBoxLayout" name="V" />
     </widget>
    </item>
    <item>
@@ -53,12 +53,12 @@
         </property>
         <property name="maximumSize">
          <size>
-          <width>606</width>
-          <height>281</height>
+          <width>857</width>
+          <height>397</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true" />
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="spacing">
@@ -87,7 +87,7 @@
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true"/>
+              <string notr="true" />
              </property>
              <property name="text">
               <string>Restore factory default settings?  Restore factory default settings? Restore factory default settings?  </string>
@@ -108,7 +108,7 @@
          <item>
           <widget class="QLabel" name="spinerLbl">
            <property name="text">
-            <string/>
+            <string />
            </property>
           </widget>
          </item>
@@ -125,14 +125,14 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>20</width>
-       <height>40</height>
+       <width>28</width>
+       <height>57</height>
       </size>
      </property>
     </spacer>
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

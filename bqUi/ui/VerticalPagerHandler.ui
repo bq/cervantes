@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>40</height>
+    <width>849</width>
+    <height>57</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
@@ -30,8 +30,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -39,14 +39,14 @@
    <item>
     <widget class="QPushButton" name="upPageBtn">
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
    <item>
     <widget class="QLabel" name="pagTextLbl">
      <property name="text">
-      <string>Pág.</string>
+      <string>P&#225;g.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -98,7 +98,7 @@
    <item>
     <widget class="QPushButton" name="downPageBtn">
      <property name="text">
-      <string/>
+      <string />
      </property>
     </widget>
    </item>
@@ -109,8 +109,8 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>57</width>
+       <height>28</height>
       </size>
      </property>
     </spacer>
@@ -118,7 +118,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../Ui800.qrc"/>
+  <include location="../Ui800.qrc" />
  </resources>
- <connections/>
+ <connections />
 </ui>

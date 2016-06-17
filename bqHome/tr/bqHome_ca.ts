@@ -56,7 +56,7 @@
     <message utf8="true">
         <location filename="../ui/Home.ui" line="492"/>
         <source>Último acceso:</source>
-        <translation>Últim accés:</translation>
+        <translation>Últim accés: </translation>
     </message>
     <message>
         <location filename="../ui/Home.ui" line="499"/>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../ui/Home.ui" line="694"/>
         <source>Ver todos &gt;</source>
-        <translation>Veure tots &gt;</translation>
+        <translation>Mostra-ho tot &gt;</translation>
     </message>
     <message>
         <location filename="../ui/Home.ui" line="757"/>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../ui/Home.ui" line="787"/>
         <source>Ajustes</source>
-        <translation>Ajusts</translation>
+        <translation>Configuració</translation>
     </message>
     <message>
         <location filename="../ui/Home.ui" line="797"/>

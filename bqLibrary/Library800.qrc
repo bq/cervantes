@@ -68,7 +68,6 @@
         <file alias="res/book_summary_front_top_center.png">res/800/book_summary_front_top_center.png</file>
         <file alias="res/book_summary_front_top_left.png">res/800/book_summary_front_top_left.png</file>
         <file alias="res/book_summary_front_top_right.png">res/800/book_summary_front_top_right.png</file>
-        <file alias="res/bg_library_01.png">res/800/bg_library_01.png</file>
         <file alias="res/arrow_bottom_pager.png">res/800/arrow_bottom_pager.png</file>
         <file alias="res/arrow_top_pager.png">res/800/arrow_top_pager.png</file>
         <file alias="res/open_book_small_bottom_center.png">res/800/open_book_small_bottom_center.png</file>
@@ -94,7 +93,6 @@
         <file alias="res/library_arrow.png">res/800/library_arrow.png</file>
         <file alias="res/search_library_btn.png">res/800/search_library_btn.png</file>
         <file alias="res/store_btn.png">res/800/store_btn.png</file>
-        <file alias="res/bg_library_new.png">res/800/bg_library_new.png</file>
         <file alias="res/grid-btn.png">res/800/grid-btn.png</file>
         <file alias="res/list-btn.png">res/800/list-btn.png</file>
         <file alias="res/bg_sd.png">res/800/bg_sd.png</file>

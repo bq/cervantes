@@ -6,23 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>752</height>
+    <width>1072</width>
+    <height>1063</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QFrame" name="LineCollectionsCont">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>758</width>
-     <height>752</height>
+     <width>1072</width>
+     <height>1063</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -33,8 +33,8 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>758</width>
-     <height>752</height>
+     <width>1072</width>
+     <height>1063</height>
     </size>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -64,7 +64,7 @@
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>115</height>
+           <height>163</height>
           </size>
          </property>
         </widget>
@@ -80,11 +80,11 @@
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>115</height>
+           <height>163</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true" />
          </property>
         </widget>
        </item>
@@ -99,7 +99,7 @@
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>115</height>
+           <height>163</height>
           </size>
          </property>
         </widget>
@@ -115,7 +115,7 @@
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>115</height>
+           <height>163</height>
           </size>
          </property>
         </widget>
@@ -131,7 +131,7 @@
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>115</height>
+           <height>163</height>
           </size>
          </property>
         </widget>
@@ -147,7 +147,7 @@
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>115</height>
+           <height>163</height>
           </size>
          </property>
         </widget>
@@ -163,7 +163,7 @@
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>115</height>
+           <height>163</height>
           </size>
          </property>
         </widget>
@@ -179,7 +179,7 @@
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>115</height>
+           <height>163</height>
           </size>
          </property>
         </widget>
@@ -194,8 +194,8 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>20</width>
-        <height>40</height>
+        <width>28</width>
+        <height>57</height>
        </size>
       </property>
      </spacer>
@@ -210,8 +210,8 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>758</width>
-        <height>75</height>
+        <width>1072</width>
+        <height>106</height>
        </size>
       </property>
      </widget>
@@ -233,6 +233,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

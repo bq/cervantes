@@ -6,23 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>758</width>
-    <height>1024</height>
+    <width>1072</width>
+    <height>1448</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true" />
   </property>
   <widget class="QWidget" name="LibraryImageFullScreenCont" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>661</width>
-     <height>651</height>
+     <width>935</width>
+     <height>921</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -32,7 +32,7 @@
     </sizepolicy>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true" />
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
@@ -59,8 +59,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>57</width>
+          <height>28</height>
          </size>
         </property>
        </spacer>
@@ -68,7 +68,7 @@
       <item>
        <widget class="QPushButton" name="closeBtn">
         <property name="text">
-         <string/>
+         <string />
         </property>
        </widget>
       </item>
@@ -81,8 +81,8 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>20</width>
-        <height>40</height>
+        <width>28</width>
+        <height>57</height>
        </size>
       </property>
      </spacer>
@@ -105,7 +105,7 @@
        <item>
         <widget class="QPushButton" name="btnImageBack">
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </item>
@@ -159,7 +159,7 @@
        <item>
         <widget class="QPushButton" name="btnImageNext">
          <property name="text">
-          <string/>
+          <string />
          </property>
         </widget>
        </item>
@@ -173,8 +173,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>758</width>
-     <height>1024</height>
+     <width>1072</width>
+     <height>1448</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -184,12 +184,12 @@
     </sizepolicy>
    </property>
    <property name="text">
-    <string/>
+    <string />
    </property>
   </widget>
   <zorder>imageContent</zorder>
   <zorder>LibraryImageFullScreenCont</zorder>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>
