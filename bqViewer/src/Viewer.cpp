@@ -881,8 +881,8 @@ void Viewer::loadDocument()
     qDebug() << Q_FUNC_INFO << "setUrl finished. time=" << time.elapsed();
     time.restart();
 
-    // Error checking from handleErrors
-    if(m_loadDocumentError != QDocView::EDVLE_NONE)
+    // Error checking from handleErrors. This handles the error opening a PDF with password
+    if(m_loadDocumentError == (QDocView::EDVLE_PASSWORD_ERROR | QDocView::EDVLE_FATAL_ERROR))
         i_loadState = QDocView::LOAD_FAILED;
 
     if(i_loadState == QDocView::LOAD_FAILED)
