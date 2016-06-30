@@ -18,4 +18,4 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 *************************************************************************/
 
-static const char *QBOOKAPP_VERSION = "bqOS-6.0.2";
+static const char *QBOOKAPP_VERSION = "bqOS-6.0.3";
