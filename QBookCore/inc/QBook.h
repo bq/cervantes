@@ -82,7 +82,6 @@ public:
     static QDateTime rtcDateTime();
 
     static void setRtcDateTime(const QDateTime& time);
-    static bool checkRTCTime();
 
     static QString getInfoPath(const QString &bookpath);
     static int getResolution();

@@ -43,10 +43,8 @@ class RTCManager : public QObject
             int tm_isdst;
         };
 
-        static void addSecsToRTCTime(struct rtc_time& rtc_tm, int secs);
         static void setRTCAlarm(int secs);
         static void turnOffRTCTimer();
-        static bool checkRTCTime();
         static QDateTime rtcDateTime();
         static void setRtcDateTime(const QDateTime&);
         static bool setHardwareDateFromSystem();

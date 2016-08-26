@@ -26,6 +26,9 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDateTime>
 #include <QDebug>
 #include <QProcess>
+#include <QDateTime>
+#include <QDate>
+#include <QTime>
 #include "RTCManager.h"
 
 #define DEVICE_RTC                  "/dev/rtc0"
@@ -36,54 +39,24 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define REQCODE_RTC_SETTIME         _IOW('p', 0x0a, struct rtc_time_generic) /* Set RTC time    */
 #define REQCODE_RTC_READTIME        _IOR('p', 0x09, struct rtc_time_generic) /* Read RTC time   */
 
-static const int days_per_month[] =  {31, 28, 31, 30, 31,  30,  31,  31,  30,  31,  30,  31};
-
-#define LEAP_YEAR(year) ((!(year % 4) && (year % 100)) || !(year % 400))
-
 // NOTE Precondition
 // RTC months: January is 0, December is 11
 // RTC years: start at 1900
 
-int daysInMonth(unsigned int month, unsigned int year)
-{
-    return days_per_month[month] + (LEAP_YEAR(year) && month == 1);
-}
-
-int addModAndForwardDiv(int& lnumber, int addnumber, int modnumber)
-{
-    int tmpadd = lnumber + addnumber;
-    lnumber = tmpadd % modnumber;
-    return tmpadd / modnumber;
-}
-
-void RTCManager::addSecsToRTCTime(struct rtc_time& rtc_tm, int secs)
-{
-    int toAdd = secs;
-    int regYear = 1900+rtc_tm.tm_year;
-    toAdd = addModAndForwardDiv(rtc_tm.tm_sec, toAdd, 60);
-    toAdd = addModAndForwardDiv(rtc_tm.tm_min, toAdd, 60);
-    toAdd = addModAndForwardDiv(rtc_tm.tm_hour, toAdd, 24);
-    addModAndForwardDiv(rtc_tm.tm_wday, toAdd, 7); // No need to keep track of week days offset
-    addModAndForwardDiv(rtc_tm.tm_yday, toAdd, 365+LEAP_YEAR(regYear)); // No need to keep track of year days offset
-    toAdd = addModAndForwardDiv(rtc_tm.tm_mday, toAdd, daysInMonth(rtc_tm.tm_mon, regYear));
-    toAdd = addModAndForwardDiv(rtc_tm.tm_mon, toAdd, 12);
-    rtc_tm.tm_year += toAdd;
-}
-
 void RTCManager::setRTCAlarm(int secs)
 {
-    qDebug() << "--->" << Q_FUNC_INFO;
+    qDebug() << "--->" << Q_FUNC_INFO << secs;
 
 #ifdef Q_WS_QWS
 
     int fd_rtc, retval;
     struct rtc_time rtc_tm;
     struct rtc_wkalrm rtc_alrm;
-
+    QDateTime dateTime;
     if(secs <= 0)
         return;
 
-    // Set RTC interrupt
+    // Get RTC Time
     fd_rtc = open (DEVICE_RTC, O_WRONLY);
     if (fd_rtc == -1)
     {
@@ -91,9 +64,28 @@ void RTCManager::setRTCAlarm(int secs)
     }
     ioctl (fd_rtc, REQCODE_RTC_READTIME, &rtc_tm);
 
-    qDebug("[RTC]read rtc %d/%d/%d  %d:%d:%d", rtc_tm.tm_year, rtc_tm.tm_mon, rtc_tm.tm_mday,rtc_tm.tm_hour, rtc_tm.tm_min, rtc_tm.tm_sec);
-    addSecsToRTCTime(rtc_tm, secs);
-    qDebug("[RTC] set rtc %d/%d/%d  %d:%d:%d", rtc_tm.tm_year, rtc_tm.tm_mon, rtc_tm.tm_mday,rtc_tm.tm_hour, rtc_tm.tm_min, rtc_tm.tm_sec);
+    qDebug() << Q_FUNC_INFO << "Current RTC Time: " << rtc_tm.tm_year << rtc_tm.tm_mon << rtc_tm.tm_mday
+             << "-" << rtc_tm.tm_hour << rtc_tm.tm_min << rtc_tm.tm_sec
+             << "- wDay " << rtc_tm.tm_wday << "yDay " << rtc_tm.tm_yday;
+
+    // Convert to QDateTime and add seconds
+    dateTime.setDate(QDate(rtc_tm.tm_year + 1900, rtc_tm.tm_mon + 1, rtc_tm.tm_mday));
+    dateTime.setTime(QTime(rtc_tm.tm_hour, rtc_tm.tm_min, rtc_tm.tm_sec));
+    dateTime = dateTime.addSecs(secs);
+
+    // Convert to RTC format
+    rtc_tm.tm_year = dateTime.date().year() - 1900;
+    rtc_tm.tm_mon = dateTime.date().month()-1;
+    rtc_tm.tm_mday = dateTime.date().day();
+    rtc_tm.tm_wday = dateTime.date().dayOfWeek();
+    rtc_tm.tm_yday = dateTime.date().dayOfYear();
+    rtc_tm.tm_hour = dateTime.time().hour();
+    rtc_tm.tm_min = dateTime.time().minute();
+    rtc_tm.tm_sec = dateTime.time().second();
+
+    qDebug() << Q_FUNC_INFO << "Alarm RTC Time: " << rtc_tm.tm_year << rtc_tm.tm_mon << rtc_tm.tm_mday
+             << "-" << rtc_tm.tm_hour << rtc_tm.tm_min << rtc_tm.tm_sec
+             << "- wDay " << rtc_tm.tm_wday << "yDay " << rtc_tm.tm_yday;
 
     rtc_alrm.enabled = 1;
     rtc_alrm.pending = 0;
@@ -134,34 +126,6 @@ void RTCManager::turnOffRTCTimer()
 
     close(fd_rtc);
 #endif
-}
-
-bool RTCManager::checkRTCTime()
-{
-#ifdef Q_WS_QWS
-    struct rtc_time rtc_tm;
-    int fd_rtc;
-
-    fd_rtc = open (DEVICE_RTC, O_WRONLY);
-    if (fd_rtc == -1)
-    {
-        perror(DEVICE_RTC);
-    }
-    ioctl (fd_rtc, REQCODE_RTC_READTIME, &rtc_tm);
-    close(fd_rtc);
-
-    if( (rtc_tm.tm_year<100 || rtc_tm.tm_year>=200) ||
-            (rtc_tm.tm_sec >= 60 || rtc_tm.tm_sec < 0) ||
-            (rtc_tm.tm_min >= 60 || rtc_tm.tm_min < 0) ||
-            (rtc_tm.tm_mon > 11 || rtc_tm.tm_mon < 0) ||
-            (rtc_tm.tm_hour >= 24 || rtc_tm.tm_hour < 0) ||
-            rtc_tm.tm_mday < 1 || rtc_tm.tm_mday > daysInMonth(rtc_tm.tm_mon, rtc_tm.tm_year + 1900))
-    {
-        return false;
-    }
-#endif
-
-    return true;
 }
 
 QDateTime RTCManager::rtcDateTime()

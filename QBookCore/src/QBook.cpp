@@ -185,11 +185,6 @@ void QBook::setRtcDateTime(const QDateTime& dateTime)
     RTCManager::setRtcDateTime(dateTime);
 }
 
-bool QBook::checkRTCTime()
-{
-    return RTCManager::checkRTCTime();
-}
-
 QString QBook::etcDirPath()
 {
 #ifdef Q_WS_QWS
