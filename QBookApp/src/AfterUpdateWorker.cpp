@@ -61,8 +61,7 @@ void AfterUpdateWorker::work()
 
     copyNewImages();
 
-    migrationFromBqToNubico();
-    migrationFromLiberdracToLibelista();
+    checkShopMigration();
 
     setActivated();
 
@@ -74,46 +73,47 @@ void AfterUpdateWorker::work()
 
 }
 
-void AfterUpdateWorker::migrationFromBqToNubico()
+void AfterUpdateWorker::checkShopMigration()
 {
     qDebug() << Q_FUNC_INFO;
 
     const QString shopName = QBook::settings().value("shopName", "").toString();
 
-    if(!shopName.size() || shopName != "bq")
-        return;
+    if(shopName.size() && (shopName == "bq" || shopName == "liberdrac" || shopName == "fnac"))
+    {
 
-    qDebug() << Q_FUNC_INFO << "unlinking device";
-    QBook::settings().setValue("setting/linked",false);
-    QBook::settings().setValue("setting/activated",true);
-    QBook::settings().setValue("setting/initial",true);
-    QBook::settings().setValue("setting/initial_lang_selection",true);
-    QBook::settings().setValue("eMail", "");
-    QBook::settings().setValue("shopName", "Tienda");
-    QBook::settings().setValue("readerPartitionName", "reader");
-    QBook::settings().setValue("deviceModelName", "reader");
+        qDebug() << Q_FUNC_INFO << "unlinking device";
 
-}
+        // Clean Settings
+        QBook::settings().setValue("setting/linked",false);
+        QBook::settings().setValue("setting/activated",false);
+        QBook::settings().setValue("setting/initial",true);
+        QBook::settings().setValue("eMail", "");
+        QBook::settings().setValue("shopName", "Tienda");
+        QBook::settings().setValue("readerPartitionName", "reader");
+        QBook::settings().setValue("deviceModelName", "reader");
 
-void AfterUpdateWorker::migrationFromLiberdracToLibelista()
-{
-    qDebug() << Q_FUNC_INFO;
+        // Remove customized images
+        QString customizedImagesPath = Storage::getInstance()->getDataPartition()->getMountPoint() + QDir::separator();
 
-    const QString shopName = QBook::settings().value("shopName", "").toString();
+        if(QFile::exists(customizedImagesPath + QString("shop_main_menu.png")))
+            QFile::remove(customizedImagesPath + QString("shop_main_menu.png"));
 
-    if(!shopName.size() || shopName != "liberdrac")
-        return;
+        if(QFile::exists(customizedImagesPath + QString("powerOffDeviceImage.png")))
+            QFile::remove(customizedImagesPath + QString("powerOffDeviceImage.png"));
 
-    qDebug() << Q_FUNC_INFO << "unlinking device";
-    QBook::settings().setValue("setting/linked",false);
-    QBook::settings().setValue("setting/activated",true);
-    QBook::settings().setValue("setting/initial",true);
-    QBook::settings().setValue("setting/initial_lang_selection",true);
-    QBook::settings().setValue("eMail", "");
-    QBook::settings().setValue("shopName", "Tienda");
-    QBook::settings().setValue("readerPartitionName", "reader");
-    QBook::settings().setValue("deviceModelName", "reader");
+        if(QFile::exists(customizedImagesPath + QString("restDeviceImage.png")))
+            QFile::remove(customizedImagesPath + QString("restDeviceImage.png"));
 
+        if(QFile::exists(customizedImagesPath + QString("startDeviceImage.png")))
+            QFile::remove(customizedImagesPath + QString("startDeviceImage.png"));
+
+        if(QFile::exists(customizedImagesPath + QString("updateDeviceImage.png")))
+            QFile::remove(customizedImagesPath + QString("updateDeviceImage.png"));
+
+        if(QFile::exists(customizedImagesPath + QString("lowBatteryImage.png")))
+            QFile::remove(customizedImagesPath + QString("lowBatteryImage.png"));
+    }
 }
 
 void AfterUpdateWorker::copyNewImages()

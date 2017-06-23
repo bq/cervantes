@@ -70,7 +70,9 @@ WizardWelcome::WizardWelcome(QWidget* parent)
     }else
         intro3Lbl->show();
 
-    if(!QBook::settings().value("setting/initial_lang_selection", true).toBool() && QBook::settings().value("setting/initial",true).toBool())
+    // Check if: 1. language selection is needed, 2. initial power on for user is set and 3. Device has not been manually deactivated because of OTA
+    if(!QBook::settings().value("setting/initial_lang_selection", true).toBool()&& QBook::settings().value("setting/initial",true).toBool()
+            && !QBook::settings().value("setting/activated").isValid())
     {
         if(!m_WizardDateTime)
             m_WizardDateTime = new WizardDateTime(this);
