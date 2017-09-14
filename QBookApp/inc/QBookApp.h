@@ -144,6 +144,7 @@ public:
 
     SettingsWiFiList *      m_wifiSelection;
     inline Library*         getLibrary              () const { return m_library; }
+    QBookDebugDialog*       getDebugDialog     () const {return m_debugDialog;}
 #ifndef HACKERS_EDITION
     bqDeviceKey*            getBqDeviceKey          () const { return m_bqDeviceKey; }
     bqDeviceServices* getDeviceServices() const { return m_pServices; }

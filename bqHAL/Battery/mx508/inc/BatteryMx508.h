@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define CM_GET_BATTERY_STATUS       206
 #define MX508_BATTERY_VALUE_MIN     885
 #define MX508_BATTERY_VALUE_MAX     1023
+#define E60QP2_PERCENTONE_VALUE     905
 
 class BatteryMx508 : public Battery
 {

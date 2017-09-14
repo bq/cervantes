@@ -33,7 +33,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 int BatteryMx508::getLevel(){
     int hwid = DeviceInfo::getInstance()->getHwId();
-    if(hwid == DeviceInfo::E60QH2 || hwid == DeviceInfo::E60QP2) {
+    if(hwid == DeviceInfo::E60QH2) {
         int percentage;
         std::ifstream infile("/sys/bus/platform/devices/ricoh619-battery/power_supply/mc13892_bat/capacity");
         if (!infile) {
@@ -61,7 +61,14 @@ int BatteryMx508::getLevel(){
     close (FHWhandle);
 
     int level = value & 0x7FFF;
-    int percentage = qBound(0,(level - MX508_BATTERY_VALUE_MIN)*100/(MX508_BATTERY_VALUE_MAX - MX508_BATTERY_VALUE_MIN),100);
+    int percentage;
+
+    if (hwid == DeviceInfo::E60QP2){ // Correction because of curves observed experimentally
+        percentage = qBound(0,(level - E60QP2_PERCENTONE_VALUE)*100/(MX508_BATTERY_VALUE_MAX - E60QP2_PERCENTONE_VALUE),100);
+    }
+    else{
+        percentage = qBound(0,(level - MX508_BATTERY_VALUE_MIN)*100/(MX508_BATTERY_VALUE_MAX - MX508_BATTERY_VALUE_MIN),100);
+    }
 
     if (level < MX508_BATTERY_VALUE_MIN) // Check battery critical level
         emit batteryLevelCritical();

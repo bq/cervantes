@@ -23,6 +23,11 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "PowerEmu.h"
 #elif MX508
 #include "PowerMx508.h"
+#include "QBookApp.h"
+#endif
+
+#ifndef HACKERS_EDITION
+#include "QBookDebugDialog.h"
 #endif
 
 #if defined(BATTERY_TEST) || defined(SHOWCASE)
@@ -89,6 +94,8 @@ void Power::staticDone()
 bool Power::doSpecialTestAction(bool slept){
 
     qDebug() << Q_FUNC_INFO << "#### BATTERY_TEST"<< BATTERY_TEST << "####";
+
+    QBookApp::instance()->getDebugDialog()->updateBatteryLog();
 
     bool suspendDisabled = Battery::getInstance()->getLevel() > START_POINT;
 
