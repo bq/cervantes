@@ -87,25 +87,31 @@ void ViewerContentsItem::paint()
          break;
      }
 
-     chapterLbl->setText(spacer  + bqUtils::truncateStringToLength(m_location->preview, BOOKINDEXITEM_MAX_LENGTH - spacer.length()));
+     // Truncate text depending on icons shown
+     int bookIndexItemMaxLenght = BOOKINDEXITEM_MAX_LENGTH;
 
      if(m_iBookmarks > 0){
         bookmarksNumberLbl->setText(QString::number(m_iBookmarks));
         bookmarksNumberLbl->show();
+        bookIndexItemMaxLenght -= 4;
      }else
          bookmarksNumberLbl->hide();
 
      if(m_iHighlights > 0){
          hightlightedNumberLbl->setText(QString::number(m_iHighlights));
          hightlightedNumberLbl->show();
+         bookIndexItemMaxLenght -= 4;
      }else
          hightlightedNumberLbl->hide();
 
      if(m_iNotes > 0){
         notesNumberLbl->setText(QString::number(m_iNotes));
         notesNumberLbl->show();
+        bookIndexItemMaxLenght -= 4;
      }else
         notesNumberLbl->hide();
+
+     chapterLbl->setText(spacer  + bqUtils::truncateStringToLength(m_location->preview, bookIndexItemMaxLenght - spacer.length(), false));
 
      show();
 }

@@ -22,6 +22,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define FRONTLIGHT_H
 
 #include <QObject>
+#include <QTime>
 
 
 class PowerManagerLock;
@@ -40,9 +41,24 @@ public:
     virtual bool isFrontLightActive() = 0;
     virtual bool setBrightness(int) = 0;
     virtual int getBrightness() = 0;
+    virtual bool setOptimaLightAutoMode(bool) = 0;
+    virtual bool isOptimaLightAutoActive() = 0;
+    virtual bool setOptimaLightValue(int) = 0;
+    virtual int getOptimaLightValue() = 0;
+    virtual int getOptimaLightSunriseId() = 0;
+    virtual int getOptimaLightSunsetId() = 0;
+    virtual QTime getOptimaLightSunriseTime() = 0;
+    virtual QTime getOptimaLightSunsetTime() = 0;
+
+public slots:
+    virtual bool setOptimaLightSunrise(int /*id*/) = 0;
+    virtual bool setOptimaLightSunset(int /*id*/) = 0;
+    virtual void checkOptimaLightAutoSetting() = 0;
+
 
 signals:
     void frontLightPower(bool);
+    void frontLightChanged(bool);
 
 private:
     static FrontLight* _instance;

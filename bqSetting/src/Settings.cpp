@@ -408,3 +408,11 @@ void Settings::hidePreviousChild()
         hideElement();
     }
 }
+
+void Settings::goToLightMenu()
+{
+    qDebug() << Q_FUNC_INFO;
+
+    hidePreviousChild();
+    handleLightBtn();
+}

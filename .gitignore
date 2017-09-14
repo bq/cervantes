@@ -69,3 +69,4 @@ libbqModelLibrary.so*
 *.bak
 *~
 !QHome/bin
+gitversion.h

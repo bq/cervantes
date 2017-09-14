@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <arpa/inet.h>
 
 #include "WifiMx508.h"
+#include "DeviceInfo.h"
 
 #include "QBook.h"
 #include "PowerManager.h"
@@ -52,7 +53,12 @@ WifiMx508::~WifiMx508()
 void WifiMx508::powerOff()
 {
     qDebug() << "--->" << Q_FUNC_INFO;
-    //systemCall("wlarm_le -i eth0 radio off");
+
+    /* circumvent high power consumption on realtek wifi for now */
+    int hwid = DeviceInfo::getInstance()->getHwId();
+    if(hwid == DeviceInfo::E60QP2) {
+        systemCall("rmmod 8189fs");
+    }
 }
 
 /* virtual */ QString WifiMx508::getMacAddress()
@@ -65,9 +71,11 @@ void WifiMx508::powerOn()
 {
     qDebug() << "--->" << Q_FUNC_INFO;
 
-    //systemCall("killall connmand");
-    //systemCall("wlarm_le -i eth0 radio on");
-
+    /* circumvent high power consumption on realtek wifi for now */
+    int hwid = DeviceInfo::getInstance()->getHwId();
+    if(hwid == DeviceInfo::E60QP2) {
+        systemCall("modprobe 8189fs rtw_channel_plan=0x21");
+    }
 }
 
 

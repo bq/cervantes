@@ -27,6 +27,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include "json.h"
 #include "Storage.h"
 #include "bqDeviceServices.h"
+#include "DeviceInfo.h"
 
 #include <QDebug>
 #include <QSettings>
@@ -190,7 +191,10 @@ QString Dictionary::translate(const QString& original, const QString& context)
     switch(QBook::getInstance()->getResolution())
     {
         case QBook::RES1072x1448:
-            fontSize = "8pt";
+            if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60QH2)
+                fontSize = "8pt";
+            else
+                fontSize = "34pt";
             break;
         case QBook::RES758x1024:
             fontSize = "24pt";

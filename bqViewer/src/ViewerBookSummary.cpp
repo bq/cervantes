@@ -48,7 +48,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define BOOKSUMMARY_AUTHOR_MAX_LENGTH 30
 #define ICON_VIEWER_STRING_MAX_LENGTH 10
 #define PERCENT_STEP_VALUE 0.75
-#define COLLECTION_MAX_LENGTH 23
+#define COLLECTION_MAX_LENGTH 32
 
 #define USERGUIDEPATH "/app/share/userGuides/"
 
@@ -615,22 +615,13 @@ void ViewerBookSummary::setCollectionLayerBtnText(QHash<QString, double> collect
         switch(QBook::getInstance()->getResolution())
         {
             case QBook::RES1072x1448:
-                if(collectionName.size() >= 10)
-                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_FHD);
-                else
-                    addToCollectionBtn->setStyleSheet(FONT_SIZE_FHD);
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_FHD);
                 break;
             case QBook::RES758x1024:
-                if(collectionName.size() >= 22)
-                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
-                else
-                    addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
                 break;
             case QBook::RES600x800: default:
-                if(collectionName.size() >= 22)
-                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
-                else
-                    addToCollectionBtn->setStyleSheet(FONT_SIZE_SD);
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
                 break;
         }
         addToCollectionBtn->setText(bqUtils::truncateStringToLength(tr("%1").arg(collectionName), COLLECTION_MAX_LENGTH));

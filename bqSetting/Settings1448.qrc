@@ -59,5 +59,8 @@
         <file alias="res/arrow-btn.png">res/1448/arrow-btn.png</file>
         <file alias="res/warning.png">res/1448/warning.png</file>
         <file alias="res/about_us_settings.png">res/1448/about_us_settings.png</file>
+        <file alias="res/settings.png">res/1448/settings.png</file>
+        <file alias="res/day.png">res/1448/day.png</file>
+        <file alias="res/night.png">res/1448/night.png</file>
     </qresource>
 </RCC>

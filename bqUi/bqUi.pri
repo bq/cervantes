@@ -38,7 +38,9 @@ HEADERS += ./inc/PopUp.h \
            ./inc/LongPressWidget.h \
            ./inc/BrightnessSlider.h \
            ./inc/BrightnessSliderItem.h \
-           ./inc/LongPressedQPushButton.h
+           ./inc/LongPressedQPushButton.h \
+           ./inc/Slider.h \
+           ./inc/OptimaLightSlider.h
 
 
 
@@ -71,7 +73,9 @@ SOURCES += ./src/PopUp.cpp \
            ./src/LongPressWidget.cpp \
            ./src/BrightnessSlider.cpp \
            ./src/BrightnessSliderItem.cpp \
-           ./src/LongPressedQPushButton.cpp
+           ./src/LongPressedQPushButton.cpp \
+           ./src/Slider.cpp \
+           ./src/OptimaLightSlider.cpp
 
 
 FORMS +=   ./ui/HorizontalPagination.ui \

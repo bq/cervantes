@@ -730,60 +730,83 @@ max-width: 1072px;
 min-height: 1358px;
 max-height: 1358px;
 }
+#SettingsBrightness #settingsMenuListCont {
+border: none;
+background-color: transparent;
+}
+#SettingsBrightness #settingsMenuListCont QPushButton{
+min-height: 123px;
+max-height: 123px;
+}
 #SettingsBrightness #screenLightCont{
 margin: 0px 35px 0px 35px;
-min-height: 127px;
-max-height: 127px;
-border-bottom-width: 3px;
+min-height: 123px;
+max-height: 123px;
+border-width: 3px;
+border-style: solid;
+border-color: #404040;
+border-radius: 14px;
+background-color: #FFFFFF;
 }
 #SettingsBrightness #screenLightLbl{
 margin: 0px 0px 0px 72px;
 }
-#SettingsBrightness #brightnessLbl{
-margin: 0px 0px 0px 72px;
-}
 #SettingsBrightness #brightnessCont{
-margin: 0px 35px;
-border-width: 4px;
-min-height: 276px;
-max-height: 276px;
-border-bottom-left-radius: 14px;
-border-bottom-right-radius: 14px;
+margin: 25px 35px 25px;
+min-height: 216px;
+max-height: 216px;
+border-width: 3px;
+border-style: solid;
+border-color: #404040;
+border-radius: 14px;
 }
-#SettingsBrightness #brightnessCont #brightnessLbl{
-margin-right: 141px;
+#SettingsBrightness #brightnessLbl{
+margin: 35px 35px 0px;
+padding: 0px 0px 0px 35px;
+min-height: 30px;
+max-height: 30px;
+border-width: 3px;
+border-style: solid;
+border-color: #404040;
+border-top: none;
+border-bottom: none;
+font-weight: bold;
 }
 #SettingsBrightness #brightnessCont #brightnessSliderCont{
-margin: 0px 40px;
-min-height: 141px;
-max-height: 141px;
+margin: 0px 40px 0px;
+min-height: 121px;
+max-height: 121px;
 }
 #SettingsBrightness #brightnessSliderCont #brightnessSlider{
-margin: 21px 0px 35px 0px;
+margin: 0px 0px 0px 0px;
 min-width: 707px;
 max-width: 707px;
 }
+#SettingsBrightness #intensityLightCont{
+margin: 0px 0px 12px 0px;
+}
 #SettingsBrightness #screenLightCont #screenLightStatusBtn{
+margin:0px 25px 0px 0px;
 }
 #SettingsBrightness #brightnessSliderCont #brightnessMaxLbl{
 min-width: 54px;
 max-width: 54px;
-min-height: 82px;
-max-height: 82px;
+min-height: 72px;
+max-height: 72px;
 margin: 0px 17px 0px 21px;
 }
 #SettingsBrightness #brightnessSliderCont #brightnessMinLbl{
 min-width: 54px;
 max-width: 54px;
-min-height: 82px;
-max-height: 82px;
+min-height: 72px;
+max-height: 72px;
 margin: 0px 7px 0px 17px;
 }
 #SettingsBrightness #settingsMenuListCont #brightnessSliderCont #brightnessMaxBtn{
 min-width: 54px;
 max-width: 54px;
-min-height: 141px;
-max-height: 141px;
+min-height: 111px;
+max-height: 111px;
 margin: 0px 0px 0px 6px;
 border-bottom-width: 0px;
 padding: 0px;
@@ -793,21 +816,134 @@ padding: 0px;
 border-bottom-width: 0px;
 font-size: 42px;
 margin: 0px;
-max-height: 141px;
 max-width: 82px;
-min-height: 141px;
+max-height: 111px;
+min-height: 111px;
 min-width: 82px;
 padding: 0px;
 }
 #SettingsBrightness #settingsMenuListCont #brightnessSliderCont #brightnessMinBtn{
 min-width: 54px;
 max-width: 54px;
-min-height: 141px;
-max-height: 141px;
+min-height: 111px;
+max-height: 111px;
 margin: 0px 6px 0px 0px;
 border-bottom-width: 0px;
 padding: 0px;
 }
+#SettingsBrightness #colourLbl{
+margin: 20px 62px 15px 62px;
+min-height: 57px;
+max-height: 57px;
+}
+#SettingsBrightness #optimaDescLbl{
+margin: 0px 68px;
+min-height: 177px;
+max-height: 177px;
+}
+#SettingsBrightness #colourTitleCont{
+margin: 0px 0px 0px 62px;
+min-height: 117px;
+max-height: 117px;
+}
+#SettingsBrightness #autoColourLbl{
+padding:0px 20px 0px 0px;
+min-height: 121px;
+max-height: 121px;
+}
+#SettingsBrightness #optimaStartTimeLbl, #SettingsBrightness #optimaEndTimetLbl{
+margin: 0px 62px 0px 62px;
+min-height: 45px;
+max-height: 45px;
+}
+#SettingsBrightness #optimaEndTime{
+margin: 0px 0px 25px 0px;
+}
+#SettingsBrightness #optimaLightCont{
+margin: 0px 35px;
+border-width: 4px;
+min-height: 736px;
+max-height: 736px;
+border-top-width: 3px;
+border-style: solid;
+border-color: #404040;
+border-radius: 14px;
+}
+#SettingsBrightness #optimaLightCont #colourTemperatureCont{
+margin: 0px 40px;
+min-height: 111px;
+max-height: 111px;
+}
+#SettingsBrightness #colourTemperatureCont colourSlider{
+margin: 21px 0px 35px 0px;
+}
+#SettingsBrightness #colourTemperatureCont #colourMaxLbl{
+min-width: 54px;
+max-width: 54px;
+min-height: 82px;
+max-height: 82px;
+margin: 0px 17px 0px 21px;
+}
+#SettingsBrightness #colourTemperatureCont #coloursMinLbl{
+min-width: 54px;
+max-width: 54px;
+min-height: 82px;
+max-height: 82px;
+margin: 0px 7px 0px 17px;
+}
+#SettingsBrightness #settingsMenuListCont #colourMaxBtn{
+min-width: 54px;
+max-width: 54px;
+min-height: 111px;
+max-height: 111px;
+margin: 0px 0px 0px 6px;
+border-bottom-width: 0px;
+padding: 0px;
+}
+#SettingsBrightness #settingsMenuListCont #colourTemperatureCont #colourSumBtn,
+#SettingsBrightness #settingsMenuListCont #colourTemperatureCont #colourRestBtn{
+border-bottom-width: 0px;
+font-size: 42px;
+margin: 0px;
+max-height: 111px;
+max-width: 82px;
+min-height: 111px;
+min-width: 82px;
+padding: 0px;
+}
+#SettingsBrightness #settingsMenuListCont #colourMinBtn{
+min-width: 54px;
+max-width: 54px;
+min-height: 111px;
+max-height: 111px;
+margin: 0px 6px 0px 62px;
+border-bottom-width: 0px;
+padding: 0px;
+}
+#SettingsBrightness #settingsMenuListCont #optimaStartTime QPushButton{
+margin:0px 10px 0px 10px;
+padding: 0px 0px 0px 0px;
+min-width: 100px;
+max-width: 100px;
+min-height: 80px;
+max-height: 80px;
+border-width: 3px;
+border-radius: 14px;
+}
+#SettingsBrightness #settingsMenuListCont #optimaEndTime QPushButton{
+margin:0px 10px 0px 10px;
+padding: 0px 0px 0px 0px;
+min-width: 100px;
+max-width: 100px;
+min-height: 80px;
+max-height: 80px;
+border-width: 3px;
+border-radius: 14px;
+}
+#SettingsBrightness #colourAutoBtn{
+margin: 0px 45px 0px 0px;
+}
+
 /*SettingsDevelopmentOptions
 ---------------------------------*/
 #SettingsDevelopmentOptions{
@@ -1356,13 +1492,13 @@ max-height: 1448px;
 #QuickSettingsCont{
 min-width: 1025px;
 max-width: 1025px;
-min-height: 571px;
-max-height: 571px;
+min-height: 891px; /*by code cervantes 3: min-height: 571px;*/
+max-height: 891px; /*by code cervantes 3: max-height: 571px;*/
 margin-bottom: 181px;
 border-width: 3px;
 border-radius: 14px;
 }
-#headerPopupCont{
+#headerPopupContwifiStatusBtn{
 margin: 0px 35px;
 min-height: 81px;
 max-height: 81px;
@@ -1385,68 +1521,83 @@ max-height: 82px;
 #SettingsQuickSettingsPopup #contentPopup{
 min-width: 957px;
 max-width: 957px;
-min-height: 421px;
-max-height: 421px;
-margin: 35px 0px 0px 0px;
+min-height: 751px;/*by code cervantes 3: min-height: 421px;*/
+max-height: 751px;/*by code cervantes 3: max-height: 421px;*/
+margin: 20px 0px 0px 0px;
 border-width: 3px;
 border-radius: 14px;
 }
 #contentPopup{
 min-width: 751px;
 max-width: 751px;
-min-height: 379px;
-max-height: 379px;
+min-height: 469px;
+max-height: 469px;
 margin: 35px 0px 0px 0px;
 border-width: 3px;
 border-radius: 14px;
 }
-#SettingsQuickSettingsPopup #wifiCont{
-max-height: 92px;
-min-height: 92px;
-}
-#contentPopup #screenLightCont,#contentPopup  #wifiCont{
+#QuickSettingsCont #quickSettingsBottomCont{
+min-height: 14px;
+max-height: 14px;
 border-width: 3px;
-border-top:none;
-border-left:none;
-border-right:none;
+border-bottom-left-radius:14px;
+border-bottom-right-radius:14px;
 }
-#contentPopup #wifiStatusBtn, #contentPopup #screenLightStatusBtn{
+#SettingsQuickSettingsPopup #screenLightCont{
+margin: 35px 0px 2px 0px;
+max-height: 87px;
+min-height: 87px;
+}
+#SettingsQuickSettingsPopup #wifiCont{
+max-height: 87px;
+min-height: 87px;
+}
+#SettingsQuickSettingsPopup #wifiLbl, #SettingsQuickSettingsPopup #wifiStatusBtn{
+margin-top: 15px;
+}
+#contentPopup  #wifiCont{
+border-width: 3px;
+}
+#contentPopup #wifiStatusBtn, #contentPopup #screenLightStatusBt, #contentPopup #colourAutoBtn{
 padding: 0px 17px 0px 0px;
 min-width: 184px;
 max-width: 184px;
 min-height: 64px;
 max-height: 64px;
 }
-#contentPopup #wifiLbl, #contentPopup #brightnessLbl,#contentPopup #screenLightLbl{
+#contentPopup #wifiLbl,#contentPopup #screenLightLb{
 padding: 0px 0px 0px 17px;
 }
-#contentPopup #brightnessCont{
-padding: 0px 0px 28px 0px;
+#contentPopup #brightnessCont, #contentPopup #colourCont{
+padding: 0px 0px 0px 0px;
 border-width: 3px;
-border-bottom-left-radius: 14px;
-border-bottom-right-radius: 14px;
-max-height: 141px;
-min-height: 141px;
+max-height: 156px;
+min-height: 156px;
+border-bottom-left-radius:0px;
+border-bottom-right-radius:0px;
+}
+#sleepTimeCont{
 }
 #contentPopup #brightnessLbl{
-padding: 28px 0px 0px 17px;
+padding: 20px 0px 0px 35px;
 border-width: 3px;
+
 }
-#contentPopup #brightnessMaxLbl,#contentPopup #brightnessMaxBtn{
+#contentPopup #brightnessMaxLbl,#contentPopup #brightnessMaxBtn, #contentPopup #colourMaxLbl,#contentPopup #colourMaxBtn{
 min-width: 57px;
 max-width: 57px;
 min-height: 156px;
 max-height: 156px;
 margin: 0px 0px 0px 3px;
 }
-#contentPopup #brightnessSumBtn,#contentPopup #brightnessRestBtn{
+#contentPopup #brightnessSumBtn,#contentPopup #brightnessRestBtn, #contentPopup #colourSumBtn,#contentPopup #colourRestBtn{
 min-width: 59px;
 max-width: 59px;
 min-height: 156px;
 max-height: 156px;
 margin:0;
 }
-#contentPopup #brightnessMinLbl,#contentPopup #brightnessMinBtn{
+#contentPopup #brightnessMinLbl,#contentPopup #brightnessMinBtn,#contentPopup #colourMinLbl,#contentPopup #colourMinBtn{
 min-width: 64px;
 max-width: 64px;
 min-height: 156px;
@@ -1464,6 +1615,43 @@ margin: 0px;
 padding: 0px;
 border-width: 0px;
 }
+
+
+
+#contentPopup #optimaLightCont{
+padding: 0px 0px 28px 0px;
+border-width: 3px;
+}
+#contentPopup #autoColourLbl{
+padding:0px 20px 0px 0px;
+}
+#contentPopup #colourLbl{
+padding: 0px 0px 0px 35px;
+border-width: 3px;
+}
+#contentPopup #colourSlider{
+margin: 35px 6px 33px 6px;
+}
+
+#SettingsQuickSettingsPopup #colourTemperatureCont QWidget{
+margin: 8px 0px 0px 0px;
+}
+#colourTemperatureCont QWidget{
+margin: 0px;
+padding: 0px;
+border-width: 0px;
+}
+#optimaSleepTimeBtn{
+padding: 0px 49px 0px 28px;
+margin: 0px 15px 20px 15px;
+min-height: 72px;
+max-height: 72px;
+border-width: 3px;
+border-radius: 8px;
+border-radius: 8px;
+font-size: 34px;
+}
+
 /*WIFI
 --------------------------------------------*/
 #settingsMenuListCont {

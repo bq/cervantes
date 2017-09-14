@@ -39,7 +39,8 @@ public:
         E606A2,     // Cervantes Touch, iMX5
         E60672,     // Cervantes Touch Light, iMX5
         E60Q22,     // Cervantes 2013
-        E60QH2      // Cervantes 3
+        E60QH2,     // Cervantes 3
+        E60QP2      // Cervantes 4
     };
 
     static DeviceInfo* getInstance();
@@ -49,6 +50,7 @@ public:
     virtual QString getSerialNumber()=0;
     virtual QHash<QString, QString> getSpecificDeviceInfo()=0;
     virtual bool hasFrontLight()=0;
+    virtual bool hasOptimaLight()=0;
     virtual int getHwId()=0;
 
 private:

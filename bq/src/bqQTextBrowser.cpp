@@ -28,6 +28,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QScrollBar>
 #include "MouseFilter.h"
 #include "QBookApp.h"
+#include "DeviceInfo.h"
 
 #define MAX_ERROR_X 10
 #define MAX_ERROR_Y 8
@@ -48,14 +49,22 @@ bqQTextBrowser::bqQTextBrowser(QWidget* parent) : QTextBrowser(parent)
     switch(QBook::getInstance()->getResolution())
     {
         case QBook::RES1072x1448:
-            css  = "* {"
-                   "font-size: 8pt ;"
-                   "font-family: 'Lato';"
-                   "padding-bottom:3pt;"
-                   "color:#000 !important;"
-                    "}";
+            if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60QH2){
+                css  = "* {"
+                       "font-size: 8pt ;";
+                font.setPointSize(8);
+            }
+            else{ //E60QP2
+                css  = "* {"
+                       "font-size: 34pt ;";
+                font.setPointSize(34);
+            }
 
-            font.setPointSize(8);
+            css = css
+                  + QString("font-family: 'Lato';"
+                            "padding-bottom:3pt;"
+                            "color:#000 !important;"
+                            "}");
             break;
         case QBook::RES758x1024:
             css  =  "* {"

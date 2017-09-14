@@ -27,5 +27,6 @@
         <file alias="restoring_screen_de.png">res/1448/restoring_screen_de.png</file>
         <file alias="restoring_screen_fr.png">res/1448/restoring_screen_fr.png</file>
         <file alias="restoring_screen_it.png">res/1448/restoring_screen_it.png</file>
+        <file alias="factoryReset_E60QP2.png">res/1448/factoryReset_E60QP2.png</file>
     </qresource>
 </RCC>

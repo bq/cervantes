@@ -34,6 +34,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #define E60672_PCBID 23
 #define E60Q22_PCBID 33
 #define E60QH2_PCBID 51
+#define E60QP2_PCBID 68
+
 
 
 DeviceInfoMx508::DeviceInfoMx508()
@@ -41,11 +43,8 @@ DeviceInfoMx508::DeviceInfoMx508()
     qDebug() << "--->" << Q_FUNC_INFO;
 
     char sn[36];
-    
-    if (ntx_read_serial("/dev/mmcblk0", sn, 36) == 0)
-        serial = QString(sn);
-    else
-        serial = QString("SN-undefined");
+    ntx_read_serial("/dev/mmcblk0", sn, 36);
+    serial = QString(sn);
 }
 
 /**
@@ -118,6 +117,11 @@ bool DeviceInfoMx508::hasFrontLight()
         return hwc.values.front_light != 0 && hwc.values.pcb != E606A2_PCBID;
 }
 
+bool DeviceInfoMx508::hasOptimaLight()
+{
+        return (getHwId() == E60QP2);
+}
+
 int DeviceInfoMx508::getHwId()
 {
     qDebug() << "--->" << Q_FUNC_INFO;
@@ -141,6 +145,9 @@ int DeviceInfoMx508::getHwId()
     case E60QH2_PCBID:
         qDebug() << Q_FUNC_INFO << "E60QH2";
         return E60QH2;
+    case E60QP2_PCBID:
+        qDebug() << Q_FUNC_INFO << "E60QP2";
+        return E60QP2;
     default:
         qWarning() << Q_FUNC_INFO << "UNKNOWN_HW_MODEL" << hwc.values.pcb;
     }

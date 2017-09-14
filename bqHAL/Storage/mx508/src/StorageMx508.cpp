@@ -86,7 +86,9 @@ void StorageMx508::init (){
     QString publicBlock;
     QString privateBlock;
     int hwid = DeviceInfo::getInstance()->getHwId();
-    if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2)
+    if(hwid == DeviceInfo::E60Q22
+            || hwid == DeviceInfo::E60QH2
+            || hwid == DeviceInfo::E60QP2)
     {
         publicBlock = "mmcblk0p4";
         privateBlock = "mmcblk0p7";
@@ -205,10 +207,20 @@ bool StorageMx508::startSharingOverUSB() {
 
 	sharedDevices.clear();
 
-    QString command = QString("modprobe g_file_storage stall=0 file=" + publicPartition->getDevice());
+    QString command = QString("modprobe g_file_storage stall=0 ");
+
+    // Set Vendor and Product Id
     if (DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60QH2){
-        command = QString("modprobe g_file_storage stall=0 vendor=0x2A47 product=0xAD78 file=" + publicPartition->getDevice());
+        command = command + QString("vendor=0x2A47 product=0xAD78 ");
     }
+    else if (DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60QP2){
+        command = command + QString("vendor=0x2A47 product=0xAD79 ");
+    }
+
+    command = command + QString("file=") + publicPartition->getDevice();
+
+    qDebug() << Q_FUNC_INFO << command;
+
 
 	sharedDevices << publicPartition->getDevice();
 

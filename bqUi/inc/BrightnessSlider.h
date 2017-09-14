@@ -23,12 +23,13 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QWidget>
 #include <QList>
+#include "Slider.h"
 
 // Predeclarations
 class BrightnessSliderItem;
 class PowerManagerLock;
 
-class BrightnessSlider : public QWidget
+class BrightnessSlider : public Slider
 {
     Q_OBJECT
 
@@ -36,36 +37,9 @@ public:
     BrightnessSlider(QWidget* parent);
     virtual ~BrightnessSlider();
 
-    int                                 registerItem                        ( BrightnessSliderItem* item );
-
-    void                                increaseItemSelected                ();
-    void                                decreaseItemSelected                ();
-
-    void                                selectMaxItem                       ();
-    void                                selectMinItem                       ();
-
-    void                                switchOn                            ();
-    void                                switchOff                           ();
-
 protected:
-    virtual void                        paintEvent                          ( QPaintEvent* event );
-
-    virtual void                        mouseReleaseEvent                   ( QMouseEvent* );
-    virtual void                        mouseMoveEvent                      ( QMouseEvent* );
-
-    void                                itemSelected                        ( int itemId );
-
+    void                                applyChanges                        ( int itemId );
     void                                recalculateLastItem                 ();
-
-private:
-    QList<BrightnessSliderItem*>        m_registeredItems;
-    int                                 i_brightnessValue;
-    int                                 m_lastItemSelected;
-    int                                 m_registeredItemsSizeInv;
-    float                               m_inc;
-    int                                 m_lastX;
-
-    bool                                m_on;
 };
 
 #endif // BRIGHTNESSSLIDER_H

@@ -74,10 +74,9 @@ Home::Home(QWidget *parent) :  QBookForm(parent),
         if(QBook::getInstance()->getResolution() == QBook::RES600x800){
             defaultHelpBook = new BookInfo(QString(USERGUIDEPATH) + "/userGuideTouch_" + QBook::settings().value("setting/language", QVariant("es")).toString()+ ".epub");
         }else{ //We do it to preserve back compatibility
-            defaultHelpBook = new BookInfo(QString(USERGUIDEPATH) + "/userGuide_" + QBook::settings().value("setting/language", QVariant("es")).toString()+ ".epub");
+            defaultHelpBook = new BookInfo(QString(USERGUIDEPATH) + "/userGuide_" + QBook::settings().value("setting/language", QVariant("es")).toString()+ ".pdf");
 
         }
-        //TODO CERVANTES3??
 
         defaultHelpBook->title = tr("Guia de Ayuda");
         defaultHelpBook->thumbnail = ":/res/unknow_book.png";

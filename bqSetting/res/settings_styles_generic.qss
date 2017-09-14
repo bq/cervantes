@@ -21,7 +21,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 /* Settings
 --------------------------*/
 #overlayCont{
-background-color: rgba(40, 40, 40,60%)
+background-color: rgba(40, 40, 40,60%);
 }
 #SettingsMenuCont{
 background-color:#DADADA;
@@ -509,30 +509,42 @@ background: url(":/res/check_ico.png") no-repeat center right;
 #SettingsBrightness{
 background-color:#DADADA;
 }
-#screenLightCont{
+#SettingsBrightness #screenLightCont{
 border-bottom-style:solid;
 border-bottom-color:#707070;
 }
 #screenLightLbl{
 font-weight:bold;
 }
+#colourLbl{
+font-weight:bold;
+border-bottom-style:solid;
+border-bottom-color:#707070;
+border-top:none;
+border-bottom:none;
+}
 #brightnessLbl{
-background-color:#FFF;
+background-color:#FFFFFF;
 border-style: solid;
 border-color: #707070;
 border-top:none;
 border-bottom:none;
+border-right:none;
 }
-#brightnessLbl:disabled{
+#brightnessLbl:disabled, #optimaStartTimeLbl:disabled, #optimaEndTimetLbl:disabled, #autoColourLbl:disabled, #optimaDescLbl:disabled{
+color:#707070;
+background-color:#E0E0E0;
+}
+#colourLbl:disabled{
 color:#707070;
 }
-#brightnessCont{
+#brightnessCont, #optimaLightCont{
 background-color:#FFF;
 border-style: solid;
 border-color: #404040;
 border-top:none;
 }
-#brightnessCont:disabled{
+#brightnessCont:disabled, #optimaLightCont:disabled{
 background-color:#E0E0E0;
 }
 #screenLightCont #screenLightStatusBtn{
@@ -564,6 +576,89 @@ background-image: url(:/res/brightness_min.png) ;
 background-color: transparent;
 background-repeat: no-repeat;
 background-position:center left;
+}
+#optimaLightCont{
+border-style: solid;
+border-color: #404040;
+border-top:none;
+}
+#optimaLightCont:disabled{
+background-color:#E0E0E0;
+}
+#optimaSleepTimeLbl:disabled{
+color:#707070;
+}
+#optimaSleepTimeBtn:disabled{
+color:#707070;
+border-color:#707070;
+background-color:#E0E0E0;
+}
+#optimaLightCont #colourAutoBtn{
+background-image: url(:res/off_btn.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+border:none;
+}
+#colourCont #colourMaxBtn{
+background-image: url(:/res/day.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#colourCont #colourRestBtn,
+#colourCont #colourSumBtn{
+color:#505050;
+text-align:center;
+background-color: transparent;
+}
+#colourCont #colourRestBtn:checked,
+#colourCont #colourSumBtn:checked{
+background-color:#000;
+color:#FFF;
+}
+#colourCont #colourMinBtn{
+background-image: url(:/res/night.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center right;
+}
+#optimaSleepTimeBtn{
+border-color:#707070;
+border-style:solid;
+background-color:#FFFFFF;
+background-image:  url(":/res/settings.png");
+background-repeat: no-repeat;
+background-position: center right;
+text-align: left;
+}
+#SettingsBrightness #optimaStartTime QPushButton{
+text-align: center;
+border-color:#707070;
+border-style:solid;
+}
+#SettingsBrightness #optimaEndTime QPushButton{
+text-align: center;
+border-color:#707070;
+border-style:solid;
+}
+#optimaStartTime QPushButton:disabled{
+color:#707070;
+border-color:#707070;
+background-color:#E0E0E0;
+}
+#optimaEndTime QPushButton:disabled{
+color:#707070;
+border-color:#707070;
+background-color:#E0E0E0;
+}
+#optimaEndTime QPushButton:checked, #optimaStartTime QPushButton:checked{
+color:#FFFFFF;
+background-color:#000000;
+}
+#optimaEndTime QPushButton:checked:disabled, #optimaStartTime QPushButton:checked:disabled{
+color:#FFFFFF;
+background-color:#333333;
 }
 /*SettingsDevelopmentOptions
 ---------------------------------*/
@@ -992,17 +1087,29 @@ background-color:#FFFFFF;
 border-style: solid;
 border-color: #707070;
 }
+#QuickSettingsCont #quickSettingsBottomCont{
+background-color:#FFF;
+border-style: solid;
+border-color: #707070;
+border-top: none;
+}
+#QuickSettingsCont #quickSettingsBottomCont:disabled{
+background-color:#E0E0E0;
+}
 #QuickSettingsCont #wifiLbl{
 font-weight:bold;
 }
-#contentPopup #screenLightCont, #contentPopup #wifiCont{
+#QuickSettingsCont #colourLbl{
+font-weight:normal;
+}
+#contentPopup #wifiCont{
 border-style: solid;
 border-color: #707070;
-border-top:none;
+border-bottom:none;
 border-left:none;
 border-right:none;
 }
-#contentPopup #wifiStatusBtn, #contentPopup #screenLightStatusBtn{
+#contentPopup #wifiStatusBtn, #contentPopup #screenLightStatusBtn, #contentPopup #colourAutoBtn{
 background-image: url(:res/off_btn.png) ;
 background-color: transparent;
 background-repeat: no-repeat;
@@ -1013,6 +1120,7 @@ background-color:#FFF;
 border-style: solid;
 border-color: #707070;
 border-top:none;
+border-bottom: none;
 }
 #contentPopup #brightnessCont:disabled{
 background-color:#E0E0E0;
@@ -1055,6 +1163,48 @@ background-repeat: no-repeat;
 background-position:center left;
 }
 #intensityLightCont QWidget:disabled{
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#contentPopup #optimaLightCont{
+background-color:#FFF;
+border-style: solid;
+border-color: #707070;
+border-top:none;
+border-bottom: none;
+}
+#contentPopup #optimaLightCont:disabled{
+background-color:#E0E0E0;
+}
+#contentPopup #colourMaxLbl,#contentPopup #colourMaxBtn{
+background-image: url(:/res/day.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center center;
+}
+#contentPopup #colourSumBtn,#contentPopup #colourRestBtn{
+color:#505050;
+font-size:30px;
+}
+#contentPopup #colourMinLbl,#contentPopup #colourMinBtn{
+background-image: url(:/res/night.png) ;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center center;
+}
+#contentPopup #colourSumBtn:checked,#contentPopup #colourRestBtn:checked{
+background-color:#000;
+color:#FFF;
+}
+#contentPopup #colourSlider{
+}
+#colourCont QWidget{
+background-color: transparent;
+background-repeat: no-repeat;
+background-position:center left;
+}
+#colourCont QWidget:disabled{
 background-color: transparent;
 background-repeat: no-repeat;
 background-position:center left;

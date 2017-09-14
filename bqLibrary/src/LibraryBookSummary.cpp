@@ -38,9 +38,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QMouseEvent>
 #include <QScrollBar>
 
-
 #define STRING_MAX_LENGTH 28
-#define COLLECTION_MAX_LENGTH 23
+#define COLLECTION_MAX_LENGTH 32
 #define ICON_LIBRARY_STRING_MAX_LENGTH 10
 #define PERCENT_STEP_VALUE 0.75
 
@@ -477,22 +476,13 @@ void LibraryBookSummary::setCollectionLayerBtnText(QHash<QString, double>  colle
         switch(QBook::getInstance()->getResolution())
         {
             case QBook::RES1072x1448:
-                if(collectionName.size() >= 10)
-                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_FHD);
-                else
-                    addToCollectionBtn->setStyleSheet(FONT_SIZE_FHD);
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_FHD);
                 break;
             case QBook::RES758x1024:
-                if(collectionName.size() >= 24)
-                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
-                else
-                    addToCollectionBtn->setStyleSheet(FONT_SIZE_HD);
-                    break;
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_HD);
+                break;
             case QBook::RES600x800: default:
-                if(collectionName.size() >= 24)
-                    addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
-                else
-                    addToCollectionBtn->setStyleSheet(FONT_SIZE_SD);
+                addToCollectionBtn->setStyleSheet(LITTLE_FONT_SIZE_SD);
                 break;
         }
         addToCollectionBtn->setText(bqUtils::truncateStringToLength(tr("%1").arg(collectionName), COLLECTION_MAX_LENGTH));

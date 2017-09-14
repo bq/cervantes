@@ -32,11 +32,6 @@ public:
                         SettingsBrightness                  (QWidget *);
     virtual             ~SettingsBrightness                 ();
 
-
-private:
-
-
-
 protected:
 
     /* http://qt-project.org/forums/viewthread/7340 */
@@ -46,14 +41,15 @@ protected:
 private slots:
 
     void                handleScreenLightStatusBtn          ();
-    void                handleBrightnessDecreasePressed     ();
-    void                handleBrightnessDecreaseLongPressed ();
-    void                handleBrightnessIncreasePressed     ();
-    void                handleBrightnessIncreaseLongPressed ();
-
-public slots:
-
+    void                handleOptimaLightAutoBtn            ();
+    void                setBrightnessMenuEnabled            (bool);
+    void                setOptimaLightMenuEnabled           (bool);
+    void                setOptimaLightAutoSettingsEnabled   (bool);
     void                paintLight                          (bool /*on*/);
+
+private:
+    QButtonGroup*   m_buttonGroupSunriseTime;
+    QButtonGroup*   m_buttonGroupSunsetTime;
 
 };
 

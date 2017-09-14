@@ -1364,8 +1364,8 @@ max-height:1024px;
 #QuickSettingsCont{
 min-width:725px;
 max-width:725px;
-min-height:404px;
-max-height:404px;
+min-height:454px;
+max-height:454px;
 margin-bottom:128px;
 border-width:2px;
 border-radius:10px;
@@ -1393,8 +1393,8 @@ max-height:58px;
 #SettingsQuickSettingsPopup #contentPopup{
 min-width:677px;
 max-width:677px;
-min-height:298px;
-max-height:298px;
+min-height:338px;
+max-height:338px;
 margin:25px 0px 0px 0px;
 border-width:2px;
 border-radius:10px;
@@ -1402,21 +1402,36 @@ border-radius:10px;
 #contentPopup{
 min-width:531px;
 max-width:531px;
-min-height:268px;
-max-height:268px;
+min-height:288px;
+max-height:288px;
 margin:25px 0px 0px 0px;
 border-width:2px;
 border-radius:10px;
 }
-#SettingsQuickSettingsPopup #wifiCont{
-max-height:65px;
-min-height:65px;
+#SettingsQuickSettingsPopup #screenLightCont{
+margin: 0px 0px 0px 0px;
+max-height:95px;
+min-height:95px;
 }
-#contentPopup #screenLightCont,#contentPopup  #wifiCont{
+#SettingsQuickSettingsPopup #screenLightLbl, #SettingsQuickSettingsPopup #screenLightStatusBtn{
+margin-top: 25px;
+}
+#SettingsQuickSettingsPopup #wifiCont{
+max-height:75px;
+min-height:75px;
+}
+#SettingsQuickSettingsPopup #wifiLbl, #SettingsQuickSettingsPopup #wifiStatusBtn{
+margin-top: 10px;
+}
+#QuickSettingsCont #quickSettingsBottomCont{
+min-height: 10px;
+max-height: 10px;
+border-width: 2px;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+}
+#contentPopup  #wifiCont{
 border-width:2px;
-border-top:none;
-border-left:none;
-border-right:none;
 }
 #contentPopup #wifiStatusBtn, #contentPopup #screenLightStatusBtn{
 padding:0px 12px 0px 0px;
@@ -1431,10 +1446,10 @@ padding:0px 0px 0px 12px;
 #contentPopup #brightnessCont{
 padding:0px 0px 20px 0px;
 border-width:2px;
-border-bottom-left-radius:10px;
-border-bottom-right-radius:10px;
 max-height:100px;
 min-height:100px;
+border-bottom-left-radius:0px;
+border-bottom-right-radius:0px;
 }
 #contentPopup #brightnessLbl{
 padding:20px 0px 0px 12px;

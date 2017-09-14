@@ -30,6 +30,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QFile>
 #include <QTimer>
 
+#include "DeviceInfo.h"
 #include "Power.h"
 #include "RTCManager.h"
 #include "PowerMx508.h"
@@ -242,6 +243,11 @@ bool PowerMx508::sleepCPU(int autoWakeUpSecs)
     RTCManager::setRTCAlarm(SAMPLE_PERIOD);
 #endif
 
+    int hwid = DeviceInfo::getInstance()->getHwId();
+    if (hwid == DeviceInfo::E60QP2) {
+        system("hw_tool 3 0");
+    }
+
     // set sleep flag
     setSleepFlag(1);
 
@@ -264,6 +270,10 @@ bool PowerMx508::sleepCPU(int autoWakeUpSecs)
         setLed(true); // Automatically off at suspend/sleep
 
     setSleepFlag(0);
+
+    if (hwid == DeviceInfo::E60QP2) {
+        system("hw_tool 3 1");
+    }
 
     /* If the suspend failed, simply rollback */
     if (!has_slept) {

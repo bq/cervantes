@@ -72,5 +72,7 @@
         <file alias="res/checked-small-disabled.png">res/800/checked-small-disabled.png</file>
         <file alias="res/unchecked-small-disabled.png">res/800/unchecked-small-disabled.png</file>
         <file alias="res/settings_styles.qss">res/800/settings_styles.qss</file>
+        <file alias="res/day.png">res/800/day.png</file>
+        <file alias="res/night.png">res/800/night.png</file>
     </qresource>
 </RCC>

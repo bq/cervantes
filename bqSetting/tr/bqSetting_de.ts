@@ -121,7 +121,7 @@
         <source>Diseño gráfico</source>
         <translation>Grafik-Design</translation>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../ui/SettingsAboutUs.ui" line="198"/>
         <source>Nieves Herreros, Sandra Salvador, Ana Sánchez, Jaime Mena.</source>
         <translation>Nieves Herreros, Sandra Salvador, Ana Sánchez, Jaime Mena.</translation>
@@ -334,15 +334,33 @@
         <source>Intensidad de la Luz</source>
         <translation>Helligkeitsstärke</translation>
     </message>
-    <message>
-        <location filename="../ui/SettingsBrightness.ui" line="318"/>
-        <source>-</source>
-        <translation>-</translation>
+    <message utf8="true">
+        <location filename="../ui/SettingsBrightness.ui" line="1377"/>
+        <source>Este ajuste permite, al caer la noche, filtrar la luz azul de la pantalla dándole un color ambar. De esta forma, esmás fácil ver la pantalla con poca luz y ayuda a conciliar el sueño.</source>
+        <translation>Wird diese Funktion aktiviert, filtert das Gerät bei einsetzender Dunkelheit das blaue Licht des Bildschirms und verleiht diesem einen bernsteinfarbenen Ton. So liest es sich bei wenig Licht leichter und das Einschlafen wird erleichtert.</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsBrightness.ui" line="1321"/>
+        <location filename="../ui/SettingsBrightness.ui" line="1831"/>
+        <source>AUTO</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsBrightness.ui" line="1867"/>
+        <source>Start Time</source>
+        <translation>Nachtmodus starten</translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsBrightness.ui" line="1988"/>
+        <source>End Time</source>
+        <translation>Nachtmodus beenden</translation>
+    </message>
+    <message>
+        <source>-</source>
+        <translation type="obsolete">-</translation>
+    </message>
+    <message>
         <source>+</source>
-        <translation>+</translation>
+        <translation type="obsolete">+</translation>
     </message>
 </context>
 <context>
@@ -1029,37 +1047,37 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;Finally, any free program is threatened constantly by software patents. We wish to avoid the danger that redistributors of a free program will individually obtain patent licenses, in effect making the program proprietary. To prevent this, we have made it clear that any patent must be licensed for everyone&apos;s free use or not licensed at all.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;The precise terms and conditions for copying, distribution and modification follow.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;terms&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;T&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;ERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;0.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; This License applies to any program or other work which contains a notice placed by the copyright holder saying it may be distributed under the terms of this General Public License. The &amp;quot;Program&amp;quot;, below, refers to any such program or work, and a &amp;quot;work based on the Program&amp;quot; means either the Program or any derivative work under copyright law: that is to say, a work containing the Program or a portion of it, either verbatim or with modifications and/or translated into another language. (Hereinafter, translation is included without limitation in the term &amp;quot;modification&amp;quot;.) Each licensee is addressed as &amp;quot;you&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;0.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; This License applies to any program or other work which contains a notice placed by the copyright holder saying it may be distributed under the terms of this General Public License. The &amp;quot;Program&amp;quot;, below, refers to any such program or work, and a &amp;quot;work based on the Program&amp;quot; means either the Program or any derivative work under copyright law: that is to say, a work containing the Program or a portion of it, either verbatim or with modifications and/or translated into another language. (Hereinafter, translation is included without limitation in the term &amp;quot;modification&amp;quot;.) Each licensee is addressed as &amp;quot;you&amp;quot;.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;Activities other than copying, distribution and modification are not covered by this License; they are outside its scope. The act of running the Program is not restricted, and the output from the Program is covered only if its contents constitute a work based on the Program (independent of having been made by running the Program). Whether that is true depends on what the Program does.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;1.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You may copy and distribute verbatim copies of the Program&apos;s source code as you receive it, in any medium, provided that you conspicuously and appropriately publish on each copy an appropriate copyright notice and disclaimer of warranty; keep intact all the notices that refer to this License and to the absence of any warranty; and give any other recipients of the Program a copy of this License along with the Program.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;1.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You may copy and distribute verbatim copies of the Program&apos;s source code as you receive it, in any medium, provided that you conspicuously and appropriately publish on each copy an appropriate copyright notice and disclaimer of warranty; keep intact all the notices that refer to this License and to the absence of any warranty; and give any other recipients of the Program a copy of this License along with the Program.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;You may charge a fee for the physical act of transferring a copy, and you may at your option offer warranty protection in exchange for a fee.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;2.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You may modify your copy or copies of the Program or any portion of it, thus forming a work based on the Program, and copy and distribute such modifications or work under the terms of Section 1 above, provided that you also meet all of these conditions:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;a)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You must cause the modified files to carry prominent notices stating that you changed the files and the date of any change.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;b)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You must cause any work that you distribute or publish, that in whole or in part contains or is derived from the Program or any part thereof, to be licensed as a whole at no charge to all third parties under the terms of this License.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:8px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;c)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; If the modified program normally reads commands interactively when run, you must cause it, when started running for such interactive use in the most ordinary way, to print or display an announcement including an appropriate copyright notice and a notice that there is no warranty (or else, saying that you provide a warranty) and that users may redistribute the program under these conditions, and telling the user how to view a copy of this License. (Exception: if the Program itself is interactive but does not normally print such an announcement, your work based on the Program is not required to print an announcement.)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;2.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You may modify your copy or copies of the Program or any portion of it, thus forming a work based on the Program, and copy and distribute such modifications or work under the terms of Section 1 above, provided that you also meet all of these conditions:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;a)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You must cause the modified files to carry prominent notices stating that you changed the files and the date of any change.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;b)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You must cause any work that you distribute or publish, that in whole or in part contains or is derived from the Program or any part thereof, to be licensed as a whole at no charge to all third parties under the terms of this License.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:8px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;c)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; If the modified program normally reads commands interactively when run, you must cause it, when started running for such interactive use in the most ordinary way, to print or display an announcement including an appropriate copyright notice and a notice that there is no warranty (or else, saying that you provide a warranty) and that users may redistribute the program under these conditions, and telling the user how to view a copy of this License. (Exception: if the Program itself is interactive but does not normally print such an announcement, your work based on the Program is not required to print an announcement.)&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;These requirements apply to the modified work as a whole. If identifiable sections of that work are not derived from the Program, and can be reasonably considered independent and separate works in themselves, then this License, and its terms, do not apply to those sections when you distribute them as separate works. But when you distribute the same sections as part of a whole which is a work based on the Program, the distribution of the whole must be on the terms of this License, whose permissions for other licensees extend to the entire whole, and thus to each and every part regardless of who wrote it.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;Thus, it is not the intent of this section to claim rights or contest your rights to work written entirely by you; rather, the intent is to exercise the right to control the distribution of derivative or collective works based on the Program.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;In addition, mere aggregation of another work not based on the Program with the Program (or with a work based on the Program) on a volume of a storage or distribution medium does not bring the other work under the scope of this License.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;3.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You may copy and distribute the Program (or a work based on it, under Section 2) in object code or executable form under the terms of Sections 1 and 2 above provided that you also do one of the following:&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;a)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; Accompany it with the complete corresponding machine-readable source code, which must be distributed under the terms of Sections 1 and 2 above on a medium customarily used for software interchange; or,&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;b)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; Accompany it with a written offer, valid for at least three years, to give any third party, for a charge no more than your cost of physically performing source distribution, a complete machine-readable copy of the corresponding source code, to be distributed under the terms of Sections 1 and 2 above on a medium customarily used for software interchange; or,&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:8px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;c)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; Accompany it with the information you received as to the offer to distribute corresponding source code. (This alternative is allowed only for noncommercial distribution and only if you received the program in object code or executable form with such an offer, in accord with Subsection b above.)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;3.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You may copy and distribute the Program (or a work based on it, under Section 2) in object code or executable form under the terms of Sections 1 and 2 above provided that you also do one of the following:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;a)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; Accompany it with the complete corresponding machine-readable source code, which must be distributed under the terms of Sections 1 and 2 above on a medium customarily used for software interchange; or,&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;b)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; Accompany it with a written offer, valid for at least three years, to give any third party, for a charge no more than your cost of physically performing source distribution, a complete machine-readable copy of the corresponding source code, to be distributed under the terms of Sections 1 and 2 above on a medium customarily used for software interchange; or,&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:8px; margin-left:30px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;c)&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; Accompany it with the information you received as to the offer to distribute corresponding source code. (This alternative is allowed only for noncommercial distribution and only if you received the program in object code or executable form with such an offer, in accord with Subsection b above.)&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;The source code for a work means the preferred form of the work for making modifications to it. For an executable work, complete source code means all the source code for all modules it contains, plus any associated interface definition files, plus the scripts used to control compilation and installation of the executable. However, as a special exception, the source code distributed need not include anything that is normally distributed (in either source or binary form) with the major components (compiler, kernel, and so on) of the operating system on which the executable runs, unless that component itself accompanies the executable.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;If distribution of executable or object code is made by offering access to copy from a designated place, then offering equivalent access to copy the source code from the same place counts as distribution of the source code, even though third parties are not compelled to copy the source along with the object code.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;4.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You may not copy, modify, sublicense, or distribute the Program except as expressly provided under this License. Any attempt otherwise to copy, modify, sublicense or distribute the Program is void, and will automatically terminate your rights under this License. However, parties who have received copies, or rights, from you under this License will not have their licenses terminated so long as such parties remain in full compliance.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;5.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You are not required to accept this License, since you have not signed it. However, nothing else grants you permission to modify or distribute the Program or its derivative works. These actions are prohibited by law if you do not accept this License. Therefore, by modifying or distributing the Program (or any work based on the Program), you indicate your acceptance of this License to do so, and all its terms and conditions for copying, distributing or modifying the Program or works based on it.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;6.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; Each time you redistribute the Program (or any work based on the Program), the recipient automatically receives a license from the original licensor to copy, distribute or modify the Program subject to these terms and conditions. You may not impose any further restrictions on the recipients&apos; exercise of the rights granted herein. You are not responsible for enforcing compliance by third parties to this License.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;7.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; If, as a consequence of a court judgment or allegation of patent infringement or for any other reason (not limited to patent issues), conditions are imposed on you (whether by court order, agreement or otherwise) that contradict the conditions of this License, they do not excuse you from the conditions of this License. If you cannot distribute so as to satisfy simultaneously your obligations under this License and any other pertinent obligations, then as a consequence you may not distribute the Program at all. For example, if a patent license would not permit royalty-free redistribution of the Program by all those who receive copies directly or indirectly through you, then the only way you could satisfy both it and this License would be to refrain entirely from distribution of the Program.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;4.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You may not copy, modify, sublicense, or distribute the Program except as expressly provided under this License. Any attempt otherwise to copy, modify, sublicense or distribute the Program is void, and will automatically terminate your rights under this License. However, parties who have received copies, or rights, from you under this License will not have their licenses terminated so long as such parties remain in full compliance.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;5.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; You are not required to accept this License, since you have not signed it. However, nothing else grants you permission to modify or distribute the Program or its derivative works. These actions are prohibited by law if you do not accept this License. Therefore, by modifying or distributing the Program (or any work based on the Program), you indicate your acceptance of this License to do so, and all its terms and conditions for copying, distributing or modifying the Program or works based on it.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;6.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; Each time you redistribute the Program (or any work based on the Program), the recipient automatically receives a license from the original licensor to copy, distribute or modify the Program subject to these terms and conditions. You may not impose any further restrictions on the recipients&apos; exercise of the rights granted herein. You are not responsible for enforcing compliance by third parties to this License.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;7.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; If, as a consequence of a court judgment or allegation of patent infringement or for any other reason (not limited to patent issues), conditions are imposed on you (whether by court order, agreement or otherwise) that contradict the conditions of this License, they do not excuse you from the conditions of this License. If you cannot distribute so as to satisfy simultaneously your obligations under this License and any other pertinent obligations, then as a consequence you may not distribute the Program at all. For example, if a patent license would not permit royalty-free redistribution of the Program by all those who receive copies directly or indirectly through you, then the only way you could satisfy both it and this License would be to refrain entirely from distribution of the Program.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;If any portion of this section is held invalid or unenforceable under any particular circumstance, the balance of the section is intended to apply and the section as a whole is intended to apply in other circumstances.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;It is not the purpose of this section to induce you to infringe any patents or other property right claims or to contest validity of any such claims; this section has the sole purpose of protecting the integrity of the free software distribution system, which is implemented by public license practices. Many people have made generous contributions to the wide range of software distributed through that system in reliance on consistent application of that system; it is up to the author/donor to decide if he or she is willing to distribute software through any other system and a licensee cannot impose that choice.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;This section is intended to make thoroughly clear what is believed to be a consequence of the rest of this License.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;8.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; If the distribution and/or use of the Program is restricted in certain countries either by patents or by copyrighted interfaces, the original copyright holder who places the Program under this License may add an explicit geographical distribution limitation excluding those countries, so that distribution is permitted only in or among countries not thus excluded. In such case, this License incorporates the limitation as if written in the body of this License.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;9.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; The Free Software Foundation may publish revised and/or new versions of the General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;8.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; If the distribution and/or use of the Program is restricted in certain countries either by patents or by copyrighted interfaces, the original copyright holder who places the Program under this License may add an explicit geographical distribution limitation excluding those countries, so that distribution is permitted only in or among countries not thus excluded. In such case, this License incorporates the limitation as if written in the body of this License.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;9.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; The Free Software Foundation may publish revised and/or new versions of the General Public License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;Each version is given a distinguishing version number. If the Program specifies a version number of this License which applies to it and &amp;quot;any later version&amp;quot;, you have the option of following the terms and conditions either of that version or of any later version published by the Free Software Foundation. If the Program does not specify a version number of this License, you may choose any version ever published by the Free Software Foundation.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;10.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; If you wish to incorporate parts of the Program into other free programs whose distribution conditions are different, write to the author to ask for permission. For software which is copyrighted by the Free Software Foundation, write to the Free Software Foundation; we sometimes make exceptions for this. Our decision will be guided by the two goals of preserving the free status of all derivatives of our free software and of promoting the sharing and reuse of software generally.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;10.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; If you wish to incorporate parts of the Program into other free programs whose distribution conditions are different, write to the author to ask for permission. For software which is copyrighted by the Free Software Foundation, write to the Free Software Foundation; we sometimes make exceptions for this. Our decision will be guided by the two goals of preserving the free status of all derivatives of our free software and of promoting the sharing and reuse of software generally.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;NO WARRANTY&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;11.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM &amp;quot;AS IS&amp;quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;12.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;11.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM &amp;quot;AS IS&amp;quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;12.&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt; IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;END OF TERMS AND CONDITIONS&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;howto&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;H&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; font-weight:600; color:#000000;&quot;&gt;ow to Apply These Terms to Your New Programs&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Times New Roman&apos;; font-size:9pt; color:#000000;&quot;&gt;If you develop a new program, and you want it to be of the greatest possible use to the public, the best way to achieve this is to make it free software which everyone can redistribute and change under these terms.&lt;/span&gt;&lt;/p&gt;
@@ -1132,17 +1150,17 @@ p, li { white-space: pre-wrap; }
         <translation>Formular</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsLanguageMenu.ui" line="59"/>
+        <location filename="../ui/SettingsLanguageMenu.ui" line="68"/>
         <source>Atrás</source>
         <translation>Zurück</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsLanguageMenu.ui" line="78"/>
+        <location filename="../ui/SettingsLanguageMenu.ui" line="87"/>
         <source>Idioma</source>
         <translation>Sprache</translation>
     </message>
     <message>
-        <location filename="../src/SettingsLanguageMenu.cpp" line="69"/>
+        <location filename="../src/SettingsLanguageMenu.cpp" line="73"/>
         <source>Do you want to change language?</source>
         <translation type="unfinished">Möchtest du die Sprache wechseln?</translation>
     </message>
@@ -1256,34 +1274,52 @@ p, li { white-space: pre-wrap; }
         <translation>Formular</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="83"/>
+        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="95"/>
         <source>Ajustes rápidos</source>
         <translation>Schnelleinstellungen</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="160"/>
+        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="1569"/>
+        <source>AUTO</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="1645"/>
+        <source>Ajustes</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="1686"/>
         <source>Wi-Fi</source>
         <translation>WLAN</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="218"/>
+        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="157"/>
         <source>Luz de pantalla</source>
         <translation>Bildschirmhelligkeit</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="267"/>
+        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="206"/>
         <source>Intensidad de la luz</source>
         <translation>Helligkeitsstärke</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="308"/>
         <source>-</source>
-        <translation>-</translation>
+        <translation type="obsolete">-</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsQuickSettingsPopup.ui" line="1143"/>
         <source>+</source>
-        <translation>+</translation>
+        <translation type="obsolete">+</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsQuickSettingsPopup.cpp" line="198"/>
+        <source>Start Time - </source>
+        <translation>Nachtmodus von </translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsQuickSettingsPopup.cpp" line="200"/>
+        <source> End Time - </source>
+        <translation> bis </translation>
     </message>
 </context>
 <context>
@@ -1650,9 +1686,9 @@ fin de capítulo</source>
         <location filename="../ui/SettingsTechnicalInfo.ui" line="293"/>
         <location filename="../ui/SettingsTechnicalInfo.ui" line="349"/>
         <location filename="../ui/SettingsTechnicalInfo.ui" line="405"/>
-        <location filename="../ui/SettingsTechnicalInfo.ui" line="461"/>
-        <location filename="../ui/SettingsTechnicalInfo.ui" line="517"/>
-        <location filename="../ui/SettingsTechnicalInfo.ui" line="579"/>
+        <location filename="../ui/SettingsTechnicalInfo.ui" line="467"/>
+        <location filename="../ui/SettingsTechnicalInfo.ui" line="523"/>
+        <location filename="../ui/SettingsTechnicalInfo.ui" line="585"/>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
     </message>
@@ -1672,27 +1708,27 @@ fin de capítulo</source>
         <translation>Externer Speicher:</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsTechnicalInfo.ui" line="439"/>
+        <location filename="../ui/SettingsTechnicalInfo.ui" line="445"/>
         <source>Internal version:</source>
         <translation>Interne Version:</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsTechnicalInfo.ui" line="495"/>
+        <location filename="../ui/SettingsTechnicalInfo.ui" line="501"/>
         <source>Rootfs version:</source>
         <translation>Rootfs Version:</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsTechnicalInfo.ui" line="551"/>
+        <location filename="../ui/SettingsTechnicalInfo.ui" line="557"/>
         <source>Kernel version:</source>
         <translation>Kernel Version:</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsTechnicalInfo.ui" line="613"/>
+        <location filename="../ui/SettingsTechnicalInfo.ui" line="619"/>
         <source>Nivel de batería:</source>
         <translation>Akkuladestand:</translation>
     </message>
     <message>
-        <location filename="../ui/SettingsTechnicalInfo.ui" line="635"/>
+        <location filename="../ui/SettingsTechnicalInfo.ui" line="641"/>
         <source>100%</source>
         <translation>100%</translation>
     </message>
@@ -1788,104 +1824,104 @@ Hasta el XX/XX/XXXX disfrutarás de un período de cortesía para que termines d
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="69"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="70"/>
         <source>Cuenta %1</source>
         <translation>Konto %1</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="71"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="72"/>
         <source>If  you need to update your account, enter at
  %1</source>
         <translation>Melde dich auf %1 an, um dein Konto zu aktualisieren</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="74"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="75"/>
         <source>Subscribed to %1 PREMIUM.</source>
         <translation>%1 PREMIUM abonniert.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="78"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="79"/>
         <source>This device was linked to %1 ebooks.</source>
         <translation>Dieses Gerät ist mit %1 eBooks verknüpft.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="92"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="93"/>
         <source>Status:</source>
         <translation>Status:</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="102"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="103"/>
         <source>Tu suscripcion ha caducado. Reactiva tu cuenta Premium accediendo a %1</source>
         <translation>Dein Abonnement ist abgelaufen. Du kannst deine PREMIUN Mitgliedschaft auf %1 erneuern.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="108"/>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="116"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="109"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="117"/>
         <source>active</source>
         <translation>Aktiv</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="110"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="111"/>
         <source>Tu cuenta estarÃ¡ activa hasta el %1. A partir de entonces, tu cuenta pasarÃ¡ a estar cancelada, disponiendo de un perÃ­odo de cortesÃ­a de 30 dÃ­as para que termines de leer los eBooks activos en tus dispositivos.</source>
         <translation type="unfinished">Dein Konto ist bis zum %1 aktiv. Danach wird dein Konto gelöscht. Nach dem Ablaufdatum kannst du innerhalb von 30 Tagen die auf deinem Geräten aktivierten eBooks zu Ende lesen.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="120"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="121"/>
         <source>Te quedan solo %1 dias para seguir leyendo offline en tu dispositivo. Conecta tu dispositivo a Internet y sincroniza tu biblioteca. Transcurrido este plazo sin haber sincronizado tu dispositivo, tus eBooks no seran accesibles hasta nueva sincronizacion</source>
         <translation>Du hast nur noch %1 Tage Zeit um weiterhin offline auf deinem Gerät weiterlesen zu können. Verbinde dein Gerät mit dem Internet um es zu synchronisieren. Nach Ablauf dieser Frist kannst du ohne eine neue Synchronisierung nicht mehr auf deine eBooks zugreifen.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="130"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="131"/>
         <source>cancelled</source>
         <translation>Abgebrochen</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="133"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="134"/>
         <source>Hasta el %1 disfrutaras de un periodo de cortesia para que termines de leer los eBooks activos en tu dispositivo, no pudiendo aÃ±adir nuevos eBooks ni realizar ninguna otra accion sobre tu biblioteca.</source>
         <translation type="unfinished">Bis zum %1 kannst du die aktivierten eBooks auf deinem Gerät zu Ende lesen, aber keine neuen mehr hinzufügen. Alle anderen Aktionen in der Bibliothek sind ebenfalls nicht mehr möglich.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="137"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="138"/>
         <source>Actualmente, tu cuenta esta cancelada. No podras disfrutar de nuestro servicio ni continuar accediendo a tus eBooks desde los dispositivos que tengas asociados a tu cuenta, salvo que  procedas a la reactivacion de tu cuenta Premium. Puedes reactivarla ahora, accediendo a %1</source>
         <translation type="unfinished">Zurzeit ist dein Konto gelöscht. Somit kannst du weder unseren Service in Anspruch nehmen, noch von deinem verbundenen Geräten auf deine eBooks zugreifen, es sei denn du reaktivierst dein Premium Konto. Reaktiviere es jetzt unter %1.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="144"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="145"/>
         <source>pending Payment</source>
         <translation>Ausstehende Zahlung</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="146"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="147"/>
         <source>Accede %1 y renueva tu suscripciÃ³n. Hasta el %2 disfrutaras de un periodo de cortesia para que termines de leer los eBooks activos en tu dispositivo, no pudiendo aÃ±adir nuevos eBooks ni realizar ninguna otra accion sobre tu biblioteca.</source>
         <translation type="unfinished">Erneuere noch heute dein Abonnement auf %1. Du hast noch bis zum %2 Zeit um deine aktivierten Bücher zu Ende zu lesen, kannst aber keine neuen mehr hinzufügen oder andere Aktionen in der Bibliothek durchführen.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="151"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="152"/>
         <source>Trial</source>
         <translation>Probezeitraum</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="155"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="156"/>
         <source>Actualmente estÃ¡s disfrutando del periodo de prueba en Nubico Premium. PodrÃ¡s seguir disfrutando de la versiÃ³n de prueba hasta el %1.</source>
         <translation>Im Moment befindest du dich im Probezeitraum der Nubico Premium Mitgliedschaft. Du kannst ihn noch bis zum %1 genießen.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="162"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="163"/>
         <source>unsubscribed</source>
         <translation>Abgemeldet</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="190"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="191"/>
         <source>Do you want to unlink the device? This will delete all your personal account data</source>
         <translation>Möchtest du die Verknüpfung zu deinem Gerät aufheben? Hierdurch werden alle persönlichen Daten deines Kontos gelöscht.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="205"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="206"/>
         <source>This process can take a few minutes. At the end, the device will be powered off</source>
         <translation>Dieser Vorgang kann ein paar Minuten dauern. Wenn er abgeschlossen ist, schaltet sich das Gerät aus.</translation>
     </message>
     <message>
-        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="236"/>
+        <location filename="../src/SettingsUnLinkStoreDevice.cpp" line="237"/>
         <source>Service unavailable. Please try again in a few minutes</source>
         <translation>Der Service steht nicht zur Verfügung. Bitte versuche es in ein paar Minuten noch einmal</translation>
     </message>
@@ -2141,7 +2177,7 @@ Restarting to apply changes.</source>
         <translation>WLAN Netze</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/SettingsWiFiList.ui" line="301"/>
+        <location filename="../ui/SettingsWiFiList.ui" line="314"/>
         <source>Añadir red</source>
         <translation>Netz hinzufügen</translation>
     </message>

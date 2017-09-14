@@ -60,11 +60,10 @@ private slots:
 
     void                            handleClosePopupBtn                     ();
     void                            handleWifiStatusBtn                     ();
+    void                            handleOptimaLightAutoBtn                ();
     void                            handleScreenLightStatusBtn              ();
-    void                            handleBrightnessDecreasePressed         ();
-    void                            handleBrightnessDecreaseLongPressed     ();
-    void                            handleBrightnessIncreasePressed         ();
-    void                            handleBrightnessIncreaseLongPressed     ();
+    void                            setBrightnessMenuEnabled                (bool);
+    void                            setOptimaLightMenuEnabled               (bool);
 
 
 public slots:
@@ -75,6 +74,7 @@ public slots:
 signals:
 
     void                            userEvent                               ();
+    void                            lighSettingsConf                        ();
 
 };
 

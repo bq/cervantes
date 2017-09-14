@@ -563,7 +563,7 @@ Riavviare il dispositivo se si desidera continuare a utilizzarlo.</translation>
         <location filename="../src/QBookScreenSaver.cpp" line="224"/>
         <location filename="../src/QBookScreenSaver.cpp" line="232"/>
         <source>Press the Power button to resume</source>
-        <translation>Premere il pulsante di accensione per riprendere l&apos;esecuzione</translation>
+        <translation type="unfinished">Premi il tasto di accensione o due volte il tasto Home per riprendere</translation>
     </message>
 </context>
 <context>

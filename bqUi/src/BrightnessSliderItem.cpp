@@ -20,7 +20,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "BrightnessSliderItem.h"
 
-#include "BrightnessSlider.h"
+#include "Slider.h"
 #include "Screen.h"
 
 #include <QPainter>
@@ -33,7 +33,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 BrightnessSliderItem::BrightnessSliderItem(QWidget *parent) :
     QWidget(parent)
 {
-    m_parent = (BrightnessSlider*)parent;
+    m_parent = (Slider*)parent;
     m_id = m_parent->registerItem(this);
 }
 

@@ -729,8 +729,10 @@ void QBookApp::init()
     connect(Storage::getInstance(),SIGNAL(deviceRemoved(StorageDevice*)),this,SIGNAL(userEvent()));
     connect(this, SIGNAL(userEvent()),PowerManager::getInstance(),SLOT(setTimeLatestUserEvent()),Qt::QueuedConnection);
     connect(PowerManager::getInstance(),SIGNAL(backFromSuspend()),getStatusBar(),SLOT(updateTime()));
+    connect(PowerManager::getInstance(),SIGNAL(backFromSuspend()),FrontLight::getInstance(),SLOT(checkOptimaLightAutoSetting()));
     connect(PowerManager::getInstance(),SIGNAL(goingToSleep()),this,SLOT(prepareToSleep()));
     connect(PowerManager::getInstance(),SIGNAL(backFromSleep()),getStatusBar(),SLOT(updateTime()));
+    connect(PowerManager::getInstance(),SIGNAL(backFromSleep()),FrontLight::getInstance(),SLOT(checkOptimaLightAutoSetting()));
     connect(PowerManager::getInstance(),SIGNAL(backFromSleep()),this,SLOT(resumeAfterSleep()));
     connect(PowerManager::getInstance(), SIGNAL(releaseConnectedPowerLock()), this, SLOT(releaseConnectedPowerLock()));
     connect(PowerManager::getInstance(), SIGNAL(shuttingDown()), this, SLOT(prepareToShutdown()));
@@ -1538,7 +1540,8 @@ void QBookApp::handleRemoveableChanged(bool state, const QString& path)
             // Entry point for hackers SD check
             QString updateCheckFile;
             int hwid = DeviceInfo::getInstance()->getHwId();
-            if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2) //Q22
+            if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2
+					  || hwid == DeviceInfo::E60QP2) //Q22
                 updateCheckFile = HACKERS_UPDATE_CHECK_FILE_Q22;
             else // 672 and A22
                 updateCheckFile = HACKERS_UPDATE_CHECK_FILE_672;
@@ -2328,6 +2331,7 @@ void QBookApp::showQuickSettingsPopup()
         if(!quickSettingsPopup){
             quickSettingsPopup = new SettingsQuickSettingsPopup(this);
             connect(quickSettingsPopup,SIGNAL(userEvent()),this,SIGNAL(userEvent()));
+            connect(quickSettingsPopup,SIGNAL(lighSettingsConf()),this,SLOT(handleLightConf()));
         }
 
         if(getCurrentForm() == m_viewer){
@@ -3351,6 +3355,15 @@ void QBookApp::powerOffWifiAsync()
     removeExpiredBooks();
     checkTimeSubscriptionToExpire();
     disconnect(this, SIGNAL(periodicSyncFinished()), this, SLOT(powerOffWifiAsync()));
+    getStatusBar()->hideWifiCont();
+
+    //temporary hack for e60qp2, synchronously power off wifi
+    int hwid = DeviceInfo::getInstance()->getHwId();
+    if(hwid == DeviceInfo::E60QP2) {
+        powerOffWifi();
+        return;
+    }
+
     offlineHelper = new QProcess(this);
     QStringList args;
 #ifdef Q_WS_QWS
@@ -3358,7 +3371,6 @@ void QBookApp::powerOffWifiAsync()
 #endif
     qDebug() << Q_FUNC_INFO << "Launching Offline helper with args: " << args;
     offlineHelper->start(OFFLINE_HELPER, args);
-    getStatusBar()->hideWifiCont();
 }
 
 void QBookApp::lockAutoconnectOnWifiPower(bool lock)
@@ -3565,7 +3577,8 @@ bool QBookApp::checkSDForHackers()
 
     QString updateCheckFile;
     int hwid = DeviceInfo::getInstance()->getHwId();
-    if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2) //Q22
+    if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2
+				  || hwid == DeviceInfo::E60QP2) //Q22
         updateCheckFile = HACKERS_UPDATE_CHECK_FILE_Q22;
     else // 672 and A22
         updateCheckFile = HACKERS_UPDATE_CHECK_FILE_672;
@@ -3675,7 +3688,8 @@ void QBookApp::requestHackersInstallation()
 
     QString updateCheckFile;
     int hwid = DeviceInfo::getInstance()->getHwId();
-    if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2) //Q22
+    if(hwid == DeviceInfo::E60Q22 || hwid == DeviceInfo::E60QH2
+				  || hwid == DeviceInfo::E60QP2) //Q22
         updateCheckFile = HACKERS_UPDATE_CHECK_FILE_Q22;
     else // 672 and A22
         updateCheckFile = HACKERS_UPDATE_CHECK_FILE_672;
@@ -4511,6 +4525,27 @@ void QBookApp::handleViewerConf()
     connect(m_settingsMenu, SIGNAL(goToViewer()), this, SLOT(handleGoToViewer()));
     Screen::getInstance()->flushUpdates();
     getStatusBar()->setSpinner(false);
+}
+
+void QBookApp::handleLightConf(){
+    qDebug() << Q_FUNC_INFO;
+
+    getStatusBar()->setSpinner(true);
+    Screen::getInstance()->queueUpdates();
+    if(!m_settingsMenu)
+    {
+        goToSettings();
+        m_settingsMenu->goToLightMenu();
+    }
+    else
+    {
+        m_settingsMenu->goToLightMenu();
+        goToSettings();
+    }
+    connect(m_settingsMenu, SIGNAL(goToViewer()), this, SLOT(handleGoToViewer()));
+    Screen::getInstance()->flushUpdates();
+    getStatusBar()->setSpinner(false);
+
 }
 
 void QBookApp::handleGoToViewer()

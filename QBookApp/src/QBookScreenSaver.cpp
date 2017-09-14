@@ -64,7 +64,10 @@ void QBookScreenSaver::paintEvent(QPaintEvent *event)
     switch(QBook::getInstance()->getResolution())
     {
         case QBook::RES1072x1448:
-            font.setPointSize(6);
+            if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60QH2)
+                font.setPointSize(6);
+            else // E60QP2
+                font.setPointSize(23);
             break;
         case QBook::RES758x1024:
             font.setPointSize(16);
@@ -146,7 +149,9 @@ void QBookScreenSaver::paintEvent(QPaintEvent *event)
     case DEFAULT_SETTINGS:
         if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60Q22)
             painter.drawPixmap(0, 0, QPixmap(":/factoryReset_E60Q22.png"));
-        else // E606A2 or E60672
+        else if (DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60QP2)
+            painter.drawPixmap(0, 0, QPixmap(":/factoryReset_E60QP2.png"));
+        else
             painter.drawPixmap(0, 0, QPixmap(":/factoryReset.png"));
     break;
 
@@ -329,7 +334,7 @@ void QBookScreenSaver::addBatteryLevel(QPainter* painter, int batteryLevel)
     switch(QBook::getInstance()->getResolution())
     {
         case QBook::RES1072x1448:
-            t = QRect(78, 1400, 57, 25);
+            t = QRect(75, 1400, 70, 25);
             break;
         case QBook::RES758x1024:
             t = QRect(51, 990, 50, 16);

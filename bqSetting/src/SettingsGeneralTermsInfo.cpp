@@ -20,6 +20,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "SettingsGeneralTermsInfo.h"
 #include "FullScreenWidget.h"
+#include "DeviceInfo.h"
 
 #include <QDebug>
 #include <QKeyEvent>
@@ -49,7 +50,10 @@ void SettingsGeneralTermsInfo::fillInfo(){
     switch(QBook::getInstance()->getResolution())
     {
         case QBook::RES1072x1448:
-            text = text.replace(QRegExp("font-size\\s*:[\\w'-,\\s\"]*;"), QString("font-size:6pt;"));
+            if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60QH2)
+                text = text.replace(QRegExp("font-size\\s*:[\\w'-,\\s\"]*;"), QString("font-size:6pt;"));
+            else // E60QP2
+                text = text.replace(QRegExp("font-size\\s*:[\\w'-,\\s\"]*;"), QString("font-size:18pt;"));
             generalTermsResult->setHtml(text);
             break;
         case QBook::RES758x1024:

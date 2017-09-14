@@ -32,8 +32,8 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 
 int BatteryMx508::getLevel(){
- 
-    if(DeviceInfo::getInstance()->getHwId() == DeviceInfo::E60QH2) {
+    int hwid = DeviceInfo::getInstance()->getHwId();
+    if(hwid == DeviceInfo::E60QH2 || hwid == DeviceInfo::E60QP2) {
         int percentage;
         std::ifstream infile("/sys/bus/platform/devices/ricoh619-battery/power_supply/mc13892_bat/capacity");
         if (!infile) {

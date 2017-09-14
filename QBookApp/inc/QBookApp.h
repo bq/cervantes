@@ -327,6 +327,7 @@ protected slots:
     void checkScreensaverCover();
     void checkScreensaverCoverAfterSync();
     void handleViewerConf();
+    void handleLightConf();
     void handleGoToViewer();
     void createNewCollection(const BookInfo* bookToAdd);
 

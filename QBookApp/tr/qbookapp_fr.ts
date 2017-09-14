@@ -11,7 +11,7 @@
     <message>
         <location filename="../ui/DeviceInfoDialog.ui" line="80"/>
         <source>ID dispositivo:</source>
-        <translation>ID de l&apos;appareil&#160;:&#160;</translation>
+        <translation>ID de l&apos;appareil : </translation>
     </message>
     <message>
         <location filename="../ui/DeviceInfoDialog.ui" line="102"/>
@@ -21,7 +21,7 @@
     <message>
         <location filename="../ui/DeviceInfoDialog.ui" line="145"/>
         <source>Software:</source>
-        <translation>Logiciel&#160;:&#160;</translation>
+        <translation>Logiciel : </translation>
     </message>
     <message>
         <location filename="../ui/DeviceInfoDialog.ui" line="167"/>
@@ -37,37 +37,37 @@
     <message utf8="true">
         <location filename="../ui/DeviceInfoDialog.ui" line="210"/>
         <source>Direción MAC:</source>
-        <translation>Adresse MAC&#160;:&#160;</translation>
+        <translation>Adresse MAC : </translation>
     </message>
     <message>
         <location filename="../ui/DeviceInfoDialog.ui" line="275"/>
         <source>Memoria interna:</source>
-        <translation>Mémoire interne&#160;:&#160;</translation>
+        <translation>Mémoire interne : </translation>
     </message>
     <message>
         <location filename="../ui/DeviceInfoDialog.ui" line="340"/>
         <source>Memoria Externa:</source>
-        <translation>Mémoire externe&#160;:&#160;</translation>
+        <translation>Mémoire externe : </translation>
     </message>
     <message>
         <location filename="../ui/DeviceInfoDialog.ui" line="405"/>
         <source>Internal version:</source>
-        <translation>Version interne&#160;:&#160;</translation>
+        <translation>Version interne : </translation>
     </message>
     <message>
         <location filename="../ui/DeviceInfoDialog.ui" line="470"/>
         <source>Rootfs version:</source>
-        <translation>Fichier racine&#160;:&#160;</translation>
+        <translation>Fichier racine : </translation>
     </message>
     <message>
         <location filename="../ui/DeviceInfoDialog.ui" line="535"/>
         <source>Kernel version:</source>
-        <translation>Version du noyau&#160;:&#160;</translation>
+        <translation>Version du noyau : </translation>
     </message>
     <message utf8="true">
         <location filename="../ui/DeviceInfoDialog.ui" line="600"/>
         <source>Nivel de batería:</source>
-        <translation>Niveau de la batterie&#160;:&#160;</translation>
+        <translation>Niveau de la batterie : </translation>
     </message>
     <message>
         <location filename="../ui/DeviceInfoDialog.ui" line="622"/>
@@ -125,12 +125,12 @@
     <message>
         <location filename="../src/QBookApp.cpp" line="1310"/>
         <source>Cargador conectado. Nivel de bateria: </source>
-        <translation>Chargeur connecté. Niveau de batterie&#160;:&#160;</translation>
+        <translation>Chargeur connecté. Niveau de batterie : </translation>
     </message>
     <message>
         <location filename="../src/QBookApp.cpp" line="1312"/>
         <source>Cargador desconectado. Nivel de bateria: </source>
-        <translation>Chargeur débranché. Niveau de batterie&#160;:&#160;</translation>
+        <translation>Chargeur débranché. Niveau de batterie : </translation>
     </message>
     <message>
         <location filename="../src/QBookApp.cpp" line="1345"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../src/QBookApp.cpp" line="1719"/>
         <source>New version available: </source>
-        <translation>Nouvelle version disponible&#160;:&#160;</translation>
+        <translation>Nouvelle version disponible : </translation>
     </message>
     <message>
         <location filename="../src/QBookApp.cpp" line="1719"/>
@@ -175,7 +175,7 @@
     <message>
         <location filename="../src/QBookApp.cpp" line="1778"/>
         <source>Are you sure you want to turn off the device?</source>
-        <translation>Êtes-vous sûr de vouloir éteindre l&apos;appareil&#160;?</translation>
+        <translation>Êtes-vous sûr de vouloir éteindre l&apos;appareil ?</translation>
     </message>
     <message>
         <location filename="../src/QBookApp.cpp" line="2028"/>
@@ -304,7 +304,7 @@ Que voulez-vous faire ?</translation>
     <message>
         <location filename="../src/QBookApp.cpp" line="3707"/>
         <source>Nuevos libros encontrados: </source>
-        <translation>Nouveaux livres trouvés&#160;:&#160;</translation>
+        <translation>Nouveaux livres trouvés : </translation>
     </message>
     <message>
         <location filename="../src/QBookApp.cpp" line="3711"/>
@@ -563,7 +563,7 @@ Veuillez redémarrer l&apos;appareil si vous ne l&apos;utilisez plus.</translati
         <location filename="../src/QBookScreenSaver.cpp" line="224"/>
         <location filename="../src/QBookScreenSaver.cpp" line="232"/>
         <source>Press the Power button to resume</source>
-        <translation>Appuyez sur le bouton d&apos;alimentation pour reprendre</translation>
+        <translation>Bouton alim. ou 2 fois sur le bouton de démarrage pour reprendre</translation>
     </message>
 </context>
 <context>

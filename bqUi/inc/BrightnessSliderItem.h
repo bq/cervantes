@@ -24,7 +24,7 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 #include <QWidget>
 
 // Predeclarations
-class BrightnessSlider;
+class Slider;
 
 class BrightnessSliderItem : public QWidget
 {
@@ -43,7 +43,7 @@ protected:
     virtual void                        paintEvent                          (QPaintEvent *event);
 
 private:
-    BrightnessSlider*                   m_parent;
+    Slider*                             m_parent;
     int                                 m_id;
 };
 

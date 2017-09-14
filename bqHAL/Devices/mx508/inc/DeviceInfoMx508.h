@@ -37,6 +37,7 @@ public:
     QString getSerialNumber() { return serial; }
 
     bool hasFrontLight();
+    bool hasOptimaLight();
     int getHwId();
 
 private:

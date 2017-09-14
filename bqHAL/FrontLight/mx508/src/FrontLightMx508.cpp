@@ -24,20 +24,37 @@ along with the source code.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QDebug>
 #include <QTimer>
+#include <QTime>
 
 #include "FrontLightMx508.h"
 #include "Power.h"
 #include "SleeperThread.h"
 #include "QBook.h"
 #include "PowerManager.h"
+#include "PowerManagerDefs.h"
 
 #define CM_FRONT_LIGHT_SET                241
 #define CM_FRONT_LIGHT_SLEEP              245
 
 FrontLightMx508::FrontLightMx508() :
-    b_active(false)
+    b_active(false),
+    b_optimaLightAutoMode(false)
 {
     b_active = QBook::settings().value("light/power",false).toBool();
+
+    m_powerLock = PowerManager::getNewLock(this);
+    m_powerLock->setTimeOut(POST_SETTING_AWAKE_TIME);
+    connect(m_powerLock, SIGNAL(lockTimedOut()), this, SLOT(saveSettings()),Qt::UniqueConnection);
+
+    // Set OptimaLight values
+    b_optimaLightAutoMode = QBook::settings().value("light/optimaLightAutoMode",false).toBool();
+    i_optimaLightValue = QBook::settings().value("light/optimaLightValue", DEFAULT_OPTIMALIGHT_VALUE).toInt();
+    i_optimaLightSunriseId = QBook::settings().value("light/optimaLightSunriseId", DEFAULT_OPTIMALIGHT_ID).toInt();
+    setOptimaLightSunriseTime(i_optimaLightSunriseId);
+    i_optimaLightSunsetId = QBook::settings().value("light/optimaLightSunsetId", DEFAULT_OPTIMALIGHT_ID).toInt();
+    setOptimaLightSunsetTime(i_optimaLightSunsetId);
+    connect(&m_optimaLightAutoTimer,SIGNAL(timeout()), this, SLOT(checkOptimaLightAutoSetting()));
+    m_optimaLightAutoTimer.setInterval(POWERMANAGER_UPDATE_CLOCK_TIME*1000);
 
     /** Workaround to allow switch on with value 1
         because it is not possible because of HW limitation */
@@ -46,9 +63,6 @@ FrontLightMx508::FrontLightMx508() :
 
     i_brightnessValue = QBook::settings().value("light/value",50).toInt();
 
-    m_powerLock = PowerManager::getNewLock(this);
-    m_powerLock->setTimeOut(POST_SETTING_AWAKE_TIME);
-    connect(m_powerLock, SIGNAL(lockTimedOut()), this, SLOT(saveSettings()),Qt::UniqueConnection);
 }
 
 void FrontLightMx508::setFrontLightActive(bool on)
@@ -64,6 +78,10 @@ void FrontLightMx508::setFrontLightActive(bool on)
 
 bool FrontLightMx508::switchFrontLight(bool state){
     qDebug() << Q_FUNC_INFO << state;
+
+    // Ensure proper colour is set at kernel when switching on
+    if(state)
+        FrontLight::getInstance()->setOptimaLightValue(i_optimaLightValue);
 
     /* sleep argument to specify that is necessary
        to set just on/off register
@@ -124,6 +142,8 @@ bool FrontLightMx508::setBrightness(int brightness)
         m_powerLock->activate();
     }
 
+    // echo 0 > /sys/class/backlight/mxc_msp430_fl.0/brightness
+
     return result;
 }
 
@@ -156,4 +176,116 @@ void FrontLightMx508::saveSettings()
 
     QBook::settings().setValue("light/power", b_active);
     QBook::settings().setValue("light/value", i_brightnessValue);
+    QBook::settings().setValue("light/optimaLightAutoMode", b_optimaLightAutoMode);
+    QBook::settings().setValue("light/optimaLightValue", i_optimaLightValue);
+    QBook::settings().setValue("light/optimaLightSunriseId", i_optimaLightSunriseId);
+    QBook::settings().setValue("light/optimaLightSunsetId", i_optimaLightSunsetId);
+}
+
+bool FrontLightMx508::setOptimaLightAutoMode(bool state)
+{
+    qDebug() << Q_FUNC_INFO << state;
+
+    b_optimaLightAutoMode = state;
+    m_powerLock->activate();
+
+    if(state){ // Activating
+        m_optimaLightAutoTimer.start();
+        checkOptimaLightAutoSetting();
+    }
+    else{ // Deactivating
+        m_optimaLightAutoTimer.stop();
+    }
+}
+
+bool FrontLightMx508::setOptimaLightValue(int value)
+{
+    qDebug() << Q_FUNC_INFO << value;
+
+    QString command = QString("echo " + QString::number(value) + " > /sys/class/backlight/lm3630a_led/color");
+    system(command.toStdString().c_str());
+
+    i_optimaLightValue = value;
+    m_powerLock->activate();
+
+    return true;
+}
+
+bool FrontLightMx508::setOptimaLightSunrise(int selectedId)
+{
+    qDebug() << Q_FUNC_INFO << selectedId;
+
+    bool result = setOptimaLightSunriseTime(selectedId);
+
+    if(result)
+    {
+        i_optimaLightSunriseId = selectedId;
+        m_powerLock->activate();
+    }
+
+    return result;
+}
+
+bool FrontLightMx508::setOptimaLightSunset(int selectedId)
+{
+    qDebug() << Q_FUNC_INFO << selectedId;
+
+    bool result = setOptimaLightSunsetTime(selectedId);
+    if(result){
+        i_optimaLightSunsetId = selectedId;
+        m_powerLock->activate();
+    }
+
+    return result;
+}
+
+bool FrontLightMx508::setOptimaLightSunriseTime(int index)
+{
+
+    QTime newTime = QTime::fromString(QString(OPTIMALIGHT_SUNRISE_BASE),"hh:mm");
+    newTime = newTime.addSecs(index*OPTIMALIGHT_TIME_INTERVAL);
+    i_optimaLightSunriseId = index;
+    m_optimaLightSunriseTime = newTime;
+
+    checkOptimaLightAutoSetting();
+
+    qDebug() << Q_FUNC_INFO << index << m_optimaLightSunriseTime;
+
+    return true;
+}
+
+bool FrontLightMx508::setOptimaLightSunsetTime(int index)
+{
+
+    QTime newTime = QTime::fromString(QString(OPTIMALIGHT_SUNSET_BASE),"hh:mm");
+    newTime = newTime.addSecs(index*OPTIMALIGHT_TIME_INTERVAL);
+    i_optimaLightSunsetId = index;
+    m_optimaLightSunsetTime = newTime;
+
+    checkOptimaLightAutoSetting();
+
+    qDebug() << Q_FUNC_INFO << index << m_optimaLightSunsetTime;
+
+    return true;
+}
+
+void FrontLightMx508::checkOptimaLightAutoSetting()
+{
+    if(!b_optimaLightAutoMode)
+        return;
+
+    QTime current = QTime::currentTime();
+    if(m_optimaLightSunriseTime < current && current < m_optimaLightSunsetTime){
+        if(i_optimaLightValue != OPTIMALIGHT_DAY_PRESET_ID){
+            setOptimaLightValue(OPTIMALIGHT_DAY_PRESET_ID);
+            emit frontLightChanged(b_active);
+        }
+    }
+    else{
+        if(i_optimaLightValue != OPTIMALIGHT_NIGHT_PRESET_ID){
+            setOptimaLightValue(OPTIMALIGHT_NIGHT_PRESET_ID);
+            emit frontLightChanged(b_active);
+        }
+    }
+
 }

@@ -511,7 +511,7 @@ Si us plau, no extreguis la SD.</translation>
     </message>
     <message>
         <source>Press the Power button to resume</source>
-        <translation>Premi el botó d’engegat per reprendre</translation>
+        <translation type="unfinished">Per reprendre, prem el botó d&apos;encesa o dues vegades el d&apos;inici</translation>
     </message>
 </context>
 <context>

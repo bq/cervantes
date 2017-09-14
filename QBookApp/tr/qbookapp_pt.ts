@@ -645,7 +645,7 @@ Por favor, reinicie o dispositivo se precisa continuar a usá-lo.</translation>
         <location filename="../src/QBookScreenSaver.cpp" line="224"/>
         <location filename="../src/QBookScreenSaver.cpp" line="232"/>
         <source>Press the Power button to resume</source>
-        <translation>Prima o botão ligar/desligar para reiniciar</translation>
+        <translation>Prima 1x o botão de Corrente ou 2x o de Início para reiniciar</translation>
     </message>
 </context>
 <context>

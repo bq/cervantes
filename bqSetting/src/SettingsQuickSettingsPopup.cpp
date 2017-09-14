@@ -40,15 +40,27 @@ SettingsQuickSettingsPopup::SettingsQuickSettingsPopup(QWidget *parent) : QWidge
 
         connect(closePopupBtn, SIGNAL(clicked()), this, SLOT(handleClosePopupBtn()));
         connect(wifiStatusBtn, SIGNAL(clicked()), this, SLOT(handleWifiStatusBtn()));
+
         connect(screenLightStatusBtn, SIGNAL(clicked()), this, SLOT(handleScreenLightStatusBtn()));
-        connect(brightnessMinBtn, SIGNAL(pressed()), this, SLOT(handleBrightnessDecreasePressed()));
-        connect(brightnessMinBtn, SIGNAL(longPressed()), this, SLOT(handleBrightnessDecreaseLongPressed()));
-        connect(brightnessMaxBtn, SIGNAL(pressed()), this, SLOT(handleBrightnessIncreasePressed()));
-        connect(brightnessMaxBtn, SIGNAL(longPressed()), this, SLOT(handleBrightnessIncreaseLongPressed()));
-        connect(brightnessRestBtn, SIGNAL(pressed()), this, SLOT(handleBrightnessDecreasePressed()));
-        connect(brightnessRestBtn, SIGNAL(longPressed()), this, SLOT(handleBrightnessDecreaseLongPressed()));
-        connect(brightnessSumBtn, SIGNAL(pressed()), this, SLOT(handleBrightnessIncreasePressed()));
-        connect(brightnessSumBtn, SIGNAL(longPressed()), this, SLOT(handleBrightnessIncreaseLongPressed()));
+
+        // Brightness connections
+        connect(brightnessMinBtn, SIGNAL(pressed()), intensityLightCont, SLOT(decreaseItemSelected()));
+        connect(brightnessMinBtn, SIGNAL(longPressed()), intensityLightCont, SLOT(selectMinItem()));
+        connect(brightnessMaxBtn, SIGNAL(pressed()), intensityLightCont, SLOT(increaseItemSelected()));
+        connect(brightnessMaxBtn, SIGNAL(longPressed()), intensityLightCont, SLOT(selectMaxItem()));
+        connect(brightnessRestBtn, SIGNAL(pressed()), intensityLightCont, SLOT(decreaseItemSelected()));
+        connect(brightnessRestBtn, SIGNAL(longPressed()), intensityLightCont, SLOT(selectMinItem()));
+        connect(brightnessSumBtn, SIGNAL(pressed()), intensityLightCont, SLOT(increaseItemSelected()));
+        connect(brightnessSumBtn, SIGNAL(longPressed()), intensityLightCont, SLOT(selectMaxItem()));
+
+        // OptimaLight connections
+        connect(colourAutoBtn, SIGNAL(clicked()), this, SLOT(handleOptimaLightAutoBtn()));
+        connect(colourMinBtn, SIGNAL(pressed()), colourTemperatureCont, SLOT(decreaseItemSelected()));
+        connect(colourMinBtn, SIGNAL(longPressed()), colourTemperatureCont, SLOT(selectMinItem()));
+        connect(colourMaxBtn, SIGNAL(pressed()), colourTemperatureCont, SLOT(increaseItemSelected()));
+        connect(colourMaxBtn, SIGNAL(longPressed()), colourTemperatureCont, SLOT(selectMaxItem()));
+        connect(optimaSleepTimeBtn, SIGNAL(clicked()),this,SLOT(handleClosePopupBtn()));
+        connect(optimaSleepTimeBtn, SIGNAL(clicked()),SIGNAL(lighSettingsConf()));
 
         connect(FrontLight::getInstance(), SIGNAL(frontLightPower(bool)), this, SLOT(paintLight(bool)));
         connect(QBookApp::instance(), SIGNAL(startSleep()), this, SLOT(handleClosePopupBtn()));
@@ -105,17 +117,21 @@ void SettingsQuickSettingsPopup::handleScreenLightStatusBtn()
     FrontLight::getInstance()->setFrontLightActive(!current);
 }
 
+void SettingsQuickSettingsPopup::handleOptimaLightAutoBtn()
+{
+    qDebug() << Q_FUNC_INFO;
+
+    bool current = FrontLight::getInstance()->isOptimaLightAutoActive();
+    FrontLight::getInstance()->setOptimaLightAutoMode(!current);
+    paintLight(FrontLight::getInstance()->isFrontLightActive());
+}
+
+
 void SettingsQuickSettingsPopup::keyReleaseEvent(QKeyEvent* event)
 {
         qDebug() << Q_FUNC_INFO;
         handleClosePopupBtn();
         QWidget::keyReleaseEvent(event);
-}
-
-void SettingsQuickSettingsPopup::handleBrightnessDecreasePressed()
-{
-    qDebug() << Q_FUNC_INFO;
-    intensityLightCont->decreaseItemSelected();
 }
 
 void SettingsQuickSettingsPopup::paintWifi(bool on)
@@ -139,56 +155,85 @@ void SettingsQuickSettingsPopup::paintWifi(bool on)
     }
 }
 
-void SettingsQuickSettingsPopup::handleBrightnessDecreaseLongPressed()
+void SettingsQuickSettingsPopup::paintLight(bool lightOn)
 {
-    qDebug() << Q_FUNC_INFO;
-
-    intensityLightCont->selectMinItem();
-
-}
-
-void SettingsQuickSettingsPopup::handleBrightnessIncreasePressed()
-{
-    qDebug() << Q_FUNC_INFO;
-
-    intensityLightCont->increaseItemSelected();
-}
-
-void SettingsQuickSettingsPopup::handleBrightnessIncreaseLongPressed()
-{
-    qDebug() << Q_FUNC_INFO;
-
-    intensityLightCont->selectMaxItem();
-}
-
-
-void SettingsQuickSettingsPopup::paintLight(bool on)
-{
-    qDebug() << Q_FUNC_INFO << "Light enabled" << on;
+    qDebug() << Q_FUNC_INFO << "Light enabled" << lightOn;
     Screen::getInstance()->queueUpdates();
-    if(on)
+
+    setBrightnessMenuEnabled(lightOn);
+    setOptimaLightMenuEnabled(lightOn);
+
+    Screen::getInstance()->flushUpdates();
+}
+
+void SettingsQuickSettingsPopup::setBrightnessMenuEnabled(bool lightOn)
+{
+    qDebug() << Q_FUNC_INFO;
+
+    if(lightOn)
     {
         screenLightStatusBtn->setChecked(true);
         screenLightStatusBtn->setStyleSheet("background-image: url(:res/on_btn.png);");
-//        brightnessCont->setEnabled(true);
-//        brightnessLbl->setEnabled(true);
         brightnessCont->setStyleSheet("background-color:#FFF;");
         brightnessLbl->setStyleSheet("color:#000; background-color:#FFF;");
-
-
         intensityLightCont->switchOn();
     }
     else
     {
         screenLightStatusBtn->setChecked(false);
         screenLightStatusBtn->setStyleSheet("background-image: url(:res/off_btn.png);");
-//        brightnessCont->setEnabled(false);
-//        brightnessLbl->setEnabled(false);
         brightnessCont->setStyleSheet("background-color:#E0E0E0;");
         brightnessLbl->setStyleSheet("color:#707070; background-color:#E0E0E0;");
         intensityLightCont->switchOff();
     }
-    Screen::getInstance()->flushUpdates();
+}
+
+void SettingsQuickSettingsPopup::setOptimaLightMenuEnabled(bool lightOn)
+{
+    qDebug() << Q_FUNC_INFO;
+
+    if(!DeviceInfo::getInstance()->hasOptimaLight())
+        optimaLightCont->setVisible(false);
+
+    QString optimaLightTimes(tr("Start Time - ")
+                             + FrontLight::getInstance()->getOptimaLightSunsetTime().toString("hh:mm")
+                             + tr(" End Time - ") + FrontLight::getInstance()->getOptimaLightSunriseTime().toString("hh:mm"));
+    optimaSleepTimeBtn->setText(optimaLightTimes);
+
+    // Enable bottom container when wifi is shown (menus)
+    if(wifiCont->isVisible())
+        quickSettingsBottomCont->setEnabled(true);
+
+    // Set general light on/off depending settings
+    if(lightOn){
+        optimaLightCont->setEnabled(true);
+
+        // Enable bottom container when wifi is NOT shown (viewer)
+        if(!wifiCont->isVisible())
+            quickSettingsBottomCont->setEnabled(true);
+
+        // Set optimaLight auto mode settings
+        if(FrontLight::getInstance()->isOptimaLightAutoActive()){
+            colourAutoBtn->setChecked(true);
+            colourAutoBtn->setStyleSheet("background-image: url(:res/on_btn.png);");
+            colourTemperatureCont->switchOff();
+            sleepTimeCont->setEnabled(true);
+        }
+        else{
+            colourAutoBtn->setChecked(false);
+            colourAutoBtn->setStyleSheet("background-image: url(:res/off_btn.png);");
+            colourTemperatureCont->switchOn();
+            sleepTimeCont->setEnabled(false);
+        }
+
+
+    }
+    else{
+        colourTemperatureCont->switchOff();
+        optimaLightCont->setEnabled(false);
+        if(!wifiCont->isVisible()) // Disable bottom container when wifi NOT shown (viewer)
+            quickSettingsBottomCont->setEnabled(false);
+    }
 }
 
 void SettingsQuickSettingsPopup::handleWifiStatusBtn()
