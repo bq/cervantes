@@ -1,5 +1,5 @@
 Cervantes e-book reader application
-Copyright (C) 2011-2016  Mundoreader, S.L
+Copyright (C) 2011-2018  Mundoreader, S.L
 https://github.com/bq/cervantes.git
 
 WHAT IS IT?
@@ -15,13 +15,13 @@ It is possible for any developer owner of the application supported
 devices to develop his own features or improvements and execute it
 on his own device if the special developers firmware edition has
 been installed. See the following link for further info: 
-http://www.mibqyyo.com/actualidad/2014/01/08/bq-ereaders-developers-program-2014
+https://blog.bq.com/es/bq-ereaders-developers-program
 
 HOW TO BUILD FOR ARM
 --------------------
 Script build.sh can be used to build the whole application in an
 easy way. Since the source code for this application makes use of
-private libraries protected by differentn license agreements that
+private libraries protected by different license agreements that
 are not provided, it is necessary to include the following parameters:
 
 ./build.sh -hackers -disable_adobe
