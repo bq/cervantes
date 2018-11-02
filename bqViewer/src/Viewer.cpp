@@ -1316,7 +1316,9 @@ void Viewer::customEvent(QEvent* received)
         return;
     }
 
+#ifndef HACKERS_EDITION
     if (m_viewerDictionary->isVisible()) return;
+#endif
 
     processTouchEvent(static_cast<TouchEvent*>(received));
 }
