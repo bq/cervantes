@@ -178,7 +178,7 @@
     </message>
     <message>
         <source>Â¿Por que no enlazas el dispositivo para sacarle todo el partido?</source>
-        <translation type="obsolete">Why don&apos;t you make the most of your device and activate it? </translation>
+        <translation type="obsolete">Activate your device to make the most of it!</translation>
     </message>
     <message>
         <location filename="../src/QBookApp.cpp" line="1198"/>
@@ -188,7 +188,7 @@
     <message>
         <location filename="../src/QBookApp.cpp" line="2467"/>
         <source>Â¿Por que no enlazas el dispositivo para poder hacer uso de los diccionarios y recibir avisos de las actualizaciones disponibles?</source>
-        <translation>Why don&apos;t you link your device so you can use the dictionaries and be informed of new updates?</translation>
+        <translation>Activate your device so you can use the dictionaries and be informed of new updates.</translation>
     </message>
     <message>
         <location filename="../src/QBookApp.cpp" line="2467"/>
@@ -367,7 +367,7 @@ Please, restart the device if you need to continue using it.</translation>
     <message>
         <location filename="../src/QBookApp.cpp" line="4303"/>
         <source>Haz uso de los diccionarios y de las actualizaciones activando tu dispositivo en un solo paso.</source>
-        <translation>Use the dictionaries and receive updates by activating your device with a single step.</translation>
+        <translation>Activate your device with a single step in order to use dictionaries and receive updates.</translation>
     </message>
     <message>
         <location filename="../src/QBookApp.cpp" line="4303"/>
